@@ -7,8 +7,15 @@ import path from 'path';
 const dbPath = process.env.DATABASE_URL || path.join(process.cwd(), 'historyrank.db');
 const isVercel = process.env.VERCEL === '1';
 
-// Use read-only mode on Vercel's read-only filesystem
-const sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
+let sqlite: Database;
+try {
+  // Use read-only mode on Vercel's read-only filesystem
+  sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
+} catch (error) {
+  const message = error instanceof Error ? error.message : String(error);
+  console.error('Failed to open SQLite DB', { dbPath, isVercel, message });
+  throw error;
+}
 
 if (!isVercel) {
   // Enable WAL mode for better concurrency in local/dev

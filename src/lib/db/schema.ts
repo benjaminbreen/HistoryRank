@@ -18,9 +18,11 @@ export const figures = sqliteTable('figures', {
   birthLat: real('birth_lat'),
   birthLon: real('birth_lon'),
 
-  // Wikipedia data
+  // Wikipedia/Wikidata data
   wikipediaSlug: text('wikipedia_slug'),
   wikipediaExtract: text('wikipedia_extract'),
+  wikidataQid: text('wikidata_qid'), // Q12345 - for provenance/re-enrichment
+  sourceConfidence: text('source_confidence'), // 'high' | 'medium' | 'manual' | 'pantheon'
   pageviews2024: integer('pageviews_2024'),
   pageviews2025: integer('pageviews_2025'),
 

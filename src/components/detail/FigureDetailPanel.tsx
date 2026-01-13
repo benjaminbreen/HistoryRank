@@ -29,6 +29,7 @@ interface FigureDetailPanelProps {
   figure: Figure | null;
   previewRow?: FigureRow | null;
   rankings: Ranking[];
+  aliases?: string[];
   isOpen: boolean;
   onClose: () => void;
   isLoading?: boolean;
@@ -39,6 +40,7 @@ export function FigureDetailPanel({
   figure,
   previewRow,
   rankings,
+  aliases,
   isOpen,
   onClose,
   isLoading,
@@ -128,6 +130,20 @@ export function FigureDetailPanel({
     if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
     if (n >= 1000) return `${Math.round(n / 1000)}K`;
     return n.toLocaleString();
+  };
+
+  const formatAlias = (alias: string) => {
+    const lowerWords = new Set(['of', 'the', 'and', 'al', 'ibn', 'von', 'de', 'da', 'di']);
+    const roman = new Set(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x']);
+    return alias
+      .split(' ')
+      .map((word) => {
+        if (roman.has(word)) return word.toUpperCase();
+        if (word === 'st') return 'St.';
+        if (lowerWords.has(word)) return word;
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(' ');
   };
 
   // Calculate attention gap (ratio of HPI rank to LLM rank)
@@ -255,6 +271,12 @@ export function FigureDetailPanel({
                         style={{ backgroundColor: REGION_COLORS[displayData.regionSub] || '#9ca3af' }}
                       >
                         {displayData.regionSub}
+                      </span>
+                    )}
+                    {aliases && aliases.length > 0 && (
+                      <span className="text-xs text-stone-500 dark:text-slate-500">
+                        Also known as: {aliases.slice(0, 4).map(formatAlias).join(', ')}
+                        {aliases.length > 4 ? ` +${aliases.length - 4}` : ''}
                       </span>
                     )}
                   </div>

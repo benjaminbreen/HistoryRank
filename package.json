@@ -17,6 +17,8 @@
     "import:regions": "npx tsx scripts/import-regions.ts",
     "reconcile": "npx tsx scripts/reconcile.ts",
     "reconcile:dry": "npx tsx scripts/reconcile.ts --dry-run",
+    "enrich": "npx tsx scripts/enrich-candidates.ts",
+    "enrich:dry": "npx tsx scripts/enrich-candidates.ts --dry-run",
     "thumbnails": "npx tsx scripts/download-thumbnails.ts",
     "thumbnails:check": "npx tsx scripts/download-thumbnails.ts --check",
     "download:thumbnails": "npx tsx scripts/download-thumbnails.ts",

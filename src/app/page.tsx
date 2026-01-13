@@ -44,6 +44,7 @@ export default function Home() {
   const [selectedLlmRank, setSelectedLlmRank] = useState<number | null>(null);
   const [selectedFigure, setSelectedFigure] = useState<Figure | null>(null);
   const [selectedRankings, setSelectedRankings] = useState<Ranking[]>([]);
+  const [selectedAliases, setSelectedAliases] = useState<string[]>([]);
   const [isDetailLoading, setIsDetailLoading] = useState(false);
 
   // Selected row for immediate display
@@ -117,6 +118,7 @@ export default function Home() {
     if (!selectedId) {
       setSelectedFigure(null);
       setSelectedRankings([]);
+      setSelectedAliases([]);
       return;
     }
 
@@ -127,15 +129,18 @@ export default function Home() {
         if (!res.ok) {
           setSelectedFigure(null);
           setSelectedRankings([]);
+          setSelectedAliases([]);
           return;
         }
         const data: FigureDetailResponse = await res.json();
         setSelectedFigure(data?.figure ?? null);
         setSelectedRankings(Array.isArray(data?.rankings) ? data.rankings : []);
+        setSelectedAliases(Array.isArray(data?.aliases) ? data.aliases : []);
       } catch (error) {
         console.error('Failed to fetch figure detail:', error);
         setSelectedFigure(null);
         setSelectedRankings([]);
+        setSelectedAliases([]);
       } finally {
         setIsDetailLoading(false);
       }
@@ -521,6 +526,7 @@ export default function Home() {
         figure={selectedFigure}
         previewRow={selectedRow}
         rankings={selectedRankings}
+        aliases={selectedAliases}
         isOpen={selectedId !== null}
         onClose={() => setSelectedId(null)}
         isLoading={isDetailLoading}

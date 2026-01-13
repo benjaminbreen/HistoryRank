@@ -42,12 +42,47 @@ This formula is implemented in `scripts/recalculate-consensus.cjs` (single sourc
 | Command | Description |
 |---------|-------------|
 | `npm run import:llm` | Import LLM lists + recalculate consensus + download thumbnails |
+| `npm run enrich` | Auto-create figures from unmatched candidates via Wikipedia/Wikidata |
+| `npm run enrich:dry` | Preview enrichment without changes |
 | `npm run reconcile` | Apply merges, renames, fetch Wikipedia data, enrich missing fields |
-| `npm run reconcile --enrich` | Only enrich figures missing birth year, era, domain, pageviews |
 | `npm run reconcile --dry-run` | Preview changes without applying |
 | `npm run thumbnails` | Download missing thumbnails |
 | `npm run thumbnails:check` | List figures missing thumbnails |
 | `node scripts/recalculate-consensus.cjs` | Recompute consensus after manual DB edits |
+
+## Adding new LLM lists (full workflow)
+```bash
+# 1. Add list files to data/raw/ with pattern: "MODEL NAME LIST N (Date).txt"
+# 2. Import and match against existing figures (fast, local)
+npm run import:llm
+
+# 3. Auto-create new figures from unmatched candidates (network, batch)
+npm run enrich
+
+# That's it! New figures get:
+# - Birth/death years from Wikidata
+# - Birthplace with lat/lon coordinates
+# - Occupation and domain classification
+# - Era and region (derived from birth year and coordinates)
+# - Wikipedia extract and thumbnail
+# - All rankings from LLM files
+```
+
+### Enrichment options
+| Flag | Description |
+|------|-------------|
+| `--dry-run` | Preview without creating figures |
+| `--limit=N` | Process only N candidates |
+| `--min-sources=N` | Only candidates appearing in N+ different models |
+
+### How enrichment works
+1. Reads `data/unmatched/*.txt` files to build candidate list
+2. For each candidate, searches Wikipedia → gets Wikidata QID
+3. Fetches structured data from Wikidata (P569 birth, P570 death, P19 birthplace, P106 occupation)
+4. Scores confidence based on: title match, is-human check, biographical data
+5. Auto-creates figures with HIGH confidence, or MEDIUM confidence + multiple sources
+6. Downloads thumbnails and imports rankings from LLM files
+7. Recalculates consensus rankings
 
 ## Fixing data issues
 

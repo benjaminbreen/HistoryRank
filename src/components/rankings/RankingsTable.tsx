@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Tooltip } from '@/components/ui/tooltip';
 import { VarianceBadge } from './VarianceBadge';
 import { FigureThumbnail } from './FigureThumbnail';
 import { ChevronUp, ChevronDown } from 'lucide-react';
@@ -45,17 +46,23 @@ export function RankingsTable({
   sortOrder,
   onSort,
 }: RankingsTableProps) {
-  const SortHeader = ({ column, children, tooltip }: { column: string; children: React.ReactNode; tooltip?: string }) => (
-    <button
-      onClick={() => onSort(column)}
-      className="flex items-center gap-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-help"
-      title={tooltip || columnTooltips[column as keyof typeof columnTooltips]}
-    >
-      {children}
-      {sortBy === column && (
-        sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
-      )}
-    </button>
+  const SortHeader = ({ column, children, tooltip, align }: { column: string; children: React.ReactNode; tooltip?: string; align?: 'left' | 'center' | 'right' }) => (
+    <Tooltip content={tooltip || columnTooltips[column as keyof typeof columnTooltips]} align={align}>
+      <button
+        onClick={() => onSort(column)}
+        className="flex items-center gap-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+      >
+        {children}
+        {sortBy === column ? (
+          sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
+        ) : (
+          <span className="flex flex-col leading-none text-stone-300 dark:text-slate-600">
+            <ChevronUp className="h-2.5 w-2.5 -mb-1" />
+            <ChevronDown className="h-2.5 w-2.5" />
+          </span>
+        )}
+      </button>
+    </Tooltip>
   );
 
   const formatNumber = (n: number | null) => {
@@ -166,23 +173,17 @@ export function RankingsTable({
             <TableHead className="w-[140px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="regionSub">Region</SortHeader>
             </TableHead>
-            <TableHead
-              className="w-[100px] text-stone-600 dark:text-slate-400 font-medium cursor-help"
-              title={columnTooltips.domain}
-            >
-              Domain
+            <TableHead className="w-[100px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader column="domain">Domain</SortHeader>
             </TableHead>
-            <TableHead
-              className="w-[100px] text-stone-600 dark:text-slate-400 font-medium cursor-help"
-              title={columnTooltips.era}
-            >
-              Era
+            <TableHead className="w-[100px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader column="era">Era</SortHeader>
             </TableHead>
             <TableHead className="w-[110px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="varianceScore">Variance</SortHeader>
+              <SortHeader column="varianceScore" align="right">Variance</SortHeader>
             </TableHead>
             <TableHead className="w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
-              <SortHeader column="pageviews">Views</SortHeader>
+              <SortHeader column="pageviews" align="right">Views</SortHeader>
             </TableHead>
           </TableRow>
         </TableHeader>

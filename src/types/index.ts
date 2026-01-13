@@ -68,6 +68,7 @@ export interface FiguresResponse {
 export interface FigureDetailResponse {
   figure: Figure;
   rankings: Ranking[];
+  aliases?: string[];
 }
 
 // Filter options
@@ -75,7 +76,7 @@ export interface FilterState {
   domain: string | null;
   era: string | null;
   search: string;
-  sortBy: 'hpiRank' | 'llmConsensusRank' | 'varianceScore' | 'name' | 'pageviews';
+  sortBy: 'hpiRank' | 'llmConsensusRank' | 'varianceScore' | 'name' | 'pageviews' | 'regionSub' | 'domain' | 'era';
   sortOrder: 'asc' | 'desc';
 }
 

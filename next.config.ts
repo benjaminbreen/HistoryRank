@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     '/api/figures': ['historyrank.db'],
     '/api/figures/[id]': ['historyrank.db'],
     '/api/scatter': ['historyrank.db'],
+    '/api/health': ['historyrank.db'],
   },
 };
 

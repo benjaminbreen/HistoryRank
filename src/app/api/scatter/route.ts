@@ -71,9 +71,10 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Error fetching scatter data:', error);
+    const err = error instanceof Error ? error : new Error(String(error));
+    console.error('Error fetching scatter data:', err.message, err.stack);
     return NextResponse.json(
-      { error: 'Failed to fetch scatter data' },
+      { error: 'Failed to fetch scatter data', detail: err.message },
       { status: 500 }
     );
   }

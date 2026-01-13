@@ -149,6 +149,8 @@ export async function GET(request: NextRequest) {
         if (sortBy === 'hpiRank') return fig.hpiRank ?? null;
         if (sortBy === 'varianceScore') return fig.varianceScore ?? null;
         if (sortBy === 'name') return fig.canonicalName ?? null;
+        if (sortBy === 'domain') return fig.domain ?? null;
+        if (sortBy === 'era') return fig.era ?? null;
         if (sortBy === 'regionSub') return fig.regionSub ?? null;
         if (sortBy === 'pageviews') return fig.pageviews2025 ?? null;
         return sourceLookup.get(fig.id)?.avgRank ?? null;
@@ -209,6 +211,8 @@ export async function GET(request: NextRequest) {
       llmRank: figures.llmConsensusRank, // Sort by consensus rank for llmRank column
       varianceScore: figures.varianceScore,
       name: figures.canonicalName,
+      domain: figures.domain,
+      era: figures.era,
       regionSub: figures.regionSub,
       pageviews: figures.pageviews2025,
     }[sortBy] || figures.llmConsensusRank;
@@ -286,9 +290,10 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Error fetching figures:', error);
+    const err = error instanceof Error ? error : new Error(String(error));
+    console.error('Error fetching figures:', err.message, err.stack);
     return NextResponse.json(
-      { error: 'Failed to fetch figures' },
+      { error: 'Failed to fetch figures', detail: err.message },
       { status: 500 }
     );
   }

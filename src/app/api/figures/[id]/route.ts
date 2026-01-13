@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, figures, rankings } from '@/lib/db';
+import { db, figures, rankings, nameAliases } from '@/lib/db';
 import { eq } from 'drizzle-orm';
+import { normalizeName } from '@/lib/utils/nameNormalization';
 import type { FigureDetailResponse } from '@/types';
 
 export const runtime = 'nodejs';
@@ -29,9 +30,20 @@ export async function GET(
       where: eq(rankings.figureId, id),
     });
 
+    const aliases = await db.query.nameAliases.findMany({
+      where: eq(nameAliases.figureId, id),
+    });
+
+    const normalizedCanonical = normalizeName(figure.canonicalName);
+    const aliasList = aliases
+      .map((row) => row.alias)
+      .filter((alias) => alias && alias !== normalizedCanonical)
+      .sort((a, b) => a.localeCompare(b));
+
     const response: FigureDetailResponse = {
       figure,
       rankings: figureRankings,
+      aliases: aliasList,
     };
 
     return NextResponse.json(response, {
@@ -40,9 +52,10 @@ export async function GET(
       },
     });
   } catch (error) {
-    console.error('Error fetching figure:', error);
+    const err = error instanceof Error ? error : new Error(String(error));
+    console.error('Error fetching figure:', err.message, err.stack);
     return NextResponse.json(
-      { error: 'Failed to fetch figure' },
+      { error: 'Failed to fetch figure', detail: err.message },
       { status: 500 }
     );
   }
