@@ -1,4 +1,4 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
+import { drizzle, BetterSQLite3Database } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
 import * as schema from './schema';
 import path from 'path';
@@ -44,10 +44,10 @@ function findDatabasePath(): string {
 }
 
 // Lazy initialization - don't create connection until first use
-let _db: ReturnType<typeof drizzle> | null = null;
+let _db: BetterSQLite3Database<typeof schema> | null = null;
 let _dbPath: string | null = null;
 
-function getDatabase() {
+function getDatabase(): BetterSQLite3Database<typeof schema> {
   if (_db) return _db;
 
   _dbPath = findDatabasePath();
@@ -81,13 +81,22 @@ function getDatabase() {
   }
 }
 
-// Export a proxy that lazily initializes the database
-export const db = new Proxy({} as ReturnType<typeof drizzle>, {
-  get(_, prop) {
-    const database = getDatabase();
-    return (database as Record<string | symbol, unknown>)[prop];
-  },
-});
+// Export getter that returns properly typed database
+// Use Object.defineProperty to make it act like a direct export
+export const db: BetterSQLite3Database<typeof schema> = new Proxy(
+  {} as BetterSQLite3Database<typeof schema>,
+  {
+    get(_, prop) {
+      const database = getDatabase();
+      const value = database[prop as keyof typeof database];
+      // Bind methods to the database instance
+      if (typeof value === 'function') {
+        return value.bind(database);
+      }
+      return value;
+    },
+  }
+);
 
 // Export for debugging
 export const resolvedDbPath = () => _dbPath || findDatabasePath();
