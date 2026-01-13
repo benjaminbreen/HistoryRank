@@ -2,10 +2,45 @@ import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
 import * as schema from './schema';
 import path from 'path';
+import fs from 'fs';
 
-// Database file location - in project root
-const dbPath = process.env.DATABASE_URL || path.join(process.cwd(), 'historyrank.db');
+// Database file location
+// On Vercel, process.cwd() is /var/task but the DB is bundled relative to source
+// So we try multiple paths and use the first that exists
 const isVercel = process.env.VERCEL === '1';
+
+function findDatabasePath(): string {
+  // If explicitly set, use that
+  if (process.env.DATABASE_URL) {
+    return process.env.DATABASE_URL;
+  }
+
+  // Candidate paths to check
+  const candidates = [
+    // Relative to this file (src/lib/db/index.ts -> project root)
+    path.join(__dirname, '../../../historyrank.db'),
+    path.join(__dirname, '../../../../historyrank.db'),
+    // From cwd (works locally)
+    path.join(process.cwd(), 'historyrank.db'),
+    // Vercel bundled locations
+    path.join(process.cwd(), '.next/server/historyrank.db'),
+    '/var/task/historyrank.db',
+    '/var/task/.next/server/historyrank.db',
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      console.log(`[DB] Found database at: ${candidate}`);
+      return candidate;
+    }
+  }
+
+  // Fallback to cwd-based path (will fail with clear error)
+  console.error('[DB] Could not find database file. Tried:', candidates);
+  return path.join(process.cwd(), 'historyrank.db');
+}
+
+const dbPath = findDatabasePath();
 
 type SQLiteDatabase = ReturnType<typeof Database>;
 
