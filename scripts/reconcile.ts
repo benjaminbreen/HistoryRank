@@ -47,8 +47,8 @@ interface WikipediaData {
   extract?: string;
   description?: string;
   thumbnail?: { source: string; width: number; height: number };
-  birthYear?: number;
-  deathYear?: number;
+  birthYear?: number | null;
+  deathYear?: number | null;
   birthPlace?: string;
   occupation?: string;
 }

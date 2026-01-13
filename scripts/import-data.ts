@@ -276,7 +276,7 @@ function loadCompoundNames(): Record<string, string[]> {
   } else {
     compoundNamesCache = {};
   }
-  return compoundNamesCache;
+  return compoundNamesCache || {};
 }
 
 /**
