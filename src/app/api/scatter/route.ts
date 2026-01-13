@@ -5,7 +5,11 @@ import type { ScatterDataPoint, ScatterPlotResponse } from '@/types';
 
 export const runtime = 'nodejs';
 
-// Cache for 5 minutes, revalidate in background
+// Force dynamic rendering - don't try to generate at build time
+// The database isn't available during Vercel build
+export const dynamic = 'force-dynamic';
+
+// Cache responses for 5 minutes
 export const revalidate = 300;
 
 export async function GET(request: NextRequest) {

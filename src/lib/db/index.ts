@@ -14,14 +14,20 @@ function findDatabasePath(): string {
     return process.env.DATABASE_URL;
   }
 
-  // On Vercel, use the known working path directly
+  // On Vercel, check both runtime and build paths
   if (isVercel) {
-    const vercelPath = '/var/task/historyrank.db';
-    if (fs.existsSync(vercelPath)) {
-      console.log(`[DB] Vercel: Found database at ${vercelPath}`);
-      return vercelPath;
+    const vercelPaths = [
+      '/var/task/historyrank.db',           // Runtime path
+      '/vercel/path0/historyrank.db',       // Build path
+      path.join(process.cwd(), 'historyrank.db'),  // CWD-based
+    ];
+    for (const vercelPath of vercelPaths) {
+      if (fs.existsSync(vercelPath)) {
+        console.log(`[DB] Vercel: Found database at ${vercelPath}`);
+        return vercelPath;
+      }
     }
-    console.log(`[DB] Vercel: Database not found at ${vercelPath}`);
+    console.log(`[DB] Vercel: Database not found. Tried:`, vercelPaths);
   }
 
   // Candidate paths to check (local development)
