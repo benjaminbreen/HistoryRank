@@ -1,0 +1,22 @@
+import { drizzle } from 'drizzle-orm/better-sqlite3';
+import Database from 'better-sqlite3';
+import * as schema from './schema';
+import path from 'path';
+
+// Database file location - in project root
+const dbPath = process.env.DATABASE_URL || path.join(process.cwd(), 'historyrank.db');
+const isVercel = process.env.VERCEL === '1';
+
+// Use read-only mode on Vercel's read-only filesystem
+const sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
+
+if (!isVercel) {
+  // Enable WAL mode for better concurrency in local/dev
+  sqlite.pragma('journal_mode = WAL');
+}
+
+// Create Drizzle instance with schema
+export const db = drizzle(sqlite, { schema });
+
+// Export schema for convenience
+export * from './schema';
