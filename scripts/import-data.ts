@@ -37,16 +37,16 @@ interface PantheonRow {
 
 function parseCSV(content: string): PantheonRow[] {
   const lines = content.trim().split('\n');
-  const headers = parseCSVLine(lines[0]);
+  const headers = parseCSVLine(lines[0]) as Array<keyof PantheonRow>;
   const rows: PantheonRow[] = [];
 
   for (let i = 1; i < lines.length; i++) {
     const values = parseCSVLine(lines[i]);
-    const row: Record<string, string> = {};
-    headers.forEach((h, idx) => {
-      row[h] = values[idx] || '';
+    const row = {} as PantheonRow;
+    headers.forEach((header, idx) => {
+      row[header] = values[idx] || '';
     });
-    rows.push(row as PantheonRow);
+    rows.push(row);
   }
 
   return rows;
