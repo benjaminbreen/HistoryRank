@@ -6,7 +6,6 @@ import fs from 'fs';
 
 // Database file location
 // On Vercel, process.cwd() is /var/task but the DB is bundled relative to source
-// So we try multiple paths and use the first that exists
 const isVercel = process.env.VERCEL === '1';
 
 function findDatabasePath(): string {
@@ -19,19 +18,17 @@ function findDatabasePath(): string {
   if (isVercel) {
     const vercelPath = '/var/task/historyrank.db';
     if (fs.existsSync(vercelPath)) {
-      console.log(`[DB] Vercel: Using ${vercelPath}`);
+      console.log(`[DB] Vercel: Found database at ${vercelPath}`);
       return vercelPath;
     }
+    console.log(`[DB] Vercel: Database not found at ${vercelPath}`);
   }
 
   // Candidate paths to check (local development)
   const candidates = [
-    // From cwd (works locally)
     path.join(process.cwd(), 'historyrank.db'),
-    // Relative to this file (src/lib/db/index.ts -> project root)
     path.join(__dirname, '../../../historyrank.db'),
     path.join(__dirname, '../../../../historyrank.db'),
-    // Fallback absolute paths
     '/var/task/historyrank.db',
   ];
 
@@ -42,51 +39,59 @@ function findDatabasePath(): string {
     }
   }
 
-  // Fallback to cwd-based path (will fail with clear error)
   console.error('[DB] Could not find database file. Tried:', candidates);
   return path.join(process.cwd(), 'historyrank.db');
 }
 
-const dbPath = findDatabasePath();
+// Lazy initialization - don't create connection until first use
+let _db: ReturnType<typeof drizzle> | null = null;
+let _dbPath: string | null = null;
 
-// Export for debugging
-export const resolvedDbPath = dbPath;
-export const dbExists = fs.existsSync(dbPath);
+function getDatabase() {
+  if (_db) return _db;
 
-type SQLiteDatabase = ReturnType<typeof Database>;
+  _dbPath = findDatabasePath();
 
-let sqlite: SQLiteDatabase;
-try {
   console.log(`[DB] Opening database:`, {
-    path: dbPath,
-    exists: fs.existsSync(dbPath),
+    path: _dbPath,
+    exists: fs.existsSync(_dbPath),
     isVercel,
     cwd: process.cwd(),
   });
 
-  // Use read-only mode on Vercel's read-only filesystem
-  sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
-  console.log(`[DB] Successfully opened database`);
-} catch (error) {
-  const message = error instanceof Error ? error.message : String(error);
-  const stack = error instanceof Error ? error.stack : '';
-  console.error('[DB] Failed to open SQLite DB:', {
-    dbPath,
-    exists: fs.existsSync(dbPath),
-    isVercel,
-    message,
-    stack,
-  });
-  throw error;
+  try {
+    const sqlite = new Database(_dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
+
+    if (!isVercel) {
+      sqlite.pragma('journal_mode = WAL');
+    }
+
+    _db = drizzle(sqlite, { schema });
+    console.log(`[DB] Successfully opened database`);
+    return _db;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('[DB] Failed to open SQLite DB:', {
+      dbPath: _dbPath,
+      exists: fs.existsSync(_dbPath),
+      isVercel,
+      message,
+    });
+    throw error;
+  }
 }
 
-if (!isVercel) {
-  // Enable WAL mode for better concurrency in local/dev
-  sqlite.pragma('journal_mode = WAL');
-}
+// Export a proxy that lazily initializes the database
+export const db = new Proxy({} as ReturnType<typeof drizzle>, {
+  get(_, prop) {
+    const database = getDatabase();
+    return (database as Record<string | symbol, unknown>)[prop];
+  },
+});
 
-// Create Drizzle instance with schema
-export const db = drizzle(sqlite, { schema });
+// Export for debugging
+export const resolvedDbPath = () => _dbPath || findDatabasePath();
+export const dbExists = () => fs.existsSync(resolvedDbPath());
 
 // Export schema for convenience
 export * from './schema';

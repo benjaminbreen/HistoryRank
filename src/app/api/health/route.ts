@@ -31,8 +31,8 @@ export async function GET() {
     return NextResponse.json({
       ok: true,
       figures: result[0]?.count ?? 0,
-      resolvedDbPath,
-      dbExists,
+      resolvedDbPath: resolvedDbPath(),
+      dbExists: dbExists(),
       cwd: process.cwd(),
       dirname: __dirname,
       vercel: process.env.VERCEL === '1',
