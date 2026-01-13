@@ -15,17 +15,24 @@ function findDatabasePath(): string {
     return process.env.DATABASE_URL;
   }
 
-  // Candidate paths to check
+  // On Vercel, use the known working path directly
+  if (isVercel) {
+    const vercelPath = '/var/task/historyrank.db';
+    if (fs.existsSync(vercelPath)) {
+      console.log(`[DB] Vercel: Using ${vercelPath}`);
+      return vercelPath;
+    }
+  }
+
+  // Candidate paths to check (local development)
   const candidates = [
+    // From cwd (works locally)
+    path.join(process.cwd(), 'historyrank.db'),
     // Relative to this file (src/lib/db/index.ts -> project root)
     path.join(__dirname, '../../../historyrank.db'),
     path.join(__dirname, '../../../../historyrank.db'),
-    // From cwd (works locally)
-    path.join(process.cwd(), 'historyrank.db'),
-    // Vercel bundled locations
-    path.join(process.cwd(), '.next/server/historyrank.db'),
+    // Fallback absolute paths
     '/var/task/historyrank.db',
-    '/var/task/.next/server/historyrank.db',
   ];
 
   for (const candidate of candidates) {
