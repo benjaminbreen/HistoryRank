@@ -16,12 +16,14 @@ function findDatabasePath(): string {
 
   // On Vercel, check both runtime and build paths
   if (isVercel) {
+    const taskRoot = process.env.LAMBDA_TASK_ROOT;
     const vercelPaths = [
-      '/var/task/historyrank.db',           // Runtime path
-      '/vercel/path0/historyrank.db',       // Build path
-      path.join(process.cwd(), 'historyrank.db'),  // CWD-based
+      taskRoot ? path.join(taskRoot, 'historyrank.db') : null,
+      '/var/task/historyrank.db',
+      '/vercel/path0/historyrank.db',
+      path.join(process.cwd(), 'historyrank.db'),
     ];
-    for (const vercelPath of vercelPaths) {
+    for (const vercelPath of vercelPaths.filter(Boolean) as string[]) {
       if (fs.existsSync(vercelPath)) {
         console.log(`[DB] Vercel: Found database at ${vercelPath}`);
         return vercelPath;
