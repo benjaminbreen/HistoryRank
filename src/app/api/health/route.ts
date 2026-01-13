@@ -24,14 +24,15 @@ export async function GET() {
   const foundPath = pathChecks.find(p => p.exists)?.path || 'none found';
 
   try {
-    const { db, figures } = await import('@/lib/db');
+    const { db, figures, resolvedDbPath, dbExists } = await import('@/lib/db');
     const result = await db
       .select({ count: sql<number>`count(*)` })
       .from(figures);
     return NextResponse.json({
       ok: true,
       figures: result[0]?.count ?? 0,
-      dbPath: foundPath,
+      resolvedDbPath,
+      dbExists,
       cwd: process.cwd(),
       dirname: __dirname,
       vercel: process.env.VERCEL === '1',

@@ -49,15 +49,34 @@ function findDatabasePath(): string {
 
 const dbPath = findDatabasePath();
 
+// Export for debugging
+export const resolvedDbPath = dbPath;
+export const dbExists = fs.existsSync(dbPath);
+
 type SQLiteDatabase = ReturnType<typeof Database>;
 
 let sqlite: SQLiteDatabase;
 try {
+  console.log(`[DB] Opening database:`, {
+    path: dbPath,
+    exists: fs.existsSync(dbPath),
+    isVercel,
+    cwd: process.cwd(),
+  });
+
   // Use read-only mode on Vercel's read-only filesystem
   sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
+  console.log(`[DB] Successfully opened database`);
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);
-  console.error('Failed to open SQLite DB', { dbPath, isVercel, message });
+  const stack = error instanceof Error ? error.stack : '';
+  console.error('[DB] Failed to open SQLite DB:', {
+    dbPath,
+    exists: fs.existsSync(dbPath),
+    isVercel,
+    message,
+    stack,
+  });
   throw error;
 }
 
