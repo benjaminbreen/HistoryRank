@@ -7,7 +7,9 @@ import path from 'path';
 const dbPath = process.env.DATABASE_URL || path.join(process.cwd(), 'historyrank.db');
 const isVercel = process.env.VERCEL === '1';
 
-let sqlite: Database;
+type SQLiteDatabase = ReturnType<typeof Database>;
+
+let sqlite: SQLiteDatabase;
 try {
   // Use read-only mode on Vercel's read-only filesystem
   sqlite = new Database(dbPath, isVercel ? { readonly: true, fileMustExist: true } : undefined);
