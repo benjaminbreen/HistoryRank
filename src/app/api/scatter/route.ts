@@ -5,6 +5,9 @@ import type { ScatterDataPoint, ScatterPlotResponse } from '@/types';
 
 export const runtime = 'nodejs';
 
+// Cache for 5 minutes, revalidate in background
+export const revalidate = 300;
+
 export async function GET(request: NextRequest) {
   try {
     // Get all figures
@@ -62,7 +65,11 @@ export async function GET(request: NextRequest) {
       availableSources: sources,
     };
 
-    return NextResponse.json(response);
+    return NextResponse.json(response, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+      },
+    });
   } catch (error) {
     console.error('Error fetching scatter data:', error);
     return NextResponse.json(

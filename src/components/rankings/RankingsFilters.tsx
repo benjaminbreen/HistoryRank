@@ -10,6 +10,10 @@ interface RankingsFiltersProps {
   onDomainChange: (value: string | null) => void;
   era: string | null;
   onEraChange: (value: string | null) => void;
+  region: string | null;
+  onRegionChange: (value: string | null) => void;
+  modelSource: string | null;
+  onModelSourceChange: (value: string | null) => void;
 }
 
 const DOMAINS = [
@@ -34,6 +38,37 @@ const ERAS = [
   'Contemporary',
 ];
 
+const REGIONS = [
+  'Northern Europe',
+  'Western Europe',
+  'Southern Europe',
+  'Eastern Europe',
+  'North Africa',
+  'West Africa',
+  'East Africa',
+  'Central Africa',
+  'Southern Africa',
+  'Western Asia',
+  'Central Asia',
+  'South Asia',
+  'East Asia',
+  'Southeast Asia',
+  'North America',
+  'Mesoamerica & Caribbean',
+  'South America',
+  'Oceania',
+];
+
+const MODEL_SOURCES = [
+  { id: null, label: 'All LLMs (average)' },
+  { id: 'claude-opus-4.5', label: 'Claude Opus 4.5' },
+  { id: 'claude-sonnet-4.5', label: 'Claude Sonnet 4.5' },
+  { id: 'gemini-flash-3-preview', label: 'Gemini Flash 3 Preview' },
+  { id: 'gemini-pro-3', label: 'Gemini Pro 3' },
+  { id: 'gpt-5.2-thinking', label: 'GPT 5.2 Thinking' },
+  { id: 'grok-4', label: 'Grok 4' },
+];
+
 export function RankingsFilters({
   search,
   onSearchChange,
@@ -41,6 +76,10 @@ export function RankingsFilters({
   onDomainChange,
   era,
   onEraChange,
+  region,
+  onRegionChange,
+  modelSource,
+  onModelSourceChange,
 }: RankingsFiltersProps) {
   return (
     <div className="flex flex-wrap gap-4 items-center">
@@ -91,13 +130,42 @@ export function RankingsFilters({
         ))}
       </select>
 
+      {/* Region filter */}
+      <select
+        value={region || ''}
+        onChange={(e) => onRegionChange(e.target.value || null)}
+        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+      >
+        <option value="">All Regions</option>
+        {REGIONS.map((r) => (
+          <option key={r} value={r}>
+            {r}
+          </option>
+        ))}
+      </select>
+
+      {/* Model selector */}
+      <select
+        value={modelSource || ''}
+        onChange={(e) => onModelSourceChange(e.target.value || null)}
+        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+      >
+        {MODEL_SOURCES.map((m) => (
+          <option key={m.label} value={m.id || ''}>
+            {m.label}
+          </option>
+        ))}
+      </select>
+
       {/* Clear filters */}
-      {(domain || era || search) && (
+      {(domain || era || region || modelSource || search) && (
         <button
           onClick={() => {
             onSearchChange('');
             onDomainChange(null);
             onEraChange(null);
+            onRegionChange(null);
+            onModelSourceChange(null);
           }}
           className="text-sm text-stone-500 hover:text-stone-700 underline"
         >

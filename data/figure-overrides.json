@@ -1,0 +1,172 @@
+{
+  "_comment": "Figure overrides and corrections. Run: npx tsx scripts/reconcile.ts",
+
+  "merges": {
+    "_comment": "Merge duplicate figures. Format: 'keep_id': ['delete_id1', 'delete_id2']",
+    "mani": ["the-prophet-mani"],
+    "ilya-mechnikov": ["elias-metchnikoff"],
+    "vladimir-lenin": ["v-i-lenin", "lenin"],
+    "augustine-of-hippo": ["st-augustine", "saint-augustine-of-hippo"],
+    "emperor-meiji": ["meiji-emperor"],
+    "ashoka": ["asoka", "asoka-the-great"],
+    "guru-nanak": ["nanak"],
+    "nicolaus-otto": ["nicolaus-august-otto", "nikolaus-otto"],
+    "william-thomson-1st-baron-kelvin": ["william-thompson"],
+    "constantine-xi": ["emperor-constantine-xi"],
+    "napoleon": ["napoleon-bonaparte"]
+  },
+
+  "renames": {
+    "_comment": "Rename canonical_name for figures",
+    "aristotle-s-teacher-ammonius-saccas": "Ammonius Saccas"
+  },
+
+  "updates": {
+    "_comment": "Update figure data. Wikipedia slug will be used to fetch birth_year, birth_place, etc.",
+    "ts-ai-lun": {
+      "canonical_name": "Cai Lun",
+      "wikipedia_slug": "Cai_Lun"
+    },
+    "aristotle-s-teacher-ammonius-saccas": {
+      "wikipedia_slug": "Ammonius_Saccas"
+    },
+    "mencius": {
+      "wikipedia_slug": "Mencius"
+    },
+    "simon-bolivar": {
+      "wikipedia_slug": "Simón_Bolívar"
+    },
+    "edward-jenner": {
+      "wikipedia_slug": "Edward_Jenner"
+    },
+    "oliver-cromwell": {
+      "wikipedia_slug": "Oliver_Cromwell"
+    },
+    "william-t-g-morton": {
+      "wikipedia_slug": "William_T._G._Morton"
+    },
+    "gregory-pincus": {
+      "wikipedia_slug": "Gregory_Goodwin_Pincus"
+    },
+    "urbain-le-verrier": {
+      "wikipedia_slug": "Urbain_Le_Verrier"
+    },
+    "jean-paul-marat": {
+      "wikipedia_slug": "Jean-Paul_Marat"
+    },
+    "mani": {
+      "wikipedia_slug": "Mani_(prophet)"
+    },
+    "constantine-xi": {
+      "wikipedia_slug": "Constantine_XI_Palaiologos"
+    },
+    "frederick-douglass": {
+      "wikipedia_slug": "Frederick_Douglass"
+    },
+    "harriet-tubman": {
+      "wikipedia_slug": "Harriet_Tubman"
+    },
+    "john-von-neumann": {
+      "wikipedia_slug": "John_von_Neumann"
+    },
+    "jonas-salk": {
+      "wikipedia_slug": "Jonas_Salk"
+    },
+    "mansa-musa": {
+      "wikipedia_slug": "Mansa_Musa"
+    },
+    "rachel-carson": {
+      "wikipedia_slug": "Rachel_Carson"
+    },
+    "w-e-b-du-bois": {
+      "wikipedia_slug": "W._E._B._Du_Bois"
+    },
+    "william-harvey": {
+      "wikipedia_slug": "William_Harvey"
+    },
+    "wright-brothers": {
+      "wikipedia_slug": "Wright_brothers"
+    },
+    "james-madison": {
+      "wikipedia_slug": "James_Madison"
+    },
+    "jane-austen": {
+      "wikipedia_slug": "Jane_Austen"
+    },
+    "john-stuart-mill": {
+      "wikipedia_slug": "John_Stuart_Mill"
+    },
+    "kwame-nkrumah": {
+      "wikipedia_slug": "Kwame_Nkrumah"
+    },
+    "mary-wollstonecraft": {
+      "wikipedia_slug": "Mary_Wollstonecraft"
+    },
+    "samuel-morse": {
+      "wikipedia_slug": "Samuel_Morse"
+    },
+    "sargon-of-akkad": {
+      "wikipedia_slug": "Sargon_of_Akkad"
+    },
+    "shaka-zulu": {
+      "wikipedia_slug": "Shaka"
+    },
+    "william-james": {
+      "wikipedia_slug": "William_James"
+    },
+    "hannibal-barca": {
+      "wikipedia_slug": "Hannibal"
+    },
+    "harriet-beecher-stowe": {
+      "wikipedia_slug": "Harriet_Beecher_Stowe"
+    },
+    "jawaharlal-nehru": {
+      "wikipedia_slug": "Jawaharlal_Nehru"
+    },
+    "jomo-kenyatta": {
+      "wikipedia_slug": "Jomo_Kenyatta"
+    },
+    "mary-shelley": {
+      "wikipedia_slug": "Mary_Shelley"
+    },
+    "robert-boyle": {
+      "wikipedia_slug": "Robert_Boyle"
+    },
+    "rudolf-diesel": {
+      "wikipedia_slug": "Rudolf_Diesel"
+    },
+    "samuel-johnson": {
+      "wikipedia_slug": "Samuel_Johnson"
+    },
+    "susan-b-anthony": {
+      "wikipedia_slug": "Susan_B._Anthony"
+    },
+    "thomas-malthus": {
+      "wikipedia_slug": "Thomas_Robert_Malthus"
+    },
+    "umar-ibn-al-khattab": {
+      "wikipedia_slug": "Umar"
+    },
+    "woodrow-wilson": {
+      "wikipedia_slug": "Woodrow_Wilson"
+    }
+  },
+
+  "aliases": {
+    "_comment": "Additional aliases to add. Format: 'figure_id': ['alias1', 'alias2']",
+    "mani": ["the prophet mani", "prophet mani", "mani the prophet", "manichaeus"],
+    "ilya-mechnikov": ["elie metchnikoff", "elias metchnikoff", "ilya ilyich mechnikov", "élie metchnikoff"],
+    "cai-lun": ["ts'ai lun", "tsai lun", "cai lun"],
+    "aristotle-s-teacher-ammonius-saccas": ["ammonius saccas"],
+    "william-thomson-1st-baron-kelvin": ["lord kelvin", "william thompson", "william thomson", "kelvin"],
+    "constantine-xi": ["constantine xi palaiologos", "emperor constantine xi", "constantine palaiologos", "constantine xi dragases"],
+    "nicolaus-otto": ["nikolaus otto", "nicolaus august otto", "nikolaus august otto"]
+  },
+
+  "compound_names": {
+    "_comment": "Names that refer to multiple people. Format: 'compound_name': ['figure_id1', 'figure_id2']",
+    "watson and crick": ["james-watson", "francis-crick"],
+    "crick and watson": ["james-watson", "francis-crick"],
+    "lewis and clark": ["meriwether-lewis", "william-clark"]
+  }
+}

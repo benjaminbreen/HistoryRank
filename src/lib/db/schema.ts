@@ -11,6 +11,12 @@ export const figures = sqliteTable('figures', {
   domain: text('domain'), // "Science", "Religion", "Politics", "Arts", "Military"
   occupation: text('occupation'), // More specific: "Physicist", "Philosopher"
   era: text('era'), // "Ancient", "Medieval", "Early Modern", "Modern", "Contemporary"
+  regionMacro: text('region_macro'),
+  regionSub: text('region_sub'),
+  birthPolity: text('birth_polity'),
+  birthPlace: text('birth_place'),
+  birthLat: real('birth_lat'),
+  birthLon: real('birth_lon'),
 
   // Wikipedia data
   wikipediaSlug: text('wikipedia_slug'),
@@ -72,9 +78,20 @@ export const importLogs = sqliteTable('import_logs', {
   importedAt: integer('imported_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
 });
 
+export const llmCandidates = sqliteTable('llm_candidates', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  normalizedName: text('normalized_name').notNull(),
+  displayName: text('display_name').notNull(),
+  sources: text('sources').notNull(), // JSON array string
+  sampleCount: integer('sample_count').notNull(),
+  avgRank: real('avg_rank'),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+});
+
 // Type exports
 export type Figure = typeof figures.$inferSelect;
 export type NewFigure = typeof figures.$inferInsert;
 export type Ranking = typeof rankings.$inferSelect;
 export type NewRanking = typeof rankings.$inferInsert;
 export type NameAlias = typeof nameAliases.$inferSelect;
+export type LlmCandidate = typeof llmCandidates.$inferSelect;

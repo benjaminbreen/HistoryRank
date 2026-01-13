@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useCallback } from 'react';
 import {
   Table,
   TableBody,
@@ -12,6 +12,7 @@ import {
 import { VarianceBadge } from './VarianceBadge';
 import { FigureThumbnail } from './FigureThumbnail';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { REGION_COLORS } from '@/types';
 import type { FigureRow } from '@/types';
 
 interface RankingsTableProps {
@@ -29,6 +30,7 @@ const columnTooltips = {
   hpiRank: 'MIT Pantheon Historical Popularity Index — academic assessment of historical importance based on Wikipedia language editions, biography length, and page views',
   name: 'Canonical name of the historical figure',
   domain: 'Primary field of activity (Science, Arts, Politics, Religion, Military, etc.)',
+  regionSub: 'Geographic region based on birthplace (stable across eras)',
   era: 'Historical period (Ancient, Medieval, Early Modern, Modern, Contemporary)',
   llmConsensusRank: 'Average rank across AI models (Claude Sonnet 4.5, Gemini Flash 3, Gemini Pro 3) — AI assessment of historical importance',
   varianceScore: 'Disagreement between ranking sources — higher variance indicates more "controversial" figures where sources disagree on importance',
@@ -46,7 +48,7 @@ export function RankingsTable({
   const SortHeader = ({ column, children, tooltip }: { column: string; children: React.ReactNode; tooltip?: string }) => (
     <button
       onClick={() => onSort(column)}
-      className="flex items-center gap-1 hover:text-stone-900 transition-colors cursor-help"
+      className="flex items-center gap-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors cursor-help"
       title={tooltip || columnTooltips[column as keyof typeof columnTooltips]}
     >
       {children}
@@ -68,87 +70,130 @@ export function RankingsTable({
     return `#${Math.round(n)}`;
   };
 
+  // Memoized row component to prevent unnecessary re-renders
+  const MemoizedTableRow = memo(function MemoizedTableRow({
+    figure,
+    isSelected,
+    onSelect,
+  }: {
+    figure: FigureRow;
+    isSelected: boolean;
+    onSelect: (id: string) => void;
+  }) {
+    return (
+      <TableRow
+        key={figure.id}
+        data-figure-id={figure.id}
+        onClick={() => onSelect(figure.id)}
+        className={`hr-table-row group cursor-pointer transition-colors ${
+          isSelected
+            ? 'bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/30'
+            : 'hover:bg-white dark:hover:bg-slate-800/80'
+        }`}
+      >
+        <TableCell className="font-mono text-base text-stone-900 dark:text-amber-100 font-medium py-3">
+          {figure.llmRank ? `#${figure.llmRank}` : '—'}
+        </TableCell>
+        <TableCell className="font-mono text-base text-stone-500 dark:text-slate-400 py-3">
+          {formatRank(figure.hpiRank)}
+        </TableCell>
+        <TableCell className="py-3">
+          <div className="flex items-center gap-3">
+            <FigureThumbnail
+              figureId={figure.id}
+              wikipediaSlug={figure.wikipediaSlug}
+              name={figure.name}
+              size={38}
+              className="group-hover:scale-105"
+            />
+            <div>
+              <div className="font-medium text-[15px] text-stone-900 dark:text-slate-100">{figure.name}</div>
+              {figure.birthYear && (
+                <div className="text-sm text-stone-400 dark:text-slate-500">
+                  {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
+                </div>
+              )}
+            </div>
+          </div>
+        </TableCell>
+        <TableCell className="text-sm text-stone-600 dark:text-slate-400 py-3">
+          {figure.regionSub ? (
+            <span
+              className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
+              style={{ backgroundColor: REGION_COLORS[figure.regionSub] || '#9ca3af' }}
+            >
+              {figure.regionSub}
+            </span>
+          ) : (
+            '—'
+          )}
+        </TableCell>
+        <TableCell className="text-[15px] text-stone-600 dark:text-slate-300 py-3">
+          {figure.domain || '—'}
+        </TableCell>
+        <TableCell className="text-[15px] text-stone-600 dark:text-slate-300 py-3">
+          {figure.era || '—'}
+        </TableCell>
+        <TableCell className="py-3">
+          <VarianceBadge level={figure.varianceLevel} score={figure.varianceScore} />
+        </TableCell>
+        <TableCell className="font-mono text-base text-right text-stone-500 dark:text-slate-400 py-3">
+          {formatNumber(figure.pageviews)}
+        </TableCell>
+      </TableRow>
+    );
+  });
+
+  // Stable callback for row clicks
+  const handleRowClick = useCallback((id: string) => {
+    onSelectFigure(id);
+  }, [onSelectFigure]);
+
   return (
-    <div className="border border-stone-200 rounded-lg overflow-hidden">
+    <div className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-hidden">
       <Table>
         <TableHeader>
-          <TableRow className="bg-stone-50 hover:bg-stone-50">
-            <TableHead className="w-[60px] text-stone-600 font-medium">
+          <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
+            <TableHead className="w-[60px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="llmRank">LLM</SortHeader>
             </TableHead>
-            <TableHead className="w-[60px] text-stone-600 font-medium">
+            <TableHead className="w-[60px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="hpiRank">HPI</SortHeader>
             </TableHead>
-            <TableHead className="text-stone-600 font-medium">
+            <TableHead className="text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="name">Name</SortHeader>
             </TableHead>
+            <TableHead className="w-[140px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader column="regionSub">Region</SortHeader>
+            </TableHead>
             <TableHead
-              className="w-[100px] text-stone-600 font-medium cursor-help"
+              className="w-[100px] text-stone-600 dark:text-slate-400 font-medium cursor-help"
               title={columnTooltips.domain}
             >
               Domain
             </TableHead>
             <TableHead
-              className="w-[100px] text-stone-600 font-medium cursor-help"
+              className="w-[100px] text-stone-600 dark:text-slate-400 font-medium cursor-help"
               title={columnTooltips.era}
             >
               Era
             </TableHead>
-            <TableHead className="w-[110px] text-stone-600 font-medium">
+            <TableHead className="w-[110px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="varianceScore">Variance</SortHeader>
             </TableHead>
-            <TableHead className="w-[90px] text-stone-600 font-medium text-right">
+            <TableHead className="w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
               <SortHeader column="pageviews">Views</SortHeader>
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {figures.map((figure) => (
-            <TableRow
+            <MemoizedTableRow
               key={figure.id}
-              onClick={() => onSelectFigure(figure.id)}
-              className={`cursor-pointer transition-colors ${
-                selectedId === figure.id
-                  ? 'bg-amber-50 hover:bg-amber-100'
-                  : 'hover:bg-stone-50'
-              }`}
-            >
-              <TableCell className="font-mono text-sm text-stone-900 font-medium">
-                {figure.llmRank ? `#${figure.llmRank}` : '—'}
-              </TableCell>
-              <TableCell className="font-mono text-sm text-stone-500">
-                {formatRank(figure.hpiRank)}
-              </TableCell>
-              <TableCell>
-                <div className="flex items-center gap-3">
-                  <FigureThumbnail
-                    wikipediaSlug={figure.wikipediaSlug}
-                    name={figure.name}
-                    size={32}
-                  />
-                  <div>
-                    <div className="font-medium text-stone-900">{figure.name}</div>
-                    {figure.birthYear && (
-                      <div className="text-xs text-stone-400">
-                        {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </TableCell>
-              <TableCell className="text-sm text-stone-600">
-                {figure.domain || '—'}
-              </TableCell>
-              <TableCell className="text-sm text-stone-600">
-                {figure.era || '—'}
-              </TableCell>
-              <TableCell>
-                <VarianceBadge level={figure.varianceLevel} score={figure.varianceScore} />
-              </TableCell>
-              <TableCell className="font-mono text-sm text-right text-stone-500">
-                {formatNumber(figure.pageviews)}
-              </TableCell>
-            </TableRow>
+              figure={figure}
+              isSelected={selectedId === figure.id}
+              onSelect={handleRowClick}
+            />
           ))}
         </TableBody>
       </Table>

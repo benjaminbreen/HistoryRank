@@ -9,10 +9,20 @@
     "lint": "eslint",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "import:all": "npx tsx scripts/import-data.ts --all",
+    "import:all": "npx tsx scripts/import-data.ts --all && node scripts/recalculate-consensus.cjs && npm run thumbnails",
     "import:pantheon": "npx tsx scripts/import-data.ts --pantheon",
-    "import:llm": "npx tsx scripts/import-data.ts --llm",
-    "seed:aliases": "npx tsx scripts/seed-aliases.ts"
+    "import:llm": "npx tsx scripts/import-data.ts --llm && node scripts/recalculate-consensus.cjs && npm run thumbnails",
+    "seed:aliases": "npx tsx scripts/seed-aliases.ts",
+    "export:regions": "npx tsx scripts/export-region-template.ts",
+    "import:regions": "npx tsx scripts/import-regions.ts",
+    "reconcile": "npx tsx scripts/reconcile.ts",
+    "reconcile:dry": "npx tsx scripts/reconcile.ts --dry-run",
+    "thumbnails": "npx tsx scripts/download-thumbnails.ts",
+    "thumbnails:check": "npx tsx scripts/download-thumbnails.ts --check",
+    "download:thumbnails": "npx tsx scripts/download-thumbnails.ts",
+    "validate:llm": "node scripts/validate-llm-data.cjs",
+    "build:llm-candidates": "node scripts/build-llm-candidates.cjs",
+    "promote:llm-candidates": "node scripts/promote-llm-candidates.cjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -24,9 +34,12 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-switch": "^1.2.6",
     "@tanstack/react-table": "^8.21.3",
+    "@types/d3": "^7.4.3",
+    "@types/topojson-client": "^3.1.5",
     "better-sqlite3": "^12.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "d3": "^7.9.0",
     "drizzle-orm": "^0.45.1",
     "html-to-image": "^1.11.13",
     "lucide-react": "^0.562.0",
@@ -35,7 +48,8 @@
     "react-dom": "19.2.3",
     "recharts": "^3.6.0",
     "swr": "^2.3.8",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

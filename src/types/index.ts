@@ -8,6 +8,12 @@ export interface Figure {
   domain: string | null;
   occupation: string | null;
   era: string | null;
+  regionMacro: string | null;
+  regionSub: string | null;
+  birthPolity: string | null;
+  birthPlace: string | null;
+  birthLat: number | null;
+  birthLon: number | null;
   wikipediaSlug: string | null;
   wikipediaExtract: string | null;
   pageviews2024: number | null;
@@ -39,6 +45,7 @@ export interface FigureRow {
   birthYear: number | null;
   domain: string | null;
   era: string | null;
+  regionSub: string | null;
   hpiRank: number | null;
   llmRank: number | null; // Position 1-1000 based on LLM consensus (null if no LLM data)
   llmConsensusRank: number | null; // Raw average consensus score
@@ -52,6 +59,10 @@ export interface FigureRow {
 export interface FiguresResponse {
   figures: FigureRow[];
   total: number;
+  stats?: {
+    totalLists: number;
+    totalModels: number;
+  };
 }
 
 export interface FigureDetailResponse {
@@ -99,6 +110,28 @@ export const DOMAIN_COLORS: Record<string, string> = {
   'Medicine': '#ec4899',
   'Social Reform': '#14b8a6',
   'Other': '#6b7280',
+};
+
+// Region colors for visualization
+export const REGION_COLORS: Record<string, string> = {
+  'Northern Europe': '#5b7aa6',
+  'Western Europe': '#4f6fa1',
+  'Southern Europe': '#7a5a9e',
+  'Eastern Europe': '#6b6fd1',
+  'North Africa': '#b46a4e',
+  'West Africa': '#b6783b',
+  'East Africa': '#a0624a',
+  'Central Africa': '#8a5a4d',
+  'Southern Africa': '#7d4a3b',
+  'Western Asia': '#b2735b',
+  'Central Asia': '#9a7a4a',
+  'South Asia': '#c28b3f',
+  'East Asia': '#5a9a8f',
+  'Southeast Asia': '#4aa39a',
+  'North America': '#4f8e6f',
+  'Mesoamerica & Caribbean': '#4d9b7d',
+  'South America': '#6aa15d',
+  'Oceania': '#4a8aa8',
 };
 
 // Era colors for visualization (warm gradient from ancient to modern)

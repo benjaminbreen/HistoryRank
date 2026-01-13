@@ -7,7 +7,7 @@ import { db, nameAliases } from '../src/lib/db';
 import { normalizeName } from '../src/lib/utils/nameNormalization';
 
 // Known name variations mapped to canonical figure IDs (from Pantheon)
-const knownAliases: Array<{ alias: string; figureId: string }> = [
+export const knownAliases: Array<{ alias: string; figureId: string }> = [
   // Jesus variants (Pantheon: "Jesus")
   { alias: 'jesus christ', figureId: 'jesus' },
   { alias: 'jesus of nazareth', figureId: 'jesus' },
@@ -237,9 +237,11 @@ async function seedAliases() {
   console.log(`Seeded ${inserted} aliases (${skipped} skipped/existing)`);
 }
 
-seedAliases()
-  .then(() => process.exit(0))
-  .catch((err) => {
-    console.error('Error seeding aliases:', err);
-    process.exit(1);
-  });
+if (process.argv[1]?.includes('seed-aliases')) {
+  seedAliases()
+    .then(() => process.exit(0))
+    .catch((err) => {
+      console.error('Error seeding aliases:', err);
+      process.exit(1);
+    });
+}

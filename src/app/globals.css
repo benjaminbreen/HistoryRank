@@ -137,9 +137,98 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Warm off-white background */
+/* Warm off-white background with subtle gradient */
 body {
-  background-color: #faf9f7;
+  background-color: #f8f6f2;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(175, 140, 90, 0.08) 0px,
+      rgba(175, 140, 90, 0.08) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    linear-gradient(
+      170deg,
+      rgba(255, 253, 248, 0.9) 0%,
+      rgba(250, 247, 242, 0.7) 50%,
+      rgba(247, 244, 238, 0.8) 100%
+    );
+}
+
+/* Header with frosted glass effect */
+.hr-header {
+  background: rgba(253, 252, 250, 0.82);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .hr-header {
+    background: rgba(253, 252, 250, 0.96);
+  }
+}
+
+.hr-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(214, 173, 110, 0.35) 20%,
+    rgba(168, 190, 210, 0.25) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Logo styling */
+.hr-logo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hr-logo:hover {
+  transform: scale(1.02);
+}
+
+.hr-logo:hover .hr-logo-icon {
+  background-color: #f5f0e8;
+  border-color: #c9a55c;
+  box-shadow: 0 0 0 3px rgba(201, 165, 92, 0.15);
+}
+
+.hr-logo:hover .hr-logo-text {
+  color: #78716c;
+}
+
+.hr-logo:active {
+  transform: scale(0.98);
+}
+
+.hr-logo-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hr-logo-text {
+  transition: color 0.3s ease;
+}
+
+/* Solid row backgrounds to mask page texture */
+.hr-table-row {
+  background-color: rgba(253, 253, 251, 0.95);
+}
+
+.hr-table-row:hover {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 /* Table hover states */
@@ -170,4 +259,107 @@ tr:hover td {
 ::selection {
   background-color: #d4a574;
   color: #1a1a1a;
+}
+
+/* Globe marker pulse animation */
+@keyframes globe-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    r: 20;
+  }
+  50% {
+    opacity: 0.8;
+    r: 24;
+  }
+}
+
+.globe-marker-pulse {
+  animation: globe-pulse 2s ease-in-out infinite;
+}
+
+/* ===== DARK MODE STYLES ===== */
+
+/* Dark mode body background - midnight blue with subtle amber texture */
+.dark body {
+  background-color: #0c1220;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(217, 170, 100, 0.03) 0px,
+      rgba(217, 170, 100, 0.03) 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(59, 90, 140, 0.15) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(15, 23, 42, 0.95) 0%,
+      rgba(12, 18, 32, 1) 50%,
+      rgba(10, 15, 28, 1) 100%
+    );
+}
+
+/* Dark mode header - frosted midnight glass */
+.dark .hr-header {
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow:
+    0 1px 0 rgba(217, 170, 100, 0.1) inset,
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(217, 170, 100, 0.15);
+}
+
+.dark .hr-header::after {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(217, 170, 100, 0.3) 20%,
+    rgba(100, 150, 200, 0.2) 80%,
+    transparent 100%
+  );
+}
+
+/* Dark mode logo with amber glow */
+.dark .hr-logo:hover .hr-logo-icon {
+  background-color: rgba(217, 170, 100, 0.15);
+  border-color: #d9aa64;
+  box-shadow: 0 0 0 3px rgba(217, 170, 100, 0.2), 0 0 20px rgba(217, 170, 100, 0.1);
+}
+
+.dark .hr-logo:hover .hr-logo-text {
+  color: #e5d4b8;
+}
+
+/* Dark mode table rows - midnight blue tones */
+.dark .hr-table-row {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+.dark .hr-table-row:hover {
+  background-color: rgba(25, 38, 62, 0.95);
+  box-shadow: 0 0 0 1px rgba(217, 170, 100, 0.1), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode scrollbar - midnight with amber */
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #334155, #1e293b);
+  border: 1px solid rgba(217, 170, 100, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #475569, #334155);
+  border-color: rgba(217, 170, 100, 0.2);
+}
+
+/* Dark mode selection - amber highlight */
+.dark ::selection {
+  background-color: rgba(217, 170, 100, 0.4);
+  color: #fef3e2;
 }
