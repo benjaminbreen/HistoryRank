@@ -30,7 +30,7 @@ function mapRegionSub(lat, lon) {
 
   if (lon <= -30 && lon >= -170) {
     if (lat >= 15) return 'North America';
-    if (lat >= 5 && lat < 15) return 'Mesoamerica & Caribbean';
+    if (lat >= 5 && lat < 15) return 'Central America';
     if (lat < 5) return 'South America';
   }
 
@@ -41,7 +41,8 @@ function mapRegionSub(lat, lon) {
     return 'Eastern Europe';
   }
 
-  if (lon >= -25 && lon <= 55 && lat >= -35 && lat <= 35) {
+  // Africa (eastern boundary at ~33°E - roughly the Sinai/Red Sea)
+  if (lon >= -25 && lon <= 33 && lat >= -35 && lat <= 35) {
     if (lat >= 15) return 'North Africa';
     if (lon < 10 && lat >= 0) return 'West Africa';
     if (lon >= 25 && lat >= -5) return 'East Africa';
@@ -78,7 +79,7 @@ function mapRegionMacro(regionSub) {
     'East Asia': 'Asia',
     'Southeast Asia': 'Asia',
     'North America': 'Americas',
-    'Mesoamerica & Caribbean': 'Americas',
+    'Central America': 'Americas',
     'South America': 'Americas',
     'Oceania': 'Oceania',
   };

@@ -22,9 +22,12 @@
     "thumbnails": "npx tsx scripts/download-thumbnails.ts",
     "thumbnails:check": "npx tsx scripts/download-thumbnails.ts --check",
     "download:thumbnails": "npx tsx scripts/download-thumbnails.ts",
+    "prepare:db": "node scripts/prepare-db-for-deploy.cjs",
+    "generate:qwen": "npx tsx scripts/generate-openrouter-list.ts",
     "validate:llm": "node scripts/validate-llm-data.cjs",
     "build:llm-candidates": "node scripts/build-llm-candidates.cjs",
-    "promote:llm-candidates": "node scripts/promote-llm-candidates.cjs"
+    "promote:llm-candidates": "node scripts/promote-llm-candidates.cjs",
+    "report:missing-fields": "npx tsx scripts/report-missing-fields.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

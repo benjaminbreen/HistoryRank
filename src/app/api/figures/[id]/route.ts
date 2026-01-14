@@ -40,8 +40,16 @@ export async function GET(
       .filter((alias) => alias && alias !== normalizedCanonical)
       .sort((a, b) => a.localeCompare(b));
 
+    // Parse pageviewsByLanguage JSON if present
+    const figureWithParsedPageviews = {
+      ...figure,
+      pageviewsByLanguage: figure.pageviewsByLanguage
+        ? JSON.parse(figure.pageviewsByLanguage as string)
+        : null,
+    };
+
     const response: FigureDetailResponse = {
-      figure,
+      figure: figureWithParsedPageviews,
       rankings: figureRankings,
       aliases: aliasList,
     };

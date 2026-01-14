@@ -18,11 +18,40 @@ export interface Figure {
   wikipediaExtract: string | null;
   pageviews2024: number | null;
   pageviews2025: number | null;
+  pageviewsByLanguage: Record<string, number> | null;
+  pageviewsGlobal: number | null;
   hpiRank: number | null;
   hpiScore: number | null;
   llmConsensusRank: number | null;
   varianceScore: number | null;
 }
+
+// Language codes and names for pageview display
+export const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English',
+  de: 'German',
+  fr: 'French',
+  es: 'Spanish',
+  ja: 'Japanese',
+  ru: 'Russian',
+  zh: 'Chinese',
+  pt: 'Portuguese',
+  it: 'Italian',
+  ar: 'Arabic',
+};
+
+export const LANGUAGE_FLAGS: Record<string, string> = {
+  en: '🇬🇧',
+  de: '🇩🇪',
+  fr: '🇫🇷',
+  es: '🇪🇸',
+  ja: '🇯🇵',
+  ru: '🇷🇺',
+  zh: '🇨🇳',
+  pt: '🇵🇹',
+  it: '🇮🇹',
+  ar: '🇸🇦',
+};
 
 export interface Ranking {
   id: number;
@@ -51,7 +80,8 @@ export interface FigureRow {
   llmConsensusRank: number | null; // Raw average consensus score
   varianceScore: number | null;
   pageviews: number | null;
-  varianceLevel: 'low' | 'medium' | 'high';
+  varianceLevel: VarianceLevel;
+  badges: BadgeType[];
   wikipediaSlug: string | null; // For thumbnail fetching
 }
 
@@ -62,6 +92,28 @@ export interface FiguresResponse {
   stats?: {
     totalLists: number;
     totalModels: number;
+  };
+}
+
+export interface MapPoint {
+  id: string;
+  name: string;
+  lat: number;
+  lon: number;
+  birthYear: number | null;
+  rank: number | null;
+  domain: string | null;
+  era: string | null;
+  regionSub: string | null;
+  wikipediaSlug: string | null;
+}
+
+export interface MapResponse {
+  points: MapPoint[];
+  meta: {
+    domains: string[];
+    eras: string[];
+    sources: string[];
   };
 }
 
@@ -80,22 +132,132 @@ export interface FilterState {
   sortOrder: 'asc' | 'desc';
 }
 
-// Variance levels for display
-export function getVarianceLevel(score: number | null): 'low' | 'medium' | 'high' {
-  if (score === null) return 'low';
-  if (score < 0.15) return 'low';
-  if (score < 0.3) return 'medium';
-  return 'high';
+// Variance levels for display (5-tier system)
+export type VarianceLevel = 'undisputed' | 'consensus' | 'mixed' | 'contested' | 'controversial';
+
+export function getVarianceLevel(score: number | null): VarianceLevel {
+  if (score === null) return 'consensus';
+  if (score < 0.1) return 'undisputed';
+  if (score < 0.4) return 'consensus';
+  if (score < 0.7) return 'mixed';
+  if (score < 0.85) return 'contested';
+  return 'controversial';
 }
+
+export const VARIANCE_LABELS: Record<VarianceLevel, string> = {
+  'undisputed': 'High Consensus',
+  'consensus': 'Consensus',
+  'mixed': 'Neutral',
+  'contested': 'Variance',
+  'controversial': 'High Variance',
+};
+
+export const VARIANCE_COLORS: Record<VarianceLevel, { bg: string; text: string; border: string }> = {
+  'undisputed': { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200' },
+  'consensus': { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-200' },
+  'mixed': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
+  'contested': { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200' },
+  'controversial': { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200' },
+};
+
+// Badge system for highlighting noteworthy patterns
+export type BadgeType =
+  | 'claude-favorite'
+  | 'gpt-favorite'
+  | 'gemini-favorite'
+  | 'deepseek-favorite'
+  | 'qwen-favorite'
+  | 'legacy-leaning'        // Pantheon ranks much higher than LLMs
+  | 'llm-favorite'          // LLMs rank much higher than HPI
+  | 'popular'               // High pageviews, modest rank (was 'hyped')
+  | 'hidden-gem'            // High rank + low attention + strong consensus
+  | 'under-the-radar'       // High rank + low attention + HPI also undervalues
+  | 'global-icon'           // Popular outside Anglophone world
+  | 'universal-recognition';// High rank across LLMs, HPI, AND pageviews
+
+export interface Badge {
+  type: BadgeType;
+  label: string;
+  icon: string;
+  description: string;
+}
+
+export const BADGE_DEFINITIONS: Record<BadgeType, Omit<Badge, 'type'>> = {
+  'claude-favorite': {
+    label: 'Claude',
+    icon: '♡',
+    description: 'Claude models rank this figure significantly higher than other sources',
+  },
+  'gpt-favorite': {
+    label: 'GPT',
+    icon: '♡',
+    description: 'GPT models rank this figure significantly higher than other sources',
+  },
+  'gemini-favorite': {
+    label: 'Gemini',
+    icon: '♡',
+    description: 'Gemini models rank this figure significantly higher than other sources',
+  },
+  'deepseek-favorite': {
+    label: 'DeepSeek',
+    icon: '♡',
+    description: 'DeepSeek ranks this figure significantly higher than other sources',
+  },
+  'qwen-favorite': {
+    label: 'Qwen',
+    icon: '♡',
+    description: 'Qwen ranks this figure significantly higher than other sources',
+  },
+  'legacy-leaning': {
+    label: 'Legacy',
+    icon: '📚',
+    description: 'Pantheon ranks this figure much higher than LLM consensus',
+  },
+  'llm-favorite': {
+    label: 'AI Pick',
+    icon: '🤖',
+    description: 'Ranked much higher by LLM consensus than by traditional historical metrics',
+  },
+  'popular': {
+    label: 'Popular',
+    icon: '📈',
+    description: 'High public interest (pageviews) relative to historical ranking',
+  },
+  'hidden-gem': {
+    label: 'Hidden Gem',
+    icon: '💎',
+    description: 'Top-ranked with strong LLM consensus but low public attention',
+  },
+  'under-the-radar': {
+    label: 'Under the Radar',
+    icon: '◍',
+    description: 'Overlooked by both public attention and traditional metrics, but recognized by LLMs',
+  },
+  'global-icon': {
+    label: 'Global',
+    icon: '🌍',
+    description: 'Highly regarded outside the Anglophone world by both AI models and Wikipedia readers',
+  },
+  'universal-recognition': {
+    label: 'Universal',
+    icon: '👑',
+    description: 'Recognized across all sources: LLMs, Pantheon, and public attention',
+  },
+};
 
 // Source display names
 export const SOURCE_LABELS: Record<string, string> = {
   'pantheon': 'MIT Pantheon',
   'claude-sonnet-4.5': 'Claude Sonnet 4.5',
   'claude-opus-4.5': 'Claude Opus 4.5',
+  'deepseek-v3.2': 'DeepSeek v3.2',
   'gemini-flash-3': 'Gemini Flash 3',
+  'gemini-flash-3-preview': 'Gemini Flash 3 Preview',
   'gemini-pro-3': 'Gemini Pro 3',
   'gpt-4o': 'GPT-4o',
+  'gpt-5.2-thinking': 'GPT-5.2 Thinking',
+  'grok-4.1-fast': 'Grok 4.1 Fast',
+  'qwen3': 'Qwen 3',
 };
 
 // Domain colors for visualization
@@ -130,19 +292,21 @@ export const REGION_COLORS: Record<string, string> = {
   'East Asia': '#5a9a8f',
   'Southeast Asia': '#4aa39a',
   'North America': '#4f8e6f',
-  'Mesoamerica & Caribbean': '#4d9b7d',
+  'Central America': '#4d9b7d',
   'South America': '#6aa15d',
   'Oceania': '#4a8aa8',
 };
 
 // Era colors for visualization (warm gradient from ancient to modern)
 export const ERA_COLORS: Record<string, string> = {
-  'Ancient': '#92400e',      // warm brown
-  'Classical': '#b45309',    // amber
-  'Medieval': '#ca8a04',     // yellow
-  'Early Modern': '#65a30d', // lime
-  'Modern': '#0891b2',       // cyan
-  'Contemporary': '#7c3aed', // violet
+  'Ancient': '#7c2d12',        // deep brown
+  'Classical': '#9a3412',      // burnt orange
+  'Late Antiquity': '#b45309', // amber
+  'Medieval': '#ca8a04',       // yellow
+  'Early Modern': '#65a30d',   // lime
+  'Industrial': '#16a34a',     // green
+  'Modern': '#0891b2',         // cyan
+  'Contemporary': '#7c3aed',   // violet
 };
 
 // Scatter plot types

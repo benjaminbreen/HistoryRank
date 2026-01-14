@@ -121,11 +121,13 @@ export function isFuzzyMatch(name1: string, name2: string, maxDistance = 3): boo
 export function determineEra(birthYear: number | null): string | null {
   if (birthYear === null) return null;
 
-  if (birthYear < -500) return 'Ancient';
-  if (birthYear < 500) return 'Classical';
+  if (birthYear < -600) return 'Ancient';
+  if (birthYear < 200) return 'Classical';
+  if (birthYear < 800) return 'Late Antiquity';
   if (birthYear < 1500) return 'Medieval';
   if (birthYear < 1800) return 'Early Modern';
-  if (birthYear < 1950) return 'Modern';
+  if (birthYear < 1914) return 'Industrial';
+  if (birthYear < 1945) return 'Modern';
   return 'Contemporary';
 }
 

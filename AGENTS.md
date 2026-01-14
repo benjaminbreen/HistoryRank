@@ -6,6 +6,11 @@ HistoryRank builds a public, data-driven ranking of historical figures. It combi
 - MIT Pantheon (HPI) data
 - Wikipedia pageviews and metadata
 
+## IMPORTANT: Vercel deploy step
+Before deploying to Vercel, run `npm run prepare:db` and commit the updated
+`historyrank.db`. This disables SQLite WAL mode and removes `-wal`/`-shm` so
+Vercel can open the database file at runtime.
+
 The goals are:
 - Create a free, public history learning resource.
 - Benchmark how different LLMs assess historical importance.
@@ -26,15 +31,12 @@ Role: You are a senior historian and data scientist specializing in "Historiomet
 - Thumbnails are cached locally in `public/thumbnails/{figureId}.jpg|png|webp`.
 
 ## Consensus ranking formula
-The consensus rank uses **coverage-weighted averaging** to prevent figures ranked by only a few models from appearing artificially high:
-
-```
-coverageWeighted = mean × (totalModels / modelsRankingThisFigure)
-```
+Missing model rankings are treated as rank **1001** (i.e., below the top-1000 cutoff).
+Consensus is the mean of all model ranks after padding missing entries with 1001.
 
 Example: Morton ranked 37 and 59 by 2 models out of 5:
-- Mean: (37+59)/2 = 48
-- Coverage penalty: 48 × (5/2) = **120**
+- Padded list: [37, 59, 1001, 1001, 1001]
+- Mean: **619.8**
 
 This formula is implemented in `scripts/recalculate-consensus.cjs` (single source of truth).
 
@@ -49,6 +51,7 @@ This formula is implemented in `scripts/recalculate-consensus.cjs` (single sourc
 | `npm run thumbnails` | Download missing thumbnails |
 | `npm run thumbnails:check` | List figures missing thumbnails |
 | `node scripts/recalculate-consensus.cjs` | Recompute consensus after manual DB edits |
+| `npm run prepare:db` | Normalize `historyrank.db` for Vercel (disable WAL + remove `-wal`/`-shm`) |
 
 ## Adding new LLM lists (full workflow)
 ```bash
@@ -146,6 +149,16 @@ historyrank/
 │   └── types/                  # TypeScript types
 └── historyrank.db              # SQLite database
 ```
+
+## Deployment note (important)
+SQLite WAL mode is used locally for performance, but Vercel only ships the main
+`historyrank.db` file. Before deploying, run:
+
+```bash
+npm run prepare:db
+```
+
+This checkpoints WAL, switches to DELETE journal mode, and removes `-wal`/`-shm`.
 
 ## Data flow
 ```

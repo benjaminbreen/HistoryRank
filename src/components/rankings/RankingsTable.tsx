@@ -11,9 +11,10 @@ import {
 } from '@/components/ui/table';
 import { Tooltip } from '@/components/ui/tooltip';
 import { VarianceBadge } from './VarianceBadge';
+import { BadgeDisplay } from './BadgeDisplay';
 import { FigureThumbnail } from './FigureThumbnail';
 import { ChevronUp, ChevronDown } from 'lucide-react';
-import { REGION_COLORS } from '@/types';
+import { REGION_COLORS, getVarianceLevel } from '@/types';
 import type { FigureRow } from '@/types';
 
 interface RankingsTableProps {
@@ -23,6 +24,15 @@ interface RankingsTableProps {
   sortBy: string;
   sortOrder: 'asc' | 'desc';
   onSort: (column: string) => void;
+  density?: 'comfortable' | 'compact';
+  thumbnailSize?: number;
+  fontScale?: number;
+  visibleColumns?: {
+    region: boolean;
+    era: boolean;
+    variance: boolean;
+    views: boolean;
+  };
 }
 
 // Column tooltip descriptions
@@ -45,6 +55,15 @@ export function RankingsTable({
   sortBy,
   sortOrder,
   onSort,
+  density = 'comfortable',
+  thumbnailSize = 38,
+  fontScale = 1,
+  visibleColumns = {
+    region: true,
+    era: true,
+    variance: true,
+    views: true,
+  },
 }: RankingsTableProps) {
   const SortHeader = ({ column, children, tooltip, align }: { column: string; children: React.ReactNode; tooltip?: string; align?: 'left' | 'center' | 'right' }) => (
     <Tooltip content={tooltip || columnTooltips[column as keyof typeof columnTooltips]} align={align}>
@@ -78,6 +97,10 @@ export function RankingsTable({
   };
 
   // Memoized row component to prevent unnecessary re-renders
+  const rowPadding = density === 'compact' ? 'py-2' : 'py-3';
+  const secondaryText = density === 'compact' ? 'text-xs' : 'text-sm';
+  const nameText = density === 'compact' ? 'text-[14px]' : 'text-[15px]';
+
   const MemoizedTableRow = memo(function MemoizedTableRow({
     figure,
     isSelected,
@@ -98,55 +121,68 @@ export function RankingsTable({
             : 'hover:bg-white dark:hover:bg-slate-800/80'
         }`}
       >
-        <TableCell className="font-mono text-base text-stone-900 dark:text-amber-100 font-medium py-3">
+        <TableCell className={`font-mono text-base text-stone-900 dark:text-amber-100 font-medium ${rowPadding}`}>
           {figure.llmRank ? `#${figure.llmRank}` : '—'}
         </TableCell>
-        <TableCell className="font-mono text-base text-stone-500 dark:text-slate-400 py-3">
+        <TableCell className={`font-mono text-base text-stone-500 dark:text-slate-400 ${rowPadding}`}>
           {formatRank(figure.hpiRank)}
         </TableCell>
-        <TableCell className="py-3">
+        <TableCell className={rowPadding}>
           <div className="flex items-center gap-3">
             <FigureThumbnail
               figureId={figure.id}
               wikipediaSlug={figure.wikipediaSlug}
               name={figure.name}
-              size={38}
+              size={thumbnailSize}
               className="group-hover:scale-105"
             />
-            <div>
-              <div className="font-medium text-[15px] text-stone-900 dark:text-slate-100">{figure.name}</div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100`}>{figure.name}</span>
+                {figure.badges && figure.badges.length > 0 && (
+                  <BadgeDisplay badges={figure.badges} compact maxVisible={3} />
+                )}
+              </div>
               {figure.birthYear && (
-                <div className="text-sm text-stone-400 dark:text-slate-500">
+                <div className={`${secondaryText} text-stone-400 dark:text-slate-500`}>
                   {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
                 </div>
               )}
             </div>
           </div>
         </TableCell>
-        <TableCell className="text-sm text-stone-600 dark:text-slate-400 py-3">
-          {figure.regionSub ? (
-            <span
-              className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
-              style={{ backgroundColor: REGION_COLORS[figure.regionSub] || '#9ca3af' }}
-            >
-              {figure.regionSub}
-            </span>
-          ) : (
-            '—'
-          )}
-        </TableCell>
-        <TableCell className="text-[15px] text-stone-600 dark:text-slate-300 py-3">
+        {visibleColumns.region && (
+          <TableCell className={`${secondaryText} text-stone-600 dark:text-slate-400 ${rowPadding}`}>
+            {figure.regionSub ? (
+              <span
+                className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
+                style={{ backgroundColor: REGION_COLORS[figure.regionSub] || '#9ca3af' }}
+              >
+                {figure.regionSub}
+              </span>
+            ) : (
+              '—'
+            )}
+          </TableCell>
+        )}
+        <TableCell className={`text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
           {figure.domain || '—'}
         </TableCell>
-        <TableCell className="text-[15px] text-stone-600 dark:text-slate-300 py-3">
-          {figure.era || '—'}
-        </TableCell>
-        <TableCell className="py-3">
-          <VarianceBadge level={figure.varianceLevel} score={figure.varianceScore} />
-        </TableCell>
-        <TableCell className="font-mono text-base text-right text-stone-500 dark:text-slate-400 py-3">
-          {formatNumber(figure.pageviews)}
-        </TableCell>
+        {visibleColumns.era && (
+          <TableCell className={`text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+            {figure.era || '—'}
+          </TableCell>
+        )}
+        {visibleColumns.variance && (
+          <TableCell className={rowPadding}>
+            <VarianceBadge level={getVarianceLevel(figure.varianceScore)} score={figure.varianceScore} />
+          </TableCell>
+        )}
+        {visibleColumns.views && (
+          <TableCell className={`font-mono text-base text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+            {formatNumber(figure.pageviews)}
+          </TableCell>
+        )}
       </TableRow>
     );
   });
@@ -157,9 +193,12 @@ export function RankingsTable({
   }, [onSelectFigure]);
 
   return (
-    <div className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-hidden">
+    <div
+      className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-hidden"
+      style={{ fontSize: `${fontScale}em` }}
+    >
       <Table>
-        <TableHeader>
+        <TableHeader className="border-t border-stone-200/70 dark:border-amber-900/40">
           <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
             <TableHead className="w-[60px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="llmRank">LLM</SortHeader>
@@ -170,21 +209,29 @@ export function RankingsTable({
             <TableHead className="text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="name">Name</SortHeader>
             </TableHead>
-            <TableHead className="w-[140px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="regionSub">Region</SortHeader>
-            </TableHead>
-            <TableHead className="w-[100px] text-stone-600 dark:text-slate-400 font-medium">
+            {visibleColumns.region && (
+              <TableHead className="w-[140px] text-stone-600 dark:text-slate-400 font-medium">
+                <SortHeader column="regionSub">Region</SortHeader>
+              </TableHead>
+            )}
+            <TableHead className="w-[100px] text-stone-700 dark:text-slate-300 font-medium">
               <SortHeader column="domain">Domain</SortHeader>
             </TableHead>
-            <TableHead className="w-[100px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="era">Era</SortHeader>
-            </TableHead>
-            <TableHead className="w-[110px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="varianceScore" align="right">Variance</SortHeader>
-            </TableHead>
-            <TableHead className="w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
-              <SortHeader column="pageviews" align="right">Views</SortHeader>
-            </TableHead>
+            {visibleColumns.era && (
+              <TableHead className="w-[100px] text-stone-700 dark:text-slate-300 font-medium">
+                <SortHeader column="era">Era</SortHeader>
+              </TableHead>
+            )}
+            {visibleColumns.variance && (
+              <TableHead className="w-[110px] text-stone-700 dark:text-slate-300 font-medium">
+                <SortHeader column="varianceScore" align="right">Variance</SortHeader>
+              </TableHead>
+            )}
+            {visibleColumns.views && (
+              <TableHead className="w-[90px] text-stone-700 dark:text-slate-300 font-medium text-right">
+                <SortHeader column="pageviews" align="right">Views</SortHeader>
+              </TableHead>
+            )}
           </TableRow>
         </TableHeader>
         <TableBody>

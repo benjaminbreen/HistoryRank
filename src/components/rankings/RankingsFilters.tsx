@@ -1,7 +1,11 @@
 'use client';
 
 import { Input } from '@/components/ui/input';
-import { Search, X } from 'lucide-react';
+import { Tooltip } from '@/components/ui/tooltip';
+import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import type { BadgeType } from '@/types';
+import { BADGE_DEFINITIONS } from '@/types';
 
 interface RankingsFiltersProps {
   search: string;
@@ -14,7 +18,20 @@ interface RankingsFiltersProps {
   onRegionChange: (value: string | null) => void;
   modelSource: string | null;
   onModelSourceChange: (value: string | null) => void;
+  badgeFilter: BadgeType | null;
+  onBadgeFilterChange: (value: BadgeType | null) => void;
 }
+
+// Badge filter buttons configuration
+const BADGE_FILTERS: { type: BadgeType; icon: typeof Gem; color: string }[] = [
+  { type: 'hidden-gem', icon: Gem, color: 'text-cyan-600 bg-cyan-50 border-cyan-200 hover:bg-cyan-100' },
+  { type: 'under-the-radar', icon: Radar, color: 'text-sky-600 bg-sky-50 border-sky-200 hover:bg-sky-100' },
+  { type: 'global-icon', icon: Globe, color: 'text-teal-600 bg-teal-50 border-teal-200 hover:bg-teal-100' },
+  { type: 'universal-recognition', icon: Crown, color: 'text-amber-600 bg-amber-50 border-amber-200 hover:bg-amber-100' },
+  { type: 'popular', icon: TrendingUp, color: 'text-rose-600 bg-rose-50 border-rose-200 hover:bg-rose-100' },
+  { type: 'llm-favorite', icon: Bot, color: 'text-indigo-600 bg-indigo-50 border-indigo-200 hover:bg-indigo-100' },
+  { type: 'legacy-leaning', icon: BookOpen, color: 'text-violet-600 bg-violet-50 border-violet-200 hover:bg-violet-100' },
+];
 
 const DOMAINS = [
   'Science',
@@ -32,8 +49,10 @@ const DOMAINS = [
 const ERAS = [
   'Ancient',
   'Classical',
+  'Late Antiquity',
   'Medieval',
   'Early Modern',
+  'Industrial',
   'Modern',
   'Contemporary',
 ];
@@ -54,7 +73,7 @@ const REGIONS = [
   'East Asia',
   'Southeast Asia',
   'North America',
-  'Mesoamerica & Caribbean',
+  'Central America',
   'South America',
   'Oceania',
 ];
@@ -63,10 +82,12 @@ const MODEL_SOURCES = [
   { id: null, label: 'All LLMs (average)' },
   { id: 'claude-opus-4.5', label: 'Claude Opus 4.5' },
   { id: 'claude-sonnet-4.5', label: 'Claude Sonnet 4.5' },
+  { id: 'deepseek-v3.2', label: 'DeepSeek v3.2' },
   { id: 'gemini-flash-3-preview', label: 'Gemini Flash 3 Preview' },
   { id: 'gemini-pro-3', label: 'Gemini Pro 3' },
   { id: 'gpt-5.2-thinking', label: 'GPT 5.2 Thinking' },
-  { id: 'grok-4', label: 'Grok 4' },
+  { id: 'grok-4.1-fast', label: 'Grok 4.1 Fast' },
+  { id: 'qwen3', label: 'Qwen 3' },
 ];
 
 export function RankingsFilters({
@@ -80,6 +101,8 @@ export function RankingsFilters({
   onRegionChange,
   modelSource,
   onModelSourceChange,
+  badgeFilter,
+  onBadgeFilterChange,
 }: RankingsFiltersProps) {
   return (
     <div className="flex flex-wrap gap-4 items-center">
@@ -157,8 +180,41 @@ export function RankingsFilters({
         ))}
       </select>
 
+      {/* Badge filter icons */}
+      <div className="flex items-center gap-1 border-l border-stone-200 pl-4 ml-1">
+        <span className="text-xs text-stone-400 mr-1.5 hidden sm:inline">Badges:</span>
+        {BADGE_FILTERS.map(({ type, icon: Icon, color }) => {
+          const badge = BADGE_DEFINITIONS[type];
+          const isActive = badgeFilter === type;
+          return (
+            <Tooltip
+              key={type}
+              content={
+                <div className="max-w-xs">
+                  <p className="font-medium">{badge.label}</p>
+                  <p className="text-stone-500 dark:text-slate-400 text-xs mt-0.5">{badge.description}</p>
+                </div>
+              }
+            >
+              <button
+                onClick={() => onBadgeFilterChange(isActive ? null : type)}
+                className={cn(
+                  'p-1.5 rounded border transition-all',
+                  isActive
+                    ? `${color} ring-2 ring-offset-1 ring-stone-400`
+                    : 'text-stone-400 bg-white border-stone-200 hover:text-stone-600 hover:bg-stone-50'
+                )}
+                aria-label={`Filter by ${badge.label}`}
+              >
+                <Icon className="h-4 w-4" />
+              </button>
+            </Tooltip>
+          );
+        })}
+      </div>
+
       {/* Clear filters */}
-      {(domain || era || region || modelSource || search) && (
+      {(domain || era || region || modelSource || search || badgeFilter) && (
         <button
           onClick={() => {
             onSearchChange('');
@@ -166,6 +222,7 @@ export function RankingsFilters({
             onEraChange(null);
             onRegionChange(null);
             onModelSourceChange(null);
+            onBadgeFilterChange(null);
           }}
           className="text-sm text-stone-500 hover:text-stone-700 underline"
         >

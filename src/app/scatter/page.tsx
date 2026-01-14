@@ -1,17 +1,15 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
 import { ScatterPlotChart } from '@/components/viz/ScatterPlotChart';
 import { ScatterPlotControls } from '@/components/viz/ScatterPlotControls';
 import { ScatterPlotLegend } from '@/components/viz/ScatterPlotLegend';
 import { DownloadMenu } from '@/components/viz/DownloadMenu';
 import { FigureDetailPanel } from '@/components/detail/FigureDetailPanel';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Info, Menu, Moon, Sun } from 'lucide-react';
-import { useDarkMode } from '@/hooks/useDarkMode';
+import { AppHeader } from '@/components/layout/AppHeader';
+import { Info } from 'lucide-react';
+import { useSettings } from '@/hooks/useSettings';
 import type {
   ScatterDataPoint,
   ScatterPlotConfig,
@@ -37,13 +35,13 @@ const DEFAULT_CONFIG: ScatterPlotConfig = {
 
 export default function ScatterPage() {
   const chartRef = useRef<HTMLDivElement>(null);
+  const { settings, updateSettings, resetSettings } = useSettings();
 
   // Data
   const [data, setData] = useState<ScatterDataPoint[]>([]);
   const [availableSources, setAvailableSources] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isCompactHeader, setIsCompactHeader] = useState(false);
 
   // Config
   const [config, setConfig] = useState<ScatterPlotConfig>(DEFAULT_CONFIG);
@@ -56,9 +54,6 @@ export default function ScatterPage() {
 
   // Hover state for info
   const [hoveredPoint, setHoveredPoint] = useState<ScatterDataPoint | null>(null);
-
-  // Dark mode
-  const { isDarkMode, mounted, toggleDarkMode } = useDarkMode();
 
   // Fetch scatter data
   useEffect(() => {
@@ -87,13 +82,6 @@ export default function ScatterPage() {
     };
 
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setIsCompactHeader(window.scrollY > 48);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   // Fetch figure details when selected
@@ -149,98 +137,21 @@ export default function ScatterPage() {
 
   return (
     <main className="min-h-screen bg-transparent">
-      <header
-        className={`sticky top-0 z-50 border-b border-stone-200/60 dark:border-amber-900/30 transition-all ${
-          isCompactHeader ? 'py-3' : 'py-6'
-        }`}
-        style={{
-          backgroundColor: mounted && isDarkMode ? 'rgba(15, 23, 42, 0.9)' : 'rgba(250, 250, 247, 0.7)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-        }}
-      >
-        <div className="max-w-[1600px] mx-auto px-6">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-full border border-stone-300 dark:border-amber-800/50 bg-stone-50 dark:bg-slate-800 text-stone-800 dark:text-amber-200 flex items-center justify-center font-serif text-xs tracking-wide">
-                HR
-              </div>
-              <div>
-                <div
-                  className={`font-serif font-semibold text-stone-900 dark:text-amber-100 transition-all ${
-                    isCompactHeader ? 'text-lg' : 'text-2xl'
-                  }`}
-                >
-                  HistoryRank
-                </div>
-                <p className={`mt-1 text-sm text-stone-500 dark:text-slate-400 ${isCompactHeader ? 'hidden' : 'block'}`}>
-                  Scatter Plot view
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2">
-              <Link
-                href="/"
-                className="text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 px-2 py-1"
-              >
-                Table
-              </Link>
-              <span className="px-3 py-1.5 text-sm rounded-full bg-stone-900 dark:bg-amber-900/50 text-white dark:text-amber-100">
-                Scatter
-              </span>
-              <Link
-                href="/about"
-                className="text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 px-2 py-1"
-              >
-                About
-              </Link>
-              <Link
-                href="/methodology"
-                className="text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 px-2 py-1"
-              >
-                Methodology
-              </Link>
-              <DownloadMenu chartRef={chartRef} data={filteredData} config={config} />
-              {/* Dark Mode Toggle */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={toggleDarkMode}
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="relative overflow-hidden"
-              >
-                <div className="relative w-4 h-4">
-                  <Sun
-                    className={`h-4 w-4 absolute inset-0 transition-all duration-300 ${
-                      isDarkMode ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-                    }`}
-                  />
-                  <Moon
-                    className={`h-4 w-4 absolute inset-0 transition-all duration-300 ${
-                      isDarkMode ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
-                    }`}
-                  />
-                </div>
-              </Button>
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="sm" aria-label="Open settings">
-                    <Menu className="h-4 w-4" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="w-[320px] bg-stone-50">
-                  <SheetHeader>
-                    <SheetTitle className="font-serif text-stone-900">Settings</SheetTitle>
-                  </SheetHeader>
-                  <div className="mt-4 rounded-md border border-stone-200 bg-white p-3 text-sm text-stone-600">
-                    Settings will live here (display, data filters, exports).
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
+      <AppHeader
+        active="scatter"
+        settings={settings}
+        onSettingsChange={updateSettings}
+        onSettingsReset={resetSettings}
+      />
+      <div className="max-w-[1600px] mx-auto px-6 pt-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 text-sm text-stone-600 dark:text-slate-400">
+          <span className="inline-flex items-center gap-2">
+            <Info className="h-4 w-4" />
+            Scatter view compares LLM vs. HPI rankings.
+          </span>
+          <DownloadMenu chartRef={chartRef} data={filteredData} config={config} />
         </div>
-      </header>
+      </div>
 
       {/* Main content */}
       <div className="max-w-[1600px] mx-auto px-6 py-6">

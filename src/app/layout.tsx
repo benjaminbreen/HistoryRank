@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
+import { AppFooter } from "@/components/layout/AppFooter";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,9 +33,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} antialiased hr-texture-fade`}
       >
         {children}
+        <AppFooter />
       </body>
     </html>
   );

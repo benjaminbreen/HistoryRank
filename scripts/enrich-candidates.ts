@@ -45,7 +45,7 @@ function mapRegionSub(lat: number | null, lon: number | null): string | null {
   // Americas
   if (lon <= -30 && lon >= -170) {
     if (lat >= 15) return 'North America';
-    if (lat >= 5 && lat < 15) return 'Mesoamerica & Caribbean';
+    if (lat >= 5 && lat < 15) return 'Central America';
     if (lat < 5) return 'South America';
   }
 
@@ -86,7 +86,7 @@ function mapRegionMacro(regionSub: string | null): string | null {
     'Southern Europe': 'Europe',
     'Eastern Europe': 'Europe',
     'North America': 'Americas',
-    'Mesoamerica & Caribbean': 'Americas',
+    'Central America': 'Americas',
     'South America': 'Americas',
     'North Africa': 'Africa',
     'West Africa': 'Africa',

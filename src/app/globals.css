@@ -137,10 +137,15 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-/* Warm off-white background with subtle gradient */
-body {
-  background-color: #f8f6f2;
+/* Fade background texture toward the bottom of the viewport */
+.hr-texture-fade {
   background-image:
+    linear-gradient(
+      180deg,
+      rgba(248, 246, 242, 0) 0%,
+      rgba(248, 246, 242, 0.6) 55%,
+      rgba(248, 246, 242, 0.95) 90%
+    ),
     repeating-linear-gradient(
       135deg,
       rgba(175, 140, 90, 0.08) 0px,
@@ -154,6 +159,80 @@ body {
       rgba(250, 247, 242, 0.7) 50%,
       rgba(247, 244, 238, 0.8) 100%
     );
+  background-attachment: fixed, fixed, scroll;
+  background-position: top left, top left, top left;
+}
+
+.dark .hr-texture-fade {
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(10, 15, 28, 0) 0%,
+      rgba(10, 15, 28, 0.55) 55%,
+      rgba(10, 15, 28, 0.95) 90%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(217, 170, 100, 0.03) 0px,
+      rgba(217, 170, 100, 0.03) 1px,
+      transparent 1px,
+      transparent 12px
+    ),
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(59, 90, 140, 0.15) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(15, 23, 42, 0.95) 0%,
+      rgba(12, 18, 32, 1) 50%,
+      rgba(10, 15, 28, 1) 100%
+    );
+  background-attachment: fixed, fixed, scroll, scroll;
+  background-position: top left, top left, top left, top left;
+}
+
+/* Warm off-white background with subtle gradient */
+body {
+  background-color: #f8f6f2;
+}
+
+.footer-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+  opacity: 0.6;
+}
+
+.footer-link:hover {
+  color: #1c1917;
+  transform: translateY(-1px);
+}
+
+.dark .footer-link:hover {
+  color: #fef3c7;
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* Header with frosted glass effect */
@@ -192,6 +271,7 @@ body {
 
 /* Logo styling */
 .hr-logo {
+  position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -202,11 +282,14 @@ body {
 .hr-logo:hover .hr-logo-icon {
   background-color: #f5f0e8;
   border-color: #c9a55c;
-  box-shadow: 0 0 0 3px rgba(201, 165, 92, 0.15);
+  box-shadow:
+    0 0 0 3px rgba(201, 165, 92, 0.15),
+    0 8px 22px rgba(201, 165, 92, 0.2);
 }
 
 .hr-logo:hover .hr-logo-text {
-  color: #78716c;
+  color: #6f6457;
+  letter-spacing: 0.01em;
 }
 
 .hr-logo:active {
@@ -214,16 +297,40 @@ body {
 }
 
 .hr-logo-icon {
+  position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.hr-logo-icon::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(214, 173, 110, 0.35) 0%, rgba(214, 173, 110, 0.08) 45%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.hr-logo:hover .hr-logo-icon::after {
+  opacity: 1;
+}
+
 .hr-logo-text {
+  position: relative;
   transition: color 0.3s ease;
 }
 
+.hr-logo-tagline {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
 /* Solid row backgrounds to mask page texture */
 .hr-table-row {
   background-color: rgba(253, 253, 251, 0.95);
+}
+
+.hr-table-row:nth-child(even) {
+  background-color: rgba(251, 250, 246, 0.92);
 }
 
 .hr-table-row:hover {
@@ -282,25 +389,6 @@ tr:hover td {
 /* Dark mode body background - midnight blue with subtle amber texture */
 .dark body {
   background-color: #0c1220;
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(217, 170, 100, 0.03) 0px,
-      rgba(217, 170, 100, 0.03) 1px,
-      transparent 1px,
-      transparent 12px
-    ),
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(59, 90, 140, 0.15) 0%,
-      transparent 60%
-    ),
-    linear-gradient(
-      170deg,
-      rgba(15, 23, 42, 0.95) 0%,
-      rgba(12, 18, 32, 1) 50%,
-      rgba(10, 15, 28, 1) 100%
-    );
 }
 
 /* Dark mode header - frosted midnight glass */
@@ -326,16 +414,25 @@ tr:hover td {
 .dark .hr-logo:hover .hr-logo-icon {
   background-color: rgba(217, 170, 100, 0.15);
   border-color: #d9aa64;
-  box-shadow: 0 0 0 3px rgba(217, 170, 100, 0.2), 0 0 20px rgba(217, 170, 100, 0.1);
+  box-shadow: 0 0 0 3px rgba(217, 170, 100, 0.2), 0 0 24px rgba(217, 170, 100, 0.25);
 }
 
 .dark .hr-logo:hover .hr-logo-text {
   color: #e5d4b8;
 }
 
+.dark .hr-logo-icon::after {
+  background: radial-gradient(circle, rgba(245, 195, 120, 0.4) 0%, rgba(245, 195, 120, 0.12) 45%, transparent 70%);
+}
+
+
 /* Dark mode table rows - midnight blue tones */
 .dark .hr-table-row {
   background-color: rgba(15, 23, 42, 0.9);
+}
+
+.dark .hr-table-row:nth-child(even) {
+  background-color: rgba(18, 27, 46, 0.92);
 }
 
 .dark .hr-table-row:hover {
@@ -362,4 +459,32 @@ tr:hover td {
 .dark ::selection {
   background-color: rgba(217, 170, 100, 0.4);
   color: #fef3e2;
+}
+
+/* Subtle skeleton shimmer */
+.hr-skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.hr-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+  animation: hr-skeleton-shimmer 1.6s ease-in-out infinite;
+}
+
+.dark .hr-skeleton::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+}
+
+@keyframes hr-skeleton-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
 }

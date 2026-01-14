@@ -10,7 +10,7 @@ export const figures = sqliteTable('figures', {
   deathYear: integer('death_year'),
   domain: text('domain'), // "Science", "Religion", "Politics", "Arts", "Military"
   occupation: text('occupation'), // More specific: "Physicist", "Philosopher"
-  era: text('era'), // "Ancient", "Medieval", "Early Modern", "Modern", "Contemporary"
+  era: text('era'), // "Ancient", "Classical", "Late Antiquity", "Medieval", "Early Modern", "Industrial", "Modern", "Contemporary"
   regionMacro: text('region_macro'),
   regionSub: text('region_sub'),
   birthPolity: text('birth_polity'),
@@ -25,6 +25,8 @@ export const figures = sqliteTable('figures', {
   sourceConfidence: text('source_confidence'), // 'high' | 'medium' | 'manual' | 'pantheon'
   pageviews2024: integer('pageviews_2024'),
   pageviews2025: integer('pageviews_2025'),
+  pageviewsByLanguage: text('pageviews_by_language'), // JSON: { en: 100000, de: 50000, ... }
+  pageviewsGlobal: integer('pageviews_global'), // Sum of top 10 languages
 
   // Pantheon data
   hpiRank: integer('hpi_rank'),

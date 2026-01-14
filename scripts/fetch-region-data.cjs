@@ -59,7 +59,7 @@ function mapRegionSub(lat, lon) {
   // Americas
   if (lon <= -30 && lon >= -170) {
     if (lat >= 15) return 'North America';
-    if (lat >= 5 && lat < 15) return 'Mesoamerica & Caribbean';
+    if (lat >= 5 && lat < 15) return 'Central America';
     if (lat < 5) return 'South America';
   }
 

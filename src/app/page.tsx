@@ -1,26 +1,50 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { RankingsTable } from '@/components/rankings/RankingsTable';
 import { RankingsFilters } from '@/components/rankings/RankingsFilters';
+import { ActiveFiltersBar } from '@/components/rankings/ActiveFiltersBar';
 import { FigureDetailPanel } from '@/components/detail/FigureDetailPanel';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Menu, ScatterChart, ExternalLink, Moon, Sun } from 'lucide-react';
-import { useDarkMode } from '@/hooks/useDarkMode';
-import type { FigureRow, Figure, Ranking, FiguresResponse, FigureDetailResponse } from '@/types';
+import { AppHeader } from '@/components/layout/AppHeader';
+import { useSettings } from '@/hooks/useSettings';
+import { BADGE_DEFINITIONS, type FigureRow, type Figure, type Ranking, type FiguresResponse, type FigureDetailResponse, type BadgeType } from '@/types';
 
 const PAGE_SIZE = 500;
 
-export default function Home() {
+// Loading fallback component
+function HomeLoading() {
+  return (
+    <main className="min-h-screen bg-transparent">
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="space-y-2">
+          <Skeleton className="h-12 w-full" />
+          {[...Array(10)].map((_, i) => (
+            <Skeleton key={i} className="h-10 w-full" />
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
+
+// Main content component that uses useSearchParams
+function HomeContent() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   // State
   const [figures, setFigures] = useState<FigureRow[]>([]);
   const [total, setTotal] = useState(0);
   const [totalLists, setTotalLists] = useState(0);
   const [totalModels, setTotalModels] = useState(0);
+  const [displayTotal, setDisplayTotal] = useState(0);
+  const [displayLists, setDisplayLists] = useState(0);
+  const [displayModels, setDisplayModels] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [displayLimit, setDisplayLimit] = useState(PAGE_SIZE);
 
@@ -31,13 +55,13 @@ export default function Home() {
   const [sortBy, setSortBy] = useState<string>('llmRank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isCompactHeader, setIsCompactHeader] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const [modelSource, setModelSource] = useState<string | null>(null);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
-
-  // Dark mode hook
-  const { isDarkMode, mounted, toggleDarkMode } = useDarkMode();
+  const [badgeFilter, setBadgeFilter] = useState<BadgeType | null>(null);
+  const { settings, updateSettings, resetSettings } = useSettings();
+  const [shareOrigin, setShareOrigin] = useState('');
+  const hasAnimatedCounts = useRef(false);
+  const suppressFigureSync = useRef(false);
 
   // Detail panel
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -46,9 +70,65 @@ export default function Home() {
   const [selectedRankings, setSelectedRankings] = useState<Ranking[]>([]);
   const [selectedAliases, setSelectedAliases] = useState<string[]>([]);
   const [isDetailLoading, setIsDetailLoading] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Selected row for immediate display
   const [selectedRow, setSelectedRow] = useState<FigureRow | null>(null);
+
+  const modelLabel = useMemo(() => {
+    if (!modelSource) return null;
+    const labels: Record<string, string> = {
+      'claude-opus-4.5': 'Claude Opus 4.5',
+      'claude-sonnet-4.5': 'Claude Sonnet 4.5',
+      'deepseek-v3.2': 'DeepSeek v3.2',
+      'gemini-flash-3-preview': 'Gemini Flash 3 Preview',
+      'gemini-pro-3': 'Gemini Pro 3',
+      'gpt-5.2-thinking': 'GPT 5.2 Thinking',
+      'grok-4.1-fast': 'Grok 4.1 Fast',
+      'qwen3': 'Qwen 3',
+    };
+    return labels[modelSource] || modelSource;
+  }, [modelSource]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setShareOrigin(window.location.origin);
+    }
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const animateCount = useCallback((
+    from: number,
+    to: number,
+    durationMs: number,
+    onUpdate: (value: number) => void,
+    onDone?: () => void
+  ) => {
+    const startTime = performance.now();
+    const diff = to - from;
+
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - startTime) / durationMs);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const nextValue = Math.round(from + diff * eased);
+      onUpdate(nextValue);
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else if (onDone) {
+        onDone();
+      }
+    };
+
+    requestAnimationFrame(tick);
+  }, []);
 
   // Handle figure selection - store both id and llmRank
   const handleSelectFigure = (id: string) => {
@@ -72,7 +152,9 @@ export default function Home() {
       if (modelSource) params.set('modelSource', modelSource);
       params.set('sortBy', sortBy);
       params.set('sortOrder', sortOrder);
-      params.set('limit', '1000'); // Get all for now
+      // When badge filter is active, fetch all figures so we can show all matches
+      // Badge-filtered results are small (10-30), so this is fast
+      params.set('limit', badgeFilter ? '5000' : '1000');
 
       const res = await fetch(`/api/figures?${params}`);
       if (!res.ok) {
@@ -98,7 +180,7 @@ export default function Home() {
     } finally {
       setIsLoading(false);
     }
-  }, [search, domain, era, region, modelSource, sortBy, sortOrder]);
+  }, [search, domain, era, region, modelSource, sortBy, sortOrder, badgeFilter]);
 
   // Fetch on mount and when filters change
   useEffect(() => {
@@ -107,11 +189,120 @@ export default function Home() {
   }, [fetchFigures]);
 
   useEffect(() => {
-    const onScroll = () => setIsCompactHeader(window.scrollY > 48);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    if (total <= 0 || totalModels <= 0 || totalLists <= 0) return;
+
+    if (!hasAnimatedCounts.current) {
+      hasAnimatedCounts.current = true;
+      animateCount(total > 1 ? 1 : 0, total, 520, setDisplayTotal);
+      animateCount(totalModels > 1 ? 1 : 0, totalModels, 820, setDisplayModels);
+      animateCount(totalLists > 1 ? 1 : 0, totalLists, 640, setDisplayLists);
+      return;
+    }
+
+    setDisplayTotal(total);
+    setDisplayModels(totalModels);
+    setDisplayLists(totalLists);
+  }, [total, totalModels, totalLists, animateCount]);
+
+  // Sync state from URL (shareable filters + deep links)
+  useEffect(() => {
+    const nextSearch = searchParams.get('search') ?? '';
+    const nextDomain = searchParams.get('domain');
+    const nextEra = searchParams.get('era');
+    const nextRegion = searchParams.get('region');
+    const nextModel = searchParams.get('modelSource');
+    const nextSortBy = searchParams.get('sortBy') ?? 'llmRank';
+    const nextSortOrder = (searchParams.get('sortOrder') as 'asc' | 'desc') ?? 'asc';
+    const nextBadge = searchParams.get('badge') as BadgeType | null;
+    const nextFigure = searchParams.get('figure');
+
+    setSearch(nextSearch);
+    setDomain(nextDomain || null);
+    setEra(nextEra || null);
+    setRegion(nextRegion || null);
+    setModelSource(nextModel || null);
+    setSortBy(nextSortBy);
+    setSortOrder(nextSortOrder);
+    setBadgeFilter(nextBadge && BADGE_DEFINITIONS[nextBadge] ? nextBadge : null);
+
+    if (suppressFigureSync.current && nextFigure) {
+      return;
+    }
+    if (!nextFigure) {
+      suppressFigureSync.current = false;
+    }
+    if (nextFigure && nextFigure !== selectedId) {
+      setSelectedId(nextFigure);
+    }
+  }, [searchParams, selectedId]);
+
+  // Update URL query params for shareable filters on the main table route
+  useEffect(() => {
+    if (pathname !== '/') return;
+    const params = new URLSearchParams();
+    if (search) params.set('search', search);
+    if (domain) params.set('domain', domain);
+    if (era) params.set('era', era);
+    if (region) params.set('region', region);
+    if (modelSource) params.set('modelSource', modelSource);
+    if (badgeFilter) params.set('badge', badgeFilter);
+    if (sortBy !== 'llmRank') params.set('sortBy', sortBy);
+    if (sortOrder !== 'asc') params.set('sortOrder', sortOrder);
+    if (selectedId) params.set('figure', selectedId);
+
+    const nextQuery = params.toString();
+    const currentQuery = searchParams.toString();
+    if (nextQuery !== currentQuery) {
+      router.replace(nextQuery ? `/?${nextQuery}` : '/', { scroll: false });
+    }
+  }, [
+    pathname,
+    search,
+    domain,
+    era,
+    region,
+    modelSource,
+    badgeFilter,
+    sortBy,
+    sortOrder,
+    selectedId,
+    router,
+    searchParams,
+  ]);
+
+  const handleCloseDetail = useCallback(() => {
+    suppressFigureSync.current = true;
+    setSelectedId(null);
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('figure');
+    const nextQuery = params.toString();
+    router.replace(nextQuery ? `/?${nextQuery}` : '/', { scroll: false });
+  }, [router, searchParams]);
+
+  const shareUrl = useMemo(() => {
+    if (!shareOrigin) return '';
+    const params = new URLSearchParams();
+    if (search) params.set('search', search);
+    if (domain) params.set('domain', domain);
+    if (era) params.set('era', era);
+    if (region) params.set('region', region);
+    if (modelSource) params.set('modelSource', modelSource);
+    if (badgeFilter) params.set('badge', badgeFilter);
+    if (sortBy !== 'llmRank') params.set('sortBy', sortBy);
+    if (sortOrder !== 'asc') params.set('sortOrder', sortOrder);
+    return `${shareOrigin}/?${params.toString()}`;
+  }, [
+    shareOrigin,
+    search,
+    domain,
+    era,
+    region,
+    modelSource,
+    badgeFilter,
+    sortBy,
+    sortOrder,
+  ]);
+
 
   // Fetch figure details when selected
   useEffect(() => {
@@ -215,174 +406,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-transparent">
-      <header
-        className="sticky top-0 z-50 border-b border-stone-200/60 dark:border-amber-900/30 shadow-sm transition-all duration-300 ease-out"
-        style={{
-          padding: isCompactHeader ? '12px 0' : '20px 0',
-          backgroundColor: mounted && isDarkMode ? 'rgba(15, 23, 42, 0.9)' : 'rgba(250, 250, 247, 0.7)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between gap-4">
-            {/* Logo - clickable to open About modal */}
-            <button
-              onClick={() => setIsAboutOpen(true)}
-              className="hr-logo flex items-center gap-3 cursor-pointer text-left"
-              aria-label="Open About"
-            >
-              <div
-                className="hr-logo-icon rounded-full border border-stone-300 dark:border-amber-800/50 bg-stone-50 dark:bg-slate-800 text-stone-800 dark:text-amber-200 flex items-center justify-center font-serif text-xs tracking-wide"
-                style={{
-                  width: isCompactHeader ? '36px' : '40px',
-                  height: isCompactHeader ? '36px' : '40px',
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                }}
-              >
-                HR
-              </div>
-              <div className="overflow-hidden">
-                <h1
-                  className="font-serif font-semibold text-stone-900 dark:text-amber-100"
-                  style={{
-                    fontSize: isCompactHeader ? '1.25rem' : '1.75rem',
-                    lineHeight: 1.2,
-                    transition: 'font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                  }}
-                >
-                  HistoryRank
-                </h1>
-                <p
-                  className="hr-logo-text text-stone-500 dark:text-slate-400 text-sm overflow-hidden"
-                  style={{
-                    maxHeight: isCompactHeader ? '0px' : '24px',
-                    opacity: isCompactHeader ? 0 : 1,
-                    marginTop: isCompactHeader ? '0px' : '2px',
-                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                  }}
-                >
-                  Comparing historical importance across rankings
-                </p>
-              </div>
-            </button>
-
-            {/* Navigation */}
-            <div className="flex flex-wrap items-center gap-1 md:gap-2">
-              <button
-                onClick={() => setIsAboutOpen(true)}
-                className="text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 px-2 py-1 transition-colors"
-              >
-                About
-              </button>
-              <Link
-                href="/methodology"
-                className="text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 px-2 py-1 transition-colors"
-              >
-                Methodology
-              </Link>
-              <Link href="/scatter">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <ScatterChart className="h-4 w-4" />
-                  <span className="hidden sm:inline">Scatter</span>
-                </Button>
-              </Link>
-              {/* Dark Mode Toggle */}
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={toggleDarkMode}
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="relative overflow-hidden"
-              >
-                <div className="relative w-4 h-4">
-                  <Sun
-                    className={`h-4 w-4 absolute inset-0 transition-all duration-300 ${
-                      isDarkMode ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
-                    }`}
-                  />
-                  <Moon
-                    className={`h-4 w-4 absolute inset-0 transition-all duration-300 ${
-                      isDarkMode ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
-                    }`}
-                  />
-                </div>
-              </Button>
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="sm" aria-label="Open settings">
-                    <Menu className="h-4 w-4" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="w-[320px] bg-stone-50">
-                  <SheetHeader>
-                    <SheetTitle className="font-serif text-stone-900">Settings</SheetTitle>
-                  </SheetHeader>
-                  <div className="mt-4 rounded-md border border-stone-200 bg-white p-3 text-sm text-stone-600">
-                    Settings will live here (display, data filters, exports).
-                  </div>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* About Modal */}
-      <Dialog open={isAboutOpen} onOpenChange={setIsAboutOpen}>
-        <DialogContent className="sm:max-w-lg bg-[#faf9f7]">
-          <DialogHeader>
-            <DialogTitle className="font-serif text-2xl text-stone-900">About HistoryRank</DialogTitle>
-            <DialogDescription className="text-stone-600">
-              Comparing historical importance across human and machine ranking systems
-            </DialogDescription>
-          </DialogHeader>
-          <div className="space-y-4 text-sm text-stone-700 leading-relaxed">
-            <p>
-              HistoryRank is an experimental tool for comparing how different sources evaluate historical significance.
-              We combine data from academic rankings, Wikipedia metrics, and AI assessments to reveal interesting
-              patterns in how we collectively remember the past.
-            </p>
-            <div className="p-4 bg-white rounded-lg border border-stone-200">
-              <h4 className="font-medium text-stone-900 mb-2">Data Sources</h4>
-              <ul className="space-y-1.5 text-stone-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>MIT Pantheon</strong> — Academic historical importance index</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>Wikipedia</strong> — Pageviews and article metrics</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-amber-600 mt-0.5">•</span>
-                  <span><strong>Claude & Gemini</strong> — AI model assessments</span>
-                </li>
-              </ul>
-            </div>
-            <p className="text-stone-500 text-xs">
-              The "Attention Gap" metric highlights figures where AI and academic rankings diverge significantly,
-              revealing potential biases or overlooked historical figures.
-            </p>
-            <div className="flex items-center justify-between pt-2">
-              <Link
-                href="/methodology"
-                onClick={() => setIsAboutOpen(false)}
-                className="text-sm text-stone-600 hover:text-stone-900 underline underline-offset-2"
-              >
-                Read full methodology
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setIsAboutOpen(false)}
-                className="inline-flex items-center gap-1 text-sm text-amber-700 hover:text-amber-800"
-              >
-                Full about page <ExternalLink className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <AppHeader
+        active="table"
+        settings={settings}
+        onSettingsChange={updateSettings}
+        onSettingsReset={resetSettings}
+      />
 
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
@@ -394,37 +423,49 @@ export default function Home() {
         {/* Stats bar */}
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4">
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{total}</span>
+            <div className="flex items-baseline gap-1.5 rounded-full border border-transparent px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]">
+              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{displayTotal}</span>
               <span className="text-sm text-stone-500 dark:text-slate-400">figures</span>
             </div>
             <div className="h-4 w-px bg-stone-300 dark:bg-slate-600 hidden sm:block" />
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{totalModels || '–'}</span>
+            <Link
+              href="/compare?view=overview"
+              className="flex items-baseline gap-1.5 rounded-full border border-transparent px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
+            >
+              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{displayModels || '–'}</span>
               <span className="text-sm text-stone-500 dark:text-slate-400">LLM models</span>
-            </div>
+            </Link>
             <div className="h-4 w-px bg-stone-300 dark:bg-slate-600 hidden sm:block" />
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{totalLists || '–'}</span>
+            <div className="flex items-baseline gap-1.5 rounded-full border border-transparent px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]">
+              <span className="font-mono text-2xl font-semibold text-stone-900 dark:text-amber-100">{displayLists || '–'}</span>
               <span className="text-sm text-stone-500 dark:text-slate-400">ranked lists</span>
             </div>
           </div>
 
-          <details className="group">
-            <summary className="cursor-pointer list-none text-lg text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-amber-200 transition-colors">
-              <span className="inline-flex items-center gap-2">
-                Combining academic rankings, Wikipedia metrics, and AI assessments to create both an educational resource and a new approach to "AI scrutability" by revealing how language models assess and explain the significance of human history.
+          <details className="group rounded-2xl border border-stone-200/70 dark:border-amber-900/30 bg-white/60 dark:bg-slate-800/50 backdrop-blur-sm shadow-[0_8px_30px_rgba(15,23,42,0.04)]">
+            <summary className="cursor-pointer list-none px-4 py-3 sm:px-5 sm:py-4 text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-amber-200 transition-colors">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col gap-1.5">
+                  <span className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-amber-500/80">
+                    Methodology at a glance
+                  </span>
+                  <span className="font-serif text-[17px] leading-relaxed text-stone-700 dark:text-slate-200">
+                    Combining academic rankings, Wikipedia metrics, and AI assessments to create both an educational resource
+                    and a new approach to &quot;AI scrutability&quot; by revealing how language models assess and explain the
+                    significance of human history.
+                  </span>
+                </div>
                 <svg
-                  className="w-4 h-4 text-stone-400 dark:text-slate-500 group-open:rotate-180 transition-transform"
+                  className="mt-1 w-4 h-4 shrink-0 text-stone-400 dark:text-slate-500 group-open:rotate-180 transition-transform"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-              </span>
+              </div>
             </summary>
-            <div className="mt-3 p-4 rounded-lg bg-white/60 dark:bg-slate-800/60 border border-stone-200/60 dark:border-amber-900/30 text-sm text-stone-600 dark:text-slate-300 leading-relaxed space-y-3">
+            <div className="px-4 pb-4 sm:px-5 sm:pb-5 text-sm text-stone-600 dark:text-slate-300 leading-relaxed space-y-3">
               <p>
                 These rankings combine <a href="https://pantheon.world" className="text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline underline-offset-2" target="_blank" rel="noopener noreferrer">MIT&apos;s Pantheon database</a> (an academic historical importance index),
                 Wikipedia page views, and averaged assessments from frontier LLM models (Claude, Gemini, GPT) into a single table.
@@ -441,7 +482,7 @@ export default function Home() {
         </div>
 
         {/* Filters */}
-        <div className="mb-6">
+        <div className="mb-4">
           <RankingsFilters
             search={search}
             onSearchChange={setSearch}
@@ -453,49 +494,102 @@ export default function Home() {
             onRegionChange={setRegion}
             modelSource={modelSource}
             onModelSourceChange={setModelSource}
+            badgeFilter={badgeFilter}
+            onBadgeFilterChange={setBadgeFilter}
+          />
+        </div>
+        <div className="sticky top-[60px] z-40 mb-6">
+          <ActiveFiltersBar
+            search={search}
+            domain={domain}
+            era={era}
+            region={region}
+            modelSource={modelSource}
+            badgeFilter={badgeFilter}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
+            modelLabel={modelLabel}
+            shareUrl={shareUrl}
+            onSearchChange={setSearch}
+            onDomainChange={setDomain}
+            onEraChange={setEra}
+            onRegionChange={setRegion}
+            onModelSourceChange={setModelSource}
+            onBadgeFilterChange={setBadgeFilter}
+            onSortChange={(value, order) => {
+              setSortBy(value);
+              setSortOrder(order);
+            }}
           />
         </div>
 
         {/* Table */}
-        {isLoading ? (
-          <div className="space-y-2">
-            <Skeleton className="h-12 w-full" />
-            {[...Array(10)].map((_, i) => (
-              <Skeleton key={i} className="h-10 w-full" />
-            ))}
-          </div>
-        ) : figures.length === 0 ? (
-          <div className="text-center py-12 text-stone-500">
-            No figures found matching your filters.
-          </div>
-        ) : (
-          <>
-            <RankingsTable
-              figures={figures.slice(0, displayLimit)}
+        {(() => {
+          // Apply badge filter client-side
+          const filteredFigures = badgeFilter
+            ? figures.filter(f => f.badges.includes(badgeFilter))
+            : figures;
+
+          return isLoading ? (
+            <div className="space-y-2">
+              <Skeleton className="h-12 w-full" />
+              {[...Array(10)].map((_, i) => (
+                <Skeleton key={i} className="h-10 w-full" />
+              ))}
+            </div>
+          ) : filteredFigures.length === 0 ? (
+            <div className="text-center py-12 text-stone-500">
+              {badgeFilter ? (
+                <>No figures found with the selected badge. Try a different filter.</>
+              ) : (
+                <>No figures found matching your filters.</>
+              )}
+            </div>
+          ) : (
+            <>
+              <RankingsTable
+                figures={filteredFigures.slice(0, displayLimit)}
               onSelectFigure={handleSelectFigure}
               selectedId={selectedId}
               sortBy={sortBy}
               sortOrder={sortOrder}
               onSort={handleSort}
+              density={settings.density}
+              fontScale={settings.fontScale}
+              thumbnailSize={
+                settings.thumbnailSize === 'sm'
+                  ? 30
+                  : settings.thumbnailSize === 'lg'
+                    ? 46
+                    : 38
+              }
+              visibleColumns={{
+                region: settings.showRegion,
+                era: settings.showEra,
+                variance: settings.showVariance,
+                views: settings.showViews,
+              }}
             />
-            {figures.length > displayLimit && (
+            {filteredFigures.length > displayLimit && (
               <div className="mt-4 flex justify-center">
                 <Button
                   variant="outline"
                   onClick={() => setDisplayLimit(prev => prev + PAGE_SIZE)}
                   className="px-8"
                 >
-                  Load more ({figures.length - displayLimit} remaining)
+                  Load more ({filteredFigures.length - displayLimit} remaining)
                 </Button>
               </div>
             )}
-            {figures.length > 0 && (
+            {filteredFigures.length > 0 && (
               <div className="mt-3 text-center text-sm text-stone-500 dark:text-slate-400">
-                Showing {Math.min(displayLimit, figures.length)} of {figures.length} figures
+                Showing {Math.min(displayLimit, filteredFigures.length)} of {filteredFigures.length} figures
+                {badgeFilter && ` (filtered by badge)`}
               </div>
             )}
           </>
-        )}
+          );
+        })()}
 
         {/* Legend */}
         <div className="mt-6 p-4 bg-white dark:bg-slate-800/80 rounded-lg border border-stone-200 dark:border-amber-900/30">
@@ -521,6 +615,20 @@ export default function Home() {
         </div>
       </div>
 
+      {showBackToTop && selectedId === null && (
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full border border-stone-200/70 bg-white/90 px-4 py-2 text-xs font-medium text-stone-700 shadow-md backdrop-blur transition-all hover:-translate-y-1 hover:border-stone-300 hover:text-stone-900 hover:shadow-lg dark:border-amber-900/40 dark:bg-slate-950/80 dark:text-slate-200 dark:hover:border-amber-700/60 dark:hover:text-amber-100"
+          aria-label="Back to top"
+        >
+          <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-stone-100 text-stone-600 dark:bg-slate-900 dark:text-amber-200">
+            ^
+          </span>
+          Back to top
+        </button>
+      )}
+
       {/* Detail Panel */}
       <FigureDetailPanel
         figure={selectedFigure}
@@ -528,10 +636,19 @@ export default function Home() {
         rankings={selectedRankings}
         aliases={selectedAliases}
         isOpen={selectedId !== null}
-        onClose={() => setSelectedId(null)}
+        onClose={handleCloseDetail}
         isLoading={isDetailLoading}
         llmRank={selectedLlmRank}
       />
     </main>
+  );
+}
+
+// Default export wraps HomeContent in Suspense for useSearchParams
+export default function Home() {
+  return (
+    <Suspense fallback={<HomeLoading />}>
+      <HomeContent />
+    </Suspense>
   );
 }

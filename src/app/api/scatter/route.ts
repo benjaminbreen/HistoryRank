@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
         domain: fig.domain,
         era: fig.era,
         birthYear: fig.birthYear,
-        pageviews: fig.pageviews2025,
+        pageviews: fig.pageviewsGlobal ?? fig.pageviews2025,
         varianceScore: fig.varianceScore,
         hpiRank: fig.hpiRank,
         llmConsensusRank: fig.llmConsensusRank,

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db, figures, rankings } from '@/lib/db';
 import { asc, desc, like, eq, sql, isNotNull, and } from 'drizzle-orm';
 import { getVarianceLevel } from '@/types';
-import type { FigureRow, FiguresResponse } from '@/types';
+import type { FigureRow, FiguresResponse, BadgeType } from '@/types';
 
 export const runtime = 'nodejs';
 
@@ -14,6 +14,351 @@ const CACHE_TTL = 60000; // 1 minute
 // Cache for stats
 let statsCache: { totalLists: number; totalModels: number } | null = null;
 let statsCacheTimestamp = 0;
+
+// Cache for badge data (source averages per figure)
+interface SourceAverage {
+  source: string;
+  avgRank: number;
+}
+let badgeDataCache: Map<string, SourceAverage[]> | null = null;
+let badgeDataCacheTimestamp = 0;
+let modelFavoriteCache: Record<string, Set<string>> | null = null;
+let modelFavoriteCacheTimestamp = 0;
+
+// Thresholds for badges (calibrated for global pageviews across 10 languages)
+const BADGE_THRESHOLDS = {
+  // Model favorites
+  MODEL_FAVORITE_DIFF: 400,      // Model ranks 400+ higher than consensus
+  MODEL_FAVORITE_MAX_MODEL_RANK: 150, // Model must rank figure very highly
+  MODEL_FAVORITE_MIN_CONSENSUS_RANK: 300, // Must diverge from consensus
+
+  // LLM vs HPI comparison
+  LEGACY_LEANING_DIFF: 300,     // Pantheon ranks 300+ higher than LLM
+  LLM_FAVORITE_DIFF: 300,       // LLM ranks 300+ higher than HPI
+
+  // Popular (was "hyped") - high attention, lower rank
+  POPULAR_PAGEVIEWS: 8000000,   // 8M+ global pageviews
+  POPULAR_MIN_RANK: 300,        // Must be ranked lower than 300
+
+  // Hidden Gem - high rank + low attention + strong consensus
+  HIDDEN_GEM_MAX_RANK: 150,     // Must be in top 150
+  HIDDEN_GEM_MIN_RANK: 21,      // Exclude top 20 (already famous)
+  HIDDEN_GEM_MAX_PAGEVIEWS: 1000000, // Under 1M global pageviews
+  HIDDEN_GEM_MAX_VARIANCE: 0.4,     // Must have reasonably strong LLM consensus
+
+  // Under the Radar - high rank + low attention + HPI also undervalues
+  UNDER_RADAR_MAX_RANK: 300,    // Top 300 by LLM
+  UNDER_RADAR_MAX_PAGEVIEWS: 1500000, // Under 1.5M global pageviews
+  UNDER_RADAR_MIN_HPI_RANK: 400, // HPI must also undervalue (rank > 400 or null)
+
+  // Global Icon - popular outside Anglophone world
+  GLOBAL_ICON_MODEL_DIFF: 100,  // Chinese models rank 100+ higher than Western
+  GLOBAL_ICON_MAX_ENGLISH_PCT: 50, // English pageviews < 50% of total
+  GLOBAL_ICON_MAX_RANK: 500,    // Must be in top 500
+
+  // Universal Recognition - high across ALL sources
+  UNIVERSAL_MAX_LLM_RANK: 150,  // Top 150 by LLM consensus
+  UNIVERSAL_MAX_HPI_RANK: 150,  // Top 150 by Pantheon
+  UNIVERSAL_MIN_PAGEVIEWS: 2000000, // At least 2M pageviews
+};
+
+async function getBadgeData(): Promise<Map<string, SourceAverage[]>> {
+  const now = Date.now();
+  if (badgeDataCache && now - badgeDataCacheTimestamp < CACHE_TTL) {
+    return badgeDataCache;
+  }
+
+  // Get average rank per source per figure
+  const rows = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      avgRank: sql<number>`avg(${rankings.rank})`,
+    })
+    .from(rankings)
+    .groupBy(rankings.figureId, rankings.source);
+
+  const lookup = new Map<string, SourceAverage[]>();
+  for (const row of rows) {
+    const existing = lookup.get(row.figureId) || [];
+    existing.push({ source: row.source, avgRank: Number(row.avgRank) });
+    lookup.set(row.figureId, existing);
+  }
+
+  badgeDataCache = lookup;
+  badgeDataCacheTimestamp = now;
+  return lookup;
+}
+
+async function getModelFavoriteCaps(): Promise<Record<string, Set<string>>> {
+  const now = Date.now();
+  if (modelFavoriteCache && now - modelFavoriteCacheTimestamp < CACHE_TTL) {
+    return modelFavoriteCache;
+  }
+
+  const badgeData = await getBadgeData();
+  const ranked = await db
+    .select({ id: figures.id, llmConsensusRank: figures.llmConsensusRank })
+    .from(figures)
+    .where(isNotNull(figures.llmConsensusRank));
+
+  const candidates: Record<string, Array<{ id: string; score: number }>> = {
+    claude: [],
+    gpt: [],
+    gemini: [],
+    deepseek: [],
+    qwen: [],
+  };
+
+  for (const fig of ranked) {
+    const sourceAverages = badgeData.get(fig.id) || [];
+    const modelAvgs: Record<string, number | null> = {
+      claude: null,
+      gpt: null,
+      gemini: null,
+      deepseek: null,
+      qwen: null,
+    };
+
+    const avgFor = (needle: string) => {
+      const avgs = sourceAverages.filter(s => s.source.includes(needle)).map(s => s.avgRank);
+      return avgs.length > 0 ? avgs.reduce((a, b) => a + b, 0) / avgs.length : null;
+    };
+
+    modelAvgs.claude = avgFor('claude');
+    modelAvgs.gpt = avgFor('gpt');
+    modelAvgs.gemini = avgFor('gemini');
+    modelAvgs.deepseek = avgFor('deepseek');
+    modelAvgs.qwen = avgFor('qwen');
+
+    for (const [model, avg] of Object.entries(modelAvgs)) {
+      if (avg === null || fig.llmConsensusRank === null) continue;
+      if (
+        fig.llmConsensusRank - avg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+        avg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+        fig.llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+      ) {
+        candidates[model].push({ id: fig.id, score: fig.llmConsensusRank - avg });
+      }
+    }
+  }
+
+  const capped: Record<string, Set<string>> = {
+    claude: new Set(),
+    gpt: new Set(),
+    gemini: new Set(),
+    deepseek: new Set(),
+    qwen: new Set(),
+  };
+
+  for (const model of Object.keys(candidates)) {
+    candidates[model]
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10)
+      .forEach((item) => capped[model].add(item.id));
+  }
+
+  modelFavoriteCache = capped;
+  modelFavoriteCacheTimestamp = now;
+  return capped;
+}
+
+function calculateBadges(
+  figureId: string,
+  llmConsensusRank: number | null,
+  hpiRank: number | null,
+  pageviews: number | null,
+  sourceAverages: SourceAverage[],
+  varianceScore?: number | null,
+  modelFavoriteCaps?: Record<string, Set<string>>,
+  englishPageviews?: number | null
+): BadgeType[] {
+  const badges: BadgeType[] = [];
+
+  // Skip if no LLM consensus rank
+  if (llmConsensusRank === null) return badges;
+
+  const modelCoverage = sourceAverages.length;
+
+  // Calculate model family averages
+  const claudeAvgs = sourceAverages.filter(s => s.source.includes('claude')).map(s => s.avgRank);
+  const gptAvgs = sourceAverages.filter(s => s.source.includes('gpt')).map(s => s.avgRank);
+  const geminiAvgs = sourceAverages.filter(s => s.source.includes('gemini')).map(s => s.avgRank);
+  const deepseekAvgs = sourceAverages.filter(s => s.source.includes('deepseek')).map(s => s.avgRank);
+  const qwenAvgs = sourceAverages.filter(s => s.source.includes('qwen')).map(s => s.avgRank);
+
+  const claudeAvg = claudeAvgs.length > 0 ? claudeAvgs.reduce((a, b) => a + b, 0) / claudeAvgs.length : null;
+  const gptAvg = gptAvgs.length > 0 ? gptAvgs.reduce((a, b) => a + b, 0) / gptAvgs.length : null;
+  const geminiAvg = geminiAvgs.length > 0 ? geminiAvgs.reduce((a, b) => a + b, 0) / geminiAvgs.length : null;
+  const deepseekAvg = deepseekAvgs.length > 0 ? deepseekAvgs.reduce((a, b) => a + b, 0) / deepseekAvgs.length : null;
+  const qwenAvg = qwenAvgs.length > 0 ? qwenAvgs.reduce((a, b) => a + b, 0) / qwenAvgs.length : null;
+
+  // Calculate Chinese vs Western model averages for global-icon badge
+  const chineseModelAvg = (deepseekAvg !== null && qwenAvg !== null)
+    ? (deepseekAvg + qwenAvg) / 2
+    : deepseekAvg ?? qwenAvg;
+  const westernModelAvgs = [claudeAvg, gptAvg, geminiAvg].filter(a => a !== null) as number[];
+  const westernModelAvg = westernModelAvgs.length > 0
+    ? westernModelAvgs.reduce((a, b) => a + b, 0) / westernModelAvgs.length
+    : null;
+
+  // Check if a model ranks this figure much higher than consensus
+  if (
+    claudeAvg !== null &&
+    modelCoverage >= 3 &&
+    llmConsensusRank - claudeAvg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+    claudeAvg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+  ) {
+    if (!modelFavoriteCaps || modelFavoriteCaps.claude?.has(figureId)) {
+      badges.push('claude-favorite');
+    }
+  }
+  if (
+    gptAvg !== null &&
+    modelCoverage >= 3 &&
+    llmConsensusRank - gptAvg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+    gptAvg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+  ) {
+    if (!modelFavoriteCaps || modelFavoriteCaps.gpt?.has(figureId)) {
+      badges.push('gpt-favorite');
+    }
+  }
+  if (
+    geminiAvg !== null &&
+    modelCoverage >= 3 &&
+    llmConsensusRank - geminiAvg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+    geminiAvg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+  ) {
+    if (!modelFavoriteCaps || modelFavoriteCaps.gemini?.has(figureId)) {
+      badges.push('gemini-favorite');
+    }
+  }
+  if (
+    deepseekAvg !== null &&
+    modelCoverage >= 3 &&
+    llmConsensusRank - deepseekAvg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+    deepseekAvg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+  ) {
+    if (!modelFavoriteCaps || modelFavoriteCaps.deepseek?.has(figureId)) {
+      badges.push('deepseek-favorite');
+    }
+  }
+  if (
+    qwenAvg !== null &&
+    modelCoverage >= 3 &&
+    llmConsensusRank - qwenAvg >= BADGE_THRESHOLDS.MODEL_FAVORITE_DIFF &&
+    qwenAvg <= BADGE_THRESHOLDS.MODEL_FAVORITE_MAX_MODEL_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.MODEL_FAVORITE_MIN_CONSENSUS_RANK
+  ) {
+    if (!modelFavoriteCaps || modelFavoriteCaps.qwen?.has(figureId)) {
+      badges.push('qwen-favorite');
+    }
+  }
+
+  // Legacy leaning: Pantheon much higher than LLM (require coverage)
+  if (modelCoverage >= 3 && hpiRank !== null && llmConsensusRank - hpiRank >= BADGE_THRESHOLDS.LEGACY_LEANING_DIFF) {
+    badges.push('legacy-leaning');
+  }
+
+  // LLM favorite: LLM much higher than HPI
+  if (modelCoverage >= 3 && hpiRank !== null && hpiRank - llmConsensusRank >= BADGE_THRESHOLDS.LLM_FAVORITE_DIFF) {
+    badges.push('llm-favorite');
+  }
+
+  // Popular (was "hyped"): High pageviews but not top ranked
+  if (
+    pageviews !== null &&
+    pageviews >= BADGE_THRESHOLDS.POPULAR_PAGEVIEWS &&
+    llmConsensusRank >= BADGE_THRESHOLDS.POPULAR_MIN_RANK
+  ) {
+    badges.push('popular');
+  }
+
+  // Universal Recognition: High across ALL sources (LLM, HPI, pageviews)
+  if (
+    pageviews !== null &&
+    hpiRank !== null &&
+    llmConsensusRank <= BADGE_THRESHOLDS.UNIVERSAL_MAX_LLM_RANK &&
+    hpiRank <= BADGE_THRESHOLDS.UNIVERSAL_MAX_HPI_RANK &&
+    pageviews >= BADGE_THRESHOLDS.UNIVERSAL_MIN_PAGEVIEWS
+  ) {
+    badges.push('universal-recognition');
+  }
+
+  // Global Icon: Popular outside Anglophone world
+  // Requires: Chinese models rank higher than Western + low English pageview %
+  if (
+    chineseModelAvg !== null &&
+    westernModelAvg !== null &&
+    pageviews !== null &&
+    englishPageviews != null && // != checks both null and undefined
+    pageviews > 0 &&
+    llmConsensusRank <= BADGE_THRESHOLDS.GLOBAL_ICON_MAX_RANK
+  ) {
+    const englishPct = (englishPageviews / pageviews) * 100;
+    const modelDiff = westernModelAvg - chineseModelAvg;
+    if (
+      modelDiff >= BADGE_THRESHOLDS.GLOBAL_ICON_MODEL_DIFF &&
+      englishPct < BADGE_THRESHOLDS.GLOBAL_ICON_MAX_ENGLISH_PCT
+    ) {
+      badges.push('global-icon');
+    }
+  }
+
+  // Hidden Gem: High rank + low attention + strong LLM consensus
+  if (
+    pageviews !== null &&
+    modelCoverage >= 3 &&
+    varianceScore != null && // != checks both null and undefined
+    pageviews <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_PAGEVIEWS &&
+    llmConsensusRank <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_RANK &&
+    llmConsensusRank >= BADGE_THRESHOLDS.HIDDEN_GEM_MIN_RANK &&
+    varianceScore <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_VARIANCE
+  ) {
+    badges.push('hidden-gem');
+  }
+
+  // Under the Radar: High rank + low attention + HPI also undervalues
+  if (
+    pageviews !== null &&
+    modelCoverage >= 2 &&
+    pageviews <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_PAGEVIEWS &&
+    llmConsensusRank <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_RANK &&
+    (hpiRank === null || hpiRank > BADGE_THRESHOLDS.UNDER_RADAR_MIN_HPI_RANK)
+  ) {
+    badges.push('under-the-radar');
+  }
+
+  if (badges.length === 0) return badges;
+
+  // Priority order for displaying a single badge (hidden-gem is the "trump" badge)
+  const priority: BadgeType[] = [
+    'hidden-gem',
+    'under-the-radar',
+    'universal-recognition',
+    'global-icon',
+    'popular',
+    'llm-favorite',
+    'legacy-leaning',
+    'claude-favorite',
+    'gpt-favorite',
+    'gemini-favorite',
+    'deepseek-favorite',
+    'qwen-favorite',
+  ];
+
+  for (const type of priority) {
+    if (badges.includes(type)) {
+      return [type];
+    }
+  }
+
+  return [];
+}
 
 async function getStats(): Promise<{ totalLists: number; totalModels: number }> {
   const now = Date.now();
@@ -152,7 +497,7 @@ export async function GET(request: NextRequest) {
         if (sortBy === 'domain') return fig.domain ?? null;
         if (sortBy === 'era') return fig.era ?? null;
         if (sortBy === 'regionSub') return fig.regionSub ?? null;
-        if (sortBy === 'pageviews') return fig.pageviews2025 ?? null;
+        if (sortBy === 'pageviews') return fig.pageviewsGlobal ?? fig.pageviews2025 ?? null;
         return sourceLookup.get(fig.id)?.avgRank ?? null;
       };
 
@@ -174,6 +519,10 @@ export async function GET(request: NextRequest) {
 
       const paged = sorted.slice(offset, offset + limit);
 
+      // Get badge data for badge calculation
+      const badgeData = await getBadgeData();
+      const modelFavoriteCaps = await getModelFavoriteCaps();
+
       const figureRows: FigureRow[] = paged.map((fig) => ({
         id: fig.id,
         name: fig.canonicalName,
@@ -185,8 +534,9 @@ export async function GET(request: NextRequest) {
         llmRank: sourceLookup.get(fig.id)?.position || null,
         llmConsensusRank: fig.llmConsensusRank,
         varianceScore: fig.varianceScore,
-        pageviews: fig.pageviews2025,
+        pageviews: fig.pageviewsGlobal ?? fig.pageviews2025,
         varianceLevel: getVarianceLevel(fig.varianceScore),
+        badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025),
         wikipediaSlug: fig.wikipediaSlug,
       }));
 
@@ -214,7 +564,7 @@ export async function GET(request: NextRequest) {
       domain: figures.domain,
       era: figures.era,
       regionSub: figures.regionSub,
-      pageviews: figures.pageviews2025,
+      pageviews: figures.pageviewsGlobal,
     }[sortBy] || figures.llmConsensusRank;
 
     const sortFn = sortOrder === 'desc' ? desc : asc;
@@ -257,10 +607,12 @@ export async function GET(request: NextRequest) {
         .offset(offset);
     }
 
-    // Get LLM rank lookup
+    // Get LLM rank lookup and badge data
     const llmRankLookup = await getLLMRankLookup();
+    const badgeData = await getBadgeData();
+    const modelFavoriteCaps = await getModelFavoriteCaps();
 
-    // Transform to FigureRow with LLM rank
+    // Transform to FigureRow with LLM rank and badges
     const figureRows: FigureRow[] = results.map((fig) => ({
       id: fig.id,
       name: fig.canonicalName,
@@ -272,8 +624,9 @@ export async function GET(request: NextRequest) {
       llmRank: llmRankLookup.get(fig.id) || null,
       llmConsensusRank: fig.llmConsensusRank,
       varianceScore: fig.varianceScore,
-      pageviews: fig.pageviews2025,
+      pageviews: fig.pageviewsGlobal ?? fig.pageviews2025,
       varianceLevel: getVarianceLevel(fig.varianceScore),
+      badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025),
       wikipediaSlug: fig.wikipediaSlug,
     }));
 
