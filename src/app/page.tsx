@@ -46,7 +46,7 @@ function HomeContent() {
   const [displayLists, setDisplayLists] = useState(0);
   const [displayModels, setDisplayModels] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [displayLimit, setDisplayLimit] = useState(PAGE_SIZE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   // Filters
   const [search, setSearch] = useState('');
@@ -139,10 +139,15 @@ function HomeContent() {
   };
 
   // Fetch figures
-  const fetchFigures = useCallback(async () => {
-    setIsLoading(true);
+  const fetchFigures = useCallback(async (options?: { append?: boolean; offset?: number }) => {
+    const append = options?.append ?? false;
+    const isBadgeFetch = Boolean(badgeFilter);
+    if (append && !isBadgeFetch) {
+      setIsLoadingMore(true);
+    } else {
+      setIsLoading(true);
+    }
     setErrorMessage(null);
-    setDisplayLimit(PAGE_SIZE); // Reset pagination when filters change
     try {
       const params = new URLSearchParams();
       if (search) params.set('search', search);
@@ -152,9 +157,10 @@ function HomeContent() {
       if (modelSource) params.set('modelSource', modelSource);
       params.set('sortBy', sortBy);
       params.set('sortOrder', sortOrder);
-      // When badge filter is active, fetch all figures so we can show all matches
-      // Badge-filtered results are small (10-30), so this is fast
-      params.set('limit', badgeFilter ? '5000' : '1000');
+      params.set('limit', isBadgeFetch ? '5000' : String(PAGE_SIZE));
+      if (append && !isBadgeFetch) {
+        params.set('offset', String(options?.offset ?? 0));
+      }
 
       const res = await fetch(`/api/figures?${params}`);
       if (!res.ok) {
@@ -166,7 +172,7 @@ function HomeContent() {
       const data: FiguresResponse = await res.json();
       const nextFigures = Array.isArray(data?.figures) ? data.figures : [];
 
-      setFigures(nextFigures);
+      setFigures(prev => (append && !isBadgeFetch ? [...prev, ...nextFigures] : nextFigures));
       setTotal(typeof data?.total === 'number' ? data.total : nextFigures.length);
       if (data?.stats) {
         setTotalLists(data.stats.totalLists);
@@ -179,6 +185,7 @@ function HomeContent() {
       setErrorMessage('Failed to fetch figures.');
     } finally {
       setIsLoading(false);
+      setIsLoadingMore(false);
     }
   }, [search, domain, era, region, modelSource, sortBy, sortOrder, badgeFilter]);
 
@@ -529,6 +536,9 @@ function HomeContent() {
           const filteredFigures = badgeFilter
             ? figures.filter(f => f.badges.includes(badgeFilter))
             : figures;
+          const hasMore = !badgeFilter && figures.length < total;
+          const visibleCount = filteredFigures.length;
+          const totalCount = badgeFilter ? figures.length : total;
 
           return isLoading ? (
             <div className="space-y-2">
@@ -548,7 +558,7 @@ function HomeContent() {
           ) : (
             <>
               <RankingsTable
-                figures={filteredFigures.slice(0, displayLimit)}
+                figures={filteredFigures}
               onSelectFigure={handleSelectFigure}
               selectedId={selectedId}
               sortBy={sortBy}
@@ -570,20 +580,21 @@ function HomeContent() {
                 views: settings.showViews,
               }}
             />
-            {filteredFigures.length > displayLimit && (
+            {hasMore && (
               <div className="mt-4 flex justify-center">
                 <Button
                   variant="outline"
-                  onClick={() => setDisplayLimit(prev => prev + PAGE_SIZE)}
+                  onClick={() => fetchFigures({ append: true, offset: figures.length })}
                   className="px-8"
+                  disabled={isLoadingMore}
                 >
-                  Load more ({filteredFigures.length - displayLimit} remaining)
+                  {isLoadingMore ? 'Loading...' : `Load more (${total - figures.length} remaining)`}
                 </Button>
               </div>
             )}
-            {filteredFigures.length > 0 && (
+            {visibleCount > 0 && (
               <div className="mt-3 text-center text-sm text-stone-500 dark:text-slate-400">
-                Showing {Math.min(displayLimit, filteredFigures.length)} of {filteredFigures.length} figures
+                Showing {visibleCount} of {totalCount} figures
                 {badgeFilter && ` (filtered by badge)`}
               </div>
             )}

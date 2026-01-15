@@ -1,26 +1,49 @@
 {
   "_comment": "Figure overrides and corrections. Run: npx tsx scripts/reconcile.ts",
-
   "merges": {
     "_comment": "Merge duplicate figures. Format: 'keep_id': ['delete_id1', 'delete_id2']",
-    "mani": ["the-prophet-mani"],
-    "ilya-mechnikov": ["elias-metchnikoff"],
-    "vladimir-lenin": ["v-i-lenin", "lenin"],
-    "augustine-of-hippo": ["st-augustine", "saint-augustine-of-hippo"],
-    "emperor-meiji": ["meiji-emperor"],
-    "ashoka": ["asoka", "asoka-the-great"],
-    "guru-nanak": ["nanak"],
-    "nicolaus-otto": ["nicolaus-august-otto", "nikolaus-otto"],
-    "william-thomson-1st-baron-kelvin": ["william-thompson"],
-    "constantine-xi": ["emperor-constantine-xi"],
-    "napoleon": ["napoleon-bonaparte"]
+    "mani": [
+      "the-prophet-mani"
+    ],
+    "ilya-mechnikov": [
+      "elias-metchnikoff"
+    ],
+    "vladimir-lenin": [
+      "v-i-lenin",
+      "lenin"
+    ],
+    "augustine-of-hippo": [
+      "st-augustine",
+      "saint-augustine-of-hippo"
+    ],
+    "emperor-meiji": [
+      "meiji-emperor"
+    ],
+    "ashoka": [
+      "asoka",
+      "asoka-the-great"
+    ],
+    "guru-nanak": [
+      "nanak"
+    ],
+    "nicolaus-otto": [
+      "nicolaus-august-otto",
+      "nikolaus-otto"
+    ],
+    "william-thomson-1st-baron-kelvin": [
+      "william-thompson"
+    ],
+    "constantine-xi": [
+      "emperor-constantine-xi"
+    ],
+    "napoleon": [
+      "napoleon-bonaparte"
+    ]
   },
-
   "renames": {
     "_comment": "Rename canonical_name for figures",
     "aristotle-s-teacher-ammonius-saccas": "Ammonius Saccas"
   },
-
   "updates": {
     "_comment": "Update figure data. Wikipedia slug will be used to fetch birth_year, birth_place, etc.",
     "ts-ai-lun": {
@@ -73,7 +96,7 @@
       "wikipedia_slug": "Jonas_Salk"
     },
     "mansa-musa": {
-      "wikipedia_slug": "Mansa_Musa"
+      "domain": "Politics"
     },
     "rachel-carson": {
       "wikipedia_slug": "Rachel_Carson"
@@ -106,7 +129,7 @@
       "wikipedia_slug": "Samuel_Morse"
     },
     "sargon-of-akkad": {
-      "wikipedia_slug": "Sargon_of_Akkad"
+      "domain": "Politics"
     },
     "shaka-zulu": {
       "wikipedia_slug": "Shaka"
@@ -149,24 +172,634 @@
     },
     "woodrow-wilson": {
       "wikipedia_slug": "Woodrow_Wilson"
+    },
+    "tim-berners-lee": {
+      "domain": "Science"
+    },
+    "joseph-lister": {
+      "domain": "Medicine"
+    },
+    "maimonides": {
+      "domain": "Religion"
+    },
+    "sundiata-keita": {
+      "domain": "Politics"
+    },
+    "zhu-xi": {
+      "domain": "Philosophy"
+    },
+    "henry-viii": {
+      "domain": "Politics"
+    },
+    "rosa-parks": {
+      "domain": "Social Reform"
+    },
+    "b-r-ambedkar": {
+      "domain": "Social Reform"
+    },
+    "toussaint-louverture": {
+      "domain": "Politics"
+    },
+    "li-shimin": {
+      "domain": "Politics"
+    },
+    "chandragupta-maurya": {
+      "domain": "Politics"
+    },
+    "emmeline-pankhurst": {
+      "domain": "Social Reform"
+    },
+    "claude-shannon": {
+      "domain": "Science"
+    },
+    "andreas-vesalius": {
+      "domain": "Medicine"
+    },
+    "francis-crick": {
+      "domain": "Science"
+    },
+    "emperor-wu-of-han": {
+      "domain": "Politics"
+    },
+    "shivaji": {
+      "domain": "Politics"
+    },
+    "john-wesley": {
+      "domain": "Religion"
+    },
+    "sojourner-truth": {
+      "domain": "Social Reform"
+    },
+    "hafez": {
+      "domain": "Arts"
+    },
+    "thomas-more": {
+      "domain": "Politics"
+    },
+    "aurangzeb": {
+      "domain": "Politics"
+    },
+    "scipio-africanus": {
+      "domain": "Military"
+    },
+    "wang-yangming": {
+      "domain": "Philosophy"
+    },
+    "shah-jahan": {
+      "domain": "Politics"
+    },
+    "rosalind-franklin": {
+      "domain": "Science"
+    },
+    "alfred-the-great": {
+      "domain": "Politics"
+    },
+    "srinivasa-ramanujan": {
+      "domain": "Science"
+    },
+    "kautilya": {
+      "domain": "Politics"
+    },
+    "mehmed-ii": {
+      "domain": "Politics"
+    },
+    "sitting-bull": {
+      "domain": "Military"
+    },
+    "charles-lyell": {
+      "domain": "Science"
+    },
+    "andrew-carnegie": {
+      "domain": "Economics"
+    },
+    "murasaki-shikibu": {
+      "domain": "Arts"
+    },
+    "john-knox": {
+      "domain": "Religion"
+    },
+    "wernher-von-braun": {
+      "domain": "Science"
+    },
+    "john-d-rockefeller": {
+      "domain": "Economics"
+    },
+    "brahmagupta": {
+      "domain": "Science"
+    },
+    "eleanor-of-aquitaine": {
+      "domain": "Politics"
+    },
+    "david-livingstone": {
+      "domain": "Exploration"
+    },
+    "geoffrey-chaucer": {
+      "domain": "Arts"
+    },
+    "zhu-yuanzhang": {
+      "domain": "Politics"
+    },
+    "menelik-ii": {
+      "domain": "Politics"
+    },
+    "alexander-hamilton": {
+      "domain": "Politics"
+    },
+    "paul-dirac": {
+      "domain": "Science"
+    },
+    "zhang-heng": {
+      "domain": "Science"
+    },
+    "toyotomi-hideyoshi": {
+      "domain": "Politics"
+    },
+    "david-ricardo": {
+      "domain": "Economics"
+    },
+    "louis-daguerre": {
+      "domain": "Arts"
+    },
+    "richard-feynman": {
+      "domain": "Science"
+    },
+    "montezuma-ii": {
+      "domain": "Politics"
+    },
+    "zhuangzi": {
+      "domain": "Philosophy"
+    },
+    "theodor-herzl": {
+      "domain": "Politics"
+    },
+    "xuanzang": {
+      "domain": "Religion"
+    },
+    "jeremy-bentham": {
+      "domain": "Philosophy"
+    },
+    "bartolom-de-las-casas": {
+      "domain": "Social Reform"
+    },
+    "douglas-macarthur": {
+      "domain": "Military"
+    },
+    "nagarjuna": {
+      "domain": "Philosophy"
+    },
+    "grace-hopper": {
+      "domain": "Science"
+    },
+    "theodore-roosevelt": {
+      "domain": "Politics"
+    },
+    "desmond-tutu": {
+      "domain": "Social Reform"
+    },
+    "erik-the-red": {
+      "domain": "Exploration"
+    },
+    "margaret-sanger": {
+      "domain": "Social Reform"
+    },
+    "bodhidharma": {
+      "domain": "Religion"
+    },
+    "b-f-skinner": {
+      "domain": "Science"
+    },
+    "juan-per-n": {
+      "domain": "Politics"
+    },
+    "joseph-priestley": {
+      "domain": "Science"
+    },
+    "lyndon-b-johnson": {
+      "domain": "Politics"
+    },
+    "sukarno": {
+      "domain": "Politics"
+    },
+    "vint-cerf": {
+      "domain": "Science"
+    },
+    "yi-sun-sin": {
+      "domain": "Military"
+    },
+    "jos-de-san-mart-n": {
+      "domain": "Military"
+    },
+    "david-hilbert": {
+      "domain": "Science"
+    },
+    "jeff-bezos": {
+      "domain": "Economics"
+    },
+    "milton-friedman": {
+      "domain": "Economics"
+    },
+    "bede": {
+      "domain": "Religion"
+    },
+    "thomas-paine": {
+      "domain": "Philosophy"
+    },
+    "nicolaus-otto": {
+      "domain": "Science"
+    },
+    "zhuge-liang": {
+      "domain": "Military"
+    },
+    "alfred-russel-wallace": {
+      "domain": "Science"
+    },
+    "friedrich-hayek": {
+      "domain": "Economics"
+    },
+    "pachacuti": {
+      "domain": "Politics"
+    },
+    "george-stephenson": {
+      "domain": "Science"
+    },
+    "geronimo": {
+      "domain": "Military"
+    },
+    "claude-l-vi-strauss": {
+      "domain": "Science"
+    },
+    "linus-pauling": {
+      "domain": "Science"
+    },
+    "imhotep": {
+      "domain": "Medicine"
+    },
+    "teresa-of-vila": {
+      "domain": "Religion"
+    },
+    "alaric-i": {
+      "domain": "Politics"
+    },
+    "olympe-de-gouges": {
+      "domain": "Social Reform"
+    },
+    "nikolai-lobachevsky": {
+      "domain": "Science"
+    },
+    "robert-goddard": {
+      "domain": "Science"
+    },
+    "huldrych-zwingli": {
+      "domain": "Religion"
+    },
+    "sergei-korolev": {
+      "domain": "Science"
+    },
+    "mark-zuckerberg": {
+      "domain": "Economics"
+    },
+    "al-razi": {
+      "domain": "Medicine"
+    },
+    "hernando-de-soto": {
+      "domain": "Exploration"
+    },
+    "anwar-sadat": {
+      "domain": "Politics"
+    },
+    "ellen-johnson-sirleaf": {
+      "wikipedia_slug": "Ellen_Johnson_Sirleaf"
+    },
+    "john-logie-baird": {
+      "wikipedia_slug": "John_Logie_Baird"
+    },
+    "mobutu-sese-seko": {
+      "wikipedia_slug": "Mobutu_Sese_Seko"
+    },
+    "rigoberta-mench": {
+      "wikipedia_slug": "Rigoberta_Menchú"
+    },
+    "bernardo-o-higgins": {
+      "wikipedia_slug": "Bernardo_O'Higgins"
+    },
+    "george-eastman": {
+      "wikipedia_slug": "George_Eastman"
+    },
+    "ida-b-wells": {
+      "wikipedia_slug": "Ida_B._Wells"
+    },
+    "simone-weil": {
+      "wikipedia_slug": "Simone_Weil"
+    },
+    "kabir": {
+      "wikipedia_slug": "Kabir"
+    },
+    "orhan-pamuk": {
+      "wikipedia_slug": "Orhan_Pamuk"
+    },
+    "sam-walton": {
+      "wikipedia_slug": "Sam_Walton"
+    },
+    "zaha-hadid": {
+      "wikipedia_slug": "Zaha_Hadid"
+    },
+    "isabel-allende": {
+      "wikipedia_slug": "Isabel_Allende"
+    },
+    "l-ron-hubbard": {
+      "wikipedia_slug": "L._Ron_Hubbard"
+    },
+    "murray-gell-mann": {
+      "wikipedia_slug": "Murray_Gell-Mann"
+    },
+    "nader-shah": {
+      "wikipedia_slug": "Nader_Shah"
+    },
+    "serena-williams": {
+      "wikipedia_slug": "Serena_Williams"
+    },
+    "sergei-rachmaninoff": {
+      "wikipedia_slug": "Sergei_Rachmaninoff"
+    },
+    "fela-kuti": {
+      "wikipedia_slug": "Fela_Kuti"
+    },
+    "george-soros": {
+      "wikipedia_slug": "George_Soros"
+    },
+    "jose-de-san-martin": {
+      "wikipedia_slug": "José_de_San_Martín"
+    },
+    "mo-yan": {
+      "wikipedia_slug": "Mo_Yan"
+    },
+    "soichiro-honda": {
+      "wikipedia_slug": "Soichiro_Honda"
+    },
+    "abdus-salam": {
+      "wikipedia_slug": "Abdus_Salam"
+    },
+    "dietrich-bonhoeffer": {
+      "wikipedia_slug": "Dietrich_Bonhoeffer"
+    },
+    "gottlieb-daimler": {
+      "wikipedia_slug": "Gottlieb_Daimler"
+    },
+    "jean-racine": {
+      "wikipedia_slug": "Jean_Racine"
+    },
+    "mahathir-mohamad": {
+      "wikipedia_slug": "Mahathir_Mohamad"
+    },
+    "oliver-wendell-holmes-jr": {
+      "wikipedia_slug": "Oliver_Wendell_Holmes_Jr."
+    },
+    "ray-kroc": {
+      "wikipedia_slug": "Ray_Kroc"
+    },
+    "ruth-bader-ginsburg": {
+      "wikipedia_slug": "Ruth_Bader_Ginsburg"
+    },
+    "stan-lee": {
+      "wikipedia_slug": "Stan_Lee"
+    },
+    "usain-bolt": {
+      "wikipedia_slug": "Usain_Bolt"
+    },
+    "ashurbanipal": {
+      "wikipedia_slug": "Ashurbanipal"
+    },
+    "christopher-wren": {
+      "wikipedia_slug": "Christopher_Wren"
+    },
+    "frank-sinatra": {
+      "wikipedia_slug": "Frank_Sinatra"
+    },
+    "georgia-o-keeffe": {
+      "wikipedia_slug": "Georgia_O'Keeffe"
+    },
+    "jonathan-edwards": {
+      "wikipedia_slug": "Jonathan_Edwards_(theologian)"
+    },
+    "ravi-shankar": {
+      "wikipedia_slug": "Ravi_Shankar"
+    },
+    "roland-barthes": {
+      "wikipedia_slug": "Roland_Barthes"
+    },
+    "rupert-murdoch": {
+      "wikipedia_slug": "Rupert_Murdoch"
+    },
+    "stephen-king": {
+      "wikipedia_slug": "Stephen_King"
+    },
+    "w-b-yeats": {
+      "wikipedia_slug": "W._B._Yeats"
+    },
+    "aaron-copland": {
+      "wikipedia_slug": "Aaron_Copland"
+    },
+    "akio-morita": {
+      "wikipedia_slug": "Akio_Morita"
+    },
+    "alice-walker": {
+      "wikipedia_slug": "Alice_Walker"
+    },
+    "andrea-palladio": {
+      "wikipedia_slug": "Andrea_Palladio"
+    },
+    "banksy": {
+      "wikipedia_slug": "Banksy"
+    },
+    "boris-pasternak": {
+      "wikipedia_slug": "Boris_Pasternak"
+    },
+    "christian-dior": {
+      "wikipedia_slug": "Christian_Dior"
+    },
+    "donald-knuth": {
+      "wikipedia_slug": "Donald_Knuth"
+    },
+    "gayatri-chakravorty-spivak": {
+      "wikipedia_slug": "Gayatri_Chakravorty_Spivak"
+    },
+    "hong-xiuquan": {
+      "wikipedia_slug": "Hong_Xiuquan"
+    },
+    "john-of-the-cross": {
+      "wikipedia_slug": "John_of_the_Cross"
+    },
+    "jonathan-swift": {
+      "wikipedia_slug": "Jonathan_Swift"
+    },
+    "j-rgen-habermas": {
+      "wikipedia_slug": "Jürgen_Habermas"
+    },
+    "marvin-minsky": {
+      "wikipedia_slug": "Marvin_Minsky"
+    },
+    "mirabai": {
+      "wikipedia_slug": "Mirabai"
+    },
+    "samuel-taylor-coleridge": {
+      "wikipedia_slug": "Samuel_Taylor_Coleridge"
+    },
+    "shigeru-miyamoto": {
+      "wikipedia_slug": "Shigeru_Miyamoto"
+    },
+    "shirin-ebadi": {
+      "wikipedia_slug": "Shirin_Ebadi"
+    },
+    "su-song": {
+      "wikipedia_slug": "Su_Song"
+    },
+    "thich-nhat-hanh": {
+      "wikipedia_slug": "Thích_Nhất_Hạnh"
+    },
+    "walter-benjamin": {
+      "wikipedia_slug": "Walter_Benjamin"
+    },
+    "wang-wei": {
+      "wikipedia_slug": "Wang_Wei"
+    },
+    "angela-davis": {
+      "wikipedia_slug": "Angela_Davis"
+    },
+    "ansel-adams": {
+      "wikipedia_slug": "Ansel_Adams"
+    },
+    "bi-sheng": {
+      "wikipedia_slug": "Bi_Sheng"
+    },
+    "earl-warren": {
+      "wikipedia_slug": "Earl_Warren"
+    },
+    "emma-goldman": {
+      "wikipedia_slug": "Emma_Goldman"
+    },
+    "geoffrey-hinton": {
+      "wikipedia_slug": "Geoffrey_Hinton"
+    },
+    "jane-jacobs": {
+      "wikipedia_slug": "Jane_Jacobs"
+    },
+    "john-bardeen": {
+      "wikipedia_slug": "John_Bardeen"
+    },
+    "l-opold-s-dar-senghor": {
+      "wikipedia_slug": "Léopold_Sédar_Senghor"
+    },
+    "mary-leakey": {
+      "wikipedia_slug": "Mary_Leakey"
+    },
+    "polybius": {
+      "wikipedia_slug": "Polybius"
+    },
+    "ren-magritte": {
+      "wikipedia_slug": "René_Magritte"
+    },
+    "sei-sh-nagon": {
+      "wikipedia_slug": "Sei_Shōnagon"
+    },
+    "sinan": {
+      "wikipedia_slug": "Sinan"
+    },
+    "t-e-lawrence": {
+      "wikipedia_slug": "T._E._Lawrence"
+    },
+    "thorstein-veblen": {
+      "wikipedia_slug": "Thorstein_Veblen"
+    },
+    "thutmose-iii": {
+      "wikipedia_slug": "Thutmose_III"
+    },
+    "tiger-woods": {
+      "wikipedia_slug": "Tiger_Woods"
+    },
+    "t-pac-amaru-ii": {
+      "wikipedia_slug": "Túpac_Amaru_II"
+    },
+    "willis-carrier": {
+      "wikipedia_slug": "Willis_Carrier"
+    },
+    "yann-lecun": {
+      "wikipedia_slug": "Yann_LeCun"
+    },
+    "yves-saint-laurent": {
+      "wikipedia_slug": "Yves_Saint_Laurent_(designer)"
+    },
+    "ahmad-ibn-hanbal": {
+      "wikipedia_slug": "Ahmad_ibn_Hanbal"
+    },
+    "alexander-pope": {
+      "wikipedia_slug": "Alexander_Pope"
+    },
+    "augustin-louis-cauchy": {
+      "wikipedia_slug": "Augustin-Louis_Cauchy"
+    },
+    "beatrix-potter": {
+      "wikipedia_slug": "Beatrix_Potter"
+    },
+    "billie-jean-king": {
+      "wikipedia_slug": "Billie_Jean_King"
+    },
+    "brothers-grimm": {
+      "wikipedia_slug": "Brothers_Grimm"
     }
   },
-
   "aliases": {
     "_comment": "Additional aliases to add. Format: 'figure_id': ['alias1', 'alias2']",
-    "mani": ["the prophet mani", "prophet mani", "mani the prophet", "manichaeus"],
-    "ilya-mechnikov": ["elie metchnikoff", "elias metchnikoff", "ilya ilyich mechnikov", "élie metchnikoff"],
-    "cai-lun": ["ts'ai lun", "tsai lun", "cai lun"],
-    "aristotle-s-teacher-ammonius-saccas": ["ammonius saccas"],
-    "william-thomson-1st-baron-kelvin": ["lord kelvin", "william thompson", "william thomson", "kelvin"],
-    "constantine-xi": ["constantine xi palaiologos", "emperor constantine xi", "constantine palaiologos", "constantine xi dragases"],
-    "nicolaus-otto": ["nikolaus otto", "nicolaus august otto", "nikolaus august otto"]
+    "mani": [
+      "the prophet mani",
+      "prophet mani",
+      "mani the prophet",
+      "manichaeus"
+    ],
+    "ilya-mechnikov": [
+      "elie metchnikoff",
+      "elias metchnikoff",
+      "ilya ilyich mechnikov",
+      "élie metchnikoff"
+    ],
+    "cai-lun": [
+      "ts'ai lun",
+      "tsai lun",
+      "cai lun"
+    ],
+    "aristotle-s-teacher-ammonius-saccas": [
+      "ammonius saccas"
+    ],
+    "william-thomson-1st-baron-kelvin": [
+      "lord kelvin",
+      "william thompson",
+      "william thomson",
+      "kelvin"
+    ],
+    "constantine-xi": [
+      "constantine xi palaiologos",
+      "emperor constantine xi",
+      "constantine palaiologos",
+      "constantine xi dragases"
+    ],
+    "nicolaus-otto": [
+      "nikolaus otto",
+      "nicolaus august otto",
+      "nikolaus august otto"
+    ]
   },
-
   "compound_names": {
     "_comment": "Names that refer to multiple people. Format: 'compound_name': ['figure_id1', 'figure_id2']",
-    "watson and crick": ["james-watson", "francis-crick"],
-    "crick and watson": ["james-watson", "francis-crick"],
-    "lewis and clark": ["meriwether-lewis", "william-clark"]
+    "watson and crick": [
+      "james-watson",
+      "francis-crick"
+    ],
+    "crick and watson": [
+      "james-watson",
+      "francis-crick"
+    ],
+    "lewis and clark": [
+      "meriwether-lewis",
+      "william-clark"
+    ]
   }
 }

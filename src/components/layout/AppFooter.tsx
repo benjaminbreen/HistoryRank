@@ -40,6 +40,7 @@ export function AppFooter() {
                   ['/', 'Rankings'],
                   ['/scatter', 'Scatter'],
                   ['/maps', 'Maps'],
+                  ['/media', 'Media Atlas'],
                   ['/compare', 'Compare'],
                 ].map(([href, label]) => (
                   <li key={href}>

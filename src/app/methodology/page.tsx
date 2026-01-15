@@ -40,6 +40,7 @@ export default function MethodologyPage() {
                   ['interpretation', 'Interpretation'],
                   ['limitations', 'Limitations'],
                   ['roadmap', 'Roadmap'],
+                  ['future-work', 'Future work'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -190,6 +191,28 @@ export default function MethodologyPage() {
                 why ranks diverge.</li>
                 <li><strong>Map + timeline views:</strong> Plot figures by birthplace and era for spatial insight.</li>
               </ul>
+            </section>
+
+            <section id="future-work" className="scroll-mt-24">
+              <h2 className="text-xl font-semibold text-stone-900">Future work</h2>
+              <p className="mt-3">
+                Our next phase extends the current benchmark in two directions: prompt sensitivity and
+                cross-lingual comparison. We will run two prompt variants in parallel: the current prompt
+                and a matched version that removes the global balance instruction. Each model will produce
+                10 independent lists under each prompt, letting us compare stability within a prompt and
+                shifts between prompts.
+              </p>
+              <p className="mt-3">
+                We will also translate the prompt into multiple languages (Arabic, Farsi, Mandarin, Russian,
+                French, Spanish, Hindi) while keeping the JSON keys in English. Each language will be sampled
+                with the same number of lists per model to enable clean comparisons.
+              </p>
+              <p className="mt-3">
+                Planned analyses include rank correlations across prompts and languages, top-k overlap,
+                and distribution shifts by era, region, and domain. These results will be reported alongside
+                within-model stability metrics to clarify which differences reflect model priors versus
+                prompt framing.
+              </p>
             </section>
           </div>
         </div>

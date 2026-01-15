@@ -153,6 +153,23 @@ const MODEL_BRANDS: Record<string, {
     fontFamily: 'font-sans',
     darkText: 'dark:text-[#ff8533]',
   },
+  // xAI Grok - soft gold #f59e0b
+  'grok-4': {
+    border: 'border-[#f59e0b]/30',
+    hoverBorder: 'hover:border-[#f59e0b]',
+    text: 'text-[#f59e0b]',
+    bar: 'bg-[#f59e0b]',
+    fontFamily: 'font-sans',
+    darkText: 'dark:text-[#fbbf24]',
+  },
+  'grok-4.1-fast': {
+    border: 'border-[#f59e0b]/30',
+    hoverBorder: 'hover:border-[#f59e0b]',
+    text: 'text-[#f59e0b]',
+    bar: 'bg-[#f59e0b]',
+    fontFamily: 'font-sans',
+    darkText: 'dark:text-[#fbbf24]',
+  },
 };
 
 export function ModelProfileCard({ model, totalModels, onFigureClick }: ModelProfileCardProps) {

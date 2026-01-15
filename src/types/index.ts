@@ -257,6 +257,7 @@ export const SOURCE_LABELS: Record<string, string> = {
   'gpt-4o': 'GPT-4o',
   'gpt-5.2-thinking': 'GPT-5.2 Thinking',
   'grok-4.1-fast': 'Grok 4.1 Fast',
+  'grok-4': 'Grok 4',
   'qwen3': 'Qwen 3',
 };
 
@@ -266,17 +267,21 @@ export const DOMAIN_COLORS: Record<string, string> = {
   'Religion': '#8b5cf6',
   'Philosophy': '#6366f1',
   'Politics': '#ef4444',
+  'Law': '#f87171',
   'Military': '#f97316',
   'Arts': '#10b981',
   'Exploration': '#06b6d4',
   'Economics': '#f59e0b',
   'Medicine': '#ec4899',
   'Social Reform': '#14b8a6',
+  'Gender/Sexuality': '#f472b6',
+  'Society': '#22c55e',
   'Other': '#6b7280',
 };
 
 // Region colors for visualization
 export const REGION_COLORS: Record<string, string> = {
+  'Global': '#6b7280',
   'Northern Europe': '#5b7aa6',
   'Western Europe': '#4f6fa1',
   'Southern Europe': '#7a5a9e',

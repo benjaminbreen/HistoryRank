@@ -488,3 +488,15 @@ tr:hover td {
     transform: translateX(120%);
   }
 }
+
+.hr-media-notes {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.hr-rating-number {
+  text-shadow: none;
+}

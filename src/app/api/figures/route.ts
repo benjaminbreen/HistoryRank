@@ -26,6 +26,7 @@ let modelFavoriteCache: Record<string, Set<string>> | null = null;
 let modelFavoriteCacheTimestamp = 0;
 
 // Thresholds for badges (calibrated for global pageviews across 10 languages)
+// Targets: ~50-100 figures per badge type for hidden-gem, under-the-radar, global-icon
 const BADGE_THRESHOLDS = {
   // Model favorites
   MODEL_FAVORITE_DIFF: 400,      // Model ranks 400+ higher than consensus
@@ -40,21 +41,25 @@ const BADGE_THRESHOLDS = {
   POPULAR_PAGEVIEWS: 8000000,   // 8M+ global pageviews
   POPULAR_MIN_RANK: 300,        // Must be ranked lower than 300
 
-  // Hidden Gem - high rank + low attention + strong consensus
-  HIDDEN_GEM_MAX_RANK: 150,     // Must be in top 150
+  // Hidden Gem - high rank + low attention + STRONG consensus (~60-80 figures)
+  // Differentiator: requires strong LLM agreement (low variance)
+  HIDDEN_GEM_MAX_RANK: 500,     // Top 500 by LLM (expanded from 150)
   HIDDEN_GEM_MIN_RANK: 21,      // Exclude top 20 (already famous)
-  HIDDEN_GEM_MAX_PAGEVIEWS: 1000000, // Under 1M global pageviews
-  HIDDEN_GEM_MAX_VARIANCE: 0.4,     // Must have reasonably strong LLM consensus
+  HIDDEN_GEM_MAX_PAGEVIEWS: 2500000, // Under 2.5M global pageviews (expanded from 1M)
+  HIDDEN_GEM_MAX_VARIANCE: 0.5,     // Must have strong LLM consensus (tightened to separate from under-radar)
 
-  // Under the Radar - high rank + low attention + HPI also undervalues
-  UNDER_RADAR_MAX_RANK: 300,    // Top 300 by LLM
-  UNDER_RADAR_MAX_PAGEVIEWS: 1500000, // Under 1.5M global pageviews
-  UNDER_RADAR_MIN_HPI_RANK: 400, // HPI must also undervalue (rank > 400 or null)
+  // Under the Radar - high rank + low attention + HPI also undervalues (~80-100 figures)
+  // Differentiator: requires HPI to also undervalue (or not have data)
+  UNDER_RADAR_MAX_RANK: 550,    // Top 550 by LLM (slightly expanded)
+  UNDER_RADAR_MAX_PAGEVIEWS: 3500000, // Under 3.5M global pageviews (slightly expanded)
+  UNDER_RADAR_MIN_HPI_RANK: 280, // HPI must undervalue (rank > 280 or null)
 
-  // Global Icon - popular outside Anglophone world
-  GLOBAL_ICON_MODEL_DIFF: 100,  // Chinese models rank 100+ higher than Western
-  GLOBAL_ICON_MAX_ENGLISH_PCT: 50, // English pageviews < 50% of total
-  GLOBAL_ICON_MAX_RANK: 500,    // Must be in top 500
+  // Global Icon - popular outside Anglophone world (~50-80 figures)
+  // Requires either Chinese model preference OR low English pageview % + minimum pageviews
+  GLOBAL_ICON_MODEL_DIFF: 50,   // Chinese models rank 50+ higher than Western
+  GLOBAL_ICON_MAX_ENGLISH_PCT: 55, // English pageviews < 55% of total (tightened)
+  GLOBAL_ICON_MAX_RANK: 700,    // Top 700 by LLM
+  GLOBAL_ICON_MIN_PAGEVIEWS: 500000, // Must have at least 500K pageviews to be "notable"
 
   // Universal Recognition - high across ALL sources
   UNIVERSAL_MAX_LLM_RANK: 150,  // Top 150 by LLM consensus
@@ -290,47 +295,73 @@ function calculateBadges(
   }
 
   // Global Icon: Popular outside Anglophone world
-  // Requires: Chinese models rank higher than Western + low English pageview %
+  // Qualifies if EITHER: Chinese models rank higher than Western OR low English pageview %
+  // Must also have minimum pageviews to be considered globally notable
   if (
-    chineseModelAvg !== null &&
-    westernModelAvg !== null &&
     pageviews !== null &&
-    englishPageviews != null && // != checks both null and undefined
-    pageviews > 0 &&
+    pageviews >= BADGE_THRESHOLDS.GLOBAL_ICON_MIN_PAGEVIEWS &&
     llmConsensusRank <= BADGE_THRESHOLDS.GLOBAL_ICON_MAX_RANK
   ) {
-    const englishPct = (englishPageviews / pageviews) * 100;
-    const modelDiff = westernModelAvg - chineseModelAvg;
-    if (
-      modelDiff >= BADGE_THRESHOLDS.GLOBAL_ICON_MODEL_DIFF &&
-      englishPct < BADGE_THRESHOLDS.GLOBAL_ICON_MAX_ENGLISH_PCT
-    ) {
+    const englishPct = englishPageviews != null ? (englishPageviews / pageviews) * 100 : 100;
+    const modelDiff = (chineseModelAvg !== null && westernModelAvg !== null)
+      ? westernModelAvg - chineseModelAvg
+      : 0;
+
+    // Qualifies if: strong Chinese model preference OR low English pageviews
+    const hasChinesePreference = modelDiff >= BADGE_THRESHOLDS.GLOBAL_ICON_MODEL_DIFF;
+    const hasLowEnglish = englishPct < BADGE_THRESHOLDS.GLOBAL_ICON_MAX_ENGLISH_PCT;
+
+    if (hasChinesePreference || hasLowEnglish) {
       badges.push('global-icon');
     }
   }
 
   // Hidden Gem: High rank + low attention + strong LLM consensus
+  // Uses tiered pageview thresholds to distribute across rank spectrum
   if (
     pageviews !== null &&
     modelCoverage >= 3 &&
-    varianceScore != null && // != checks both null and undefined
-    pageviews <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_PAGEVIEWS &&
+    varianceScore != null &&
     llmConsensusRank <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_RANK &&
     llmConsensusRank >= BADGE_THRESHOLDS.HIDDEN_GEM_MIN_RANK &&
     varianceScore <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_VARIANCE
   ) {
-    badges.push('hidden-gem');
+    // Tiered pageview limits: stricter for top ranks, more lenient for lower ranks
+    let maxPageviews: number;
+    if (llmConsensusRank <= 150) {
+      maxPageviews = 800000;   // Very strict for top 150
+    } else if (llmConsensusRank <= 300) {
+      maxPageviews = 2000000;  // Moderate for 151-300
+    } else {
+      maxPageviews = 4000000;  // More lenient for 301-500
+    }
+
+    if (pageviews <= maxPageviews) {
+      badges.push('hidden-gem');
+    }
   }
 
   // Under the Radar: High rank + low attention + HPI also undervalues
+  // Uses tiered pageview thresholds to distribute across rank spectrum
   if (
     pageviews !== null &&
     modelCoverage >= 2 &&
-    pageviews <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_PAGEVIEWS &&
     llmConsensusRank <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_RANK &&
     (hpiRank === null || hpiRank > BADGE_THRESHOLDS.UNDER_RADAR_MIN_HPI_RANK)
   ) {
-    badges.push('under-the-radar');
+    // Tiered pageview limits: stricter for top ranks, more lenient for lower ranks
+    let maxPageviews: number;
+    if (llmConsensusRank <= 200) {
+      maxPageviews = 1000000;  // Strict for top 200
+    } else if (llmConsensusRank <= 350) {
+      maxPageviews = 2500000;  // Moderate for 201-350
+    } else {
+      maxPageviews = 5000000;  // More lenient for 351-550
+    }
+
+    if (pageviews <= maxPageviews) {
+      badges.push('under-the-radar');
+    }
   }
 
   if (badges.length === 0) return badges;

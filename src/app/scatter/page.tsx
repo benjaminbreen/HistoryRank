@@ -160,9 +160,9 @@ export default function ScatterPage() {
             {errorMessage} Try refreshing or check the deployment logs.
           </div>
         )}
-        <div className="flex gap-6">
+        <div className="flex flex-col gap-6 lg:flex-row">
           {/* Sidebar controls */}
-          <div className="w-72 flex-shrink-0">
+          <div className="w-full lg:w-72 flex-shrink-0">
             <ScatterPlotControls
               config={config}
               onConfigChange={setConfig}
@@ -205,7 +205,7 @@ export default function ScatterPage() {
             <div
               ref={chartRef}
               className="bg-white rounded-lg border border-stone-200 p-4 relative"
-              style={{ height: 'calc(100vh - 280px)', minHeight: '500px' }}
+              style={{ height: 'calc(100vh - 280px)', minHeight: '360px' }}
             >
               {isLoading ? (
                 <div className="w-full h-full flex items-center justify-center">

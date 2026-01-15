@@ -7,10 +7,11 @@ import { VarianceBadge } from '@/components/rankings/VarianceBadge';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
 import { getVarianceLevel, SOURCE_LABELS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '@/types';
 import type { BadgeType } from '@/types';
-import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, Share2 } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, Share2, Link2 } from 'lucide-react';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
 import type { Figure, Ranking, FigureRow } from '@/types';
+import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 
 // Lazy load the heavy globe component
 const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
@@ -137,6 +138,19 @@ interface WikipediaData {
   title: string | null;
 }
 
+interface RelatedMediaItem {
+  id: string;
+  title: string;
+  type: string;
+  release_year: number | null;
+  wikipedia_slug: string | null;
+  primary_era: string | null;
+  sub_era: string | null;
+  primary_region: string | null;
+  domain: string | null;
+  relation: string;
+}
+
 
 interface FigureDetailPanelProps {
   figure: Figure | null;
@@ -165,6 +179,8 @@ export function FigureDetailPanel({
   const [localThumbFailed, setLocalThumbFailed] = useState(false);
   const [shareOrigin, setShareOrigin] = useState('');
   const [shareOpen, setShareOpen] = useState(false);
+  const [relatedMedia, setRelatedMedia] = useState<RelatedMediaItem[]>([]);
+  const [linksLoading, setLinksLoading] = useState(false);
 
   // Use previewRow or figure for display data
   const displayData = figure || previewRow;
@@ -219,6 +235,35 @@ export function FigureDetailPanel({
 
     fetchWikiData();
   }, [wikiSlug]);
+
+  useEffect(() => {
+    if (!figureId) {
+      setRelatedMedia([]);
+      return;
+    }
+    const controller = new AbortController();
+    const fetchLinks = async () => {
+      setLinksLoading(true);
+      try {
+        const res = await fetch(`/api/media-links?figureId=${encodeURIComponent(figureId)}`, { signal: controller.signal });
+        if (!res.ok) {
+          setRelatedMedia([]);
+          return;
+        }
+        const data = await res.json();
+        setRelatedMedia(Array.isArray(data?.items) ? data.items : []);
+      } catch (error) {
+        if ((error as Error).name === 'AbortError') return;
+        console.error('Failed to load related media:', error);
+        setRelatedMedia([]);
+      } finally {
+        setLinksLoading(false);
+      }
+    };
+
+    fetchLinks();
+    return () => controller.abort();
+  }, [figureId]);
 
   const shareUrl = useMemo(() => {
     if (!figureId || !shareOrigin) return '';
@@ -292,23 +337,33 @@ export function FigureDetailPanel({
   const attentionGap = getAttentionGap();
 
   // Get first few sentences of extract for summary
-  const getExtractSummary = (text: string | null, maxLength: number = 350) => {
+  const getExtractParagraphs = (text: string | null, maxLength: number = 700) => {
     if (!text) return null;
-    // Get first 2-3 sentences or up to maxLength chars
     const sentences = text.match(/[^.!?]+[.!?]+/g);
-    if (!sentences) return text.slice(0, maxLength) + '...';
+    if (!sentences) return [text.slice(0, maxLength) + '...'];
 
-    let result = '';
+    let para = '';
+    const result: string[] = [];
+    let total = 0;
     for (const sentence of sentences) {
-      if (result.length + sentence.length > maxLength) break;
-      result += sentence;
+      if (total + sentence.length > maxLength) break;
+      if (result.length === 0 && para.length + sentence.length > maxLength / 2) {
+        result.push(para.trim());
+        para = '';
+      }
+      para += sentence;
+      total += sentence.length;
     }
-    return result || sentences[0];
+    if (para.trim()) result.push(para.trim());
+    return result.slice(0, 2);
   };
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <SheetContent className="w-full sm:max-w-md overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0">
+      <SheetContent
+        showClose={false}
+        className="w-full sm:max-w-xl lg:max-w-2xl overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0"
+      >
         {/* Accessibility: visually hidden title and description */}
         <SheetTitle className="sr-only">
           {displayData ? `${figure?.canonicalName || previewRow?.name} - Figure Details` : 'Figure Details'}
@@ -340,7 +395,7 @@ export function FigureDetailPanel({
 
             {/* Header Section */}
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
-              <div className="flex gap-5">
+              <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
                 <div className="flex-shrink-0">
                   {localThumbUrl && !localThumbFailed ? (
@@ -348,7 +403,7 @@ export function FigureDetailPanel({
                       <img
                         src={localThumbUrl}
                         alt={figure?.canonicalName || previewRow?.name || ''}
-                        className="w-32 h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
+                        className="w-28 h-36 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
                         onError={() => {
                           if (localThumbExt < 2) {
                             setLocalThumbExt(localThumbExt + 1);
@@ -363,13 +418,13 @@ export function FigureDetailPanel({
                       <img
                         src={wikiData.thumbnail.source}
                         alt={figure?.canonicalName || previewRow?.name || ''}
-                        className="w-32 h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
+                        className="w-28 h-36 sm:w-32 sm:h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
                       />
                     </div>
                   ) : wikiLoading ? (
-                    <div className="w-32 h-40 rounded-lg bg-stone-100 dark:bg-slate-700 animate-pulse" />
+                    <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-lg bg-stone-100 dark:bg-slate-700 animate-pulse" />
                   ) : (
-                    <div className="w-32 h-40 rounded-lg bg-gradient-to-br from-stone-100 to-stone-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-inner">
+                    <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-lg bg-gradient-to-br from-stone-100 to-stone-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-inner">
                       <span className="text-4xl font-serif text-stone-400 dark:text-slate-500">
                         {(figure?.canonicalName || previewRow?.name || '?').charAt(0)}
                       </span>
@@ -382,7 +437,7 @@ export function FigureDetailPanel({
                   <div className="text-[10px] uppercase tracking-[0.15em] text-stone-400 dark:text-amber-600 font-medium mb-1">
                     Figure Details
                   </div>
-                  <h2 className="font-serif text-3xl font-semibold text-stone-900 dark:text-amber-100 leading-tight mb-2">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-stone-900 dark:text-amber-100 leading-tight mb-2">
                     {figure?.canonicalName || previewRow?.name}
                   </h2>
                   {previewRow?.badges && previewRow.badges.length > 0 && (
@@ -390,28 +445,46 @@ export function FigureDetailPanel({
                       <BadgeDisplay badges={previewRow.badges} maxVisible={4} />
                     </div>
                   )}
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm text-stone-600 dark:text-slate-400">
+                  <div className="flex flex-col gap-1.5 text-sm text-stone-600 dark:text-slate-400">
                     {figure?.occupation && (
-                      <>
-                        <span className="font-medium">{figure.occupation}</span>
-                        <span className="text-stone-300 dark:text-slate-600">/</span>
-                      </>
-                    )}
-                    {formatYear(displayData?.birthYear ?? null) && (
-                      <>
-                        <span>
-                          {formatYear(displayData?.birthYear ?? null)}
-                          {figure?.deathYear && `–${formatYear(figure.deathYear)}`}
+                      <span className="inline-flex items-center gap-1.5">
+                        <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
+                          Role
                         </span>
-                        {displayData?.regionSub && <span className="text-stone-300 dark:text-stone-600">/</span>}
-                      </>
+                        <span className="font-medium text-stone-700 dark:text-slate-300">{figure.occupation}</span>
+                      </span>
                     )}
-                    {displayData?.regionSub && (
-                      <span
-                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium text-white"
-                        style={{ backgroundColor: REGION_COLORS[displayData.regionSub] || '#9ca3af' }}
-                      >
-                        {displayData.regionSub}
+                    {(formatYear(displayData?.birthYear ?? null) || displayData?.regionSub) && (
+                      <span className="inline-flex items-center gap-2">
+                        {formatYear(displayData?.birthYear ?? null) && (
+                          <span className="inline-flex items-center gap-1.5">
+                            <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
+                              Born
+                            </span>
+                            <span className="font-medium text-stone-700 dark:text-slate-300">
+                              {formatYear(displayData?.birthYear ?? null)}
+                            </span>
+                            {figure?.deathYear && (
+                              <>
+                                <span className="text-stone-300 dark:text-slate-600">•</span>
+                                <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
+                                  Died
+                                </span>
+                                <span className="font-medium text-stone-700 dark:text-slate-300">
+                                  {formatYear(figure.deathYear)}
+                                </span>
+                              </>
+                            )}
+                          </span>
+                        )}
+                        {displayData?.regionSub && (
+                          <span
+                            className="inline-flex w-fit items-center px-2 py-0.5 rounded-full text-xs font-medium text-white"
+                            style={{ backgroundColor: REGION_COLORS[displayData.regionSub] || '#9ca3af' }}
+                          >
+                            {displayData.regionSub}
+                          </span>
+                        )}
                       </span>
                     )}
                     {aliases && aliases.length > 0 && (
@@ -437,53 +510,59 @@ export function FigureDetailPanel({
 
             {/* Content */}
             <div className="p-6 space-y-5 flex-1">
-              {/* Attention Gap - Featured Metric */}
-              {attentionGap && (
-                <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        {attentionGap.direction === 'up' ? (
-                          <TrendingUp className="w-5 h-5 text-emerald-600" />
-                        ) : attentionGap.direction === 'down' ? (
-                          <TrendingDown className="w-5 h-5 text-amber-600" />
-                        ) : (
-                          <Minus className="w-5 h-5 text-stone-400" />
-                        )}
-                        <span className="text-xs uppercase tracking-wide text-stone-500 font-medium">
-                          Attention Gap
-                        </span>
-                      </div>
-                      <div className={`text-3xl font-semibold tracking-tight ${
-                        attentionGap.direction === 'up'
-                          ? 'text-emerald-700'
-                          : attentionGap.direction === 'down'
-                          ? 'text-amber-700'
-                          : 'text-stone-600'
-                      }`}>
-                        {attentionGap.ratio > 1 ? '↑' : attentionGap.ratio < 1 ? '↓' : ''}
-                        {' '}{attentionGap.ratio.toFixed(1)}x
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-xs text-stone-400 mb-0.5">Pantheon</div>
-                      <div className="font-mono text-sm text-stone-600">#{figure?.hpiRank || previewRow?.hpiRank}</div>
-                      <div className="text-xs text-stone-400 mt-2 mb-0.5">LLM</div>
-                      <div className="font-mono text-sm text-stone-900 font-medium">#{llmRank}</div>
-                    </div>
+              {(linksLoading || relatedMedia.length > 0) && (
+                <div className="rounded-xl border border-stone-200/70 bg-white/90 p-4 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div className="text-xs uppercase tracking-[0.2em] text-stone-500">Related media</div>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
+                      <Link2 className="h-3 w-3" />
+                      Media Atlas
+                    </span>
                   </div>
-                  <p className="text-xs text-stone-500 mt-3 leading-relaxed">
-                    {attentionGap.label}
-                  </p>
+                  {linksLoading && (
+                    <div className="mt-3 text-xs text-stone-400">Loading related media...</div>
+                  )}
+                  {!linksLoading && relatedMedia.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {relatedMedia.map((media) => (
+                        <a
+                          key={media.id}
+                          href={`/media?media=${encodeURIComponent(media.id)}`}
+                          className="flex items-center gap-3 rounded-xl border border-stone-200/60 bg-white px-3 py-2 text-left transition-colors hover:border-stone-300 hover:bg-stone-50"
+                        >
+                          <MediaThumbnail
+                            mediaId={media.id}
+                            wikipediaSlug={media.wikipedia_slug}
+                            title={media.title}
+                            size={44}
+                            className="border border-stone-200 bg-white"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <div className="truncate text-sm font-medium text-stone-800">{media.title}</div>
+                            <div className="text-xs text-stone-500">
+                              {media.release_year ?? '—'} · {media.type}
+                            </div>
+                          </div>
+                          <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                            {media.relation}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
-
               {/* Wikipedia Extract */}
               {wikiData?.extract && (
                 <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
-                  <p className="text-sm text-stone-600 leading-relaxed">
-                    {getExtractSummary(wikiData.extract)}
-                  </p>
+                  {getExtractParagraphs(wikiData.extract)?.map((paragraph, index) => (
+                    <p
+                      key={`${previewRow?.id || figure?.id}-extract-${index}`}
+                      className={`text-sm text-stone-600 leading-relaxed ${index === 0 ? '' : 'mt-3'}`}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                   {wikiSlug && (
                     <a
                       href={`https://en.wikipedia.org/wiki/${wikiSlug}`}
@@ -589,7 +668,7 @@ export function FigureDetailPanel({
                       </span>
                     )}
                   </div>
-                  <div className="space-y-2">
+                  <div className="grid gap-3 sm:grid-cols-2">
                     {sourceRankings.map((sr) => (
                       <SourceRankingCard
                         key={sr.source}
@@ -601,6 +680,47 @@ export function FigureDetailPanel({
                       />
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* Attention Gap - Featured Metric */}
+              {attentionGap && (
+                <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        {attentionGap.direction === 'up' ? (
+                          <TrendingUp className="w-5 h-5 text-emerald-600" />
+                        ) : attentionGap.direction === 'down' ? (
+                          <TrendingDown className="w-5 h-5 text-amber-600" />
+                        ) : (
+                          <Minus className="w-5 h-5 text-stone-400" />
+                        )}
+                        <span className="text-xs uppercase tracking-wide text-stone-500 font-medium">
+                          Attention Gap
+                        </span>
+                      </div>
+                      <div className={`text-3xl font-semibold tracking-tight ${
+                        attentionGap.direction === 'up'
+                          ? 'text-emerald-700'
+                          : attentionGap.direction === 'down'
+                          ? 'text-amber-700'
+                          : 'text-stone-600'
+                      }`}>
+                        {attentionGap.ratio > 1 ? '↑' : attentionGap.ratio < 1 ? '↓' : ''}
+                        {' '}{attentionGap.ratio.toFixed(1)}x
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-stone-400 mb-0.5">Pantheon</div>
+                      <div className="font-mono text-sm text-stone-600">#{figure?.hpiRank || previewRow?.hpiRank}</div>
+                      <div className="text-xs text-stone-400 mt-2 mb-0.5">LLM</div>
+                      <div className="font-mono text-sm text-stone-900 font-medium">#{llmRank}</div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-stone-500 mt-3 leading-relaxed">
+                    {attentionGap.label}
+                  </p>
                 </div>
               )}
 

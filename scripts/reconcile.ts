@@ -12,6 +12,7 @@
  *   npx tsx scripts/reconcile.ts              # Run all reconciliation
  *   npx tsx scripts/reconcile.ts --dry-run    # Preview changes without applying
  *   npx tsx scripts/reconcile.ts --thumbnails # Only download missing thumbnails
+ *   npx tsx scripts/reconcile.ts --limit=100  # Limit enrichment batch size
  */
 
 import { db, figures, rankings, nameAliases } from '../src/lib/db';
@@ -582,7 +583,7 @@ async function autoGenerateAliases(dryRun: boolean) {
   console.log(`   Added ${added} auto-generated aliases`);
 }
 
-async function enrichMissingData(dryRun: boolean) {
+async function enrichMissingData(dryRun: boolean, limit?: number) {
   console.log('\n🔍 Enriching figures missing data...');
 
   // Find figures with wikipedia_slug but missing birth_year, era, domain, or pageviews
@@ -603,7 +604,11 @@ async function enrichMissingData(dryRun: boolean) {
     f.wikipediaSlug && (!f.birthYear || !f.era || !f.domain || !f.pageviews2025)
   );
 
+  const batch = typeof limit === 'number' ? toEnrich.slice(0, limit) : toEnrich;
   console.log(`   Found ${toEnrich.length} figures needing enrichment`);
+  if (typeof limit === 'number') {
+    console.log(`   Limiting to first ${batch.length} figures`);
+  }
 
   if (toEnrich.length === 0 || dryRun) {
     return;
@@ -611,10 +616,10 @@ async function enrichMissingData(dryRun: boolean) {
 
   let enriched = 0;
 
-  for (const figure of toEnrich) {
+  for (const figure of batch) {
     if (!figure.wikipediaSlug) continue;
 
-    process.stdout.write(`   [${enriched + 1}/${toEnrich.length}] ${figure.id}... `);
+    process.stdout.write(`   [${enriched + 1}/${batch.length}] ${figure.id}... `);
 
     const wikiData = await fetchWikipediaData(figure.wikipediaSlug);
     const updateFields: any = { updatedAt: new Date() };
@@ -678,8 +683,13 @@ async function enrichMissingData(dryRun: boolean) {
 
 async function updateConsensusRanks() {
   console.log('\n📊 Updating consensus ranks (coverage-weighted)...');
-  const { recalculateConsensus } = await import('./recalculate-consensus.cjs');
-  recalculateConsensus(db);
+  const { spawnSync } = await import('child_process');
+  const result = spawnSync('node', ['scripts/recalculate-consensus.cjs'], {
+    stdio: 'inherit',
+  });
+  if (result.status !== 0) {
+    throw new Error('Consensus recalculation failed');
+  }
 }
 
 // ============================================
@@ -691,6 +701,8 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const thumbnailsOnly = args.includes('--thumbnails');
   const enrichOnly = args.includes('--enrich');
+  const limitArg = args.find((arg) => arg.startsWith('--limit='));
+  const limit = limitArg ? Number(limitArg.split('=')[1]) : undefined;
 
   if (dryRun) {
     console.log('🔍 DRY RUN - No changes will be made\n');
@@ -705,7 +717,7 @@ async function main() {
   }
 
   if (enrichOnly) {
-    await enrichMissingData(dryRun);
+    await enrichMissingData(dryRun, limit);
     console.log('\n✅ Enrichment complete!');
     return;
   }
@@ -725,7 +737,7 @@ async function main() {
   await addAliases(overrides.aliases, dryRun);
 
   // 5. Enrich figures missing birth year, era, domain, pageviews
-  await enrichMissingData(dryRun);
+  await enrichMissingData(dryRun, limit);
 
   // 6. Auto-generate aliases from canonical names
   await autoGenerateAliases(dryRun);
