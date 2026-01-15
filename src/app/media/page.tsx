@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { MediaExplorer } from '@/components/media/MediaExplorer';
@@ -11,7 +11,22 @@ import type { MediaItem } from '@/lib/media';
 
 type MediaResponse = { items: MediaItem[] };
 
-export default function MediaPage() {
+function MediaLoading() {
+  return (
+    <div className="min-h-screen bg-[#f8f5ef] text-stone-900">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="space-y-4">
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-10 w-full max-w-xl" />
+          <Skeleton className="h-24 w-full max-w-3xl" />
+          <Skeleton className="h-[360px] w-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MediaPageContent() {
   const { settings, updateSettings, resetSettings } = useSettings();
   const searchParams = useSearchParams();
   const [items, setItems] = useState<MediaItem[]>([]);
@@ -132,5 +147,13 @@ export default function MediaPage() {
         />
       </main>
     </div>
+  );
+}
+
+export default function MediaPage() {
+  return (
+    <Suspense fallback={<MediaLoading />}>
+      <MediaPageContent />
+    </Suspense>
   );
 }
