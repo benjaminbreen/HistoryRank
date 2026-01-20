@@ -14,7 +14,7 @@ type MediaResponse = { items: MediaItem[] };
 function MediaLoading() {
   return (
     <div className="min-h-screen bg-[#f8f5ef] text-stone-900">
-      <div className="mx-auto max-w-7xl px-6 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
         <div className="space-y-4">
           <Skeleton className="h-8 w-64" />
           <Skeleton className="h-10 w-full max-w-xl" />
@@ -110,10 +110,10 @@ function MediaPageContent() {
         onSettingsChange={updateSettings}
         onSettingsReset={resetSettings}
       />
-      <main className="mx-auto max-w-7xl px-6 py-12">
-        <div className="mb-10 space-y-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-stone-400">Historical Media Atlas</p>
-          <h1 className="text-3xl font-serif text-stone-900 md:text-4xl">Historical Media Atlas</h1>
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
+        <div className="mb-6 sm:mb-10 space-y-3 sm:space-y-4">
+          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400">Historical Media Atlas</p>
+          <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 md:text-4xl">Historical Media Atlas</h1>
           <p className="max-w-3xl text-sm text-stone-600 leading-relaxed">
             A curated list of films, series, and podcasts that can deepen historical understanding.
             These works are not substitutes for primary sources or scholarly reading, but they can
@@ -144,6 +144,20 @@ function MediaPageContent() {
           open={Boolean(selectedId)}
           loading={detailLoading}
           onClose={() => setSelectedId(null)}
+          onNext={() => {
+            if (!selectedId || items.length === 0) return;
+            const currentIndex = items.findIndex((i) => i.id === selectedId);
+            if (currentIndex === -1) return;
+            const nextIndex = (currentIndex + 1) % items.length;
+            setSelectedId(items[nextIndex].id);
+          }}
+          onPrevious={() => {
+            if (!selectedId || items.length === 0) return;
+            const currentIndex = items.findIndex((i) => i.id === selectedId);
+            if (currentIndex === -1) return;
+            const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+            setSelectedId(items[prevIndex].id);
+          }}
         />
       </main>
     </div>

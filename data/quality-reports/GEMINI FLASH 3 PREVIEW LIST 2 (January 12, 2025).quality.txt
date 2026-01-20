@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GEMINI FLASH 3 PREVIEW LIST 2 (January 12, 2025).txt
+Model: GEMINI FLASH 3 PREVIEW
+Timestamp: 2026-01-19T06:54:16.419Z
+
+VERDICT: FAIL
+
+Summary: Issues: 267 exact duplicates; pattern collapse (max 11)
+
+Scores:
+  Repetition: FAIL - 267 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 11 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (282):
+  - Exact duplicate: "louis pasteur" at ranks 11, 886
+  - Exact duplicate: "aristotle" at ranks 13, 853
+  - Exact duplicate: "euclid" at ranks 14, 721
+  - Exact duplicate: "constantine the great" at ranks 21, 568
+  - Exact duplicate: "martin luther" at ranks 25, 658
+  - Exact duplicate: "orville and wilbur wright" at ranks 28, 760
+  - Exact duplicate: "genghis khan" at ranks 29, 931
+  - Exact duplicate: "adam smith" at ranks 30, 941
+  - Exact duplicate: "william shakespeare" at ranks 31, 692
+  - Exact duplicate: "napoleon bonaparte" at ranks 34, 939
+  ... and 272 more issues
+
+Diversity Estimates:
+  Regions: Europe: 117, Asia: 29, Middle East: 35, Africa: 11, Americas: 42, Unknown: 766
+  Domains: Politics/Leadership: 137, Science/Technology: 84, Philosophy/Religion: 135, Arts/Literature: 116, Military: 24, Other: 504

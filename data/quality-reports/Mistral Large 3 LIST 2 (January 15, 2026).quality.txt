@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Mistral Large 3 LIST 2 (January 15, 2026).txt
+Model: Mistral Large 3
+Timestamp: 2026-01-19T06:54:27.425Z
+
+VERDICT: FAIL
+
+Summary: Issues: 175 exact duplicates; pattern collapse (max 334)
+
+Scores:
+  Repetition: FAIL - 175 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 334 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+
+Issues (223):
+  - Exact duplicate: "leonardo da vinci" at ranks 8, 651
+  - Exact duplicate: "william shakespeare" at ranks 9, 585
+  - Exact duplicate: "thomas edison" at ranks 15, 78
+  - Exact duplicate: "adam smith" at ranks 18, 67
+  - Exact duplicate: "thomas jefferson" at ranks 29, 300
+  - Exact duplicate: "henry ford" at ranks 31, 82
+  - Exact duplicate: "simone de beauvoir" at ranks 64, 131, 256
+  - Exact duplicate: "nelson mandela" at ranks 92, 118, 224
+  - Exact duplicate: "winston churchill" at ranks 93, 343
+  - Exact duplicate: "franklin d roosevelt" at ranks 94, 328
+  ... and 213 more issues
+
+Diversity Estimates:
+  Regions: Europe: 61, Asia: 37, Middle East: 26, Africa: 19, Americas: 34, Unknown: 823
+  Domains: Politics/Leadership: 297, Science/Technology: 4, Philosophy/Religion: 43, Arts/Literature: 271, Military: 11, Other: 374

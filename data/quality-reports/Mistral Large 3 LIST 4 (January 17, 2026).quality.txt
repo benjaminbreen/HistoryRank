@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Mistral Large 3 LIST 4 (January 17, 2026).txt
+Model: Mistral Large 3
+Timestamp: 2026-01-19T06:54:27.821Z
+
+VERDICT: FAIL
+
+Summary: Issues: 362 exact duplicates; pattern collapse (max 81); 7 missing anchors
+
+Scores:
+  Repetition: FAIL - 362 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 81 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: WARN - 36/43 anchor figures found (84%)
+
+Issues (309):
+  - Exact duplicate: "adam smith" at ranks 12, 48
+  - Exact duplicate: "thomas edison" at ranks 15, 395
+  - Exact duplicate: "genghis khan" at ranks 17, 666, 947
+  - Exact duplicate: "mahatma gandhi" at ranks 19, 673, 953
+  - Exact duplicate: "henry ford" at ranks 32, 416, 806
+  - Exact duplicate: "alexander graham bell" at ranks 33, 396
+  - Exact duplicate: "winston churchill" at ranks 34, 530, 640, 919
+  - Exact duplicate: "vladimir lenin" at ranks 35, 507, 651, 896
+  - Exact duplicate: "nelson mandela" at ranks 36, 535, 541, 612, 924
+  - Exact duplicate: "marie curie" at ranks 37, 360
+  ... and 299 more issues
+
+Diversity Estimates:
+  Regions: Europe: 82, Asia: 69, Middle East: 55, Africa: 34, Americas: 8, Unknown: 752
+  Domains: Politics/Leadership: 397, Science/Technology: 81, Philosophy/Religion: 101, Arts/Literature: 22, Military: 27, Other: 372

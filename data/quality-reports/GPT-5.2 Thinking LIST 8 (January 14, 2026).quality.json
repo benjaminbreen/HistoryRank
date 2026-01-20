@@ -1,0 +1,926 @@
+{
+  "file": "GPT-5.2 Thinking LIST 8 (January 14, 2026).txt",
+  "model": "GPT-5.2 Thinking",
+  "timestamp": "2026-01-19T06:54:22.241Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 1,
+      "fuzzy": 82,
+      "status": "PASS",
+      "details": "1 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        106,
+        199
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad albukhari",
+        "jalal aldin muhammad rumi",
+        "askia muhammad",
+        "muhammad ali pasha",
+        "muhammad ali boxer",
+        "muhammad iqbal",
+        "muhammad abduh",
+        "muhammad yunus"
+      ],
+      "ranks": [
+        1,
+        225,
+        250,
+        450,
+        481,
+        587,
+        613,
+        627,
+        976
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr",
+        "martin luther relisted"
+      ],
+      "ranks": [
+        12,
+        160,
+        595
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "genghis khan",
+      "variants": [
+        "genghis khan",
+        "genghis khan temujin"
+      ],
+      "ranks": [
+        17,
+        346
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ashoka",
+      "variants": [
+        "ashoka",
+        "ashoka relisted"
+      ],
+      "ranks": [
+        19,
+        888
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas aquinas",
+      "variants": [
+        "thomas aquinas",
+        "st thomas aquinas relisted"
+      ],
+      "ranks": [
+        21,
+        858
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "homer",
+      "variants": [
+        "homer",
+        "homer relisted"
+      ],
+      "ranks": [
+        23,
+        709
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hammurabi",
+      "variants": [
+        "hammurabi",
+        "hammurabi relisted"
+      ],
+      "ranks": [
+        26,
+        893
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sargon of akkad",
+      "variants": [
+        "sargon of akkad",
+        "sargon of akkad relisted"
+      ],
+      "ranks": [
+        27,
+        894
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john locke",
+      "variants": [
+        "john locke",
+        "john locke relisted"
+      ],
+      "ranks": [
+        34,
+        868
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas jefferson",
+      "variants": [
+        "thomas jefferson",
+        "thomas jefferson relisted"
+      ],
+      "ranks": [
+        42,
+        869
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "adam smith",
+      "variants": [
+        "adam smith",
+        "adam smith relisted"
+      ],
+      "ranks": [
+        44,
+        747
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "zheng he",
+      "variants": [
+        "zheng he",
+        "zheng he relisted"
+      ],
+      "ranks": [
+        47,
+        642
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "akbar",
+      "variants": [
+        "akbar",
+        "akbar relisted"
+      ],
+      "ranks": [
+        48,
+        889
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv",
+      "variants": [
+        "louis xiv",
+        "louis xvi"
+      ],
+      "ranks": [
+        49,
+        366
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernn corts",
+      "variants": [
+        "hernn corts",
+        "hernn corts relisted"
+      ],
+      "ranks": [
+        65,
+        633
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pythagoras",
+      "variants": [
+        "pythagoras",
+        "pythagoras relisted"
+      ],
+      "ranks": [
+        73,
+        726
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "herodotus",
+      "variants": [
+        "herodotus",
+        "herodotus relisted"
+      ],
+      "ranks": [
+        74,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "laozi",
+      "variants": [
+        "laozi",
+        "mozi"
+      ],
+      "ranks": [
+        76,
+        785
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "timur",
+      "variants": [
+        "timur",
+        "tamerlane timur"
+      ],
+      "ranks": [
+        81,
+        446
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "saladin",
+      "variants": [
+        "saladin",
+        "saadi"
+      ],
+      "ranks": [
+        82,
+        619
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john calvin",
+      "variants": [
+        "john calvin",
+        "johannes calvin john calvin"
+      ],
+      "ranks": [
+        86,
+        297
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "francis bacon",
+      "variants": [
+        "francis bacon",
+        "francis bacon relisted"
+      ],
+      "ranks": [
+        88,
+        860
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "voltaire",
+      "variants": [
+        "voltaire",
+        "voltaire franoismarie arouet"
+      ],
+      "ranks": [
+        89,
+        256
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alan turing",
+      "variants": [
+        "alan turing",
+        "alan turing relisted"
+      ],
+      "ranks": [
+        115,
+        528
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "jalal aldin muhammad rumi"
+      ],
+      "ranks": [
+        131,
+        250
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn khaldun",
+      "variants": [
+        "ibn khaldun",
+        "ibn khaldun relisted"
+      ],
+      "ranks": [
+        132,
+        998
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james madison",
+      "variants": [
+        "james madison",
+        "james madison relisted"
+      ],
+      "ranks": [
+        140,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander hamilton",
+      "variants": [
+        "alexander hamilton",
+        "alexander hamilton relisted"
+      ],
+      "ranks": [
+        141,
+        871
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "frederick douglass",
+      "variants": [
+        "frederick douglass",
+        "frederick douglass relisted"
+      ],
+      "ranks": [
+        165,
+        846
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hirohito",
+      "variants": [
+        "hirohito",
+        "emperor hirohito relisted"
+      ],
+      "ranks": [
+        172,
+        605
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto",
+        "sukarno relisted",
+        "sukarno duplicate removed placeholder"
+      ],
+      "ranks": [
+        180,
+        181,
+        910,
+        931
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        182,
+        183
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert oppenheimer",
+      "variants": [
+        "robert oppenheimer",
+        "j robert oppenheimer"
+      ],
+      "ranks": [
+        192,
+        195
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramanuja",
+      "variants": [
+        "ramanuja",
+        "srinivasa ramanujan"
+      ],
+      "ranks": [
+        231,
+        524
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mani",
+      "variants": [
+        "mani",
+        "mozi"
+      ],
+      "ranks": [
+        236,
+        785
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "saicho",
+      "variants": [
+        "saicho",
+        "sappho"
+      ],
+      "ranks": [
+        241,
+        507
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jane austen",
+      "variants": [
+        "jane austen",
+        "jane austen relisted"
+      ],
+      "ranks": [
+        260,
+        841
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rabindranath tagore",
+      "variants": [
+        "rabindranath tagore",
+        "rabindranath tagore relisted"
+      ],
+      "ranks": [
+        263,
+        675
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "du fu",
+      "variants": [
+        "du fu",
+        "du fu relisted",
+        "du you"
+      ],
+      "ranks": [
+        265,
+        714,
+        779
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james joyce",
+      "variants": [
+        "james joyce",
+        "james joule"
+      ],
+      "ranks": [
+        279,
+        700
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vasco da gama",
+      "variants": [
+        "vasco da gama",
+        "vasco da gama relisted"
+      ],
+      "ranks": [
+        299,
+        630
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james cook",
+      "variants": [
+        "james cook",
+        "captain james cook relisted"
+      ],
+      "ranks": [
+        303,
+        643
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn battuta",
+      "variants": [
+        "ibn battuta",
+        "ibn battuta relisted"
+      ],
+      "ranks": [
+        306,
+        641
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harun alrashid",
+      "variants": [
+        "harun alrashid",
+        "harun alrashid relisted"
+      ],
+      "ranks": [
+        317,
+        843
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "babur",
+      "variants": [
+        "babur",
+        "babur relisted",
+        "kabir"
+      ],
+      "ranks": [
+        322,
+        667,
+        790
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "cyrus the great",
+      "variants": [
+        "cyrus the great",
+        "cyrus the great relisted"
+      ],
+      "ranks": [
+        328,
+        890
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "darius i",
+      "variants": [
+        "darius i",
+        "darius i relisted"
+      ],
+      "ranks": [
+        329,
+        891
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pericles",
+      "variants": [
+        "pericles",
+        "pericles relisted",
+        "pericles duplicate removed placeholder"
+      ],
+      "ranks": [
+        331,
+        458,
+        892
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "antoni gaud",
+      "variants": [
+        "antoni gaud",
+        "antoni gaud relisted"
+      ],
+      "ranks": [
+        396,
+        802
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harriet beecher stowe",
+      "variants": [
+        "harriet beecher stowe",
+        "harriet beecher stowe relisted"
+      ],
+      "ranks": [
+        406,
+        873
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "clara barton",
+      "variants": [
+        "clara barton",
+        "clara barton relisted"
+      ],
+      "ranks": [
+        407,
+        865
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry dunant",
+      "variants": [
+        "henry dunant",
+        "henry dunant relisted"
+      ],
+      "ranks": [
+        408,
+        864
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry kissinger",
+      "variants": [
+        "henry kissinger",
+        "henry kissinger relisted"
+      ],
+      "ranks": [
+        413,
+        984
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gamal abdel nasser",
+      "variants": [
+        "gamal abdel nasser",
+        "gamal abdel nasser relisted"
+      ],
+      "ranks": [
+        418,
+        912
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ada lovelace",
+      "variants": [
+        "ada lovelace",
+        "ada lovelace relisted"
+      ],
+      "ranks": [
+        442,
+        884
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "b r ambedkar",
+      "variants": [
+        "b r ambedkar",
+        "b r ambedkar relisted"
+      ],
+      "ranks": [
+        443,
+        849
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hatshepsut",
+      "variants": [
+        "hatshepsut",
+        "hatshepsut relisted"
+      ],
+      "ranks": [
+        454,
+        896
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sappho",
+      "variants": [
+        "sappho",
+        "sappho relisted"
+      ],
+      "ranks": [
+        507,
+        886
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "omar khayyam",
+      "variants": [
+        "omar khayyam",
+        "omar khayyam relisted"
+      ],
+      "ranks": [
+        541,
+        620
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "coco chanel",
+      "variants": [
+        "coco chanel",
+        "coco chanel relisted"
+      ],
+      "ranks": [
+        569,
+        838
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "lech wasa",
+      "variants": [
+        "lech wasa",
+        "lech wasa relisted"
+      ],
+      "ranks": [
+        602,
+        990
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kim jongil",
+      "variants": [
+        "kim jongil",
+        "kim jongun"
+      ],
+      "ranks": [
+        610,
+        611
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "francis xavier",
+      "variants": [
+        "francis xavier",
+        "st francis xavier relisted"
+      ],
+      "ranks": [
+        635,
+        767
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "boudica",
+      "variants": [
+        "boudica",
+        "boudica relisted"
+      ],
+      "ranks": [
+        655,
+        887
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vyasa",
+      "variants": [
+        "vyasa",
+        "bhasa"
+      ],
+      "ranks": [
+        710,
+        713
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sima qian",
+      "variants": [
+        "sima qian",
+        "sima qian relisted"
+      ],
+      "ranks": [
+        777,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elon musk",
+      "variants": [
+        "elon musk",
+        "elon musk relisted"
+      ],
+      "ranks": [
+        819,
+        978
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mark zuckerberg",
+      "variants": [
+        "mark zuckerberg",
+        "mark zuckerberg relisted"
+      ],
+      "ranks": [
+        822,
+        969
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius xi",
+      "variants": [
+        "pope pius xi",
+        "pope pius xii"
+      ],
+      "ranks": [
+        947,
+        948
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 41,
+      "Asia": 34,
+      "Middle East": 35,
+      "Africa": 13,
+      "Americas": 9,
+      "Oceania": 0,
+      "Unknown": 868
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 25,
+      "Science/Technology": 12,
+      "Philosophy/Religion": 6,
+      "Arts/Literature": 28,
+      "Military": 7,
+      "Other": 922
+    }
+  },
+  "summary": "List passes all quality checks"
+}

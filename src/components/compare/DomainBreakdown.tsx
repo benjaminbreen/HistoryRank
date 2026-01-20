@@ -21,21 +21,33 @@ interface DomainBreakdownProps {
   description: string;
 }
 
-// Model-specific colors
+// Model-specific colors (official brand colors)
 const MODEL_COLORS: Record<string, string> = {
-  'claude-opus-4.5': 'bg-violet-500',
-  'claude-sonnet-4.5': 'bg-purple-500',
-  'gemini-flash-3-preview': 'bg-teal-500',
-  'gemini-pro-3': 'bg-cyan-500',
-  'gpt-5.2-thinking': 'bg-green-500',
+  'claude-opus-4.5': 'bg-[#da7756]',      // Anthropic terra cotta
+  'claude-sonnet-4.5': 'bg-[#da7756]',    // Anthropic terra cotta
+  'deepseek-v3.2': 'bg-[#4D6BFE]',        // DeepSeek blue
+  'gemini-flash-3-preview': 'bg-[#078EFA]', // Gemini blue
+  'gemini-pro-3': 'bg-[#4285F4]',         // Google blue
+  'gpt-5.2-thinking': 'bg-[#10A37F]',     // OpenAI teal
+  'grok-4': 'bg-[#1a1a1a]',               // xAI black
+  'grok-4.1-fast': 'bg-[#1a1a1a]',        // xAI black
+  'mistral-large-3': 'bg-[#FF8205]',      // Mistral orange
+  'qwen3-235b-a22b': 'bg-[#615EFF]',      // Qwen violet
+  'glm-4.7': 'bg-[#2563eb]',              // GLM blue
 };
 
 const MODEL_TEXT_COLORS: Record<string, string> = {
-  'claude-opus-4.5': 'text-violet-600 dark:text-violet-400',
-  'claude-sonnet-4.5': 'text-purple-600 dark:text-purple-400',
-  'gemini-flash-3-preview': 'text-teal-600 dark:text-teal-400',
-  'gemini-pro-3': 'text-cyan-600 dark:text-cyan-400',
-  'gpt-5.2-thinking': 'text-green-600 dark:text-green-400',
+  'claude-opus-4.5': 'text-[#da7756] dark:text-[#e89a7d]',
+  'claude-sonnet-4.5': 'text-[#da7756] dark:text-[#e89a7d]',
+  'deepseek-v3.2': 'text-[#4D6BFE] dark:text-[#7b93fa]',
+  'gemini-flash-3-preview': 'text-[#078EFA] dark:text-[#8ab4f8]',
+  'gemini-pro-3': 'text-[#4285F4] dark:text-[#8ab4f8]',
+  'gpt-5.2-thinking': 'text-[#10A37F] dark:text-[#19c37d]',
+  'grok-4': 'text-[#1a1a1a] dark:text-[#e5e5e5]',
+  'grok-4.1-fast': 'text-[#1a1a1a] dark:text-[#e5e5e5]',
+  'mistral-large-3': 'text-[#FF8205] dark:text-[#ffab4d]',
+  'qwen3-235b-a22b': 'text-[#615EFF] dark:text-[#8b88ff]',
+  'glm-4.7': 'text-[#2563eb] dark:text-[#60a5fa]',
 };
 
 export function DomainBreakdown({ data, models, title, description }: DomainBreakdownProps) {
@@ -106,7 +118,7 @@ export function DomainBreakdown({ data, models, title, description }: DomainBrea
                   {item.domain}
                 </h4>
                 {lowestModel && (
-                  <span className={`text-[10px] ${MODEL_TEXT_COLORS[lowestModel.source] || 'text-stone-500'}`}>
+                  <span className={`text-[11px] sm:text-[10px] ${MODEL_TEXT_COLORS[lowestModel.source] || 'text-stone-500'}`}>
                     {getShortLabel(lowestModel.source)} ranks highest
                   </span>
                 )}
@@ -130,7 +142,7 @@ export function DomainBreakdown({ data, models, title, description }: DomainBrea
                         align="left"
                       >
                         <div className="flex items-center gap-2 cursor-help">
-                          <span className="text-[10px] text-stone-500 dark:text-slate-500 w-12 text-right flex-shrink-0">
+                          <span className="text-[11px] sm:text-[10px] text-stone-500 dark:text-slate-500 w-12 text-right flex-shrink-0">
                             {getShortLabel(m.source)}
                           </span>
                           <div className="flex-1 h-4 bg-stone-100 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -160,7 +172,7 @@ export function DomainBreakdown({ data, models, title, description }: DomainBrea
       {sortedData.length > 6 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-6 w-full py-2 text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 flex items-center justify-center gap-1 border-t border-stone-200 dark:border-slate-700 pt-4"
+          className="mt-6 w-full py-3 sm:py-2 text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 active:bg-stone-50 dark:active:bg-slate-700/50 flex items-center justify-center gap-1 border-t border-stone-200 dark:border-slate-700 pt-4 rounded-b-lg"
         >
           {showAll ? (
             <>

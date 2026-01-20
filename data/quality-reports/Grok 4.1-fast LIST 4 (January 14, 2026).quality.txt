@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1-fast LIST 4 (January 14, 2026).txt
+Model: Grok 4.1-fast
+Timestamp: 2026-01-19T06:54:26.256Z
+
+VERDICT: FAIL
+
+Summary: Issues: 419 exact duplicates
+
+Scores:
+  Repetition: FAIL - 419 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (214):
+  - Exact duplicate: "confucius" at ranks 4, 850
+  - Exact duplicate: "albert einstein" at ranks 8, 553
+  - Exact duplicate: "charles darwin" at ranks 9, 104, 218
+  - Exact duplicate: "karl marx" at ranks 10, 105, 675
+  - Exact duplicate: "laozi" at ranks 11, 851
+  - Exact duplicate: "thomas aquinas" at ranks 14, 182, 328
+  - Exact duplicate: "william shakespeare" at ranks 15, 112, 652
+  - Exact duplicate: "qin shi huang" at ranks 18, 115
+  - Exact duplicate: "galileo galilei" at ranks 20, 131, 516
+  - Exact duplicate: "martin luther" at ranks 22, 103, 326
+  ... and 204 more issues
+
+Diversity Estimates:
+  Regions: Europe: 60, Asia: 20, Middle East: 31, Africa: 19, Americas: 12, Unknown: 858
+  Domains: Politics/Leadership: 46, Science/Technology: 32, Philosophy/Religion: 40, Arts/Literature: 46, Military: 12, Other: 824

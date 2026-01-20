@@ -1,0 +1,4994 @@
+{
+  "file": "Claude Haiku 4.5 LIST 1 (January 18, 2026).txt",
+  "model": "Claude Haiku 4.5",
+  "timestamp": "2026-01-19T06:54:12.168Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 268,
+      "fuzzy": 4,
+      "status": "FAIL",
+      "details": "268 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 97,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 44,
+          "endRank": 53,
+          "count": 10,
+          "examples": [
+            "44. Dalton, John",
+            "45. Mendeleev, Dmitri",
+            "46. Faraday, Michael"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 45,
+          "endRank": 54,
+          "count": 10,
+          "examples": [
+            "45. Mendeleev, Dmitri",
+            "46. Faraday, Michael",
+            "47. Maxwell, James Clerk"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 46,
+          "endRank": 55,
+          "count": 10,
+          "examples": [
+            "46. Faraday, Michael",
+            "47. Maxwell, James Clerk",
+            "48. Planck, Max"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 47,
+          "endRank": 56,
+          "count": 10,
+          "examples": [
+            "47. Maxwell, James Clerk",
+            "48. Planck, Max",
+            "49. Bohr, Niels"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 48,
+          "endRank": 57,
+          "count": 10,
+          "examples": [
+            "48. Planck, Max",
+            "49. Bohr, Niels",
+            "50. Heisenberg, Werner"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 84,
+          "endRank": 95,
+          "count": 12,
+          "examples": [
+            "84. Tinbergen, Nikolaas",
+            "85. Skinner, B.F.",
+            "86. Pavlov, Ivan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 85,
+          "endRank": 96,
+          "count": 12,
+          "examples": [
+            "85. Skinner, B.F.",
+            "86. Pavlov, Ivan",
+            "87. Thorndike, Edward"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 85,
+          "endRank": 97,
+          "count": 13,
+          "examples": [
+            "85. Skinner, B.F.",
+            "86. Pavlov, Ivan",
+            "87. Thorndike, Edward"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economic",
+          "startRank": 96,
+          "endRank": 117,
+          "count": 22,
+          "examples": [
+            "96. Kahneman, Daniel",
+            "97. Tversky, Amos",
+            "98. Simon, Herbert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematics",
+          "startRank": 183,
+          "endRank": 192,
+          "count": 10,
+          "examples": [
+            "183. Turing, Alan",
+            "184. von Neumann, John",
+            "185. Church, Alonzo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematics",
+          "startRank": 184,
+          "endRank": 193,
+          "count": 10,
+          "examples": [
+            "184. von Neumann, John",
+            "185. Church, Alonzo",
+            "186. Gödel, Kurt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematics",
+          "startRank": 186,
+          "endRank": 196,
+          "count": 11,
+          "examples": [
+            "186. Gödel, Kurt",
+            "187. Hilbert, David",
+            "188. Cantor, Georg"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 202,
+          "endRank": 212,
+          "count": 11,
+          "examples": [
+            "202. Brouwer, Luitzen Egbertus Jan",
+            "203. Zermelo, Ernst",
+            "204. Fraenkel, Abraham"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 204,
+          "endRank": 216,
+          "count": 13,
+          "examples": [
+            "204. Fraenkel, Abraham",
+            "205. Russell, Bertrand",
+            "206. Whitehead, Alfred North"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 206,
+          "endRank": 217,
+          "count": 12,
+          "examples": [
+            "206. Whitehead, Alfred North",
+            "207. Wittgenstein, Ludwig",
+            "208. Carnap, Rudolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 206,
+          "endRank": 218,
+          "count": 13,
+          "examples": [
+            "206. Whitehead, Alfred North",
+            "207. Wittgenstein, Ludwig",
+            "208. Carnap, Rudolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theory,",
+          "startRank": 210,
+          "endRank": 219,
+          "count": 10,
+          "examples": [
+            "210. Popper, Karl",
+            "211. Kuhn, Thomas",
+            "212. Lakatos, Imre"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 211,
+          "endRank": 220,
+          "count": 10,
+          "examples": [
+            "211. Kuhn, Thomas",
+            "212. Lakatos, Imre",
+            "213. Feyerabend, Paul"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 206,
+          "endRank": 242,
+          "count": 37,
+          "examples": [
+            "206. Whitehead, Alfred North",
+            "207. Wittgenstein, Ludwig",
+            "208. Carnap, Rudolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 231,
+          "endRank": 243,
+          "count": 13,
+          "examples": [
+            "231. Wittgenstein, Ludwig",
+            "232. Heidegger, Martin",
+            "233. Husserl, Edmund"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosophy",
+          "startRank": 220,
+          "endRank": 243,
+          "count": 24,
+          "examples": [
+            "220. Quine, Willard Van Orman",
+            "221. Frege, Gottlob",
+            "222. Wittgenstein, Ludwig"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 234,
+          "endRank": 246,
+          "count": 13,
+          "examples": [
+            "234. Sartre, Jean-Paul",
+            "235. Camus, Albert",
+            "236. Merleau-Ponty, Maurice"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 234,
+          "endRank": 249,
+          "count": 16,
+          "examples": [
+            "234. Sartre, Jean-Paul",
+            "235. Camus, Albert",
+            "236. Merleau-Ponty, Maurice"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 241,
+          "endRank": 250,
+          "count": 10,
+          "examples": [
+            "241. Deleuze, Gilles",
+            "242. Guattari, Félix",
+            "243. Lacan, Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 244,
+          "endRank": 257,
+          "count": 14,
+          "examples": [
+            "244. Lévi-Strauss, Claude",
+            "245. Bourdieu, Pierre",
+            "246. Goffman, Erving"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 245,
+          "endRank": 258,
+          "count": 14,
+          "examples": [
+            "245. Bourdieu, Pierre",
+            "246. Goffman, Erving",
+            "247. Garfinkel, Harold"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 245,
+          "endRank": 259,
+          "count": 15,
+          "examples": [
+            "245. Bourdieu, Pierre",
+            "246. Goffman, Erving",
+            "247. Garfinkel, Harold"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 245,
+          "endRank": 260,
+          "count": 16,
+          "examples": [
+            "245. Bourdieu, Pierre",
+            "246. Goffman, Erving",
+            "247. Garfinkel, Harold"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 252,
+          "endRank": 261,
+          "count": 10,
+          "examples": [
+            "252. Cooley, Charles Horton",
+            "253. Durkheim, Émile",
+            "254. Weber, Max"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 254,
+          "endRank": 265,
+          "count": 12,
+          "examples": [
+            "254. Weber, Max",
+            "255. Simmel, Georg",
+            "256. Tönnies, Ferdinand"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 255,
+          "endRank": 266,
+          "count": 12,
+          "examples": [
+            "255. Simmel, Georg",
+            "256. Tönnies, Ferdinand",
+            "257. Comte, Auguste"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 258,
+          "endRank": 268,
+          "count": 11,
+          "examples": [
+            "258. Saint-Simon, Claude Henri de",
+            "259. Fourier, Charles",
+            "260. Owen, Robert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 259,
+          "endRank": 290,
+          "count": 32,
+          "examples": [
+            "259. Fourier, Charles",
+            "260. Owen, Robert",
+            "261. Proudhon, Pierre-Joseph"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 265,
+          "endRank": 302,
+          "count": 38,
+          "examples": [
+            "265. Luxemburg, Rosa",
+            "266. Lenin, Vladimir",
+            "267. Stalin, Joseph"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 292,
+          "endRank": 303,
+          "count": 12,
+          "examples": [
+            "292. Lorde, Audre",
+            "293. Anzaldúa, Gloria",
+            "294. Lugones, María"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theory",
+          "startRank": 281,
+          "endRank": 307,
+          "count": 27,
+          "examples": [
+            "281. Taylor, Charles",
+            "282. Young, Iris Marion",
+            "283. Fraser, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 292,
+          "endRank": 308,
+          "count": 17,
+          "examples": [
+            "292. Lorde, Audre",
+            "293. Anzaldúa, Gloria",
+            "294. Lugones, María"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theory",
+          "startRank": 281,
+          "endRank": 308,
+          "count": 28,
+          "examples": [
+            "281. Taylor, Charles",
+            "282. Young, Iris Marion",
+            "283. Fraser, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historical",
+          "startRank": 307,
+          "endRank": 316,
+          "count": 10,
+          "examples": [
+            "307. Wallerstein, Immanuel",
+            "308. Braudel, Fernand",
+            "309. Bloch, Marc"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historical",
+          "startRank": 308,
+          "endRank": 317,
+          "count": 10,
+          "examples": [
+            "308. Braudel, Fernand",
+            "309. Bloch, Marc",
+            "310. Febvre, Lucien"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 310,
+          "endRank": 323,
+          "count": 14,
+          "examples": [
+            "310. Febvre, Lucien",
+            "311. Le Roy Ladurie, Emmanuel",
+            "312. Ginzburg, Carlo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "history",
+          "startRank": 311,
+          "endRank": 335,
+          "count": 25,
+          "examples": [
+            "311. Le Roy Ladurie, Emmanuel",
+            "312. Ginzburg, Carlo",
+            "313. Thompson, E.P."
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 337,
+          "endRank": 381,
+          "count": 45,
+          "examples": [
+            "337. Hobbes, Thomas",
+            "338. Locke, John",
+            "339. Rousseau, Jean-Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 354,
+          "endRank": 388,
+          "count": 35,
+          "examples": [
+            "354. Regan, Tom",
+            "355. Leopold, Aldo",
+            "356. Jonas, Hans"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 344,
+          "endRank": 387,
+          "count": 44,
+          "examples": [
+            "344. Moore, George Edward",
+            "345. Ross, William David",
+            "346. Stevenson, Charles Leslie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 344,
+          "endRank": 388,
+          "count": 45,
+          "examples": [
+            "344. Moore, George Edward",
+            "345. Ross, William David",
+            "346. Stevenson, Charles Leslie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 365,
+          "endRank": 392,
+          "count": 28,
+          "examples": [
+            "365. Popper, Karl",
+            "366. Lakatos, Imre",
+            "367. Feyerabend, Paul"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "neuroscience",
+          "startRank": 380,
+          "endRank": 409,
+          "count": 30,
+          "examples": [
+            "380. Edelman, Gerald",
+            "381. Crick, Francis",
+            "382. Koch, Christof"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 365,
+          "endRank": 394,
+          "count": 30,
+          "examples": [
+            "365. Popper, Karl",
+            "366. Lakatos, Imre",
+            "367. Feyerabend, Paul"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 397,
+          "endRank": 413,
+          "count": 17,
+          "examples": [
+            "397. Sherrington, Charles",
+            "398. Hodgkin, Alan",
+            "399. Huxley, Andrew"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "neuroscience",
+          "startRank": 385,
+          "endRank": 410,
+          "count": 26,
+          "examples": [
+            "385. Tononi, Giulio",
+            "386. Dehaene, Stanislas",
+            "387. Damasio, António"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "neuroscience",
+          "startRank": 385,
+          "endRank": 411,
+          "count": 27,
+          "examples": [
+            "385. Tononi, Giulio",
+            "386. Dehaene, Stanislas",
+            "387. Damasio, António"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 404,
+          "endRank": 414,
+          "count": 11,
+          "examples": [
+            "404. Axelrod, Julius",
+            "405. Snyder, Solomon",
+            "406. Changeux, Jean-Pierre"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 404,
+          "endRank": 418,
+          "count": 15,
+          "examples": [
+            "404. Axelrod, Julius",
+            "405. Snyder, Solomon",
+            "406. Changeux, Jean-Pierre"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cognitive",
+          "startRank": 406,
+          "endRank": 419,
+          "count": 14,
+          "examples": [
+            "406. Changeux, Jean-Pierre",
+            "407. Ungerleider, Leslie",
+            "408. Mishkin, Mortimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cognitive",
+          "startRank": 410,
+          "endRank": 420,
+          "count": 11,
+          "examples": [
+            "410. Tulving, Endel",
+            "411. Atkinson, Richard",
+            "412. Shiffrin, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cognitive",
+          "startRank": 410,
+          "endRank": 421,
+          "count": 12,
+          "examples": [
+            "410. Tulving, Endel",
+            "411. Atkinson, Richard",
+            "412. Shiffrin, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cognitive",
+          "startRank": 410,
+          "endRank": 422,
+          "count": 13,
+          "examples": [
+            "410. Tulving, Endel",
+            "411. Atkinson, Richard",
+            "412. Shiffrin, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cognitive",
+          "startRank": 410,
+          "endRank": 423,
+          "count": 14,
+          "examples": [
+            "410. Tulving, Endel",
+            "411. Atkinson, Richard",
+            "412. Shiffrin, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 415,
+          "endRank": 437,
+          "count": 23,
+          "examples": [
+            "415. Neisser, Ulric",
+            "416. Broadbent, Donald",
+            "417. Treisman, Anne"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 427,
+          "endRank": 438,
+          "count": 12,
+          "examples": [
+            "427. Pinker, Steven",
+            "428. Buss, David",
+            "429. Shackelford, Todd"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 420,
+          "endRank": 482,
+          "count": 63,
+          "examples": [
+            "420. Tversky, Amos",
+            "421. Ariely, Dan",
+            "422. Thaler, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 439,
+          "endRank": 483,
+          "count": 45,
+          "examples": [
+            "439. Asperger, Hans",
+            "440. Bettelheim, Bruno",
+            "441. Lovaas, Ivar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 439,
+          "endRank": 489,
+          "count": 51,
+          "examples": [
+            "439. Asperger, Hans",
+            "440. Bettelheim, Bruno",
+            "441. Lovaas, Ivar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "education",
+          "startRank": 480,
+          "endRank": 511,
+          "count": 32,
+          "examples": [
+            "480. Weikart, David",
+            "481. Hohmann, Mary",
+            "482. Epstein, Ann"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 495,
+          "endRank": 513,
+          "count": 19,
+          "examples": [
+            "495. hooks, bell",
+            "496. Giroux, Henry",
+            "497. Apple, Michael"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "educational",
+          "startRank": 496,
+          "endRank": 514,
+          "count": 19,
+          "examples": [
+            "496. Giroux, Henry",
+            "497. Apple, Michael",
+            "498. Bowles, Samuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 495,
+          "endRank": 559,
+          "count": 65,
+          "examples": [
+            "495. hooks, bell",
+            "496. Giroux, Henry",
+            "497. Apple, Michael"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "learning",
+          "startRank": 549,
+          "endRank": 560,
+          "count": 12,
+          "examples": [
+            "549. Kolb, David",
+            "550. Jarvis, Peter",
+            "551. Illeris, Knud"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theory,",
+          "startRank": 547,
+          "endRank": 560,
+          "count": 14,
+          "examples": [
+            "547. Mezirow, Jack",
+            "548. Knowles, Malcolm",
+            "549. Kolb, David"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 515,
+          "endRank": 563,
+          "count": 49,
+          "examples": [
+            "515. Taba, Hilda",
+            "516. Schwab, Joseph",
+            "517. Stenhouse, Lawrence"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 515,
+          "endRank": 578,
+          "count": 64,
+          "examples": [
+            "515. Taba, Hilda",
+            "516. Schwab, Joseph",
+            "517. Stenhouse, Lawrence"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "media",
+          "startRank": 567,
+          "endRank": 579,
+          "count": 13,
+          "examples": [
+            "567. Prensky, Marc",
+            "568. Gee, James Paul",
+            "569. Jenkins, Henry"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literacy",
+          "startRank": 567,
+          "endRank": 587,
+          "count": 21,
+          "examples": [
+            "567. Prensky, Marc",
+            "568. Gee, James Paul",
+            "569. Jenkins, Henry"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 565,
+          "endRank": 588,
+          "count": 24,
+          "examples": [
+            "565. Resnick, Mitchel",
+            "566. Turkle, Sherry",
+            "567. Prensky, Marc"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "critical",
+          "startRank": 577,
+          "endRank": 589,
+          "count": 13,
+          "examples": [
+            "577. Kellner, Douglas",
+            "578. Share, Jeff",
+            "579. Freire, Paulo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literacy",
+          "startRank": 569,
+          "endRank": 589,
+          "count": 21,
+          "examples": [
+            "569. Jenkins, Henry",
+            "570. Livingstone, Sonia",
+            "571. Buckingham, David"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 580,
+          "endRank": 596,
+          "count": 17,
+          "examples": [
+            "580. Macedo, Donaldo",
+            "581. Lewison, Mitzi",
+            "582. Leland, Christine"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "educational",
+          "startRank": 580,
+          "endRank": 614,
+          "count": 35,
+          "examples": [
+            "580. Macedo, Donaldo",
+            "581. Lewison, Mitzi",
+            "582. Leland, Christine"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 580,
+          "endRank": 615,
+          "count": 36,
+          "examples": [
+            "580. Macedo, Donaldo",
+            "581. Lewison, Mitzi",
+            "582. Leland, Christine"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theory",
+          "startRank": 599,
+          "endRank": 630,
+          "count": 32,
+          "examples": [
+            "599. Gorski, Paul",
+            "600. Kincheloe, Joe",
+            "601. Steinberg, Shirley"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 598,
+          "endRank": 616,
+          "count": 19,
+          "examples": [
+            "598. Banks, Cherry McGee",
+            "599. Gorski, Paul",
+            "600. Kincheloe, Joe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "educational",
+          "startRank": 590,
+          "endRank": 616,
+          "count": 27,
+          "examples": [
+            "590. Gay, Geneva",
+            "591. Irvine, Jacqueline Jordan",
+            "592. Villegas, Ana María"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 598,
+          "endRank": 622,
+          "count": 25,
+          "examples": [
+            "598. Banks, Cherry McGee",
+            "599. Gorski, Paul",
+            "600. Kincheloe, Joe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 618,
+          "endRank": 637,
+          "count": 20,
+          "examples": [
+            "618. Warner, Michael",
+            "619. Muñoz, José Esteban",
+            "620. Ferguson, Roderick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "network",
+          "startRank": 627,
+          "endRank": 638,
+          "count": 12,
+          "examples": [
+            "627. Lazzarato, Maurizio",
+            "628. Terranova, Tiziana",
+            "629. Castells, Manuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 624,
+          "endRank": 639,
+          "count": 16,
+          "examples": [
+            "624. Hardt, Michael",
+            "625. Negri, Antonio",
+            "626. Virno, Paolo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 630,
+          "endRank": 657,
+          "count": 28,
+          "examples": [
+            "630. Barabási, Albert-László",
+            "631. Watts, Duncan",
+            "632. Strogatz, Steven"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "social",
+          "startRank": 636,
+          "endRank": 662,
+          "count": 27,
+          "examples": [
+            "636. Wellman, Barry",
+            "637. White, Harrison",
+            "638. Moreno, Jacob"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 637,
+          "endRank": 692,
+          "count": 56,
+          "examples": [
+            "637. White, Harrison",
+            "638. Moreno, Jacob",
+            "639. Heider, Fritz"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 659,
+          "endRank": 715,
+          "count": 57,
+          "examples": [
+            "659. Rotter, Julian",
+            "660. Weiner, Bernard",
+            "661. Kelley, Harold"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 639,
+          "endRank": 735,
+          "count": 97,
+          "examples": [
+            "639. Heider, Fritz",
+            "640. Festinger, Leon",
+            "641. Asch, Solomon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 694,
+          "endRank": 736,
+          "count": 43,
+          "examples": [
+            "694. Hesse, Erik",
+            "695. George, Carol",
+            "696. Kaplan, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 722,
+          "endRank": 737,
+          "count": 16,
+          "examples": [
+            "722. Blackwell, Lisa",
+            "723. Yeager, David",
+            "724. Walton, Gregory"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 694,
+          "endRank": 738,
+          "count": 45,
+          "examples": [
+            "694. Hesse, Erik",
+            "695. George, Carol",
+            "696. Kaplan, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 728,
+          "endRank": 760,
+          "count": 33,
+          "examples": [
+            "728. Aronson, Joshua",
+            "729. Schmader, Toni",
+            "730. Johns, Michael"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 739,
+          "endRank": 769,
+          "count": 31,
+          "examples": [
+            "739. Tversky, Amos",
+            "740. Slovic, Paul",
+            "741. Fischhoff, Baruch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 739,
+          "endRank": 772,
+          "count": 34,
+          "examples": [
+            "739. Tversky, Amos",
+            "740. Slovic, Paul",
+            "741. Fischhoff, Baruch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 763,
+          "endRank": 781,
+          "count": 19,
+          "examples": [
+            "763. Nash, John",
+            "764. Schelling, Thomas",
+            "765. Axelrod, Robert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 762,
+          "endRank": 773,
+          "count": 12,
+          "examples": [
+            "762. Morgenstern, Oskar",
+            "763. Nash, John",
+            "764. Schelling, Thomas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 766,
+          "endRank": 782,
+          "count": 17,
+          "examples": [
+            "766. Trivers, Robert",
+            "767. Hamilton, William D.",
+            "768. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 766,
+          "endRank": 783,
+          "count": 18,
+          "examples": [
+            "766. Trivers, Robert",
+            "767. Hamilton, William D.",
+            "768. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 766,
+          "endRank": 784,
+          "count": 19,
+          "examples": [
+            "766. Trivers, Robert",
+            "767. Hamilton, William D.",
+            "768. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 766,
+          "endRank": 785,
+          "count": 20,
+          "examples": [
+            "766. Trivers, Robert",
+            "767. Hamilton, William D.",
+            "768. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 777,
+          "endRank": 801,
+          "count": 25,
+          "examples": [
+            "777. Eldredge, Niles",
+            "778. Gould, Stephen Jay",
+            "779. Dawkins, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 786,
+          "endRank": 804,
+          "count": 19,
+          "examples": [
+            "786. Heidegger, Martin",
+            "787. Merleau-Ponty, Maurice",
+            "788. Sartre, Jean-Paul"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 785,
+          "endRank": 803,
+          "count": 19,
+          "examples": [
+            "785. Husserl, Edmund",
+            "786. Heidegger, Martin",
+            "787. Merleau-Ponty, Maurice"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 793,
+          "endRank": 813,
+          "count": 21,
+          "examples": [
+            "793. Deleuze, Gilles",
+            "794. Guattari, Félix",
+            "795. Lacan, Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "network",
+          "startRank": 803,
+          "endRank": 814,
+          "count": 12,
+          "examples": [
+            "803. Lazzarato, Maurizio",
+            "804. Terranova, Tiziana",
+            "805. Castells, Manuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 793,
+          "endRank": 815,
+          "count": 23,
+          "examples": [
+            "793. Deleuze, Gilles",
+            "794. Guattari, Félix",
+            "795. Lacan, Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 806,
+          "endRank": 832,
+          "count": 27,
+          "examples": [
+            "806. Barabási, Albert-László",
+            "807. Watts, Duncan",
+            "808. Strogatz, Steven"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "social",
+          "startRank": 812,
+          "endRank": 837,
+          "count": 26,
+          "examples": [
+            "812. Wellman, Barry",
+            "813. White, Harrison",
+            "814. Moreno, Jacob"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 813,
+          "endRank": 867,
+          "count": 55,
+          "examples": [
+            "813. White, Harrison",
+            "814. Moreno, Jacob",
+            "815. Heider, Fritz"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 834,
+          "endRank": 890,
+          "count": 57,
+          "examples": [
+            "834. Rotter, Julian",
+            "835. Weiner, Bernard",
+            "836. Kelley, Harold"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 815,
+          "endRank": 909,
+          "count": 95,
+          "examples": [
+            "815. Heider, Fritz",
+            "816. Festinger, Leon",
+            "817. Asch, Solomon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 869,
+          "endRank": 910,
+          "count": 42,
+          "examples": [
+            "869. Hesse, Erik",
+            "870. George, Carol",
+            "871. Kaplan, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 896,
+          "endRank": 911,
+          "count": 16,
+          "examples": [
+            "896. Blackwell, Lisa",
+            "897. Yeager, David",
+            "898. Walton, Gregory"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychology",
+          "startRank": 869,
+          "endRank": 912,
+          "count": 44,
+          "examples": [
+            "869. Hesse, Erik",
+            "870. George, Carol",
+            "871. Kaplan, Nancy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 902,
+          "endRank": 931,
+          "count": 30,
+          "examples": [
+            "902. Aronson, Joshua",
+            "903. Schmader, Toni",
+            "904. Johns, Michael"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 913,
+          "endRank": 940,
+          "count": 28,
+          "examples": [
+            "913. Tversky, Amos",
+            "914. Slovic, Paul",
+            "915. Fischhoff, Baruch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 913,
+          "endRank": 943,
+          "count": 31,
+          "examples": [
+            "913. Tversky, Amos",
+            "914. Slovic, Paul",
+            "915. Fischhoff, Baruch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 934,
+          "endRank": 952,
+          "count": 19,
+          "examples": [
+            "934. Nash, John",
+            "935. Schelling, Thomas",
+            "936. Axelrod, Robert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 933,
+          "endRank": 944,
+          "count": 12,
+          "examples": [
+            "933. Morgenstern, Oskar",
+            "934. Nash, John",
+            "935. Schelling, Thomas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 937,
+          "endRank": 953,
+          "count": 17,
+          "examples": [
+            "937. Trivers, Robert",
+            "938. Hamilton, William D.",
+            "939. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 937,
+          "endRank": 954,
+          "count": 18,
+          "examples": [
+            "937. Trivers, Robert",
+            "938. Hamilton, William D.",
+            "939. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 937,
+          "endRank": 955,
+          "count": 19,
+          "examples": [
+            "937. Trivers, Robert",
+            "938. Hamilton, William D.",
+            "939. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "evolutionary",
+          "startRank": 937,
+          "endRank": 956,
+          "count": 20,
+          "examples": [
+            "937. Trivers, Robert",
+            "938. Hamilton, William D.",
+            "939. Maynard Smith, John"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 948,
+          "endRank": 972,
+          "count": 25,
+          "examples": [
+            "948. Eldredge, Niles",
+            "949. Gould, Stephen Jay",
+            "950. Dawkins, Richard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 957,
+          "endRank": 975,
+          "count": 19,
+          "examples": [
+            "957. Heidegger, Martin",
+            "958. Merleau-Ponty, Maurice",
+            "959. Sartre, Jean-Paul"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "developed",
+          "startRank": 956,
+          "endRank": 974,
+          "count": 19,
+          "examples": [
+            "956. Husserl, Edmund",
+            "957. Heidegger, Martin",
+            "958. Merleau-Ponty, Maurice"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 964,
+          "endRank": 984,
+          "count": 21,
+          "examples": [
+            "964. Deleuze, Gilles",
+            "965. Guattari, Félix",
+            "966. Lacan, Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "network",
+          "startRank": 974,
+          "endRank": 985,
+          "count": 12,
+          "examples": [
+            "974. Lazzarato, Maurizio",
+            "975. Terranova, Tiziana",
+            "976. Castells, Manuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 964,
+          "endRank": 986,
+          "count": 23,
+          "examples": [
+            "964. Deleuze, Gilles",
+            "965. Guattari, Félix",
+            "966. Lacan, Jacques"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advancing",
+          "startRank": 977,
+          "endRank": 1000,
+          "count": 24,
+          "examples": [
+            "977. Barabási, Albert-László",
+            "978. Watts, Duncan",
+            "979. Strogatz, Steven"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 97 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 23,
+      "expected": 43,
+      "missing": [
+        "napoleon",
+        "shakespeare",
+        "leonardo da vinci",
+        "michelangelo",
+        "george washington",
+        "abraham lincoln",
+        "gandhi",
+        "martin luther",
+        "homer",
+        "moses"
+      ],
+      "status": "FAIL",
+      "details": "23/43 anchor figures found (53%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "locke john",
+      "ranks": [
+        16,
+        338,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hegel georg wilhelm friedrich",
+      "ranks": [
+        18,
+        321
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "machiavelli niccol",
+      "ranks": [
+        32,
+        335
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hobbes thomas",
+      "ranks": [
+        33,
+        337
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rousseau jeanjacques",
+      "ranks": [
+        34,
+        339,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "montesquieu charles de secondat",
+      "ranks": [
+        35,
+        340
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        36,
+        328
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "crick francis",
+      "ranks": [
+        64,
+        381
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gould stephen jay",
+      "ranks": [
+        78,
+        778,
+        949
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dawkins richard",
+      "ranks": [
+        79,
+        779,
+        950
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hamilton william d",
+      "ranks": [
+        80,
+        767,
+        938
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "trivers robert",
+      "ranks": [
+        81,
+        766,
+        937
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wilson edward o",
+      "ranks": [
+        82,
+        146
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "piaget jean",
+      "ranks": [
+        88,
+        560
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vygotsky lev",
+      "ranks": [
+        89,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bandura albert",
+      "ranks": [
+        95,
+        658,
+        833
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kahneman daniel",
+      "ranks": [
+        96,
+        419,
+        738,
+        750,
+        912
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tversky amos",
+      "ranks": [
+        97,
+        420,
+        739,
+        913
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leopold aldo",
+      "ranks": [
+        137,
+        355
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ehrlich paul",
+      "ranks": [
+        147,
+        164
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "von neumann john",
+      "ranks": [
+        184,
+        761,
+        932
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hilbert david",
+      "ranks": [
+        187,
+        201
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "russell bertrand",
+      "ranks": [
+        205,
+        230
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wittgenstein ludwig",
+      "ranks": [
+        207,
+        222,
+        231
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "quine willard van orman",
+      "ranks": [
+        209,
+        220
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "popper karl",
+      "ranks": [
+        210,
+        365
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kuhn thomas",
+      "ranks": [
+        211,
+        364
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lakatos imre",
+      "ranks": [
+        212,
+        366
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "feyerabend paul",
+      "ranks": [
+        213,
+        367
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "searle john",
+      "ranks": [
+        224,
+        374,
+        783,
+        954
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "moore george edward",
+      "ranks": [
+        229,
+        344
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "heidegger martin",
+      "ranks": [
+        232,
+        786,
+        957
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "husserl edmund",
+      "ranks": [
+        233,
+        785,
+        956
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sartre jeanpaul",
+      "ranks": [
+        234,
+        788,
+        959
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "camus albert",
+      "ranks": [
+        235,
+        789,
+        960
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "merleauponty maurice",
+      "ranks": [
+        236,
+        787,
+        958
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ricoeur paul",
+      "ranks": [
+        238,
+        318
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "derrida jacques",
+      "ranks": [
+        239,
+        791,
+        962
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "foucault michel",
+      "ranks": [
+        240,
+        315,
+        623,
+        792,
+        963
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deleuze gilles",
+      "ranks": [
+        241,
+        793,
+        964
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guattari flix",
+      "ranks": [
+        242,
+        794,
+        965
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lacan jacques",
+      "ranks": [
+        243,
+        795,
+        966
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bourdieu pierre",
+      "ranks": [
+        245,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "butler judith",
+      "ranks": [
+        284,
+        617
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hooks bell",
+      "ranks": [
+        287,
+        495
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dennett daniel",
+      "ranks": [
+        373,
+        781,
+        782,
+        952,
+        953
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ariely dan",
+      "ranks": [
+        421,
+        735,
+        909
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thaler richard",
+      "ranks": [
+        422,
+        736,
+        910
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sunstein cass",
+      "ranks": [
+        423,
+        737,
+        911
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gigerenzer gerd",
+      "ranks": [
+        424,
+        743,
+        917
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "freire paulo",
+      "ranks": [
+        494,
+        579
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giroux henry",
+      "ranks": [
+        496,
+        607
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "krathwohl david",
+      "ranks": [
+        511,
+        513
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "macedo donaldo",
+      "ranks": [
+        580,
+        604
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "agamben giorgio",
+      "ranks": [
+        622,
+        799,
+        970
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hardt michael",
+      "ranks": [
+        624,
+        801,
+        972
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "negri antonio",
+      "ranks": [
+        625,
+        800,
+        971
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "virno paolo",
+      "ranks": [
+        626,
+        802,
+        973
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lazzarato maurizio",
+      "ranks": [
+        627,
+        803,
+        974
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "terranova tiziana",
+      "ranks": [
+        628,
+        804,
+        975
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "castells manuel",
+      "ranks": [
+        629,
+        805,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barabsi albertlszl",
+      "ranks": [
+        630,
+        806,
+        977
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "watts duncan",
+      "ranks": [
+        631,
+        807,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "strogatz steven",
+      "ranks": [
+        632,
+        808,
+        979
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "newman mark",
+      "ranks": [
+        633,
+        809,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "granovetter mark",
+      "ranks": [
+        634,
+        810,
+        981
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "burt ronald",
+      "ranks": [
+        635,
+        811,
+        982
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wellman barry",
+      "ranks": [
+        636,
+        812,
+        983
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "white harrison",
+      "ranks": [
+        637,
+        813,
+        984
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "moreno jacob",
+      "ranks": [
+        638,
+        814,
+        985
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "heider fritz",
+      "ranks": [
+        639,
+        815,
+        986
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "festinger leon",
+      "ranks": [
+        640,
+        816,
+        987
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "asch solomon",
+      "ranks": [
+        641,
+        817,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "milgram stanley",
+      "ranks": [
+        642,
+        818,
+        989
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zimbardo philip",
+      "ranks": [
+        643,
+        819,
+        990
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sherif muzafer",
+      "ranks": [
+        644,
+        820,
+        991
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tajfel henri",
+      "ranks": [
+        645,
+        821,
+        992
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "turner john",
+      "ranks": [
+        646,
+        822,
+        993
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "moscovici serge",
+      "ranks": [
+        647,
+        823,
+        994
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "petty richard",
+      "ranks": [
+        649,
+        824,
+        995
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cacioppo john",
+      "ranks": [
+        650,
+        825,
+        996
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cialdini robert",
+      "ranks": [
+        651,
+        826,
+        997
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chaiken shelly",
+      "ranks": [
+        652,
+        827,
+        998
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eagly alice",
+      "ranks": [
+        653,
+        828,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wood wendy",
+      "ranks": [
+        654,
+        829,
+        1000
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fazio russell",
+      "ranks": [
+        655,
+        830
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ajzen icek",
+      "ranks": [
+        656,
+        831
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fishbein martin",
+      "ranks": [
+        657,
+        832
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rotter julian",
+      "ranks": [
+        659,
+        834
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "weiner bernard",
+      "ranks": [
+        660,
+        835
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kelley harold",
+      "ranks": [
+        661,
+        836
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jones edward",
+      "ranks": [
+        662,
+        837
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nisbett richard",
+      "ranks": [
+        663,
+        838
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ross lee",
+      "ranks": [
+        664,
+        839
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gilovich thomas",
+      "ranks": [
+        665,
+        734,
+        840,
+        908
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "prentice deborah",
+      "ranks": [
+        666,
+        841
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "darley john",
+      "ranks": [
+        667,
+        842
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "latan bibb",
+      "ranks": [
+        668,
+        843
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "piliavin jane",
+      "ranks": [
+        669,
+        844
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "piliavin irving",
+      "ranks": [
+        670,
+        845
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "batson c daniel",
+      "ranks": [
+        671,
+        846
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eisenberg nancy",
+      "ranks": [
+        672,
+        847
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hoffman martin",
+      "ranks": [
+        673,
+        848
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gilligan carol",
+      "ranks": [
+        674,
+        849
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kohlberg lawrence",
+      "ranks": [
+        675,
+        850
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "turiel elliot",
+      "ranks": [
+        676,
+        851
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nucci larry",
+      "ranks": [
+        677,
+        852
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "smetana judith",
+      "ranks": [
+        678,
+        853
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kagan jerome",
+      "ranks": [
+        679,
+        854
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas alexander",
+      "ranks": [
+        680,
+        855
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chess stella",
+      "ranks": [
+        681,
+        856
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rothbart mary",
+      "ranks": [
+        682,
+        857
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bates john",
+      "ranks": [
+        683,
+        858
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "caspi avshalom",
+      "ranks": [
+        684,
+        859
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shiner rebecca",
+      "ranks": [
+        685,
+        860
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roberts brent",
+      "ranks": [
+        686,
+        861
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fraley chris",
+      "ranks": [
+        687,
+        862
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shaver phillip",
+      "ranks": [
+        688,
+        863
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mikulincer mario",
+      "ranks": [
+        689,
+        864
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shaver cindy",
+      "ranks": [
+        690,
+        865
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bowlby john",
+      "ranks": [
+        691,
+        866
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ainsworth mary",
+      "ranks": [
+        692,
+        867
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "main mary",
+      "ranks": [
+        693,
+        868
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hesse erik",
+      "ranks": [
+        694,
+        869
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george carol",
+      "ranks": [
+        695,
+        870
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kaplan nancy",
+      "ranks": [
+        696,
+        871
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "crittenden patricia",
+      "ranks": [
+        697,
+        872
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hinde robert",
+      "ranks": [
+        698,
+        873
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sroufe l alan",
+      "ranks": [
+        699,
+        874
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "egeland byron",
+      "ranks": [
+        700,
+        875
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "carlson elizabeth",
+      "ranks": [
+        701,
+        876
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cicchetti dante",
+      "ranks": [
+        702,
+        877
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rutter michael",
+      "ranks": [
+        704,
+        879
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "garmezy norman",
+      "ranks": [
+        705,
+        880
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "werner emmy",
+      "ranks": [
+        706,
+        881
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "smith ruth",
+      "ranks": [
+        707,
+        882
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "masten ann",
+      "ranks": [
+        708,
+        883
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "luthar suniya",
+      "ranks": [
+        709,
+        884
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wolin steven",
+      "ranks": [
+        710,
+        885
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wolin sybil",
+      "ranks": [
+        711,
+        886
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tedeschi richard",
+      "ranks": [
+        712,
+        887
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "calhoun lawrence",
+      "ranks": [
+        713,
+        888
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frankl viktor",
+      "ranks": [
+        714,
+        889
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "csikszentmihalyi mihaly",
+      "ranks": [
+        715,
+        717,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "seligman martin",
+      "ranks": [
+        716,
+        891
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peterson christopher",
+      "ranks": [
+        718,
+        892
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "snyder c rick",
+      "ranks": [
+        719,
+        893
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "duckworth angela",
+      "ranks": [
+        720,
+        894
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dweck carol",
+      "ranks": [
+        721,
+        895
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "blackwell lisa",
+      "ranks": [
+        722,
+        896
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yeager david",
+      "ranks": [
+        723,
+        897
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "walton gregory",
+      "ranks": [
+        724,
+        898
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cohen geoffrey",
+      "ranks": [
+        725,
+        899
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "garcia joseph",
+      "ranks": [
+        726,
+        900
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steele claude",
+      "ranks": [
+        727,
+        901
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aronson joshua",
+      "ranks": [
+        728,
+        902
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "schmader toni",
+      "ranks": [
+        729,
+        903
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "johns michael",
+      "ranks": [
+        730,
+        904
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "inzlicht michael",
+      "ranks": [
+        731,
+        905
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kray laura",
+      "ranks": [
+        732,
+        906
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pronin emily",
+      "ranks": [
+        733,
+        907
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "slovic paul",
+      "ranks": [
+        740,
+        914
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fischhoff baruch",
+      "ranks": [
+        741,
+        915
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lichtenstein sarah",
+      "ranks": [
+        742,
+        916
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "reyna valerie",
+      "ranks": [
+        744,
+        918
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brainerd charles",
+      "ranks": [
+        745,
+        919
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stanovich keith",
+      "ranks": [
+        746,
+        749,
+        920
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "west richard",
+      "ranks": [
+        747,
+        921
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "evans jonathan",
+      "ranks": [
+        748,
+        922
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sloman steven",
+      "ranks": [
+        752,
+        923
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shafir eldar",
+      "ranks": [
+        753,
+        924
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leboeuf robyn",
+      "ranks": [
+        754,
+        925
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hastie reid",
+      "ranks": [
+        755,
+        926
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dawes robyn",
+      "ranks": [
+        756,
+        927
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "einhorn hillel",
+      "ranks": [
+        757,
+        928
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hogarth robin",
+      "ranks": [
+        758,
+        929
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "keeney ralph",
+      "ranks": [
+        759,
+        930
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "raiffa howard",
+      "ranks": [
+        760,
+        931
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "morgenstern oskar",
+      "ranks": [
+        762,
+        933
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nash john",
+      "ranks": [
+        763,
+        934
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "schelling thomas",
+      "ranks": [
+        764,
+        935
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "axelrod robert",
+      "ranks": [
+        765,
+        936
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maynard smith john",
+      "ranks": [
+        768,
+        939
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "price george",
+      "ranks": [
+        769,
+        940
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fisher ronald",
+      "ranks": [
+        770,
+        941
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wright sewall",
+      "ranks": [
+        771,
+        942
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "haldane jbs",
+      "ranks": [
+        772,
+        943
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dobzhansky theodosius",
+      "ranks": [
+        773,
+        944
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mayr ernst",
+      "ranks": [
+        774,
+        945
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simpson george gaylord",
+      "ranks": [
+        775,
+        946
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stebbins g ledyard",
+      "ranks": [
+        776,
+        947
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eldredge niles",
+      "ranks": [
+        777,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "williams george",
+      "ranks": [
+        780,
+        951
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brentano franz",
+      "ranks": [
+        784,
+        955
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "levinas emmanuel",
+      "ranks": [
+        790,
+        961
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "iek slavoj",
+      "ranks": [
+        796,
+        967
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "badiou alain",
+      "ranks": [
+        797,
+        968
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rancire jacques",
+      "ranks": [
+        798,
+        969
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ibn abdullah alwahhab"
+      ],
+      "ranks": [
+        2,
+        27
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hume david",
+      "variants": [
+        "hume david",
+        "hubel david"
+      ],
+      "ranks": [
+        38,
+        390
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "boyle robert",
+      "variants": [
+        "boyle robert",
+        "noyce robert"
+      ],
+      "ranks": [
+        42,
+        181
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "lander eric",
+      "variants": [
+        "lander eric",
+        "kandel eric"
+      ],
+      "ranks": [
+        77,
+        389
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 44,
+      "endRank": 53,
+      "count": 10,
+      "examples": [
+        "44. Dalton, John",
+        "45. Mendeleev, Dmitri",
+        "46. Faraday, Michael"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 45,
+      "endRank": 54,
+      "count": 10,
+      "examples": [
+        "45. Mendeleev, Dmitri",
+        "46. Faraday, Michael",
+        "47. Maxwell, James Clerk"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 46,
+      "endRank": 55,
+      "count": 10,
+      "examples": [
+        "46. Faraday, Michael",
+        "47. Maxwell, James Clerk",
+        "48. Planck, Max"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 47,
+      "endRank": 56,
+      "count": 10,
+      "examples": [
+        "47. Maxwell, James Clerk",
+        "48. Planck, Max",
+        "49. Bohr, Niels"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 48,
+      "endRank": 57,
+      "count": 10,
+      "examples": [
+        "48. Planck, Max",
+        "49. Bohr, Niels",
+        "50. Heisenberg, Werner"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 84,
+      "endRank": 95,
+      "count": 12,
+      "examples": [
+        "84. Tinbergen, Nikolaas",
+        "85. Skinner, B.F.",
+        "86. Pavlov, Ivan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 85,
+      "endRank": 96,
+      "count": 12,
+      "examples": [
+        "85. Skinner, B.F.",
+        "86. Pavlov, Ivan",
+        "87. Thorndike, Edward"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 85,
+      "endRank": 97,
+      "count": 13,
+      "examples": [
+        "85. Skinner, B.F.",
+        "86. Pavlov, Ivan",
+        "87. Thorndike, Edward"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economic",
+      "startRank": 96,
+      "endRank": 117,
+      "count": 22,
+      "examples": [
+        "96. Kahneman, Daniel",
+        "97. Tversky, Amos",
+        "98. Simon, Herbert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematics",
+      "startRank": 183,
+      "endRank": 192,
+      "count": 10,
+      "examples": [
+        "183. Turing, Alan",
+        "184. von Neumann, John",
+        "185. Church, Alonzo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematics",
+      "startRank": 184,
+      "endRank": 193,
+      "count": 10,
+      "examples": [
+        "184. von Neumann, John",
+        "185. Church, Alonzo",
+        "186. Gödel, Kurt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematics",
+      "startRank": 186,
+      "endRank": 196,
+      "count": 11,
+      "examples": [
+        "186. Gödel, Kurt",
+        "187. Hilbert, David",
+        "188. Cantor, Georg"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 202,
+      "endRank": 212,
+      "count": 11,
+      "examples": [
+        "202. Brouwer, Luitzen Egbertus Jan",
+        "203. Zermelo, Ernst",
+        "204. Fraenkel, Abraham"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 204,
+      "endRank": 216,
+      "count": 13,
+      "examples": [
+        "204. Fraenkel, Abraham",
+        "205. Russell, Bertrand",
+        "206. Whitehead, Alfred North"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 206,
+      "endRank": 217,
+      "count": 12,
+      "examples": [
+        "206. Whitehead, Alfred North",
+        "207. Wittgenstein, Ludwig",
+        "208. Carnap, Rudolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 206,
+      "endRank": 218,
+      "count": 13,
+      "examples": [
+        "206. Whitehead, Alfred North",
+        "207. Wittgenstein, Ludwig",
+        "208. Carnap, Rudolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theory,",
+      "startRank": 210,
+      "endRank": 219,
+      "count": 10,
+      "examples": [
+        "210. Popper, Karl",
+        "211. Kuhn, Thomas",
+        "212. Lakatos, Imre"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 211,
+      "endRank": 220,
+      "count": 10,
+      "examples": [
+        "211. Kuhn, Thomas",
+        "212. Lakatos, Imre",
+        "213. Feyerabend, Paul"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 206,
+      "endRank": 242,
+      "count": 37,
+      "examples": [
+        "206. Whitehead, Alfred North",
+        "207. Wittgenstein, Ludwig",
+        "208. Carnap, Rudolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 231,
+      "endRank": 243,
+      "count": 13,
+      "examples": [
+        "231. Wittgenstein, Ludwig",
+        "232. Heidegger, Martin",
+        "233. Husserl, Edmund"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosophy",
+      "startRank": 220,
+      "endRank": 243,
+      "count": 24,
+      "examples": [
+        "220. Quine, Willard Van Orman",
+        "221. Frege, Gottlob",
+        "222. Wittgenstein, Ludwig"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 234,
+      "endRank": 246,
+      "count": 13,
+      "examples": [
+        "234. Sartre, Jean-Paul",
+        "235. Camus, Albert",
+        "236. Merleau-Ponty, Maurice"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 234,
+      "endRank": 249,
+      "count": 16,
+      "examples": [
+        "234. Sartre, Jean-Paul",
+        "235. Camus, Albert",
+        "236. Merleau-Ponty, Maurice"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 241,
+      "endRank": 250,
+      "count": 10,
+      "examples": [
+        "241. Deleuze, Gilles",
+        "242. Guattari, Félix",
+        "243. Lacan, Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 244,
+      "endRank": 257,
+      "count": 14,
+      "examples": [
+        "244. Lévi-Strauss, Claude",
+        "245. Bourdieu, Pierre",
+        "246. Goffman, Erving"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 245,
+      "endRank": 258,
+      "count": 14,
+      "examples": [
+        "245. Bourdieu, Pierre",
+        "246. Goffman, Erving",
+        "247. Garfinkel, Harold"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 245,
+      "endRank": 259,
+      "count": 15,
+      "examples": [
+        "245. Bourdieu, Pierre",
+        "246. Goffman, Erving",
+        "247. Garfinkel, Harold"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 245,
+      "endRank": 260,
+      "count": 16,
+      "examples": [
+        "245. Bourdieu, Pierre",
+        "246. Goffman, Erving",
+        "247. Garfinkel, Harold"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 252,
+      "endRank": 261,
+      "count": 10,
+      "examples": [
+        "252. Cooley, Charles Horton",
+        "253. Durkheim, Émile",
+        "254. Weber, Max"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 254,
+      "endRank": 265,
+      "count": 12,
+      "examples": [
+        "254. Weber, Max",
+        "255. Simmel, Georg",
+        "256. Tönnies, Ferdinand"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 255,
+      "endRank": 266,
+      "count": 12,
+      "examples": [
+        "255. Simmel, Georg",
+        "256. Tönnies, Ferdinand",
+        "257. Comte, Auguste"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 258,
+      "endRank": 268,
+      "count": 11,
+      "examples": [
+        "258. Saint-Simon, Claude Henri de",
+        "259. Fourier, Charles",
+        "260. Owen, Robert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 259,
+      "endRank": 290,
+      "count": 32,
+      "examples": [
+        "259. Fourier, Charles",
+        "260. Owen, Robert",
+        "261. Proudhon, Pierre-Joseph"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 265,
+      "endRank": 302,
+      "count": 38,
+      "examples": [
+        "265. Luxemburg, Rosa",
+        "266. Lenin, Vladimir",
+        "267. Stalin, Joseph"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 292,
+      "endRank": 303,
+      "count": 12,
+      "examples": [
+        "292. Lorde, Audre",
+        "293. Anzaldúa, Gloria",
+        "294. Lugones, María"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theory",
+      "startRank": 281,
+      "endRank": 307,
+      "count": 27,
+      "examples": [
+        "281. Taylor, Charles",
+        "282. Young, Iris Marion",
+        "283. Fraser, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 292,
+      "endRank": 308,
+      "count": 17,
+      "examples": [
+        "292. Lorde, Audre",
+        "293. Anzaldúa, Gloria",
+        "294. Lugones, María"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theory",
+      "startRank": 281,
+      "endRank": 308,
+      "count": 28,
+      "examples": [
+        "281. Taylor, Charles",
+        "282. Young, Iris Marion",
+        "283. Fraser, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historical",
+      "startRank": 307,
+      "endRank": 316,
+      "count": 10,
+      "examples": [
+        "307. Wallerstein, Immanuel",
+        "308. Braudel, Fernand",
+        "309. Bloch, Marc"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historical",
+      "startRank": 308,
+      "endRank": 317,
+      "count": 10,
+      "examples": [
+        "308. Braudel, Fernand",
+        "309. Bloch, Marc",
+        "310. Febvre, Lucien"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 310,
+      "endRank": 323,
+      "count": 14,
+      "examples": [
+        "310. Febvre, Lucien",
+        "311. Le Roy Ladurie, Emmanuel",
+        "312. Ginzburg, Carlo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "history",
+      "startRank": 311,
+      "endRank": 335,
+      "count": 25,
+      "examples": [
+        "311. Le Roy Ladurie, Emmanuel",
+        "312. Ginzburg, Carlo",
+        "313. Thompson, E.P."
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 337,
+      "endRank": 381,
+      "count": 45,
+      "examples": [
+        "337. Hobbes, Thomas",
+        "338. Locke, John",
+        "339. Rousseau, Jean-Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 354,
+      "endRank": 388,
+      "count": 35,
+      "examples": [
+        "354. Regan, Tom",
+        "355. Leopold, Aldo",
+        "356. Jonas, Hans"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 344,
+      "endRank": 387,
+      "count": 44,
+      "examples": [
+        "344. Moore, George Edward",
+        "345. Ross, William David",
+        "346. Stevenson, Charles Leslie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 344,
+      "endRank": 388,
+      "count": 45,
+      "examples": [
+        "344. Moore, George Edward",
+        "345. Ross, William David",
+        "346. Stevenson, Charles Leslie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 365,
+      "endRank": 392,
+      "count": 28,
+      "examples": [
+        "365. Popper, Karl",
+        "366. Lakatos, Imre",
+        "367. Feyerabend, Paul"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "neuroscience",
+      "startRank": 380,
+      "endRank": 409,
+      "count": 30,
+      "examples": [
+        "380. Edelman, Gerald",
+        "381. Crick, Francis",
+        "382. Koch, Christof"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 365,
+      "endRank": 394,
+      "count": 30,
+      "examples": [
+        "365. Popper, Karl",
+        "366. Lakatos, Imre",
+        "367. Feyerabend, Paul"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 397,
+      "endRank": 413,
+      "count": 17,
+      "examples": [
+        "397. Sherrington, Charles",
+        "398. Hodgkin, Alan",
+        "399. Huxley, Andrew"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "neuroscience",
+      "startRank": 385,
+      "endRank": 410,
+      "count": 26,
+      "examples": [
+        "385. Tononi, Giulio",
+        "386. Dehaene, Stanislas",
+        "387. Damasio, António"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "neuroscience",
+      "startRank": 385,
+      "endRank": 411,
+      "count": 27,
+      "examples": [
+        "385. Tononi, Giulio",
+        "386. Dehaene, Stanislas",
+        "387. Damasio, António"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 404,
+      "endRank": 414,
+      "count": 11,
+      "examples": [
+        "404. Axelrod, Julius",
+        "405. Snyder, Solomon",
+        "406. Changeux, Jean-Pierre"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 404,
+      "endRank": 418,
+      "count": 15,
+      "examples": [
+        "404. Axelrod, Julius",
+        "405. Snyder, Solomon",
+        "406. Changeux, Jean-Pierre"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cognitive",
+      "startRank": 406,
+      "endRank": 419,
+      "count": 14,
+      "examples": [
+        "406. Changeux, Jean-Pierre",
+        "407. Ungerleider, Leslie",
+        "408. Mishkin, Mortimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cognitive",
+      "startRank": 410,
+      "endRank": 420,
+      "count": 11,
+      "examples": [
+        "410. Tulving, Endel",
+        "411. Atkinson, Richard",
+        "412. Shiffrin, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cognitive",
+      "startRank": 410,
+      "endRank": 421,
+      "count": 12,
+      "examples": [
+        "410. Tulving, Endel",
+        "411. Atkinson, Richard",
+        "412. Shiffrin, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cognitive",
+      "startRank": 410,
+      "endRank": 422,
+      "count": 13,
+      "examples": [
+        "410. Tulving, Endel",
+        "411. Atkinson, Richard",
+        "412. Shiffrin, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cognitive",
+      "startRank": 410,
+      "endRank": 423,
+      "count": 14,
+      "examples": [
+        "410. Tulving, Endel",
+        "411. Atkinson, Richard",
+        "412. Shiffrin, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 415,
+      "endRank": 437,
+      "count": 23,
+      "examples": [
+        "415. Neisser, Ulric",
+        "416. Broadbent, Donald",
+        "417. Treisman, Anne"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 427,
+      "endRank": 438,
+      "count": 12,
+      "examples": [
+        "427. Pinker, Steven",
+        "428. Buss, David",
+        "429. Shackelford, Todd"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 420,
+      "endRank": 482,
+      "count": 63,
+      "examples": [
+        "420. Tversky, Amos",
+        "421. Ariely, Dan",
+        "422. Thaler, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 439,
+      "endRank": 483,
+      "count": 45,
+      "examples": [
+        "439. Asperger, Hans",
+        "440. Bettelheim, Bruno",
+        "441. Lovaas, Ivar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 439,
+      "endRank": 489,
+      "count": 51,
+      "examples": [
+        "439. Asperger, Hans",
+        "440. Bettelheim, Bruno",
+        "441. Lovaas, Ivar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "education",
+      "startRank": 480,
+      "endRank": 511,
+      "count": 32,
+      "examples": [
+        "480. Weikart, David",
+        "481. Hohmann, Mary",
+        "482. Epstein, Ann"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 495,
+      "endRank": 513,
+      "count": 19,
+      "examples": [
+        "495. hooks, bell",
+        "496. Giroux, Henry",
+        "497. Apple, Michael"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "educational",
+      "startRank": 496,
+      "endRank": 514,
+      "count": 19,
+      "examples": [
+        "496. Giroux, Henry",
+        "497. Apple, Michael",
+        "498. Bowles, Samuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 495,
+      "endRank": 559,
+      "count": 65,
+      "examples": [
+        "495. hooks, bell",
+        "496. Giroux, Henry",
+        "497. Apple, Michael"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "learning",
+      "startRank": 549,
+      "endRank": 560,
+      "count": 12,
+      "examples": [
+        "549. Kolb, David",
+        "550. Jarvis, Peter",
+        "551. Illeris, Knud"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theory,",
+      "startRank": 547,
+      "endRank": 560,
+      "count": 14,
+      "examples": [
+        "547. Mezirow, Jack",
+        "548. Knowles, Malcolm",
+        "549. Kolb, David"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 515,
+      "endRank": 563,
+      "count": 49,
+      "examples": [
+        "515. Taba, Hilda",
+        "516. Schwab, Joseph",
+        "517. Stenhouse, Lawrence"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 515,
+      "endRank": 578,
+      "count": 64,
+      "examples": [
+        "515. Taba, Hilda",
+        "516. Schwab, Joseph",
+        "517. Stenhouse, Lawrence"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "media",
+      "startRank": 567,
+      "endRank": 579,
+      "count": 13,
+      "examples": [
+        "567. Prensky, Marc",
+        "568. Gee, James Paul",
+        "569. Jenkins, Henry"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literacy",
+      "startRank": 567,
+      "endRank": 587,
+      "count": 21,
+      "examples": [
+        "567. Prensky, Marc",
+        "568. Gee, James Paul",
+        "569. Jenkins, Henry"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 565,
+      "endRank": 588,
+      "count": 24,
+      "examples": [
+        "565. Resnick, Mitchel",
+        "566. Turkle, Sherry",
+        "567. Prensky, Marc"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "critical",
+      "startRank": 577,
+      "endRank": 589,
+      "count": 13,
+      "examples": [
+        "577. Kellner, Douglas",
+        "578. Share, Jeff",
+        "579. Freire, Paulo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literacy",
+      "startRank": 569,
+      "endRank": 589,
+      "count": 21,
+      "examples": [
+        "569. Jenkins, Henry",
+        "570. Livingstone, Sonia",
+        "571. Buckingham, David"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 580,
+      "endRank": 596,
+      "count": 17,
+      "examples": [
+        "580. Macedo, Donaldo",
+        "581. Lewison, Mitzi",
+        "582. Leland, Christine"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "educational",
+      "startRank": 580,
+      "endRank": 614,
+      "count": 35,
+      "examples": [
+        "580. Macedo, Donaldo",
+        "581. Lewison, Mitzi",
+        "582. Leland, Christine"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 580,
+      "endRank": 615,
+      "count": 36,
+      "examples": [
+        "580. Macedo, Donaldo",
+        "581. Lewison, Mitzi",
+        "582. Leland, Christine"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theory",
+      "startRank": 599,
+      "endRank": 630,
+      "count": 32,
+      "examples": [
+        "599. Gorski, Paul",
+        "600. Kincheloe, Joe",
+        "601. Steinberg, Shirley"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 598,
+      "endRank": 616,
+      "count": 19,
+      "examples": [
+        "598. Banks, Cherry McGee",
+        "599. Gorski, Paul",
+        "600. Kincheloe, Joe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "educational",
+      "startRank": 590,
+      "endRank": 616,
+      "count": 27,
+      "examples": [
+        "590. Gay, Geneva",
+        "591. Irvine, Jacqueline Jordan",
+        "592. Villegas, Ana María"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 598,
+      "endRank": 622,
+      "count": 25,
+      "examples": [
+        "598. Banks, Cherry McGee",
+        "599. Gorski, Paul",
+        "600. Kincheloe, Joe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 618,
+      "endRank": 637,
+      "count": 20,
+      "examples": [
+        "618. Warner, Michael",
+        "619. Muñoz, José Esteban",
+        "620. Ferguson, Roderick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "network",
+      "startRank": 627,
+      "endRank": 638,
+      "count": 12,
+      "examples": [
+        "627. Lazzarato, Maurizio",
+        "628. Terranova, Tiziana",
+        "629. Castells, Manuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 624,
+      "endRank": 639,
+      "count": 16,
+      "examples": [
+        "624. Hardt, Michael",
+        "625. Negri, Antonio",
+        "626. Virno, Paolo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 630,
+      "endRank": 657,
+      "count": 28,
+      "examples": [
+        "630. Barabási, Albert-László",
+        "631. Watts, Duncan",
+        "632. Strogatz, Steven"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "social",
+      "startRank": 636,
+      "endRank": 662,
+      "count": 27,
+      "examples": [
+        "636. Wellman, Barry",
+        "637. White, Harrison",
+        "638. Moreno, Jacob"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 637,
+      "endRank": 692,
+      "count": 56,
+      "examples": [
+        "637. White, Harrison",
+        "638. Moreno, Jacob",
+        "639. Heider, Fritz"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 659,
+      "endRank": 715,
+      "count": 57,
+      "examples": [
+        "659. Rotter, Julian",
+        "660. Weiner, Bernard",
+        "661. Kelley, Harold"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 639,
+      "endRank": 735,
+      "count": 97,
+      "examples": [
+        "639. Heider, Fritz",
+        "640. Festinger, Leon",
+        "641. Asch, Solomon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 694,
+      "endRank": 736,
+      "count": 43,
+      "examples": [
+        "694. Hesse, Erik",
+        "695. George, Carol",
+        "696. Kaplan, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 722,
+      "endRank": 737,
+      "count": 16,
+      "examples": [
+        "722. Blackwell, Lisa",
+        "723. Yeager, David",
+        "724. Walton, Gregory"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 694,
+      "endRank": 738,
+      "count": 45,
+      "examples": [
+        "694. Hesse, Erik",
+        "695. George, Carol",
+        "696. Kaplan, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 728,
+      "endRank": 760,
+      "count": 33,
+      "examples": [
+        "728. Aronson, Joshua",
+        "729. Schmader, Toni",
+        "730. Johns, Michael"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 739,
+      "endRank": 769,
+      "count": 31,
+      "examples": [
+        "739. Tversky, Amos",
+        "740. Slovic, Paul",
+        "741. Fischhoff, Baruch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 739,
+      "endRank": 772,
+      "count": 34,
+      "examples": [
+        "739. Tversky, Amos",
+        "740. Slovic, Paul",
+        "741. Fischhoff, Baruch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 763,
+      "endRank": 781,
+      "count": 19,
+      "examples": [
+        "763. Nash, John",
+        "764. Schelling, Thomas",
+        "765. Axelrod, Robert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 762,
+      "endRank": 773,
+      "count": 12,
+      "examples": [
+        "762. Morgenstern, Oskar",
+        "763. Nash, John",
+        "764. Schelling, Thomas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 766,
+      "endRank": 782,
+      "count": 17,
+      "examples": [
+        "766. Trivers, Robert",
+        "767. Hamilton, William D.",
+        "768. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 766,
+      "endRank": 783,
+      "count": 18,
+      "examples": [
+        "766. Trivers, Robert",
+        "767. Hamilton, William D.",
+        "768. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 766,
+      "endRank": 784,
+      "count": 19,
+      "examples": [
+        "766. Trivers, Robert",
+        "767. Hamilton, William D.",
+        "768. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 766,
+      "endRank": 785,
+      "count": 20,
+      "examples": [
+        "766. Trivers, Robert",
+        "767. Hamilton, William D.",
+        "768. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 777,
+      "endRank": 801,
+      "count": 25,
+      "examples": [
+        "777. Eldredge, Niles",
+        "778. Gould, Stephen Jay",
+        "779. Dawkins, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 786,
+      "endRank": 804,
+      "count": 19,
+      "examples": [
+        "786. Heidegger, Martin",
+        "787. Merleau-Ponty, Maurice",
+        "788. Sartre, Jean-Paul"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 785,
+      "endRank": 803,
+      "count": 19,
+      "examples": [
+        "785. Husserl, Edmund",
+        "786. Heidegger, Martin",
+        "787. Merleau-Ponty, Maurice"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 793,
+      "endRank": 813,
+      "count": 21,
+      "examples": [
+        "793. Deleuze, Gilles",
+        "794. Guattari, Félix",
+        "795. Lacan, Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "network",
+      "startRank": 803,
+      "endRank": 814,
+      "count": 12,
+      "examples": [
+        "803. Lazzarato, Maurizio",
+        "804. Terranova, Tiziana",
+        "805. Castells, Manuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 793,
+      "endRank": 815,
+      "count": 23,
+      "examples": [
+        "793. Deleuze, Gilles",
+        "794. Guattari, Félix",
+        "795. Lacan, Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 806,
+      "endRank": 832,
+      "count": 27,
+      "examples": [
+        "806. Barabási, Albert-László",
+        "807. Watts, Duncan",
+        "808. Strogatz, Steven"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "social",
+      "startRank": 812,
+      "endRank": 837,
+      "count": 26,
+      "examples": [
+        "812. Wellman, Barry",
+        "813. White, Harrison",
+        "814. Moreno, Jacob"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 813,
+      "endRank": 867,
+      "count": 55,
+      "examples": [
+        "813. White, Harrison",
+        "814. Moreno, Jacob",
+        "815. Heider, Fritz"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 834,
+      "endRank": 890,
+      "count": 57,
+      "examples": [
+        "834. Rotter, Julian",
+        "835. Weiner, Bernard",
+        "836. Kelley, Harold"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 815,
+      "endRank": 909,
+      "count": 95,
+      "examples": [
+        "815. Heider, Fritz",
+        "816. Festinger, Leon",
+        "817. Asch, Solomon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 869,
+      "endRank": 910,
+      "count": 42,
+      "examples": [
+        "869. Hesse, Erik",
+        "870. George, Carol",
+        "871. Kaplan, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 896,
+      "endRank": 911,
+      "count": 16,
+      "examples": [
+        "896. Blackwell, Lisa",
+        "897. Yeager, David",
+        "898. Walton, Gregory"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychology",
+      "startRank": 869,
+      "endRank": 912,
+      "count": 44,
+      "examples": [
+        "869. Hesse, Erik",
+        "870. George, Carol",
+        "871. Kaplan, Nancy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 902,
+      "endRank": 931,
+      "count": 30,
+      "examples": [
+        "902. Aronson, Joshua",
+        "903. Schmader, Toni",
+        "904. Johns, Michael"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 913,
+      "endRank": 940,
+      "count": 28,
+      "examples": [
+        "913. Tversky, Amos",
+        "914. Slovic, Paul",
+        "915. Fischhoff, Baruch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 913,
+      "endRank": 943,
+      "count": 31,
+      "examples": [
+        "913. Tversky, Amos",
+        "914. Slovic, Paul",
+        "915. Fischhoff, Baruch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 934,
+      "endRank": 952,
+      "count": 19,
+      "examples": [
+        "934. Nash, John",
+        "935. Schelling, Thomas",
+        "936. Axelrod, Robert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 933,
+      "endRank": 944,
+      "count": 12,
+      "examples": [
+        "933. Morgenstern, Oskar",
+        "934. Nash, John",
+        "935. Schelling, Thomas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 937,
+      "endRank": 953,
+      "count": 17,
+      "examples": [
+        "937. Trivers, Robert",
+        "938. Hamilton, William D.",
+        "939. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 937,
+      "endRank": 954,
+      "count": 18,
+      "examples": [
+        "937. Trivers, Robert",
+        "938. Hamilton, William D.",
+        "939. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 937,
+      "endRank": 955,
+      "count": 19,
+      "examples": [
+        "937. Trivers, Robert",
+        "938. Hamilton, William D.",
+        "939. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "evolutionary",
+      "startRank": 937,
+      "endRank": 956,
+      "count": 20,
+      "examples": [
+        "937. Trivers, Robert",
+        "938. Hamilton, William D.",
+        "939. Maynard Smith, John"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 948,
+      "endRank": 972,
+      "count": 25,
+      "examples": [
+        "948. Eldredge, Niles",
+        "949. Gould, Stephen Jay",
+        "950. Dawkins, Richard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 957,
+      "endRank": 975,
+      "count": 19,
+      "examples": [
+        "957. Heidegger, Martin",
+        "958. Merleau-Ponty, Maurice",
+        "959. Sartre, Jean-Paul"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "developed",
+      "startRank": 956,
+      "endRank": 974,
+      "count": 19,
+      "examples": [
+        "956. Husserl, Edmund",
+        "957. Heidegger, Martin",
+        "958. Merleau-Ponty, Maurice"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 964,
+      "endRank": 984,
+      "count": 21,
+      "examples": [
+        "964. Deleuze, Gilles",
+        "965. Guattari, Félix",
+        "966. Lacan, Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "network",
+      "startRank": 974,
+      "endRank": 985,
+      "count": 12,
+      "examples": [
+        "974. Lazzarato, Maurizio",
+        "975. Terranova, Tiziana",
+        "976. Castells, Manuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 964,
+      "endRank": 986,
+      "count": 23,
+      "examples": [
+        "964. Deleuze, Gilles",
+        "965. Guattari, Félix",
+        "966. Lacan, Jacques"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advancing",
+      "startRank": 977,
+      "endRank": 1000,
+      "count": 24,
+      "examples": [
+        "977. Barabási, Albert-László",
+        "978. Watts, Duncan",
+        "979. Strogatz, Steven"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 9,
+      "Asia": 4,
+      "Middle East": 1,
+      "Africa": 2,
+      "Americas": 0,
+      "Oceania": 0,
+      "Unknown": 984
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 23,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 8,
+      "Arts/Literature": 0,
+      "Military": 6,
+      "Other": 953
+    }
+  },
+  "summary": "Issues: 268 exact duplicates; pattern collapse (max 97); 10 missing anchors"
+}

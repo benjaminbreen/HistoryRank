@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Haiku 4.5 LIST 1 (January 18, 2026).txt
+Model: Claude Haiku 4.5
+Timestamp: 2026-01-19T06:54:12.168Z
+
+VERDICT: FAIL
+
+Summary: Issues: 268 exact duplicates; pattern collapse (max 97); 10 missing anchors
+
+Scores:
+  Repetition: FAIL - 268 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 97 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: FAIL - 23/43 anchor figures found (53%)
+
+Issues (336):
+  - Exact duplicate: "locke john" at ranks 16, 338, 487
+  - Exact duplicate: "hegel georg wilhelm friedrich" at ranks 18, 321
+  - Exact duplicate: "machiavelli niccol" at ranks 32, 335
+  - Exact duplicate: "hobbes thomas" at ranks 33, 337
+  - Exact duplicate: "rousseau jeanjacques" at ranks 34, 339, 488
+  - Exact duplicate: "montesquieu charles de secondat" at ranks 35, 340
+  - Exact duplicate: "voltaire" at ranks 36, 328
+  - Exact duplicate: "crick francis" at ranks 64, 381
+  - Exact duplicate: "gould stephen jay" at ranks 78, 778, 949
+  - Exact duplicate: "dawkins richard" at ranks 79, 779, 950
+  ... and 326 more issues
+
+Diversity Estimates:
+  Regions: Europe: 9, Asia: 4, Middle East: 1, Africa: 2, Unknown: 984
+  Domains: Politics/Leadership: 23, Science/Technology: 10, Philosophy/Religion: 8, Military: 6, Other: 953

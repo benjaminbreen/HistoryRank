@@ -295,7 +295,7 @@ export async function GET() {
         };
       });
 
-      // Find top 3 outliers (largest absolute diff from consensus)
+      // Find outliers - top 4 from each direction (higher and lower than consensus)
       const outlierCandidates = figuresWithSource
         .filter(f => f.consensusRank !== null)
         .map(f => {
@@ -310,10 +310,21 @@ export async function GET() {
             direction: (diff < 0 ? 'higher' : 'lower') as 'higher' | 'lower',
             absDiff: Math.abs(diff),
           };
-        })
-        .sort((a, b) => b.absDiff - a.absDiff);
+        });
 
-      const outliers: OutlierReference[] = outlierCandidates.slice(0, 8).map(o => ({
+      // Get top 4 where model ranks HIGHER than consensus (negative diff)
+      const higherOutliers = outlierCandidates
+        .filter(o => o.direction === 'higher')
+        .sort((a, b) => b.absDiff - a.absDiff)
+        .slice(0, 4);
+
+      // Get top 4 where model ranks LOWER than consensus (positive diff)
+      const lowerOutliers = outlierCandidates
+        .filter(o => o.direction === 'lower')
+        .sort((a, b) => b.absDiff - a.absDiff)
+        .slice(0, 4);
+
+      const outliers: OutlierReference[] = [...higherOutliers, ...lowerOutliers].map(o => ({
         id: o.id,
         name: o.name,
         diff: o.diff,

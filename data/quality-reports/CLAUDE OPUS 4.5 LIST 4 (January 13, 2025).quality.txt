@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE OPUS 4.5 LIST 4 (January 13, 2025).txt
+Model: CLAUDE OPUS 4.5
+Timestamp: 2026-01-19T06:54:09.932Z
+
+VERDICT: FAIL
+
+Summary: Issues: 71 exact duplicates; 1132 entries (expected 1000); non-sequential ranks
+
+Scores:
+  Repetition: FAIL - 71 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: FAIL - 1132 entries (expected 1000); non-sequential ranks
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (118):
+  - Exact duplicate: "charles darwin" at ranks 8, 705
+  - Exact duplicate: "euclid" at ranks 16, 929
+  - Exact duplicate: "james watt" at ranks 18, 887
+  - Exact duplicate: "laozi" at ranks 29, 650
+  - Exact duplicate: "james clerk maxwell" at ranks 36, 510
+  - Exact duplicate: "john locke" at ranks 43, 802
+  - Exact duplicate: "archimedes" at ranks 50, 503, 817
+  - Exact duplicate: "nikola tesla" at ranks 52, 865
+  - Exact duplicate: "hernn corts" at ranks 73, 874
+  - Exact duplicate: "hammurabi" at ranks 82, 563
+  ... and 108 more issues
+
+Diversity Estimates:
+  Regions: Europe: 164, Asia: 55, Middle East: 35, Africa: 24, Americas: 42, Unknown: 812
+  Domains: Politics/Leadership: 80, Science/Technology: 15, Philosophy/Religion: 27, Arts/Literature: 86, Military: 15, Other: 909

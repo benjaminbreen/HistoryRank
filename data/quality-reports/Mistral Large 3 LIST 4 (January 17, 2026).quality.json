@@ -1,0 +1,4228 @@
+{
+  "file": "Mistral Large 3 LIST 4 (January 17, 2026).txt",
+  "model": "Mistral Large 3",
+  "timestamp": "2026-01-19T06:54:27.821Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 362,
+      "fuzzy": 3,
+      "status": "FAIL",
+      "details": "362 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 81,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 135,
+          "endRank": 144,
+          "count": 10,
+          "examples": [
+            "135. Donald Knuth",
+            "136. Edgar F. Codd",
+            "137. James Gosling"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 136,
+          "endRank": 145,
+          "count": 10,
+          "examples": [
+            "136. Edgar F. Codd",
+            "137. James Gosling",
+            "138. Bjarne Stroustrup"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 137,
+          "endRank": 146,
+          "count": 10,
+          "examples": [
+            "137. James Gosling",
+            "138. Bjarne Stroustrup",
+            "139. Guido van Rossum"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 161,
+          "endRank": 179,
+          "count": 19,
+          "examples": [
+            "161. Noam Chomsky",
+            "162. Daniel Kahneman",
+            "163. Amos Tversky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 164,
+          "endRank": 186,
+          "count": 23,
+          "examples": [
+            "164. Richard Thaler",
+            "165. Herbert A. Simon",
+            "166. Gary Becker"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 170,
+          "endRank": 187,
+          "count": 18,
+          "examples": [
+            "170. Kenneth Arrow",
+            "171. Joseph Stiglitz",
+            "172. Paul Krugman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 170,
+          "endRank": 188,
+          "count": 19,
+          "examples": [
+            "170. Kenneth Arrow",
+            "171. Joseph Stiglitz",
+            "172. Paul Krugman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "political",
+          "startRank": 188,
+          "endRank": 200,
+          "count": 13,
+          "examples": [
+            "188. Zbigniew Brzezinski",
+            "189. George F. Kennan",
+            "190. Hans Morgenthau"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 188,
+          "endRank": 262,
+          "count": 75,
+          "examples": [
+            "188. Zbigniew Brzezinski",
+            "189. George F. Kennan",
+            "190. Hans Morgenthau"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 190,
+          "endRank": 264,
+          "count": 75,
+          "examples": [
+            "190. Hans Morgenthau",
+            "191. Robert Keohane",
+            "192. Joseph Nye"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 190,
+          "endRank": 270,
+          "count": 81,
+          "examples": [
+            "190. Hans Morgenthau",
+            "191. Robert Keohane",
+            "192. Joseph Nye"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 279,
+          "endRank": 305,
+          "count": 27,
+          "examples": [
+            "279. Paramahansa Yogananda",
+            "280. Jiddu Krishnamurti",
+            "281. Osho (Bhagwan Shree Rajneesh)"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychologist",
+          "startRank": 286,
+          "endRank": 312,
+          "count": 27,
+          "examples": [
+            "286. Carl Jung",
+            "287. Alfred Adler",
+            "288. B.F. Skinner"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 283,
+          "endRank": 324,
+          "count": 42,
+          "examples": [
+            "283. Eckhart Tolle",
+            "284. Joseph Campbell",
+            "285. Mircea Eliade"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 307,
+          "endRank": 325,
+          "count": 19,
+          "examples": [
+            "307. Martin Seligman",
+            "308. Mihaly Csikszentmihalyi",
+            "309. Barbara Fredrickson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 307,
+          "endRank": 326,
+          "count": 20,
+          "examples": [
+            "307. Martin Seligman",
+            "308. Mihaly Csikszentmihalyi",
+            "309. Barbara Fredrickson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 369,
+          "endRank": 395,
+          "count": 27,
+          "examples": [
+            "369. Rachel Carson",
+            "370. Jane Goodall",
+            "371. Dian Fossey"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 376,
+          "endRank": 396,
+          "count": 21,
+          "examples": [
+            "376. Al Gore",
+            "377. James Hansen",
+            "378. Michael Mann"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 376,
+          "endRank": 397,
+          "count": 22,
+          "examples": [
+            "376. Al Gore",
+            "377. James Hansen",
+            "378. Michael Mann"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 399,
+          "endRank": 444,
+          "count": 46,
+          "examples": [
+            "399. James Clerk Maxwell",
+            "400. Michael Faraday",
+            "401. André-Marie Ampère"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 404,
+          "endRank": 447,
+          "count": 44,
+          "examples": [
+            "404. Benjamin Franklin",
+            "405. James Watt",
+            "406. George Stephenson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 404,
+          "endRank": 448,
+          "count": 45,
+          "examples": [
+            "404. Benjamin Franklin",
+            "405. James Watt",
+            "406. George Stephenson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 449,
+          "endRank": 471,
+          "count": 23,
+          "examples": [
+            "449. Chelsea Manning",
+            "450. Daniel Ellsberg",
+            "451. Noam Chomsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 451,
+          "endRank": 476,
+          "count": 26,
+          "examples": [
+            "451. Noam Chomsky",
+            "452. Howard Zinn",
+            "453. Eric Hobsbawm"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 451,
+          "endRank": 478,
+          "count": 28,
+          "examples": [
+            "451. Noam Chomsky",
+            "452. Howard Zinn",
+            "453. Eric Hobsbawm"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 478,
+          "endRank": 487,
+          "count": 10,
+          "examples": [
+            "478. Yasser Arafat",
+            "479. Mahmoud Abbas",
+            "480. Gamal Abdel Nasser"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 479,
+          "endRank": 488,
+          "count": 10,
+          "examples": [
+            "479. Mahmoud Abbas",
+            "480. Gamal Abdel Nasser",
+            "481. Anwar Sadat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 518,
+          "endRank": 529,
+          "count": 12,
+          "examples": [
+            "518. Angela Merkel",
+            "519. Helmut Kohl",
+            "520. Willy Brandt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 519,
+          "endRank": 535,
+          "count": 17,
+          "examples": [
+            "519. Helmut Kohl",
+            "520. Willy Brandt",
+            "521. Konrad Adenauer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "british",
+          "startRank": 525,
+          "endRank": 536,
+          "count": 12,
+          "examples": [
+            "525. Margaret Thatcher",
+            "526. Tony Blair",
+            "527. David Cameron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 522,
+          "endRank": 537,
+          "count": 16,
+          "examples": [
+            "522. Charles de Gaulle",
+            "523. François Mitterrand",
+            "524. Emmanuel Macron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 531,
+          "endRank": 551,
+          "count": 21,
+          "examples": [
+            "531. Clement Attlee",
+            "532. Harold Wilson",
+            "533. Edward Heath"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 539,
+          "endRank": 552,
+          "count": 14,
+          "examples": [
+            "539. Cyril Ramaphosa",
+            "540. Robert Mugabe",
+            "541. Nelson Mandela"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 539,
+          "endRank": 553,
+          "count": 15,
+          "examples": [
+            "539. Cyril Ramaphosa",
+            "540. Robert Mugabe",
+            "541. Nelson Mandela"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 562,
+          "endRank": 571,
+          "count": 10,
+          "examples": [
+            "562. King Abdullah II",
+            "563. King Salman & Crown Prince Mohammed bin Salman",
+            "564. King Faisal"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 574,
+          "endRank": 583,
+          "count": 10,
+          "examples": [
+            "574. Gamal Abdel Nasser",
+            "575. Anwar Sadat",
+            "576. Hosni Mubarak"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 590,
+          "endRank": 599,
+          "count": 10,
+          "examples": [
+            "590. King Abdullah II",
+            "591. King Salman & Crown Prince Mohammed bin Salman",
+            "592. King Faisal"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 608,
+          "endRank": 624,
+          "count": 17,
+          "examples": [
+            "608. Saddam Hussein",
+            "609. Haile Selassie",
+            "610. Mengistu Haile Mariam"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 616,
+          "endRank": 626,
+          "count": 11,
+          "examples": [
+            "616. Cyril Ramaphosa",
+            "617. Julius Nyerere",
+            "618. Kwame Nkrumah"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 616,
+          "endRank": 627,
+          "count": 12,
+          "examples": [
+            "616. Cyril Ramaphosa",
+            "617. Julius Nyerere",
+            "618. Kwame Nkrumah"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 628,
+          "endRank": 639,
+          "count": 12,
+          "examples": [
+            "628. Angela Merkel",
+            "629. Helmut Kohl",
+            "630. Willy Brandt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 629,
+          "endRank": 644,
+          "count": 16,
+          "examples": [
+            "629. Helmut Kohl",
+            "630. Willy Brandt",
+            "631. Konrad Adenauer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "british",
+          "startRank": 635,
+          "endRank": 645,
+          "count": 11,
+          "examples": [
+            "635. Margaret Thatcher",
+            "636. Tony Blair",
+            "637. David Cameron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 632,
+          "endRank": 646,
+          "count": 15,
+          "examples": [
+            "632. Charles de Gaulle",
+            "633. François Mitterrand",
+            "634. Emmanuel Macron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 674,
+          "endRank": 683,
+          "count": 10,
+          "examples": [
+            "674. Jawaharlal Nehru",
+            "675. Indira Gandhi",
+            "676. Rajiv Gandhi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 675,
+          "endRank": 688,
+          "count": 14,
+          "examples": [
+            "675. Indira Gandhi",
+            "676. Rajiv Gandhi",
+            "677. Manmohan Singh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 680,
+          "endRank": 690,
+          "count": 11,
+          "examples": [
+            "680. Zulfikar Ali Bhutto",
+            "681. Benazir Bhutto",
+            "682. Pervez Musharraf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 685,
+          "endRank": 697,
+          "count": 13,
+          "examples": [
+            "685. Ziaur Rahman",
+            "686. Sheikh Hasina",
+            "687. Khaleda Zia"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 690,
+          "endRank": 700,
+          "count": 11,
+          "examples": [
+            "690. Mahathir Mohamad",
+            "691. Sukarno",
+            "692. Suharto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 692,
+          "endRank": 706,
+          "count": 15,
+          "examples": [
+            "692. Suharto",
+            "693. Joko Widodo",
+            "694. Ho Chi Minh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 699,
+          "endRank": 709,
+          "count": 11,
+          "examples": [
+            "699. Kim Jong-il",
+            "700. Kim Jong-un",
+            "701. Syngman Rhee"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 701,
+          "endRank": 710,
+          "count": 10,
+          "examples": [
+            "701. Syngman Rhee",
+            "702. Park Chung-hee",
+            "703. Chun Doo-hwan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 701,
+          "endRank": 711,
+          "count": 11,
+          "examples": [
+            "701. Syngman Rhee",
+            "702. Park Chung-hee",
+            "703. Chun Doo-hwan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 702,
+          "endRank": 727,
+          "count": 26,
+          "examples": [
+            "702. Park Chung-hee",
+            "703. Chun Doo-hwan",
+            "704. Kim Dae-jung"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 718,
+          "endRank": 735,
+          "count": 18,
+          "examples": [
+            "718. Fumio Kishida",
+            "719. Chiang Kai-shek",
+            "720. Chiang Ching-kuo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 711,
+          "endRank": 731,
+          "count": 21,
+          "examples": [
+            "711. Hideki Tojo",
+            "712. Shigeru Yoshida",
+            "713. Hayato Ikeda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 711,
+          "endRank": 732,
+          "count": 22,
+          "examples": [
+            "711. Hideki Tojo",
+            "712. Shigeru Yoshida",
+            "713. Hayato Ikeda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 720,
+          "endRank": 736,
+          "count": 17,
+          "examples": [
+            "720. Chiang Ching-kuo",
+            "721. Lee Teng-hui",
+            "722. Chen Shui-bian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 720,
+          "endRank": 737,
+          "count": 18,
+          "examples": [
+            "720. Chiang Ching-kuo",
+            "721. Lee Teng-hui",
+            "722. Chen Shui-bian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 729,
+          "endRank": 741,
+          "count": 13,
+          "examples": [
+            "729. Gloria Macapagal Arroyo",
+            "730. Benigno Aquino III",
+            "731. Rodrigo Duterte"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 733,
+          "endRank": 746,
+          "count": 14,
+          "examples": [
+            "733. Sukarno",
+            "734. Suharto",
+            "735. Joko Widodo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 734,
+          "endRank": 751,
+          "count": 18,
+          "examples": [
+            "734. Suharto",
+            "735. Joko Widodo",
+            "736. Ho Chi Minh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 740,
+          "endRank": 753,
+          "count": 14,
+          "examples": [
+            "740. Hun Sen",
+            "741. Norodom Sihanouk",
+            "742. Lee Kuan Yew"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 743,
+          "endRank": 757,
+          "count": 15,
+          "examples": [
+            "743. Goh Chok Tong",
+            "744. Lee Hsien Loong",
+            "745. Mahathir Mohamad"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 748,
+          "endRank": 759,
+          "count": 12,
+          "examples": [
+            "748. Mahathir Mohamad (second term)",
+            "749. Muhyiddin Yassin",
+            "750. Ismail Sabri Yaakob"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 753,
+          "endRank": 766,
+          "count": 14,
+          "examples": [
+            "753. Prayut Chan-o-cha",
+            "754. Aung San Suu Kyi",
+            "755. Thein Sein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 759,
+          "endRank": 778,
+          "count": 20,
+          "examples": [
+            "759. Sarit Thanarat",
+            "760. Thanom Kittikachorn",
+            "761. Prem Tinsulanonda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 768,
+          "endRank": 790,
+          "count": 23,
+          "examples": [
+            "768. U Thant",
+            "769. Dag Hammarskjöld",
+            "770. Trygve Lie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 780,
+          "endRank": 799,
+          "count": 20,
+          "examples": [
+            "780. Rodrigo de Rato",
+            "781. Horst Köhler",
+            "782. Michel Camdessus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "global",
+          "startRank": 788,
+          "endRank": 801,
+          "count": 14,
+          "examples": [
+            "788. Camille Gutt",
+            "789. Jim Yong Kim",
+            "790. Robert Zoellick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 780,
+          "endRank": 834,
+          "count": 55,
+          "examples": [
+            "780. Rodrigo de Rato",
+            "781. Horst Köhler",
+            "782. Michel Camdessus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 801,
+          "endRank": 837,
+          "count": 37,
+          "examples": [
+            "801. Nathan Mayer Rothschild",
+            "802. J.P. Morgan",
+            "803. John D. Rockefeller"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 801,
+          "endRank": 838,
+          "count": 38,
+          "examples": [
+            "801. Nathan Mayer Rothschild",
+            "802. J.P. Morgan",
+            "803. John D. Rockefeller"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 839,
+          "endRank": 861,
+          "count": 23,
+          "examples": [
+            "839. Chelsea Manning",
+            "840. Daniel Ellsberg",
+            "841. Noam Chomsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 841,
+          "endRank": 866,
+          "count": 26,
+          "examples": [
+            "841. Noam Chomsky",
+            "842. Howard Zinn",
+            "843. Eric Hobsbawm"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 841,
+          "endRank": 868,
+          "count": 28,
+          "examples": [
+            "841. Noam Chomsky",
+            "842. Howard Zinn",
+            "843. Eric Hobsbawm"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 868,
+          "endRank": 877,
+          "count": 10,
+          "examples": [
+            "868. Yasser Arafat",
+            "869. Mahmoud Abbas",
+            "870. Gamal Abdel Nasser"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 869,
+          "endRank": 878,
+          "count": 10,
+          "examples": [
+            "869. Mahmoud Abbas",
+            "870. Gamal Abdel Nasser",
+            "871. Anwar Sadat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 907,
+          "endRank": 918,
+          "count": 12,
+          "examples": [
+            "907. Angela Merkel",
+            "908. Helmut Kohl",
+            "909. Willy Brandt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 908,
+          "endRank": 924,
+          "count": 17,
+          "examples": [
+            "908. Helmut Kohl",
+            "909. Willy Brandt",
+            "910. Konrad Adenauer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "british",
+          "startRank": 914,
+          "endRank": 925,
+          "count": 12,
+          "examples": [
+            "914. Margaret Thatcher",
+            "915. Tony Blair",
+            "916. David Cameron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 911,
+          "endRank": 926,
+          "count": 16,
+          "examples": [
+            "911. Charles de Gaulle",
+            "912. François Mitterrand",
+            "913. Emmanuel Macron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 920,
+          "endRank": 938,
+          "count": 19,
+          "examples": [
+            "920. Clement Attlee",
+            "921. Harold Wilson",
+            "922. Edward Heath"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 928,
+          "endRank": 944,
+          "count": 17,
+          "examples": [
+            "928. Cyril Ramaphosa",
+            "929. Robert Mugabe",
+            "930. Julius Nyerere"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 928,
+          "endRank": 946,
+          "count": 19,
+          "examples": [
+            "928. Cyril Ramaphosa",
+            "929. Robert Mugabe",
+            "930. Julius Nyerere"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 954,
+          "endRank": 963,
+          "count": 10,
+          "examples": [
+            "954. Jawaharlal Nehru",
+            "955. Indira Gandhi",
+            "956. Rajiv Gandhi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 955,
+          "endRank": 968,
+          "count": 14,
+          "examples": [
+            "955. Indira Gandhi",
+            "956. Rajiv Gandhi",
+            "957. Manmohan Singh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 960,
+          "endRank": 970,
+          "count": 11,
+          "examples": [
+            "960. Zulfikar Ali Bhutto",
+            "961. Benazir Bhutto",
+            "962. Pervez Musharraf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 965,
+          "endRank": 977,
+          "count": 13,
+          "examples": [
+            "965. Ziaur Rahman",
+            "966. Sheikh Hasina",
+            "967. Khaleda Zia"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 970,
+          "endRank": 980,
+          "count": 11,
+          "examples": [
+            "970. Mahathir Mohamad",
+            "971. Sukarno",
+            "972. Suharto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 972,
+          "endRank": 986,
+          "count": 15,
+          "examples": [
+            "972. Suharto",
+            "973. Joko Widodo",
+            "974. Ho Chi Minh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 979,
+          "endRank": 989,
+          "count": 11,
+          "examples": [
+            "979. Kim Jong-il",
+            "980. Kim Jong-un",
+            "981. Syngman Rhee"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 981,
+          "endRank": 990,
+          "count": 10,
+          "examples": [
+            "981. Syngman Rhee",
+            "982. Park Chung-hee",
+            "983. Chun Doo-hwan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 981,
+          "endRank": 991,
+          "count": 11,
+          "examples": [
+            "981. Syngman Rhee",
+            "982. Park Chung-hee",
+            "983. Chun Doo-hwan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 982,
+          "endRank": 1000,
+          "count": 19,
+          "examples": [
+            "982. Park Chung-hee",
+            "983. Chun Doo-hwan",
+            "984. Kim Dae-jung"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 81 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 36,
+      "expected": 43,
+      "missing": [
+        "michelangelo",
+        "homer",
+        "pythagoras",
+        "euclid",
+        "archimedes",
+        "kepler",
+        "hitler"
+      ],
+      "status": "WARN",
+      "details": "36/43 anchor figures found (84%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        12,
+        48
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas edison",
+      "ranks": [
+        15,
+        395
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        17,
+        666,
+        947
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mahatma gandhi",
+      "ranks": [
+        19,
+        673,
+        953
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "henry ford",
+      "ranks": [
+        32,
+        416,
+        806
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander graham bell",
+      "ranks": [
+        33,
+        396
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        34,
+        530,
+        640,
+        919
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir lenin",
+      "ranks": [
+        35,
+        507,
+        651,
+        896
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nelson mandela",
+      "ranks": [
+        36,
+        535,
+        541,
+        612,
+        924
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marie curie",
+      "ranks": [
+        37,
+        360
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james watt",
+      "ranks": [
+        41,
+        405
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nikola tesla",
+      "ranks": [
+        42,
+        394
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        44,
+        658,
+        939
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph stalin",
+      "ranks": [
+        52,
+        506,
+        650,
+        895
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter the great",
+      "ranks": [
+        67,
+        508,
+        652,
+        897
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine the great",
+      "ranks": [
+        68,
+        509,
+        653,
+        898
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "akbar the great",
+      "ranks": [
+        71,
+        667,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashoka the great",
+      "ranks": [
+        72,
+        668,
+        670,
+        949
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "qin shi huang",
+      "ranks": [
+        73,
+        664,
+        945
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john stuart mill",
+      "ranks": [
+        91,
+        257
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michel foucault",
+      "ranks": [
+        95,
+        204
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noam chomsky",
+      "ranks": [
+        97,
+        161,
+        316,
+        451,
+        841
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edward said",
+      "ranks": [
+        98,
+        211
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "oprah winfrey",
+      "ranks": [
+        112,
+        435,
+        825
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "walt disney",
+      "ranks": [
+        113,
+        433,
+        823
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steven spielberg",
+      "ranks": [
+        114,
+        434,
+        824
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bill gates",
+      "ranks": [
+        122,
+        419,
+        809
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steve jobs",
+      "ranks": [
+        123,
+        418,
+        808
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mark zuckerberg",
+      "ranks": [
+        124,
+        423,
+        813
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "larry page sergey brin",
+      "ranks": [
+        125,
+        424,
+        814
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeff bezos",
+      "ranks": [
+        126,
+        422,
+        812
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elon musk",
+      "ranks": [
+        127,
+        421,
+        811
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "herbert simon",
+      "ranks": [
+        148,
+        313
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niall ferguson",
+      "ranks": [
+        182,
+        461,
+        851
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jared diamond",
+      "ranks": [
+        183,
+        462,
+        852
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yuval noah harari",
+      "ranks": [
+        184,
+        463,
+        853
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis fukuyama",
+      "ranks": [
+        185,
+        464,
+        854
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "samuel huntington",
+      "ranks": [
+        186,
+        465,
+        855
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert nozick",
+      "ranks": [
+        236,
+        255
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rosalind franklin",
+      "ranks": [
+        327,
+        356
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barbara mcclintock",
+      "ranks": [
+        328,
+        358
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andrew carnegie",
+      "ranks": [
+        412,
+        804
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john d rockefeller",
+      "ranks": [
+        413,
+        803
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jp morgan",
+      "ranks": [
+        414,
+        802
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cornelius vanderbilt",
+      "ranks": [
+        415,
+        805
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfred p sloan",
+      "ranks": [
+        417,
+        807
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "warren buffett",
+      "ranks": [
+        420,
+        810
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jack ma",
+      "ranks": [
+        425,
+        815
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mukesh ambani",
+      "ranks": [
+        426,
+        816
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "carlos slim",
+      "ranks": [
+        427,
+        817
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bernard arnault",
+      "ranks": [
+        428,
+        818
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amancio ortega",
+      "ranks": [
+        429,
+        819
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ingvar kamprad",
+      "ranks": [
+        430,
+        820
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sam walton",
+      "ranks": [
+        431,
+        821
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ray kroc",
+      "ranks": [
+        432,
+        822
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rupert murdoch",
+      "ranks": [
+        436,
+        826
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ted turner",
+      "ranks": [
+        437,
+        827
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sumner redstone",
+      "ranks": [
+        438,
+        828
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steve ross",
+      "ranks": [
+        439,
+        829
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david sarnoff",
+      "ranks": [
+        440,
+        830
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william randolph hearst",
+      "ranks": [
+        441,
+        831
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph pulitzer",
+      "ranks": [
+        442,
+        832
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "walter cronkite",
+      "ranks": [
+        443,
+        833
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edward r murrow",
+      "ranks": [
+        444,
+        834
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bob woodward carl bernstein",
+      "ranks": [
+        445,
+        835
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "glenn greenwald",
+      "ranks": [
+        446,
+        836
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "julian assange",
+      "ranks": [
+        447,
+        837
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edward snowden",
+      "ranks": [
+        448,
+        838
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chelsea manning",
+      "ranks": [
+        449,
+        839
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "daniel ellsberg",
+      "ranks": [
+        450,
+        840
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "howard zinn",
+      "ranks": [
+        452,
+        842
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eric hobsbawm",
+      "ranks": [
+        453,
+        843
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fernand braudel",
+      "ranks": [
+        454,
+        844
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marc bloch",
+      "ranks": [
+        455,
+        845
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lucien febvre",
+      "ranks": [
+        456,
+        846
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ep thompson",
+      "ranks": [
+        457,
+        847
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "christopher hill",
+      "ranks": [
+        458,
+        848
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eric foner",
+      "ranks": [
+        459,
+        849
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simon schama",
+      "ranks": [
+        460,
+        850
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert putnam",
+      "ranks": [
+        466,
+        856
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benedict anderson",
+      "ranks": [
+        467,
+        857
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ernest gellner",
+      "ranks": [
+        468,
+        858
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "anthony d smith",
+      "ranks": [
+        469,
+        859
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eric hobbsbawm",
+      "ranks": [
+        470,
+        860
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodor herzl",
+      "ranks": [
+        471,
+        573,
+        601,
+        861
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david bengurion",
+      "ranks": [
+        472,
+        572,
+        600,
+        862
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "golda meir",
+      "ranks": [
+        473,
+        571,
+        599,
+        863
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "menachem begin",
+      "ranks": [
+        474,
+        570,
+        598,
+        864
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yitzhak rabin",
+      "ranks": [
+        475,
+        569,
+        597,
+        865
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shimon peres",
+      "ranks": [
+        476,
+        568,
+        596,
+        866
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benjamin netanyahu",
+      "ranks": [
+        477,
+        567,
+        595,
+        867
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yasser arafat",
+      "ranks": [
+        478,
+        565,
+        593,
+        868
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mahmoud abbas",
+      "ranks": [
+        479,
+        566,
+        594,
+        869
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gamal abdel nasser",
+      "ranks": [
+        480,
+        574,
+        602,
+        870
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "anwar sadat",
+      "ranks": [
+        481,
+        575,
+        603,
+        871
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hosni mubarak",
+      "ranks": [
+        482,
+        498,
+        552,
+        576,
+        604,
+        872,
+        887
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "muammar gaddafi",
+      "ranks": [
+        483,
+        499,
+        549,
+        579,
+        607,
+        873,
+        888
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saddam hussein",
+      "ranks": [
+        484,
+        551,
+        580,
+        608,
+        874
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hafez alassad",
+      "ranks": [
+        485,
+        581,
+        875
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bashar alassad",
+      "ranks": [
+        486,
+        500,
+        554,
+        582,
+        876,
+        889
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "recep tayyip erdoan",
+      "ranks": [
+        487,
+        555,
+        583,
+        877
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mustafa kemal atatrk",
+      "ranks": [
+        488,
+        556,
+        584,
+        878
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mohammad reza pahlavi",
+      "ranks": [
+        489,
+        557,
+        585,
+        879
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ruhollah khomeini",
+      "ranks": [
+        490,
+        558,
+        586,
+        880
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hassan rouhani",
+      "ranks": [
+        491,
+        560,
+        588,
+        881
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ali khamenei",
+      "ranks": [
+        492,
+        561,
+        589,
+        882
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king abdullah ii",
+      "ranks": [
+        494,
+        562,
+        590,
+        883
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king salman crown prince mohammed bin salman",
+      "ranks": [
+        495,
+        563,
+        591,
+        884
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king faisal",
+      "ranks": [
+        496,
+        564,
+        592,
+        885
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zine el abidine ben ali",
+      "ranks": [
+        497,
+        553,
+        886
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir putin",
+      "ranks": [
+        501,
+        645,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mikhail gorbachev",
+      "ranks": [
+        502,
+        646,
+        891
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "boris yeltsin",
+      "ranks": [
+        503,
+        647,
+        892
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonid brezhnev",
+      "ranks": [
+        504,
+        648,
+        893
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nikita khrushchev",
+      "ranks": [
+        505,
+        649,
+        894
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ivan the terrible",
+      "ranks": [
+        510,
+        654,
+        899
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander ii",
+      "ranks": [
+        511,
+        655,
+        900
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicholas ii",
+      "ranks": [
+        512,
+        656,
+        901
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lech wasa",
+      "ranks": [
+        513,
+        623,
+        902
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vclav havel",
+      "ranks": [
+        514,
+        624,
+        903
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicolae ceauescu",
+      "ranks": [
+        515,
+        625,
+        904
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "josip broz tito",
+      "ranks": [
+        516,
+        626,
+        905
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "slobodan miloevi",
+      "ranks": [
+        517,
+        627,
+        906
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "angela merkel",
+      "ranks": [
+        518,
+        628,
+        907
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "helmut kohl",
+      "ranks": [
+        519,
+        629,
+        908
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "willy brandt",
+      "ranks": [
+        520,
+        630,
+        909
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "konrad adenauer",
+      "ranks": [
+        521,
+        631,
+        910
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles de gaulle",
+      "ranks": [
+        522,
+        632,
+        911
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franois mitterrand",
+      "ranks": [
+        523,
+        633,
+        912
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmanuel macron",
+      "ranks": [
+        524,
+        634,
+        913
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "margaret thatcher",
+      "ranks": [
+        525,
+        635,
+        914
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tony blair",
+      "ranks": [
+        526,
+        636,
+        915
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david cameron",
+      "ranks": [
+        527,
+        637,
+        916
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theresa may",
+      "ranks": [
+        528,
+        638,
+        917
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "boris johnson",
+      "ranks": [
+        529,
+        639,
+        918
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "clement attlee",
+      "ranks": [
+        531,
+        641,
+        920
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "harold wilson",
+      "ranks": [
+        532,
+        642,
+        921
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edward heath",
+      "ranks": [
+        533,
+        643,
+        922
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john major",
+      "ranks": [
+        534,
+        644,
+        923
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fw de klerk",
+      "ranks": [
+        536,
+        613,
+        925
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thabo mbeki",
+      "ranks": [
+        537,
+        614,
+        926
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacob zuma",
+      "ranks": [
+        538,
+        615,
+        927
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cyril ramaphosa",
+      "ranks": [
+        539,
+        616,
+        928
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert mugabe",
+      "ranks": [
+        540,
+        611,
+        929
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "julius nyerere",
+      "ranks": [
+        542,
+        617,
+        930
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kwame nkrumah",
+      "ranks": [
+        543,
+        618,
+        931
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jomo kenyatta",
+      "ranks": [
+        544,
+        619,
+        932
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "patrice lumumba",
+      "ranks": [
+        545,
+        620,
+        933
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mobutu sese seko",
+      "ranks": [
+        546,
+        621,
+        934
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "haile selassie",
+      "ranks": [
+        547,
+        609,
+        935
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mengistu haile mariam",
+      "ranks": [
+        548,
+        610,
+        936
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "idi amin",
+      "ranks": [
+        550,
+        622,
+        937
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mahmoud ahmadinejad",
+      "ranks": [
+        559,
+        587
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mohamed morsi",
+      "ranks": [
+        577,
+        605
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "abdel fattah elsisi",
+      "ranks": [
+        578,
+        606
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "xi jinping",
+      "ranks": [
+        657,
+        938
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deng xiaoping",
+      "ranks": [
+        659,
+        940
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jiang zemin",
+      "ranks": [
+        660,
+        941
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hu jintao",
+      "ranks": [
+        661,
+        942
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sun yatsen",
+      "ranks": [
+        662,
+        943
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chiang kaishek",
+      "ranks": [
+        663,
+        719,
+        944,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kublai khan",
+      "ranks": [
+        665,
+        946
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chandragupta maurya",
+      "ranks": [
+        669,
+        950
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shah jahan",
+      "ranks": [
+        671,
+        951
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aurangzeb",
+      "ranks": [
+        672,
+        952
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jawaharlal nehru",
+      "ranks": [
+        674,
+        954
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "indira gandhi",
+      "ranks": [
+        675,
+        955
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rajiv gandhi",
+      "ranks": [
+        676,
+        956
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "manmohan singh",
+      "ranks": [
+        677,
+        957
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "narendra modi",
+      "ranks": [
+        678,
+        958
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "muhammad ali jinnah",
+      "ranks": [
+        679,
+        959
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zulfikar ali bhutto",
+      "ranks": [
+        680,
+        960
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benazir bhutto",
+      "ranks": [
+        681,
+        961
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pervez musharraf",
+      "ranks": [
+        682,
+        962
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "imran khan",
+      "ranks": [
+        683,
+        963
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh mujibur rahman",
+      "ranks": [
+        684,
+        964
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ziaur rahman",
+      "ranks": [
+        685,
+        965
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh hasina",
+      "ranks": [
+        686,
+        966
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "khaleda zia",
+      "ranks": [
+        687,
+        967
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aung san suu kyi",
+      "ranks": [
+        688,
+        754,
+        968
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lee kuan yew",
+      "ranks": [
+        689,
+        742,
+        969
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mahathir mohamad",
+      "ranks": [
+        690,
+        745,
+        970
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sukarno",
+      "ranks": [
+        691,
+        733,
+        971
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suharto",
+      "ranks": [
+        692,
+        734,
+        972
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joko widodo",
+      "ranks": [
+        693,
+        735,
+        973
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ho chi minh",
+      "ranks": [
+        694,
+        736,
+        974
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vo nguyen giap",
+      "ranks": [
+        695,
+        737,
+        975
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pol pot",
+      "ranks": [
+        696,
+        739,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hun sen",
+      "ranks": [
+        697,
+        740,
+        977
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kim ilsung",
+      "ranks": [
+        698,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kim jongil",
+      "ranks": [
+        699,
+        979
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kim jongun",
+      "ranks": [
+        700,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "syngman rhee",
+      "ranks": [
+        701,
+        981
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "park chunghee",
+      "ranks": [
+        702,
+        982
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chun doohwan",
+      "ranks": [
+        703,
+        983
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kim daejung",
+      "ranks": [
+        704,
+        984
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roh moohyun",
+      "ranks": [
+        705,
+        985
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lee myungbak",
+      "ranks": [
+        706,
+        986
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "park geunhye",
+      "ranks": [
+        707,
+        987
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "moon jaein",
+      "ranks": [
+        708,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yoon sukyeol",
+      "ranks": [
+        709,
+        989
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emperor hirohito",
+      "ranks": [
+        710,
+        990
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hideki tojo",
+      "ranks": [
+        711,
+        991
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shigeru yoshida",
+      "ranks": [
+        712,
+        992
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hayato ikeda",
+      "ranks": [
+        713,
+        993
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eisaku sato",
+      "ranks": [
+        714,
+        994
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yasuhiro nakasone",
+      "ranks": [
+        715,
+        995
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "junichiro koizumi",
+      "ranks": [
+        716,
+        996
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shinzo abe",
+      "ranks": [
+        717,
+        997
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fumio kishida",
+      "ranks": [
+        718,
+        998
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chiang chingkuo",
+      "ranks": [
+        720,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george washington",
+      "variants": [
+        "george washington",
+        "george washington carver"
+      ],
+      "ranks": [
+        40,
+        392
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "daniel kahneman",
+      "variants": [
+        "daniel kahneman",
+        "daniel kahneman amos tversky"
+      ],
+      "ranks": [
+        162,
+        312
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "amos tversky",
+      "variants": [
+        "amos tversky",
+        "daniel kahneman amos tversky"
+      ],
+      "ranks": [
+        163,
+        312
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 135,
+      "endRank": 144,
+      "count": 10,
+      "examples": [
+        "135. Donald Knuth",
+        "136. Edgar F. Codd",
+        "137. James Gosling"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 136,
+      "endRank": 145,
+      "count": 10,
+      "examples": [
+        "136. Edgar F. Codd",
+        "137. James Gosling",
+        "138. Bjarne Stroustrup"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 137,
+      "endRank": 146,
+      "count": 10,
+      "examples": [
+        "137. James Gosling",
+        "138. Bjarne Stroustrup",
+        "139. Guido van Rossum"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 161,
+      "endRank": 179,
+      "count": 19,
+      "examples": [
+        "161. Noam Chomsky",
+        "162. Daniel Kahneman",
+        "163. Amos Tversky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 164,
+      "endRank": 186,
+      "count": 23,
+      "examples": [
+        "164. Richard Thaler",
+        "165. Herbert A. Simon",
+        "166. Gary Becker"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 170,
+      "endRank": 187,
+      "count": 18,
+      "examples": [
+        "170. Kenneth Arrow",
+        "171. Joseph Stiglitz",
+        "172. Paul Krugman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 170,
+      "endRank": 188,
+      "count": 19,
+      "examples": [
+        "170. Kenneth Arrow",
+        "171. Joseph Stiglitz",
+        "172. Paul Krugman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "political",
+      "startRank": 188,
+      "endRank": 200,
+      "count": 13,
+      "examples": [
+        "188. Zbigniew Brzezinski",
+        "189. George F. Kennan",
+        "190. Hans Morgenthau"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 188,
+      "endRank": 262,
+      "count": 75,
+      "examples": [
+        "188. Zbigniew Brzezinski",
+        "189. George F. Kennan",
+        "190. Hans Morgenthau"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 190,
+      "endRank": 264,
+      "count": 75,
+      "examples": [
+        "190. Hans Morgenthau",
+        "191. Robert Keohane",
+        "192. Joseph Nye"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 190,
+      "endRank": 270,
+      "count": 81,
+      "examples": [
+        "190. Hans Morgenthau",
+        "191. Robert Keohane",
+        "192. Joseph Nye"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 279,
+      "endRank": 305,
+      "count": 27,
+      "examples": [
+        "279. Paramahansa Yogananda",
+        "280. Jiddu Krishnamurti",
+        "281. Osho (Bhagwan Shree Rajneesh)"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychologist",
+      "startRank": 286,
+      "endRank": 312,
+      "count": 27,
+      "examples": [
+        "286. Carl Jung",
+        "287. Alfred Adler",
+        "288. B.F. Skinner"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 283,
+      "endRank": 324,
+      "count": 42,
+      "examples": [
+        "283. Eckhart Tolle",
+        "284. Joseph Campbell",
+        "285. Mircea Eliade"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 307,
+      "endRank": 325,
+      "count": 19,
+      "examples": [
+        "307. Martin Seligman",
+        "308. Mihaly Csikszentmihalyi",
+        "309. Barbara Fredrickson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 307,
+      "endRank": 326,
+      "count": 20,
+      "examples": [
+        "307. Martin Seligman",
+        "308. Mihaly Csikszentmihalyi",
+        "309. Barbara Fredrickson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 369,
+      "endRank": 395,
+      "count": 27,
+      "examples": [
+        "369. Rachel Carson",
+        "370. Jane Goodall",
+        "371. Dian Fossey"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 376,
+      "endRank": 396,
+      "count": 21,
+      "examples": [
+        "376. Al Gore",
+        "377. James Hansen",
+        "378. Michael Mann"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 376,
+      "endRank": 397,
+      "count": 22,
+      "examples": [
+        "376. Al Gore",
+        "377. James Hansen",
+        "378. Michael Mann"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 399,
+      "endRank": 444,
+      "count": 46,
+      "examples": [
+        "399. James Clerk Maxwell",
+        "400. Michael Faraday",
+        "401. André-Marie Ampère"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 404,
+      "endRank": 447,
+      "count": 44,
+      "examples": [
+        "404. Benjamin Franklin",
+        "405. James Watt",
+        "406. George Stephenson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 404,
+      "endRank": 448,
+      "count": 45,
+      "examples": [
+        "404. Benjamin Franklin",
+        "405. James Watt",
+        "406. George Stephenson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 449,
+      "endRank": 471,
+      "count": 23,
+      "examples": [
+        "449. Chelsea Manning",
+        "450. Daniel Ellsberg",
+        "451. Noam Chomsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 451,
+      "endRank": 476,
+      "count": 26,
+      "examples": [
+        "451. Noam Chomsky",
+        "452. Howard Zinn",
+        "453. Eric Hobsbawm"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 451,
+      "endRank": 478,
+      "count": 28,
+      "examples": [
+        "451. Noam Chomsky",
+        "452. Howard Zinn",
+        "453. Eric Hobsbawm"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 478,
+      "endRank": 487,
+      "count": 10,
+      "examples": [
+        "478. Yasser Arafat",
+        "479. Mahmoud Abbas",
+        "480. Gamal Abdel Nasser"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 479,
+      "endRank": 488,
+      "count": 10,
+      "examples": [
+        "479. Mahmoud Abbas",
+        "480. Gamal Abdel Nasser",
+        "481. Anwar Sadat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 518,
+      "endRank": 529,
+      "count": 12,
+      "examples": [
+        "518. Angela Merkel",
+        "519. Helmut Kohl",
+        "520. Willy Brandt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 519,
+      "endRank": 535,
+      "count": 17,
+      "examples": [
+        "519. Helmut Kohl",
+        "520. Willy Brandt",
+        "521. Konrad Adenauer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "british",
+      "startRank": 525,
+      "endRank": 536,
+      "count": 12,
+      "examples": [
+        "525. Margaret Thatcher",
+        "526. Tony Blair",
+        "527. David Cameron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 522,
+      "endRank": 537,
+      "count": 16,
+      "examples": [
+        "522. Charles de Gaulle",
+        "523. François Mitterrand",
+        "524. Emmanuel Macron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 531,
+      "endRank": 551,
+      "count": 21,
+      "examples": [
+        "531. Clement Attlee",
+        "532. Harold Wilson",
+        "533. Edward Heath"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 539,
+      "endRank": 552,
+      "count": 14,
+      "examples": [
+        "539. Cyril Ramaphosa",
+        "540. Robert Mugabe",
+        "541. Nelson Mandela"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 539,
+      "endRank": 553,
+      "count": 15,
+      "examples": [
+        "539. Cyril Ramaphosa",
+        "540. Robert Mugabe",
+        "541. Nelson Mandela"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 562,
+      "endRank": 571,
+      "count": 10,
+      "examples": [
+        "562. King Abdullah II",
+        "563. King Salman & Crown Prince Mohammed bin Salman",
+        "564. King Faisal"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 574,
+      "endRank": 583,
+      "count": 10,
+      "examples": [
+        "574. Gamal Abdel Nasser",
+        "575. Anwar Sadat",
+        "576. Hosni Mubarak"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 590,
+      "endRank": 599,
+      "count": 10,
+      "examples": [
+        "590. King Abdullah II",
+        "591. King Salman & Crown Prince Mohammed bin Salman",
+        "592. King Faisal"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 608,
+      "endRank": 624,
+      "count": 17,
+      "examples": [
+        "608. Saddam Hussein",
+        "609. Haile Selassie",
+        "610. Mengistu Haile Mariam"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 616,
+      "endRank": 626,
+      "count": 11,
+      "examples": [
+        "616. Cyril Ramaphosa",
+        "617. Julius Nyerere",
+        "618. Kwame Nkrumah"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 616,
+      "endRank": 627,
+      "count": 12,
+      "examples": [
+        "616. Cyril Ramaphosa",
+        "617. Julius Nyerere",
+        "618. Kwame Nkrumah"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 628,
+      "endRank": 639,
+      "count": 12,
+      "examples": [
+        "628. Angela Merkel",
+        "629. Helmut Kohl",
+        "630. Willy Brandt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 629,
+      "endRank": 644,
+      "count": 16,
+      "examples": [
+        "629. Helmut Kohl",
+        "630. Willy Brandt",
+        "631. Konrad Adenauer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "british",
+      "startRank": 635,
+      "endRank": 645,
+      "count": 11,
+      "examples": [
+        "635. Margaret Thatcher",
+        "636. Tony Blair",
+        "637. David Cameron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 632,
+      "endRank": 646,
+      "count": 15,
+      "examples": [
+        "632. Charles de Gaulle",
+        "633. François Mitterrand",
+        "634. Emmanuel Macron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 674,
+      "endRank": 683,
+      "count": 10,
+      "examples": [
+        "674. Jawaharlal Nehru",
+        "675. Indira Gandhi",
+        "676. Rajiv Gandhi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 675,
+      "endRank": 688,
+      "count": 14,
+      "examples": [
+        "675. Indira Gandhi",
+        "676. Rajiv Gandhi",
+        "677. Manmohan Singh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 680,
+      "endRank": 690,
+      "count": 11,
+      "examples": [
+        "680. Zulfikar Ali Bhutto",
+        "681. Benazir Bhutto",
+        "682. Pervez Musharraf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 685,
+      "endRank": 697,
+      "count": 13,
+      "examples": [
+        "685. Ziaur Rahman",
+        "686. Sheikh Hasina",
+        "687. Khaleda Zia"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 690,
+      "endRank": 700,
+      "count": 11,
+      "examples": [
+        "690. Mahathir Mohamad",
+        "691. Sukarno",
+        "692. Suharto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 692,
+      "endRank": 706,
+      "count": 15,
+      "examples": [
+        "692. Suharto",
+        "693. Joko Widodo",
+        "694. Ho Chi Minh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 699,
+      "endRank": 709,
+      "count": 11,
+      "examples": [
+        "699. Kim Jong-il",
+        "700. Kim Jong-un",
+        "701. Syngman Rhee"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 701,
+      "endRank": 710,
+      "count": 10,
+      "examples": [
+        "701. Syngman Rhee",
+        "702. Park Chung-hee",
+        "703. Chun Doo-hwan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 701,
+      "endRank": 711,
+      "count": 11,
+      "examples": [
+        "701. Syngman Rhee",
+        "702. Park Chung-hee",
+        "703. Chun Doo-hwan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 702,
+      "endRank": 727,
+      "count": 26,
+      "examples": [
+        "702. Park Chung-hee",
+        "703. Chun Doo-hwan",
+        "704. Kim Dae-jung"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 718,
+      "endRank": 735,
+      "count": 18,
+      "examples": [
+        "718. Fumio Kishida",
+        "719. Chiang Kai-shek",
+        "720. Chiang Ching-kuo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 711,
+      "endRank": 731,
+      "count": 21,
+      "examples": [
+        "711. Hideki Tojo",
+        "712. Shigeru Yoshida",
+        "713. Hayato Ikeda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 711,
+      "endRank": 732,
+      "count": 22,
+      "examples": [
+        "711. Hideki Tojo",
+        "712. Shigeru Yoshida",
+        "713. Hayato Ikeda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 720,
+      "endRank": 736,
+      "count": 17,
+      "examples": [
+        "720. Chiang Ching-kuo",
+        "721. Lee Teng-hui",
+        "722. Chen Shui-bian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 720,
+      "endRank": 737,
+      "count": 18,
+      "examples": [
+        "720. Chiang Ching-kuo",
+        "721. Lee Teng-hui",
+        "722. Chen Shui-bian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 729,
+      "endRank": 741,
+      "count": 13,
+      "examples": [
+        "729. Gloria Macapagal Arroyo",
+        "730. Benigno Aquino III",
+        "731. Rodrigo Duterte"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 733,
+      "endRank": 746,
+      "count": 14,
+      "examples": [
+        "733. Sukarno",
+        "734. Suharto",
+        "735. Joko Widodo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 734,
+      "endRank": 751,
+      "count": 18,
+      "examples": [
+        "734. Suharto",
+        "735. Joko Widodo",
+        "736. Ho Chi Minh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 740,
+      "endRank": 753,
+      "count": 14,
+      "examples": [
+        "740. Hun Sen",
+        "741. Norodom Sihanouk",
+        "742. Lee Kuan Yew"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 743,
+      "endRank": 757,
+      "count": 15,
+      "examples": [
+        "743. Goh Chok Tong",
+        "744. Lee Hsien Loong",
+        "745. Mahathir Mohamad"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 748,
+      "endRank": 759,
+      "count": 12,
+      "examples": [
+        "748. Mahathir Mohamad (second term)",
+        "749. Muhyiddin Yassin",
+        "750. Ismail Sabri Yaakob"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 753,
+      "endRank": 766,
+      "count": 14,
+      "examples": [
+        "753. Prayut Chan-o-cha",
+        "754. Aung San Suu Kyi",
+        "755. Thein Sein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 759,
+      "endRank": 778,
+      "count": 20,
+      "examples": [
+        "759. Sarit Thanarat",
+        "760. Thanom Kittikachorn",
+        "761. Prem Tinsulanonda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 768,
+      "endRank": 790,
+      "count": 23,
+      "examples": [
+        "768. U Thant",
+        "769. Dag Hammarskjöld",
+        "770. Trygve Lie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 780,
+      "endRank": 799,
+      "count": 20,
+      "examples": [
+        "780. Rodrigo de Rato",
+        "781. Horst Köhler",
+        "782. Michel Camdessus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "global",
+      "startRank": 788,
+      "endRank": 801,
+      "count": 14,
+      "examples": [
+        "788. Camille Gutt",
+        "789. Jim Yong Kim",
+        "790. Robert Zoellick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 780,
+      "endRank": 834,
+      "count": 55,
+      "examples": [
+        "780. Rodrigo de Rato",
+        "781. Horst Köhler",
+        "782. Michel Camdessus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 801,
+      "endRank": 837,
+      "count": 37,
+      "examples": [
+        "801. Nathan Mayer Rothschild",
+        "802. J.P. Morgan",
+        "803. John D. Rockefeller"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 801,
+      "endRank": 838,
+      "count": 38,
+      "examples": [
+        "801. Nathan Mayer Rothschild",
+        "802. J.P. Morgan",
+        "803. John D. Rockefeller"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 839,
+      "endRank": 861,
+      "count": 23,
+      "examples": [
+        "839. Chelsea Manning",
+        "840. Daniel Ellsberg",
+        "841. Noam Chomsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 841,
+      "endRank": 866,
+      "count": 26,
+      "examples": [
+        "841. Noam Chomsky",
+        "842. Howard Zinn",
+        "843. Eric Hobsbawm"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 841,
+      "endRank": 868,
+      "count": 28,
+      "examples": [
+        "841. Noam Chomsky",
+        "842. Howard Zinn",
+        "843. Eric Hobsbawm"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 868,
+      "endRank": 877,
+      "count": 10,
+      "examples": [
+        "868. Yasser Arafat",
+        "869. Mahmoud Abbas",
+        "870. Gamal Abdel Nasser"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 869,
+      "endRank": 878,
+      "count": 10,
+      "examples": [
+        "869. Mahmoud Abbas",
+        "870. Gamal Abdel Nasser",
+        "871. Anwar Sadat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 907,
+      "endRank": 918,
+      "count": 12,
+      "examples": [
+        "907. Angela Merkel",
+        "908. Helmut Kohl",
+        "909. Willy Brandt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 908,
+      "endRank": 924,
+      "count": 17,
+      "examples": [
+        "908. Helmut Kohl",
+        "909. Willy Brandt",
+        "910. Konrad Adenauer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "british",
+      "startRank": 914,
+      "endRank": 925,
+      "count": 12,
+      "examples": [
+        "914. Margaret Thatcher",
+        "915. Tony Blair",
+        "916. David Cameron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 911,
+      "endRank": 926,
+      "count": 16,
+      "examples": [
+        "911. Charles de Gaulle",
+        "912. François Mitterrand",
+        "913. Emmanuel Macron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 920,
+      "endRank": 938,
+      "count": 19,
+      "examples": [
+        "920. Clement Attlee",
+        "921. Harold Wilson",
+        "922. Edward Heath"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 928,
+      "endRank": 944,
+      "count": 17,
+      "examples": [
+        "928. Cyril Ramaphosa",
+        "929. Robert Mugabe",
+        "930. Julius Nyerere"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 928,
+      "endRank": 946,
+      "count": 19,
+      "examples": [
+        "928. Cyril Ramaphosa",
+        "929. Robert Mugabe",
+        "930. Julius Nyerere"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 954,
+      "endRank": 963,
+      "count": 10,
+      "examples": [
+        "954. Jawaharlal Nehru",
+        "955. Indira Gandhi",
+        "956. Rajiv Gandhi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 955,
+      "endRank": 968,
+      "count": 14,
+      "examples": [
+        "955. Indira Gandhi",
+        "956. Rajiv Gandhi",
+        "957. Manmohan Singh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 960,
+      "endRank": 970,
+      "count": 11,
+      "examples": [
+        "960. Zulfikar Ali Bhutto",
+        "961. Benazir Bhutto",
+        "962. Pervez Musharraf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 965,
+      "endRank": 977,
+      "count": 13,
+      "examples": [
+        "965. Ziaur Rahman",
+        "966. Sheikh Hasina",
+        "967. Khaleda Zia"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 970,
+      "endRank": 980,
+      "count": 11,
+      "examples": [
+        "970. Mahathir Mohamad",
+        "971. Sukarno",
+        "972. Suharto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 972,
+      "endRank": 986,
+      "count": 15,
+      "examples": [
+        "972. Suharto",
+        "973. Joko Widodo",
+        "974. Ho Chi Minh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 979,
+      "endRank": 989,
+      "count": 11,
+      "examples": [
+        "979. Kim Jong-il",
+        "980. Kim Jong-un",
+        "981. Syngman Rhee"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 981,
+      "endRank": 990,
+      "count": 10,
+      "examples": [
+        "981. Syngman Rhee",
+        "982. Park Chung-hee",
+        "983. Chun Doo-hwan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 981,
+      "endRank": 991,
+      "count": 11,
+      "examples": [
+        "981. Syngman Rhee",
+        "982. Park Chung-hee",
+        "983. Chun Doo-hwan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 982,
+      "endRank": 1000,
+      "count": 19,
+      "examples": [
+        "982. Park Chung-hee",
+        "983. Chun Doo-hwan",
+        "984. Kim Dae-jung"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 82,
+      "Asia": 69,
+      "Middle East": 55,
+      "Africa": 34,
+      "Americas": 8,
+      "Oceania": 0,
+      "Unknown": 752
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 397,
+      "Science/Technology": 81,
+      "Philosophy/Religion": 101,
+      "Arts/Literature": 22,
+      "Military": 27,
+      "Other": 372
+    }
+  },
+  "summary": "Issues: 362 exact duplicates; pattern collapse (max 81); 7 missing anchors"
+}

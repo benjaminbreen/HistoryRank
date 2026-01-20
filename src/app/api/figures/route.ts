@@ -11,6 +11,37 @@ let llmRankCache: Map<string, number> | null = null;
 let cacheTimestamp = 0;
 const CACHE_TTL = 60000; // 1 minute
 
+// Cache for weighted rank lookup
+let weightedRankCache: Map<string, number> | null = null;
+let weightedRankCacheTimestamp = 0;
+
+// Model quality weights based on automated + LLM assessment
+// Higher = more reliable/higher quality lists
+// Weights derived from: pattern collapse severity, duplicate rates, LLM qualitative scores
+// Keys are exact source names from the database (lowercase)
+const MODEL_WEIGHTS: Record<string, number> = {
+  // Tier S - Excellent (weight 1.0)
+  'claude-opus-4.5': 1.0,
+  'gpt-5.2-thinking': 1.0,
+
+  // Tier A - Strong (weight 0.8-0.85)
+  'claude-sonnet-4.5': 0.85,
+  'gemini-flash-3-preview': 0.80,
+  'gemini-pro-3': 0.75,
+
+  // Tier B - Usable (weight 0.6-0.7)
+  'grok-4': 0.70,
+  'grok-4.1-fast': 0.60,
+
+  // Tier C - Problematic (weight 0.2-0.4)
+  'deepseek-v3.2': 0.40,       // High variance, some lists broken with K-pop
+  'qwen3-235b-a22b': 0.25,     // Looping bug, Socrates 27x
+  'glm-4.7': 0.20,             // 512-sequence sports collapse
+
+  // Tier F - Severe issues (weight 0.15)
+  'mistral-large-3': 0.15,     // 328-571 pattern collapse
+};
+
 // Cache for stats
 let statsCache: { totalLists: number; totalModels: number } | null = null;
 let statsCacheTimestamp = 0;
@@ -41,30 +72,43 @@ const BADGE_THRESHOLDS = {
   POPULAR_PAGEVIEWS: 8000000,   // 8M+ global pageviews
   POPULAR_MIN_RANK: 300,        // Must be ranked lower than 300
 
-  // Hidden Gem - high rank + low attention + STRONG consensus (~60-80 figures)
+  // Hidden Gem - high rank + low attention + STRONG consensus (~15-25 figures)
   // Differentiator: requires strong LLM agreement (low variance)
-  HIDDEN_GEM_MAX_RANK: 500,     // Top 500 by LLM (expanded from 150)
+  HIDDEN_GEM_MAX_RANK: 350,     // Top 350 by LLM
   HIDDEN_GEM_MIN_RANK: 21,      // Exclude top 20 (already famous)
-  HIDDEN_GEM_MAX_PAGEVIEWS: 2500000, // Under 2.5M global pageviews (expanded from 1M)
-  HIDDEN_GEM_MAX_VARIANCE: 0.5,     // Must have strong LLM consensus (tightened to separate from under-radar)
+  HIDDEN_GEM_MAX_PAGEVIEWS: 1500000, // Under 1.5M global pageviews
+  HIDDEN_GEM_MAX_VARIANCE: 0.4,     // Must have strong LLM consensus
 
-  // Under the Radar - high rank + low attention + HPI also undervalues (~80-100 figures)
-  // Differentiator: requires HPI to also undervalue (or not have data)
-  UNDER_RADAR_MAX_RANK: 550,    // Top 550 by LLM (slightly expanded)
-  UNDER_RADAR_MAX_PAGEVIEWS: 3500000, // Under 3.5M global pageviews (slightly expanded)
-  UNDER_RADAR_MIN_HPI_RANK: 280, // HPI must undervalue (rank > 280 or null)
+  // Under the Radar - high rank + moderate ngram (historically present but fading) + low attention
+  // Differentiator: uses ngram to find figures who were in scholarly books but now overlooked
+  UNDER_RADAR_MAX_RANK: 300,    // Top 300 by LLM
+  UNDER_RADAR_MAX_PAGEVIEWS: 1000000, // Under 1M global pageviews
+  UNDER_RADAR_MIN_NGRAM_PCT: 40, // Must have moderate historical book presence
+  UNDER_RADAR_MAX_NGRAM_PCT: 75, // But not dominant in books (those go to historians-favorite)
 
   // Global Icon - popular outside Anglophone world (~50-80 figures)
   // Requires either Chinese model preference OR low English pageview % + minimum pageviews
   GLOBAL_ICON_MODEL_DIFF: 50,   // Chinese models rank 50+ higher than Western
-  GLOBAL_ICON_MAX_ENGLISH_PCT: 55, // English pageviews < 55% of total (tightened)
+  GLOBAL_ICON_MAX_ENGLISH_PCT: 50, // English pageviews < 50% of total
   GLOBAL_ICON_MAX_RANK: 700,    // Top 700 by LLM
   GLOBAL_ICON_MIN_PAGEVIEWS: 500000, // Must have at least 500K pageviews to be "notable"
 
-  // Universal Recognition - high across ALL sources
+  // Universal Recognition - high across ALL sources including scholarly
   UNIVERSAL_MAX_LLM_RANK: 150,  // Top 150 by LLM consensus
   UNIVERSAL_MAX_HPI_RANK: 150,  // Top 150 by Pantheon
   UNIVERSAL_MIN_PAGEVIEWS: 2000000, // At least 2M pageviews
+  UNIVERSAL_MIN_NGRAM_PCT: 80,  // Top 20% in book mentions (scholarly staying power)
+
+  // Historian's Favorite - high ngram (scholarly) + low pageviews + middle ranks
+  HISTORIANS_FAV_MIN_NGRAM_PCT: 80,   // Top 20% in book mentions
+  HISTORIANS_FAV_MAX_PAGEVIEWS: 400000, // Under 400K pageviews
+  HISTORIANS_FAV_MIN_RANK: 250,       // Not top tier
+  HISTORIANS_FAV_MAX_RANK: 900,       // But still recognized
+
+  // Underwritten - low ngram but high LLM rank (underrepresented in English scholarship)
+  UNDERWRITTEN_MAX_NGRAM_PCT: 25,     // Bottom 25% in book mentions (or null)
+  UNDERWRITTEN_MAX_RANK: 500,         // LLMs recognize importance
+  UNDERWRITTEN_MIN_PAGEVIEWS: 100000, // Must be notable enough to matter
 };
 
 async function getBadgeData(): Promise<Map<string, SourceAverage[]>> {
@@ -176,7 +220,10 @@ function calculateBadges(
   sourceAverages: SourceAverage[],
   varianceScore?: number | null,
   modelFavoriteCaps?: Record<string, Set<string>>,
-  englishPageviews?: number | null
+  englishPageviews?: number | null,
+  ngramPercentile?: number | null,
+  era?: string | null,
+  domain?: string | null
 ): BadgeType[] {
   const badges: BadgeType[] = [];
 
@@ -283,13 +330,15 @@ function calculateBadges(
     badges.push('popular');
   }
 
-  // Universal Recognition: High across ALL sources (LLM, HPI, pageviews)
+  // Universal Recognition: High across ALL sources (LLM, HPI, pageviews, AND scholarly)
   if (
     pageviews !== null &&
     hpiRank !== null &&
+    ngramPercentile != null &&
     llmConsensusRank <= BADGE_THRESHOLDS.UNIVERSAL_MAX_LLM_RANK &&
     hpiRank <= BADGE_THRESHOLDS.UNIVERSAL_MAX_HPI_RANK &&
-    pageviews >= BADGE_THRESHOLDS.UNIVERSAL_MIN_PAGEVIEWS
+    pageviews >= BADGE_THRESHOLDS.UNIVERSAL_MIN_PAGEVIEWS &&
+    ngramPercentile >= BADGE_THRESHOLDS.UNIVERSAL_MIN_NGRAM_PCT
   ) {
     badges.push('universal-recognition');
   }
@@ -317,51 +366,58 @@ function calculateBadges(
   }
 
   // Hidden Gem: High rank + low attention + strong LLM consensus
-  // Uses tiered pageview thresholds to distribute across rank spectrum
   if (
     pageviews !== null &&
+    pageviews > 0 &&
     modelCoverage >= 3 &&
     varianceScore != null &&
     llmConsensusRank <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_RANK &&
     llmConsensusRank >= BADGE_THRESHOLDS.HIDDEN_GEM_MIN_RANK &&
-    varianceScore <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_VARIANCE
+    varianceScore <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_VARIANCE &&
+    pageviews <= BADGE_THRESHOLDS.HIDDEN_GEM_MAX_PAGEVIEWS
   ) {
-    // Tiered pageview limits: stricter for top ranks, more lenient for lower ranks
-    let maxPageviews: number;
-    if (llmConsensusRank <= 150) {
-      maxPageviews = 800000;   // Very strict for top 150
-    } else if (llmConsensusRank <= 300) {
-      maxPageviews = 2000000;  // Moderate for 151-300
-    } else {
-      maxPageviews = 4000000;  // More lenient for 301-500
-    }
-
-    if (pageviews <= maxPageviews) {
-      badges.push('hidden-gem');
-    }
+    badges.push('hidden-gem');
   }
 
-  // Under the Radar: High rank + low attention + HPI also undervalues
-  // Uses tiered pageview thresholds to distribute across rank spectrum
+  // Under the Radar: High rank + moderate ngram (historically present but fading) + low attention
   if (
     pageviews !== null &&
-    modelCoverage >= 2 &&
+    pageviews > 0 &&
+    ngramPercentile != null &&
     llmConsensusRank <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_RANK &&
-    (hpiRank === null || hpiRank > BADGE_THRESHOLDS.UNDER_RADAR_MIN_HPI_RANK)
+    ngramPercentile >= BADGE_THRESHOLDS.UNDER_RADAR_MIN_NGRAM_PCT &&
+    ngramPercentile <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_NGRAM_PCT &&
+    pageviews <= BADGE_THRESHOLDS.UNDER_RADAR_MAX_PAGEVIEWS
   ) {
-    // Tiered pageview limits: stricter for top ranks, more lenient for lower ranks
-    let maxPageviews: number;
-    if (llmConsensusRank <= 200) {
-      maxPageviews = 1000000;  // Strict for top 200
-    } else if (llmConsensusRank <= 350) {
-      maxPageviews = 2500000;  // Moderate for 201-350
-    } else {
-      maxPageviews = 5000000;  // More lenient for 351-550
-    }
+    badges.push('under-the-radar');
+  }
 
-    if (pageviews <= maxPageviews) {
-      badges.push('under-the-radar');
-    }
+  // Historian's Favorite: High ngram (scholarly) + low pageviews + middle ranks
+  if (
+    ngramPercentile != null &&
+    pageviews != null &&
+    ngramPercentile >= BADGE_THRESHOLDS.HISTORIANS_FAV_MIN_NGRAM_PCT &&
+    pageviews > 0 &&
+    pageviews <= BADGE_THRESHOLDS.HISTORIANS_FAV_MAX_PAGEVIEWS &&
+    llmConsensusRank >= BADGE_THRESHOLDS.HISTORIANS_FAV_MIN_RANK &&
+    llmConsensusRank <= BADGE_THRESHOLDS.HISTORIANS_FAV_MAX_RANK
+  ) {
+    badges.push('historians-favorite');
+  }
+
+  // Underwritten: Low ngram but high LLM rank (underrepresented in English scholarship)
+  // Filter out contemporary celebrities by requiring historical era or serious domain
+  const isHistoricalOrSerious = era !== 'Contemporary' ||
+    ['Politics', 'Science', 'Philosophy', 'Religion', 'Military', 'Arts'].includes(domain || '');
+
+  if (
+    (ngramPercentile == null || ngramPercentile <= BADGE_THRESHOLDS.UNDERWRITTEN_MAX_NGRAM_PCT) &&
+    llmConsensusRank <= BADGE_THRESHOLDS.UNDERWRITTEN_MAX_RANK &&
+    isHistoricalOrSerious &&
+    pageviews != null &&
+    pageviews >= BADGE_THRESHOLDS.UNDERWRITTEN_MIN_PAGEVIEWS
+  ) {
+    badges.push('underwritten');
   }
 
   if (badges.length === 0) return badges;
@@ -370,6 +426,8 @@ function calculateBadges(
   const priority: BadgeType[] = [
     'hidden-gem',
     'under-the-radar',
+    'historians-favorite',
+    'underwritten',
     'universal-recognition',
     'global-icon',
     'popular',
@@ -441,6 +499,115 @@ async function getLLMRankLookup(): Promise<Map<string, number>> {
   return lookup;
 }
 
+// Get weight for a model source string
+function getModelWeight(source: string): number {
+  const sourceLower = source.toLowerCase();
+
+  // Direct lookup first
+  if (MODEL_WEIGHTS[sourceLower] !== undefined) {
+    return MODEL_WEIGHTS[sourceLower];
+  }
+
+  // Default weight for unknown models
+  return 0.5;
+}
+
+async function getWeightedRankLookup(): Promise<Map<string, number>> {
+  const now = Date.now();
+  if (weightedRankCache && now - weightedRankCacheTimestamp < CACHE_TTL) {
+    return weightedRankCache;
+  }
+
+  // Imputed rank for figures not ranked by a model (outside top 1000)
+  const IMPUTED_RANK = 1001;
+
+  // Get all rankings grouped by figure
+  const allRankings = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      rank: rankings.rank,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`);
+
+  // Get unique model sources and their weights
+  const modelSources = new Set<string>();
+  for (const row of allRankings) {
+    modelSources.add(row.source);
+  }
+
+  // Calculate total possible weight (sum of all model weights)
+  // This is used to normalize across all figures
+  const modelWeightsMap = new Map<string, number>();
+  let totalPossibleWeight = 0;
+  for (const source of modelSources) {
+    const weight = getModelWeight(source);
+    modelWeightsMap.set(source, weight);
+    totalPossibleWeight += weight;
+  }
+
+  // Group rankings by figure and track which models ranked each figure
+  const figureRankings = new Map<string, {
+    sourcesWithRanks: Map<string, { sum: number; count: number }>;
+  }>();
+
+  for (const row of allRankings) {
+    if (!figureRankings.has(row.figureId)) {
+      figureRankings.set(row.figureId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(row.figureId)!;
+
+    if (!figData.sourcesWithRanks.has(row.source)) {
+      figData.sourcesWithRanks.set(row.source, { sum: 0, count: 0 });
+    }
+    const sourceData = figData.sourcesWithRanks.get(row.source)!;
+    sourceData.sum += row.rank;
+    sourceData.count += 1;
+  }
+
+  // Compute weighted averages with imputed ranks for missing models
+  const weightedAverages: Array<{ id: string; avgRank: number }> = [];
+
+  for (const [figureId, figData] of figureRankings) {
+    let weightedSum = 0;
+
+    // Add actual rankings
+    for (const [source, rankData] of figData.sourcesWithRanks) {
+      const avgRankForSource = rankData.sum / rankData.count;
+      const weight = modelWeightsMap.get(source) || 0.5;
+      weightedSum += avgRankForSource * weight;
+    }
+
+    // Add imputed rankings for missing models
+    for (const [source, weight] of modelWeightsMap) {
+      if (!figData.sourcesWithRanks.has(source)) {
+        weightedSum += IMPUTED_RANK * weight;
+      }
+    }
+
+    // Divide by total possible weight (not just actual weight)
+    // This ensures figures with less coverage are penalized appropriately
+    weightedAverages.push({
+      id: figureId,
+      avgRank: weightedSum / totalPossibleWeight,
+    });
+  }
+
+  // Sort by weighted average rank
+  weightedAverages.sort((a, b) => a.avgRank - b.avgRank);
+
+  // Build lookup map: figure ID -> position (1-based)
+  const lookup = new Map<string, number>();
+  weightedAverages.forEach((fig, index) => {
+    lookup.set(fig.id, index + 1);
+  });
+
+  weightedRankCache = lookup;
+  weightedRankCacheTimestamp = now;
+  return lookup;
+}
+
 async function getSourceRankLookup(source: string): Promise<Map<string, { avgRank: number; position: number }>> {
   const rows = await db
     .select({
@@ -469,6 +636,7 @@ export async function GET(request: NextRequest) {
   const region = searchParams.get('region');
   const search = searchParams.get('search');
   const modelSource = searchParams.get('modelSource');
+  const weighted = searchParams.get('weighted') === 'true';
   const sortBy = searchParams.get('sortBy') || 'llmConsensusRank';
   const sortOrder = searchParams.get('sortOrder') || 'asc';
   const limit = parseInt(searchParams.get('limit') || '100');
@@ -567,7 +735,7 @@ export async function GET(request: NextRequest) {
         varianceScore: fig.varianceScore,
         pageviews: fig.pageviewsGlobal ?? fig.pageviews2025,
         varianceLevel: getVarianceLevel(fig.varianceScore),
-        badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025),
+        badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025, fig.ngramPercentile, fig.era, fig.domain),
         wikipediaSlug: fig.wikipediaSlug,
       }));
 
@@ -638,13 +806,25 @@ export async function GET(request: NextRequest) {
         .offset(offset);
     }
 
-    // Get LLM rank lookup and badge data
-    const llmRankLookup = await getLLMRankLookup();
+    // Get rank lookup (weighted or regular) and badge data
+    const rankLookup = weighted
+      ? await getWeightedRankLookup()
+      : await getLLMRankLookup();
     const badgeData = await getBadgeData();
     const modelFavoriteCaps = await getModelFavoriteCaps();
 
+    // If weighted mode and sorting by LLM rank, re-sort results by weighted rank
+    let finalResults = results;
+    if (weighted && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
+      finalResults = [...results].sort((a, b) => {
+        const aRank = rankLookup.get(a.id) ?? 99999;
+        const bRank = rankLookup.get(b.id) ?? 99999;
+        return sortOrder === 'desc' ? bRank - aRank : aRank - bRank;
+      });
+    }
+
     // Transform to FigureRow with LLM rank and badges
-    const figureRows: FigureRow[] = results.map((fig) => ({
+    const figureRows: FigureRow[] = finalResults.map((fig) => ({
       id: fig.id,
       name: fig.canonicalName,
       birthYear: fig.birthYear,
@@ -652,12 +832,12 @@ export async function GET(request: NextRequest) {
       era: fig.era,
       regionSub: fig.regionSub,
       hpiRank: fig.hpiRank,
-      llmRank: llmRankLookup.get(fig.id) || null,
+      llmRank: rankLookup.get(fig.id) || null,
       llmConsensusRank: fig.llmConsensusRank,
       varianceScore: fig.varianceScore,
       pageviews: fig.pageviewsGlobal ?? fig.pageviews2025,
       varianceLevel: getVarianceLevel(fig.varianceScore),
-      badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025),
+      badges: calculateBadges(fig.id, fig.llmConsensusRank, fig.hpiRank, fig.pageviewsGlobal ?? fig.pageviews2025, badgeData.get(fig.id) || [], fig.varianceScore, modelFavoriteCaps, fig.pageviews2025, fig.ngramPercentile, fig.era, fig.domain),
       wikipediaSlug: fig.wikipediaSlug,
     }));
 

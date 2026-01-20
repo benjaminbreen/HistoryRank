@@ -24,6 +24,15 @@ export interface Figure {
   hpiScore: number | null;
   llmConsensusRank: number | null;
   varianceScore: number | null;
+  ngramData: { years: number[]; values: number[] } | null;
+  ngramPercentile: number | null;
+  relatedFigures: RelatedFigure[] | null;
+}
+
+export interface RelatedFigure {
+  id: string;
+  name: string;
+  relationship: string;
 }
 
 // Language codes and names for pageview display
@@ -137,10 +146,10 @@ export type VarianceLevel = 'undisputed' | 'consensus' | 'mixed' | 'contested' |
 
 export function getVarianceLevel(score: number | null): VarianceLevel {
   if (score === null) return 'consensus';
-  if (score < 0.1) return 'undisputed';
+  if (score < 0.15) return 'undisputed';
   if (score < 0.4) return 'consensus';
   if (score < 0.7) return 'mixed';
-  if (score < 0.85) return 'contested';
+  if (score < 0.9) return 'contested';
   return 'controversial';
 }
 
@@ -173,7 +182,9 @@ export type BadgeType =
   | 'hidden-gem'            // High rank + low attention + strong consensus
   | 'under-the-radar'       // High rank + low attention + HPI also undervalues
   | 'global-icon'           // Popular outside Anglophone world
-  | 'universal-recognition';// High rank across LLMs, HPI, AND pageviews
+  | 'universal-recognition' // High rank across LLMs, HPI, AND pageviews
+  | 'historians-favorite'   // High ngram (scholarly) + low pageviews + middle ranks
+  | 'underwritten';         // Low ngram but high LLM rank (underrepresented in English scholarship)
 
 export interface Badge {
   type: BadgeType;
@@ -231,7 +242,7 @@ export const BADGE_DEFINITIONS: Record<BadgeType, Omit<Badge, 'type'>> = {
   'under-the-radar': {
     label: 'Under the Radar',
     icon: '◍',
-    description: 'Overlooked by both public attention and traditional metrics, but recognized by LLMs',
+    description: 'Present in scholarly books but now overlooked by the public, yet still recognized by LLMs',
   },
   'global-icon': {
     label: 'Global',
@@ -242,6 +253,16 @@ export const BADGE_DEFINITIONS: Record<BadgeType, Omit<Badge, 'type'>> = {
     label: 'Universal',
     icon: '👑',
     description: 'Recognized across all sources: LLMs, Pantheon, and public attention',
+  },
+  'historians-favorite': {
+    label: "Historians' Favorite",
+    icon: '※',
+    description: 'Frequently cited in scholarly books but receives little popular attention',
+  },
+  'underwritten': {
+    label: 'Underwritten',
+    icon: '✎',
+    description: 'Important figure underrepresented in English-language scholarship',
   },
 };
 
@@ -254,11 +275,30 @@ export const SOURCE_LABELS: Record<string, string> = {
   'gemini-flash-3': 'Gemini Flash 3',
   'gemini-flash-3-preview': 'Gemini Flash 3 Preview',
   'gemini-pro-3': 'Gemini Pro 3',
+  'glm-4.7': 'GLM 4.7',
   'gpt-4o': 'GPT-4o',
   'gpt-5.2-thinking': 'GPT-5.2 Thinking',
   'grok-4.1-fast': 'Grok 4.1 Fast',
   'grok-4': 'Grok 4',
-  'qwen3': 'Qwen 3',
+  'mistral-large-3': 'Mistral Large 3',
+  'qwen3-235b-a22b': 'Qwen3 235B',
+};
+
+// Model icons for source ranking cards
+export const MODEL_ICONS: Record<string, string> = {
+  'claude-sonnet-4.5': '/icons/models/claude.svg',
+  'claude-opus-4.5': '/icons/models/claude.svg',
+  'deepseek-v3.2': '/icons/models/deepseek.svg',
+  'gemini-flash-3': '/icons/models/gemini.svg',
+  'gemini-flash-3-preview': '/icons/models/gemini.svg',
+  'gemini-pro-3': '/icons/models/gemini.svg',
+  'glm-4.7': '/icons/models/glm.svg',
+  'gpt-4o': '/icons/models/openai.svg',
+  'gpt-5.2-thinking': '/icons/models/openai.svg',
+  'grok-4.1-fast': '/icons/models/grok.svg',
+  'grok-4': '/icons/models/grok.svg',
+  'mistral-large-3': '/icons/models/mistral.svg',
+  'qwen3-235b-a22b': '/icons/models/qwen.svg',
 };
 
 // Domain colors for visualization

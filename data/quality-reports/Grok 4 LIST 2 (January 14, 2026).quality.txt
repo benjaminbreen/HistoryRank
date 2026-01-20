@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 2 (January 14, 2026).txt
+Model: Grok 4
+Timestamp: 2026-01-19T06:54:24.125Z
+
+VERDICT: FAIL
+
+Summary: Issues: 93 exact duplicates; pattern collapse (max 246)
+
+Scores:
+  Repetition: FAIL - 93 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 246 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (116):
+  - Exact duplicate: "albert einstein" at ranks 5, 868
+  - Exact duplicate: "sigmund freud" at ranks 24, 299, 518
+  - Exact duplicate: "nelson mandela" at ranks 36, 815
+  - Exact duplicate: "martin luther king jr" at ranks 37, 834
+  - Exact duplicate: "marie curie" at ranks 46, 775, 915
+  - Exact duplicate: "tim bernerslee" at ranks 53, 359
+  - Exact duplicate: "alan turing" at ranks 54, 372
+  - Exact duplicate: "ada lovelace" at ranks 55, 371
+  - Exact duplicate: "queen victoria" at ranks 71, 534
+  - Exact duplicate: "cleopatra" at ranks 74, 516
+  ... and 106 more issues
+
+Diversity Estimates:
+  Regions: Europe: 44, Asia: 17, Middle East: 8, Africa: 36, Americas: 36, Unknown: 859
+  Domains: Politics/Leadership: 157, Science/Technology: 138, Philosophy/Religion: 73, Arts/Literature: 150, Military: 13, Other: 469

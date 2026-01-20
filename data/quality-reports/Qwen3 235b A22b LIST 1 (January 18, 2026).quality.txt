@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Qwen3 235b A22b LIST 1 (January 18, 2026).txt
+Model: Qwen3 235b A22b
+Timestamp: 2026-01-19T06:54:28.557Z
+
+VERDICT: FAIL
+
+Summary: Issues: 733 exact duplicates; pattern collapse (max 12)
+
+Scores:
+  Repetition: FAIL - 733 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 12 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (78):
+  - Exact duplicate: "aristotle" at ranks 4, 156
+  - Exact duplicate: "confucius" at ranks 8, 159
+  - Exact duplicate: "napoleon bonaparte" at ranks 12, 278
+  - Exact duplicate: "plato" at ranks 14, 157
+  - Exact duplicate: "socrates" at ranks 15, 158
+  - Exact duplicate: "adolf hitler" at ranks 18, 281, 335, 353, 371, 389, 407, 425, 443, 461, 479, 497, 515, 533, 551, 569, 587, 605, 623, 641, 659, 677, 695, 713, 731, 749, 767, 785, 803, 821, 839, 857, 875, 893, 911, 929, 947, 965, 983
+  - Exact duplicate: "karl marx" at ranks 19, 140, 205
+  - Exact duplicate: "vladimir lenin" at ranks 20, 89
+  - Exact duplicate: "marie curie" at ranks 30, 111
+  - Exact duplicate: "martin luther" at ranks 32, 175
+  ... and 68 more issues
+
+Diversity Estimates:
+  Regions: Europe: 130, Asia: 3, Middle East: 6, Africa: 47, Americas: 1, Unknown: 813
+  Domains: Politics/Leadership: 197, Science/Technology: 6, Philosophy/Religion: 122, Arts/Literature: 1, Military: 39, Other: 635

@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Qwen3 LIST 3 (January 14, 2026).txt
+Model: Qwen3
+Timestamp: 2026-01-19T06:54:28.894Z
+
+VERDICT: FAIL
+
+Summary: Issues: 452 exact duplicates; pattern collapse (max 24); 9 missing anchors
+
+Scores:
+  Repetition: FAIL - 452 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 24 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: WARN - 34/43 anchor figures found (79%)
+
+Issues (199):
+  - Exact duplicate: "karl marx" at ranks 14, 171, 179
+  - Exact duplicate: "genghis khan" at ranks 15, 467, 535
+  - Exact duplicate: "adam smith" at ranks 17, 173, 181
+  - Exact duplicate: "ashoka" at ranks 21, 83, 426, 541, 851, 869, 887, 914, 939, 989
+  - Exact duplicate: "zoroaster" at ranks 22, 84
+  - Exact duplicate: "nicolaus copernicus" at ranks 23, 71, 418
+  - Exact duplicate: "charlemagne" at ranks 25, 456, 536, 924, 950, 976
+  - Exact duplicate: "ibn sina" at ranks 27, 432, 551, 913, 938, 993
+  - Exact duplicate: "alkhwarizmi" at ranks 28, 207, 403, 518, 577, 640, 921, 947, 973
+  - Exact duplicate: "napoleon bonaparte" at ranks 32, 79
+  ... and 189 more issues
+
+Diversity Estimates:
+  Regions: Europe: 146, Asia: 97, Middle East: 138, Africa: 34, Americas: 20, Unknown: 565
+  Domains: Politics/Leadership: 69, Science/Technology: 59, Philosophy/Religion: 53, Arts/Literature: 50, Military: 29, Other: 740

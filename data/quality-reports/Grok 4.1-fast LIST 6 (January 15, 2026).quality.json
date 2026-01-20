@@ -1,0 +1,2081 @@
+{
+  "file": "Grok 4.1-fast LIST 6 (January 15, 2026).txt",
+  "model": "Grok 4.1-fast",
+  "timestamp": "2026-01-19T06:54:26.782Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 31,
+      "fuzzy": 184,
+      "status": "WARN",
+      "details": "31 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 27,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 230,
+          "endRank": 240,
+          "count": 11,
+          "examples": [
+            "230. Emmanuel Macron",
+            "231. Justin Trudeau",
+            "232. Jacinda Ardern"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 232,
+          "endRank": 241,
+          "count": 10,
+          "examples": [
+            "232. Jacinda Ardern",
+            "233. Volodymyr Zelenskyy",
+            "234. Andrés Manuel López Obrador"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 233,
+          "endRank": 242,
+          "count": 10,
+          "examples": [
+            "233. Volodymyr Zelenskyy",
+            "234. Andrés Manuel López Obrador",
+            "235. Cyril Ramaphosa"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 311,
+          "endRank": 320,
+          "count": 10,
+          "examples": [
+            "311. Charles Taylor",
+            "312. Laurent Gbagbo",
+            "313. Omar al-Bashir"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 313,
+          "endRank": 322,
+          "count": 10,
+          "examples": [
+            "313. Omar al-Bashir",
+            "314. Isaias Afwerki",
+            "315. Teodoro Obiang Nguema"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 528,
+          "endRank": 539,
+          "count": 12,
+          "examples": [
+            "528. Winfried Hensinger",
+            "529. Andrew Steane",
+            "530. Ignacio Cirac"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "quantum",
+          "startRank": 537,
+          "endRank": 546,
+          "count": 10,
+          "examples": [
+            "537. Birgitta Whaley",
+            "538. Sabre Kais",
+            "539. Alán Aspuru-Guzik"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "graphene",
+          "startRank": 650,
+          "endRank": 659,
+          "count": 10,
+          "examples": [
+            "650. Duncan Haldane",
+            "651. F. Duncan M. Haldane",
+            "652. Konstantin Novoselov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "graphene",
+          "startRank": 651,
+          "endRank": 660,
+          "count": 10,
+          "examples": [
+            "651. F. Duncan M. Haldane",
+            "652. Konstantin Novoselov",
+            "653. Andre Geim"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "graphene",
+          "startRank": 652,
+          "endRank": 662,
+          "count": 11,
+          "examples": [
+            "652. Konstantin Novoselov",
+            "653. Andre Geim",
+            "654. Philip Kim"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "expected",
+          "startRank": 880,
+          "endRank": 906,
+          "count": 27,
+          "examples": [
+            "880. Orion",
+            "881. Trinity",
+            "882. Claude 4"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "expected",
+          "startRank": 882,
+          "endRank": 907,
+          "count": 26,
+          "examples": [
+            "882. Claude 4",
+            "883. Mistral Large 2",
+            "884. Qwen3"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "expected",
+          "startRank": 882,
+          "endRank": 908,
+          "count": 27,
+          "examples": [
+            "882. Claude 4",
+            "883. Mistral Large 2",
+            "884. Qwen3"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 27 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 39,
+      "expected": 43,
+      "missing": [
+        "moses",
+        "copernicus",
+        "kepler",
+        "rousseau"
+      ],
+      "status": "PASS",
+      "details": "39/43 anchor figures found (91%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "marcus aurelius",
+      "ranks": [
+        65,
+        254
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        71,
+        357
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "richard feynman",
+      "ranks": [
+        100,
+        664
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elon musk",
+      "ranks": [
+        161,
+        422,
+        715
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "golda meir",
+      "ranks": [
+        180,
+        214
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles taylor",
+      "ranks": [
+        295,
+        311
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "isaias afwerki",
+      "ranks": [
+        297,
+        314
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander lukashenko",
+      "ranks": [
+        298,
+        320
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jack kilby",
+      "ranks": [
+        390,
+        610
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert noyce",
+      "ranks": [
+        391,
+        611
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "federico faggin",
+      "ranks": [
+        392,
+        614
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dario amodei",
+      "ranks": [
+        471,
+        738
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mustafa suleyman",
+      "ranks": [
+        474,
+        510
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "timnit gebru",
+      "ranks": [
+        485,
+        720
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joy buolamwini",
+      "ranks": [
+        486,
+        722
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kate crawford",
+      "ranks": [
+        487,
+        723
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roman yampolskiy",
+      "ranks": [
+        488,
+        717
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stuart russell",
+      "ranks": [
+        489,
+        713
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul christiano",
+      "ranks": [
+        492,
+        737
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "judea pearl",
+      "ranks": [
+        503,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter shor",
+      "ranks": [
+        512,
+        562
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lov grover",
+      "ranks": [
+        513,
+        563
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chris monroe",
+      "ranks": [
+        515,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter zoller",
+      "ranks": [
+        531,
+        561
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george whitesides",
+      "ranks": [
+        621,
+        673
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vicuna",
+      "ranks": [
+        803,
+        974
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "openhermes",
+      "ranks": [
+        808,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "command r",
+      "ranks": [
+        821,
+        836
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "qwen25",
+      "ranks": [
+        832,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mtbench",
+      "ranks": [
+        936,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammadu buhari"
+      ],
+      "ranks": [
+        2,
+        236
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "buddha",
+      "variants": [
+        "buddha",
+        "gautama buddha"
+      ],
+      "ranks": [
+        3,
+        6
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qin shi huang",
+      "variants": [
+        "qin shi huang",
+        "q"
+      ],
+      "ranks": [
+        9,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        21,
+        74
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "otto von bismarck",
+      "variants": [
+        "otto von bismarck",
+        "arc"
+      ],
+      "ranks": [
+        78,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen elizabeth i",
+      "variants": [
+        "queen elizabeth i",
+        "q"
+      ],
+      "ranks": [
+        88,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hypatia",
+      "variants": [
+        "hypatia",
+        "hypatia of alexandria"
+      ],
+      "ranks": [
+        117,
+        191
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "archimedes",
+      "variants": [
+        "archimedes",
+        "arc"
+      ],
+      "ranks": [
+        123,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "virgil",
+      "variants": [
+        "virgil",
+        "virgil elings"
+      ],
+      "ranks": [
+        128,
+        636
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas aquinas",
+      "variants": [
+        "thomas aquinas",
+        "q"
+      ],
+      "ranks": [
+        133,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pyotr ilyich tchaikovsky",
+      "variants": [
+        "pyotr ilyich tchaikovsky",
+        "yi"
+      ],
+      "ranks": [
+        154,
+        811
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "yi"
+      ],
+      "ranks": [
+        178,
+        811
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "joan of arc",
+      "variants": [
+        "joan of arc",
+        "arc"
+      ],
+      "ranks": [
+        184,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen victoria",
+      "variants": [
+        "queen victoria",
+        "q"
+      ],
+      "ranks": [
+        185,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yitzhak rabin",
+      "variants": [
+        "yitzhak rabin",
+        "yi"
+      ],
+      "ranks": [
+        213,
+        811
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "corazon aquino",
+      "variants": [
+        "corazon aquino",
+        "q"
+      ],
+      "ranks": [
+        216,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "recep tayyip erdoan",
+      "variants": [
+        "recep tayyip erdoan",
+        "yi"
+      ],
+      "ranks": [
+        239,
+        811
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "xerxes i",
+      "variants": [
+        "xerxes i",
+        "artaxerxes ii"
+      ],
+      "ranks": [
+        244,
+        245
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hannibal barca",
+      "variants": [
+        "hannibal barca",
+        "arc"
+      ],
+      "ranks": [
+        250,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "william the conqueror",
+      "variants": [
+        "william the conqueror",
+        "q"
+      ],
+      "ranks": [
+        262,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry ii",
+      "variants": [
+        "henry ii",
+        "henry v"
+      ],
+      "ranks": [
+        263,
+        269
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i",
+      "variants": [
+        "edward i",
+        "edward iii"
+      ],
+      "ranks": [
+        264,
+        268
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip ii augustus",
+      "variants": [
+        "philip ii augustus",
+        "phi"
+      ],
+      "ranks": [
+        266,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "helmut kohl",
+      "variants": [
+        "helmut kohl",
+        "helm"
+      ],
+      "ranks": [
+        343,
+        954
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hh asquith",
+      "variants": [
+        "hh asquith",
+        "q"
+      ],
+      "ranks": [
+        362,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guglielmo marconi",
+      "variants": [
+        "guglielmo marconi",
+        "arc"
+      ],
+      "ranks": [
+        386,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philo farnsworth",
+      "variants": [
+        "philo farnsworth",
+        "phi"
+      ],
+      "ranks": [
+        387,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nathan blecharczyk",
+      "variants": [
+        "nathan blecharczyk",
+        "arc"
+      ],
+      "ranks": [
+        427,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yuan zhao",
+      "variants": [
+        "yuan zhao",
+        "yuan cao"
+      ],
+      "ranks": [
+        442,
+        656
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "zhang yiming",
+      "variants": [
+        "zhang yiming",
+        "yi"
+      ],
+      "ranks": [
+        444,
+        811
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "chamath palihapitiya",
+      "variants": [
+        "chamath palihapitiya",
+        "math"
+      ],
+      "ranks": [
+        455,
+        947
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "marcus hutter",
+      "variants": [
+        "marcus hutter",
+        "arc"
+      ],
+      "ranks": [
+        508,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "william phillips",
+      "variants": [
+        "william phillips",
+        "phi"
+      ],
+      "ranks": [
+        567,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michael berry",
+      "variants": [
+        "michael berry",
+        "sir michael berry"
+      ],
+      "ranks": [
+        592,
+        593
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip anderson",
+      "variants": [
+        "philip anderson",
+        "phi"
+      ],
+      "ranks": [
+        602,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "chad mirkin",
+      "variants": [
+        "chad mirkin",
+        "chad a mirkin"
+      ],
+      "ranks": [
+        620,
+        670
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "calvin quate",
+      "variants": [
+        "calvin quate",
+        "q"
+      ],
+      "ranks": [
+        635,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ricardo garcia",
+      "variants": [
+        "ricardo garcia",
+        "arc"
+      ],
+      "ranks": [
+        637,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip kim",
+      "variants": [
+        "philip kim",
+        "phi"
+      ],
+      "ranks": [
+        654,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "joaquim neto",
+      "variants": [
+        "joaquim neto",
+        "q"
+      ],
+      "ranks": [
+        659,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lee",
+      "variants": [
+        "abraham lee",
+        "abraham p lee"
+      ],
+      "ranks": [
+        674,
+        676
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "marc raibert",
+      "variants": [
+        "marc raibert",
+        "arc"
+      ],
+      "ranks": [
+        679,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip koopman",
+      "variants": [
+        "philip koopman",
+        "phi"
+      ],
+      "ranks": [
+        704,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "marco tulio ribeiro",
+      "variants": [
+        "marco tulio ribeiro",
+        "arc"
+      ],
+      "ranks": [
+        732,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek team",
+      "variants": [
+        "deepseek team",
+        "deepseek"
+      ],
+      "ranks": [
+        740,
+        812
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "replica studios",
+      "variants": [
+        "replica studios",
+        "udio"
+      ],
+      "ranks": [
+        761,
+        777
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "audiolm",
+      "variants": [
+        "audiolm",
+        "udio"
+      ],
+      "ranks": [
+        774,
+        777
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "udio",
+      "variants": [
+        "udio",
+        "audiocraft",
+        "wudao"
+      ],
+      "ranks": [
+        777,
+        786,
+        854
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aiva",
+      "variants": [
+        "aiva",
+        "aime"
+      ],
+      "ranks": [
+        779,
+        949
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bark",
+      "variants": [
+        "bark",
+        "spark",
+        "arc"
+      ],
+      "ranks": [
+        787,
+        852,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "coqui tts",
+      "variants": [
+        "coqui tts",
+        "q"
+      ],
+      "ranks": [
+        791,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nemo",
+      "variants": [
+        "nemo",
+        "olmo",
+        "nemotron",
+        "nemotron 4",
+        "nemo guardrails",
+        "nemotron4340b"
+      ],
+      "ranks": [
+        794,
+        817,
+        823,
+        898,
+        908,
+        982
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mpt",
+      "variants": [
+        "mpt",
+        "gpt5",
+        "mbpp",
+        "math"
+      ],
+      "ranks": [
+        800,
+        876,
+        943,
+        947
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alpaca",
+      "variants": [
+        "alpaca",
+        "alpacafarm",
+        "alpacaeval"
+      ],
+      "ranks": [
+        804,
+        935,
+        966
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qwen",
+      "variants": [
+        "qwen",
+        "qwen2",
+        "codeqwen",
+        "qwen25coder",
+        "q",
+        "qwen3",
+        "qwen272b",
+        "qwen2532b",
+        "qwen25coder7b"
+      ],
+      "ranks": [
+        810,
+        824,
+        865,
+        867,
+        878,
+        884,
+        985,
+        994,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yi",
+      "variants": [
+        "yi",
+        "phi",
+        "yi15",
+        "tongyi",
+        "q",
+        "yi2",
+        "tongyi qianwen 3",
+        "t0",
+        "yi1534b"
+      ],
+      "ranks": [
+        811,
+        814,
+        840,
+        851,
+        878,
+        886,
+        894,
+        933,
+        984
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek",
+      "variants": [
+        "deepseek",
+        "deepseek v2",
+        "deepseek coder v2",
+        "deepseekcoder",
+        "deepseek r1",
+        "deepseek v3",
+        "deepseekv2",
+        "deepseekcoderv2"
+      ],
+      "ranks": [
+        812,
+        831,
+        856,
+        862,
+        870,
+        885,
+        995,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gemma",
+      "variants": [
+        "gemma",
+        "gemma 2",
+        "codegemma",
+        "gemma 3",
+        "gemma227b",
+        "gemma29b"
+      ],
+      "ranks": [
+        813,
+        838,
+        864,
+        902,
+        986,
+        997
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "phi",
+      "variants": [
+        "phi",
+        "phi3",
+        "phind codellama",
+        "phi4",
+        "dolphin",
+        "phi3medium",
+        "phi35mini"
+      ],
+      "ranks": [
+        814,
+        834,
+        860,
+        900,
+        977,
+        991,
+        998
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "olmo",
+      "variants": [
+        "olmo",
+        "olmo 2",
+        "glm4",
+        "glm5",
+        "olmo 3",
+        "olmo232b"
+      ],
+      "ranks": [
+        817,
+        839,
+        842,
+        887,
+        901,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama 3",
+      "variants": [
+        "llama 3",
+        "llama 31",
+        "llama 32",
+        "llama 4"
+      ],
+      "ranks": [
+        818,
+        825,
+        833,
+        875
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "grok1",
+      "variants": [
+        "grok1",
+        "grok2",
+        "grok3",
+        "grok4"
+      ],
+      "ranks": [
+        819,
+        830,
+        874,
+        906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mixtral",
+      "variants": [
+        "mixtral",
+        "mixtral 9x22b"
+      ],
+      "ranks": [
+        820,
+        905
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "dbrx",
+      "variants": [
+        "dbrx",
+        "dbrx 2",
+        "dbrxinstruct"
+      ],
+      "ranks": [
+        822,
+        903,
+        983
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nemotron",
+      "variants": [
+        "nemotron",
+        "nemotron 4",
+        "nemotron4340b"
+      ],
+      "ranks": [
+        823,
+        898,
+        982
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qwen2",
+      "variants": [
+        "qwen2",
+        "qwen25coder",
+        "q",
+        "qwen3",
+        "qwen272b",
+        "qwen2532b",
+        "qwen25coder7b"
+      ],
+      "ranks": [
+        824,
+        867,
+        878,
+        884,
+        985,
+        994,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama 31",
+      "variants": [
+        "llama 31",
+        "llama 32",
+        "llama 4"
+      ],
+      "ranks": [
+        825,
+        833,
+        875
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "claude 35",
+      "variants": [
+        "claude 35",
+        "claude 35 sonnet",
+        "claude 4"
+      ],
+      "ranks": [
+        826,
+        873,
+        882
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gpt4o",
+      "variants": [
+        "gpt4o",
+        "gpt5"
+      ],
+      "ranks": [
+        827,
+        876
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gemini 15",
+      "variants": [
+        "gemini 15",
+        "gemini 20"
+      ],
+      "ranks": [
+        828,
+        872
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "grok2",
+      "variants": [
+        "grok2",
+        "grok3",
+        "grok4"
+      ],
+      "ranks": [
+        830,
+        874,
+        906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek v2",
+      "variants": [
+        "deepseek v2",
+        "deepseek r1",
+        "deepseek v3",
+        "deepseekv2"
+      ],
+      "ranks": [
+        831,
+        870,
+        885,
+        995
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama 32",
+      "variants": [
+        "llama 32",
+        "llama 4"
+      ],
+      "ranks": [
+        833,
+        875
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "phi3",
+      "variants": [
+        "phi3",
+        "phi4",
+        "phi3medium",
+        "phi35mini"
+      ],
+      "ranks": [
+        834,
+        900,
+        991,
+        998
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mistral large",
+      "variants": [
+        "mistral large",
+        "mistral large 2"
+      ],
+      "ranks": [
+        835,
+        883
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "granite",
+      "variants": [
+        "granite",
+        "granite code",
+        "granite 3",
+        "granite318b"
+      ],
+      "ranks": [
+        837,
+        866,
+        899,
+        993
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gemma 2",
+      "variants": [
+        "gemma 2",
+        "gemma 3"
+      ],
+      "ranks": [
+        838,
+        902
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "olmo 2",
+      "variants": [
+        "olmo 2",
+        "olmo 3"
+      ],
+      "ranks": [
+        839,
+        901
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yi15",
+      "variants": [
+        "yi15",
+        "yi2",
+        "yi1534b"
+      ],
+      "ranks": [
+        840,
+        886,
+        984
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baichuan2",
+      "variants": [
+        "baichuan2",
+        "baichuan3"
+      ],
+      "ranks": [
+        841,
+        889
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "glm4",
+      "variants": [
+        "glm4",
+        "glm5"
+      ],
+      "ranks": [
+        842,
+        887
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "internlm2",
+      "variants": [
+        "internlm2",
+        "internlm3"
+      ],
+      "ranks": [
+        843,
+        888
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aquila",
+      "variants": [
+        "aquila",
+        "q"
+      ],
+      "ranks": [
+        844,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hunyuan",
+      "variants": [
+        "hunyuan",
+        "hunyuan2"
+      ],
+      "ranks": [
+        847,
+        890
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kimi",
+      "variants": [
+        "kimi",
+        "kimi 2",
+        "aime"
+      ],
+      "ranks": [
+        848,
+        891,
+        949
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "doubao",
+      "variants": [
+        "doubao",
+        "doubao 2"
+      ],
+      "ranks": [
+        849,
+        892
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ernie",
+      "variants": [
+        "ernie",
+        "ernie 5"
+      ],
+      "ranks": [
+        850,
+        893
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tongyi",
+      "variants": [
+        "tongyi",
+        "tongyi qianwen 3"
+      ],
+      "ranks": [
+        851,
+        894
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "spark",
+      "variants": [
+        "spark",
+        "spark v4"
+      ],
+      "ranks": [
+        852,
+        895
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pangu",
+      "variants": [
+        "pangu",
+        "pangu 4"
+      ],
+      "ranks": [
+        853,
+        896
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wudao",
+      "variants": [
+        "wudao",
+        "wudao 3"
+      ],
+      "ranks": [
+        854,
+        897
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "starcoder",
+      "variants": [
+        "starcoder",
+        "starcoder2",
+        "arc"
+      ],
+      "ranks": [
+        858,
+        863,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseekcoder",
+      "variants": [
+        "deepseekcoder",
+        "deepseekcoderv2"
+      ],
+      "ranks": [
+        862,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "starcoder2",
+      "variants": [
+        "starcoder2",
+        "arc"
+      ],
+      "ranks": [
+        863,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "codeqwen",
+      "variants": [
+        "codeqwen",
+        "q"
+      ],
+      "ranks": [
+        865,
+        878
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qwen25coder",
+      "variants": [
+        "qwen25coder",
+        "q",
+        "qwen25coder7b"
+      ],
+      "ranks": [
+        867,
+        878,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek r1",
+      "variants": [
+        "deepseek r1",
+        "deepseek v3"
+      ],
+      "ranks": [
+        870,
+        885
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "grok3",
+      "variants": [
+        "grok3",
+        "grok4"
+      ],
+      "ranks": [
+        874,
+        906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gpt5",
+      "variants": [
+        "gpt5",
+        "glm5",
+        "gpqa"
+      ],
+      "ranks": [
+        876,
+        887,
+        945
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "q",
+      "variants": [
+        "q",
+        "qwen3",
+        "tongyi qianwen 3",
+        "lmql",
+        "t0",
+        "gpqa",
+        "truthfulqa",
+        "qwen272b",
+        "qwen2532b",
+        "qwen25coder7b"
+      ],
+      "ranks": [
+        878,
+        884,
+        894,
+        918,
+        933,
+        945,
+        958,
+        985,
+        994,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek v3",
+      "variants": [
+        "deepseek v3",
+        "deepseekv2"
+      ],
+      "ranks": [
+        885,
+        995
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "monte carlo tree search",
+      "variants": [
+        "monte carlo tree search",
+        "arc"
+      ],
+      "ranks": [
+        927,
+        952
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "math",
+      "variants": [
+        "math",
+        "frontiermath"
+      ],
+      "ranks": [
+        947,
+        951
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "arc",
+      "variants": [
+        "arc",
+        "orca"
+      ],
+      "ranks": [
+        952,
+        973
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "helm",
+      "variants": [
+        "helm",
+        "beyond helm"
+      ],
+      "ranks": [
+        954,
+        955
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama31405b",
+      "variants": [
+        "llama31405b",
+        "llama3170b"
+      ],
+      "ranks": [
+        981,
+        987
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qwen272b",
+      "variants": [
+        "qwen272b",
+        "qwen2532b"
+      ],
+      "ranks": [
+        985,
+        994
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gemma227b",
+      "variants": [
+        "gemma227b",
+        "gemma29b"
+      ],
+      "ranks": [
+        986,
+        997
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama3170b",
+      "variants": [
+        "llama3170b",
+        "llama3290b"
+      ],
+      "ranks": [
+        987,
+        996
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 230,
+      "endRank": 240,
+      "count": 11,
+      "examples": [
+        "230. Emmanuel Macron",
+        "231. Justin Trudeau",
+        "232. Jacinda Ardern"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 232,
+      "endRank": 241,
+      "count": 10,
+      "examples": [
+        "232. Jacinda Ardern",
+        "233. Volodymyr Zelenskyy",
+        "234. Andrés Manuel López Obrador"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 233,
+      "endRank": 242,
+      "count": 10,
+      "examples": [
+        "233. Volodymyr Zelenskyy",
+        "234. Andrés Manuel López Obrador",
+        "235. Cyril Ramaphosa"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 311,
+      "endRank": 320,
+      "count": 10,
+      "examples": [
+        "311. Charles Taylor",
+        "312. Laurent Gbagbo",
+        "313. Omar al-Bashir"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 313,
+      "endRank": 322,
+      "count": 10,
+      "examples": [
+        "313. Omar al-Bashir",
+        "314. Isaias Afwerki",
+        "315. Teodoro Obiang Nguema"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 528,
+      "endRank": 539,
+      "count": 12,
+      "examples": [
+        "528. Winfried Hensinger",
+        "529. Andrew Steane",
+        "530. Ignacio Cirac"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "quantum",
+      "startRank": 537,
+      "endRank": 546,
+      "count": 10,
+      "examples": [
+        "537. Birgitta Whaley",
+        "538. Sabre Kais",
+        "539. Alán Aspuru-Guzik"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "graphene",
+      "startRank": 650,
+      "endRank": 659,
+      "count": 10,
+      "examples": [
+        "650. Duncan Haldane",
+        "651. F. Duncan M. Haldane",
+        "652. Konstantin Novoselov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "graphene",
+      "startRank": 651,
+      "endRank": 660,
+      "count": 10,
+      "examples": [
+        "651. F. Duncan M. Haldane",
+        "652. Konstantin Novoselov",
+        "653. Andre Geim"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "graphene",
+      "startRank": 652,
+      "endRank": 662,
+      "count": 11,
+      "examples": [
+        "652. Konstantin Novoselov",
+        "653. Andre Geim",
+        "654. Philip Kim"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "expected",
+      "startRank": 880,
+      "endRank": 906,
+      "count": 27,
+      "examples": [
+        "880. Orion",
+        "881. Trinity",
+        "882. Claude 4"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "expected",
+      "startRank": 882,
+      "endRank": 907,
+      "count": 26,
+      "examples": [
+        "882. Claude 4",
+        "883. Mistral Large 2",
+        "884. Qwen3"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "expected",
+      "startRank": 882,
+      "endRank": 908,
+      "count": 27,
+      "examples": [
+        "882. Claude 4",
+        "883. Mistral Large 2",
+        "884. Qwen3"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 38,
+      "Asia": 16,
+      "Middle East": 9,
+      "Africa": 9,
+      "Americas": 8,
+      "Oceania": 0,
+      "Unknown": 920
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 106,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 13,
+      "Military": 7,
+      "Other": 847
+    }
+  },
+  "summary": "Issues: 31 exact duplicates; pattern collapse (max 27)"
+}

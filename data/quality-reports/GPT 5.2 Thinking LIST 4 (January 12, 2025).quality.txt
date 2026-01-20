@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GPT 5.2 Thinking LIST 4 (January 12, 2025).txt
+Model: GPT 5.2 Thinking
+Timestamp: 2026-01-19T06:54:20.996Z
+
+VERDICT: FAIL
+
+Summary: Issues: 3 exact duplicates; pattern collapse (max 10); 1026 entries (expected 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 3 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: FAIL - 1026 entries (expected 1000); non-sequential ranks
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (119):
+  - Exact duplicate: "deng xiaoping" at ranks 99, 340
+  - Exact duplicate: "charles darwin dup avoided earlier list" at ranks 844, 985
+  - Exact duplicate: "tim bernerslee dup avoided earlier list" at ranks 906, 999
+  - Fuzzy duplicate: muhammad / muhammad ali jinnah / muhammad ibn musa alkhwarizmi / askia muhammad / muhammad ali / elijah muhammad / muhammad dup avoided earlier list at ranks 1, 106, 166, 317, 499, 894, 976
+  - Fuzzy duplicate: jesus of nazareth / jesus of nazareth dup avoided earlier list at ranks 2, 977
+  - Fuzzy duplicate: gautama buddha / siddhartha gautama buddha / gautama buddha dup avoided earlier list at ranks 3, 26, 979
+  - Fuzzy duplicate: confucius / confucius dup avoided earlier list at ranks 4, 978
+  - Fuzzy duplicate: isaac newton / isaac newton dup avoided earlier list at ranks 5, 967
+  - Fuzzy duplicate: karl marx / karl marx dup avoided earlier list at ranks 6, 971
+  - Fuzzy duplicate: johannes gutenberg / johannes gutenberg dup avoided earlier list at ranks 7, 970
+  ... and 109 more issues
+
+Diversity Estimates:
+  Regions: Europe: 57, Asia: 61, Middle East: 30, Africa: 18, Americas: 12, Unknown: 848
+  Domains: Politics/Leadership: 25, Science/Technology: 14, Philosophy/Religion: 29, Arts/Literature: 37, Military: 19, Other: 902

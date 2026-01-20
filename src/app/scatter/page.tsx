@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { ScatterPlotChart } from '@/components/viz/ScatterPlotChart';
+import dynamic from 'next/dynamic';
 import { ScatterPlotControls } from '@/components/viz/ScatterPlotControls';
 import { ScatterPlotLegend } from '@/components/viz/ScatterPlotLegend';
 import { DownloadMenu } from '@/components/viz/DownloadMenu';
@@ -10,6 +10,12 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { Info } from 'lucide-react';
 import { useSettings } from '@/hooks/useSettings';
+
+// Dynamic import for Recharts-heavy ScatterPlotChart (reduces initial bundle)
+const ScatterPlotChart = dynamic(
+  () => import('@/components/viz/ScatterPlotChart').then(mod => ({ default: mod.ScatterPlotChart })),
+  { loading: () => <Skeleton className="h-[600px] w-full rounded-xl" />, ssr: false }
+);
 import type {
   ScatterDataPoint,
   ScatterPlotConfig,

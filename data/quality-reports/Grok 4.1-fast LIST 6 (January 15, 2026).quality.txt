@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1-fast LIST 6 (January 15, 2026).txt
+Model: Grok 4.1-fast
+Timestamp: 2026-01-19T06:54:26.782Z
+
+VERDICT: WARN
+
+Summary: Issues: 31 exact duplicates; pattern collapse (max 27)
+
+Scores:
+  Repetition: WARN - 31 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 27 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+
+Issues (152):
+  - Exact duplicate: "marcus aurelius" at ranks 65, 254
+  - Exact duplicate: "winston churchill" at ranks 71, 357
+  - Exact duplicate: "richard feynman" at ranks 100, 664
+  - Exact duplicate: "elon musk" at ranks 161, 422, 715
+  - Exact duplicate: "golda meir" at ranks 180, 214
+  - Exact duplicate: "charles taylor" at ranks 295, 311
+  - Exact duplicate: "isaias afwerki" at ranks 297, 314
+  - Exact duplicate: "alexander lukashenko" at ranks 298, 320
+  - Exact duplicate: "jack kilby" at ranks 390, 610
+  - Exact duplicate: "robert noyce" at ranks 391, 611
+  ... and 142 more issues
+
+Diversity Estimates:
+  Regions: Europe: 38, Asia: 16, Middle East: 9, Africa: 9, Americas: 8, Unknown: 920
+  Domains: Politics/Leadership: 106, Science/Technology: 11, Philosophy/Religion: 16, Arts/Literature: 13, Military: 7, Other: 847

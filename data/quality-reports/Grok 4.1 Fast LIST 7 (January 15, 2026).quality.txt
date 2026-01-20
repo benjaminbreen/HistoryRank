@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1 Fast LIST 7 (January 15, 2026).txt
+Model: Grok 4.1 Fast
+Timestamp: 2026-01-19T06:54:25.629Z
+
+VERDICT: WARN
+
+Summary: Issues: 32 exact duplicates; pattern collapse (max 21)
+
+Scores:
+  Repetition: WARN - 32 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 21 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (66):
+  - Exact duplicate: "confucius" at ranks 4, 245
+  - Exact duplicate: "socrates" at ranks 7, 42
+  - Exact duplicate: "hypatia" at ranks 90, 91
+  - Exact duplicate: "francis bacon" at ranks 125, 537
+  - Exact duplicate: "michelangelo" at ranks 216, 592
+  - Exact duplicate: "donatello" at ranks 218, 589
+  - Exact duplicate: "andy warhol" at ranks 225, 540
+  - Exact duplicate: "kehinde wiley" at ranks 526, 692
+  - Exact duplicate: "damien hirst" at ranks 529, 609, 688
+  - Exact duplicate: "jeff koons" at ranks 530, 608
+  ... and 56 more issues
+
+Diversity Estimates:
+  Regions: Europe: 31, Asia: 14, Middle East: 11, Africa: 2, Americas: 10, Unknown: 932
+  Domains: Politics/Leadership: 84, Science/Technology: 3, Philosophy/Religion: 25, Arts/Literature: 38, Military: 7, Other: 843

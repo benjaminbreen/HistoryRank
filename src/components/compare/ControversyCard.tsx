@@ -18,13 +18,18 @@ interface ControversyCardProps {
   onClick: () => void;
 }
 
-// Model-specific colors for markers
+// Model-specific colors for markers (official brand colors)
 const MODEL_MARKER_COLORS: Record<string, string> = {
-  'claude-opus-4.5': 'bg-violet-500',
-  'claude-sonnet-4.5': 'bg-purple-500',
-  'gemini-flash-3-preview': 'bg-teal-500',
-  'gemini-pro-3': 'bg-cyan-500',
-  'gpt-5.2-thinking': 'bg-green-500',
+  'claude-opus-4.5': 'bg-[#da7756]',      // Anthropic terra cotta
+  'claude-sonnet-4.5': 'bg-[#da7756]',    // Anthropic terra cotta
+  'deepseek-v3.2': 'bg-[#4D6BFE]',        // DeepSeek blue
+  'gemini-flash-3-preview': 'bg-[#078EFA]', // Gemini blue
+  'gemini-pro-3': 'bg-[#4285F4]',         // Google blue
+  'gpt-5.2-thinking': 'bg-[#10A37F]',     // OpenAI teal
+  'grok-4': 'bg-[#1a1a1a]',               // xAI black
+  'grok-4.1-fast': 'bg-[#1a1a1a]',        // xAI black
+  'mistral-large-3': 'bg-[#FF8205]',      // Mistral orange
+  'qwen3': 'bg-[#615EFF]',                // Qwen violet
 };
 
 export function ControversyCard({ figure, rank, onClick }: ControversyCardProps) {
@@ -107,7 +112,7 @@ export function ControversyCard({ figure, rank, onClick }: ControversyCardProps)
           </div>
 
           {/* Rank labels */}
-          <div className="flex justify-between text-[10px] text-stone-400 dark:text-slate-500">
+          <div className="flex justify-between text-[11px] sm:text-[10px] text-stone-400 dark:text-slate-500">
             <span>#{minRank}</span>
             <span>#{maxRank}</span>
           </div>
@@ -135,7 +140,7 @@ export function ControversyCard({ figure, rank, onClick }: ControversyCardProps)
       </div>
 
       {/* Insight */}
-      <div className="mt-2 text-[10px] text-stone-500 dark:text-slate-400">
+      <div className="mt-2 text-[11px] sm:text-[10px] text-stone-500 dark:text-slate-400">
         <span className={MODEL_MARKER_COLORS[lowestRanker.source]?.replace('bg-', 'text-') || 'text-stone-500'}>
           {lowestRanker.label.split(' ').slice(-1)[0]}
         </span>

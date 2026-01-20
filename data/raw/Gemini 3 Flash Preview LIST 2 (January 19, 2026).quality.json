@@ -1,0 +1,713 @@
+{
+  "file": "Gemini 3 Flash Preview LIST 2 (January 19, 2026).txt",
+  "model": "google/gemini-3-flash-preview",
+  "timestamp": "2026-01-19T19:44:11.970Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 10,
+      "fuzzy": 17,
+      "status": "PASS",
+      "details": "10 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 31,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "tennis player",
+          "startRank": 801,
+          "endRank": 806,
+          "count": 6,
+          "examples": [
+            "801. Martina Navratilova",
+            "802. Chris Evert",
+            "803. Steffi Graf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 284,
+          "endRank": 293,
+          "count": 10,
+          "examples": [
+            "284. António Guterres",
+            "285. Christine Lagarde",
+            "286. Ursula von der Leyen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 285,
+          "endRank": 294,
+          "count": 10,
+          "examples": [
+            "285. Christine Lagarde",
+            "286. Ursula von der Leyen",
+            "287. Jawaharlal Nehru"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 321,
+          "endRank": 331,
+          "count": 11,
+          "examples": [
+            "321. Omar Torrijos",
+            "322. Manuel Noriega",
+            "323. Alberto Fujimori"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 323,
+          "endRank": 332,
+          "count": 10,
+          "examples": [
+            "323. Alberto Fujimori",
+            "324. Evo Morales",
+            "325. Michelle Bachelet"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 323,
+          "endRank": 334,
+          "count": 12,
+          "examples": [
+            "323. Alberto Fujimori",
+            "324. Evo Morales",
+            "325. Michelle Bachelet"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 407,
+          "endRank": 437,
+          "count": 31,
+          "examples": [
+            "407. José Ramos-Horta",
+            "408. Robert Menzies",
+            "409. Gough Whitlam"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 414,
+          "endRank": 438,
+          "count": 25,
+          "examples": [
+            "414. Peter Fraser",
+            "415. Robert Muldoon",
+            "416. David Lange"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 414,
+          "endRank": 439,
+          "count": 26,
+          "examples": [
+            "414. Peter Fraser",
+            "415. Robert Muldoon",
+            "416. David Lange"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 449,
+          "endRank": 459,
+          "count": 11,
+          "examples": [
+            "449. Silvio Berlusconi",
+            "450. Mario Draghi",
+            "451. Giorgia Meloni"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 450,
+          "endRank": 460,
+          "count": 11,
+          "examples": [
+            "450. Mario Draghi",
+            "451. Giorgia Meloni",
+            "452. Adolfo Suárez"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 471,
+          "endRank": 480,
+          "count": 10,
+          "examples": [
+            "471. Konstantinos Karamanlis",
+            "472. Alexis Tsipras",
+            "473. Kyriakos Mitsotakis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "prime",
+          "startRank": 472,
+          "endRank": 483,
+          "count": 12,
+          "examples": [
+            "472. Alexis Tsipras",
+            "473. Kyriakos Mitsotakis",
+            "474. Turgut Özal"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 522,
+          "endRank": 544,
+          "count": 23,
+          "examples": [
+            "522. Salva Kiir Mayardit",
+            "523. Isaias Afwerki",
+            "524. Meles Zenawi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 526,
+          "endRank": 546,
+          "count": 21,
+          "examples": [
+            "526. Yoweri Museveni",
+            "527. Paul Kagame",
+            "528. Kenneth Kaunda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 526,
+          "endRank": 549,
+          "count": 24,
+          "examples": [
+            "526. Yoweri Museveni",
+            "527. Paul Kagame",
+            "528. Kenneth Kaunda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer",
+          "startRank": 961,
+          "endRank": 975,
+          "count": 15,
+          "examples": [
+            "961. Yukio Mishima",
+            "962. Haruki Murakami",
+            "963. Kenzaburō Ōe"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 31 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 38,
+      "expected": 43,
+      "missing": [
+        "michelangelo",
+        "pythagoras",
+        "archimedes",
+        "hitler",
+        "stalin"
+      ],
+      "status": "WARN",
+      "details": "38/43 anchor figures found (88%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "jawaharlal nehru",
+      "ranks": [
+        135,
+        287
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chinua achebe",
+      "ranks": [
+        167,
+        613
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "desmond tutu",
+      "ranks": [
+        277,
+        915
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "golda meir",
+      "ranks": [
+        292,
+        478
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david lloyd george",
+      "ranks": [
+        428,
+        506
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cyril ramaphosa",
+      "ranks": [
+        538,
+        599
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hayao miyazaki",
+      "ranks": [
+        629,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kanye west",
+      "ranks": [
+        743,
+        867
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rihanna",
+      "ranks": [
+        751,
+        866
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "greta thunberg",
+      "ranks": [
+        878,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali",
+        "muhammad ali jinnah",
+        "muhammadu buhari"
+      ],
+      "ranks": [
+        1,
+        202,
+        378,
+        555
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        25,
+        91
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "dalton john",
+      "variants": [
+        "dalton john",
+        "elton john"
+      ],
+      "ranks": [
+        44,
+        707
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mani",
+      "variants": [
+        "mani",
+        "qasem soleimani",
+        "azali assoumani",
+        "giorgio armani"
+      ],
+      "ranks": [
+        80,
+        492,
+        577,
+        857
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        202,
+        378
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george hw bush",
+      "variants": [
+        "george hw bush",
+        "george w bush"
+      ],
+      "ranks": [
+        263,
+        265
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        278,
+        388
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto",
+        "megawati sukarnoputri"
+      ],
+      "ranks": [
+        354,
+        355,
+        403
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kim jongil",
+      "variants": [
+        "kim jongil",
+        "kim jongun"
+      ],
+      "ranks": [
+        359,
+        360
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hafez alassad",
+      "variants": [
+        "hafez alassad",
+        "hafez"
+      ],
+      "ranks": [
+        486,
+        931
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ravi shankar",
+      "variants": [
+        "ravi shankar",
+        "sri sri ravi shankar"
+      ],
+      "ranks": [
+        728,
+        923
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "virgil abloh",
+      "variants": [
+        "virgil abloh",
+        "virgil"
+      ],
+      "ranks": [
+        865,
+        940
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "tennis player",
+      "startRank": 801,
+      "endRank": 806,
+      "count": 6,
+      "examples": [
+        "801. Martina Navratilova",
+        "802. Chris Evert",
+        "803. Steffi Graf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 284,
+      "endRank": 293,
+      "count": 10,
+      "examples": [
+        "284. António Guterres",
+        "285. Christine Lagarde",
+        "286. Ursula von der Leyen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 285,
+      "endRank": 294,
+      "count": 10,
+      "examples": [
+        "285. Christine Lagarde",
+        "286. Ursula von der Leyen",
+        "287. Jawaharlal Nehru"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 321,
+      "endRank": 331,
+      "count": 11,
+      "examples": [
+        "321. Omar Torrijos",
+        "322. Manuel Noriega",
+        "323. Alberto Fujimori"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 323,
+      "endRank": 332,
+      "count": 10,
+      "examples": [
+        "323. Alberto Fujimori",
+        "324. Evo Morales",
+        "325. Michelle Bachelet"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 323,
+      "endRank": 334,
+      "count": 12,
+      "examples": [
+        "323. Alberto Fujimori",
+        "324. Evo Morales",
+        "325. Michelle Bachelet"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 407,
+      "endRank": 437,
+      "count": 31,
+      "examples": [
+        "407. José Ramos-Horta",
+        "408. Robert Menzies",
+        "409. Gough Whitlam"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 414,
+      "endRank": 438,
+      "count": 25,
+      "examples": [
+        "414. Peter Fraser",
+        "415. Robert Muldoon",
+        "416. David Lange"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 414,
+      "endRank": 439,
+      "count": 26,
+      "examples": [
+        "414. Peter Fraser",
+        "415. Robert Muldoon",
+        "416. David Lange"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 449,
+      "endRank": 459,
+      "count": 11,
+      "examples": [
+        "449. Silvio Berlusconi",
+        "450. Mario Draghi",
+        "451. Giorgia Meloni"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 450,
+      "endRank": 460,
+      "count": 11,
+      "examples": [
+        "450. Mario Draghi",
+        "451. Giorgia Meloni",
+        "452. Adolfo Suárez"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 471,
+      "endRank": 480,
+      "count": 10,
+      "examples": [
+        "471. Konstantinos Karamanlis",
+        "472. Alexis Tsipras",
+        "473. Kyriakos Mitsotakis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "prime",
+      "startRank": 472,
+      "endRank": 483,
+      "count": 12,
+      "examples": [
+        "472. Alexis Tsipras",
+        "473. Kyriakos Mitsotakis",
+        "474. Turgut Özal"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 522,
+      "endRank": 544,
+      "count": 23,
+      "examples": [
+        "522. Salva Kiir Mayardit",
+        "523. Isaias Afwerki",
+        "524. Meles Zenawi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 526,
+      "endRank": 546,
+      "count": 21,
+      "examples": [
+        "526. Yoweri Museveni",
+        "527. Paul Kagame",
+        "528. Kenneth Kaunda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 526,
+      "endRank": 549,
+      "count": 24,
+      "examples": [
+        "526. Yoweri Museveni",
+        "527. Paul Kagame",
+        "528. Kenneth Kaunda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer",
+      "startRank": 961,
+      "endRank": 975,
+      "count": 15,
+      "examples": [
+        "961. Yukio Mishima",
+        "962. Haruki Murakami",
+        "963. Kenzaburō Ōe"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 92,
+      "Asia": 36,
+      "Middle East": 21,
+      "Africa": 31,
+      "Americas": 30,
+      "Oceania": 0,
+      "Unknown": 790
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 278,
+      "Science/Technology": 8,
+      "Philosophy/Religion": 35,
+      "Arts/Literature": 95,
+      "Military": 12,
+      "Other": 572
+    }
+  },
+  "summary": "Issues: 10 exact duplicates; pattern collapse (max 31); 5 missing anchors"
+}

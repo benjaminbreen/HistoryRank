@@ -2,7 +2,7 @@
 
 import { Input } from '@/components/ui/input';
 import { Tooltip } from '@/components/ui/tooltip';
-import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen } from 'lucide-react';
+import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { BadgeType } from '@/types';
 import { BADGE_DEFINITIONS } from '@/types';
@@ -20,12 +20,17 @@ interface RankingsFiltersProps {
   onModelSourceChange: (value: string | null) => void;
   badgeFilter: BadgeType | null;
   onBadgeFilterChange: (value: BadgeType | null) => void;
+  isLoading?: boolean;
+  resultCount?: number;
+  totalCount?: number;
 }
 
 // Badge filter buttons configuration
 const BADGE_FILTERS: { type: BadgeType; icon: typeof Gem; color: string }[] = [
   { type: 'hidden-gem', icon: Gem, color: 'text-cyan-600 bg-cyan-50 border-cyan-200 hover:bg-cyan-100' },
   { type: 'under-the-radar', icon: Radar, color: 'text-sky-600 bg-sky-50 border-sky-200 hover:bg-sky-100' },
+  { type: 'historians-favorite', icon: ScrollText, color: 'text-stone-600 bg-stone-100 border-stone-300 hover:bg-stone-200' },
+  { type: 'underwritten', icon: PenLine, color: 'text-orange-600 bg-orange-50 border-orange-200 hover:bg-orange-100' },
   { type: 'global-icon', icon: Globe, color: 'text-teal-600 bg-teal-50 border-teal-200 hover:bg-teal-100' },
   { type: 'universal-recognition', icon: Crown, color: 'text-amber-600 bg-amber-50 border-amber-200 hover:bg-amber-100' },
   { type: 'popular', icon: TrendingUp, color: 'text-rose-600 bg-rose-50 border-rose-200 hover:bg-rose-100' },
@@ -87,6 +92,7 @@ const MODEL_SOURCES = [
   { id: 'gemini-pro-3', label: 'Gemini Pro 3' },
   { id: 'gpt-5.2-thinking', label: 'GPT 5.2 Thinking' },
   { id: 'grok-4.1-fast', label: 'Grok 4.1 Fast' },
+  { id: 'mistral-large-3', label: 'Mistral Large 3' },
   { id: 'qwen3', label: 'Qwen 3' },
 ];
 
@@ -103,35 +109,57 @@ export function RankingsFilters({
   onModelSourceChange,
   badgeFilter,
   onBadgeFilterChange,
+  isLoading = false,
+  resultCount,
+  totalCount,
 }: RankingsFiltersProps) {
+  const hasActiveFilters = search || domain || era || region || modelSource || badgeFilter;
+  const showResultCount = hasActiveFilters && resultCount !== undefined && totalCount !== undefined;
+
   return (
-    <div className="flex flex-wrap gap-4 items-center">
+    <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
       {/* Search */}
-      <div className="relative flex-1 min-w-[200px] max-w-sm">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+      <div className="relative w-full sm:flex-1 sm:min-w-[160px] sm:max-w-[240px]">
+        {isLoading ? (
+          <Loader2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500 animate-spin" />
+        ) : (
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400 dark:text-slate-500" />
+        )}
         <Input
           placeholder="Search figures..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="pl-9 bg-white border-stone-200"
+          className={cn(
+            "pl-9 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600",
+            isLoading && "border-amber-300 dark:border-amber-700"
+          )}
         />
-        {search && (
+        {search && !isLoading && (
           <button
             onClick={() => onSearchChange('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 dark:text-slate-500 hover:text-stone-600 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
           >
             <X className="h-4 w-4" />
           </button>
         )}
       </div>
 
+      {/* Result count indicator */}
+      {showResultCount && (
+        <div className="hidden sm:flex items-center text-xs text-stone-500 dark:text-slate-400 whitespace-nowrap">
+          <span className="font-medium text-stone-700 dark:text-slate-300">{resultCount}</span>
+          <span className="mx-1">of</span>
+          <span>{totalCount}</span>
+        </div>
+      )}
+
       {/* Domain filter */}
       <select
         value={domain || ''}
         onChange={(e) => onDomainChange(e.target.value || null)}
-        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
       >
-        <option value="">All Domains</option>
+        <option value="">Domain</option>
         {DOMAINS.map((d) => (
           <option key={d} value={d}>
             {d}
@@ -143,9 +171,9 @@ export function RankingsFilters({
       <select
         value={era || ''}
         onChange={(e) => onEraChange(e.target.value || null)}
-        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
       >
-        <option value="">All Eras</option>
+        <option value="">Era</option>
         {ERAS.map((e) => (
           <option key={e} value={e}>
             {e}
@@ -157,9 +185,9 @@ export function RankingsFilters({
       <select
         value={region || ''}
         onChange={(e) => onRegionChange(e.target.value || null)}
-        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
       >
-        <option value="">All Regions</option>
+        <option value="">Region</option>
         {REGIONS.map((r) => (
           <option key={r} value={r}>
             {r}
@@ -171,7 +199,7 @@ export function RankingsFilters({
       <select
         value={modelSource || ''}
         onChange={(e) => onModelSourceChange(e.target.value || null)}
-        className="px-3 py-2 text-sm border border-stone-200 rounded-md bg-white text-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        className="w-full sm:w-auto px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
       >
         {MODEL_SOURCES.map((m) => (
           <option key={m.label} value={m.id || ''}>
@@ -181,36 +209,37 @@ export function RankingsFilters({
       </select>
 
       {/* Badge filter icons */}
-      <div className="flex items-center gap-1 border-l border-stone-200 pl-4 ml-1">
-        <span className="text-xs text-stone-400 mr-1.5 hidden sm:inline">Badges:</span>
-        {BADGE_FILTERS.map(({ type, icon: Icon, color }) => {
-          const badge = BADGE_DEFINITIONS[type];
-          const isActive = badgeFilter === type;
-          return (
-            <Tooltip
-              key={type}
-              content={
-                <div className="max-w-xs">
-                  <p className="font-medium">{badge.label}</p>
-                  <p className="text-stone-500 dark:text-slate-400 text-xs mt-0.5">{badge.description}</p>
-                </div>
-              }
-            >
-              <button
-                onClick={() => onBadgeFilterChange(isActive ? null : type)}
-                className={cn(
-                  'p-1.5 rounded border transition-all',
-                  isActive
-                    ? `${color} ring-2 ring-offset-1 ring-stone-400`
-                    : 'text-stone-400 bg-white border-stone-200 hover:text-stone-600 hover:bg-stone-50'
-                )}
-                aria-label={`Filter by ${badge.label}`}
+      <div className="flex items-center gap-1 w-full sm:w-auto sm:border-l border-stone-200 dark:border-slate-700 sm:pl-3 sm:ml-1 pt-2 sm:pt-0 border-t sm:border-t-0">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+          {BADGE_FILTERS.map(({ type, icon: Icon, color }) => {
+            const badge = BADGE_DEFINITIONS[type];
+            const isActive = badgeFilter === type;
+            return (
+              <Tooltip
+                key={type}
+                content={
+                  <div className="max-w-xs">
+                    <p className="font-medium">{badge.label}</p>
+                    <p className="text-stone-500 dark:text-slate-400 text-xs mt-0.5">{badge.description}</p>
+                  </div>
+                }
               >
-                <Icon className="h-4 w-4" />
-              </button>
-            </Tooltip>
-          );
-        })}
+                <button
+                  onClick={() => onBadgeFilterChange(isActive ? null : type)}
+                  className={cn(
+                    'p-2 sm:p-1 rounded border transition-all min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center',
+                    isActive
+                      ? `${color} ring-2 ring-offset-1 ring-stone-400 dark:ring-slate-500`
+                      : 'text-stone-400 dark:text-slate-500 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600 hover:text-stone-600 dark:hover:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700'
+                  )}
+                  aria-label={`Filter by ${badge.label}`}
+                >
+                  <Icon className="h-4 w-4" />
+                </button>
+              </Tooltip>
+            );
+          })}
+        </div>
       </div>
 
       {/* Clear filters */}
@@ -224,7 +253,7 @@ export function RankingsFilters({
             onModelSourceChange(null);
             onBadgeFilterChange(null);
           }}
-          className="text-sm text-stone-500 hover:text-stone-700 underline"
+          className="text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline py-2"
         >
           Clear filters
         </button>

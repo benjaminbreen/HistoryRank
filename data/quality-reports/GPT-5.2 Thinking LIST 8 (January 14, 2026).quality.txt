@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 8 (January 14, 2026).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-01-19T06:54:22.241Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (70):
+  - Exact duplicate: "gregor mendel" at ranks 106, 199
+  - Fuzzy duplicate: muhammad / muhammad albukhari / jalal aldin muhammad rumi / askia muhammad / muhammad ali pasha / muhammad ali boxer / muhammad iqbal / muhammad abduh / muhammad yunus at ranks 1, 225, 250, 450, 481, 587, 613, 627, 976
+  - Fuzzy duplicate: martin luther / martin luther king jr / martin luther relisted at ranks 12, 160, 595
+  - Fuzzy duplicate: genghis khan / genghis khan temujin at ranks 17, 346
+  - Fuzzy duplicate: ashoka / ashoka relisted at ranks 19, 888
+  - Fuzzy duplicate: thomas aquinas / st thomas aquinas relisted at ranks 21, 858
+  - Fuzzy duplicate: homer / homer relisted at ranks 23, 709
+  - Fuzzy duplicate: hammurabi / hammurabi relisted at ranks 26, 893
+  - Fuzzy duplicate: sargon of akkad / sargon of akkad relisted at ranks 27, 894
+  - Fuzzy duplicate: john locke / john locke relisted at ranks 34, 868
+  ... and 60 more issues
+
+Diversity Estimates:
+  Regions: Europe: 41, Asia: 34, Middle East: 35, Africa: 13, Americas: 9, Unknown: 868
+  Domains: Politics/Leadership: 25, Science/Technology: 12, Philosophy/Religion: 6, Arts/Literature: 28, Military: 7, Other: 922

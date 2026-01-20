@@ -1,0 +1,295 @@
+{
+  "file": "GEMINI PRO 3 LIST 4 (January 13, 2025).txt",
+  "model": "GEMINI PRO 3",
+  "timestamp": "2026-01-19T06:54:18.718Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 19,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 5,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "tennis player",
+          "startRank": 976,
+          "endRank": 980,
+          "count": 5,
+          "examples": [
+            "976. Rod Laver",
+            "977. Steffi Graf",
+            "978. Martina Navratilova"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 5 similar entries"
+    },
+    "structural": {
+      "entries": 1004,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "1004 entries (expected 1000); non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        58,
+        385
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        69,
+        399
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pol pot",
+      "ranks": [
+        111,
+        631
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "akbar the great",
+      "ranks": [
+        115,
+        341
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ada lovelace",
+      "ranks": [
+        461,
+        707
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael jordan",
+      "ranks": [
+        472,
+        734
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad iqbal",
+        "muhammad ali jinnah",
+        "muhammad yunus",
+        "muhammad abduh"
+      ],
+      "ranks": [
+        1,
+        330,
+        331,
+        527,
+        607
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "confucius",
+      "variants": [
+        "confucius",
+        "confuciuss disciples analects compilers"
+      ],
+      "ranks": [
+        5,
+        245
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "moses",
+      "variants": [
+        "moses",
+        "menes"
+      ],
+      "ranks": [
+        15,
+        96
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        25,
+        140
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john dalton",
+      "variants": [
+        "john dalton",
+        "john milton"
+      ],
+      "ranks": [
+        32,
+        892
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "laozi",
+      "variants": [
+        "laozi",
+        "mozi"
+      ],
+      "ranks": [
+        73,
+        677
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mani",
+      "variants": [
+        "mani",
+        "qasem soleimani",
+        "mozi",
+        "giorgio armani",
+        "sergei rachmaninoff"
+      ],
+      "ranks": [
+        83,
+        327,
+        677,
+        741,
+        835
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert koch",
+      "variants": [
+        "robert koch",
+        "robert bosch"
+      ],
+      "ranks": [
+        128,
+        556
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abu bakr",
+      "variants": [
+        "abu bakr",
+        "abu bakr albaghdadi"
+      ],
+      "ranks": [
+        246,
+        326
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rashi",
+      "variants": [
+        "rashi",
+        "harun alrashid",
+        "rashid rida"
+      ],
+      "ranks": [
+        261,
+        365,
+        608
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pele",
+      "variants": [
+        "pele",
+        "bede"
+      ],
+      "ranks": [
+        471,
+        598
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        625,
+        626
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "tennis player",
+      "startRank": 976,
+      "endRank": 980,
+      "count": 5,
+      "examples": [
+        "976. Rod Laver",
+        "977. Steffi Graf",
+        "978. Martina Navratilova"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 92,
+      "Asia": 32,
+      "Middle East": 34,
+      "Africa": 14,
+      "Americas": 29,
+      "Oceania": 0,
+      "Unknown": 803
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1004
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 144,
+      "Science/Technology": 88,
+      "Philosophy/Religion": 151,
+      "Arts/Literature": 150,
+      "Military": 12,
+      "Other": 459
+    }
+  },
+  "summary": "Issues: 6 exact duplicates; 1004 entries (expected 1000); non-sequential ranks"
+}

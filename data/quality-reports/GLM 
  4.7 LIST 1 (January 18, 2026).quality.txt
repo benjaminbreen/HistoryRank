@@ -1,0 +1,33 @@
+Quality Assessment Report
+========================
+File: GLM 
+  4.7 LIST 1 (January 18, 2026).txt
+Model: unknown
+Timestamp: 2026-01-19T06:54:19.869Z
+
+VERDICT: FAIL
+
+Summary: Issues: 285 exact duplicates; pattern collapse (max 512)
+
+Scores:
+  Repetition: FAIL - 285 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 512 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (121):
+  - Exact duplicate: "nelson mandela" at ranks 58, 117
+  - Exact duplicate: "stephen curry" at ranks 235, 719
+  - Exact duplicate: "erling haaland" at ranks 248, 282
+  - Exact duplicate: "zlatan ibrahimovi" at ranks 250, 284
+  - Exact duplicate: "federico valverde" at ranks 311, 347
+  - Exact duplicate: "ronald arajo" at ranks 313, 336
+  - Exact duplicate: "jure balkovec" at ranks 463, 480
+  - Exact duplicate: "gal mekel" at ranks 491, 551, 576
+  - Exact duplicate: "deni avdija" at ranks 492, 577
+  - Exact duplicate: "yogev ohayon" at ranks 493, 553, 575
+  ... and 111 more issues
+
+Diversity Estimates:
+  Regions: Europe: 84, Asia: 11, Middle East: 110, Africa: 19, Americas: 287, Unknown: 489
+  Domains: Politics/Leadership: 62, Science/Technology: 11, Philosophy/Religion: 28, Arts/Literature: 28, Military: 2, Other: 869

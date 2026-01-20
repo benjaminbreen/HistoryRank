@@ -1,0 +1,889 @@
+{
+  "file": "Claude Opus 4.5 LIST 5 (January 14, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-01-19T06:54:12.342Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 71,
+      "fuzzy": 15,
+      "status": "FAIL",
+      "details": "71 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 11,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 453,
+          "endRank": 462,
+          "count": 10,
+          "examples": [
+            "453. Franz Kafka",
+            "454. Thomas Mann",
+            "455. Hermann Hesse"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 454,
+          "endRank": 463,
+          "count": 10,
+          "examples": [
+            "454. Thomas Mann",
+            "455. Hermann Hesse",
+            "456. Günter Grass"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 656,
+          "endRank": 665,
+          "count": 10,
+          "examples": [
+            "656. Swami Dayananda Saraswati",
+            "657. Emmanuel Levinas",
+            "658. Sri Aurobindo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 657,
+          "endRank": 667,
+          "count": 11,
+          "examples": [
+            "657. Emmanuel Levinas",
+            "658. Sri Aurobindo",
+            "659. Paul Ricoeur"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 11 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "cyrus the great",
+      "ranks": [
+        37,
+        517
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        42,
+        607
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john locke",
+      "ranks": [
+        46,
+        593
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "archimedes",
+      "ranks": [
+        48,
+        541
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        58,
+        507
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        65,
+        501
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        74,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        75,
+        601
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanjacques rousseau",
+      "ranks": [
+        76,
+        599
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernn corts",
+      "ranks": [
+        87,
+        526
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maimonides",
+      "ranks": [
+        100,
+        515
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas more",
+      "ranks": [
+        103,
+        585
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david hume",
+      "ranks": [
+        107,
+        597
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "georg wilhelm friedrich hegel",
+      "ranks": [
+        108,
+        613
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "friedrich nietzsche",
+      "ranks": [
+        109,
+        619
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "baruch spinoza",
+      "ranks": [
+        110,
+        595
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "blaise pascal",
+      "ranks": [
+        112,
+        532
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dmitri mendeleev",
+      "ranks": [
+        133,
+        518
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rosalind franklin",
+      "ranks": [
+        139,
+        539
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simn bolvar",
+      "ranks": [
+        165,
+        523
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "toussaint louverture",
+      "ranks": [
+        167,
+        546
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "haile selassie",
+      "ranks": [
+        173,
+        540
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shaka zulu",
+      "ranks": [
+        174,
+        536
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mansa musa",
+      "ranks": [
+        175,
+        529
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        177,
+        505
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tokugawa ieyasu",
+      "ranks": [
+        183,
+        531
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "toyotomi hideyoshi",
+      "ranks": [
+        185,
+        508
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kublai khan",
+      "ranks": [
+        191,
+        538
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zheng he",
+      "ranks": [
+        194,
+        558
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thucydides",
+      "ranks": [
+        197,
+        503
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mile durkheim",
+      "ranks": [
+        207,
+        510
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john stuart mill",
+      "ranks": [
+        211,
+        611
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeremy bentham",
+      "ranks": [
+        212,
+        609
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas hobbes",
+      "ranks": [
+        213,
+        591
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simone de beauvoir",
+      "ranks": [
+        216,
+        627
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "harriet tubman",
+      "ranks": [
+        221,
+        514
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bartolom de las casas",
+      "ranks": [
+        224,
+        509
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sri aurobindo",
+      "ranks": [
+        245,
+        658
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rabindranath tagore",
+      "ranks": [
+        246,
+        520
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rumi",
+      "ranks": [
+        247,
+        534
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marcus aurelius",
+      "ranks": [
+        260,
+        553
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "plotinus",
+      "ranks": [
+        262,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "boethius",
+      "ranks": [
+        263,
+        561
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "anselm of canterbury",
+      "ranks": [
+        264,
+        565
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter abelard",
+      "ranks": [
+        265,
+        567
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william of ockham",
+      "ranks": [
+        266,
+        571
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "duns scotus",
+      "ranks": [
+        267,
+        569
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roger bacon",
+      "ranks": [
+        268,
+        573
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicholas of cusa",
+      "ranks": [
+        270,
+        577
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giordano bruno",
+      "ranks": [
+        271,
+        547
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tycho brahe",
+      "ranks": [
+        273,
+        527
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bertrand russell",
+      "ranks": [
+        296,
+        639
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfred north whitehead",
+      "ranks": [
+        297,
+        641
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ludwig wittgenstein",
+      "ranks": [
+        298,
+        637
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin heidegger",
+      "ranks": [
+        299,
+        623
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanpaul sartre",
+      "ranks": [
+        300,
+        625
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "albert camus",
+      "ranks": [
+        301,
+        629
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michel foucault",
+      "ranks": [
+        302,
+        633
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacques derrida",
+      "ranks": [
+        303,
+        635
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hannah arendt",
+      "ranks": [
+        311,
+        631
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john rawls",
+      "ranks": [
+        312,
+        665
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert nozick",
+      "ranks": [
+        313,
+        667
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "willard van orman quine",
+      "ranks": [
+        318,
+        693
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "abraham maslow",
+      "ranks": [
+        329,
+        962
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "carl rogers",
+      "ranks": [
+        330,
+        960
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william james",
+      "ranks": [
+        331,
+        645
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john dewey",
+      "ranks": [
+        332,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary shelley",
+      "ranks": [
+        495,
+        504
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fridtjof nansen",
+      "ranks": [
+        542,
+        554
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lama surya das",
+      "ranks": [
+        734,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "evan thompson",
+      "ranks": [
+        865,
+        904
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali jinnah",
+        "muhammad ibn abd alwahhab",
+        "askia muhammad"
+      ],
+      "ranks": [
+        1,
+        160,
+        393,
+        548
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "siddhartha gautama buddha",
+      "variants": [
+        "siddhartha gautama buddha",
+        "siddhartha gautama"
+      ],
+      "ranks": [
+        4,
+        543
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        23,
+        93
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        31,
+        94
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "erasmus",
+      "variants": [
+        "erasmus",
+        "erasmus of rotterdam"
+      ],
+      "ranks": [
+        104,
+        583
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "montesquieu",
+      "variants": [
+        "montesquieu",
+        "baron de montesquieu"
+      ],
+      "ranks": [
+        106,
+        605
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "babur",
+      "variants": [
+        "babur",
+        "kabir"
+      ],
+      "ranks": [
+        180,
+        408
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius ix",
+      "variants": [
+        "pope pius ix",
+        "pope pius xii"
+      ],
+      "ranks": [
+        232,
+        380
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramakrishna",
+      "variants": [
+        "ramakrishna",
+        "ramakrishna paramahamsa"
+      ],
+      "ranks": [
+        243,
+        660
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "seneca",
+      "variants": [
+        "seneca",
+        "seneca the younger"
+      ],
+      "ranks": [
+        259,
+        549
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        353,
+        354
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tenzin palmo",
+      "variants": [
+        "tenzin palmo",
+        "jetsunma tenzin palmo"
+      ],
+      "ranks": [
+        720,
+        840
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mingyur rinpoche",
+      "variants": [
+        "mingyur rinpoche",
+        "yongey mingyur rinpoche"
+      ],
+      "ranks": [
+        728,
+        848
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 453,
+      "endRank": 462,
+      "count": 10,
+      "examples": [
+        "453. Franz Kafka",
+        "454. Thomas Mann",
+        "455. Hermann Hesse"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 454,
+      "endRank": 463,
+      "count": 10,
+      "examples": [
+        "454. Thomas Mann",
+        "455. Hermann Hesse",
+        "456. Günter Grass"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 656,
+      "endRank": 665,
+      "count": 10,
+      "examples": [
+        "656. Swami Dayananda Saraswati",
+        "657. Emmanuel Levinas",
+        "658. Sri Aurobindo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 657,
+      "endRank": 667,
+      "count": 11,
+      "examples": [
+        "657. Emmanuel Levinas",
+        "658. Sri Aurobindo",
+        "659. Paul Ricoeur"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 86,
+      "Asia": 67,
+      "Middle East": 29,
+      "Africa": 19,
+      "Americas": 34,
+      "Oceania": 0,
+      "Unknown": 765
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 55,
+      "Science/Technology": 12,
+      "Philosophy/Religion": 182,
+      "Arts/Literature": 54,
+      "Military": 6,
+      "Other": 691
+    }
+  },
+  "summary": "Issues: 71 exact duplicates; pattern collapse (max 11)"
+}

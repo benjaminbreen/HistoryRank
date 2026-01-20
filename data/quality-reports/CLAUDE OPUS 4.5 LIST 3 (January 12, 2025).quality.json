@@ -1,0 +1,713 @@
+{
+  "file": "CLAUDE OPUS 4.5 LIST 3 (January 12, 2025).txt",
+  "model": "CLAUDE OPUS 4.5",
+  "timestamp": "2026-01-19T06:54:09.447Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 2,
+      "fuzzy": 18,
+      "status": "PASS",
+      "details": "2 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 65,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "indian",
+          "startRank": 854,
+          "endRank": 863,
+          "count": 10,
+          "examples": [
+            "854. Bhagat Singh",
+            "855. Dadabhai Naoroji",
+            "856. Bal Gangadhar Tilak"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 864,
+          "endRank": 927,
+          "count": 64,
+          "examples": [
+            "864. Abdus Salam",
+            "865. Chien-Shiung Wu",
+            "866. Tu Youyou"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 866,
+          "endRank": 928,
+          "count": 63,
+          "examples": [
+            "866. Tu Youyou",
+            "867. Har Gobind Khorana",
+            "868. Subrahmanyan Chandrasekhar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 866,
+          "endRank": 930,
+          "count": 65,
+          "examples": [
+            "866. Tu Youyou",
+            "867. Har Gobind Khorana",
+            "868. Subrahmanyan Chandrasekhar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist;",
+          "startRank": 932,
+          "endRank": 948,
+          "count": 17,
+          "examples": [
+            "932. Arundhati Roy",
+            "933. Salman Rushdie",
+            "934. Umberto Eco"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist;",
+          "startRank": 938,
+          "endRank": 949,
+          "count": 12,
+          "examples": [
+            "938. Julio Cortázar",
+            "939. Carlos Fuentes",
+            "940. Isabel Allende"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist;",
+          "startRank": 938,
+          "endRank": 950,
+          "count": 13,
+          "examples": [
+            "938. Julio Cortázar",
+            "939. Carlos Fuentes",
+            "940. Isabel Allende"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 947,
+          "endRank": 958,
+          "count": 12,
+          "examples": [
+            "947. João Guimarães Rosa",
+            "948. Nikos Kazantzakis",
+            "949. José de Espronceda"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 949,
+          "endRank": 959,
+          "count": 11,
+          "examples": [
+            "949. José de Espronceda",
+            "950. Fernando Pessoa",
+            "951. Rosalía de Castro"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 949,
+          "endRank": 960,
+          "count": 12,
+          "examples": [
+            "949. José de Espronceda",
+            "950. Fernando Pessoa",
+            "951. Rosalía de Castro"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 971,
+          "endRank": 980,
+          "count": 10,
+          "examples": [
+            "971. Helena María Viramontes",
+            "972. Cherríe Moraga",
+            "973. Gioconda Belli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 972,
+          "endRank": 981,
+          "count": 10,
+          "examples": [
+            "972. Cherríe Moraga",
+            "973. Gioconda Belli",
+            "974. Claribel Alegría"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "poet;",
+          "startRank": 973,
+          "endRank": 983,
+          "count": 11,
+          "examples": [
+            "973. Gioconda Belli",
+            "974. Claribel Alegría",
+            "975. Roque Dalton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cuban",
+          "startRank": 976,
+          "endRank": 985,
+          "count": 10,
+          "examples": [
+            "976. Ernesto Cardenal",
+            "977. Rosario Castellanos",
+            "978. Nancy Morejón"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cuban",
+          "startRank": 977,
+          "endRank": 986,
+          "count": 10,
+          "examples": [
+            "977. Rosario Castellanos",
+            "978. Nancy Morejón",
+            "979. Nicolás Guillén"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cuban",
+          "startRank": 978,
+          "endRank": 987,
+          "count": 10,
+          "examples": [
+            "978. Nancy Morejón",
+            "979. Nicolás Guillén",
+            "980. José Lezama Lima"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist;",
+          "startRank": 981,
+          "endRank": 990,
+          "count": 10,
+          "examples": [
+            "981. Virgilio Piñera",
+            "982. Reinaldo Arenas",
+            "983. Heberto Padilla"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist;",
+          "startRank": 982,
+          "endRank": 991,
+          "count": 10,
+          "examples": [
+            "982. Reinaldo Arenas",
+            "983. Heberto Padilla",
+            "984. Guillermo Cabrera Infante"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "argentine",
+          "startRank": 985,
+          "endRank": 1000,
+          "count": 16,
+          "examples": [
+            "985. Severo Sarduy",
+            "986. José Donoso",
+            "987. Manuel Puig"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 65 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "nikos kazantzakis",
+      "ranks": [
+        623,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salman rushdie",
+      "ranks": [
+        842,
+        933
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "askia muhammad",
+        "muhammad ali jinnah",
+        "muhammad iqbal",
+        "muhammad ali",
+        "muhammad yunus"
+      ],
+      "ranks": [
+        1,
+        193,
+        373,
+        615,
+        638,
+        884
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aristotle",
+      "variants": [
+        "aristotle",
+        "aristotle onassis"
+      ],
+      "ranks": [
+        7,
+        820
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        29,
+        76
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ananda",
+      "variants": [
+        "ananda",
+        "vivekananda"
+      ],
+      "ranks": [
+        111,
+        227
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rachel carson",
+      "variants": [
+        "rachel carson",
+        "rachel"
+      ],
+      "ranks": [
+        135,
+        828
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john dalton",
+      "variants": [
+        "john dalton",
+        "john milton"
+      ],
+      "ranks": [
+        266,
+        633
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "raphael",
+      "variants": [
+        "raphael",
+        "rachel"
+      ],
+      "ranks": [
+        320,
+        828
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "virgil",
+      "variants": [
+        "virgil",
+        "virgilio piera"
+      ],
+      "ranks": [
+        331,
+        981
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        373,
+        638
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john hus",
+      "variants": [
+        "john hus",
+        "john huston"
+      ],
+      "ranks": [
+        481,
+        807
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramakrishna",
+      "variants": [
+        "ramakrishna",
+        "venkatraman ramakrishnan"
+      ],
+      "ranks": [
+        635,
+        869
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thales",
+      "variants": [
+        "thales",
+        "rhazes"
+      ],
+      "ranks": [
+        653,
+        713
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nero",
+      "variants": [
+        "nero",
+        "sandra cisneros"
+      ],
+      "ranks": [
+        733,
+        962
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "montezuma i",
+      "variants": [
+        "montezuma i",
+        "moctezuma ii"
+      ],
+      "ranks": [
+        783,
+        785
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "indian",
+      "startRank": 854,
+      "endRank": 863,
+      "count": 10,
+      "examples": [
+        "854. Bhagat Singh",
+        "855. Dadabhai Naoroji",
+        "856. Bal Gangadhar Tilak"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 864,
+      "endRank": 927,
+      "count": 64,
+      "examples": [
+        "864. Abdus Salam",
+        "865. Chien-Shiung Wu",
+        "866. Tu Youyou"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 866,
+      "endRank": 928,
+      "count": 63,
+      "examples": [
+        "866. Tu Youyou",
+        "867. Har Gobind Khorana",
+        "868. Subrahmanyan Chandrasekhar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 866,
+      "endRank": 930,
+      "count": 65,
+      "examples": [
+        "866. Tu Youyou",
+        "867. Har Gobind Khorana",
+        "868. Subrahmanyan Chandrasekhar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist;",
+      "startRank": 932,
+      "endRank": 948,
+      "count": 17,
+      "examples": [
+        "932. Arundhati Roy",
+        "933. Salman Rushdie",
+        "934. Umberto Eco"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist;",
+      "startRank": 938,
+      "endRank": 949,
+      "count": 12,
+      "examples": [
+        "938. Julio Cortázar",
+        "939. Carlos Fuentes",
+        "940. Isabel Allende"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist;",
+      "startRank": 938,
+      "endRank": 950,
+      "count": 13,
+      "examples": [
+        "938. Julio Cortázar",
+        "939. Carlos Fuentes",
+        "940. Isabel Allende"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 947,
+      "endRank": 958,
+      "count": 12,
+      "examples": [
+        "947. João Guimarães Rosa",
+        "948. Nikos Kazantzakis",
+        "949. José de Espronceda"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 949,
+      "endRank": 959,
+      "count": 11,
+      "examples": [
+        "949. José de Espronceda",
+        "950. Fernando Pessoa",
+        "951. Rosalía de Castro"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 949,
+      "endRank": 960,
+      "count": 12,
+      "examples": [
+        "949. José de Espronceda",
+        "950. Fernando Pessoa",
+        "951. Rosalía de Castro"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 971,
+      "endRank": 980,
+      "count": 10,
+      "examples": [
+        "971. Helena María Viramontes",
+        "972. Cherríe Moraga",
+        "973. Gioconda Belli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 972,
+      "endRank": 981,
+      "count": 10,
+      "examples": [
+        "972. Cherríe Moraga",
+        "973. Gioconda Belli",
+        "974. Claribel Alegría"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poet;",
+      "startRank": 973,
+      "endRank": 983,
+      "count": 11,
+      "examples": [
+        "973. Gioconda Belli",
+        "974. Claribel Alegría",
+        "975. Roque Dalton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cuban",
+      "startRank": 976,
+      "endRank": 985,
+      "count": 10,
+      "examples": [
+        "976. Ernesto Cardenal",
+        "977. Rosario Castellanos",
+        "978. Nancy Morejón"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cuban",
+      "startRank": 977,
+      "endRank": 986,
+      "count": 10,
+      "examples": [
+        "977. Rosario Castellanos",
+        "978. Nancy Morejón",
+        "979. Nicolás Guillén"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cuban",
+      "startRank": 978,
+      "endRank": 987,
+      "count": 10,
+      "examples": [
+        "978. Nancy Morejón",
+        "979. Nicolás Guillén",
+        "980. José Lezama Lima"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist;",
+      "startRank": 981,
+      "endRank": 990,
+      "count": 10,
+      "examples": [
+        "981. Virgilio Piñera",
+        "982. Reinaldo Arenas",
+        "983. Heberto Padilla"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist;",
+      "startRank": 982,
+      "endRank": 991,
+      "count": 10,
+      "examples": [
+        "982. Reinaldo Arenas",
+        "983. Heberto Padilla",
+        "984. Guillermo Cabrera Infante"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "argentine",
+      "startRank": 985,
+      "endRank": 1000,
+      "count": 16,
+      "examples": [
+        "985. Severo Sarduy",
+        "986. José Donoso",
+        "987. Manuel Puig"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 169,
+      "Asia": 62,
+      "Middle East": 39,
+      "Africa": 34,
+      "Americas": 76,
+      "Oceania": 0,
+      "Unknown": 620
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 99,
+      "Science/Technology": 24,
+      "Philosophy/Religion": 34,
+      "Arts/Literature": 169,
+      "Military": 17,
+      "Other": 657
+    }
+  },
+  "summary": "Issues: 2 exact duplicates; pattern collapse (max 65)"
+}

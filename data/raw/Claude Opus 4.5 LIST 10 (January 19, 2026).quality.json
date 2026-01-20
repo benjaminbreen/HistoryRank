@@ -1,0 +1,397 @@
+{
+  "file": "Claude Opus 4.5 LIST 10 (January 19, 2026).txt",
+  "model": "anthropic/claude-opus-4.5",
+  "timestamp": "2026-01-19T19:47:07.667Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 11,
+      "fuzzy": 10,
+      "status": "PASS",
+      "details": "11 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 11,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 675,
+          "endRank": 685,
+          "count": 11,
+          "examples": [
+            "675. Pablo Neruda",
+            "676. Octavio Paz",
+            "677. Mario Vargas Llosa"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 677,
+          "endRank": 686,
+          "count": 10,
+          "examples": [
+            "677. Mario Vargas Llosa",
+            "678. Isabel Allende",
+            "679. Carlos Fuentes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 677,
+          "endRank": 687,
+          "count": 11,
+          "examples": [
+            "677. Mario Vargas Llosa",
+            "678. Isabel Allende",
+            "679. Carlos Fuentes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "vaccine",
+          "startRank": 961,
+          "endRank": 971,
+          "count": 11,
+          "examples": [
+            "961. Margaret Chan",
+            "962. Tedros Adhanom",
+            "963. Katalin Karikó"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "vaccine",
+          "startRank": 963,
+          "endRank": 972,
+          "count": 10,
+          "examples": [
+            "963. Katalin Karikó",
+            "964. Drew Weissman",
+            "965. Ugur Sahin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "vaccine",
+          "startRank": 963,
+          "endRank": 973,
+          "count": 11,
+          "examples": [
+            "963. Katalin Karikó",
+            "964. Drew Weissman",
+            "965. Ugur Sahin"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 11 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "thomas edison",
+      "ranks": [
+        22,
+        507
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        71,
+        363
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vclav havel",
+      "ranks": [
+        233,
+        708
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles de gaulle",
+      "ranks": [
+        258,
+        726
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        269,
+        757
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        271,
+        724
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aung san",
+      "ranks": [
+        313,
+        696
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "richard feynman",
+      "ranks": [
+        357,
+        904
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul ehrlich",
+      "ranks": [
+        401,
+        865
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steven pinker",
+      "ranks": [
+        799,
+        841
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david baltimore",
+      "ranks": [
+        917,
+        994
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali jinnah",
+        "askia muhammad",
+        "muhammad yunus"
+      ],
+      "ranks": [
+        1,
+        213,
+        331,
+        420
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        194
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "laozi",
+      "variants": [
+        "laozi",
+        "mozi"
+      ],
+      "ranks": [
+        32,
+        585
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        34,
+        101
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham maslow"
+      ],
+      "ranks": [
+        101,
+        822
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        309,
+        310
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "eric kandel",
+      "variants": [
+        "eric kandel",
+        "eric lander"
+      ],
+      "ranks": [
+        803,
+        923
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "carl jung",
+      "variants": [
+        "carl jung",
+        "carl june"
+      ],
+      "ranks": [
+        811,
+        982
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 675,
+      "endRank": 685,
+      "count": 11,
+      "examples": [
+        "675. Pablo Neruda",
+        "676. Octavio Paz",
+        "677. Mario Vargas Llosa"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 677,
+      "endRank": 686,
+      "count": 10,
+      "examples": [
+        "677. Mario Vargas Llosa",
+        "678. Isabel Allende",
+        "679. Carlos Fuentes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 677,
+      "endRank": 687,
+      "count": 11,
+      "examples": [
+        "677. Mario Vargas Llosa",
+        "678. Isabel Allende",
+        "679. Carlos Fuentes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "vaccine",
+      "startRank": 961,
+      "endRank": 971,
+      "count": 11,
+      "examples": [
+        "961. Margaret Chan",
+        "962. Tedros Adhanom",
+        "963. Katalin Karikó"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "vaccine",
+      "startRank": 963,
+      "endRank": 972,
+      "count": 10,
+      "examples": [
+        "963. Katalin Karikó",
+        "964. Drew Weissman",
+        "965. Ugur Sahin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "vaccine",
+      "startRank": 963,
+      "endRank": 973,
+      "count": 11,
+      "examples": [
+        "963. Katalin Karikó",
+        "964. Drew Weissman",
+        "965. Ugur Sahin"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 57,
+      "Asia": 52,
+      "Middle East": 12,
+      "Africa": 19,
+      "Americas": 28,
+      "Oceania": 0,
+      "Unknown": 832
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 35,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 14,
+      "Arts/Literature": 17,
+      "Military": 13,
+      "Other": 910
+    }
+  },
+  "summary": "List passes all quality checks"
+}

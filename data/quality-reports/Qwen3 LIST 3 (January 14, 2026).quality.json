@@ -1,0 +1,2125 @@
+{
+  "file": "Qwen3 LIST 3 (January 14, 2026).txt",
+  "model": "Qwen3",
+  "timestamp": "2026-01-19T06:54:28.894Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 452,
+      "fuzzy": 38,
+      "status": "FAIL",
+      "details": "452 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 24,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "(duplicate",
+          "startRank": 77,
+          "endRank": 100,
+          "count": 24,
+          "examples": [
+            "77. Tim Berners-Lee",
+            "78. Steve Jobs",
+            "79. Napoleon Bonaparte"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "(duplicate",
+          "startRank": 79,
+          "endRank": 101,
+          "count": 23,
+          "examples": [
+            "79. Napoleon Bonaparte",
+            "80. Cleopatra",
+            "81. Imhotep"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "(duplicate",
+          "startRank": 79,
+          "endRank": 102,
+          "count": 24,
+          "examples": [
+            "79. Napoleon Bonaparte",
+            "80. Cleopatra",
+            "81. Imhotep"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 24 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 34,
+      "expected": 43,
+      "missing": [
+        "abraham lincoln",
+        "euclid",
+        "archimedes",
+        "bach",
+        "mozart",
+        "voltaire",
+        "rousseau",
+        "hitler",
+        "stalin"
+      ],
+      "status": "WARN",
+      "details": "34/43 anchor figures found (79%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "karl marx",
+      "ranks": [
+        14,
+        171,
+        179
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        15,
+        467,
+        535
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        17,
+        173,
+        181
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashoka",
+      "ranks": [
+        21,
+        83,
+        426,
+        541,
+        851,
+        869,
+        887,
+        914,
+        939,
+        989
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zoroaster",
+      "ranks": [
+        22,
+        84
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicolaus copernicus",
+      "ranks": [
+        23,
+        71,
+        418
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charlemagne",
+      "ranks": [
+        25,
+        456,
+        536,
+        924,
+        950,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn sina",
+      "ranks": [
+        27,
+        432,
+        551,
+        913,
+        938,
+        993
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alkhwarizmi",
+      "ranks": [
+        28,
+        207,
+        403,
+        518,
+        577,
+        640,
+        921,
+        947,
+        973
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "napoleon bonaparte",
+      "ranks": [
+        32,
+        79
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "imhotep",
+      "ranks": [
+        33,
+        81
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru nanak",
+      "ranks": [
+        34,
+        82,
+        108,
+        333,
+        607,
+        928,
+        953,
+        979
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "siddhartha gautama",
+      "ranks": [
+        37,
+        85
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mansa musa",
+      "ranks": [
+        40,
+        123,
+        215,
+        302,
+        436,
+        503
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "akhenaten",
+      "ranks": [
+        43,
+        100
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cleopatra",
+      "ranks": [
+        44,
+        80
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        45,
+        105,
+        608
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rabindranath tagore",
+      "ranks": [
+        47,
+        111,
+        401,
+        636
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        48,
+        189
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "laozi",
+      "ranks": [
+        49,
+        86
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "moses maimonides",
+      "ranks": [
+        50,
+        87
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ptolemy",
+      "ranks": [
+        51,
+        88
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hatshepsut",
+      "ranks": [
+        52,
+        89,
+        218,
+        440,
+        471,
+        526,
+        922,
+        948,
+        974
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simn bolvar",
+      "ranks": [
+        53,
+        106,
+        405
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "avicenna",
+      "ranks": [
+        54,
+        527,
+        927,
+        956,
+        982
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marie curie",
+      "ranks": [
+        55,
+        101
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niccol machiavelli",
+      "ranks": [
+        56,
+        155
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sappho",
+      "ranks": [
+        61,
+        251,
+        435,
+        493,
+        920,
+        946,
+        972
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hypatia",
+      "ranks": [
+        62,
+        138,
+        228,
+        313,
+        416,
+        447,
+        513,
+        606,
+        831,
+        905,
+        964,
+        996
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shaka zulu",
+      "ranks": [
+        64,
+        309,
+        516
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ramses ii",
+      "ranks": [
+        65,
+        90
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hammurabi",
+      "ranks": [
+        66,
+        91,
+        546
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        67,
+        92,
+        162,
+        430
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "beethoven",
+      "ranks": [
+        68,
+        93
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonardo da vinci",
+      "ranks": [
+        69,
+        94,
+        156
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michelangelo",
+      "ranks": [
+        70,
+        95,
+        157
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george washington",
+      "ranks": [
+        72,
+        96
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nelson mandela",
+      "ranks": [
+        73,
+        97,
+        120
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "queen victoria",
+      "ranks": [
+        74,
+        98,
+        104
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        75,
+        99
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james clerk maxwell",
+      "ranks": [
+        102,
+        459,
+        498,
+        637
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "otto von bismarck",
+      "ranks": [
+        103,
+        200
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn khaldun",
+      "ranks": [
+        107,
+        223,
+        412,
+        505,
+        593,
+        601,
+        903,
+        934,
+        987
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        116,
+        210
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine the great",
+      "ranks": [
+        118,
+        431
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zheng he",
+      "ranks": [
+        121,
+        212,
+        509,
+        612
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn battuta",
+      "ranks": [
+        122,
+        201,
+        424,
+        638,
+        925,
+        951,
+        977
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rani lakshmibai",
+      "ranks": [
+        131,
+        433,
+        478,
+        624
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sor juana ins de la cruz",
+      "ranks": [
+        134,
+        458,
+        497,
+        619
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn rushd",
+      "ranks": [
+        135,
+        402,
+        534,
+        919
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alrazi",
+      "ranks": [
+        136,
+        226,
+        461,
+        486,
+        530,
+        567,
+        595,
+        844,
+        862,
+        880,
+        898
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfarabi",
+      "ranks": [
+        137,
+        216,
+        415,
+        540,
+        579,
+        635,
+        847,
+        865,
+        883,
+        929,
+        954,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary somerville",
+      "ranks": [
+        140,
+        413,
+        480,
+        610,
+        672
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        144,
+        423,
+        528
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine de medici",
+      "ranks": [
+        148,
+        258,
+        519
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sundiata keita",
+      "ranks": [
+        150,
+        205,
+        450,
+        483,
+        508,
+        628,
+        912,
+        937,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bartolom de las casas",
+      "ranks": [
+        151,
+        419,
+        482,
+        910,
+        967,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "murasaki shikibu",
+      "ranks": [
+        164,
+        204
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rumi",
+      "ranks": [
+        165,
+        406,
+        935,
+        959,
+        985
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "friedrich nietzsche",
+      "ranks": [
+        166,
+        441
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "friedrich engels",
+      "ranks": [
+        172,
+        180,
+        451,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david ricardo",
+      "ranks": [
+        174,
+        182
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john maynard keynes",
+      "ranks": [
+        175,
+        183
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfred marshall",
+      "ranks": [
+        176,
+        184
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "max weber",
+      "ranks": [
+        177,
+        185
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mile durkheim",
+      "ranks": [
+        178,
+        186
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ramanuja",
+      "ranks": [
+        202,
+        304,
+        611,
+        926,
+        952,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn taymiyyah",
+      "ranks": [
+        206,
+        347,
+        622
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashurbanipal",
+      "ranks": [
+        213,
+        307,
+        409,
+        511,
+        720
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodora",
+      "ranks": [
+        214,
+        323
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khans generals",
+      "ranks": [
+        217,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tang taizong",
+      "ranks": [
+        227,
+        525
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bodhidharma",
+      "ranks": [
+        230,
+        923,
+        949,
+        975
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alzahrawi",
+      "ranks": [
+        232,
+        303,
+        454,
+        472,
+        537,
+        569,
+        597,
+        841,
+        859,
+        877,
+        895,
+        932,
+        957,
+        983
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru tegh bahadur",
+      "ranks": [
+        234,
+        393
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wang anshi",
+      "ranks": [
+        236,
+        310
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nzinga mbandi",
+      "ranks": [
+        238,
+        460,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "albiruni",
+      "ranks": [
+        239,
+        420,
+        477,
+        501,
+        581,
+        633,
+        689,
+        835,
+        853,
+        871,
+        889,
+        916,
+        944,
+        971
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "almamun",
+      "ranks": [
+        245,
+        314,
+        444,
+        524,
+        573,
+        644,
+        694,
+        936,
+        960,
+        986
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alzarqali",
+      "ranks": [
+        249,
+        341,
+        554,
+        583,
+        649,
+        684,
+        816
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        250,
+        407,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "almasudi",
+      "ranks": [
+        252,
+        329,
+        465,
+        490,
+        557,
+        585,
+        620,
+        832
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tansen",
+      "ranks": [
+        253,
+        805,
+        915,
+        968,
+        1000
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope gregory vii",
+      "ranks": [
+        254,
+        539,
+        562,
+        596
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aljazari",
+      "ranks": [
+        257,
+        437,
+        481,
+        686
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ban zhao",
+      "ranks": [
+        259,
+        708
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alidrisi",
+      "ranks": [
+        260,
+        331,
+        544,
+        571,
+        599,
+        626,
+        664,
+        826
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope urban ii",
+      "ranks": [
+        262,
+        523,
+        576
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn jubayr",
+      "ranks": [
+        263,
+        337,
+        448,
+        474,
+        616
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wang yangming",
+      "ranks": [
+        264,
+        301,
+        421,
+        532,
+        604
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "albattani",
+      "ranks": [
+        268,
+        316,
+        548,
+        565,
+        654,
+        801
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashurbanipals librarians",
+      "ranks": [
+        271,
+        751
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn alnafis",
+      "ranks": [
+        305,
+        658,
+        698,
+        807
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "harsha",
+      "ranks": [
+        306,
+        506
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn hazm",
+      "ranks": [
+        318,
+        653
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bai juyi",
+      "ranks": [
+        320,
+        522
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aljahiz",
+      "ranks": [
+        321,
+        515,
+        575,
+        651,
+        829,
+        908,
+        941,
+        991
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfarghani",
+      "ranks": [
+        324,
+        561,
+        591,
+        666,
+        696,
+        821
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wang mang",
+      "ranks": [
+        326,
+        718
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alkashi",
+      "ranks": [
+        334,
+        808
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wang chong",
+      "ranks": [
+        336,
+        911,
+        942,
+        992
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alkhwarizmis contemporary alkindi",
+      "ranks": [
+        351,
+        391
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "harun alrashids translator hunayn ibn ishaq",
+      "ranks": [
+        358,
+        398
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashokas engineer",
+      "ranks": [
+        370,
+        400
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "askia muhammad i",
+      "ranks": [
+        404,
+        618,
+        701
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tiridates i",
+      "ranks": [
+        410,
+        514
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zhu xi",
+      "ranks": [
+        411,
+        476,
+        918,
+        943,
+        970
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kamehameha i",
+      "ranks": [
+        417,
+        538,
+        909,
+        966,
+        998
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gertrude bell",
+      "ranks": [
+        422,
+        485
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary wollstonecraft",
+      "ranks": [
+        425,
+        602,
+        677
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alghazali",
+      "ranks": [
+        427,
+        646
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zhang heng",
+      "ranks": [
+        429,
+        484,
+        814
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "savitribai phule",
+      "ranks": [
+        438,
+        469
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vasco da gama",
+      "ranks": [
+        439,
+        933,
+        958,
+        984
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary seacole",
+      "ranks": [
+        443,
+        475,
+        621,
+        682
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kangxi emperor",
+      "ranks": [
+        446,
+        479
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zhang qian",
+      "ranks": [
+        452,
+        494
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary mcleod bethune",
+      "ranks": [
+        453,
+        495,
+        615,
+        670
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wangari maathai",
+      "ranks": [
+        455,
+        473
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ibn fadlan",
+      "ranks": [
+        457,
+        496,
+        648
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "phillis wheatley",
+      "ranks": [
+        462,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yi sunsin",
+      "ranks": [
+        463,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary anning",
+      "ranks": [
+        464,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dorothy day",
+      "ranks": [
+        466,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leif erikson",
+      "ranks": [
+        470,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope gregory i",
+      "ranks": [
+        517,
+        572,
+        600
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "averroes",
+      "ranks": [
+        520,
+        931
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gudea",
+      "ranks": [
+        521,
+        828
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope innocent iii",
+      "ranks": [
+        529,
+        568,
+        598
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope leo x",
+      "ranks": [
+        533,
+        574
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope pius ii",
+      "ranks": [
+        543,
+        578
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope boniface viii",
+      "ranks": [
+        550,
+        580
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sargon of akkad",
+      "ranks": [
+        552,
+        717
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope clement v",
+      "ranks": [
+        553,
+        582
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope john xxii",
+      "ranks": [
+        556,
+        594
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope nicholas v",
+      "ranks": [
+        558,
+        584
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alkindi",
+      "ranks": [
+        559,
+        587,
+        661,
+        838,
+        856,
+        874,
+        892
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope pius v",
+      "ranks": [
+        560,
+        586
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "altusi",
+      "ranks": [
+        563,
+        589,
+        669,
+        850,
+        868,
+        886
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope urban viii",
+      "ranks": [
+        564,
+        588
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope clement vii",
+      "ranks": [
+        566,
+        590
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pope alexander iii",
+      "ranks": [
+        570,
+        592
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary church terrell",
+      "ranks": [
+        631,
+        690
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary putnam jacobi",
+      "ranks": [
+        634,
+        687
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary lyon",
+      "ranks": [
+        639,
+        685
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary garrett",
+      "ranks": [
+        641,
+        692
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary kingsley",
+      "ranks": [
+        645,
+        695
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary walton",
+      "ranks": [
+        652,
+        697
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary hays",
+      "ranks": [
+        655,
+        680
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alsufi",
+      "ranks": [
+        659,
+        699
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary seaton",
+      "ranks": [
+        660,
+        700
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mansa sakura",
+      "ranks": [
+        702,
+        906,
+        965,
+        997
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hammurabis scribes",
+      "ranks": [
+        739,
+        791
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sima qian",
+      "ranks": [
+        836,
+        854,
+        872,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "diodotus i",
+      "ranks": [
+        837,
+        855,
+        873,
+        891
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vasudeva",
+      "ranks": [
+        839,
+        857,
+        875,
+        893
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ctesias",
+      "ranks": [
+        840,
+        858,
+        876,
+        894
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pingala",
+      "ranks": [
+        842,
+        860,
+        878,
+        896
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ptolemy viii",
+      "ranks": [
+        843,
+        861,
+        879,
+        897
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "menander of ephesus",
+      "ranks": [
+        845,
+        863,
+        881,
+        899
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gautama buddha",
+      "ranks": [
+        846,
+        864,
+        882,
+        900
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sima guang",
+      "ranks": [
+        848,
+        866,
+        884
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "diodotus ii",
+      "ranks": [
+        849,
+        867,
+        885
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ptolemy iii euergetes",
+      "ranks": [
+        852,
+        870,
+        888
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nzinga mbande",
+      "ranks": [
+        901,
+        961
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rudolf agricola",
+      "ranks": [
+        902,
+        962,
+        994
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shibata katsuie",
+      "ranks": [
+        904,
+        963,
+        995
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tirumular",
+      "ranks": [
+        907,
+        940,
+        990
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dunstan",
+      "ranks": [
+        917,
+        945,
+        969
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mencius",
+      "ranks": [
+        930,
+        955,
+        981
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qin shi huang",
+      "variants": [
+        "qin shi huang",
+        "qin shi huangs surveyors",
+        "qin shi huangs tomb builders",
+        "qin shi huangs bell founders"
+      ],
+      "ranks": [
+        10,
+        730,
+        753,
+        779
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "julius caesar",
+      "variants": [
+        "julius caesar",
+        "julius caesars chroniclers",
+        "julius caesars bridge builders",
+        "julius caesars siege engineers"
+      ],
+      "ranks": [
+        12,
+        737,
+        763,
+        789
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "constantine i",
+      "variants": [
+        "constantine i",
+        "constantine xi"
+      ],
+      "ranks": [
+        35,
+        142
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tutankhamun",
+      "variants": [
+        "tutankhamun",
+        "tutankhamuns restorers",
+        "tutankhamuns embalmers",
+        "tutankhamuns jewelers"
+      ],
+      "ranks": [
+        63,
+        745,
+        771,
+        797
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "peter the great",
+      "variants": [
+        "peter the great",
+        "peter the greats shipwrights",
+        "peter the greats linguists",
+        "peter the greats glassmakers"
+      ],
+      "ranks": [
+        117,
+        734,
+        760,
+        786
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "frederick the great",
+      "variants": [
+        "frederick the great",
+        "frederick the greats cartographers",
+        "frederick the greats musicians"
+      ],
+      "ranks": [
+        147,
+        750,
+        776
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "roxelana",
+      "variants": [
+        "roxelana",
+        "roxelanas philanthropists"
+      ],
+      "ranks": [
+        225,
+        241
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ashurbanipals scribes",
+      "variants": [
+        "ashurbanipals scribes",
+        "ashurbanipals scribe"
+      ],
+      "ranks": [
+        242,
+        340
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bessarion",
+      "variants": [
+        "bessarion",
+        "bessarions manuscript collectors"
+      ],
+      "ranks": [
+        246,
+        284
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yi xing",
+      "variants": [
+        "yi xing",
+        "yi xings astronomical team"
+      ],
+      "ranks": [
+        247,
+        285
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "huldrych zwingli",
+      "variants": [
+        "huldrych zwingli",
+        "huldrych zwinglis reformers"
+      ],
+      "ranks": [
+        248,
+        286
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru amar das",
+      "variants": [
+        "guru amar das",
+        "guru amar dass missionaries"
+      ],
+      "ranks": [
+        261,
+        291
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nur jahan",
+      "variants": [
+        "nur jahan",
+        "nur jahans textile designers"
+      ],
+      "ranks": [
+        266,
+        295
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tang xuanzang",
+      "variants": [
+        "tang xuanzang",
+        "xuanzang"
+      ],
+      "ranks": [
+        276,
+        827
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo iii",
+      "variants": [
+        "pope leo iii",
+        "leo iii"
+      ],
+      "ranks": [
+        277,
+        507
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "moctezuma ii",
+      "variants": [
+        "moctezuma ii",
+        "moctezuma i",
+        "moctezuma iis advisor tlacaelel"
+      ],
+      "ranks": [
+        315,
+        343,
+        363
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kublai khans advisor liu bingzhong",
+      "variants": [
+        "kublai khans advisor liu bingzhong",
+        "kublai khan"
+      ],
+      "ranks": [
+        322,
+        512
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "albirunis contemporary ibn alhaytham",
+      "variants": [
+        "albirunis contemporary ibn alhaytham",
+        "ibn alhaytham"
+      ],
+      "ranks": [
+        339,
+        468
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ashurbanipals scribe",
+      "variants": [
+        "ashurbanipals scribe",
+        "ashurbanipals scribe nabuzuqupkenu"
+      ],
+      "ranks": [
+        340,
+        365
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "moctezuma i",
+      "variants": [
+        "moctezuma i",
+        "moctezuma iis advisor tlacaelel",
+        "moctezuma is architect"
+      ],
+      "ranks": [
+        343,
+        363,
+        383
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alrazis student ali ibn sahl rabban altabari",
+      "variants": [
+        "alrazis student ali ibn sahl rabban altabari",
+        "altabari",
+        "ibn sahl"
+      ],
+      "ranks": [
+        344,
+        691,
+        693
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harun alrashids historian altabari",
+      "variants": [
+        "harun alrashids historian altabari",
+        "altabari"
+      ],
+      "ranks": [
+        388,
+        691
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alidrisis contemporary alsamawal",
+      "variants": [
+        "alidrisis contemporary alsamawal",
+        "alsamawal"
+      ],
+      "ranks": [
+        389,
+        681
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "shaka",
+      "variants": [
+        "shaka",
+        "shabaka"
+      ],
+      "ranks": [
+        414,
+        711
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn alhaytham",
+      "variants": [
+        "ibn alhaytham",
+        "ibn alhaytham alhazen"
+      ],
+      "ranks": [
+        468,
+        605
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kublai khan",
+      "variants": [
+        "kublai khan",
+        "kublai khans advisors"
+      ],
+      "ranks": [
+        512,
+        721
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "(duplicate",
+      "startRank": 77,
+      "endRank": 100,
+      "count": 24,
+      "examples": [
+        "77. Tim Berners-Lee",
+        "78. Steve Jobs",
+        "79. Napoleon Bonaparte"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "(duplicate",
+      "startRank": 79,
+      "endRank": 101,
+      "count": 23,
+      "examples": [
+        "79. Napoleon Bonaparte",
+        "80. Cleopatra",
+        "81. Imhotep"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "(duplicate",
+      "startRank": 79,
+      "endRank": 102,
+      "count": 24,
+      "examples": [
+        "79. Napoleon Bonaparte",
+        "80. Cleopatra",
+        "81. Imhotep"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 146,
+      "Asia": 97,
+      "Middle East": 138,
+      "Africa": 34,
+      "Americas": 20,
+      "Oceania": 0,
+      "Unknown": 565
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 69,
+      "Science/Technology": 59,
+      "Philosophy/Religion": 53,
+      "Arts/Literature": 50,
+      "Military": 29,
+      "Other": 740
+    }
+  },
+  "summary": "Issues: 452 exact duplicates; pattern collapse (max 24); 9 missing anchors"
+}

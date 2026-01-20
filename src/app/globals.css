@@ -137,6 +137,43 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Model brand fonts - matching official typography as closely as possible */
+/* Claude/Anthropic: Source Serif 4 (similar to Copernicus/Tiempos) */
+.font-claude {
+  font-family: var(--font-serif), Georgia, 'Times New Roman', serif;
+}
+
+/* OpenAI/GPT: Inter (similar to Söhne grotesque) */
+.font-openai {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Google/Gemini: Poppins (similar to Google Sans rounded geometric) */
+.font-gemini {
+  font-family: var(--font-poppins), 'Segoe UI', system-ui, sans-serif;
+}
+
+/* DeepSeek: Inter (clean geometric sans) */
+.font-deepseek {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Qwen/Alibaba: System sans */
+.font-qwen {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* xAI/Grok: Bold contemporary sans */
+.font-grok {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Mistral: Arial (they specify this explicitly) */
+.font-mistral {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 /* Fade background texture toward the bottom of the viewport */
 .hr-texture-fade {
   background-image:
@@ -327,6 +364,7 @@ body {
 /* Solid row backgrounds to mask page texture */
 .hr-table-row {
   background-color: rgba(253, 253, 251, 0.95);
+  cursor: pointer;
 }
 
 .hr-table-row:nth-child(even) {

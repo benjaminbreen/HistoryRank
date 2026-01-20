@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
+import { Inter, Source_Serif_4, JetBrains_Mono, Poppins } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { AppFooter } from "@/components/layout/AppFooter";
 import "./globals.css";
 
@@ -20,6 +21,13 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+// Poppins - rounded geometric sans, similar to Google Sans for Gemini
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "HistoryRank",
   description: "Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments",
@@ -33,10 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} antialiased hr-texture-fade`}
+        className={`${inter.variable} ${sourceSerif.variable} ${jetbrainsMono.variable} ${poppins.variable} antialiased hr-texture-fade`}
       >
-        {children}
-        <AppFooter />
+        <NuqsAdapter>
+          {children}
+          <AppFooter />
+        </NuqsAdapter>
       </body>
     </html>
   );

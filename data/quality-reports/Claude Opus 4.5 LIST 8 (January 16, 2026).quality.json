@@ -1,0 +1,265 @@
+{
+  "file": "Claude Opus 4.5 LIST 8 (January 16, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-01-19T06:54:13.755Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 5,
+      "fuzzy": 9,
+      "status": "PASS",
+      "details": "5 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "founded",
+          "startRank": 258,
+          "endRank": 267,
+          "count": 10,
+          "examples": [
+            "258. Guru Nanak",
+            "259. Mahavira",
+            "260. Zoroaster"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architecture,",
+          "startRank": 660,
+          "endRank": 669,
+          "count": 10,
+          "examples": [
+            "660. Frank Lloyd Wright",
+            "661. Le Corbusier",
+            "662. Ludwig Mies van der Rohe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cinema,",
+          "startRank": 772,
+          "endRank": 781,
+          "count": 10,
+          "examples": [
+            "772. Satyajit Ray",
+            "773. Wong Kar-wai",
+            "774. Pedro Almodóvar"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        68,
+        627
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanjacques rousseau",
+      "ranks": [
+        70,
+        954
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chiang kaishek",
+      "ranks": [
+        111,
+        220
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "booker t washington",
+      "ranks": [
+        339,
+        955
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        353,
+        979
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad yunus",
+        "muhammad ali"
+      ],
+      "ranks": [
+        1,
+        415,
+        902
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        115
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham lincoln",
+        "abraham maslow"
+      ],
+      "ranks": [
+        31,
+        45,
+        940
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "srinivasa ramanujan",
+      "variants": [
+        "srinivasa ramanujan",
+        "ramanuja"
+      ],
+      "ranks": [
+        90,
+        257
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        225,
+        226
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mani",
+      "variants": [
+        "mani",
+        "sergei rachmaninoff"
+      ],
+      "ranks": [
+        261,
+        691
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john muir",
+      "variants": [
+        "john muir",
+        "joan mir"
+      ],
+      "ranks": [
+        354,
+        624
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founded",
+      "startRank": 258,
+      "endRank": 267,
+      "count": 10,
+      "examples": [
+        "258. Guru Nanak",
+        "259. Mahavira",
+        "260. Zoroaster"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architecture,",
+      "startRank": 660,
+      "endRank": 669,
+      "count": 10,
+      "examples": [
+        "660. Frank Lloyd Wright",
+        "661. Le Corbusier",
+        "662. Ludwig Mies van der Rohe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cinema,",
+      "startRank": 772,
+      "endRank": 781,
+      "count": 10,
+      "examples": [
+        "772. Satyajit Ray",
+        "773. Wong Kar-wai",
+        "774. Pedro Almodóvar"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 106,
+      "Asia": 44,
+      "Middle East": 23,
+      "Africa": 26,
+      "Americas": 36,
+      "Oceania": 0,
+      "Unknown": 765
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 56,
+      "Science/Technology": 17,
+      "Philosophy/Religion": 22,
+      "Arts/Literature": 28,
+      "Military": 6,
+      "Other": 871
+    }
+  },
+  "summary": "List passes all quality checks"
+}

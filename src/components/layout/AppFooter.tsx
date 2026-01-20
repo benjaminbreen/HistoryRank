@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Download } from 'lucide-react';
 
 export function AppFooter() {
   return (
@@ -30,7 +31,7 @@ export function AppFooter() {
             </p>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
                 Explore
@@ -68,6 +69,43 @@ export function AppFooter() {
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
+                Data
+              </div>
+              <ul className="mt-3 space-y-2 text-sm">
+                <li>
+                  <a
+                    className="footer-link inline-flex items-center gap-1.5"
+                    href="/api/export/figures?format=csv"
+                    download
+                  >
+                    <Download className="h-3 w-3" />
+                    Download figures (CSV)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="footer-link inline-flex items-center gap-1.5"
+                    href="/api/export/rankings?format=csv"
+                    download
+                  >
+                    <Download className="h-3 w-3" />
+                    Download rankings (CSV)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="footer-link"
+                    href="/api/export/figures?format=json"
+                    target="_blank"
+                  >
+                    JSON API
+                  </a>
+                </li>
               </ul>
             </div>
 

@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Deepseek v3.2 LIST 2 (January 14, 2026).txt
+Model: Deepseek v3.2
+Timestamp: 2026-01-19T06:54:16.092Z
+
+VERDICT: FAIL
+
+Summary: Issues: 625 exact duplicates; pattern collapse (max 14)
+
+Scores:
+  Repetition: FAIL - 625 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 14 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (194):
+  - Exact duplicate: "jesus of nazareth" at ranks 1, 741
+  - Exact duplicate: "muhammad" at ranks 2, 356, 742, 941
+  - Exact duplicate: "isaac newton" at ranks 3, 354, 739, 937
+  - Exact duplicate: "siddhartha gautama the buddha" at ranks 4, 550
+  - Exact duplicate: "confucius" at ranks 5, 134, 252, 347, 744, 943
+  - Exact duplicate: "aristotle" at ranks 6, 353, 745, 945
+  - Exact duplicate: "johannes gutenberg" at ranks 8, 103, 208, 308, 447, 516, 617
+  - Exact duplicate: "christopher columbus" at ranks 9, 360, 776, 938
+  - Exact duplicate: "albert einstein" at ranks 10, 357, 740, 934
+  - Exact duplicate: "karl marx" at ranks 11, 116, 248, 361, 737, 931
+  ... and 184 more issues
+
+Diversity Estimates:
+  Regions: Europe: 226, Asia: 49, Middle East: 65, Africa: 4, Americas: 35, Unknown: 621
+  Domains: Politics/Leadership: 211, Science/Technology: 170, Philosophy/Religion: 183, Arts/Literature: 100, Military: 13, Other: 323

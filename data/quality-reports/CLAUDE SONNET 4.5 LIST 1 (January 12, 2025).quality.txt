@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE SONNET 4.5 LIST 1 (January 12, 2025).txt
+Model: CLAUDE SONNET 4.5
+Timestamp: 2026-01-19T06:54:10.402Z
+
+VERDICT: FAIL
+
+Summary: Issues: 8 exact duplicates; pattern collapse (max 20); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 8 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 20 similar entries
+  Structural: FAIL - non-sequential ranks
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (38):
+  - Exact duplicate: "sigmund freud" at ranks 30, 902
+  - Exact duplicate: "mao zedong" at ranks 37, 293
+  - Exact duplicate: "niels bohr" at ranks 54, 918
+  - Exact duplicate: "voltaire" at ranks 57, 468
+  - Exact duplicate: "francis bacon" at ranks 75, 725
+  - Exact duplicate: "tim bernerslee" at ranks 123, 953
+  - Exact duplicate: "saladin" at ranks 142, 185
+  - Exact duplicate: "gian lorenzo bernini" at ranks 752, 762
+  - Fuzzy duplicate: muhammad / askia muhammad at ranks 2, 323
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 16, 167
+  ... and 28 more issues
+
+Diversity Estimates:
+  Regions: Europe: 178, Asia: 34, Middle East: 22, Africa: 20, Americas: 55, Unknown: 691
+  Domains: Politics/Leadership: 18, Science/Technology: 5, Philosophy/Religion: 15, Arts/Literature: 64, Military: 8, Other: 890

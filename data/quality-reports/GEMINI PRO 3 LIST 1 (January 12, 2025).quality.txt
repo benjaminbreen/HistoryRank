@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GEMINI PRO 3 LIST 1 (January 12, 2025).txt
+Model: GEMINI PRO 3
+Timestamp: 2026-01-19T06:54:17.218Z
+
+VERDICT: FAIL
+
+Summary: Issues: 21 exact duplicates; pattern collapse (max 14); 1028 entries (expected 1000); non-sequential ranks
+
+Scores:
+  Repetition: WARN - 21 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 14 similar entries
+  Structural: FAIL - 1028 entries (expected 1000); non-sequential ranks
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (53):
+  - Exact duplicate: "johannes gutenberg" at ranks 8, 848
+  - Exact duplicate: "louis pasteur" at ranks 11, 716, 853
+  - Exact duplicate: "martin luther" at ranks 25, 729
+  - Exact duplicate: "guglielmo marconi" at ranks 38, 708
+  - Exact duplicate: "william harvey" at ranks 55, 903
+  - Exact duplicate: "suleiman the magnificent" at ranks 130, 211
+  - Exact duplicate: "florence nightingale" at ranks 136, 922
+  - Exact duplicate: "ho chi minh" at ranks 164, 765
+  - Exact duplicate: "lee kuan yew" at ranks 165, 768
+  - Exact duplicate: "spartacus" at ranks 184, 899
+  ... and 43 more issues
+
+Diversity Estimates:
+  Regions: Europe: 97, Asia: 28, Middle East: 29, Africa: 12, Americas: 25, Unknown: 837
+  Domains: Politics/Leadership: 179, Science/Technology: 119, Philosophy/Religion: 115, Arts/Literature: 130, Military: 29, Other: 456

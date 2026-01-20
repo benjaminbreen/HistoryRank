@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GPT 5.2 Thinking LIST 3 (January 12, 2025).txt
+Model: GPT 5.2 Thinking
+Timestamp: 2026-01-19T06:54:20.692Z
+
+VERDICT: FAIL
+
+Summary: Issues: 1 exact duplicates; 777 entries (expected 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: FAIL - 777 entries (expected 1000); non-sequential ranks
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (45):
+  - Exact duplicate: "deng xiaoping" at ranks 99, 340
+  - Fuzzy duplicate: muhammad / muhammad ali jinnah / muhammad ibn musa alkhwarizmi / askia muhammad / muhammad ali at ranks 1, 106, 166, 317, 499
+  - Fuzzy duplicate: gautama buddha / siddhartha gautama buddha at ranks 3, 26
+  - Fuzzy duplicate: qin shi huang / qin shi huang dup avoided at ranks 10, 731
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 13, 144
+  - Fuzzy duplicate: ashoka / emperor ashoka dup avoided in continuation at ranks 14, 509
+  - Fuzzy duplicate: genghis khan / temujin genghis khan / genghis khan temujin at ranks 15, 87, 381
+  - Fuzzy duplicate: cyrus the great / cyrus the great dup avoided at ranks 28, 737
+  - Fuzzy duplicate: ibn sina avicenna / ibn sina avicenna again at ranks 71, 447
+  - Fuzzy duplicate: alkhwarizmi / muhammad ibn musa alkhwarizmi at ranks 73, 166
+  ... and 35 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 46, Middle East: 27, Africa: 14, Americas: 10, Unknown: 633
+  Domains: Politics/Leadership: 20, Science/Technology: 10, Philosophy/Religion: 21, Arts/Literature: 29, Military: 16, Other: 681

@@ -88,18 +88,18 @@ export function ActiveFiltersBar({
   const handleShare = () => setShareOpen(true);
 
   return (
-    <div className="rounded-2xl border border-stone-200/70 bg-white/80 px-4 py-2.5 shadow-sm backdrop-blur-sm">
+    <div className="rounded-2xl border border-stone-200/70 dark:border-amber-900/30 bg-white/80 dark:bg-slate-800/80 px-4 py-2.5 shadow-sm backdrop-blur-sm">
       <div className="flex flex-wrap items-center gap-2">
         <div className="flex flex-wrap items-center gap-2">
           {chips.map((chip) => (
             <span
               key={chip.label}
-              className="inline-flex items-center gap-1 rounded-full border border-stone-200/80 bg-white px-2.5 py-1 text-xs text-stone-600"
+              className="inline-flex items-center gap-1 rounded-full border border-stone-200/80 dark:border-slate-600 bg-white dark:bg-slate-700 px-2.5 py-1 text-xs text-stone-600 dark:text-slate-300 transition-colors hover:border-stone-300 dark:hover:border-slate-500"
             >
               {chip.label}
               <button
                 onClick={chip.onClear}
-                className="rounded-full p-0.5 text-stone-400 hover:text-stone-700"
+                className="rounded-full p-0.5 text-stone-400 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-600 active:scale-90 transition-all"
                 aria-label={`Remove filter ${chip.label}`}
               >
                 <X className="h-3 w-3" />

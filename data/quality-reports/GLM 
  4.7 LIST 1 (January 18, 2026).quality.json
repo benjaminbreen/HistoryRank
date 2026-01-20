@@ -1,0 +1,1434 @@
+{
+  "file": "GLM \n  4.7 LIST 1 (January 18, 2026).txt",
+  "model": "unknown",
+  "timestamp": "2026-01-19T06:54:19.869Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 285,
+      "fuzzy": 10,
+      "status": "FAIL",
+      "details": "285 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 512,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "basketball player",
+          "startRank": 491,
+          "endRank": 1000,
+          "count": 510,
+          "examples": [
+            "491. Gal Mekel",
+            "492. Deni Avdija",
+            "493. Yogev Ohayon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer;",
+          "startRank": 240,
+          "endRank": 306,
+          "count": 67,
+          "examples": [
+            "240. Venus Williams",
+            "241. Billie Jean King",
+            "242. Marta Vieira da Silva"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "brazilian",
+          "startRank": 287,
+          "endRank": 308,
+          "count": 22,
+          "examples": [
+            "287. Dejan Kulusevski",
+            "288. Emil Forsberg",
+            "289. Alisson Becker"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer;",
+          "startRank": 242,
+          "endRank": 307,
+          "count": 66,
+          "examples": [
+            "242. Marta Vieira da Silva",
+            "243. Mia Hamm",
+            "244. Abby Wambach"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer;",
+          "startRank": 242,
+          "endRank": 490,
+          "count": 249,
+          "examples": [
+            "242. Marta Vieira da Silva",
+            "243. Mia Hamm",
+            "244. Abby Wambach"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "slovenian",
+          "startRank": 463,
+          "endRank": 491,
+          "count": 29,
+          "examples": [
+            "463. Jure Balkovec",
+            "464. Jan Oblak",
+            "465. Benjamin Šeško"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer;",
+          "startRank": 309,
+          "endRank": 491,
+          "count": 183,
+          "examples": [
+            "309. Luis Suárez",
+            "310. Edinson Cavani",
+            "311. Federico Valverde"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "slovenian",
+          "startRank": 463,
+          "endRank": 492,
+          "count": 30,
+          "examples": [
+            "463. Jure Balkovec",
+            "464. Jan Oblak",
+            "465. Benjamin Šeško"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer;",
+          "startRank": 309,
+          "endRank": 492,
+          "count": 184,
+          "examples": [
+            "309. Luis Suárez",
+            "310. Edinson Cavani",
+            "311. Federico Valverde"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "israeli",
+          "startRank": 488,
+          "endRank": 578,
+          "count": 91,
+          "examples": [
+            "488. Matic Žveglič",
+            "489. Tian Koren",
+            "490. David Tavčar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "basketball",
+          "startRank": 489,
+          "endRank": 1000,
+          "count": 512,
+          "examples": [
+            "489. Tian Koren",
+            "490. David Tavčar",
+            "491. Gal Mekel"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 512 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 41,
+      "expected": 43,
+      "missing": [
+        "archimedes",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "41/43 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "nelson mandela",
+      "ranks": [
+        58,
+        117
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stephen curry",
+      "ranks": [
+        235,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "erling haaland",
+      "ranks": [
+        248,
+        282
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zlatan ibrahimovi",
+      "ranks": [
+        250,
+        284
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "federico valverde",
+      "ranks": [
+        311,
+        347
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ronald arajo",
+      "ranks": [
+        313,
+        336
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jure balkovec",
+      "ranks": [
+        463,
+        480
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gal mekel",
+      "ranks": [
+        491,
+        551,
+        576
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deni avdija",
+      "ranks": [
+        492,
+        577
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yogev ohayon",
+      "ranks": [
+        493,
+        553,
+        575
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guy pnini",
+      "ranks": [
+        494,
+        552,
+        574
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lior eliyahu",
+      "ranks": [
+        495,
+        548,
+        573
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "doron sheffer",
+      "ranks": [
+        496,
+        528,
+        572
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "omri casspi",
+      "ranks": [
+        497,
+        571
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alex tyus",
+      "ranks": [
+        498,
+        570
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james gist",
+      "ranks": [
+        499,
+        569
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john dibartolomeo",
+      "ranks": [
+        500,
+        568
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jerrick harding",
+      "ranks": [
+        501,
+        567
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lev kendall",
+      "ranks": [
+        502,
+        566
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zion tawat",
+      "ranks": [
+        503,
+        565
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "justin tillman",
+      "ranks": [
+        504,
+        564
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "scottie wilbekin",
+      "ranks": [
+        506,
+        562
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kendrick ray",
+      "ranks": [
+        507,
+        561
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "norvel pelle",
+      "ranks": [
+        508,
+        563
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jcovan brown",
+      "ranks": [
+        509,
+        560
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rokas jokubaitis",
+      "ranks": [
+        579,
+        616,
+        665
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "domantas sabonis",
+      "ranks": [
+        580,
+        629
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jonas valaninas",
+      "ranks": [
+        581,
+        630
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mantas kalnietis",
+      "ranks": [
+        582,
+        634
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kitof lavrinovi",
+      "ranks": [
+        583,
+        635
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "darju lavrinovi",
+      "ranks": [
+        584,
+        636
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "linas kleiza",
+      "ranks": [
+        585,
+        631
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "arnas mariulionis",
+      "ranks": [
+        586,
+        632
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simas jasaitis",
+      "ranks": [
+        588,
+        637
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marius grigonis",
+      "ranks": [
+        589,
+        638
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ignas brazdeikis",
+      "ranks": [
+        590,
+        639
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vaidas kariniauskas",
+      "ranks": [
+        591,
+        640
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paulius janknas",
+      "ranks": [
+        592,
+        641
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robertas javtokas",
+      "ranks": [
+        593,
+        642
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mindaugas kuzminskas",
+      "ranks": [
+        594,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eimantas bendius",
+      "ranks": [
+        595,
+        644
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tadas sedekerskis",
+      "ranks": [
+        596,
+        645
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gytis masiulis",
+      "ranks": [
+        597,
+        646
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martynas echodas",
+      "ranks": [
+        598,
+        647
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "arnoldas kulboka",
+      "ranks": [
+        599,
+        648
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rokas gustys",
+      "ranks": [
+        600,
+        649
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "laurynas birutis",
+      "ranks": [
+        601,
+        650
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tomas leknas",
+      "ranks": [
+        602,
+        651
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donatas motiejnas",
+      "ranks": [
+        603,
+        652
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jonas maiulis",
+      "ranks": [
+        604,
+        653
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mantas katilius",
+      "ranks": [
+        605,
+        654
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gediminas orelik",
+      "ranks": [
+        606,
+        655
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adas jukeviius",
+      "ranks": [
+        607,
+        656
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martynas pocius",
+      "ranks": [
+        608,
+        657
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deividas dulkys",
+      "ranks": [
+        609,
+        658
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vytenis lipkeviius",
+      "ranks": [
+        610,
+        659
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mindaugas girdinas",
+      "ranks": [
+        611,
+        660
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "artras gudaitis",
+      "ranks": [
+        612,
+        661
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "augustas lindinis",
+      "ranks": [
+        613,
+        662
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tomas dima",
+      "ranks": [
+        614,
+        663
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edgaras ulanovas",
+      "ranks": [
+        615,
+        664
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ignas vaitieknas",
+      "ranks": [
+        617,
+        666
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "karolis lukoinas",
+      "ranks": [
+        618,
+        667
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paulius sarpalis",
+      "ranks": [
+        619,
+        668
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dovydas giedvila",
+      "ranks": [
+        620,
+        669
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "justas tamulis",
+      "ranks": [
+        621,
+        670
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martynas arlauskas",
+      "ranks": [
+        622,
+        671
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rokas ilionis",
+      "ranks": [
+        623,
+        672
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dovydas sabaliauskas",
+      "ranks": [
+        624,
+        673
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kstutis eas",
+      "ranks": [
+        625,
+        674
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marius valanius",
+      "ranks": [
+        626,
+        675
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "laurynas beliauskas",
+      "ranks": [
+        627,
+        676
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dovydas rinkeviius",
+      "ranks": [
+        628,
+        677
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "luka doni",
+      "ranks": [
+        678,
+        732
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "scoot henderson",
+      "ranks": [
+        759,
+        764
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brandon miller",
+      "ranks": [
+        760,
+        765
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amen thompson",
+      "ranks": [
+        761,
+        766
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ausar thompson",
+      "ranks": [
+        762,
+        767
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brice sensabaugh",
+      "ranks": [
+        777,
+        800,
+        823,
+        846,
+        869,
+        892,
+        915,
+        938,
+        961,
+        984
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jett howard",
+      "ranks": [
+        778,
+        801,
+        824,
+        847,
+        870,
+        893,
+        916,
+        939,
+        962,
+        985
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maxwell lewis",
+      "ranks": [
+        779,
+        802,
+        825,
+        848,
+        871,
+        894,
+        917,
+        940,
+        963,
+        986
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dariq whitehead",
+      "ranks": [
+        780,
+        803,
+        826,
+        849,
+        872,
+        895,
+        918,
+        941,
+        964,
+        987
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kris murray",
+      "ranks": [
+        781,
+        804,
+        827,
+        850,
+        873,
+        896,
+        919,
+        942,
+        965,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "julian strawther",
+      "ranks": [
+        782,
+        805,
+        828,
+        851,
+        874,
+        897,
+        920,
+        943,
+        966,
+        989
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hunter sallis",
+      "ranks": [
+        783,
+        806,
+        829,
+        852,
+        875,
+        898,
+        921,
+        944,
+        967,
+        990
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rayan rupert",
+      "ranks": [
+        784,
+        807,
+        830,
+        853,
+        876,
+        899,
+        922,
+        945,
+        968,
+        991
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "colby jones",
+      "ranks": [
+        785,
+        808,
+        831,
+        854,
+        877,
+        900,
+        923,
+        946,
+        969,
+        992
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jordan walsh",
+      "ranks": [
+        786,
+        809,
+        832,
+        855,
+        878,
+        901,
+        924,
+        947,
+        970,
+        993
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dereck active",
+      "ranks": [
+        787,
+        810,
+        833,
+        856,
+        879,
+        902,
+        925,
+        948,
+        971,
+        994
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "trayce jacksondavis",
+      "ranks": [
+        788,
+        811,
+        834,
+        857,
+        880,
+        903,
+        926,
+        949,
+        972,
+        995
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marcus sasser",
+      "ranks": [
+        789,
+        812,
+        835,
+        858,
+        881,
+        904,
+        927,
+        950,
+        973,
+        996
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kobe brown",
+      "ranks": [
+        790,
+        813,
+        836,
+        859,
+        882,
+        905,
+        928,
+        951,
+        974,
+        997
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noah clowney",
+      "ranks": [
+        791,
+        814,
+        837,
+        860,
+        883,
+        906,
+        929,
+        952,
+        975,
+        998
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james nnaji",
+      "ranks": [
+        792,
+        815,
+        838,
+        861,
+        884,
+        907,
+        930,
+        953,
+        976,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonardo miller",
+      "ranks": [
+        793,
+        816,
+        839,
+        862,
+        885,
+        908,
+        931,
+        954,
+        977,
+        1000
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ricky council iv",
+      "ranks": [
+        794,
+        817,
+        840,
+        863,
+        886,
+        909,
+        932,
+        955,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amari bailey",
+      "ranks": [
+        795,
+        818,
+        841,
+        864,
+        887,
+        910,
+        933,
+        956,
+        979
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gg jackson ii",
+      "ranks": [
+        796,
+        819,
+        842,
+        865,
+        888,
+        911,
+        934,
+        957,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mouhamed gueye",
+      "ranks": [
+        797,
+        820,
+        843,
+        866,
+        889,
+        912,
+        935,
+        958,
+        981
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sidy cissoko",
+      "ranks": [
+        798,
+        821,
+        844,
+        867,
+        890,
+        913,
+        936,
+        959,
+        982
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "keyonte george",
+      "ranks": [
+        799,
+        822,
+        845,
+        868,
+        891,
+        914,
+        937,
+        960,
+        983
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "askia muhammad",
+        "muhammad ali"
+      ],
+      "ranks": [
+        1,
+        156,
+        217
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther king jr",
+      "variants": [
+        "martin luther king jr",
+        "martin luther"
+      ],
+      "ranks": [
+        57,
+        132
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "virgil",
+      "variants": [
+        "virgil",
+        "virgil van dijk"
+      ],
+      "ranks": [
+        77,
+        273
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "saladin",
+      "variants": [
+        "saladin",
+        "saadi"
+      ],
+      "ranks": [
+        143,
+        150
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "frederick douglass",
+      "variants": [
+        "frederick douglass",
+        "fred"
+      ],
+      "ranks": [
+        200,
+        293
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pel",
+      "variants": [
+        "pel",
+        "klemen prepeli"
+      ],
+      "ranks": [
+        220,
+        690
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alejandro gmez",
+      "variants": [
+        "alejandro gmez",
+        "alejandro vlez"
+      ],
+      "ranks": [
+        375,
+        418
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martn campaa",
+      "variants": [
+        "martn campaa",
+        "martn campana"
+      ],
+      "ranks": [
+        389,
+        402
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "goran dragi",
+      "variants": [
+        "goran dragi",
+        "zoran dragi"
+      ],
+      "ranks": [
+        679,
+        688
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "basketball player",
+      "startRank": 491,
+      "endRank": 1000,
+      "count": 510,
+      "examples": [
+        "491. Gal Mekel",
+        "492. Deni Avdija",
+        "493. Yogev Ohayon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer;",
+      "startRank": 240,
+      "endRank": 306,
+      "count": 67,
+      "examples": [
+        "240. Venus Williams",
+        "241. Billie Jean King",
+        "242. Marta Vieira da Silva"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "brazilian",
+      "startRank": 287,
+      "endRank": 308,
+      "count": 22,
+      "examples": [
+        "287. Dejan Kulusevski",
+        "288. Emil Forsberg",
+        "289. Alisson Becker"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer;",
+      "startRank": 242,
+      "endRank": 307,
+      "count": 66,
+      "examples": [
+        "242. Marta Vieira da Silva",
+        "243. Mia Hamm",
+        "244. Abby Wambach"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer;",
+      "startRank": 242,
+      "endRank": 490,
+      "count": 249,
+      "examples": [
+        "242. Marta Vieira da Silva",
+        "243. Mia Hamm",
+        "244. Abby Wambach"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "slovenian",
+      "startRank": 463,
+      "endRank": 491,
+      "count": 29,
+      "examples": [
+        "463. Jure Balkovec",
+        "464. Jan Oblak",
+        "465. Benjamin Šeško"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer;",
+      "startRank": 309,
+      "endRank": 491,
+      "count": 183,
+      "examples": [
+        "309. Luis Suárez",
+        "310. Edinson Cavani",
+        "311. Federico Valverde"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "slovenian",
+      "startRank": 463,
+      "endRank": 492,
+      "count": 30,
+      "examples": [
+        "463. Jure Balkovec",
+        "464. Jan Oblak",
+        "465. Benjamin Šeško"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer;",
+      "startRank": 309,
+      "endRank": 492,
+      "count": 184,
+      "examples": [
+        "309. Luis Suárez",
+        "310. Edinson Cavani",
+        "311. Federico Valverde"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "israeli",
+      "startRank": 488,
+      "endRank": 578,
+      "count": 91,
+      "examples": [
+        "488. Matic Žveglič",
+        "489. Tian Koren",
+        "490. David Tavčar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "basketball",
+      "startRank": 489,
+      "endRank": 1000,
+      "count": 512,
+      "examples": [
+        "489. Tian Koren",
+        "490. David Tavčar",
+        "491. Gal Mekel"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 84,
+      "Asia": 11,
+      "Middle East": 110,
+      "Africa": 19,
+      "Americas": 287,
+      "Oceania": 0,
+      "Unknown": 489
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 62,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 28,
+      "Arts/Literature": 28,
+      "Military": 2,
+      "Other": 869
+    }
+  },
+  "summary": "Issues: 285 exact duplicates; pattern collapse (max 512)"
+}

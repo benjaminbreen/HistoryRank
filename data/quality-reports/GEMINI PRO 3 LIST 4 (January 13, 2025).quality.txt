@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GEMINI PRO 3 LIST 4 (January 13, 2025).txt
+Model: GEMINI PRO 3
+Timestamp: 2026-01-19T06:54:18.718Z
+
+VERDICT: FAIL
+
+Summary: Issues: 6 exact duplicates; 1004 entries (expected 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 6 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 5 similar entries
+  Structural: FAIL - 1004 entries (expected 1000); non-sequential ranks
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (19):
+  - Exact duplicate: "gregor mendel" at ranks 58, 385
+  - Exact duplicate: "sigmund freud" at ranks 69, 399
+  - Exact duplicate: "pol pot" at ranks 111, 631
+  - Exact duplicate: "akbar the great" at ranks 115, 341
+  - Exact duplicate: "ada lovelace" at ranks 461, 707
+  - Exact duplicate: "michael jordan" at ranks 472, 734
+  - Fuzzy duplicate: muhammad / muhammad iqbal / muhammad ali jinnah / muhammad yunus / muhammad abduh at ranks 1, 330, 331, 527, 607
+  - Fuzzy duplicate: confucius / confuciuss disciples analects compilers at ranks 5, 245
+  - Fuzzy duplicate: moses / menes at ranks 15, 96
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 25, 140
+  ... and 9 more issues
+
+Diversity Estimates:
+  Regions: Europe: 92, Asia: 32, Middle East: 34, Africa: 14, Americas: 29, Unknown: 803
+  Domains: Politics/Leadership: 144, Science/Technology: 88, Philosophy/Religion: 151, Arts/Literature: 150, Military: 12, Other: 459

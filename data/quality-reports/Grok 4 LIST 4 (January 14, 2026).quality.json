@@ -1,0 +1,2368 @@
+{
+  "file": "Grok 4 LIST 4 (January 14, 2026).txt",
+  "model": "Grok 4",
+  "timestamp": "2026-01-19T06:54:24.807Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 162,
+      "fuzzy": 11,
+      "status": "FAIL",
+      "details": "162 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 29,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 77,
+          "endRank": 86,
+          "count": 10,
+          "examples": [
+            "77. Dante Alighieri",
+            "78. Virgil",
+            "79. Geoffrey Chaucer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 77,
+          "endRank": 90,
+          "count": 14,
+          "examples": [
+            "77. Dante Alighieri",
+            "78. Virgil",
+            "79. Geoffrey Chaucer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 79,
+          "endRank": 91,
+          "count": 13,
+          "examples": [
+            "79. Geoffrey Chaucer",
+            "80. Miguel de Cervantes",
+            "81. Leo Tolstoy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 137,
+          "endRank": 154,
+          "count": 18,
+          "examples": [
+            "137. Ada Lovelace",
+            "138. Grace Hopper",
+            "139. John von Neumann"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 141,
+          "endRank": 155,
+          "count": 15,
+          "examples": [
+            "141. Euclid",
+            "142. Pythagoras",
+            "143. Archimedes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 141,
+          "endRank": 156,
+          "count": 16,
+          "examples": [
+            "141. Euclid",
+            "142. Pythagoras",
+            "143. Archimedes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "inventor",
+          "startRank": 164,
+          "endRank": 175,
+          "count": 12,
+          "examples": [
+            "164. Joseph Priestley",
+            "165. Humphry Davy",
+            "166. Alfred Nobel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "inventor",
+          "startRank": 166,
+          "endRank": 176,
+          "count": 11,
+          "examples": [
+            "166. Alfred Nobel",
+            "167. Alexander Graham Bell",
+            "168. Guglielmo Marconi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 185,
+          "endRank": 196,
+          "count": 12,
+          "examples": [
+            "185. Cornelius Vanderbilt",
+            "186. Rothschild Family",
+            "187. Adam Smith"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 187,
+          "endRank": 197,
+          "count": 11,
+          "examples": [
+            "187. Adam Smith",
+            "188. John Maynard Keynes",
+            "189. Milton Friedman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 187,
+          "endRank": 198,
+          "count": 12,
+          "examples": [
+            "187. Adam Smith",
+            "188. John Maynard Keynes",
+            "189. Milton Friedman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 231,
+          "endRank": 242,
+          "count": 12,
+          "examples": [
+            "231. Noam Chomsky",
+            "232. Ferdinand de Saussure",
+            "233. Michel Foucault"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 233,
+          "endRank": 243,
+          "count": 11,
+          "examples": [
+            "233. Michel Foucault",
+            "234. Jacques Derrida",
+            "235. Martin Heidegger"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 233,
+          "endRank": 261,
+          "count": 29,
+          "examples": [
+            "233. Michel Foucault",
+            "234. Jacques Derrida",
+            "235. Martin Heidegger"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 245,
+          "endRank": 262,
+          "count": 18,
+          "examples": [
+            "245. Karl Popper",
+            "246. Thomas Kuhn",
+            "247. Ludwig Wittgenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 245,
+          "endRank": 263,
+          "count": 19,
+          "examples": [
+            "245. Karl Popper",
+            "246. Thomas Kuhn",
+            "247. Ludwig Wittgenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 270,
+          "endRank": 284,
+          "count": 15,
+          "examples": [
+            "270. Aristophanes",
+            "271. Plautus",
+            "272. Terence"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 275,
+          "endRank": 285,
+          "count": 11,
+          "examples": [
+            "275. Friedrich Schiller",
+            "276. Henrik Ibsen",
+            "277. Anton Chekhov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 275,
+          "endRank": 286,
+          "count": 12,
+          "examples": [
+            "275. Friedrich Schiller",
+            "276. Henrik Ibsen",
+            "277. Anton Chekhov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 285,
+          "endRank": 296,
+          "count": 12,
+          "examples": [
+            "285. Jane Austen",
+            "286. Charlotte Brontë",
+            "287. Emily Brontë"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 286,
+          "endRank": 311,
+          "count": 26,
+          "examples": [
+            "286. Charlotte Brontë",
+            "287. Emily Brontë",
+            "288. Virginia Woolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 298,
+          "endRank": 312,
+          "count": 15,
+          "examples": [
+            "298. Franz Kafka",
+            "299. Hermann Hesse",
+            "300. Albert Camus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 298,
+          "endRank": 313,
+          "count": 16,
+          "examples": [
+            "298. Franz Kafka",
+            "299. Hermann Hesse",
+            "300. Albert Camus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 338,
+          "endRank": 351,
+          "count": 14,
+          "examples": [
+            "338. Joseph Conrad",
+            "339. D.H. Lawrence",
+            "340. George Eliot"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 338,
+          "endRank": 352,
+          "count": 15,
+          "examples": [
+            "338. Joseph Conrad",
+            "339. D.H. Lawrence",
+            "340. George Eliot"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 344,
+          "endRank": 353,
+          "count": 10,
+          "examples": [
+            "344. Robert Louis Stevenson",
+            "345. Lewis Carroll",
+            "346. Beatrix Potter"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historian",
+          "startRank": 355,
+          "endRank": 364,
+          "count": 10,
+          "examples": [
+            "355. Thucydides",
+            "356. Tacitus",
+            "357. Plutarch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 372,
+          "endRank": 383,
+          "count": 12,
+          "examples": [
+            "372. Oprah Winfrey",
+            "373. Walt Disney",
+            "374. Alfred Hitchcock"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 374,
+          "endRank": 384,
+          "count": 11,
+          "examples": [
+            "374. Alfred Hitchcock",
+            "375. Charlie Chaplin",
+            "376. Stanley Kubrick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 374,
+          "endRank": 385,
+          "count": 12,
+          "examples": [
+            "374. Alfred Hitchcock",
+            "375. Charlie Chaplin",
+            "376. Stanley Kubrick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician",
+          "startRank": 385,
+          "endRank": 394,
+          "count": 10,
+          "examples": [
+            "385. Audrey Hepburn",
+            "386. Elvis Presley",
+            "387. The Beatles"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician",
+          "startRank": 386,
+          "endRank": 396,
+          "count": 11,
+          "examples": [
+            "386. Elvis Presley",
+            "387. The Beatles",
+            "388. Michael Jackson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician",
+          "startRank": 388,
+          "endRank": 397,
+          "count": 10,
+          "examples": [
+            "388. Michael Jackson",
+            "389. Bob Dylan",
+            "390. Madonna"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 397,
+          "endRank": 409,
+          "count": 13,
+          "examples": [
+            "397. Miles Davis",
+            "398. John Coltrane",
+            "399. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 399,
+          "endRank": 417,
+          "count": 19,
+          "examples": [
+            "399. Pyotr Ilyich Tchaikovsky",
+            "400. Igor Stravinsky",
+            "401. Claude Debussy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 399,
+          "endRank": 418,
+          "count": 20,
+          "examples": [
+            "399. Pyotr Ilyich Tchaikovsky",
+            "400. Igor Stravinsky",
+            "401. Claude Debussy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 429,
+          "endRank": 440,
+          "count": 12,
+          "examples": [
+            "429. Donatello",
+            "430. Gian Lorenzo Bernini",
+            "431. Albrecht Dürer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 431,
+          "endRank": 441,
+          "count": 11,
+          "examples": [
+            "431. Albrecht Dürer",
+            "432. Henri Matisse",
+            "433. Paul Cézanne"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 431,
+          "endRank": 445,
+          "count": 15,
+          "examples": [
+            "431. Albrecht Dürer",
+            "432. Henri Matisse",
+            "433. Paul Cézanne"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 29 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "charles darwin",
+      "ranks": [
+        9,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adolf hitler",
+      "ranks": [
+        16,
+        720
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph stalin",
+      "ranks": [
+        17,
+        710
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        18,
+        730
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        19,
+        698
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franklin d roosevelt",
+      "ranks": [
+        20,
+        708
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas edison",
+      "ranks": [
+        23,
+        595
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nikola tesla",
+      "ranks": [
+        24,
+        565
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonardo da vinci",
+      "ranks": [
+        25,
+        418
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "homer",
+      "ranks": [
+        27,
+        515
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "immanuel kant",
+      "ranks": [
+        30,
+        542
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "friedrich nietzsche",
+      "ranks": [
+        31,
+        572
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicolaus copernicus",
+      "ranks": [
+        34,
+        502
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        39,
+        695
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        40,
+        705
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis pasteur",
+      "ranks": [
+        42,
+        545
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "otto von bismarck",
+      "ranks": [
+        51,
+        688
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "queen victoria",
+      "ranks": [
+        52,
+        543
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine the great",
+      "ranks": [
+        54,
+        510
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "qin shi huang",
+      "ranks": [
+        57,
+        548
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sun tzu",
+      "ranks": [
+        58,
+        504
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john locke",
+      "ranks": [
+        66,
+        562
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanjacques rousseau",
+      "ranks": [
+        67,
+        602
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        68,
+        570
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        69,
+        187
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david hume",
+      "ranks": [
+        70,
+        552
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vincent van gogh",
+      "ranks": [
+        73,
+        554
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ludwig van beethoven",
+      "ranks": [
+        74,
+        530
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wolfgang amadeus mozart",
+      "ranks": [
+        75,
+        407
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leo tolstoy",
+      "ranks": [
+        81,
+        557
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fyodor dostoevsky",
+      "ranks": [
+        82,
+        527
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "albert camus",
+      "ranks": [
+        88,
+        300,
+        597
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franz kafka",
+      "ranks": [
+        89,
+        298,
+        537
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ernest hemingway",
+      "ranks": [
+        90,
+        533
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nelson mandela",
+      "ranks": [
+        91,
+        760
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "malcolm x",
+      "ranks": [
+        93,
+        516
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "susan b anthony",
+      "ranks": [
+        95,
+        606
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmeline pankhurst",
+      "ranks": [
+        96,
+        536
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simone de beauvoir",
+      "ranks": [
+        97,
+        576
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "betty friedan",
+      "ranks": [
+        98,
+        586
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir lenin",
+      "ranks": [
+        99,
+        740
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "fidel castro",
+      "ranks": [
+        101,
+        610
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ho chi minh",
+      "ranks": [
+        102,
+        540
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodore roosevelt",
+      "ranks": [
+        109,
+        484,
+        718
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john f kennedy",
+      "ranks": [
+        110,
+        748
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ronald reagan",
+      "ranks": [
+        111,
+        758
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barack obama",
+      "ranks": [
+        112,
+        798
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "angela merkel",
+      "ranks": [
+        113,
+        693
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "margaret thatcher",
+      "ranks": [
+        114,
+        593,
+        768
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "indira gandhi",
+      "ranks": [
+        115,
+        563
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "golda meir",
+      "ranks": [
+        116,
+        573
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hatshepsut",
+      "ranks": [
+        117,
+        523
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wright brothers",
+      "ranks": [
+        122,
+        605
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "enrico fermi",
+      "ranks": [
+        127,
+        615,
+        679
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        128,
+        655
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "werner heisenberg",
+      "ranks": [
+        129,
+        635
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "max planck",
+      "ranks": [
+        130,
+        535
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        131,
+        501
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        133,
+        509
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rosalind franklin",
+      "ranks": [
+        136,
+        549
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ada lovelace",
+      "ranks": [
+        137,
+        519
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "grace hopper",
+      "ranks": [
+        138,
+        559
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john von neumann",
+      "ranks": [
+        139,
+        715
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kurt gdel",
+      "ranks": [
+        140,
+        725
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hypatia",
+      "ranks": [
+        152,
+        505
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "katherine johnson",
+      "ranks": [
+        154,
+        569
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stephen hawking",
+      "ranks": [
+        155,
+        685
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "richard feynman",
+      "ranks": [
+        156,
+        675
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "erwin schrdinger",
+      "ranks": [
+        157,
+        645
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul dirac",
+      "ranks": [
+        158,
+        665
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dmitri mendeleev",
+      "ranks": [
+        161,
+        525
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander graham bell",
+      "ranks": [
+        167,
+        575
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guglielmo marconi",
+      "ranks": [
+        168,
+        585
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "xi jinping",
+      "ranks": [
+        201,
+        790
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir putin",
+      "ranks": [
+        202,
+        780
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "narendra modi",
+      "ranks": [
+        203,
+        820
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmanuel macron",
+      "ranks": [
+        204,
+        838
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "justin trudeau",
+      "ranks": [
+        205,
+        848
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacinda ardern",
+      "ranks": [
+        206,
+        643,
+        868
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rumi",
+      "ranks": [
+        217,
+        314,
+        508
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noam chomsky",
+      "ranks": [
+        231,
+        712
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michel foucault",
+      "ranks": [
+        233,
+        652
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacques derrida",
+      "ranks": [
+        234,
+        642
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin heidegger",
+      "ranks": [
+        235,
+        632
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sren kierkegaard",
+      "ranks": [
+        237,
+        592
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "baruch spinoza",
+      "ranks": [
+        238,
+        582
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marcus aurelius",
+      "ranks": [
+        253,
+        550
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jane austen",
+      "ranks": [
+        285,
+        521
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "virginia woolf",
+      "ranks": [
+        288,
+        517
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "toni morrison",
+      "ranks": [
+        295,
+        581
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gabriel garca mrquez",
+      "ranks": [
+        296,
+        547
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jorge luis borges",
+      "ranks": [
+        297,
+        587
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marcel proust",
+      "ranks": [
+        304,
+        607
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james joyce",
+      "ranks": [
+        305,
+        567
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salman rushdie",
+      "ranks": [
+        308,
+        697
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "haruki murakami",
+      "ranks": [
+        309,
+        637
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pablo neruda",
+      "ranks": [
+        321,
+        511
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emily dickinson",
+      "ranks": [
+        326,
+        541
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "claude monet",
+      "ranks": [
+        421,
+        507
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salvador dal",
+      "ranks": [
+        422,
+        524
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andy warhol",
+      "ranks": [
+        423,
+        544
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frida kahlo",
+      "ranks": [
+        424,
+        503
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "georgia okeeffe",
+      "ranks": [
+        425,
+        564
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jackson pollock",
+      "ranks": [
+        426,
+        584
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "banksy",
+      "ranks": [
+        427,
+        694
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "henri matisse",
+      "ranks": [
+        432,
+        574
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edvard munch",
+      "ranks": [
+        434,
+        624
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gustav klimt",
+      "ranks": [
+        435,
+        614
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "diego rivera",
+      "ranks": [
+        446,
+        604
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "keith haring",
+      "ranks": [
+        449,
+        704
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanmichel basquiat",
+      "ranks": [
+        450,
+        714
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maya angelou",
+      "ranks": [
+        451,
+        571
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sylvia plath",
+      "ranks": [
+        452,
+        551
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roland barthes",
+      "ranks": [
+        461,
+        672
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacques lacan",
+      "ranks": [
+        462,
+        662
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "claude lvistrauss",
+      "ranks": [
+        463,
+        594
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jane goodall",
+      "ranks": [
+        467,
+        689
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dian fossey",
+      "ranks": [
+        468,
+        709
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eo wilson",
+      "ranks": [
+        474,
+        759
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        475,
+        699
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david attenborough",
+      "ranks": [
+        476,
+        749
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sylvia earle",
+      "ranks": [
+        478,
+        729
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "greta thunberg",
+      "ranks": [
+        479,
+        676
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wangari maathai",
+      "ranks": [
+        481,
+        636
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul ehrlich",
+      "ranks": [
+        489,
+        769
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james lovelock",
+      "ranks": [
+        490,
+        779
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vera rubin",
+      "ranks": [
+        496,
+        629
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jocelyn bell burnell",
+      "ranks": [
+        497,
+        619
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chienshiung wu",
+      "ranks": [
+        498,
+        609
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dorothy hodgkin",
+      "ranks": [
+        499,
+        579
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barbara mcclintock",
+      "ranks": [
+        500,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "angela davis",
+      "ranks": [
+        546,
+        792
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bell hooks",
+      "ranks": [
+        556,
+        752
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ocean vuong",
+      "ranks": [
+        711,
+        797
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roxane gay",
+      "ranks": [
+        731,
+        907
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brit bennett",
+      "ranks": [
+        741,
+        972
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yaa gyasi",
+      "ranks": [
+        761,
+        985
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tommy orange",
+      "ranks": [
+        771,
+        965
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cori bush",
+      "ranks": [
+        776,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "carmen maria machado",
+      "ranks": [
+        781,
+        901,
+        947
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kiese laymon",
+      "ranks": [
+        787,
+        881
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "greta gerwig",
+      "ranks": [
+        789,
+        939
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "raven leilani",
+      "ranks": [
+        791,
+        975
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ava duvernay",
+      "ranks": [
+        799,
+        879
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "torrey peters",
+      "ranks": [
+        801,
+        987
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jordan peele",
+      "ranks": [
+        809,
+        949
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chlo zhao",
+      "ranks": [
+        839,
+        959
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "samantha irby",
+      "ranks": [
+        841,
+        917
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sarah schulman",
+      "ranks": [
+        846,
+        897
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kristen roupenian",
+      "ranks": [
+        851,
+        911,
+        967
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nana kwame adjeibrenyah",
+      "ranks": [
+        861,
+        921
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "melissa broder",
+      "ranks": [
+        927,
+        977
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kristen arnett",
+      "ranks": [
+        937,
+        997
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad yunus"
+      ],
+      "ranks": [
+        2,
+        193
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        14,
+        62
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        21,
+        92
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ren descartes",
+      "variants": [
+        "ren descartes",
+        "rene descartes"
+      ],
+      "ranks": [
+        29,
+        522
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "cleopatra",
+      "variants": [
+        "cleopatra",
+        "cleopatra vii"
+      ],
+      "ranks": [
+        55,
+        534
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramses ii",
+      "variants": [
+        "ramses ii",
+        "ramesses ii"
+      ],
+      "ranks": [
+        56,
+        528
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham maslow"
+      ],
+      "ranks": [
+        62,
+        229
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "simon bolivar",
+      "variants": [
+        "simon bolivar",
+        "simn bolvar"
+      ],
+      "ranks": [
+        103,
+        520
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert oppenheimer",
+      "variants": [
+        "robert oppenheimer",
+        "j robert oppenheimer"
+      ],
+      "ranks": [
+        126,
+        625
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john williams",
+      "variants": [
+        "john williams",
+        "joy williams"
+      ],
+      "ranks": [
+        415,
+        905
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john muir",
+      "variants": [
+        "john muir",
+        "joan mir"
+      ],
+      "ranks": [
+        483,
+        674
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 77,
+      "endRank": 86,
+      "count": 10,
+      "examples": [
+        "77. Dante Alighieri",
+        "78. Virgil",
+        "79. Geoffrey Chaucer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 77,
+      "endRank": 90,
+      "count": 14,
+      "examples": [
+        "77. Dante Alighieri",
+        "78. Virgil",
+        "79. Geoffrey Chaucer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 79,
+      "endRank": 91,
+      "count": 13,
+      "examples": [
+        "79. Geoffrey Chaucer",
+        "80. Miguel de Cervantes",
+        "81. Leo Tolstoy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 137,
+      "endRank": 154,
+      "count": 18,
+      "examples": [
+        "137. Ada Lovelace",
+        "138. Grace Hopper",
+        "139. John von Neumann"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 141,
+      "endRank": 155,
+      "count": 15,
+      "examples": [
+        "141. Euclid",
+        "142. Pythagoras",
+        "143. Archimedes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 141,
+      "endRank": 156,
+      "count": 16,
+      "examples": [
+        "141. Euclid",
+        "142. Pythagoras",
+        "143. Archimedes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "inventor",
+      "startRank": 164,
+      "endRank": 175,
+      "count": 12,
+      "examples": [
+        "164. Joseph Priestley",
+        "165. Humphry Davy",
+        "166. Alfred Nobel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "inventor",
+      "startRank": 166,
+      "endRank": 176,
+      "count": 11,
+      "examples": [
+        "166. Alfred Nobel",
+        "167. Alexander Graham Bell",
+        "168. Guglielmo Marconi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 185,
+      "endRank": 196,
+      "count": 12,
+      "examples": [
+        "185. Cornelius Vanderbilt",
+        "186. Rothschild Family",
+        "187. Adam Smith"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 187,
+      "endRank": 197,
+      "count": 11,
+      "examples": [
+        "187. Adam Smith",
+        "188. John Maynard Keynes",
+        "189. Milton Friedman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 187,
+      "endRank": 198,
+      "count": 12,
+      "examples": [
+        "187. Adam Smith",
+        "188. John Maynard Keynes",
+        "189. Milton Friedman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 231,
+      "endRank": 242,
+      "count": 12,
+      "examples": [
+        "231. Noam Chomsky",
+        "232. Ferdinand de Saussure",
+        "233. Michel Foucault"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 233,
+      "endRank": 243,
+      "count": 11,
+      "examples": [
+        "233. Michel Foucault",
+        "234. Jacques Derrida",
+        "235. Martin Heidegger"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 233,
+      "endRank": 261,
+      "count": 29,
+      "examples": [
+        "233. Michel Foucault",
+        "234. Jacques Derrida",
+        "235. Martin Heidegger"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 245,
+      "endRank": 262,
+      "count": 18,
+      "examples": [
+        "245. Karl Popper",
+        "246. Thomas Kuhn",
+        "247. Ludwig Wittgenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 245,
+      "endRank": 263,
+      "count": 19,
+      "examples": [
+        "245. Karl Popper",
+        "246. Thomas Kuhn",
+        "247. Ludwig Wittgenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 270,
+      "endRank": 284,
+      "count": 15,
+      "examples": [
+        "270. Aristophanes",
+        "271. Plautus",
+        "272. Terence"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 275,
+      "endRank": 285,
+      "count": 11,
+      "examples": [
+        "275. Friedrich Schiller",
+        "276. Henrik Ibsen",
+        "277. Anton Chekhov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 275,
+      "endRank": 286,
+      "count": 12,
+      "examples": [
+        "275. Friedrich Schiller",
+        "276. Henrik Ibsen",
+        "277. Anton Chekhov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 285,
+      "endRank": 296,
+      "count": 12,
+      "examples": [
+        "285. Jane Austen",
+        "286. Charlotte Brontë",
+        "287. Emily Brontë"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 286,
+      "endRank": 311,
+      "count": 26,
+      "examples": [
+        "286. Charlotte Brontë",
+        "287. Emily Brontë",
+        "288. Virginia Woolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 298,
+      "endRank": 312,
+      "count": 15,
+      "examples": [
+        "298. Franz Kafka",
+        "299. Hermann Hesse",
+        "300. Albert Camus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 298,
+      "endRank": 313,
+      "count": 16,
+      "examples": [
+        "298. Franz Kafka",
+        "299. Hermann Hesse",
+        "300. Albert Camus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 338,
+      "endRank": 351,
+      "count": 14,
+      "examples": [
+        "338. Joseph Conrad",
+        "339. D.H. Lawrence",
+        "340. George Eliot"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 338,
+      "endRank": 352,
+      "count": 15,
+      "examples": [
+        "338. Joseph Conrad",
+        "339. D.H. Lawrence",
+        "340. George Eliot"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 344,
+      "endRank": 353,
+      "count": 10,
+      "examples": [
+        "344. Robert Louis Stevenson",
+        "345. Lewis Carroll",
+        "346. Beatrix Potter"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historian",
+      "startRank": 355,
+      "endRank": 364,
+      "count": 10,
+      "examples": [
+        "355. Thucydides",
+        "356. Tacitus",
+        "357. Plutarch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 372,
+      "endRank": 383,
+      "count": 12,
+      "examples": [
+        "372. Oprah Winfrey",
+        "373. Walt Disney",
+        "374. Alfred Hitchcock"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 374,
+      "endRank": 384,
+      "count": 11,
+      "examples": [
+        "374. Alfred Hitchcock",
+        "375. Charlie Chaplin",
+        "376. Stanley Kubrick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 374,
+      "endRank": 385,
+      "count": 12,
+      "examples": [
+        "374. Alfred Hitchcock",
+        "375. Charlie Chaplin",
+        "376. Stanley Kubrick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician",
+      "startRank": 385,
+      "endRank": 394,
+      "count": 10,
+      "examples": [
+        "385. Audrey Hepburn",
+        "386. Elvis Presley",
+        "387. The Beatles"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician",
+      "startRank": 386,
+      "endRank": 396,
+      "count": 11,
+      "examples": [
+        "386. Elvis Presley",
+        "387. The Beatles",
+        "388. Michael Jackson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician",
+      "startRank": 388,
+      "endRank": 397,
+      "count": 10,
+      "examples": [
+        "388. Michael Jackson",
+        "389. Bob Dylan",
+        "390. Madonna"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 397,
+      "endRank": 409,
+      "count": 13,
+      "examples": [
+        "397. Miles Davis",
+        "398. John Coltrane",
+        "399. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 399,
+      "endRank": 417,
+      "count": 19,
+      "examples": [
+        "399. Pyotr Ilyich Tchaikovsky",
+        "400. Igor Stravinsky",
+        "401. Claude Debussy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 399,
+      "endRank": 418,
+      "count": 20,
+      "examples": [
+        "399. Pyotr Ilyich Tchaikovsky",
+        "400. Igor Stravinsky",
+        "401. Claude Debussy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 429,
+      "endRank": 440,
+      "count": 12,
+      "examples": [
+        "429. Donatello",
+        "430. Gian Lorenzo Bernini",
+        "431. Albrecht Dürer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 431,
+      "endRank": 441,
+      "count": 11,
+      "examples": [
+        "431. Albrecht Dürer",
+        "432. Henri Matisse",
+        "433. Paul Cézanne"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 431,
+      "endRank": 445,
+      "count": 15,
+      "examples": [
+        "431. Albrecht Dürer",
+        "432. Henri Matisse",
+        "433. Paul Cézanne"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 45,
+      "Asia": 24,
+      "Middle East": 9,
+      "Africa": 11,
+      "Americas": 25,
+      "Oceania": 0,
+      "Unknown": 886
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 114,
+      "Science/Technology": 114,
+      "Philosophy/Religion": 82,
+      "Arts/Literature": 335,
+      "Military": 5,
+      "Other": 350
+    }
+  },
+  "summary": "Issues: 162 exact duplicates; pattern collapse (max 29)"
+}

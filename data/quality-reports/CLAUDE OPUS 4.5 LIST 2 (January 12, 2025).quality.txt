@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE OPUS 4.5 LIST 2 (January 12, 2025).txt
+Model: CLAUDE OPUS 4.5
+Timestamp: 2026-01-19T06:54:08.968Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 5 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 18 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (53):
+  - Exact duplicate: "lao she" at ranks 179, 927
+  - Exact duplicate: "naguib mahfouz" at ranks 502, 911
+  - Exact duplicate: "salman rushdie" at ranks 548, 920
+  - Exact duplicate: "james baldwin" at ranks 686, 886
+  - Exact duplicate: "margaret atwood" at ranks 882, 945
+  - Fuzzy duplicate: muhammad / muhammad ali / muhammad yunus / muhammad iqbal at ranks 2, 728, 770, 915
+  - Fuzzy duplicate: aristotle / aristotles teacher ammonius saccas at ranks 8, 79
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 19, 193
+  - Fuzzy duplicate: laozi / mozi at ranks 22, 289
+  - Fuzzy duplicate: abraham / abraham lincoln at ranks 24, 54
+  ... and 43 more issues
+
+Diversity Estimates:
+  Regions: Europe: 98, Asia: 63, Middle East: 38, Africa: 30, Americas: 39, Unknown: 732
+  Domains: Politics/Leadership: 15, Science/Technology: 12, Philosophy/Religion: 16, Arts/Literature: 33, Military: 8, Other: 916

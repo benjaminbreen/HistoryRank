@@ -32,6 +32,12 @@ export type MediaItem = {
   rating_raw_scale?: number | null;
   rating_normalized?: number | null;
   rating_count?: number | null;
+  // Book-specific fields
+  authors?: string[] | null;
+  publisher?: string | null;
+  page_count?: number | null;
+  genres?: string[] | null;
+  language?: string | null;
 };
 
 const MEDIA_PATH = path.join(process.cwd(), 'data', 'raw', 'media', 'ucsc-history-media.jsonl');

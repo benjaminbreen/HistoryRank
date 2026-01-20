@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE SONNET 4.5 LIST 5 (January 13, 2025).txt
+Model: CLAUDE SONNET 4.5
+Timestamp: 2026-01-19T06:54:11.714Z
+
+VERDICT: FAIL
+
+Summary: Issues: 36 exact duplicates; pattern collapse (max 36)
+
+Scores:
+  Repetition: WARN - 36 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 36 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (67):
+  - Exact duplicate: "galileo galilei" at ranks 13, 199
+  - Exact duplicate: "adam smith" at ranks 14, 275
+  - Exact duplicate: "sigmund freud" at ranks 25, 181, 322
+  - Exact duplicate: "voltaire" at ranks 35, 272
+  - Exact duplicate: "francis bacon" at ranks 51, 577
+  - Exact duplicate: "dante alighieri" at ranks 64, 546
+  - Exact duplicate: "niccol machiavelli" at ranks 72, 551
+  - Exact duplicate: "miguel de cervantes" at ranks 81, 555
+  - Exact duplicate: "tim bernerslee" at ranks 144, 416
+  - Exact duplicate: "alan turing" at ranks 145, 409
+  ... and 57 more issues
+
+Diversity Estimates:
+  Regions: Europe: 64, Asia: 26, Middle East: 12, Africa: 17, Americas: 24, Unknown: 857
+  Domains: Politics/Leadership: 14, Science/Technology: 17, Philosophy/Religion: 9, Arts/Literature: 25, Military: 5, Other: 930

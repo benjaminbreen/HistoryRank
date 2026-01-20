@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt
+Model: Claude Sonnet 4.5
+Timestamp: 2026-01-19T06:54:15.183Z
+
+VERDICT: FAIL
+
+Summary: Issues: 7 exact duplicates; pattern collapse (max 85)
+
+Scores:
+  Repetition: PASS - 7 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 85 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (77):
+  - Exact duplicate: "francis bacon" at ranks 64, 874
+  - Exact duplicate: "david hume" at ranks 65, 624
+  - Exact duplicate: "john adams" at ranks 129, 1000
+  - Exact duplicate: "alexis de tocqueville" at ranks 202, 645
+  - Exact duplicate: "dante alighieri" at ranks 302, 597
+  - Exact duplicate: "flannery oconnor" at ranks 473, 533
+  - Exact duplicate: "piet mondrian" at ranks 750, 766
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 17, 75
+  - Fuzzy duplicate: louis xiv / louis xvi at ranks 120, 121
+  - Fuzzy duplicate: sessh ty / sessh at ranks 893, 898
+  ... and 67 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 3, Middle East: 13, Africa: 5, Americas: 1, Unknown: 931
+  Domains: Politics/Leadership: 52, Science/Technology: 28, Philosophy/Religion: 141, Arts/Literature: 493, Military: 7, Other: 279

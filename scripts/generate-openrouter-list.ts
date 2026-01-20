@@ -1,5 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  assessListQuality,
+  formatReportAsText,
+  type ListEntry,
+  type QualityReport,
+} from './lib/assess-list-quality.js';
 
 function loadEnvFile(fileName: string) {
   const envPath = path.join(process.cwd(), fileName);
@@ -64,14 +70,28 @@ function parseArgs(): GenerateOptions {
     resumeFile: null,
   };
 
-  for (const arg of args) {
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    const nextArg = args[i + 1];
+
+    // Support both --flag=value and --flag value formats
     if (arg.startsWith('--model=')) {
       options.model = arg.slice('--model='.length);
+    } else if (arg === '--model' && nextArg && !nextArg.startsWith('--')) {
+      options.model = nextArg;
+      i++;
     } else if (arg.startsWith('--label=')) {
       options.label = arg.slice('--label='.length);
       options.labelFromArgs = true;
+    } else if (arg === '--label' && nextArg && !nextArg.startsWith('--')) {
+      options.label = nextArg;
+      options.labelFromArgs = true;
+      i++;
     } else if (arg.startsWith('--out=')) {
       options.outputDir = path.resolve(arg.slice('--out='.length));
+    } else if (arg === '--out' && nextArg && !nextArg.startsWith('--')) {
+      options.outputDir = path.resolve(nextArg);
+      i++;
     } else if (arg.startsWith('--retries=')) {
       options.maxRetries = Number(arg.slice('--retries='.length));
     } else if (arg === '--chunked') {
@@ -139,6 +159,39 @@ function extractJsonArray(text: string): string {
   return text.slice(start, end + 1);
 }
 
+function runQualityAssessment(
+  entries: ListEntry[],
+  filename: string,
+  model: string,
+  outputDir: string
+): QualityReport {
+  const report = assessListQuality(entries, filename, model);
+
+  // Save JSON report
+  const reportFilename = filename.replace(/\.txt$/, '.quality.json');
+  const reportPath = path.join(outputDir, reportFilename);
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+
+  // Save text report
+  const textReportFilename = filename.replace(/\.txt$/, '.quality.txt');
+  const textReportPath = path.join(outputDir, textReportFilename);
+  fs.writeFileSync(textReportPath, formatReportAsText(report));
+
+  // Print summary to console
+  const verdictColor = report.verdict === 'PASS' ? '\x1b[32m' : report.verdict === 'WARN' ? '\x1b[33m' : '\x1b[31m';
+  const resetColor = '\x1b[0m';
+  console.log(`\n📊 Quality Assessment: ${verdictColor}${report.verdict}${resetColor}`);
+  console.log(`   ${report.summary}`);
+  console.log(`   Report saved to: ${reportFilename}`);
+
+  if (report.verdict === 'FAIL') {
+    console.log(`\n⚠️  WARNING: This list has quality issues and may not be suitable for inclusion.`);
+    console.log(`   Review the report for details: ${textReportPath}`);
+  }
+
+  return report;
+}
+
 function hashString(input: string): string {
   let hash = 0;
   for (let i = 0; i < input.length; i += 1) {
@@ -186,6 +239,11 @@ async function callOpenRouter(prompt: string, model: string, timeoutMs: number):
       messages: [
         { role: 'user', content: prompt },
       ],
+      // Enable reasoning for models that support it (GPT-5.2, o3, etc.)
+      // This makes OpenRouter GPT-5.2 behave like ChatGPT "Thinking" mode
+      ...(model.includes('gpt-5') || model.includes('o3') ? {
+        reasoning: { effort: 'high' }
+      } : {}),
     }),
     signal: controller.signal,
   });
@@ -221,10 +279,29 @@ function sanitizeModelId(model: string): string {
 
 function labelFromModel(model: string): string {
   const explicitMap: Record<string, string> = {
+    // OpenAI
+    'openai/gpt-5.2': 'GPT-5.2 Thinking',
+    'openai/gpt-5.2-chat': 'GPT-5.2 Chat',
+    'openai/gpt-5.2-pro': 'GPT-5.2 Pro',
+    'openai/o3-mini': 'o3-mini',
+    // xAI
     'x-ai/grok-4.1-fast': 'Grok 4.1 Fast',
     'x-ai/grok-4': 'Grok 4',
+    // Qwen
     'qwen/qwen3-235b-a22b-2507': 'Qwen3 235B A22B',
     'qwen/qwen3-235b-a22b-thinking-2507': 'Qwen3 235B A22B Thinking',
+    // Google
+    'google/gemini-3-pro-preview': 'Gemini Pro 3',
+    'google/gemini-3-flash-preview': 'Gemini Flash 3 Preview',
+    // Anthropic
+    'anthropic/claude-opus-4.5': 'Claude Opus 4.5',
+    'anthropic/claude-sonnet-4.5': 'Claude Sonnet 4.5',
+    // DeepSeek
+    'deepseek/deepseek-chat-v3-0324': 'DeepSeek V3.2',
+    // Mistral
+    'mistralai/mistral-large-2501': 'Mistral Large 3',
+    // GLM
+    'zhipu/glm-4.7': 'GLM 4.7',
   };
 
   if (explicitMap[model]) return explicitMap[model];
@@ -384,6 +461,9 @@ async function main() {
       fs.unlinkSync(partialPath);
     }
     console.log(`Saved ${chunks.length} entries to ${fullPath}`);
+
+    // Run quality assessment
+    runQualityAssessment(chunks as ListEntry[], filename, options.model, options.outputDir);
     return;
   }
 
@@ -406,6 +486,9 @@ async function main() {
       fs.writeFileSync(fullPath, JSON.stringify(parsed, null, 2));
 
       console.log(`Saved ${parsed.length} entries to ${fullPath}`);
+
+      // Run quality assessment
+      runQualityAssessment(parsed as ListEntry[], filename, options.model, options.outputDir);
       return;
     } catch (error) {
       lastError = error as Error;

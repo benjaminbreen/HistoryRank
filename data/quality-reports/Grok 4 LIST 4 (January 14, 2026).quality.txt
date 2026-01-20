@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 4 (January 14, 2026).txt
+Model: Grok 4
+Timestamp: 2026-01-19T06:54:24.807Z
+
+VERDICT: FAIL
+
+Summary: Issues: 162 exact duplicates; pattern collapse (max 29)
+
+Scores:
+  Repetition: FAIL - 162 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 29 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (203):
+  - Exact duplicate: "charles darwin" at ranks 9, 555
+  - Exact duplicate: "adolf hitler" at ranks 16, 720
+  - Exact duplicate: "joseph stalin" at ranks 17, 710
+  - Exact duplicate: "mao zedong" at ranks 18, 730
+  - Exact duplicate: "winston churchill" at ranks 19, 698
+  - Exact duplicate: "franklin d roosevelt" at ranks 20, 708
+  - Exact duplicate: "thomas edison" at ranks 23, 595
+  - Exact duplicate: "nikola tesla" at ranks 24, 565
+  - Exact duplicate: "leonardo da vinci" at ranks 25, 418
+  - Exact duplicate: "homer" at ranks 27, 515
+  ... and 193 more issues
+
+Diversity Estimates:
+  Regions: Europe: 45, Asia: 24, Middle East: 9, Africa: 11, Americas: 25, Unknown: 886
+  Domains: Politics/Leadership: 114, Science/Technology: 114, Philosophy/Religion: 82, Arts/Literature: 335, Military: 5, Other: 350

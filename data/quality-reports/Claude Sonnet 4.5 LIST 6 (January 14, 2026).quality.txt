@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Sonnet 4.5 LIST 6 (January 14, 2026).txt
+Model: Claude Sonnet 4.5
+Timestamp: 2026-01-19T06:54:14.240Z
+
+VERDICT: FAIL
+
+Summary: Issues: 10 exact duplicates; pattern collapse (max 58)
+
+Scores:
+  Repetition: PASS - 10 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 58 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (97):
+  - Exact duplicate: "socrates" at ranks 18, 869
+  - Exact duplicate: "voltaire" at ranks 102, 295
+  - Exact duplicate: "baruch spinoza" at ranks 107, 898
+  - Exact duplicate: "averroes" at ranks 208, 893
+  - Exact duplicate: "omar khayyam" at ranks 211, 333, 890
+  - Exact duplicate: "maimonides" at ranks 216, 894
+  - Exact duplicate: "ferdowsi" at ranks 331, 891
+  - Exact duplicate: "linus pauling" at ranks 570, 646
+  - Exact duplicate: "desmond tutu" at ranks 911, 987
+  - Fuzzy duplicate: muhammad / muhammad yunus / muhammad abduh / muhammad iqbal at ranks 2, 788, 942, 944
+  ... and 87 more issues
+
+Diversity Estimates:
+  Regions: Europe: 48, Asia: 37, Middle East: 53, Africa: 6, Americas: 4, Unknown: 852
+  Domains: Politics/Leadership: 78, Science/Technology: 179, Philosophy/Religion: 148, Arts/Literature: 249, Military: 35, Other: 311

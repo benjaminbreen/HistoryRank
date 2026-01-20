@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE OPUS 4.5 LIST 3 (January 12, 2025).txt
+Model: CLAUDE OPUS 4.5
+Timestamp: 2026-01-19T06:54:09.447Z
+
+VERDICT: FAIL
+
+Summary: Issues: 2 exact duplicates; pattern collapse (max 65)
+
+Scores:
+  Repetition: PASS - 2 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 65 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (35):
+  - Exact duplicate: "nikos kazantzakis" at ranks 623, 948
+  - Exact duplicate: "salman rushdie" at ranks 842, 933
+  - Fuzzy duplicate: muhammad / askia muhammad / muhammad ali jinnah / muhammad iqbal / muhammad ali / muhammad yunus at ranks 1, 193, 373, 615, 638, 884
+  - Fuzzy duplicate: aristotle / aristotle onassis at ranks 7, 820
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 29, 76
+  - Fuzzy duplicate: ananda / vivekananda at ranks 111, 227
+  - Fuzzy duplicate: rachel carson / rachel at ranks 135, 828
+  - Fuzzy duplicate: john dalton / john milton at ranks 266, 633
+  - Fuzzy duplicate: raphael / rachel at ranks 320, 828
+  - Fuzzy duplicate: virgil / virgilio piera at ranks 331, 981
+  ... and 25 more issues
+
+Diversity Estimates:
+  Regions: Europe: 169, Asia: 62, Middle East: 39, Africa: 34, Americas: 76, Unknown: 620
+  Domains: Politics/Leadership: 99, Science/Technology: 24, Philosophy/Religion: 34, Arts/Literature: 169, Military: 17, Other: 657

@@ -1,0 +1,698 @@
+{
+  "file": "Claude Opus 4.5 LIST 7 (January 14, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-01-19T06:54:13.263Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 14,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 15,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "french",
+          "startRank": 412,
+          "endRank": 421,
+          "count": 10,
+          "examples": [
+            "412. Henry V",
+            "413. Joan of Arc",
+            "414. Charles VII"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "french",
+          "startRank": 413,
+          "endRank": 422,
+          "count": 10,
+          "examples": [
+            "413. Joan of Arc",
+            "414. Charles VII",
+            "415. Louis XI"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "history",
+          "startRank": 655,
+          "endRank": 668,
+          "count": 14,
+          "examples": [
+            "655. Polybius",
+            "656. Josephus",
+            "657. Eusebius"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "holocaust",
+          "startRank": 731,
+          "endRank": 740,
+          "count": 10,
+          "examples": [
+            "731. Henry Dunant",
+            "732. Fridtjof Nansen",
+            "733. Raoul Wallenberg"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "holocaust",
+          "startRank": 732,
+          "endRank": 741,
+          "count": 10,
+          "examples": [
+            "732. Fridtjof Nansen",
+            "733. Raoul Wallenberg",
+            "734. Oskar Schindler"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "holocaust",
+          "startRank": 733,
+          "endRank": 743,
+          "count": 11,
+          "examples": [
+            "733. Raoul Wallenberg",
+            "734. Oskar Schindler",
+            "735. Irena Sendler"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "russian",
+          "startRank": 767,
+          "endRank": 781,
+          "count": 15,
+          "examples": [
+            "767. Joseph Brodsky",
+            "768. Boris Pasternak",
+            "769. Anna Akhmatova"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "russian",
+          "startRank": 773,
+          "endRank": 782,
+          "count": 10,
+          "examples": [
+            "773. Maxim Gorky",
+            "774. Anton Chekhov",
+            "775. Ivan Turgenev"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "russian",
+          "startRank": 773,
+          "endRank": 783,
+          "count": 11,
+          "examples": [
+            "773. Maxim Gorky",
+            "774. Anton Chekhov",
+            "775. Ivan Turgenev"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 817,
+          "endRank": 826,
+          "count": 10,
+          "examples": [
+            "817. Robert Frost",
+            "818. Walt Whitman",
+            "819. Emily Dickinson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 839,
+          "endRank": 848,
+          "count": 10,
+          "examples": [
+            "839. Wole Soyinka",
+            "840. Ngũgĩ wa Thiong'o",
+            "841. Nadine Gordimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 863,
+          "endRank": 872,
+          "count": 10,
+          "examples": [
+            "863. Jorge Luis Borges",
+            "864. Julio Cortázar",
+            "865. Mario Vargas Llosa"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "italian",
+          "startRank": 877,
+          "endRank": 888,
+          "count": 12,
+          "examples": [
+            "877. José Ortega y Gasset",
+            "878. Umberto Eco",
+            "879. Italo Calvino"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "italian",
+          "startRank": 879,
+          "endRank": 889,
+          "count": 11,
+          "examples": [
+            "879. Italo Calvino",
+            "880. Luigi Pirandello",
+            "881. Dario Fo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "italian",
+          "startRank": 879,
+          "endRank": 890,
+          "count": 12,
+          "examples": [
+            "879. Italo Calvino",
+            "880. Luigi Pirandello",
+            "881. Dario Fo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cinema,",
+          "startRank": 895,
+          "endRank": 905,
+          "count": 11,
+          "examples": [
+            "895. François Truffaut",
+            "896. Jean Renoir",
+            "897. Luis Buñuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cinema,",
+          "startRank": 896,
+          "endRank": 910,
+          "count": 15,
+          "examples": [
+            "896. Jean Renoir",
+            "897. Luis Buñuel",
+            "898. Pedro Almodóvar"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 15 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 41,
+      "expected": 43,
+      "missing": [
+        "moses",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "41/43 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        32,
+        223
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        298,
+        383
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles de gaulle",
+      "ranks": [
+        305,
+        748
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sukarno",
+      "ranks": [
+        320,
+        337
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        488,
+        794
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "erving goffman",
+      "ranks": [
+        634,
+        705
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maxim gorky",
+      "ranks": [
+        773,
+        781
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edgar allan poe",
+      "ranks": [
+        799,
+        820
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad yunus",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        1,
+        278,
+        331
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        78
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george washington",
+      "variants": [
+        "george washington",
+        "george washington carver"
+      ],
+      "ranks": [
+        29,
+        212
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii",
+      "variants": [
+        "henry viii",
+        "henry v"
+      ],
+      "ranks": [
+        64,
+        412
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv",
+      "variants": [
+        "louis xiv",
+        "louis xi"
+      ],
+      "ranks": [
+        65,
+        415
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "rumiko takahashi"
+      ],
+      "ranks": [
+        107,
+        955
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hafez",
+      "variants": [
+        "hafez",
+        "hafez alassad"
+      ],
+      "ranks": [
+        108,
+        349
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo",
+      "variants": [
+        "michelangelo",
+        "michelangelo antonioni"
+      ],
+      "ranks": [
+        141,
+        885
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert boyle",
+      "variants": [
+        "robert boyle",
+        "robert noyce"
+      ],
+      "ranks": [
+        217,
+        239
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kilby",
+      "variants": [
+        "jack kilby",
+        "jack kirby"
+      ],
+      "ranks": [
+        238,
+        949
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ken thompson",
+      "variants": [
+        "ken thompson",
+        "ep thompson"
+      ],
+      "ranks": [
+        242,
+        669
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bob kahn",
+      "variants": [
+        "bob kahn",
+        "bob kane"
+      ],
+      "ranks": [
+        248,
+        950
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i",
+      "variants": [
+        "edward i",
+        "edward iii"
+      ],
+      "ranks": [
+        410,
+        411
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "french",
+      "startRank": 412,
+      "endRank": 421,
+      "count": 10,
+      "examples": [
+        "412. Henry V",
+        "413. Joan of Arc",
+        "414. Charles VII"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "french",
+      "startRank": 413,
+      "endRank": 422,
+      "count": 10,
+      "examples": [
+        "413. Joan of Arc",
+        "414. Charles VII",
+        "415. Louis XI"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "history",
+      "startRank": 655,
+      "endRank": 668,
+      "count": 14,
+      "examples": [
+        "655. Polybius",
+        "656. Josephus",
+        "657. Eusebius"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "holocaust",
+      "startRank": 731,
+      "endRank": 740,
+      "count": 10,
+      "examples": [
+        "731. Henry Dunant",
+        "732. Fridtjof Nansen",
+        "733. Raoul Wallenberg"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "holocaust",
+      "startRank": 732,
+      "endRank": 741,
+      "count": 10,
+      "examples": [
+        "732. Fridtjof Nansen",
+        "733. Raoul Wallenberg",
+        "734. Oskar Schindler"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "holocaust",
+      "startRank": 733,
+      "endRank": 743,
+      "count": 11,
+      "examples": [
+        "733. Raoul Wallenberg",
+        "734. Oskar Schindler",
+        "735. Irena Sendler"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "russian",
+      "startRank": 767,
+      "endRank": 781,
+      "count": 15,
+      "examples": [
+        "767. Joseph Brodsky",
+        "768. Boris Pasternak",
+        "769. Anna Akhmatova"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "russian",
+      "startRank": 773,
+      "endRank": 782,
+      "count": 10,
+      "examples": [
+        "773. Maxim Gorky",
+        "774. Anton Chekhov",
+        "775. Ivan Turgenev"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "russian",
+      "startRank": 773,
+      "endRank": 783,
+      "count": 11,
+      "examples": [
+        "773. Maxim Gorky",
+        "774. Anton Chekhov",
+        "775. Ivan Turgenev"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 817,
+      "endRank": 826,
+      "count": 10,
+      "examples": [
+        "817. Robert Frost",
+        "818. Walt Whitman",
+        "819. Emily Dickinson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 839,
+      "endRank": 848,
+      "count": 10,
+      "examples": [
+        "839. Wole Soyinka",
+        "840. Ngũgĩ wa Thiong'o",
+        "841. Nadine Gordimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 863,
+      "endRank": 872,
+      "count": 10,
+      "examples": [
+        "863. Jorge Luis Borges",
+        "864. Julio Cortázar",
+        "865. Mario Vargas Llosa"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "italian",
+      "startRank": 877,
+      "endRank": 888,
+      "count": 12,
+      "examples": [
+        "877. José Ortega y Gasset",
+        "878. Umberto Eco",
+        "879. Italo Calvino"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "italian",
+      "startRank": 879,
+      "endRank": 889,
+      "count": 11,
+      "examples": [
+        "879. Italo Calvino",
+        "880. Luigi Pirandello",
+        "881. Dario Fo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "italian",
+      "startRank": 879,
+      "endRank": 890,
+      "count": 12,
+      "examples": [
+        "879. Italo Calvino",
+        "880. Luigi Pirandello",
+        "881. Dario Fo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cinema,",
+      "startRank": 895,
+      "endRank": 905,
+      "count": 11,
+      "examples": [
+        "895. François Truffaut",
+        "896. Jean Renoir",
+        "897. Luis Buñuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cinema,",
+      "startRank": 896,
+      "endRank": 910,
+      "count": 15,
+      "examples": [
+        "896. Jean Renoir",
+        "897. Luis Buñuel",
+        "898. Pedro Almodóvar"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 116,
+      "Asia": 49,
+      "Middle East": 16,
+      "Africa": 20,
+      "Americas": 43,
+      "Oceania": 0,
+      "Unknown": 756
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 44,
+      "Science/Technology": 17,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 39,
+      "Military": 19,
+      "Other": 865
+    }
+  },
+  "summary": "List passes all quality checks"
+}

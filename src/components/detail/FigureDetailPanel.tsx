@@ -5,16 +5,18 @@ import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
-import { getVarianceLevel, SOURCE_LABELS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '@/types';
+import { getVarianceLevel, SOURCE_LABELS, MODEL_ICONS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '@/types';
 import type { BadgeType } from '@/types';
-import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, Share2, Link2 } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, ChevronLeft, Share2, Link2 } from 'lucide-react';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
 import type { Figure, Ranking, FigureRow } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 
-// Lazy load the heavy globe component
+// Lazy load heavy components
 const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
+const NgramSparkline = lazy(() => import('./NgramSparkline').then(m => ({ default: m.NgramSparkline })));
+const PageviewsSparkline = lazy(() => import('./PageviewsSparkline').then(m => ({ default: m.PageviewsSparkline })));
 
 // Component for individual source ranking with cycling contributions
 interface SourceRankingCardProps {
@@ -52,21 +54,28 @@ function SourceRankingCard({ source, avgRank, sampleCount, contributions, ranks 
 
   return (
     <div
-      className={`p-3 rounded-lg bg-white shadow-sm ring-1 ring-stone-900/5 ${
-        hasMultiple ? 'cursor-pointer hover:ring-stone-300 transition-all' : ''
+      className={`p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700 ${
+        hasMultiple ? 'cursor-pointer hover:ring-stone-300 dark:hover:ring-slate-600 transition-all' : ''
       }`}
       onClick={hasMultiple ? cycleNext : undefined}
     >
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-stone-700">
+        <span className="flex items-center gap-2 text-sm font-medium text-stone-700 dark:text-slate-200">
+          {MODEL_ICONS[source] && (
+            <img
+              src={MODEL_ICONS[source]}
+              alt=""
+              className="w-4 h-4 opacity-70 dark:invert dark:opacity-60"
+            />
+          )}
           {SOURCE_LABELS[source] || source}
         </span>
         <div className="text-right">
-          <span className="font-mono text-stone-900 font-medium">
+          <span className="font-mono text-stone-900 dark:text-slate-100 font-medium">
             #{avgRank}
           </span>
           {sampleCount > 1 && (
-            <span className="text-[10px] text-stone-400 ml-1">
+            <span className="text-[10px] text-stone-400 dark:text-slate-500 ml-1">
               avg of {sampleCount}
             </span>
           )}
@@ -77,7 +86,7 @@ function SourceRankingCard({ source, avgRank, sampleCount, contributions, ranks 
       {currentContribution && (
         <div className="relative overflow-hidden mt-2">
           <p
-            className={`text-xs text-stone-500 leading-relaxed transition-all duration-150 ease-out ${
+            className={`text-xs text-stone-500 dark:text-slate-400 leading-relaxed transition-all duration-150 ease-out ${
               isAnimating
                 ? 'opacity-0 translate-x-4'
                 : 'opacity-100 translate-x-0'
@@ -90,7 +99,7 @@ function SourceRankingCard({ source, avgRank, sampleCount, contributions, ranks 
 
       {/* Navigation dots and indicator */}
       {hasMultiple && (
-        <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-stone-100">
+        <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-stone-100 dark:border-slate-700">
           <div className="flex items-center gap-1.5">
             {contributions.map((_, idx) => (
               <button
@@ -108,14 +117,14 @@ function SourceRankingCard({ source, avgRank, sampleCount, contributions, ranks 
                 }}
                 className={`transition-all ${
                   idx === activeIndex
-                    ? 'w-4 h-1.5 bg-stone-400 rounded-full'
-                    : 'w-1.5 h-1.5 bg-stone-200 rounded-full hover:bg-stone-300'
+                    ? 'w-4 h-1.5 bg-stone-400 dark:bg-slate-400 rounded-full'
+                    : 'w-1.5 h-1.5 bg-stone-200 dark:bg-slate-600 rounded-full hover:bg-stone-300 dark:hover:bg-slate-500'
                 }`}
                 aria-label={`View quote ${idx + 1}`}
               />
             ))}
           </div>
-          <div className="flex items-center gap-1 text-[10px] text-stone-400">
+          <div className="flex items-center gap-1 text-[10px] text-stone-400 dark:text-slate-500">
             <span className="tabular-nums">{activeIndex + 1}/{contributions.length}</span>
             <ChevronRight className="w-3 h-3" />
           </div>
@@ -160,7 +169,13 @@ interface FigureDetailPanelProps {
   isOpen: boolean;
   onClose: () => void;
   isLoading?: boolean;
+  isFullDataLoading?: boolean; // True when minimal data loaded but full data still fetching
   llmRank?: number | null;
+  onPrevious?: () => void;
+  onNext?: () => void;
+  hasPrevious?: boolean;
+  hasNext?: boolean;
+  onNavigate?: (figureId: string) => void;
 }
 
 export function FigureDetailPanel({
@@ -171,7 +186,13 @@ export function FigureDetailPanel({
   isOpen,
   onClose,
   isLoading,
+  isFullDataLoading = false,
   llmRank,
+  onPrevious,
+  onNext,
+  hasPrevious = false,
+  hasNext = false,
+  onNavigate,
 }: FigureDetailPanelProps) {
   const [wikiData, setWikiData] = useState<WikipediaData | null>(null);
   const [wikiLoading, setWikiLoading] = useState(false);
@@ -403,6 +424,7 @@ export function FigureDetailPanel({
                       <img
                         src={localThumbUrl}
                         alt={figure?.canonicalName || previewRow?.name || ''}
+                        loading="lazy"
                         className="w-28 h-36 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
                         onError={() => {
                           if (localThumbExt < 2) {
@@ -418,6 +440,7 @@ export function FigureDetailPanel({
                       <img
                         src={wikiData.thumbnail.source}
                         alt={figure?.canonicalName || previewRow?.name || ''}
+                        loading="lazy"
                         className="w-28 h-36 sm:w-32 sm:h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
                       />
                     </div>
@@ -495,32 +518,101 @@ export function FigureDetailPanel({
                     )}
                   </div>
                 </div>
+
               </div>
             </div>
 
-            {/* Loading indicator for full data */}
-            {!figure && previewRow && (
-              <div className="mx-6 mt-2 mb-0 p-2 rounded-lg bg-amber-50/80 border border-amber-200/50">
-                <div className="flex items-center gap-2 text-xs text-amber-700">
-                  <div className="w-3 h-3 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
-                  Loading full details...
+            {/* See Also - Related Figures */}
+            {isFullDataLoading && figure && !figure.relatedFigures && (
+              <div className="mx-6 mt-3 flex items-center gap-3">
+                <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600 flex-shrink-0">
+                  See also
+                </span>
+                <div className="flex items-center gap-2">
+                  {[...Array(3)].map((_, i) => (
+                    <Skeleton key={i} className="h-7 w-24 rounded-full" />
+                  ))}
                 </div>
+              </div>
+            )}
+            {figure?.relatedFigures && figure.relatedFigures.length > 0 && (
+              <div className="mx-6 mt-3 flex items-center gap-3">
+                <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600 flex-shrink-0">
+                  See also
+                </span>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {figure.relatedFigures.slice(0, 3).map((related) => (
+                    <Tooltip
+                      key={related.id}
+                      content={
+                        <div className="text-center">
+                          <div className="font-medium">{related.name}</div>
+                          <div className="text-xs text-stone-400 dark:text-slate-500 capitalize">{related.relationship}</div>
+                        </div>
+                      }
+                    >
+                      <button
+                        onClick={() => onNavigate?.(related.id)}
+                        className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-stone-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors group"
+                      >
+                        <div className="w-6 h-6 rounded-full overflow-hidden ring-1 ring-stone-200 dark:ring-slate-600 flex-shrink-0">
+                          <img
+                            src={`/thumbnails/${related.id}.jpg`}
+                            alt={related.name}
+                            loading="lazy"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              if (target.src.endsWith('.jpg')) {
+                                target.src = `/thumbnails/${related.id}.png`;
+                              } else if (target.src.endsWith('.png')) {
+                                target.src = `/thumbnails/${related.id}.webp`;
+                              } else {
+                                target.style.display = 'none';
+                                target.parentElement!.innerHTML = `<span class="w-full h-full flex items-center justify-center bg-stone-200 dark:bg-slate-700 text-stone-500 dark:text-slate-400 text-[10px] font-medium">${related.name.charAt(0)}</span>`;
+                              }
+                            }}
+                          />
+                        </div>
+                        <span className="text-xs text-stone-600 dark:text-slate-300 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors max-w-[120px] truncate">
+                          {related.name}
+                        </span>
+                      </button>
+                    </Tooltip>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Loading indicator for full data - subtle skeleton sections */}
+            {!figure && previewRow && (
+              <div className="mx-6 mt-4 space-y-3">
+                <Skeleton className="h-20 w-full rounded-xl" />
+                <div className="grid grid-cols-3 gap-3">
+                  <Skeleton className="h-16 rounded-lg" />
+                  <Skeleton className="h-16 rounded-lg" />
+                  <Skeleton className="h-16 rounded-lg" />
+                </div>
+                <Skeleton className="h-24 w-full rounded-xl" />
               </div>
             )}
 
             {/* Content */}
             <div className="p-6 space-y-5 flex-1">
               {(linksLoading || relatedMedia.length > 0) && (
-                <div className="rounded-xl border border-stone-200/70 bg-white/90 p-4 shadow-sm">
+                <div className="rounded-xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 shadow-sm">
                   <div className="flex items-center justify-between">
-                    <div className="text-xs uppercase tracking-[0.2em] text-stone-500">Related media</div>
-                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
+                    <div className="text-xs uppercase tracking-[0.2em] text-stone-500 dark:text-slate-400">Related media</div>
+                    <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
                       <Link2 className="h-3 w-3" />
                       Media Atlas
                     </span>
                   </div>
                   {linksLoading && (
-                    <div className="mt-3 text-xs text-stone-400">Loading related media...</div>
+                    <div className="mt-3 space-y-2">
+                      <Skeleton className="h-14 w-full rounded-xl" />
+                      <Skeleton className="h-14 w-full rounded-xl" />
+                    </div>
                   )}
                   {!linksLoading && relatedMedia.length > 0 && (
                     <div className="mt-3 space-y-2">
@@ -528,22 +620,22 @@ export function FigureDetailPanel({
                         <a
                           key={media.id}
                           href={`/media?media=${encodeURIComponent(media.id)}`}
-                          className="flex items-center gap-3 rounded-xl border border-stone-200/60 bg-white px-3 py-2 text-left transition-colors hover:border-stone-300 hover:bg-stone-50"
+                          className="flex items-center gap-3 rounded-xl border border-stone-200/60 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 text-left transition-colors hover:border-stone-300 dark:hover:border-slate-600 hover:bg-stone-50 dark:hover:bg-slate-700"
                         >
                           <MediaThumbnail
                             mediaId={media.id}
                             wikipediaSlug={media.wikipedia_slug}
                             title={media.title}
                             size={44}
-                            className="border border-stone-200 bg-white"
+                            className="border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-700"
                           />
                           <div className="min-w-0 flex-1">
-                            <div className="truncate text-sm font-medium text-stone-800">{media.title}</div>
-                            <div className="text-xs text-stone-500">
+                            <div className="truncate text-sm font-medium text-stone-800 dark:text-slate-200">{media.title}</div>
+                            <div className="text-xs text-stone-500 dark:text-slate-400">
                               {media.release_year ?? '—'} · {media.type}
                             </div>
                           </div>
-                          <span className="rounded-full border border-stone-200 bg-stone-50 px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] text-stone-500">
+                          <span className="rounded-full border border-stone-200 dark:border-slate-600 bg-stone-50 dark:bg-slate-700 px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] text-stone-500 dark:text-slate-400">
                             {media.relation}
                           </span>
                         </a>
@@ -553,12 +645,21 @@ export function FigureDetailPanel({
                 </div>
               )}
               {/* Wikipedia Extract */}
+              {wikiLoading && !wikiData?.extract && (
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700 space-y-2">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-3/4" />
+                  <Skeleton className="h-4 w-5/6 mt-3" />
+                  <Skeleton className="h-4 w-2/3" />
+                </div>
+              )}
               {wikiData?.extract && (
-                <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                   {getExtractParagraphs(wikiData.extract)?.map((paragraph, index) => (
                     <p
                       key={`${previewRow?.id || figure?.id}-extract-${index}`}
-                      className={`text-sm text-stone-600 leading-relaxed ${index === 0 ? '' : 'mt-3'}`}
+                      className={`text-sm text-stone-600 dark:text-slate-300 leading-relaxed ${index === 0 ? '' : 'mt-3'}`}
                     >
                       {paragraph}
                     </p>
@@ -568,7 +669,7 @@ export function FigureDetailPanel({
                       href={`https://en.wikipedia.org/wiki/${wikiSlug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 hover:text-amber-700 transition-colors font-medium"
+                      className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium"
                     >
                       Read more on Wikipedia <ExternalLink className="w-3 h-3" />
                     </a>
@@ -576,24 +677,48 @@ export function FigureDetailPanel({
                 </div>
               )}
 
+              {/* Google Ngrams Chart - Book mentions over time */}
+              {figure?.ngramData ? (
+                <Suspense fallback={
+                  <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                    <Skeleton className="h-[120px] w-full" />
+                  </div>
+                }>
+                  <NgramSparkline
+                    data={figure.ngramData}
+                    percentile={figure.ngramPercentile}
+                  />
+                </Suspense>
+              ) : isFullDataLoading && figure && (
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Skeleton className="h-4 w-32" />
+                  </div>
+                  <Skeleton className="h-[120px] w-full rounded-lg" />
+                </div>
+              )}
+
               {/* Key Stats Grid */}
               <div className="grid grid-cols-3 gap-3">
-                <div className="text-center p-3 rounded-lg bg-white shadow-sm ring-1 ring-stone-900/5">
-                  <div className="text-xs text-stone-400 uppercase tracking-wide mb-1">Views</div>
-                  <div className="text-lg font-semibold text-stone-900">
+                <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                  <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Views</div>
+                  <div className="text-lg font-semibold text-stone-900 dark:text-slate-100">
                     {formatViews(figure?.pageviewsGlobal ?? figure?.pageviews2025 ?? previewRow?.pageviews ?? null)}
                   </div>
-                  <div className="text-[10px] text-stone-400">2025 (all languages)</div>
+                  <div className="text-[10px] text-stone-400 dark:text-slate-500">2025 (all languages)</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-white shadow-sm ring-1 ring-stone-900/5">
-                  <div className="text-xs text-stone-400 uppercase tracking-wide mb-1">Era</div>
-                  <div className="text-sm font-medium text-stone-700 mt-1">
-                    {displayData?.era || '—'}
+                <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                  <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Born</div>
+                  <div className="text-lg font-semibold text-stone-900 dark:text-slate-100">
+                    {formatYear(displayData?.birthYear ?? null) || '—'}
                   </div>
+                  {displayData?.era && (
+                    <div className="text-[10px] text-stone-400 dark:text-slate-500">{displayData.era}</div>
+                  )}
                 </div>
-                <div className="text-center p-3 rounded-lg bg-white shadow-sm ring-1 ring-stone-900/5">
-                  <div className="text-xs text-stone-400 uppercase tracking-wide mb-1">Region</div>
-                  <div className="text-sm font-medium text-stone-700 mt-1 truncate" title={displayData?.regionSub || undefined}>
+                <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                  <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Region</div>
+                  <div className="text-sm font-medium text-stone-700 dark:text-slate-300 mt-1 truncate" title={displayData?.regionSub || undefined}>
                     {displayData?.regionSub || '—'}
                   </div>
                 </div>
@@ -601,10 +726,10 @@ export function FigureDetailPanel({
 
               {/* Variance Badge */}
               {(figure?.varianceScore !== null || previewRow?.varianceScore !== null) && (
-                <div className="flex items-center justify-between p-3 rounded-lg bg-white shadow-sm ring-1 ring-stone-900/5">
+                <div className="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                   <div>
-                    <div className="text-xs text-stone-400 uppercase tracking-wide mb-0.5">Source Variance</div>
-                    <p className="text-xs text-stone-500">How much sources disagree</p>
+                    <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-0.5">Source Variance</div>
+                    <p className="text-xs text-stone-500 dark:text-slate-400">How much sources disagree</p>
                   </div>
                   <VarianceBadge
                     level={getVarianceLevel(figure?.varianceScore ?? previewRow?.varianceScore ?? null)}
@@ -616,36 +741,36 @@ export function FigureDetailPanel({
 
               {/* Geography Section - only shown when full figure data is loaded */}
               {figure && (figure.birthPlace || figure.birthPolity || figure.birthLat !== null) && (
-                <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                   <div className="flex items-center gap-2 mb-3">
-                    <MapPin className="w-4 h-4 text-stone-400" />
-                    <span className="text-xs uppercase tracking-wide text-stone-400 font-medium">
+                    <MapPin className="w-4 h-4 text-stone-400 dark:text-slate-500" />
+                    <span className="text-xs uppercase tracking-wide text-stone-400 dark:text-slate-500 font-medium">
                       Geography
                     </span>
                   </div>
                   <div className="space-y-2 text-sm">
                     {figure.birthPlace && (
                       <div className="flex justify-between gap-4">
-                        <span className="text-stone-400">Birthplace</span>
-                        <span className="text-stone-700 text-right">{figure.birthPlace}</span>
+                        <span className="text-stone-400 dark:text-slate-500">Birthplace</span>
+                        <span className="text-stone-700 dark:text-slate-300 text-right">{figure.birthPlace}</span>
                       </div>
                     )}
                     {figure.birthPolity && (
                       <div className="flex justify-between gap-4">
-                        <span className="text-stone-400">Polity</span>
-                        <span className="text-stone-700 text-right">{figure.birthPolity}</span>
+                        <span className="text-stone-400 dark:text-slate-500">Polity</span>
+                        <span className="text-stone-700 dark:text-slate-300 text-right">{figure.birthPolity}</span>
                       </div>
                     )}
                     {figure.regionSub && (
                       <div className="flex justify-between gap-4">
-                        <span className="text-stone-400">Region</span>
-                        <span className="text-stone-700 text-right">{figure.regionSub}</span>
+                        <span className="text-stone-400 dark:text-slate-500">Region</span>
+                        <span className="text-stone-700 dark:text-slate-300 text-right">{figure.regionSub}</span>
                       </div>
                     )}
                     {figure.birthLat !== null && figure.birthLon !== null && (
                       <div className="flex justify-between gap-4">
-                        <span className="text-stone-400">Coordinates</span>
-                        <span className="text-stone-700 font-mono text-xs">
+                        <span className="text-stone-400 dark:text-slate-500">Coordinates</span>
+                        <span className="text-stone-700 dark:text-slate-300 font-mono text-xs">
                           {Math.abs(figure.birthLat).toFixed(2)}° {figure.birthLat >= 0 ? 'N' : 'S'},{' '}
                           {Math.abs(figure.birthLon!).toFixed(2)}° {figure.birthLon! >= 0 ? 'E' : 'W'}
                         </span>
@@ -659,11 +784,11 @@ export function FigureDetailPanel({
               {sourceRankings.length > 0 && (
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs uppercase tracking-wide text-stone-400 font-medium">
+                    <span className="text-xs uppercase tracking-wide text-stone-400 dark:text-slate-500 font-medium">
                       Rankings by Source
                     </span>
                     {sourceRankings.some(sr => sr.contributions.length > 1) && (
-                      <span className="text-[10px] text-stone-300 italic">
+                      <span className="text-[10px] text-stone-300 dark:text-slate-600 italic">
                         Click cards to see more quotes
                       </span>
                     )}
@@ -685,40 +810,40 @@ export function FigureDetailPanel({
 
               {/* Attention Gap - Featured Metric */}
               {attentionGap && (
-                <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         {attentionGap.direction === 'up' ? (
-                          <TrendingUp className="w-5 h-5 text-emerald-600" />
+                          <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-500" />
                         ) : attentionGap.direction === 'down' ? (
-                          <TrendingDown className="w-5 h-5 text-amber-600" />
+                          <TrendingDown className="w-5 h-5 text-amber-600 dark:text-amber-500" />
                         ) : (
-                          <Minus className="w-5 h-5 text-stone-400" />
+                          <Minus className="w-5 h-5 text-stone-400 dark:text-slate-500" />
                         )}
-                        <span className="text-xs uppercase tracking-wide text-stone-500 font-medium">
+                        <span className="text-xs uppercase tracking-wide text-stone-500 dark:text-slate-400 font-medium">
                           Attention Gap
                         </span>
                       </div>
                       <div className={`text-3xl font-semibold tracking-tight ${
                         attentionGap.direction === 'up'
-                          ? 'text-emerald-700'
+                          ? 'text-emerald-700 dark:text-emerald-400'
                           : attentionGap.direction === 'down'
-                          ? 'text-amber-700'
-                          : 'text-stone-600'
+                          ? 'text-amber-700 dark:text-amber-400'
+                          : 'text-stone-600 dark:text-slate-400'
                       }`}>
                         {attentionGap.ratio > 1 ? '↑' : attentionGap.ratio < 1 ? '↓' : ''}
                         {' '}{attentionGap.ratio.toFixed(1)}x
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xs text-stone-400 mb-0.5">Pantheon</div>
-                      <div className="font-mono text-sm text-stone-600">#{figure?.hpiRank || previewRow?.hpiRank}</div>
-                      <div className="text-xs text-stone-400 mt-2 mb-0.5">LLM</div>
-                      <div className="font-mono text-sm text-stone-900 font-medium">#{llmRank}</div>
+                      <div className="text-xs text-stone-400 dark:text-slate-500 mb-0.5">Pantheon</div>
+                      <div className="font-mono text-sm text-stone-600 dark:text-slate-400">#{figure?.hpiRank || previewRow?.hpiRank}</div>
+                      <div className="text-xs text-stone-400 dark:text-slate-500 mt-2 mb-0.5">LLM</div>
+                      <div className="font-mono text-sm text-stone-900 dark:text-slate-100 font-medium">#{llmRank}</div>
                     </div>
                   </div>
-                  <p className="text-xs text-stone-500 mt-3 leading-relaxed">
+                  <p className="text-xs text-stone-500 dark:text-slate-400 mt-3 leading-relaxed">
                     {attentionGap.label}
                   </p>
                 </div>
@@ -759,30 +884,38 @@ export function FigureDetailPanel({
                 // Generate scale markers (start, middle, end)
                 const midPoint = Math.round((rangeStart + effectiveEnd) / 2 / 50) * 50; // Round to nearest 50
 
+                // Official brand colors (see ModelProfileCard.tsx for sources)
                 const modelColors: Record<string, string> = {
-                  'claude-sonnet-4.5': '#a855f7',  // purple
-                  'claude-opus-4.5': '#7c3aed',    // violet
-                  'gemini-flash-3': '#14b8a6',     // teal
-                  'gemini-pro-3': '#0d9488',       // darker teal
-                  'gpt-4o': '#22c55e',             // green
+                  'claude-sonnet-4.5': '#da7756',  // Anthropic terra cotta
+                  'claude-opus-4.5': '#da7756',    // Anthropic terra cotta
+                  'deepseek-v3.2': '#4D6BFE',      // DeepSeek blue
+                  'gemini-flash-3': '#078EFA',     // Gemini blue
+                  'gemini-flash-3-preview': '#078EFA', // Gemini blue
+                  'gemini-pro-3': '#4285F4',       // Google blue
+                  'gpt-4o': '#10A37F',             // OpenAI teal
+                  'gpt-5.2-thinking': '#10A37F',   // OpenAI teal
+                  'grok-4': '#1a1a1a',             // xAI black
+                  'grok-4.1-fast': '#1a1a1a',      // xAI black
+                  'mistral-large-3': '#FF8205',    // Mistral orange
+                  'qwen3': '#615EFF',              // Qwen violet
                 };
 
                 return (
-                  <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                  <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xs uppercase tracking-wide text-stone-400 font-medium">
+                      <span className="text-xs uppercase tracking-wide text-stone-400 dark:text-slate-500 font-medium">
                         Rank Comparison
                       </span>
                       <Tooltip
                         content="Scale adjusts to show the relevant range. Large markers show HPI (blue) and LLM consensus (amber). Small markers show individual model rankings."
                         align="center"
                       >
-                        <HelpCircle className="w-3.5 h-3.5 text-stone-300 hover:text-stone-500 cursor-help transition-colors" />
+                        <HelpCircle className="w-3.5 h-3.5 text-stone-300 dark:text-slate-600 hover:text-stone-500 dark:hover:text-slate-400 cursor-help transition-colors" />
                       </Tooltip>
                     </div>
-                    <div className="relative h-10 bg-gradient-to-r from-stone-100 to-stone-50 rounded-full overflow-hidden">
+                    <div className="relative h-10 bg-gradient-to-r from-stone-100 to-stone-50 dark:from-slate-700 dark:to-slate-600 rounded-full overflow-hidden">
                       {/* Scale markers */}
-                      <div className="absolute inset-0 flex justify-between items-center px-3 text-[10px] text-stone-300">
+                      <div className="absolute inset-0 flex justify-between items-center px-3 text-[10px] text-stone-300 dark:text-slate-500">
                         <span>{rangeStart === 0 ? 1 : rangeStart}</span>
                         <span>{midPoint}</span>
                         <span>{effectiveEnd}</span>
@@ -862,23 +995,23 @@ export function FigureDetailPanel({
                     <div className="flex flex-wrap justify-center gap-x-4 gap-y-1.5 mt-3 text-[10px]">
                       <span className="flex items-center gap-1">
                         <span className="w-2.5 h-2.5 bg-blue-500 rounded-full" />
-                        <span className="text-stone-500">Pantheon</span>
+                        <span className="text-stone-500 dark:text-slate-400">Pantheon</span>
                       </span>
                       <span className="flex items-center gap-1">
                         <span className="w-2.5 h-2.5 bg-amber-500 rounded-full" />
-                        <span className="text-stone-500">LLM Avg</span>
+                        <span className="text-stone-500 dark:text-slate-400">LLM Avg</span>
                       </span>
                       <span className="flex items-center gap-1">
                         <span className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
-                        <span className="text-stone-400">Claude</span>
+                        <span className="text-stone-400 dark:text-slate-500">Claude</span>
                       </span>
                       <span className="flex items-center gap-1">
                         <span className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
-                        <span className="text-stone-400">Gemini</span>
+                        <span className="text-stone-400 dark:text-slate-500">Gemini</span>
                       </span>
                       <span className="flex items-center gap-1">
                         <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                        <span className="text-stone-400">GPT</span>
+                        <span className="text-stone-400 dark:text-slate-500">GPT</span>
                       </span>
                     </div>
                   </div>
@@ -889,8 +1022,8 @@ export function FigureDetailPanel({
               {figure && figure.birthLat !== null && figure.birthLon !== null && (
                 <div className="pt-2">
                   <Suspense fallback={
-                    <div className="w-full h-[250px] rounded-xl bg-stone-100 animate-pulse flex items-center justify-center">
-                      <span className="text-xs text-stone-400">Loading globe...</span>
+                    <div className="w-full h-[250px] rounded-xl bg-stone-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
+                      <span className="text-xs text-stone-400 dark:text-slate-500">Loading globe...</span>
                     </div>
                   }>
                     <BirthplaceGlobe
@@ -903,6 +1036,25 @@ export function FigureDetailPanel({
               )}
 
               {/* Wikipedia Pageviews by Language - only shown when data is available */}
+              {isFullDataLoading && figure && !figure.pageviewsByLanguage && (
+                <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                  <div className="flex items-center justify-between mb-3">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-20" />
+                  </div>
+                  <div className="space-y-3">
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="space-y-1">
+                        <div className="flex justify-between">
+                          <Skeleton className="h-3 w-20" />
+                          <Skeleton className="h-3 w-16" />
+                        </div>
+                        <Skeleton className="h-1.5 w-full rounded-full" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
               {figure?.pageviewsByLanguage && Object.keys(figure.pageviewsByLanguage).length > 0 && (() => {
                 const langData = figure.pageviewsByLanguage as Record<string, number>;
                 const total = Object.values(langData).reduce((sum, v) => sum + v, 0);
@@ -911,20 +1063,20 @@ export function FigureDetailPanel({
                 const maxViews = sortedLangs[0]?.[1] || 1;
 
                 return (
-                  <div className="p-4 rounded-xl bg-white shadow-sm ring-1 ring-stone-900/5">
+                  <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs uppercase tracking-wide text-stone-400 font-medium">
+                        <span className="text-xs uppercase tracking-wide text-stone-400 dark:text-slate-500 font-medium">
                           Wikipedia Views by Language
                         </span>
                         <Tooltip
                           content="Pageviews from top 10 Wikipedia language editions (Jan 2025 to present)"
                           align="center"
                         >
-                          <HelpCircle className="w-3.5 h-3.5 text-stone-300 hover:text-stone-500 cursor-help transition-colors" />
+                          <HelpCircle className="w-3.5 h-3.5 text-stone-300 dark:text-slate-600 hover:text-stone-500 dark:hover:text-slate-400 cursor-help transition-colors" />
                         </Tooltip>
                       </div>
-                      <span className="text-xs text-stone-500 font-medium">
+                      <span className="text-xs text-stone-500 dark:text-slate-400 font-medium">
                         {formatViews(total)} total
                       </span>
                     </div>
@@ -939,17 +1091,17 @@ export function FigureDetailPanel({
                         return (
                           <div key={langCode} className="group">
                             <div className="flex items-center justify-between text-xs mb-1">
-                              <span className="flex items-center gap-1.5 text-stone-600">
+                              <span className="flex items-center gap-1.5 text-stone-600 dark:text-slate-400">
                                 <span className="text-sm">{flag}</span>
                                 <span className="font-medium">{langName}</span>
                               </span>
-                              <span className="text-stone-500 tabular-nums">
-                                {formatViews(views)} <span className="text-stone-400">({percentage}%)</span>
+                              <span className="text-stone-500 dark:text-slate-400 tabular-nums">
+                                {formatViews(views)} <span className="text-stone-400 dark:text-slate-500">({percentage}%)</span>
                               </span>
                             </div>
-                            <div className="h-1.5 bg-stone-100 rounded-full overflow-hidden">
+                            <div className="h-1.5 bg-stone-100 dark:bg-slate-700 rounded-full overflow-hidden">
                               <div
-                                className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all group-hover:from-amber-500 group-hover:to-amber-600"
+                                className="h-full bg-gradient-to-r from-amber-400 to-amber-500 dark:from-amber-500 dark:to-amber-600 rounded-full transition-all group-hover:from-amber-500 group-hover:to-amber-600"
                                 style={{ width: `${barWidth}%` }}
                               />
                             </div>
@@ -960,8 +1112,8 @@ export function FigureDetailPanel({
 
                     {/* Notable insight if non-English language dominates */}
                     {sortedLangs[0] && sortedLangs[0][0] !== 'en' && sortedLangs[0][1] > (langData['en'] || 0) * 1.2 && (
-                      <div className="mt-3 pt-3 border-t border-stone-100">
-                        <p className="text-xs text-amber-600 flex items-center gap-1.5">
+                      <div className="mt-3 pt-3 border-t border-stone-100 dark:border-slate-700">
+                        <p className="text-xs text-amber-600 dark:text-amber-500 flex items-center gap-1.5">
                           <span className="text-sm">{LANGUAGE_FLAGS[sortedLangs[0][0]]}</span>
                           <span>
                             Most popular in {LANGUAGE_NAMES[sortedLangs[0][0]] || sortedLangs[0][0]} Wikipedia
@@ -972,11 +1124,65 @@ export function FigureDetailPanel({
                   </div>
                 );
               })()}
+
+              {/* Wikipedia Pageviews Over Time */}
+              {figure?.wikipediaSlug && (
+                <Suspense fallback={
+                  <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+                    <Skeleton className="h-[100px] w-full" />
+                  </div>
+                }>
+                  <PageviewsSparkline
+                    wikipediaSlug={figure.wikipediaSlug}
+                    figureName={figure.canonicalName}
+                  />
+                </Suspense>
+              )}
+
             </div>
+
+            {/* Mobile Navigation Bar - sticky bottom on small screens */}
+            {(onPrevious || onNext) && (
+              <div className="sticky bottom-0 left-0 right-0 sm:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-t border-stone-200 dark:border-slate-700 p-3 flex items-center justify-between gap-2 mt-4">
+                <button
+                  onClick={onPrevious}
+                  disabled={!hasPrevious}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-4 py-3 rounded-lg font-medium text-sm transition-colors ${
+                    hasPrevious
+                      ? 'bg-stone-100 dark:bg-slate-800 text-stone-700 dark:text-slate-200 active:bg-stone-200 dark:active:bg-slate-700'
+                      : 'bg-stone-50 dark:bg-slate-800/50 text-stone-300 dark:text-slate-600 cursor-not-allowed'
+                  }`}
+                  aria-label="Previous figure"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                  <span>Previous</span>
+                </button>
+                <button
+                  onClick={onClose}
+                  className="px-4 py-3 rounded-lg bg-stone-800 dark:bg-slate-700 text-white font-medium text-sm active:bg-stone-900 dark:active:bg-slate-600 transition-colors"
+                  aria-label="Close panel"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={onNext}
+                  disabled={!hasNext}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-4 py-3 rounded-lg font-medium text-sm transition-colors ${
+                    hasNext
+                      ? 'bg-stone-100 dark:bg-slate-800 text-stone-700 dark:text-slate-200 active:bg-stone-200 dark:active:bg-slate-700'
+                      : 'bg-stone-50 dark:bg-slate-800/50 text-stone-300 dark:text-slate-600 cursor-not-allowed'
+                  }`}
+                  aria-label="Next figure"
+                >
+                  <span>Next</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex items-center justify-center h-full">
-            <p className="text-stone-400 text-sm">Select a figure to view details</p>
+            <p className="text-stone-400 dark:text-slate-500 text-sm">Select a figure to view details</p>
           </div>
         )}
       </SheetContent>

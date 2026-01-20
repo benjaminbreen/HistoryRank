@@ -35,7 +35,11 @@
     "validate:llm": "node scripts/validate-llm-data.cjs",
     "build:llm-candidates": "node scripts/build-llm-candidates.cjs",
     "promote:llm-candidates": "node scripts/promote-llm-candidates.cjs",
-    "report:missing-fields": "npx tsx scripts/report-missing-fields.ts"
+    "report:missing-fields": "npx tsx scripts/report-missing-fields.ts",
+    "ngrams": "node scripts/fetch-ngrams.cjs",
+    "ngrams:dry": "node scripts/fetch-ngrams.cjs --dry-run",
+    "related": "node scripts/generate-related-figures.cjs",
+    "related:test": "node scripts/generate-related-figures.cjs --limit=10"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -57,6 +61,7 @@
     "html-to-image": "^1.11.13",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
+    "nuqs": "^2.8.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "recharts": "^3.6.0",

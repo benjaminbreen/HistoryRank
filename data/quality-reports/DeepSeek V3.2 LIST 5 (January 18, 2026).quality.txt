@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: DeepSeek V3.2 LIST 5 (January 18, 2026).txt
+Model: DeepSeek V3.2
+Timestamp: 2026-01-19T06:54:15.840Z
+
+VERDICT: FAIL
+
+Summary: Issues: 645 exact duplicates; pattern collapse (max 711)
+
+Scores:
+  Repetition: FAIL - 645 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 711 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (74):
+  - Exact duplicate: "plato" at ranks 15, 78
+  - Exact duplicate: "adam smith" at ranks 28, 86
+  - Exact duplicate: "stephen hawking" at ranks 90, 164
+  - Exact duplicate: "jrr tolkien" at ranks 109, 216
+  - Exact duplicate: "jk rowling" at ranks 143, 218
+  - Exact duplicate: "blackpink" at ranks 291, 318
+  - Exact duplicate: "itzy" at ranks 305, 330
+  - Exact duplicate: "enhypen" at ranks 309, 363, 396, 429, 462, 495, 528, 561, 594, 627, 660, 693, 726, 759, 792, 825, 858, 891, 924, 957, 990
+  - Exact duplicate: "aespa" at ranks 331, 364, 397, 430, 463, 496, 529, 562, 595, 628, 661, 694, 727, 760, 793, 826, 859, 892, 925, 958, 991
+  - Exact duplicate: "stayc" at ranks 332, 365, 398, 431, 464, 497, 530, 563, 596, 629, 662, 695, 728, 761, 794, 827, 860, 893, 926, 959, 992
+  ... and 64 more issues
+
+Diversity Estimates:
+  Regions: Europe: 70, Asia: 720, Middle East: 8, Africa: 2, Americas: 108, Unknown: 92
+  Domains: Politics/Leadership: 48, Science/Technology: 36, Philosophy/Religion: 36, Arts/Literature: 87, Military: 1, Other: 792

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ScatterChart, GitCompareArrows, Map, Menu, Clapperboard } from 'lucide-react';
+import { ScatterChart, GitCompareArrows, Map, Menu, Clapperboard, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SettingsSheet } from '@/components/settings/SettingsSheet';
 import { AboutDialog } from '@/components/about/AboutDialog';
@@ -10,7 +10,7 @@ import { useDarkMode } from '@/hooks/useDarkMode';
 import type { Settings } from '@/hooks/useSettings';
 
 type AppHeaderProps = {
-  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'compare' | 'media' | 'table';
+  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'compare' | 'media' | 'table' | 'benchmarks';
   settings: Settings;
   onSettingsChange: (patch: Partial<Settings>) => void;
   onSettingsReset: () => void;
@@ -45,12 +45,12 @@ export function AppHeader({
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between gap-4">
-            <div className="hr-logo group flex items-center gap-2 sm:gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <div className="hr-logo group flex items-center gap-2 sm:gap-3 min-w-0">
               <button
                 onClick={() => setIsAboutOpen(true)}
-                className="hr-logo-icon rounded-full border border-stone-300 dark:border-amber-800/50 bg-stone-50 dark:bg-slate-800 text-stone-800 dark:text-amber-200 flex items-center justify-center font-serif text-xs tracking-wide transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:border-stone-400/70 dark:hover:border-amber-600/60"
+                className="hr-logo-icon flex-shrink-0 rounded-full border border-stone-300 dark:border-amber-800/50 bg-stone-50 dark:bg-slate-800 text-stone-800 dark:text-amber-200 flex items-center justify-center font-serif text-xs tracking-wide transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:border-stone-400/70 dark:hover:border-amber-600/60"
                 style={{
                   width: isCompactHeader ? '32px' : '36px',
                   height: isCompactHeader ? '32px' : '36px',
@@ -60,12 +60,12 @@ export function AppHeader({
               >
                 HR
               </button>
-              <Link href="/" className="block text-left">
+              <Link href="/" className="block text-left min-w-0">
                 <div className="overflow-hidden">
                   <h1
-                    className="hr-logo-text font-serif font-semibold text-stone-900 dark:text-amber-100 transition-colors duration-300 group-hover:text-stone-700 dark:group-hover:text-amber-200"
+                    className="hr-logo-text font-serif font-semibold text-stone-900 dark:text-amber-100 transition-colors duration-300 group-hover:text-stone-700 dark:group-hover:text-amber-200 truncate"
                     style={{
-                      fontSize: isCompactHeader ? '1.1rem' : '1.5rem',
+                      fontSize: isCompactHeader ? '1.1rem' : '1.25rem',
                       lineHeight: 1.2,
                       transition: 'font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
@@ -73,7 +73,7 @@ export function AppHeader({
                     HistoryRank
                   </h1>
                   <p
-                    className="hr-logo-tagline text-stone-500/80 dark:text-slate-400/80 text-sm overflow-hidden transition-opacity duration-300 group-hover:text-stone-600 dark:group-hover:text-slate-300"
+                    className="hr-logo-tagline hidden sm:block text-stone-500/80 dark:text-slate-400/80 text-xs sm:text-sm overflow-hidden transition-opacity duration-300 group-hover:text-stone-600 dark:group-hover:text-slate-300 truncate"
                     style={{
                       maxHeight: isCompactHeader ? '0px' : '24px',
                       opacity: isCompactHeader ? 0 : 1,
@@ -81,7 +81,7 @@ export function AppHeader({
                       transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                   >
-                    Comparing historical importance across rankings
+                    Comparing historical importance
                   </p>
                 </div>
               </Link>
@@ -171,6 +171,20 @@ export function AppHeader({
                     <span className="hidden lg:inline text-stone-700 dark:text-amber-200 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors">Compare</span>
                   </Button>
                 </Link>
+                <Link href="/benchmarks">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className={`gap-2 transition-all active:translate-y-[2px] active:scale-[0.96] ${
+                      active === 'benchmarks'
+                        ? 'border-stone-300 bg-stone-100/70 text-stone-900 dark:border-amber-700/70 dark:bg-amber-900/20 dark:text-amber-100'
+                        : 'hover:border-stone-300/80 hover:bg-stone-100/60 dark:hover:border-amber-600/60 dark:hover:bg-amber-900/10'
+                    }`}
+                  >
+                    <Award className="h-4 w-4" />
+                    <span className="hidden lg:inline">Benchmarks</span>
+                  </Button>
+                </Link>
                 <SettingsSheet
                   settings={settings}
                   onChange={onSettingsChange}
@@ -182,36 +196,39 @@ export function AppHeader({
                 <button
                   type="button"
                   onClick={() => setIsMenuOpen((open) => !open)}
-                  className="inline-flex items-center justify-center rounded-full border border-stone-200 bg-white p-2 text-stone-600 shadow-sm transition-colors hover:text-stone-900"
+                  className="inline-flex items-center justify-center rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 p-2 text-stone-600 dark:text-slate-300 shadow-sm transition-colors hover:text-stone-900 dark:hover:text-slate-100 min-w-[44px] min-h-[44px]"
                   aria-label="Open menu"
                 >
-                  <Menu className="h-4 w-4" />
+                  <Menu className="h-5 w-5" />
                 </button>
                 <div
-                  className={`absolute right-0 mt-3 w-56 rounded-2xl border border-stone-200 bg-white shadow-xl transition-all ${
+                  className={`absolute right-0 mt-3 w-[calc(100vw-2rem)] max-w-[14rem] rounded-2xl border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl transition-all ${
                     isMenuOpen ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-2'
                   }`}
                 >
-                  <div className="flex flex-col gap-1 p-3 text-sm text-stone-700">
-                    <Link href="/methodology" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                  <div className="flex flex-col gap-1 p-3 text-sm text-stone-700 dark:text-slate-200">
+                    <Link href="/methodology" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Methodology
                     </Link>
-                    <Link href="/caveats" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                    <Link href="/caveats" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Caveats
                     </Link>
-                    <Link href="/maps" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                    <Link href="/maps" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Maps
                     </Link>
-                    <Link href="/media" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                    <Link href="/media" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Media
                     </Link>
-                    <Link href="/scatter" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                    <Link href="/scatter" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Scatter
                     </Link>
-                    <Link href="/compare" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-2 hover:bg-stone-100">
+                    <Link href="/compare" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
                       Compare
                     </Link>
-                    <div className="px-3 py-2">
+                    <Link href="/benchmarks" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
+                      Benchmarks
+                    </Link>
+                    <div className="px-3 py-2 border-t border-stone-100 dark:border-slate-700 mt-1 pt-2">
                       <SettingsSheet
                         settings={settings}
                         onChange={onSettingsChange}

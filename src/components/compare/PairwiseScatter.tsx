@@ -13,6 +13,7 @@ import {
   Cell,
 } from 'recharts';
 import { Skeleton } from '@/components/ui/skeleton';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface Model {
   source: string;
@@ -55,6 +56,7 @@ export function PairwiseScatter({
 }: PairwiseScatterProps) {
   const [scatterData, setScatterData] = useState<ScatterPoint[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showOutliers, setShowOutliers] = useState(false);
 
   // Get correlation for selected pair
   const pairCorrelation = useMemo(() => {
@@ -161,13 +163,13 @@ export function PairwiseScatter({
       </h2>
 
       {/* Model selectors */}
-      <div className="flex flex-wrap items-center gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 mb-6">
         <div className="flex items-center gap-2">
-          <label className="text-sm text-stone-600 dark:text-slate-400">Model 1:</label>
+          <label className="text-sm text-stone-600 dark:text-slate-400 min-w-[60px] sm:min-w-0">Model 1:</label>
           <select
             value={selectedModel1 || ''}
             onChange={(e) => onModel1Change(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-sm text-stone-700 dark:text-slate-300"
+            className="flex-1 sm:flex-none px-3 py-2.5 sm:py-1.5 rounded-lg border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-sm text-stone-700 dark:text-slate-300"
           >
             {models.map((m) => (
               <option key={m.source} value={m.source}>
@@ -176,13 +178,13 @@ export function PairwiseScatter({
             ))}
           </select>
         </div>
-        <span className="text-stone-400">vs</span>
+        <span className="text-stone-400 hidden sm:inline">vs</span>
         <div className="flex items-center gap-2">
-          <label className="text-sm text-stone-600 dark:text-slate-400">Model 2:</label>
+          <label className="text-sm text-stone-600 dark:text-slate-400 min-w-[60px] sm:min-w-0">Model 2:</label>
           <select
             value={selectedModel2 || ''}
             onChange={(e) => onModel2Change(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-sm text-stone-700 dark:text-slate-300"
+            className="flex-1 sm:flex-none px-3 py-2.5 sm:py-1.5 rounded-lg border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-sm text-stone-700 dark:text-slate-300"
           >
             {models.map((m) => (
               <option key={m.source} value={m.source}>
@@ -193,41 +195,41 @@ export function PairwiseScatter({
         </div>
 
         {pairCorrelation && (
-          <div className="ml-auto flex items-center gap-4 text-sm">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm sm:ml-auto pt-2 sm:pt-0 border-t sm:border-0 border-stone-100 dark:border-slate-700">
             <span className="text-stone-500 dark:text-slate-400">
               Correlation: <strong className="text-stone-700 dark:text-slate-200">{Math.round(pairCorrelation.correlation * 100)}%</strong>
             </span>
             <span className="text-stone-500 dark:text-slate-400">
-              Common figures: <strong className="text-stone-700 dark:text-slate-200">{pairCorrelation.commonFigures}</strong>
+              Common: <strong className="text-stone-700 dark:text-slate-200">{pairCorrelation.commonFigures}</strong>
             </span>
           </div>
         )}
       </div>
 
       {selectedModel1 === selectedModel2 ? (
-        <div className="h-[500px] flex items-center justify-center text-stone-400 dark:text-slate-500">
+        <div className="h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center text-stone-400 dark:text-slate-500">
           Select two different models to compare
         </div>
       ) : isLoading ? (
-        <Skeleton className="h-[500px] w-full rounded-lg" />
+        <Skeleton className="h-[300px] sm:h-[400px] lg:h-[500px] w-full rounded-lg" />
       ) : (
-        <div className="flex gap-6">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
           {/* Chart */}
-          <div className="flex-1 h-[500px]">
+          <div className="flex-1 h-[300px] sm:h-[400px] lg:h-[500px]">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 20, right: 20, bottom: 60, left: 60 }}>
+              <ScatterChart margin={{ top: 20, right: 10, bottom: 50, left: 40 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e7e5e4" />
                 <XAxis
                   type="number"
                   dataKey="x"
                   domain={[1, maxRank]}
                   reversed
-                  tick={{ fontSize: 12, fill: '#78716c' }}
+                  tick={{ fontSize: 11, fill: '#78716c' }}
                   label={{
                     value: model1Label || 'Model 1',
                     position: 'bottom',
-                    offset: 40,
-                    style: { fontSize: 13, fill: '#57534e', fontWeight: 500 },
+                    offset: 30,
+                    style: { fontSize: 12, fill: '#57534e', fontWeight: 500 },
                   }}
                 />
                 <YAxis
@@ -235,13 +237,13 @@ export function PairwiseScatter({
                   dataKey="y"
                   domain={[1, maxRank]}
                   reversed
-                  tick={{ fontSize: 12, fill: '#78716c' }}
+                  tick={{ fontSize: 11, fill: '#78716c' }}
                   label={{
                     value: model2Label || 'Model 2',
                     angle: -90,
                     position: 'left',
-                    offset: 40,
-                    style: { fontSize: 13, fill: '#57534e', fontWeight: 500 },
+                    offset: 25,
+                    style: { fontSize: 12, fill: '#57534e', fontWeight: 500 },
                   }}
                 />
                 <ReferenceLine
@@ -267,12 +269,64 @@ export function PairwiseScatter({
             </ResponsiveContainer>
           </div>
 
-          {/* Outliers sidebar */}
-          <div className="w-64 flex-shrink-0">
+          {/* Legend - visible on mobile, hidden on desktop (shown in sidebar instead) */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-stone-500 dark:text-slate-400 lg:hidden">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-indigo-500" />
+              <span>Small diff</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-amber-500" />
+              <span>Medium</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <span>Large</span>
+            </div>
+          </div>
+
+          {/* Mobile: Collapsible outliers */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setShowOutliers(!showOutliers)}
+              className="w-full flex items-center justify-between p-3 rounded-lg bg-stone-50 dark:bg-slate-700/50 text-sm font-medium text-stone-700 dark:text-slate-300"
+            >
+              <span>Top Disagreements ({topOutliers.length})</span>
+              {showOutliers ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+            </button>
+            {showOutliers && (
+              <div className="mt-2 space-y-1 max-h-[300px] overflow-y-auto">
+                {topOutliers.map((point, i) => (
+                  <button
+                    key={point.id}
+                    onClick={() => onFigureClick(point.id)}
+                    className="w-full text-left p-3 rounded-lg hover:bg-stone-50 dark:hover:bg-slate-700 transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-stone-400 dark:text-slate-500 w-5">
+                        {i + 1}.
+                      </span>
+                      <span className="text-sm text-stone-700 dark:text-slate-300 truncate flex-1">
+                        {point.name}
+                      </span>
+                      <span className={`text-xs font-medium ${
+                        point.diff > 100 ? 'text-red-500' : point.diff > 50 ? 'text-amber-500' : 'text-stone-400'
+                      }`}>
+                        Δ{point.diff}
+                      </span>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Desktop: Outliers sidebar */}
+          <div className="hidden lg:block w-64 flex-shrink-0">
             <h4 className="text-sm font-semibold text-stone-700 dark:text-slate-300 mb-3">
               Top Disagreements
             </h4>
-            <div className="space-y-2 max-h-[450px] overflow-y-auto pr-2">
+            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
               {topOutliers.map((point, i) => (
                 <button
                   key={point.id}
@@ -304,22 +358,22 @@ export function PairwiseScatter({
               <h5 className="text-xs font-medium text-stone-600 dark:text-slate-400 mb-2">
                 How to read
               </h5>
-              <div className="text-[10px] text-stone-500 dark:text-slate-500 space-y-1">
+              <div className="text-[11px] text-stone-500 dark:text-slate-500 space-y-1">
                 <p><strong>On diagonal:</strong> Models agree</p>
                 <p><strong>Above line:</strong> Model 2 ranks lower</p>
                 <p><strong>Below line:</strong> Model 1 ranks lower</p>
               </div>
               <div className="flex items-center gap-2 mt-3">
                 <div className="w-3 h-3 rounded-full bg-indigo-500" />
-                <span className="text-[10px] text-stone-500">Small diff (&lt;50)</span>
+                <span className="text-[11px] text-stone-500">Small diff (&lt;50)</span>
               </div>
               <div className="flex items-center gap-2 mt-1">
                 <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <span className="text-[10px] text-stone-500">Medium (50-100)</span>
+                <span className="text-[11px] text-stone-500">Medium (50-100)</span>
               </div>
               <div className="flex items-center gap-2 mt-1">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="text-[10px] text-stone-500">Large (&gt;100)</span>
+                <span className="text-[11px] text-stone-500">Large (&gt;100)</span>
               </div>
             </div>
           </div>

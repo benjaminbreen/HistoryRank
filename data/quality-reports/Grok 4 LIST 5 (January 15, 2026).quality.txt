@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 5 (January 15, 2026).txt
+Model: Grok 4
+Timestamp: 2026-01-19T06:54:25.087Z
+
+VERDICT: WARN
+
+Summary: Issues: 22 exact duplicates; pattern collapse (max 25)
+
+Scores:
+  Repetition: WARN - 22 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 25 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (83):
+  - Exact duplicate: "sigmund freud" at ranks 15, 308
+  - Exact duplicate: "winston churchill" at ranks 26, 493
+  - Exact duplicate: "alan turing" at ranks 60, 357
+  - Exact duplicate: "gabriel garca mrquez" at ranks 153, 485
+  - Exact duplicate: "ernest hemingway" at ranks 170, 489
+  - Exact duplicate: "john steinbeck" at ranks 172, 488
+  - Exact duplicate: "pablo neruda" at ranks 178, 486
+  - Exact duplicate: "bob dylan" at ranks 265, 477
+  - Exact duplicate: "jeanpaul sartre" at ranks 323, 495
+  - Exact duplicate: "albert camus" at ranks 324, 494
+  ... and 73 more issues
+
+Diversity Estimates:
+  Regions: Europe: 49, Asia: 31, Middle East: 8, Africa: 9, Americas: 17, Unknown: 886
+  Domains: Politics/Leadership: 119, Science/Technology: 66, Philosophy/Religion: 75, Arts/Literature: 253, Military: 2, Other: 485

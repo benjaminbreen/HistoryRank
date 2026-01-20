@@ -1,0 +1,44 @@
+{
+  "file": "Grok 4.1 Fast LIST 7 (January 15, 2026).txt",
+  "model": "Grok 4.1 Fast",
+  "timestamp": "2026-01-19T07:22:58.420Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 5,
+      "historical_accuracy": 7,
+      "no_hallucinations": 8,
+      "contribution_quality": 6,
+      "list_coherence": 4
+    },
+    "overall_score": 6,
+    "suspicious_entries": [
+      "Nita",
+      "St. Vincent",
+      "Shinedown"
+    ],
+    "glaring_omissions": [
+      "Leonardo da Vinci",
+      "Marie Curie",
+      "Nelson Mandela"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Rock bands",
+        "rank": 976,
+        "issue": "Musical groups should not be on a historical influence list"
+      },
+      {
+        "name": "Current political leaders",
+        "rank": 480,
+        "issue": "Too high for contemporary figures with limited historical perspective"
+      }
+    ],
+    "brief_assessment": "The list shows strong historical understanding in the top 25, but becomes increasingly erratic and questionable in middle and bottom sections. Mixing of religious founders, philosophers, scientists, and modern politicians creates inconsistent ranking logic.",
+    "subjective_impression": "This looks like an AI-generated list that started brilliantly but completely lost coherence and credibility by the middle and bottom sections."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

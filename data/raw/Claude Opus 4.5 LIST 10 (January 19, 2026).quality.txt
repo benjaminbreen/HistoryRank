@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 10 (January 19, 2026).txt
+Model: anthropic/claude-opus-4.5
+Timestamp: 2026-01-19T19:47:07.667Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 11 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 11 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (25):
+  - Exact duplicate: "thomas edison" at ranks 22, 507
+  - Exact duplicate: "niels bohr" at ranks 71, 363
+  - Exact duplicate: "vclav havel" at ranks 233, 708
+  - Exact duplicate: "charles de gaulle" at ranks 258, 726
+  - Exact duplicate: "woodrow wilson" at ranks 269, 757
+  - Exact duplicate: "dwight d eisenhower" at ranks 271, 724
+  - Exact duplicate: "aung san" at ranks 313, 696
+  - Exact duplicate: "richard feynman" at ranks 357, 904
+  - Exact duplicate: "paul ehrlich" at ranks 401, 865
+  - Exact duplicate: "steven pinker" at ranks 799, 841
+  ... and 15 more issues
+
+Diversity Estimates:
+  Regions: Europe: 57, Asia: 52, Middle East: 12, Africa: 19, Americas: 28, Unknown: 832
+  Domains: Politics/Leadership: 35, Science/Technology: 11, Philosophy/Religion: 14, Arts/Literature: 17, Military: 13, Other: 910

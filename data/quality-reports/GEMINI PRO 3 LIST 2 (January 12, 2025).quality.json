@@ -1,0 +1,1401 @@
+{
+  "file": "GEMINI PRO 3 LIST 2 (January 12, 2025).txt",
+  "model": "GEMINI PRO 3",
+  "timestamp": "2026-01-19T06:54:17.736Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 55,
+      "fuzzy": 31,
+      "status": "FAIL",
+      "details": "55 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 56,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher;",
+          "startRank": 682,
+          "endRank": 692,
+          "count": 11,
+          "examples": [
+            "682. Demosthenes",
+            "683. Isocrates",
+            "684. Epicurus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher;",
+          "startRank": 684,
+          "endRank": 693,
+          "count": 10,
+          "examples": [
+            "684. Epicurus",
+            "685. Zeno of Citium",
+            "686. Diogenes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher;",
+          "startRank": 684,
+          "endRank": 694,
+          "count": 11,
+          "examples": [
+            "684. Epicurus",
+            "685. Zeno of Citium",
+            "686. Diogenes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer;",
+          "startRank": 719,
+          "endRank": 755,
+          "count": 37,
+          "examples": [
+            "719. Giorgio Vasari",
+            "720. Benvenuto Cellini",
+            "721. Palestrina"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer;",
+          "startRank": 721,
+          "endRank": 758,
+          "count": 38,
+          "examples": [
+            "721. Palestrina",
+            "722. Monteverdi",
+            "723. Corelli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer;",
+          "startRank": 721,
+          "endRank": 776,
+          "count": 56,
+          "examples": [
+            "721. Palestrina",
+            "722. Monteverdi",
+            "723. Corelli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer;",
+          "startRank": 760,
+          "endRank": 777,
+          "count": 18,
+          "examples": [
+            "760. Stockhausen",
+            "761. Xenakis",
+            "762. Ligeti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer;",
+          "startRank": 760,
+          "endRank": 779,
+          "count": 20,
+          "examples": [
+            "760. Stockhausen",
+            "761. Xenakis",
+            "762. Ligeti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 779,
+          "endRank": 805,
+          "count": 27,
+          "examples": [
+            "779. Scott Joplin",
+            "780. Jelly Roll Morton",
+            "781. W.C. Handy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 782,
+          "endRank": 807,
+          "count": 26,
+          "examples": [
+            "782. Robert Johnson",
+            "783. Muddy Waters",
+            "784. Howlin' Wolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 782,
+          "endRank": 808,
+          "count": 27,
+          "examples": [
+            "782. Robert Johnson",
+            "783. Muddy Waters",
+            "784. Howlin' Wolf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 810,
+          "endRank": 826,
+          "count": 17,
+          "examples": [
+            "810. Beyoncé",
+            "811. Taylor Swift",
+            "812. Adele"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 816,
+          "endRank": 827,
+          "count": 12,
+          "examples": [
+            "816. Justin Timberlake",
+            "817. Bruno Mars",
+            "818. Ed Sheeran"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 816,
+          "endRank": 830,
+          "count": 15,
+          "examples": [
+            "816. Justin Timberlake",
+            "817. Bruno Mars",
+            "818. Ed Sheeran"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 832,
+          "endRank": 842,
+          "count": 11,
+          "examples": [
+            "832. Ricky Martin",
+            "833. Enrique Iglesias",
+            "834. Gloria Estefan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musician;",
+          "startRank": 837,
+          "endRank": 849,
+          "count": 13,
+          "examples": [
+            "837. Tito Puente",
+            "838. Carlos Santana",
+            "839. Bob Marley"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "singer;",
+          "startRank": 850,
+          "endRank": 861,
+          "count": 12,
+          "examples": [
+            "850. Lata Mangeshkar",
+            "851. A.R. Rahman",
+            "852. Nusrat Fateh Ali Khan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "singer;",
+          "startRank": 852,
+          "endRank": 865,
+          "count": 14,
+          "examples": [
+            "852. Nusrat Fateh Ali Khan",
+            "853. Fairuz",
+            "854. Umm Kulthum"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer;",
+          "startRank": 915,
+          "endRank": 948,
+          "count": 34,
+          "examples": [
+            "915. Walt Disney",
+            "916. Stan Lee",
+            "917. Jack Kirby"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer;",
+          "startRank": 918,
+          "endRank": 949,
+          "count": 32,
+          "examples": [
+            "918. Alan Moore",
+            "919. Neil Gaiman",
+            "920. Stephen King"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer;",
+          "startRank": 918,
+          "endRank": 950,
+          "count": 33,
+          "examples": [
+            "918. Alan Moore",
+            "919. Neil Gaiman",
+            "920. Stephen King"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker;",
+          "startRank": 948,
+          "endRank": 961,
+          "count": 14,
+          "examples": [
+            "948. Douglas Adams",
+            "949. Gene Roddenberry",
+            "950. George Lucas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker;",
+          "startRank": 950,
+          "endRank": 984,
+          "count": 35,
+          "examples": [
+            "950. George Lucas",
+            "951. Steven Spielberg",
+            "952. James Cameron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker;",
+          "startRank": 963,
+          "endRank": 985,
+          "count": 23,
+          "examples": [
+            "963. Woody Allen",
+            "964. Spike Lee",
+            "965. Pedro Almodovar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker;",
+          "startRank": 963,
+          "endRank": 986,
+          "count": 24,
+          "examples": [
+            "963. Woody Allen",
+            "964. Spike Lee",
+            "965. Pedro Almodovar"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 56 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "confucius",
+      "ranks": [
+        5,
+        565,
+        661
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis pasteur",
+      "ranks": [
+        11,
+        527
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guglielmo marconi",
+      "ranks": [
+        38,
+        346
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander graham bell",
+      "ranks": [
+        42,
+        126
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        58,
+        282
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        90,
+        382
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zoroaster",
+      "ranks": [
+        93,
+        530
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        111,
+        235,
+        360
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles babbage",
+      "ranks": [
+        125,
+        272,
+        447
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert goddard",
+      "ranks": [
+        140,
+        410
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "booker t washington",
+      "ranks": [
+        149,
+        381
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ernest hemingway",
+      "ranks": [
+        183,
+        349
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "walt disney",
+      "ranks": [
+        197,
+        534,
+        915
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hg wells",
+      "ranks": [
+        219,
+        516,
+        609,
+        938
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gamal abdel nasser",
+      "ranks": [
+        223,
+        315
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thucydides",
+      "ranks": [
+        239,
+        672
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ts eliot",
+      "ranks": [
+        255,
+        547
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sophocles",
+      "ranks": [
+        259,
+        665
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis armstrong",
+      "ranks": [
+        261,
+        370
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert boyle",
+      "ranks": [
+        289,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amelia earhart",
+      "ranks": [
+        295,
+        572
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph conrad",
+      "ranks": [
+        304,
+        531
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william blake",
+      "ranks": [
+        308,
+        556
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmeline pankhurst",
+      "ranks": [
+        338,
+        539
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alfred hitchcock",
+      "ranks": [
+        348,
+        954
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sappho",
+      "ranks": [
+        350,
+        668
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george orwell",
+      "ranks": [
+        352,
+        538
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "samuel beckett",
+      "ranks": [
+        355,
+        526,
+        659
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yuri gagarin",
+      "ranks": [
+        356,
+        588
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jrr tolkien",
+      "ranks": [
+        392,
+        937
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bob marley",
+      "ranks": [
+        394,
+        839
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hp lovecraft",
+      "ranks": [
+        400,
+        577,
+        663
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "te lawrence",
+      "ranks": [
+        405,
+        654
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jmw turner",
+      "ranks": [
+        426,
+        628
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george lucas",
+      "ranks": [
+        436,
+        950
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "h ross perot",
+      "ranks": [
+        442,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hl mencken",
+      "ranks": [
+        451,
+        553
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frank sinatra",
+      "ranks": [
+        470,
+        510
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ray bradbury",
+      "ranks": [
+        488,
+        943
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "euripides",
+      "ranks": [
+        492,
+        664
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aeschylus",
+      "ranks": [
+        493,
+        666
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "agatha christie",
+      "ranks": [
+        552,
+        930
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert peary",
+      "ranks": [
+        580,
+        648
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sandro botticelli",
+      "ranks": [
+        585,
+        662
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        615,
+        936
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "federico fellini",
+      "ranks": [
+        625,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "philip k dick",
+      "ranks": [
+        636,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johannes gutenberg",
+      "variants": [
+        "johannes gutenberg",
+        "berg"
+      ],
+      "ranks": [
+        8,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "moses",
+      "variants": [
+        "moses",
+        "menes"
+      ],
+      "ranks": [
+        15,
+        96
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        25,
+        198
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john dalton",
+      "variants": [
+        "john dalton",
+        "john milton"
+      ],
+      "ranks": [
+        32,
+        365
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "werner heisenberg",
+      "variants": [
+        "werner heisenberg",
+        "berg"
+      ],
+      "ranks": [
+        46,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "simon bolivar",
+      "variants": [
+        "simon bolivar",
+        "simn bolvar"
+      ],
+      "ranks": [
+        48,
+        120
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo",
+      "variants": [
+        "michelangelo",
+        "michelangelo antonioni"
+      ],
+      "ranks": [
+        50,
+        979
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mani",
+      "variants": [
+        "mani",
+        "amanirenas",
+        "rachmaninoff"
+      ],
+      "ranks": [
+        83,
+        620,
+        744
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james watson francis crick",
+      "variants": [
+        "james watson francis crick",
+        "francis crick"
+      ],
+      "ranks": [
+        107,
+        325
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "socrates",
+      "variants": [
+        "socrates",
+        "isocrates"
+      ],
+      "ranks": [
+        130,
+        683
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "j robert oppenheimer",
+      "variants": [
+        "j robert oppenheimer",
+        "robert oppenheimer"
+      ],
+      "ranks": [
+        185,
+        245
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "babar",
+      "variants": [
+        "babar",
+        "barber"
+      ],
+      "ranks": [
+        190,
+        755
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "francis drake",
+      "variants": [
+        "francis drake",
+        "drake"
+      ],
+      "ranks": [
+        203,
+        819
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "max weber",
+      "variants": [
+        "max weber",
+        "weber"
+      ],
+      "ranks": [
+        244,
+        733
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "lech wasa",
+      "variants": [
+        "lech wasa",
+        "lech walesa"
+      ],
+      "ranks": [
+        306,
+        554
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis sullivan",
+      "variants": [
+        "louis sullivan",
+        "sullivan"
+      ],
+      "ranks": [
+        318,
+        776
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mark zuckerberg",
+      "variants": [
+        "mark zuckerberg",
+        "berg"
+      ],
+      "ranks": [
+        368,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "frederick douglass",
+      "variants": [
+        "frederick douglass",
+        "glass"
+      ],
+      "ranks": [
+        378,
+        757
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles lindbergh",
+      "variants": [
+        "charles lindbergh",
+        "berg"
+      ],
+      "ranks": [
+        399,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "rumiko takahashi"
+      ],
+      "ranks": [
+        434,
+        877
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hafez",
+      "variants": [
+        "hafez",
+        "abdel halim hafez"
+      ],
+      "ranks": [
+        452,
+        855
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pele",
+      "variants": [
+        "pele",
+        "bede",
+        "adele"
+      ],
+      "ranks": [
+        460,
+        694,
+        812
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nero",
+      "variants": [
+        "nero",
+        "berg"
+      ],
+      "ranks": [
+        519,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "draco",
+      "variants": [
+        "draco",
+        "drake"
+      ],
+      "ranks": [
+        677,
+        819
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bede",
+      "variants": [
+        "bede",
+        "berg"
+      ],
+      "ranks": [
+        694,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "weber",
+      "variants": [
+        "weber",
+        "webern"
+      ],
+      "ranks": [
+        733,
+        752
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "schoenberg",
+      "variants": [
+        "schoenberg",
+        "berg"
+      ],
+      "ranks": [
+        750,
+        751
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "berg",
+      "variants": [
+        "berg",
+        "steven spielberg"
+      ],
+      "ranks": [
+        751,
+        951
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "strauss i",
+      "variants": [
+        "strauss i",
+        "strauss ii"
+      ],
+      "ranks": [
+        773,
+        774
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher;",
+      "startRank": 682,
+      "endRank": 692,
+      "count": 11,
+      "examples": [
+        "682. Demosthenes",
+        "683. Isocrates",
+        "684. Epicurus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher;",
+      "startRank": 684,
+      "endRank": 693,
+      "count": 10,
+      "examples": [
+        "684. Epicurus",
+        "685. Zeno of Citium",
+        "686. Diogenes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher;",
+      "startRank": 684,
+      "endRank": 694,
+      "count": 11,
+      "examples": [
+        "684. Epicurus",
+        "685. Zeno of Citium",
+        "686. Diogenes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer;",
+      "startRank": 719,
+      "endRank": 755,
+      "count": 37,
+      "examples": [
+        "719. Giorgio Vasari",
+        "720. Benvenuto Cellini",
+        "721. Palestrina"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer;",
+      "startRank": 721,
+      "endRank": 758,
+      "count": 38,
+      "examples": [
+        "721. Palestrina",
+        "722. Monteverdi",
+        "723. Corelli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer;",
+      "startRank": 721,
+      "endRank": 776,
+      "count": 56,
+      "examples": [
+        "721. Palestrina",
+        "722. Monteverdi",
+        "723. Corelli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer;",
+      "startRank": 760,
+      "endRank": 777,
+      "count": 18,
+      "examples": [
+        "760. Stockhausen",
+        "761. Xenakis",
+        "762. Ligeti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer;",
+      "startRank": 760,
+      "endRank": 779,
+      "count": 20,
+      "examples": [
+        "760. Stockhausen",
+        "761. Xenakis",
+        "762. Ligeti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 779,
+      "endRank": 805,
+      "count": 27,
+      "examples": [
+        "779. Scott Joplin",
+        "780. Jelly Roll Morton",
+        "781. W.C. Handy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 782,
+      "endRank": 807,
+      "count": 26,
+      "examples": [
+        "782. Robert Johnson",
+        "783. Muddy Waters",
+        "784. Howlin' Wolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 782,
+      "endRank": 808,
+      "count": 27,
+      "examples": [
+        "782. Robert Johnson",
+        "783. Muddy Waters",
+        "784. Howlin' Wolf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 810,
+      "endRank": 826,
+      "count": 17,
+      "examples": [
+        "810. Beyoncé",
+        "811. Taylor Swift",
+        "812. Adele"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 816,
+      "endRank": 827,
+      "count": 12,
+      "examples": [
+        "816. Justin Timberlake",
+        "817. Bruno Mars",
+        "818. Ed Sheeran"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 816,
+      "endRank": 830,
+      "count": 15,
+      "examples": [
+        "816. Justin Timberlake",
+        "817. Bruno Mars",
+        "818. Ed Sheeran"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 832,
+      "endRank": 842,
+      "count": 11,
+      "examples": [
+        "832. Ricky Martin",
+        "833. Enrique Iglesias",
+        "834. Gloria Estefan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musician;",
+      "startRank": 837,
+      "endRank": 849,
+      "count": 13,
+      "examples": [
+        "837. Tito Puente",
+        "838. Carlos Santana",
+        "839. Bob Marley"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "singer;",
+      "startRank": 850,
+      "endRank": 861,
+      "count": 12,
+      "examples": [
+        "850. Lata Mangeshkar",
+        "851. A.R. Rahman",
+        "852. Nusrat Fateh Ali Khan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "singer;",
+      "startRank": 852,
+      "endRank": 865,
+      "count": 14,
+      "examples": [
+        "852. Nusrat Fateh Ali Khan",
+        "853. Fairuz",
+        "854. Umm Kulthum"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer;",
+      "startRank": 915,
+      "endRank": 948,
+      "count": 34,
+      "examples": [
+        "915. Walt Disney",
+        "916. Stan Lee",
+        "917. Jack Kirby"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer;",
+      "startRank": 918,
+      "endRank": 949,
+      "count": 32,
+      "examples": [
+        "918. Alan Moore",
+        "919. Neil Gaiman",
+        "920. Stephen King"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer;",
+      "startRank": 918,
+      "endRank": 950,
+      "count": 33,
+      "examples": [
+        "918. Alan Moore",
+        "919. Neil Gaiman",
+        "920. Stephen King"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker;",
+      "startRank": 948,
+      "endRank": 961,
+      "count": 14,
+      "examples": [
+        "948. Douglas Adams",
+        "949. Gene Roddenberry",
+        "950. George Lucas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker;",
+      "startRank": 950,
+      "endRank": 984,
+      "count": 35,
+      "examples": [
+        "950. George Lucas",
+        "951. Steven Spielberg",
+        "952. James Cameron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker;",
+      "startRank": 963,
+      "endRank": 985,
+      "count": 23,
+      "examples": [
+        "963. Woody Allen",
+        "964. Spike Lee",
+        "965. Pedro Almodovar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker;",
+      "startRank": 963,
+      "endRank": 986,
+      "count": 24,
+      "examples": [
+        "963. Woody Allen",
+        "964. Spike Lee",
+        "965. Pedro Almodovar"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 97,
+      "Asia": 29,
+      "Middle East": 26,
+      "Africa": 10,
+      "Americas": 39,
+      "Oceania": 0,
+      "Unknown": 799
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 103,
+      "Science/Technology": 68,
+      "Philosophy/Religion": 102,
+      "Arts/Literature": 323,
+      "Military": 15,
+      "Other": 389
+    }
+  },
+  "summary": "Issues: 55 exact duplicates; pattern collapse (max 56)"
+}

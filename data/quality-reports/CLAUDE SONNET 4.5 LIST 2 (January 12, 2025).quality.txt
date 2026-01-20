@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE SONNET 4.5 LIST 2 (January 12, 2025).txt
+Model: CLAUDE SONNET 4.5
+Timestamp: 2026-01-19T06:54:10.868Z
+
+VERDICT: FAIL
+
+Summary: Issues: 72 exact duplicates
+
+Scores:
+  Repetition: FAIL - 72 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (81):
+  - Exact duplicate: "charles darwin" at ranks 8, 370
+  - Exact duplicate: "louis pasteur" at ranks 19, 382
+  - Exact duplicate: "john locke" at ranks 22, 179, 278, 458, 540
+  - Exact duplicate: "voltaire" at ranks 41, 283
+  - Exact duplicate: "max planck" at ranks 49, 801
+  - Exact duplicate: "john calvin" at ranks 67, 234, 620
+  - Exact duplicate: "akbar the great" at ranks 68, 650
+  - Exact duplicate: "david hume" at ranks 70, 618
+  - Exact duplicate: "hammurabi" at ranks 77, 538
+  - Exact duplicate: "ferdinand magellan" at ranks 83, 369
+  ... and 71 more issues
+
+Diversity Estimates:
+  Regions: Europe: 127, Asia: 24, Middle East: 34, Africa: 20, Americas: 29, Unknown: 766
+  Domains: Politics/Leadership: 25, Science/Technology: 14, Philosophy/Religion: 26, Arts/Literature: 37, Military: 17, Other: 881

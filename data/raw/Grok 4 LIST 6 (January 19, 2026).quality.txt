@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 6 (January 19, 2026).txt
+Model: x-ai/grok-4
+Timestamp: 2026-01-19T19:47:15.075Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 9 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 28 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (88):
+  - Exact duplicate: "genghis khan" at ranks 13, 309
+  - Exact duplicate: "noam chomsky" at ranks 159, 437
+  - Exact duplicate: "ts eliot" at ranks 247, 951
+  - Exact duplicate: "langston hughes" at ranks 250, 957
+  - Exact duplicate: "max weber" at ranks 451, 499
+  - Exact duplicate: "eddie murphy" at ranks 548, 818
+  - Exact duplicate: "tina fey" at ranks 551, 832
+  - Exact duplicate: "amy poehler" at ranks 552, 833
+  - Exact duplicate: "satyajit ray" at ranks 646, 696
+  - Fuzzy duplicate: muhammad / muhammad ali at ranks 2, 565
+  ... and 78 more issues
+
+Diversity Estimates:
+  Regions: Europe: 40, Asia: 26, Middle East: 8, Africa: 12, Americas: 22, Unknown: 892
+  Domains: Politics/Leadership: 109, Science/Technology: 85, Philosophy/Religion: 70, Arts/Literature: 194, Military: 5, Other: 537

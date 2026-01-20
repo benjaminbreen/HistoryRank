@@ -1,7 +1,7 @@
 'use client';
 
 import { Instrument_Sans } from 'next/font/google';
-import { Menu, SlidersHorizontal } from 'lucide-react';
+import { Menu, SlidersHorizontal, Download, FileJson } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -229,6 +229,36 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                   onCheckedChange={(checked) => onChange({ showViews: checked })}
                 />
               </label>
+            </div>
+          </section>
+          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+            <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Export Data</h3>
+            <p className="text-xs text-stone-500 dark:text-slate-400">Download for research and analysis.</p>
+            <div className="mt-3 space-y-2">
+              <a
+                href="/api/export/figures?format=csv"
+                download
+                className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Figures (CSV)
+              </a>
+              <a
+                href="/api/export/rankings?format=csv"
+                download
+                className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Raw Rankings (CSV)
+              </a>
+              <a
+                href="/api/export/figures?format=json"
+                target="_blank"
+                className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+              >
+                <FileJson className="h-3.5 w-3.5" />
+                JSON API
+              </a>
             </div>
           </section>
         </div>

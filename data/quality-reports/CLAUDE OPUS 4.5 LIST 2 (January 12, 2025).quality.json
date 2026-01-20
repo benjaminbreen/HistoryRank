@@ -1,0 +1,771 @@
+{
+  "file": "CLAUDE OPUS 4.5 LIST 2 (January 12, 2025).txt",
+  "model": "CLAUDE OPUS 4.5",
+  "timestamp": "2026-01-19T06:54:08.968Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 5,
+      "fuzzy": 50,
+      "status": "PASS",
+      "details": "5 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 18,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 931,
+          "endRank": 942,
+          "count": 12,
+          "examples": [
+            "931. Eileen Chang",
+            "932. Banana Yoshimoto",
+            "933. Yoko Ogawa"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 934,
+          "endRank": 943,
+          "count": 10,
+          "examples": [
+            "934. Kim Ji-young (authors collective)",
+            "935. Han Kang",
+            "936. Pramoedya Ananta Toer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 934,
+          "endRank": 944,
+          "count": 11,
+          "examples": [
+            "934. Kim Ji-young (authors collective)",
+            "935. Han Kang",
+            "936. Pramoedya Ananta Toer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fiction",
+          "startRank": 963,
+          "endRank": 976,
+          "count": 14,
+          "examples": [
+            "963. Chimamanda Ngozi Adichie",
+            "964. NoViolet Bulawayo",
+            "965. Teju Cole"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fiction",
+          "startRank": 967,
+          "endRank": 983,
+          "count": 17,
+          "examples": [
+            "967. Dinaw Mengestu",
+            "968. Maaza Mengiste",
+            "969. Yaa Gyasi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fiction",
+          "startRank": 967,
+          "endRank": 984,
+          "count": 18,
+          "examples": [
+            "967. Dinaw Mengestu",
+            "968. Maaza Mengiste",
+            "969. Yaa Gyasi"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 18 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "hitler"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "lao she",
+      "ranks": [
+        179,
+        927
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "naguib mahfouz",
+      "ranks": [
+        502,
+        911
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salman rushdie",
+      "ranks": [
+        548,
+        920
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james baldwin",
+      "ranks": [
+        686,
+        886
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "margaret atwood",
+      "ranks": [
+        882,
+        945
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali",
+        "muhammad yunus",
+        "muhammad iqbal"
+      ],
+      "ranks": [
+        2,
+        728,
+        770,
+        915
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aristotle",
+      "variants": [
+        "aristotle",
+        "aristotles teacher ammonius saccas"
+      ],
+      "ranks": [
+        8,
+        79
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        19,
+        193
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "laozi",
+      "variants": [
+        "laozi",
+        "mozi"
+      ],
+      "ranks": [
+        22,
+        289
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham lincoln"
+      ],
+      "ranks": [
+        24,
+        54
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas edison",
+      "variants": [
+        "thomas edison",
+        "nikola teslas rival thomas edison"
+      ],
+      "ranks": [
+        28,
+        562
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikola tesla",
+      "variants": [
+        "nikola tesla",
+        "nikola teslas rival thomas edison",
+        "nikola teslas rival george westinghouse"
+      ],
+      "ranks": [
+        37,
+        562,
+        730
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gregor mendel",
+      "variants": [
+        "gregor mendel",
+        "gregor mendels rediscoverer hugo de vries"
+      ],
+      "ranks": [
+        74,
+        649
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikita khrushchev",
+      "variants": [
+        "nikita khrushchev",
+        "nikita khrushchevs rival lavrentiy beria"
+      ],
+      "ranks": [
+        90,
+        425
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "saladin",
+      "variants": [
+        "saladin",
+        "saladins vizier alqadi alfadil"
+      ],
+      "ranks": [
+        97,
+        471
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ptolemy",
+      "variants": [
+        "ptolemy",
+        "claudius ptolemy"
+      ],
+      "ranks": [
+        116,
+        260
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "woodrow wilson",
+      "variants": [
+        "woodrow wilson",
+        "woodrow wilsons advisor edward house"
+      ],
+      "ranks": [
+        126,
+        655
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "herodotus",
+      "variants": [
+        "herodotus",
+        "herodotus contemporary hecataeus"
+      ],
+      "ranks": [
+        135,
+        667
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramanujan",
+      "variants": [
+        "ramanujan",
+        "srinivasa ramanujan"
+      ],
+      "ranks": [
+        142,
+        446
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kemal atatrk",
+      "variants": [
+        "kemal atatrk",
+        "mustafa kemal atatrk"
+      ],
+      "ranks": [
+        146,
+        299
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nelson mandela",
+      "variants": [
+        "nelson mandela",
+        "nelson mandelas predecessor walter sisulu"
+      ],
+      "ranks": [
+        155,
+        568
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "maimonides",
+      "variants": [
+        "maimonides",
+        "maimonides student joseph ben judah",
+        "maimonides predecessor saadia gaon"
+      ],
+      "ranks": [
+        161,
+        522,
+        597
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rachel carson",
+      "variants": [
+        "rachel carson",
+        "rachel carsons mentor william beebe"
+      ],
+      "ranks": [
+        165,
+        423
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jonas salk",
+      "variants": [
+        "jonas salk",
+        "jonas salks rival albert sabin"
+      ],
+      "ranks": [
+        177,
+        455
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert boyle",
+      "variants": [
+        "robert boyle",
+        "robert noyce"
+      ],
+      "ranks": [
+        191,
+        772
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rabindranath tagore",
+      "variants": [
+        "rabindranath tagore",
+        "rabindranath tagores father debendranath tagore",
+        "rabindranath tagores contemporary bankim chandra chattopadhyay"
+      ],
+      "ranks": [
+        192,
+        539,
+        569
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "cicero",
+      "variants": [
+        "cicero",
+        "ciceros student marcus caelius rufus",
+        "marcus tullius cicero"
+      ],
+      "ranks": [
+        195,
+        404,
+        642
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jawaharlal nehru",
+      "variants": [
+        "jawaharlal nehru",
+        "jawaharlal nehrus father motilal nehru"
+      ],
+      "ranks": [
+        215,
+        323
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "dmitri mendeleev",
+      "variants": [
+        "dmitri mendeleev",
+        "dmitri mendeleevs contemporary lothar meyer"
+      ],
+      "ranks": [
+        217,
+        633
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ho chi minh",
+      "variants": [
+        "ho chi minh",
+        "ho chi minhs general vo nguyen giap"
+      ],
+      "ranks": [
+        220,
+        420
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johannes kepler",
+      "variants": [
+        "johannes kepler",
+        "tycho brahes assistant johannes kepler"
+      ],
+      "ranks": [
+        225,
+        354
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "seneca",
+      "variants": [
+        "seneca",
+        "seneca the younger",
+        "seneca falls organizer elizabeth cady stanton"
+      ],
+      "ranks": [
+        226,
+        249,
+        377
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sitting bull",
+      "variants": [
+        "sitting bull",
+        "sitting bulls ally crazy horse"
+      ],
+      "ranks": [
+        233,
+        353
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "erasmus",
+      "variants": [
+        "erasmus",
+        "desiderius erasmus",
+        "erasmus darwin"
+      ],
+      "ranks": [
+        238,
+        537,
+        671
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "avogadro",
+      "variants": [
+        "avogadro",
+        "amedeo avogadro"
+      ],
+      "ranks": [
+        251,
+        460
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tycho brahe",
+      "variants": [
+        "tycho brahe",
+        "tycho brahes assistant johannes kepler"
+      ],
+      "ranks": [
+        276,
+        354
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mile durkheim",
+      "variants": [
+        "mile durkheim",
+        "mile durkheims student marcel mauss"
+      ],
+      "ranks": [
+        292,
+        476
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward said",
+      "variants": [
+        "edward said",
+        "edward sapir"
+      ],
+      "ranks": [
+        307,
+        741
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hannah arendt",
+      "variants": [
+        "hannah arendt",
+        "hannah arendts teacher martin heidegger"
+      ],
+      "ranks": [
+        340,
+        581
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ansel adams",
+      "variants": [
+        "ansel adams",
+        "ansel adams mentor alfred stieglitz"
+      ],
+      "ranks": [
+        373,
+        676
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "fridtjof nansen",
+      "variants": [
+        "fridtjof nansen",
+        "fridtjof nansens explorer contemporary roald amundsen"
+      ],
+      "ranks": [
+        390,
+        656
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernando de soto",
+      "variants": [
+        "hernando de soto",
+        "hernando de soto economist"
+      ],
+      "ranks": [
+        429,
+        769
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "carl sagan",
+      "variants": [
+        "carl sagan",
+        "carl sagans contemporary frank drake"
+      ],
+      "ranks": [
+        495,
+        805
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "emil kraepelin",
+      "variants": [
+        "emil kraepelin",
+        "pel"
+      ],
+      "ranks": [
+        600,
+        729
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kenzabur e",
+      "variants": [
+        "kenzabur e",
+        "kenzaburo oe"
+      ],
+      "ranks": [
+        608,
+        925
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vandana shiva",
+      "variants": [
+        "vandana shiva",
+        "vandana shivas contemporary medha patkar"
+      ],
+      "ranks": [
+        848,
+        856
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vs naipaul",
+      "variants": [
+        "vs naipaul",
+        "vs naipauls brother shiva naipaul"
+      ],
+      "ranks": [
+        905,
+        921
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 931,
+      "endRank": 942,
+      "count": 12,
+      "examples": [
+        "931. Eileen Chang",
+        "932. Banana Yoshimoto",
+        "933. Yoko Ogawa"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 934,
+      "endRank": 943,
+      "count": 10,
+      "examples": [
+        "934. Kim Ji-young (authors collective)",
+        "935. Han Kang",
+        "936. Pramoedya Ananta Toer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 934,
+      "endRank": 944,
+      "count": 11,
+      "examples": [
+        "934. Kim Ji-young (authors collective)",
+        "935. Han Kang",
+        "936. Pramoedya Ananta Toer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fiction",
+      "startRank": 963,
+      "endRank": 976,
+      "count": 14,
+      "examples": [
+        "963. Chimamanda Ngozi Adichie",
+        "964. NoViolet Bulawayo",
+        "965. Teju Cole"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fiction",
+      "startRank": 967,
+      "endRank": 983,
+      "count": 17,
+      "examples": [
+        "967. Dinaw Mengestu",
+        "968. Maaza Mengiste",
+        "969. Yaa Gyasi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fiction",
+      "startRank": 967,
+      "endRank": 984,
+      "count": 18,
+      "examples": [
+        "967. Dinaw Mengestu",
+        "968. Maaza Mengiste",
+        "969. Yaa Gyasi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 98,
+      "Asia": 63,
+      "Middle East": 38,
+      "Africa": 30,
+      "Americas": 39,
+      "Oceania": 0,
+      "Unknown": 732
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 15,
+      "Science/Technology": 12,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 33,
+      "Military": 8,
+      "Other": 916
+    }
+  },
+  "summary": "List passes all quality checks"
+}

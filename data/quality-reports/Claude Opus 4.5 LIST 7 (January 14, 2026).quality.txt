@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 7 (January 14, 2026).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-01-19T06:54:13.263Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 8 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 15 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (38):
+  - Exact duplicate: "michael faraday" at ranks 32, 223
+  - Exact duplicate: "dwight d eisenhower" at ranks 298, 383
+  - Exact duplicate: "charles de gaulle" at ranks 305, 748
+  - Exact duplicate: "sukarno" at ranks 320, 337
+  - Exact duplicate: "cs lewis" at ranks 488, 794
+  - Exact duplicate: "erving goffman" at ranks 634, 705
+  - Exact duplicate: "maxim gorky" at ranks 773, 781
+  - Exact duplicate: "edgar allan poe" at ranks 799, 820
+  - Fuzzy duplicate: muhammad / muhammad yunus / muhammad ali jinnah at ranks 1, 278, 331
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 22, 78
+  ... and 28 more issues
+
+Diversity Estimates:
+  Regions: Europe: 116, Asia: 49, Middle East: 16, Africa: 20, Americas: 43, Unknown: 756
+  Domains: Politics/Leadership: 44, Science/Technology: 17, Philosophy/Religion: 16, Arts/Literature: 39, Military: 19, Other: 865

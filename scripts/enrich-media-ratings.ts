@@ -30,6 +30,12 @@ type MediaItem = {
   rating_raw_scale?: number | null;
   rating_normalized?: number | null;
   rating_count?: number | null;
+  // Book-specific fields
+  authors?: string[] | null;
+  publisher?: string | null;
+  page_count?: number | null;
+  genres?: string[] | null;
+  language?: string | null;
 };
 
 type RatingRecord = {
@@ -39,6 +45,16 @@ type RatingRecord = {
   rating_normalized: number;
   rating_count?: number | null;
 };
+
+type BookMetadata = {
+  authors?: string[] | null;
+  publisher?: string | null;
+  page_count?: number | null;
+  genres?: string[] | null;
+  language?: string | null;
+};
+
+type BookEnrichment = RatingRecord & BookMetadata;
 
 const MEDIA_PATH = path.join(process.cwd(), 'data', 'raw', 'media', 'ucsc-history-media.jsonl');
 const CACHE_PATH = path.join(process.cwd(), 'data', 'cache', 'media-ratings.json');
@@ -156,7 +172,38 @@ async function fetchTmdbRating(item: MediaItem): Promise<RatingRecord | null> {
   };
 }
 
-async function fetchGoogleBooksRating(item: MediaItem): Promise<RatingRecord | null> {
+// Language code mapping for common Google Books language codes
+const LANGUAGE_NAMES: Record<string, string> = {
+  en: 'English',
+  es: 'Spanish',
+  fr: 'French',
+  de: 'German',
+  it: 'Italian',
+  pt: 'Portuguese',
+  ru: 'Russian',
+  ja: 'Japanese',
+  zh: 'Chinese',
+  ko: 'Korean',
+  ar: 'Arabic',
+  nl: 'Dutch',
+  pl: 'Polish',
+  sv: 'Swedish',
+  da: 'Danish',
+  no: 'Norwegian',
+  fi: 'Finnish',
+  el: 'Greek',
+  he: 'Hebrew',
+  tr: 'Turkish',
+  hi: 'Hindi',
+  la: 'Latin',
+};
+
+function getLanguageName(code?: string): string | null {
+  if (!code) return null;
+  return LANGUAGE_NAMES[code.toLowerCase()] ?? code.toUpperCase();
+}
+
+async function fetchGoogleBooksData(item: MediaItem): Promise<BookEnrichment | null> {
   const apiKey = getEnv('GOOGLE_BOOKS_API_KEY');
   const query = encodeURIComponent(`intitle:${item.title}`);
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5&key=${apiKey}`;
@@ -181,7 +228,31 @@ async function fetchGoogleBooksRating(item: MediaItem): Promise<RatingRecord | n
 
   scored.sort((a, b) => b.score - a.score);
   const best = scored[0]?.entry?.volumeInfo;
-  if (!best || typeof best.averageRating !== 'number') return null;
+  if (!best) return null;
+
+  // Extract book metadata
+  const authors = Array.isArray(best.authors) && best.authors.length > 0 ? best.authors : null;
+  const publisher = typeof best.publisher === 'string' ? best.publisher : null;
+  const page_count = typeof best.pageCount === 'number' ? best.pageCount : null;
+  const genres = Array.isArray(best.categories) && best.categories.length > 0 ? best.categories : null;
+  const language = getLanguageName(best.language);
+
+  // Check if we have a rating
+  if (typeof best.averageRating !== 'number') {
+    // Return metadata only, no rating
+    return {
+      rating_source: 'googlebooks',
+      rating_raw_value: 0,
+      rating_raw_scale: 5,
+      rating_normalized: 0,
+      rating_count: null,
+      authors,
+      publisher,
+      page_count,
+      genres,
+      language,
+    };
+  }
 
   const rating_raw_value = Number(best.averageRating);
   const rating_count = typeof best.ratingsCount === 'number' ? best.ratingsCount : null;
@@ -191,18 +262,144 @@ async function fetchGoogleBooksRating(item: MediaItem): Promise<RatingRecord | n
     rating_raw_scale: 5,
     rating_normalized: toNormalized(rating_raw_value, 5),
     rating_count,
+    authors,
+    publisher,
+    page_count,
+    genres,
+    language,
   };
 }
 
-async function getRating(item: MediaItem): Promise<RatingRecord | null> {
+async function fetchOpenLibraryData(item: MediaItem): Promise<BookEnrichment | null> {
+  // Search for the book
+  const query = encodeURIComponent(item.title);
+  const searchUrl = `https://openlibrary.org/search.json?title=${query}&limit=5`;
+  const searchJson = await fetchJson(searchUrl);
+  const docs = searchJson.docs ?? [];
+  if (!docs.length) return null;
+
+  const normalizedTitle = normalizeTitle(item.title);
+  const scored = docs.map((doc: any) => {
+    const candidateTitle = normalizeTitle(doc.title || '');
+    let score = 0;
+    if (candidateTitle === normalizedTitle) score += 3;
+    if (candidateTitle.includes(normalizedTitle) || normalizedTitle.includes(candidateTitle)) score += 1;
+    if (item.release_year && doc.first_publish_year) {
+      if (doc.first_publish_year === item.release_year) score += 2;
+    }
+    score += (doc.ratings_count ?? 0) / 1000;
+    return { doc, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  const best = scored[0]?.doc;
+  if (!best?.key) return null;
+
+  // Extract metadata from search results
+  const authors = Array.isArray(best.author_name) && best.author_name.length > 0 ? best.author_name : null;
+  const publisher = Array.isArray(best.publisher) && best.publisher.length > 0 ? best.publisher[0] : null;
+  const page_count = typeof best.number_of_pages_median === 'number' ? best.number_of_pages_median : null;
+  const genres = Array.isArray(best.subject) && best.subject.length > 0 ? best.subject.slice(0, 5) : null;
+  const language = Array.isArray(best.language) && best.language.length > 0
+    ? getLanguageName(best.language[0])
+    : null;
+
+  // Fetch ratings for this work
+  const workKey = best.key; // e.g., "/works/OL45804W"
+  const ratingsUrl = `https://openlibrary.org${workKey}/ratings.json`;
+
+  try {
+    const ratingsJson = await fetchJson(ratingsUrl);
+    const summary = ratingsJson.summary;
+
+    if (!summary || typeof summary.average !== 'number' || summary.average === 0) {
+      // Return metadata only, no rating
+      return {
+        rating_source: 'openlibrary',
+        rating_raw_value: 0,
+        rating_raw_scale: 5,
+        rating_normalized: 0,
+        rating_count: null,
+        authors,
+        publisher,
+        page_count,
+        genres,
+        language,
+      };
+    }
+
+    const rating_raw_value = Number(summary.average);
+    const rating_count = typeof summary.count === 'number' ? summary.count : null;
+    return {
+      rating_source: 'openlibrary',
+      rating_raw_value,
+      rating_raw_scale: 5,
+      rating_normalized: toNormalized(rating_raw_value, 5),
+      rating_count,
+      authors,
+      publisher,
+      page_count,
+      genres,
+      language,
+    };
+  } catch {
+    // Return metadata even if ratings fetch fails
+    return {
+      rating_source: 'openlibrary',
+      rating_raw_value: 0,
+      rating_raw_scale: 5,
+      rating_normalized: 0,
+      rating_count: null,
+      authors,
+      publisher,
+      page_count,
+      genres,
+      language,
+    };
+  }
+}
+
+async function getEnrichment(item: MediaItem): Promise<RatingRecord | BookEnrichment | null> {
   const category = getCategory(item.type);
   if (category === 'film' || category === 'tv' || category === 'documentary') {
     return await fetchTmdbRating(item);
   }
   if (category === 'book') {
-    return await fetchGoogleBooksRating(item);
+    // Try Google Books first for metadata and rating
+    const googleData = await fetchGoogleBooksData(item);
+    if (googleData) {
+      // If Google Books has a rating, use it
+      if (googleData.rating_normalized > 0) {
+        return googleData;
+      }
+      // If no rating but has metadata, try Open Library for rating
+      const openLibraryData = await fetchOpenLibraryData(item);
+      if (openLibraryData && openLibraryData.rating_normalized > 0) {
+        // Merge: prefer Google Books metadata, use Open Library rating
+        return {
+          ...openLibraryData,
+          authors: googleData.authors ?? openLibraryData.authors,
+          publisher: googleData.publisher ?? openLibraryData.publisher,
+          page_count: googleData.page_count ?? openLibraryData.page_count,
+          genres: googleData.genres ?? openLibraryData.genres,
+          language: googleData.language ?? openLibraryData.language,
+        };
+      }
+      // Return Google Books data even without rating (has metadata)
+      return googleData;
+    }
+    // Fallback to Open Library entirely
+    return await fetchOpenLibraryData(item);
   }
   return null;
+}
+
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function hasBookMetadata(item: MediaItem): boolean {
+  return Boolean(item.authors && item.authors.length > 0);
 }
 
 async function main() {
@@ -216,42 +413,92 @@ async function main() {
   const updated: string[] = [];
   let updatedCount = 0;
   let skipped = 0;
+  let apiCalls = 0;
 
   for (const line of lines) {
     const item = JSON.parse(line) as MediaItem;
     const id = item.id ?? slugify(item.title);
-    if (item.rating_normalized) {
+    const category = getCategory(item.type);
+    const isBook = category === 'book';
+
+    // Skip if already has rating (and for books, also has metadata)
+    if (item.rating_normalized && (!isBook || hasBookMetadata(item))) {
       updated.push(JSON.stringify(item));
       skipped++;
       continue;
     }
 
-    if (cache[id]) {
-      updated.push(JSON.stringify({ ...item, ...cache[id] }));
-      updatedCount++;
-      continue;
+    // For non-books: check cache
+    if (!isBook) {
+      const cachedRating = cache[id];
+      if (cachedRating) {
+        updated.push(JSON.stringify({ ...item, ...cachedRating }));
+        updatedCount++;
+        continue;
+      }
     }
 
     try {
-      const rating = await getRating(item);
-      if (rating) {
-        cache[id] = rating;
-        updated.push(JSON.stringify({ ...item, ...rating }));
+      // Rate limit: wait 500ms between API calls to avoid 429 errors
+      if (apiCalls > 0) {
+        await delay(500);
+      }
+      apiCalls++;
+
+      const enrichment = await getEnrichment(item);
+      if (enrichment) {
+        // For non-books, cache the rating
+        if (!isBook) {
+          cache[id] = enrichment as RatingRecord;
+        }
+
+        // Build the enriched item, filtering out zero ratings
+        const enrichedItem = { ...item };
+        if (enrichment.rating_normalized > 0) {
+          enrichedItem.rating_source = enrichment.rating_source;
+          enrichedItem.rating_raw_value = enrichment.rating_raw_value;
+          enrichedItem.rating_raw_scale = enrichment.rating_raw_scale;
+          enrichedItem.rating_normalized = enrichment.rating_normalized;
+          enrichedItem.rating_count = enrichment.rating_count;
+        }
+
+        // Add book metadata if present
+        if ('authors' in enrichment) {
+          const bookData = enrichment as BookEnrichment;
+          if (bookData.authors) enrichedItem.authors = bookData.authors;
+          if (bookData.publisher) enrichedItem.publisher = bookData.publisher;
+          if (bookData.page_count) enrichedItem.page_count = bookData.page_count;
+          if (bookData.genres) enrichedItem.genres = bookData.genres;
+          if (bookData.language) enrichedItem.language = bookData.language;
+        }
+
+        updated.push(JSON.stringify(enrichedItem));
         updatedCount++;
+
+        const ratingInfo = enrichment.rating_normalized > 0
+          ? `${enrichment.rating_normalized}/10`
+          : 'no rating';
+        const metaInfo = 'authors' in enrichment && enrichment.authors
+          ? `, author: ${enrichment.authors[0]}`
+          : '';
+        console.log(`✓ ${item.title}: ${ratingInfo} (${enrichment.rating_source})${metaInfo}`);
       } else {
         updated.push(JSON.stringify(item));
         skipped++;
+        console.log(`○ ${item.title}: no data found`);
       }
     } catch (error) {
-      console.error(`Failed rating lookup for ${item.title}:`, error);
+      console.error(`✗ ${item.title}: ${(error as Error).message}`);
       updated.push(JSON.stringify(item));
       skipped++;
+      // Wait longer after an error
+      await delay(2000);
     }
   }
 
   fs.writeFileSync(MEDIA_PATH, `${updated.join('\n')}\n`);
   saveCache(cache);
-  console.log(`Ratings updated: ${updatedCount}, skipped: ${skipped}`);
+  console.log(`Enrichment complete: ${updatedCount} updated, ${skipped} skipped`);
 }
 
 main().catch((error) => {

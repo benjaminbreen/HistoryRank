@@ -1,0 +1,1172 @@
+{
+  "file": "CLAUDE SONNET 4.5 LIST 4 (January 12, 2025).txt",
+  "model": "CLAUDE SONNET 4.5",
+  "timestamp": "2026-01-19T06:54:11.364Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 58,
+      "fuzzy": 69,
+      "status": "FAIL",
+      "details": "58 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 41,
+      "expected": 43,
+      "missing": [
+        "homer",
+        "hitler"
+      ],
+      "status": "PASS",
+      "details": "41/43 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        14,
+        139
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis pasteur",
+      "ranks": [
+        25,
+        512,
+        574
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas edison",
+      "ranks": [
+        28,
+        773
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicolaus copernicus",
+      "ranks": [
+        29,
+        302,
+        600,
+        726
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james watt",
+      "ranks": [
+        30,
+        393
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john locke",
+      "ranks": [
+        37,
+        310,
+        710
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ren descartes",
+      "ranks": [
+        44,
+        327
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        59,
+        504
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hammurabi",
+      "ranks": [
+        61,
+        202
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernn corts",
+      "ranks": [
+        62,
+        570,
+        662,
+        669,
+        739,
+        788,
+        802
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marie curie",
+      "ranks": [
+        67,
+        697
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "otto von bismarck",
+      "ranks": [
+        72,
+        903
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vasco da gama",
+      "ranks": [
+        76,
+        691
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hannibal barca",
+      "ranks": [
+        85,
+        796
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ferdinand magellan",
+      "ranks": [
+        102,
+        733
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "justinian i",
+      "ranks": [
+        103,
+        378
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "oliver cromwell",
+      "ranks": [
+        106,
+        815
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john calvin",
+      "ranks": [
+        116,
+        550
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernando de soto",
+      "ranks": [
+        120,
+        529,
+        649
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maimonides",
+      "ranks": [
+        121,
+        729
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mile durkheim",
+      "ranks": [
+        153,
+        301
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roger bacon",
+      "ranks": [
+        156,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jan hus",
+      "ranks": [
+        159,
+        769
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodor herzl",
+      "ranks": [
+        162,
+        463
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john stuart mill",
+      "ranks": [
+        172,
+        517
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "epicurus",
+      "ranks": [
+        179,
+        347
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "arthur schopenhauer",
+      "ranks": [
+        188,
+        373
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giuseppe verdi",
+      "ranks": [
+        200,
+        639
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hatshepsut",
+      "ranks": [
+        207,
+        314
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "godfrey of bouillon",
+      "ranks": [
+        216,
+        899,
+        938
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "montezuma ii",
+      "ranks": [
+        225,
+        606
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mile zola",
+      "ranks": [
+        263,
+        585
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodora",
+      "ranks": [
+        281,
+        676
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giuseppe mazzini",
+      "ranks": [
+        311,
+        657
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paracelsus",
+      "ranks": [
+        334,
+        380
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kwame nkrumah",
+      "ranks": [
+        397,
+        641
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dag hammarskjld",
+      "ranks": [
+        428,
+        768
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hubert humphrey",
+      "ranks": [
+        430,
+        590
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "clement attlee",
+      "ranks": [
+        452,
+        730
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernando de magallanes",
+      "ranks": [
+        627,
+        785
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vespasian",
+      "ranks": [
+        682,
+        735
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru granth sahib",
+      "ranks": [
+        765,
+        874
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru ram das ji",
+      "ranks": [
+        784,
+        812
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru har krishan ji",
+      "ranks": [
+        798,
+        818
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru har rai ji",
+      "ranks": [
+        800,
+        820
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru gobind singh ji",
+      "ranks": [
+        805,
+        823
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "conrad iii",
+      "ranks": [
+        861,
+        966
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ibn musa alkhwarizmi",
+        "muhammad ali pasha",
+        "elijah muhammad",
+        "muhammad ahmad",
+        "muhammad ibn abd alwahhab"
+      ],
+      "ranks": [
+        3,
+        58,
+        95,
+        206,
+        241,
+        462
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        18,
+        650
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham lincoln"
+      ],
+      "ranks": [
+        40,
+        55
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michael faraday",
+      "variants": [
+        "michael faraday",
+        "faraday"
+      ],
+      "ranks": [
+        41,
+        714
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "akbar the great",
+      "variants": [
+        "akbar the great",
+        "akbar"
+      ],
+      "ranks": [
+        65,
+        460
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "simon bolivar",
+      "variants": [
+        "simon bolivar",
+        "simn bolvar"
+      ],
+      "ranks": [
+        89,
+        219
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramses ii",
+      "variants": [
+        "ramses ii",
+        "ramses iii",
+        "ramesses ii"
+      ],
+      "ranks": [
+        90,
+        304,
+        490
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas aquinas",
+      "variants": [
+        "thomas aquinas",
+        "saint thomas aquinas"
+      ],
+      "ranks": [
+        94,
+        500
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn sina avicenna",
+      "variants": [
+        "ibn sina avicenna",
+        "avicenna"
+      ],
+      "ranks": [
+        111,
+        136
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harun alrashid",
+      "variants": [
+        "harun alrashid",
+        "harun"
+      ],
+      "ranks": [
+        115,
+        147
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nanak",
+      "variants": [
+        "nanak",
+        "guru nanak dev",
+        "guru nanak dev ji"
+      ],
+      "ranks": [
+        125,
+        505,
+        810
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramanujan",
+      "variants": [
+        "ramanujan",
+        "srinivasa ramanujan"
+      ],
+      "ranks": [
+        141,
+        409
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john dalton",
+      "variants": [
+        "john dalton",
+        "john milton"
+      ],
+      "ranks": [
+        143,
+        178
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hannibal",
+      "variants": [
+        "hannibal",
+        "hannibal hamlin"
+      ],
+      "ranks": [
+        146,
+        567
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "averroes",
+      "variants": [
+        "averroes",
+        "ibn rushd averroes"
+      ],
+      "ranks": [
+        150,
+        431
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "babar",
+      "variants": [
+        "babar",
+        "akbar"
+      ],
+      "ranks": [
+        164,
+        460
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "amenhotep iv akhenaten",
+      "variants": [
+        "amenhotep iv akhenaten",
+        "akhenaten"
+      ],
+      "ranks": [
+        167,
+        473
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robespierre",
+      "variants": [
+        "robespierre",
+        "maximilien robespierre"
+      ],
+      "ranks": [
+        175,
+        247
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "basil ii",
+      "variants": [
+        "basil ii",
+        "basil i",
+        "emperor basil ii"
+      ],
+      "ranks": [
+        194,
+        930,
+        940
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elijah muhammad",
+      "variants": [
+        "elijah muhammad",
+        "elijah"
+      ],
+      "ranks": [
+        206,
+        760
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hector berlioz",
+      "variants": [
+        "hector berlioz",
+        "hector"
+      ],
+      "ranks": [
+        224,
+        761
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "jalaluddin rumi",
+        "rurik"
+      ],
+      "ranks": [
+        294,
+        564,
+        916
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru tegh bahadur",
+      "variants": [
+        "guru tegh bahadur",
+        "guru tegh bahadur ji"
+      ],
+      "ranks": [
+        303,
+        822
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john wycliffe",
+      "variants": [
+        "john wycliffe",
+        "wycliffe"
+      ],
+      "ranks": [
+        335,
+        525
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tacitus",
+      "variants": [
+        "tacitus",
+        "titus"
+      ],
+      "ranks": [
+        352,
+        568
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "urban ii"
+      ],
+      "ranks": [
+        369,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "shivaji",
+      "variants": [
+        "shivaji",
+        "shivaji maharaj"
+      ],
+      "ranks": [
+        395,
+        666
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent iii",
+      "variants": [
+        "pope innocent iii",
+        "innocent iii"
+      ],
+      "ranks": [
+        396,
+        847
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ferdinand ii of aragon",
+      "variants": [
+        "ferdinand ii of aragon",
+        "ferdinand i"
+      ],
+      "ranks": [
+        421,
+        774
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii",
+      "variants": [
+        "henry viii",
+        "henry iii",
+        "henry v"
+      ],
+      "ranks": [
+        456,
+        934,
+        962
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilhelm leibniz",
+      "variants": [
+        "wilhelm leibniz",
+        "gottfried wilhelm leibniz"
+      ],
+      "ranks": [
+        486,
+        667
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas more",
+      "variants": [
+        "thomas more",
+        "saint thomas more"
+      ],
+      "ranks": [
+        498,
+        755
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru nanak dev",
+      "variants": [
+        "guru nanak dev",
+        "guru nanak dev ji"
+      ],
+      "ranks": [
+        505,
+        810
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru arjan",
+      "variants": [
+        "guru arjan",
+        "guru arjan dev ji"
+      ],
+      "ranks": [
+        588,
+        814
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius ix",
+      "variants": [
+        "pope pius ix",
+        "pope pius xii",
+        "pope pius v"
+      ],
+      "ranks": [
+        636,
+        668,
+        749
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru hargobind",
+      "variants": [
+        "guru hargobind",
+        "guru hargobind ji"
+      ],
+      "ranks": [
+        658,
+        816
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru amar das",
+      "variants": [
+        "guru amar das",
+        "guru amar das ji"
+      ],
+      "ranks": [
+        677,
+        792
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru angad",
+      "variants": [
+        "guru angad",
+        "guru angad dev ji"
+      ],
+      "ranks": [
+        681,
+        795
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abelard",
+      "variants": [
+        "abelard",
+        "peter abelard"
+      ],
+      "ranks": [
+        688,
+        786
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "antonin dvok",
+      "variants": [
+        "antonin dvok",
+        "antonn dvok"
+      ],
+      "ranks": [
+        704,
+        717
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "antoninus pius",
+      "variants": [
+        "antoninus pius",
+        "emperor antoninus pius"
+      ],
+      "ranks": [
+        711,
+        906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry v of england",
+      "variants": [
+        "henry v of england",
+        "henry v"
+      ],
+      "ranks": [
+        727,
+        962
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "diocletian",
+      "variants": [
+        "diocletian",
+        "emperor diocletian"
+      ],
+      "ranks": [
+        745,
+        766
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru teg bahadur",
+      "variants": [
+        "guru teg bahadur",
+        "guru teg bahadur ji"
+      ],
+      "ranks": [
+        777,
+        808
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry vii of england",
+      "variants": [
+        "henry vii of england",
+        "henry v"
+      ],
+      "ranks": [
+        806,
+        962
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry iv of france",
+      "variants": [
+        "henry iv of france",
+        "henry iv"
+      ],
+      "ranks": [
+        819,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "banda singh bahadur",
+      "variants": [
+        "banda singh bahadur",
+        "baba banda singh bahadur"
+      ],
+      "ranks": [
+        832,
+        846
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "leo iii",
+      "variants": [
+        "leo iii",
+        "leo ix"
+      ],
+      "ranks": [
+        835,
+        988
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "otto i",
+      "variants": [
+        "otto i",
+        "otto iii"
+      ],
+      "ranks": [
+        843,
+        857
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba atal",
+      "variants": [
+        "baba atal",
+        "baba lal"
+      ],
+      "ranks": [
+        852,
+        898
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba gurditta",
+      "variants": [
+        "baba gurditta",
+        "baba gurditta ji",
+        "baba gurditta singh"
+      ],
+      "ranks": [
+        886,
+        907,
+        953
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baldwin i",
+      "variants": [
+        "baldwin i",
+        "baldwin iv"
+      ],
+      "ranks": [
+        893,
+        954
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bolesaw i",
+      "variants": [
+        "bolesaw i",
+        "bolesaw iii"
+      ],
+      "ranks": [
+        897,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "basil i",
+      "variants": [
+        "basil i",
+        "emperor basil ii"
+      ],
+      "ranks": [
+        930,
+        940
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry iii",
+      "variants": [
+        "henry iii",
+        "henry iv"
+      ],
+      "ranks": [
+        934,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry iv",
+      "variants": [
+        "henry iv",
+        "henry v"
+      ],
+      "ranks": [
+        942,
+        962
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "lothair iii",
+      "variants": [
+        "lothair iii",
+        "lothair ii"
+      ],
+      "ranks": [
+        956,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba sohan singh bhakna",
+      "variants": [
+        "baba sohan singh bhakna",
+        "baba sohan singh"
+      ],
+      "ranks": [
+        965,
+        989
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 130,
+      "Asia": 14,
+      "Middle East": 22,
+      "Africa": 15,
+      "Americas": 29,
+      "Oceania": 0,
+      "Unknown": 790
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 49,
+      "Science/Technology": 8,
+      "Philosophy/Religion": 10,
+      "Arts/Literature": 25,
+      "Military": 24,
+      "Other": 884
+    }
+  },
+  "summary": "Issues: 58 exact duplicates"
+}

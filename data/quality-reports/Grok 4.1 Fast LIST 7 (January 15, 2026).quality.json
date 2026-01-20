@@ -1,0 +1,999 @@
+{
+  "file": "Grok 4.1 Fast LIST 7 (January 15, 2026).txt",
+  "model": "Grok 4.1 Fast",
+  "timestamp": "2026-01-19T06:54:25.629Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 32,
+      "fuzzy": 27,
+      "status": "WARN",
+      "details": "32 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 21,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 478,
+          "endRank": 489,
+          "count": 12,
+          "examples": [
+            "478. Atal Bihari Vajpayee",
+            "479. Narendra Modi",
+            "480. Xi Jinping"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 480,
+          "endRank": 492,
+          "count": 13,
+          "examples": [
+            "480. Xi Jinping",
+            "481. Vladimir Putin",
+            "482. Joe Biden"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 480,
+          "endRank": 495,
+          "count": 16,
+          "examples": [
+            "480. Xi Jinping",
+            "481. Vladimir Putin",
+            "482. Joe Biden"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 491,
+          "endRank": 502,
+          "count": 12,
+          "examples": [
+            "491. John F. Kennedy",
+            "492. Dwight D. Eisenhower",
+            "493. Harry S. Truman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 494,
+          "endRank": 505,
+          "count": 12,
+          "examples": [
+            "494. Herbert Hoover",
+            "495. Calvin Coolidge",
+            "496. Woodrow Wilson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 497,
+          "endRank": 512,
+          "count": 16,
+          "examples": [
+            "497. William Howard Taft",
+            "498. William McKinley",
+            "499. Grover Cleveland"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 504,
+          "endRank": 513,
+          "count": 10,
+          "examples": [
+            "504. Andrew Johnson",
+            "505. James A. Garfield",
+            "506. James K. Polk"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 507,
+          "endRank": 519,
+          "count": 13,
+          "examples": [
+            "507. John Tyler",
+            "508. Martin Van Buren",
+            "509. Millard Fillmore"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "already",
+          "startRank": 681,
+          "endRank": 692,
+          "count": 12,
+          "examples": [
+            "681. Lynn Chadwick",
+            "682. Barbara Hepworth",
+            "683. Dame Elisabeth Frink"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "already",
+          "startRank": 684,
+          "endRank": 693,
+          "count": 10,
+          "examples": [
+            "684. Rachel Whiteread",
+            "685. Anish Kapoor",
+            "686. Antony Gormley"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "already",
+          "startRank": 684,
+          "endRank": 694,
+          "count": 11,
+          "examples": [
+            "684. Rachel Whiteread",
+            "685. Anish Kapoor",
+            "686. Antony Gormley"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photography",
+          "startRank": 706,
+          "endRank": 715,
+          "count": 10,
+          "examples": [
+            "706. Mickalene Thomas",
+            "707. LaToya Ruby Frazier",
+            "708. Deana Lawson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photography",
+          "startRank": 707,
+          "endRank": 718,
+          "count": 12,
+          "examples": [
+            "707. LaToya Ruby Frazier",
+            "708. Deana Lawson",
+            "709. Zoe Leonard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fashion",
+          "startRank": 782,
+          "endRank": 802,
+          "count": 21,
+          "examples": [
+            "782. Irving Penn",
+            "783. Richard Avedon",
+            "784. Helmut Newton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fashion",
+          "startRank": 789,
+          "endRank": 803,
+          "count": 15,
+          "examples": [
+            "789. Tim Walker",
+            "790. David LaChapelle",
+            "791. Ellen von Unwerth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fashion",
+          "startRank": 789,
+          "endRank": 804,
+          "count": 16,
+          "examples": [
+            "789. Tim Walker",
+            "790. David LaChapelle",
+            "791. Ellen von Unwerth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 887,
+          "endRank": 900,
+          "count": 14,
+          "examples": [
+            "887. Demi Lovato",
+            "888. Miley Cyrus",
+            "889. Kacey Musgraves"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 889,
+          "endRank": 901,
+          "count": 13,
+          "examples": [
+            "889. Kacey Musgraves",
+            "890. Carrie Underwood",
+            "891. Miranda Lambert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 889,
+          "endRank": 902,
+          "count": 14,
+          "examples": [
+            "889. Kacey Musgraves",
+            "890. Carrie Underwood",
+            "891. Miranda Lambert"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 21 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "confucius",
+      "ranks": [
+        4,
+        245
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "socrates",
+      "ranks": [
+        7,
+        42
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hypatia",
+      "ranks": [
+        90,
+        91
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        125,
+        537
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michelangelo",
+      "ranks": [
+        216,
+        592
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donatello",
+      "ranks": [
+        218,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andy warhol",
+      "ranks": [
+        225,
+        540
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kehinde wiley",
+      "ranks": [
+        526,
+        692
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "damien hirst",
+      "ranks": [
+        529,
+        609,
+        688
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeff koons",
+      "ranks": [
+        530,
+        608
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cindy sherman",
+      "ranks": [
+        531,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tracey emin",
+      "ranks": [
+        534,
+        644,
+        687
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "anish kapoor",
+      "ranks": [
+        535,
+        612,
+        648,
+        685
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gerhard richter",
+      "ranks": [
+        536,
+        631
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barbara hepworth",
+      "ranks": [
+        606,
+        682
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel whiteread",
+      "ranks": [
+        610,
+        649,
+        684
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "antony gormley",
+      "ranks": [
+        611,
+        650,
+        686
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lucian freud",
+      "ranks": [
+        637,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chris ofili",
+      "ranks": [
+        645,
+        689
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steve mcqueen",
+      "ranks": [
+        646,
+        690
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "grayson perry",
+      "ranks": [
+        647,
+        691
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donatella versace",
+      "ranks": [
+        821,
+        848
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kacey musgraves",
+      "ranks": [
+        889,
+        901
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "st vincent",
+      "ranks": [
+        903,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sleaterkinney",
+      "ranks": [
+        940,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "evanescence",
+      "ranks": [
+        951,
+        958
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali"
+      ],
+      "ranks": [
+        2,
+        418
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "adam smith",
+      "variants": [
+        "adam smith",
+        "sam smith"
+      ],
+      "ranks": [
+        25,
+        911
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        27,
+        384
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "homer",
+      "variants": [
+        "homer",
+        "hozier",
+        "hole"
+      ],
+      "ranks": [
+        41,
+        908,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn sina avicenna",
+      "variants": [
+        "ibn sina avicenna",
+        "avicenna"
+      ],
+      "ranks": [
+        85,
+        261
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "shankara",
+      "variants": [
+        "shankara",
+        "shakira"
+      ],
+      "ranks": [
+        94,
+        884
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "virgil",
+      "variants": [
+        "virgil",
+        "virgil abloh"
+      ],
+      "ranks": [
+        104,
+        829
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "desiderius erasmus",
+      "variants": [
+        "desiderius erasmus",
+        "erasmus"
+      ],
+      "ranks": [
+        123,
+        266
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mikhail gorbachev",
+      "variants": [
+        "mikhail gorbachev",
+        "bach"
+      ],
+      "ranks": [
+        136,
+        228
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "xerxes i",
+      "variants": [
+        "xerxes i",
+        "artaxerxes i"
+      ],
+      "ranks": [
+        169,
+        170
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii",
+      "variants": [
+        "henry viii",
+        "henry ii"
+      ],
+      "ranks": [
+        173,
+        208
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bach",
+      "variants": [
+        "bach",
+        "basho",
+        "frank auerbach"
+      ],
+      "ranks": [
+        228,
+        336,
+        638
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "chopin",
+      "variants": [
+        "chopin",
+        "chon"
+      ],
+      "ranks": [
+        230,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "panini",
+      "variants": [
+        "panini",
+        "plini"
+      ],
+      "ranks": [
+        321,
+        991
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "basho",
+      "variants": [
+        "basho",
+        "matsuo basho"
+      ],
+      "ranks": [
+        336,
+        337
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pel",
+      "variants": [
+        "pel",
+        "david lachapelle",
+        "pod",
+        "whitechapel"
+      ],
+      "ranks": [
+        414,
+        790,
+        972,
+        983
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tim walker",
+      "variants": [
+        "tim walker",
+        "tom walker"
+      ],
+      "ranks": [
+        789,
+        915
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "madeleine vionnet",
+      "variants": [
+        "madeleine vionnet",
+        "adele"
+      ],
+      "ranks": [
+        809,
+        874
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bode",
+      "variants": [
+        "bode",
+        "emily adams bode",
+        "hole",
+        "pod"
+      ],
+      "ranks": [
+        865,
+        866,
+        942,
+        972
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pink",
+      "variants": [
+        "pink",
+        "plini"
+      ],
+      "ranks": [
+        882,
+        991
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nita strauss",
+      "variants": [
+        "nita strauss",
+        "nita"
+      ],
+      "ranks": [
+        994,
+        996
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 478,
+      "endRank": 489,
+      "count": 12,
+      "examples": [
+        "478. Atal Bihari Vajpayee",
+        "479. Narendra Modi",
+        "480. Xi Jinping"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 480,
+      "endRank": 492,
+      "count": 13,
+      "examples": [
+        "480. Xi Jinping",
+        "481. Vladimir Putin",
+        "482. Joe Biden"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 480,
+      "endRank": 495,
+      "count": 16,
+      "examples": [
+        "480. Xi Jinping",
+        "481. Vladimir Putin",
+        "482. Joe Biden"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 491,
+      "endRank": 502,
+      "count": 12,
+      "examples": [
+        "491. John F. Kennedy",
+        "492. Dwight D. Eisenhower",
+        "493. Harry S. Truman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 494,
+      "endRank": 505,
+      "count": 12,
+      "examples": [
+        "494. Herbert Hoover",
+        "495. Calvin Coolidge",
+        "496. Woodrow Wilson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 497,
+      "endRank": 512,
+      "count": 16,
+      "examples": [
+        "497. William Howard Taft",
+        "498. William McKinley",
+        "499. Grover Cleveland"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 504,
+      "endRank": 513,
+      "count": 10,
+      "examples": [
+        "504. Andrew Johnson",
+        "505. James A. Garfield",
+        "506. James K. Polk"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 507,
+      "endRank": 519,
+      "count": 13,
+      "examples": [
+        "507. John Tyler",
+        "508. Martin Van Buren",
+        "509. Millard Fillmore"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "already",
+      "startRank": 681,
+      "endRank": 692,
+      "count": 12,
+      "examples": [
+        "681. Lynn Chadwick",
+        "682. Barbara Hepworth",
+        "683. Dame Elisabeth Frink"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "already",
+      "startRank": 684,
+      "endRank": 693,
+      "count": 10,
+      "examples": [
+        "684. Rachel Whiteread",
+        "685. Anish Kapoor",
+        "686. Antony Gormley"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "already",
+      "startRank": 684,
+      "endRank": 694,
+      "count": 11,
+      "examples": [
+        "684. Rachel Whiteread",
+        "685. Anish Kapoor",
+        "686. Antony Gormley"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photography",
+      "startRank": 706,
+      "endRank": 715,
+      "count": 10,
+      "examples": [
+        "706. Mickalene Thomas",
+        "707. LaToya Ruby Frazier",
+        "708. Deana Lawson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photography",
+      "startRank": 707,
+      "endRank": 718,
+      "count": 12,
+      "examples": [
+        "707. LaToya Ruby Frazier",
+        "708. Deana Lawson",
+        "709. Zoe Leonard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fashion",
+      "startRank": 782,
+      "endRank": 802,
+      "count": 21,
+      "examples": [
+        "782. Irving Penn",
+        "783. Richard Avedon",
+        "784. Helmut Newton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fashion",
+      "startRank": 789,
+      "endRank": 803,
+      "count": 15,
+      "examples": [
+        "789. Tim Walker",
+        "790. David LaChapelle",
+        "791. Ellen von Unwerth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fashion",
+      "startRank": 789,
+      "endRank": 804,
+      "count": 16,
+      "examples": [
+        "789. Tim Walker",
+        "790. David LaChapelle",
+        "791. Ellen von Unwerth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 887,
+      "endRank": 900,
+      "count": 14,
+      "examples": [
+        "887. Demi Lovato",
+        "888. Miley Cyrus",
+        "889. Kacey Musgraves"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 889,
+      "endRank": 901,
+      "count": 13,
+      "examples": [
+        "889. Kacey Musgraves",
+        "890. Carrie Underwood",
+        "891. Miranda Lambert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 889,
+      "endRank": 902,
+      "count": 14,
+      "examples": [
+        "889. Kacey Musgraves",
+        "890. Carrie Underwood",
+        "891. Miranda Lambert"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 31,
+      "Asia": 14,
+      "Middle East": 11,
+      "Africa": 2,
+      "Americas": 10,
+      "Oceania": 0,
+      "Unknown": 932
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 84,
+      "Science/Technology": 3,
+      "Philosophy/Religion": 25,
+      "Arts/Literature": 38,
+      "Military": 7,
+      "Other": 843
+    }
+  },
+  "summary": "Issues: 32 exact duplicates; pattern collapse (max 21)"
+}

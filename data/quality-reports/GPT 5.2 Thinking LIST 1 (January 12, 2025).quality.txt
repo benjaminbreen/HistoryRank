@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GPT 5.2 Thinking LIST 1 (January 12, 2025).txt
+Model: GPT 5.2 Thinking
+Timestamp: 2026-01-19T06:54:20.149Z
+
+VERDICT: WARN
+
+Summary: Issues: 43 exact duplicates; pattern collapse (max 10)
+
+Scores:
+  Repetition: WARN - 43 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (60):
+  - Exact duplicate: "alan turing" at ranks 44, 991
+  - Exact duplicate: "tim bernerslee" at ranks 45, 992
+  - Exact duplicate: "zheng he" at ranks 47, 317
+  - Exact duplicate: "mustafa kemal atatrk" at ranks 53, 686
+  - Exact duplicate: "suleiman the magnificent" at ranks 56, 360
+  - Exact duplicate: "claude shannon" at ranks 88, 715
+  - Exact duplicate: "mikhail gorbachev" at ranks 114, 923
+  - Exact duplicate: "deng xiaoping" at ranks 115, 299
+  - Exact duplicate: "nelson mandela" at ranks 116, 922
+  - Exact duplicate: "hernn corts" at ranks 132, 445
+  ... and 50 more issues
+
+Diversity Estimates:
+  Regions: Europe: 63, Asia: 67, Middle East: 44, Africa: 16, Americas: 12, Unknown: 798
+  Domains: Politics/Leadership: 31, Science/Technology: 16, Philosophy/Religion: 56, Arts/Literature: 52, Military: 10, Other: 835

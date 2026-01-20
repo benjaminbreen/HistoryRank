@@ -1,0 +1,377 @@
+{
+  "file": "Claude Opus 4.5 LIST 6 (January 14, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-01-19T06:54:12.766Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 19,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "fiction",
+          "startRank": 641,
+          "endRank": 650,
+          "count": 10,
+          "examples": [
+            "641. Aldous Huxley",
+            "642. Ray Bradbury",
+            "643. Isaac Asimov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "science",
+          "startRank": 642,
+          "endRank": 651,
+          "count": 10,
+          "examples": [
+            "642. Ray Bradbury",
+            "643. Isaac Asimov",
+            "644. Arthur C. Clarke"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "enrico fermi",
+      "ranks": [
+        103,
+        725
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "blaise pascal",
+      "ranks": [
+        124,
+        323
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "baruch spinoza",
+      "ranks": [
+        137,
+        229
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wangari maathai",
+      "ranks": [
+        177,
+        940
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "oprah winfrey",
+      "ranks": [
+        343,
+        988
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodore roosevelt",
+      "ranks": [
+        353,
+        878
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "samuel beckett",
+      "ranks": [
+        403,
+        676
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        639,
+        976
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "askia muhammad i",
+        "muhammad ali jinnah",
+        "muhammad ali",
+        "muhammad yunus"
+      ],
+      "ranks": [
+        1,
+        251,
+        264,
+        692,
+        777
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        90
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        39,
+        77
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gottfried wilhelm leibniz",
+      "variants": [
+        "gottfried wilhelm leibniz",
+        "wilhelm leibniz"
+      ],
+      "ranks": [
+        67,
+        324
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "moses",
+      "variants": [
+        "moses",
+        "moses mendelssohn"
+      ],
+      "ranks": [
+        76,
+        230
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham maslow"
+      ],
+      "ranks": [
+        77,
+        817
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert boyle",
+      "variants": [
+        "robert boyle",
+        "robert noyce"
+      ],
+      "ranks": [
+        107,
+        309
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen victoria",
+      "variants": [
+        "queen victoria",
+        "queen"
+      ],
+      "ranks": [
+        163,
+        587
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        171,
+        289
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramanuja",
+      "variants": [
+        "ramanuja",
+        "srinivasa ramanujan"
+      ],
+      "ranks": [
+        221,
+        754
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kabir",
+      "variants": [
+        "kabir",
+        "babur"
+      ],
+      "ranks": [
+        222,
+        256
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        264,
+        692
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "prince shotoku",
+      "variants": [
+        "prince shotoku",
+        "prince"
+      ],
+      "ranks": [
+        276,
+        577
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kilby",
+      "variants": [
+        "jack kilby",
+        "jack kirby"
+      ],
+      "ranks": [
+        310,
+        631
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bob kahn",
+      "variants": [
+        "bob kahn",
+        "bob kane"
+      ],
+      "ranks": [
+        315,
+        632
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "led zeppelin",
+      "variants": [
+        "led zeppelin",
+        "pel"
+      ],
+      "ranks": [
+        584,
+        688
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fiction",
+      "startRank": 641,
+      "endRank": 650,
+      "count": 10,
+      "examples": [
+        "641. Aldous Huxley",
+        "642. Ray Bradbury",
+        "643. Isaac Asimov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "science",
+      "startRank": 642,
+      "endRank": 651,
+      "count": 10,
+      "examples": [
+        "642. Ray Bradbury",
+        "643. Isaac Asimov",
+        "644. Arthur C. Clarke"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 87,
+      "Asia": 44,
+      "Middle East": 28,
+      "Africa": 20,
+      "Americas": 35,
+      "Oceania": 0,
+      "Unknown": 786
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 54,
+      "Science/Technology": 19,
+      "Philosophy/Religion": 28,
+      "Arts/Literature": 18,
+      "Military": 11,
+      "Other": 870
+    }
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,0 +1,753 @@
+{
+  "file": "CLAUDE SONNET 4.5 LIST 1 (January 12, 2025).txt",
+  "model": "CLAUDE SONNET 4.5",
+  "timestamp": "2026-01-19T06:54:10.402Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 8,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 20,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 339,
+          "endRank": 348,
+          "count": 10,
+          "examples": [
+            "339. Demosthenes",
+            "340. Cicero",
+            "341. Seneca"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 340,
+          "endRank": 349,
+          "count": 10,
+          "examples": [
+            "340. Cicero",
+            "341. Seneca",
+            "342. Virgil"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "renaissance",
+          "startRank": 397,
+          "endRank": 406,
+          "count": 10,
+          "examples": [
+            "397. Erasmus",
+            "398. Thomas More",
+            "399. Niccolò Machiavelli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 470,
+          "endRank": 480,
+          "count": 11,
+          "examples": [
+            "470. Montesquieu",
+            "471. Condorcet",
+            "472. Friedrich Schiller"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 472,
+          "endRank": 481,
+          "count": 10,
+          "examples": [
+            "472. Friedrich Schiller",
+            "473. Heinrich Heine",
+            "474. Gotthold Ephraim Lessing"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 472,
+          "endRank": 482,
+          "count": 11,
+          "examples": [
+            "472. Friedrich Schiller",
+            "473. Heinrich Heine",
+            "474. Gotthold Ephraim Lessing"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "italian",
+          "startRank": 488,
+          "endRank": 500,
+          "count": 13,
+          "examples": [
+            "488. Italo Calvino",
+            "489. Umberto Eco",
+            "490. Luigi Pirandello"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 504,
+          "endRank": 513,
+          "count": 10,
+          "examples": [
+            "504. John Steinbeck",
+            "505. Edgar Allan Poe",
+            "506. Walt Whitman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 506,
+          "endRank": 515,
+          "count": 10,
+          "examples": [
+            "506. Walt Whitman",
+            "507. Emily Dickinson",
+            "508. Henry David Thoreau"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 570,
+          "endRank": 579,
+          "count": 10,
+          "examples": [
+            "570. Qu Yuan",
+            "571. Murasaki Shikibu",
+            "572. Matsuo Bashō"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 571,
+          "endRank": 582,
+          "count": 12,
+          "examples": [
+            "571. Murasaki Shikibu",
+            "572. Matsuo Bashō",
+            "573. Yasunari Kawabata"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 573,
+          "endRank": 583,
+          "count": 11,
+          "examples": [
+            "573. Yasunari Kawabata",
+            "574. Yukio Mishima",
+            "575. Kenzaburō Ōe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music",
+          "startRank": 620,
+          "endRank": 639,
+          "count": 20,
+          "examples": [
+            "620. Anton Bruckner",
+            "621. Carl Orff",
+            "622. Paul Hindemith"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music",
+          "startRank": 621,
+          "endRank": 640,
+          "count": 20,
+          "examples": [
+            "621. Carl Orff",
+            "622. Paul Hindemith",
+            "623. Béla Bartók"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music;",
+          "startRank": 662,
+          "endRank": 675,
+          "count": 14,
+          "examples": [
+            "662. David Bowie",
+            "663. Michael Jackson",
+            "664. Prince"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music;",
+          "startRank": 665,
+          "endRank": 677,
+          "count": 13,
+          "examples": [
+            "665. Madonna",
+            "666. Aretha Franklin",
+            "667. James Brown"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music;",
+          "startRank": 665,
+          "endRank": 678,
+          "count": 14,
+          "examples": [
+            "665. Madonna",
+            "666. Aretha Franklin",
+            "667. James Brown"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architecture",
+          "startRank": 759,
+          "endRank": 769,
+          "count": 11,
+          "examples": [
+            "759. Filippo Brunelleschi",
+            "760. Leon Battista Alberti",
+            "761. Andrea Palladio"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architecture",
+          "startRank": 761,
+          "endRank": 774,
+          "count": 14,
+          "examples": [
+            "761. Andrea Palladio",
+            "762. Gian Lorenzo Bernini",
+            "763. Francesco Borromini"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architecture",
+          "startRank": 761,
+          "endRank": 775,
+          "count": 15,
+          "examples": [
+            "761. Andrea Palladio",
+            "762. Gian Lorenzo Bernini",
+            "763. Francesco Borromini"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "musical",
+          "startRank": 806,
+          "endRank": 815,
+          "count": 10,
+          "examples": [
+            "806. Oscar Hammerstein II",
+            "807. Richard Rodgers",
+            "808. Irving Berlin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 989,
+          "endRank": 1000,
+          "count": 12,
+          "examples": [
+            "989. Tim Paterson",
+            "990. Gary Kildall",
+            "991. Bjarne Stroustrup"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 20 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        30,
+        902
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        37,
+        293
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        54,
+        918
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        57,
+        468
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        75,
+        725
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        123,
+        953
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        142,
+        185
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gian lorenzo bernini",
+      "ranks": [
+        752,
+        762
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "askia muhammad"
+      ],
+      "ranks": [
+        2,
+        323
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        167
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo",
+      "variants": [
+        "michelangelo",
+        "michelangelo antonioni"
+      ],
+      "ranks": [
+        28,
+        847
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        46,
+        133
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham maslow"
+      ],
+      "ranks": [
+        133,
+        858
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "leonidas i",
+      "variants": [
+        "leonidas i",
+        "leonidas"
+      ],
+      "ranks": [
+        177,
+        336
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ariosto",
+      "variants": [
+        "ariosto",
+        "ludovico ariosto"
+      ],
+      "ranks": [
+        404,
+        494
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tasso",
+      "variants": [
+        "tasso",
+        "torquato tasso"
+      ],
+      "ranks": [
+        405,
+        495
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 339,
+      "endRank": 348,
+      "count": 10,
+      "examples": [
+        "339. Demosthenes",
+        "340. Cicero",
+        "341. Seneca"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 340,
+      "endRank": 349,
+      "count": 10,
+      "examples": [
+        "340. Cicero",
+        "341. Seneca",
+        "342. Virgil"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "renaissance",
+      "startRank": 397,
+      "endRank": 406,
+      "count": 10,
+      "examples": [
+        "397. Erasmus",
+        "398. Thomas More",
+        "399. Niccolò Machiavelli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 470,
+      "endRank": 480,
+      "count": 11,
+      "examples": [
+        "470. Montesquieu",
+        "471. Condorcet",
+        "472. Friedrich Schiller"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 472,
+      "endRank": 481,
+      "count": 10,
+      "examples": [
+        "472. Friedrich Schiller",
+        "473. Heinrich Heine",
+        "474. Gotthold Ephraim Lessing"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 472,
+      "endRank": 482,
+      "count": 11,
+      "examples": [
+        "472. Friedrich Schiller",
+        "473. Heinrich Heine",
+        "474. Gotthold Ephraim Lessing"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "italian",
+      "startRank": 488,
+      "endRank": 500,
+      "count": 13,
+      "examples": [
+        "488. Italo Calvino",
+        "489. Umberto Eco",
+        "490. Luigi Pirandello"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 504,
+      "endRank": 513,
+      "count": 10,
+      "examples": [
+        "504. John Steinbeck",
+        "505. Edgar Allan Poe",
+        "506. Walt Whitman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 506,
+      "endRank": 515,
+      "count": 10,
+      "examples": [
+        "506. Walt Whitman",
+        "507. Emily Dickinson",
+        "508. Henry David Thoreau"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 570,
+      "endRank": 579,
+      "count": 10,
+      "examples": [
+        "570. Qu Yuan",
+        "571. Murasaki Shikibu",
+        "572. Matsuo Bashō"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 571,
+      "endRank": 582,
+      "count": 12,
+      "examples": [
+        "571. Murasaki Shikibu",
+        "572. Matsuo Bashō",
+        "573. Yasunari Kawabata"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 573,
+      "endRank": 583,
+      "count": 11,
+      "examples": [
+        "573. Yasunari Kawabata",
+        "574. Yukio Mishima",
+        "575. Kenzaburō Ōe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music",
+      "startRank": 620,
+      "endRank": 639,
+      "count": 20,
+      "examples": [
+        "620. Anton Bruckner",
+        "621. Carl Orff",
+        "622. Paul Hindemith"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music",
+      "startRank": 621,
+      "endRank": 640,
+      "count": 20,
+      "examples": [
+        "621. Carl Orff",
+        "622. Paul Hindemith",
+        "623. Béla Bartók"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music;",
+      "startRank": 662,
+      "endRank": 675,
+      "count": 14,
+      "examples": [
+        "662. David Bowie",
+        "663. Michael Jackson",
+        "664. Prince"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music;",
+      "startRank": 665,
+      "endRank": 677,
+      "count": 13,
+      "examples": [
+        "665. Madonna",
+        "666. Aretha Franklin",
+        "667. James Brown"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music;",
+      "startRank": 665,
+      "endRank": 678,
+      "count": 14,
+      "examples": [
+        "665. Madonna",
+        "666. Aretha Franklin",
+        "667. James Brown"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architecture",
+      "startRank": 759,
+      "endRank": 769,
+      "count": 11,
+      "examples": [
+        "759. Filippo Brunelleschi",
+        "760. Leon Battista Alberti",
+        "761. Andrea Palladio"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architecture",
+      "startRank": 761,
+      "endRank": 774,
+      "count": 14,
+      "examples": [
+        "761. Andrea Palladio",
+        "762. Gian Lorenzo Bernini",
+        "763. Francesco Borromini"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architecture",
+      "startRank": 761,
+      "endRank": 775,
+      "count": 15,
+      "examples": [
+        "761. Andrea Palladio",
+        "762. Gian Lorenzo Bernini",
+        "763. Francesco Borromini"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "musical",
+      "startRank": 806,
+      "endRank": 815,
+      "count": 10,
+      "examples": [
+        "806. Oscar Hammerstein II",
+        "807. Richard Rodgers",
+        "808. Irving Berlin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 989,
+      "endRank": 1000,
+      "count": 12,
+      "examples": [
+        "989. Tim Paterson",
+        "990. Gary Kildall",
+        "991. Bjarne Stroustrup"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 178,
+      "Asia": 34,
+      "Middle East": 22,
+      "Africa": 20,
+      "Americas": 55,
+      "Oceania": 0,
+      "Unknown": 691
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 18,
+      "Science/Technology": 5,
+      "Philosophy/Religion": 15,
+      "Arts/Literature": 64,
+      "Military": 8,
+      "Other": 890
+    }
+  },
+  "summary": "Issues: 8 exact duplicates; pattern collapse (max 20); non-sequential ranks"
+}

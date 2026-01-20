@@ -1,0 +1,44 @@
+{
+  "file": "Grok 4.1-fast LIST 2 (January 14, 2026).txt",
+  "model": "Grok 4.1-fast",
+  "timestamp": "2026-01-19T07:23:06.117Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 7,
+      "historical_accuracy": 8,
+      "no_hallucinations": 9,
+      "contribution_quality": 8,
+      "list_coherence": 6
+    },
+    "overall_score": 8,
+    "suspicious_entries": [
+      "Elon Musk",
+      "Mark Zuckerberg",
+      "Jack Ma"
+    ],
+    "glaring_omissions": [
+      "Leonardo da Vinci",
+      "Marie Curie",
+      "Nelson Mandela"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Elon Musk",
+        "rank": 979,
+        "issue": "Far too high for historical influence"
+      },
+      {
+        "name": "Niels Bohr",
+        "rank": 509,
+        "issue": "Repeated entry in middle section"
+      }
+    ],
+    "brief_assessment": "A generally solid ranking with strong representation of religious founders, philosophers, and scientific pioneers. The top and middle sections are quite coherent, but the bottom section becomes questionable with contemporary tech entrepreneurs.",
+    "subjective_impression": "This looks like a thoughtful historical ranking that gradually loses credibility as it approaches modern times, especially in the bottom quarter."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

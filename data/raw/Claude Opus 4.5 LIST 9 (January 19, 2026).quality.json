@@ -1,0 +1,401 @@
+{
+  "file": "Claude Opus 4.5 LIST 9 (January 19, 2026).txt",
+  "model": "anthropic/claude-opus-4.5",
+  "timestamp": "2026-01-19T19:39:10.940Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 4,
+      "fuzzy": 15,
+      "status": "PASS",
+      "details": "4 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 373,
+          "endRank": 383,
+          "count": 11,
+          "examples": [
+            "373. Wole Soyinka",
+            "374. Ngugi wa Thiong'o",
+            "375. Naguib Mahfouz"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature,",
+          "startRank": 374,
+          "endRank": 384,
+          "count": 11,
+          "examples": [
+            "374. Ngugi wa Thiong'o",
+            "375. Naguib Mahfouz",
+            "376. Orhan Pamuk"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 379,
+          "endRank": 388,
+          "count": 10,
+          "examples": [
+            "379. Toni Morrison",
+            "380. Ernest Hemingway",
+            "381. William Faulkner"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "indian",
+          "startRank": 601,
+          "endRank": 610,
+          "count": 10,
+          "examples": [
+            "601. Sri Aurobindo",
+            "602. Paramahansa Yogananda",
+            "603. Maharishi Mahesh Yogi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photography",
+          "startRank": 935,
+          "endRank": 947,
+          "count": 13,
+          "examples": [
+            "935. Henri Cartier-Bresson",
+            "936. Ansel Adams",
+            "937. Robert Capa"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cinema",
+          "startRank": 982,
+          "endRank": 995,
+          "count": 14,
+          "examples": [
+            "982. Abbas Kiarostami",
+            "983. Asghar Farhadi",
+            "984. Jafar Panahi"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "ren descartes",
+      "ranks": [
+        63,
+        787
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jonas salk",
+      "ranks": [
+        95,
+        710
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niccol machiavelli",
+      "ranks": [
+        409,
+        863
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmy noether",
+      "ranks": [
+        456,
+        793
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali",
+        "muhammad yunus",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        1,
+        285,
+        438,
+        592
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lincoln",
+      "variants": [
+        "abraham lincoln",
+        "abraham"
+      ],
+      "ranks": [
+        23,
+        80
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        27,
+        87
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham maslow"
+      ],
+      "ranks": [
+        80,
+        428
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert boyle",
+      "variants": [
+        "robert boyle",
+        "robert noyce"
+      ],
+      "ranks": [
+        114,
+        490
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john muir",
+      "variants": [
+        "john muir",
+        "joan mir"
+      ],
+      "ranks": [
+        136,
+        898
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        285,
+        592
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hafez",
+      "variants": [
+        "hafez",
+        "hafez alassad"
+      ],
+      "ranks": [
+        366,
+        642
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kilby",
+      "variants": [
+        "jack kilby",
+        "jack kirby"
+      ],
+      "ranks": [
+        491,
+        525
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        580,
+        581
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        584,
+        585
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "srinivasa ramanujan",
+      "variants": [
+        "srinivasa ramanujan",
+        "ramanuja"
+      ],
+      "ranks": [
+        790,
+        833
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius xii",
+      "variants": [
+        "pope pius xii",
+        "pope pius ix"
+      ],
+      "ranks": [
+        850,
+        856
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 373,
+      "endRank": 383,
+      "count": 11,
+      "examples": [
+        "373. Wole Soyinka",
+        "374. Ngugi wa Thiong'o",
+        "375. Naguib Mahfouz"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature,",
+      "startRank": 374,
+      "endRank": 384,
+      "count": 11,
+      "examples": [
+        "374. Ngugi wa Thiong'o",
+        "375. Naguib Mahfouz",
+        "376. Orhan Pamuk"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 379,
+      "endRank": 388,
+      "count": 10,
+      "examples": [
+        "379. Toni Morrison",
+        "380. Ernest Hemingway",
+        "381. William Faulkner"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "indian",
+      "startRank": 601,
+      "endRank": 610,
+      "count": 10,
+      "examples": [
+        "601. Sri Aurobindo",
+        "602. Paramahansa Yogananda",
+        "603. Maharishi Mahesh Yogi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photography",
+      "startRank": 935,
+      "endRank": 947,
+      "count": 13,
+      "examples": [
+        "935. Henri Cartier-Bresson",
+        "936. Ansel Adams",
+        "937. Robert Capa"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cinema",
+      "startRank": 982,
+      "endRank": 995,
+      "count": 14,
+      "examples": [
+        "982. Abbas Kiarostami",
+        "983. Asghar Farhadi",
+        "984. Jafar Panahi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 95,
+      "Asia": 64,
+      "Middle East": 33,
+      "Africa": 26,
+      "Americas": 41,
+      "Oceania": 0,
+      "Unknown": 741
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 58,
+      "Science/Technology": 18,
+      "Philosophy/Religion": 17,
+      "Arts/Literature": 20,
+      "Military": 10,
+      "Other": 877
+    }
+  },
+  "summary": "List passes all quality checks"
+}

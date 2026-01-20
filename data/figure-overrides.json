@@ -2,6 +2,8 @@
   "_comment": "Figure overrides and corrections. Run: npx tsx scripts/reconcile.ts",
   "merges": {
     "_comment": "Merge duplicate figures. Format: 'keep_id': ['delete_id1', 'delete_id2']",
+
+    "_comment_section1": "=== EXISTING MERGES ===",
     "mani": [
       "the-prophet-mani"
     ],
@@ -38,6 +40,85 @@
     ],
     "napoleon": [
       "napoleon-bonaparte"
+    ],
+
+    "_comment_section2": "=== GPT-5.2 CRITIQUE FIXES (Jan 2026) ===",
+
+    "_comment_buddha": "Buddha appears as both 'Gautama Buddha' (#3) and 'The Buddha' (#1672)",
+    "gautama-buddha": [
+      "the-buddha"
+    ],
+
+    "_comment_victoria": "Queen Victoria (#147) vs plain 'Victoria' (#1393)",
+    "queen-victoria": [
+      "victoria"
+    ],
+
+    "_comment_hypatia": "Hypatia (#373) vs 'Hypatia of Alexandria' (#1867)",
+    "hypatia": [
+      "hypatia-of-alexandria"
+    ],
+
+    "_comment_nicholas": "Nicholas II appears in multiple forms",
+    "nicholas-ii-of-russia": [
+      "tsar-nicholas-ii",
+      "nicholas-ii"
+    ],
+
+    "_comment_cailun": "Cai Lun appears twice with different transliterations",
+    "cai-lun": [
+      "ts-ai-lun"
+    ],
+
+    "_comment_taizong": "Emperor Taizong of Tang = Li Shimin",
+    "li-shimin": [
+      "emperor-taizong-of-tang"
+    ],
+
+    "_comment_ataturk": "Atatürk vs Mustafa Kemal Atatürk",
+    "mustafa-kemal-atat-rk": [
+      "atat-rk"
+    ],
+
+    "_comment_bahaullah": "Bahá'u'lláh appears in different transliterations",
+    "bah-u-ll-h": [
+      "baha-u-llah"
+    ],
+
+    "_comment_seneca": "Seneca vs Seneca the Younger (same person)",
+    "seneca-the-younger": [
+      "seneca"
+    ],
+
+    "_comment_mehmed": "Mehmed II = Mehmed the Conqueror = Sultan Mehmed II",
+    "mehmed-ii": [
+      "mehmed-the-conqueror",
+      "sultan-mehmed-ii"
+    ],
+
+    "_comment_sanmartin": "José de San Martín appears with/without accent",
+    "jose-de-san-martin": [
+      "jos-de-san-mart-n"
+    ],
+
+    "_comment_leeuwenhoek": "Antonie/Antoni van Leeuwenhoek variants",
+    "antonie-van-leeuwenhoek": [
+      "antoni-van-leeuwenhoek"
+    ],
+
+    "_comment_cyrus": "Cyrus the Great = Cyrus II (same Persian emperor)",
+    "cyrus-the-great": [
+      "cyrus-ii"
+    ],
+
+    "_comment_frederick": "Frederick the Great = Frederick II of Prussia (NOT Holy Roman Emperor)",
+    "frederick-the-great": [
+      "frederick-ii"
+    ],
+
+    "_comment_leonidas": "Leonidas = Leonidas I (Spartan king)",
+    "leonidas-i": [
+      "leonidas"
     ]
   },
   "renames": {
@@ -749,6 +830,8 @@
   },
   "aliases": {
     "_comment": "Additional aliases to add. Format: 'figure_id': ['alias1', 'alias2']",
+
+    "_comment_existing": "=== EXISTING ALIASES ===",
     "mani": [
       "the prophet mani",
       "prophet mani",
@@ -785,6 +868,94 @@
       "nikolaus otto",
       "nicolaus august otto",
       "nikolaus august otto"
+    ],
+
+    "_comment_new": "=== NEW ALIASES (Jan 2026) ===",
+    "gautama-buddha": [
+      "the buddha",
+      "buddha",
+      "siddhartha gautama",
+      "shakyamuni",
+      "shakyamuni buddha",
+      "siddhartha"
+    ],
+    "queen-victoria": [
+      "victoria",
+      "queen victoria of england",
+      "victoria of the united kingdom",
+      "victoria i"
+    ],
+    "hypatia": [
+      "hypatia of alexandria"
+    ],
+    "nicholas-ii-of-russia": [
+      "nicholas ii",
+      "tsar nicholas ii",
+      "czar nicholas ii",
+      "tsar nicholas",
+      "nicholas romanov"
+    ],
+    "li-shimin": [
+      "emperor taizong",
+      "taizong",
+      "taizong of tang",
+      "emperor taizong of tang",
+      "tang taizong"
+    ],
+    "mustafa-kemal-atat-rk": [
+      "ataturk",
+      "atatürk",
+      "kemal ataturk",
+      "kemal atatürk",
+      "mustafa kemal"
+    ],
+    "bah-u-ll-h": [
+      "bahaullah",
+      "baha'u'llah",
+      "bahá'u'lláh",
+      "mirza husayn ali"
+    ],
+    "seneca-the-younger": [
+      "seneca",
+      "lucius annaeus seneca",
+      "seneca the philosopher"
+    ],
+    "mehmed-ii": [
+      "mehmed the conqueror",
+      "sultan mehmed ii",
+      "mehmed the great",
+      "fatih sultan mehmed",
+      "mehmed fatih"
+    ],
+    "jose-de-san-martin": [
+      "josé de san martín",
+      "san martin",
+      "san martín",
+      "general san martin"
+    ],
+    "antonie-van-leeuwenhoek": [
+      "antoni van leeuwenhoek",
+      "anton van leeuwenhoek",
+      "leeuwenhoek",
+      "van leeuwenhoek"
+    ],
+    "cyrus-the-great": [
+      "cyrus ii",
+      "cyrus",
+      "cyrus of persia",
+      "kourosh",
+      "kurosh"
+    ],
+    "frederick-the-great": [
+      "frederick ii of prussia",
+      "frederick ii prussia",
+      "frederick of prussia",
+      "old fritz"
+    ],
+    "leonidas-i": [
+      "leonidas",
+      "leonidas of sparta",
+      "king leonidas"
     ]
   },
   "compound_names": {

@@ -1,0 +1,1767 @@
+{
+  "file": "Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-01-19T06:54:15.183Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 7,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "7 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 85,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 73,
+          "endRank": 82,
+          "count": 10,
+          "examples": [
+            "73. Sun Yat-sen",
+            "74. Nelson Mandela",
+            "75. Martin Luther King Jr."
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 74,
+          "endRank": 83,
+          "count": 10,
+          "examples": [
+            "74. Nelson Mandela",
+            "75. Martin Luther King Jr.",
+            "76. Franklin D. Roosevelt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "founder",
+          "startRank": 135,
+          "endRank": 148,
+          "count": 14,
+          "examples": [
+            "135. Francis of Assisi",
+            "136. Ignatius of Loyola",
+            "137. Teresa of Ávila"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "founder",
+          "startRank": 138,
+          "endRank": 149,
+          "count": 12,
+          "examples": [
+            "138. John Wesley",
+            "139. Joseph Smith",
+            "140. Brigham Young"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "founder",
+          "startRank": 141,
+          "endRank": 150,
+          "count": 10,
+          "examples": [
+            "141. Mary Baker Eddy",
+            "142. Ellen G. White",
+            "143. Charles Taze Russell"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 165,
+          "endRank": 176,
+          "count": 12,
+          "examples": [
+            "165. Maimonides",
+            "166. Baruch Spinoza",
+            "167. Gottfried Wilhelm Leibniz"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 167,
+          "endRank": 178,
+          "count": 12,
+          "examples": [
+            "167. Gottfried Wilhelm Leibniz",
+            "168. Blaise Pascal",
+            "169. Pierre de Fermat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "mathematician",
+          "startRank": 167,
+          "endRank": 180,
+          "count": 14,
+          "examples": [
+            "167. Gottfried Wilhelm Leibniz",
+            "168. Blaise Pascal",
+            "169. Pierre de Fermat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 177,
+          "endRank": 191,
+          "count": 15,
+          "examples": [
+            "177. Claude Shannon",
+            "178. Norbert Wiener",
+            "179. Bertrand Russell"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 179,
+          "endRank": 192,
+          "count": 14,
+          "examples": [
+            "179. Bertrand Russell",
+            "180. Alfred North Whitehead",
+            "181. Ludwig Wittgenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 179,
+          "endRank": 193,
+          "count": 15,
+          "examples": [
+            "179. Bertrand Russell",
+            "180. Alfred North Whitehead",
+            "181. Ludwig Wittgenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 194,
+          "endRank": 204,
+          "count": 11,
+          "examples": [
+            "194. Émile Durkheim",
+            "195. Auguste Comte",
+            "196. Herbert Spencer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 196,
+          "endRank": 210,
+          "count": 15,
+          "examples": [
+            "196. Herbert Spencer",
+            "197. John Stuart Mill",
+            "198. Jeremy Bentham"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 196,
+          "endRank": 211,
+          "count": 16,
+          "examples": [
+            "196. Herbert Spencer",
+            "197. John Stuart Mill",
+            "198. Jeremy Bentham"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychologist",
+          "startRank": 217,
+          "endRank": 232,
+          "count": 16,
+          "examples": [
+            "217. James George Frazer",
+            "218. Carl Jung",
+            "219. Alfred Adler"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "psychologist",
+          "startRank": 218,
+          "endRank": 233,
+          "count": 16,
+          "examples": [
+            "218. Carl Jung",
+            "219. Alfred Adler",
+            "220. B.F. Skinner"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 229,
+          "endRank": 255,
+          "count": 27,
+          "examples": [
+            "229. Lawrence Kohlberg",
+            "230. Daniel Kahneman",
+            "231. Amos Tversky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 232,
+          "endRank": 256,
+          "count": 25,
+          "examples": [
+            "232. Herbert Simon",
+            "233. John Maynard Keynes",
+            "234. Friedrich Hayek"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 232,
+          "endRank": 281,
+          "count": 50,
+          "examples": [
+            "232. Herbert Simon",
+            "233. John Maynard Keynes",
+            "234. Friedrich Hayek"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 258,
+          "endRank": 299,
+          "count": 42,
+          "examples": [
+            "258. Simon Kuznets",
+            "259. Wassily Leontief",
+            "260. Ragnar Frisch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 283,
+          "endRank": 300,
+          "count": 18,
+          "examples": [
+            "283. Knut Wicksell",
+            "284. Gustav Cassel",
+            "285. Arthur Cecil Pigou"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 283,
+          "endRank": 301,
+          "count": 19,
+          "examples": [
+            "283. Knut Wicksell",
+            "284. Gustav Cassel",
+            "285. Arthur Cecil Pigou"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 326,
+          "endRank": 335,
+          "count": 10,
+          "examples": [
+            "326. Knut Hamsun",
+            "327. Selma Lagerlöf",
+            "328. Hans Christian Andersen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 350,
+          "endRank": 363,
+          "count": 14,
+          "examples": [
+            "350. Charles Dickens",
+            "351. Jane Austen",
+            "352. Charlotte Brontë"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 449,
+          "endRank": 460,
+          "count": 12,
+          "examples": [
+            "449. Claude McKay",
+            "450. Jean Toomer",
+            "451. Zora Neale Hurston"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 451,
+          "endRank": 471,
+          "count": 21,
+          "examples": [
+            "451. Zora Neale Hurston",
+            "452. Richard Wright",
+            "453. James Baldwin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 462,
+          "endRank": 472,
+          "count": 11,
+          "examples": [
+            "462. Norman Mailer",
+            "463. Truman Capote",
+            "464. Gore Vidal"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 462,
+          "endRank": 473,
+          "count": 12,
+          "examples": [
+            "462. Norman Mailer",
+            "463. Truman Capote",
+            "464. Gore Vidal"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "critic",
+          "startRank": 501,
+          "endRank": 512,
+          "count": 12,
+          "examples": [
+            "501. Carl Sandburg",
+            "502. Robert Penn Warren",
+            "503. Allen Tate"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "critic",
+          "startRank": 503,
+          "endRank": 513,
+          "count": 11,
+          "examples": [
+            "503. Allen Tate",
+            "504. John Crowe Ransom",
+            "505. Cleanth Brooks"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "critic",
+          "startRank": 503,
+          "endRank": 514,
+          "count": 12,
+          "examples": [
+            "503. Allen Tate",
+            "504. John Crowe Ransom",
+            "505. Cleanth Brooks"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theologian",
+          "startRank": 511,
+          "endRank": 530,
+          "count": 20,
+          "examples": [
+            "511. Van Wyck Brooks",
+            "512. Lewis Mumford",
+            "513. Reinhold Niebuhr"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theologian",
+          "startRank": 513,
+          "endRank": 531,
+          "count": 19,
+          "examples": [
+            "513. Reinhold Niebuhr",
+            "514. Paul Tillich",
+            "515. Karl Barth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "theologian",
+          "startRank": 513,
+          "endRank": 532,
+          "count": 20,
+          "examples": [
+            "513. Reinhold Niebuhr",
+            "514. Paul Tillich",
+            "515. Karl Barth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "ancient",
+          "startRank": 548,
+          "endRank": 561,
+          "count": 14,
+          "examples": [
+            "548. Odysseas Elytis",
+            "549. Yannis Ritsos",
+            "550. Sappho"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "ancient",
+          "startRank": 550,
+          "endRank": 562,
+          "count": 13,
+          "examples": [
+            "550. Sappho",
+            "551. Pindar",
+            "552. Aeschylus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "ancient",
+          "startRank": 550,
+          "endRank": 563,
+          "count": 14,
+          "examples": [
+            "550. Sappho",
+            "551. Pindar",
+            "552. Aeschylus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 561,
+          "endRank": 575,
+          "count": 15,
+          "examples": [
+            "561. Polybius",
+            "562. Livy",
+            "563. Tacitus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 562,
+          "endRank": 576,
+          "count": 15,
+          "examples": [
+            "562. Livy",
+            "563. Tacitus",
+            "564. Suetonius"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 568,
+          "endRank": 577,
+          "count": 10,
+          "examples": [
+            "568. Lucretius",
+            "569. Ovid",
+            "570. Horace"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historian",
+          "startRank": 621,
+          "endRank": 668,
+          "count": 48,
+          "examples": [
+            "621. Samuel Johnson",
+            "622. James Boswell",
+            "623. Edward Gibbon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historian",
+          "startRank": 623,
+          "endRank": 669,
+          "count": 47,
+          "examples": [
+            "623. Edward Gibbon",
+            "624. David Hume",
+            "625. Adam Ferguson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "historian",
+          "startRank": 623,
+          "endRank": 670,
+          "count": 48,
+          "examples": [
+            "623. Edward Gibbon",
+            "624. David Hume",
+            "625. Adam Ferguson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 667,
+          "endRank": 683,
+          "count": 17,
+          "examples": [
+            "667. Hayden White",
+            "668. Reinhart Koselleck",
+            "669. Jürgen Habermas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 669,
+          "endRank": 684,
+          "count": 16,
+          "examples": [
+            "669. Jürgen Habermas",
+            "670. Theodor Adorno",
+            "671. Max Horkheimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 669,
+          "endRank": 688,
+          "count": 20,
+          "examples": [
+            "669. Jürgen Habermas",
+            "670. Theodor Adorno",
+            "671. Max Horkheimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 707,
+          "endRank": 749,
+          "count": 43,
+          "examples": [
+            "707. Rollo May",
+            "708. Irvin Yalom",
+            "709. R. Buckminster Fuller"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 709,
+          "endRank": 750,
+          "count": 42,
+          "examples": [
+            "709. R. Buckminster Fuller",
+            "710. Frank Lloyd Wright",
+            "711. Le Corbusier"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 709,
+          "endRank": 751,
+          "count": 43,
+          "examples": [
+            "709. R. Buckminster Fuller",
+            "710. Frank Lloyd Wright",
+            "711. Le Corbusier"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 748,
+          "endRank": 759,
+          "count": 12,
+          "examples": [
+            "748. Gerrit Rietveld",
+            "749. Theo van Doesburg",
+            "750. Piet Mondrian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 750,
+          "endRank": 760,
+          "count": 11,
+          "examples": [
+            "750. Piet Mondrian",
+            "751. Kazimir Malevich",
+            "752. Wassily Kandinsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 750,
+          "endRank": 834,
+          "count": 85,
+          "examples": [
+            "750. Piet Mondrian",
+            "751. Kazimir Malevich",
+            "752. Wassily Kandinsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 762,
+          "endRank": 835,
+          "count": 74,
+          "examples": [
+            "762. Salvador Dalí",
+            "763. René Magritte",
+            "764. Max Ernst"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 762,
+          "endRank": 836,
+          "count": 75,
+          "examples": [
+            "762. Salvador Dalí",
+            "763. René Magritte",
+            "764. Max Ernst"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 833,
+          "endRank": 852,
+          "count": 20,
+          "examples": [
+            "833. Fra Angelico",
+            "834. Paolo Uccello",
+            "835. Donatello"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 835,
+          "endRank": 853,
+          "count": 19,
+          "examples": [
+            "835. Donatello",
+            "836. Lorenzo Ghiberti",
+            "837. Luca della Robbia"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 835,
+          "endRank": 854,
+          "count": 20,
+          "examples": [
+            "835. Donatello",
+            "836. Lorenzo Ghiberti",
+            "837. Luca della Robbia"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 856,
+          "endRank": 879,
+          "count": 24,
+          "examples": [
+            "856. Jasper Johns",
+            "857. Robert Rauschenberg",
+            "858. Jackson Pollock"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 858,
+          "endRank": 880,
+          "count": 23,
+          "examples": [
+            "858. Jackson Pollock",
+            "859. Willem de Kooning",
+            "860. Mark Rothko"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 858,
+          "endRank": 881,
+          "count": 24,
+          "examples": [
+            "858. Jackson Pollock",
+            "859. Willem de Kooning",
+            "860. Mark Rothko"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 878,
+          "endRank": 889,
+          "count": 12,
+          "examples": [
+            "878. Georg Baselitz",
+            "879. Sigmar Polke",
+            "880. Joseph Beuys"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 880,
+          "endRank": 890,
+          "count": 11,
+          "examples": [
+            "880. Joseph Beuys",
+            "881. Yves Klein",
+            "882. Lucio Fontana"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 880,
+          "endRank": 891,
+          "count": 12,
+          "examples": [
+            "880. Joseph Beuys",
+            "881. Yves Klein",
+            "882. Lucio Fontana"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 890,
+          "endRank": 922,
+          "count": 33,
+          "examples": [
+            "890. Katsushika Hokusai",
+            "891. Utagawa Hiroshige",
+            "892. Kitagawa Utamaro"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 893,
+          "endRank": 923,
+          "count": 31,
+          "examples": [
+            "893. Sesshū Tōyō",
+            "894. Hasegawa Tōhaku",
+            "895. Ogata Kōrin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 893,
+          "endRank": 924,
+          "count": 32,
+          "examples": [
+            "893. Sesshū Tōyō",
+            "894. Hasegawa Tōhaku",
+            "895. Ogata Kōrin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 921,
+          "endRank": 1000,
+          "count": 80,
+          "examples": [
+            "921. Wang Yuanqi",
+            "922. Yun Shouping",
+            "923. Giuseppe Verdi"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 85 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        64,
+        874
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david hume",
+      "ranks": [
+        65,
+        624
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john adams",
+      "ranks": [
+        129,
+        1000
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexis de tocqueville",
+      "ranks": [
+        202,
+        645
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        302,
+        597
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "flannery oconnor",
+      "ranks": [
+        473,
+        533
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "piet mondrian",
+      "ranks": [
+        750,
+        766
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        17,
+        75
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv",
+      "variants": [
+        "louis xiv",
+        "louis xvi"
+      ],
+      "ranks": [
+        120,
+        121
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sessh ty",
+      "variants": [
+        "sessh ty",
+        "sessh"
+      ],
+      "ranks": [
+        893,
+        898
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 73,
+      "endRank": 82,
+      "count": 10,
+      "examples": [
+        "73. Sun Yat-sen",
+        "74. Nelson Mandela",
+        "75. Martin Luther King Jr."
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 74,
+      "endRank": 83,
+      "count": 10,
+      "examples": [
+        "74. Nelson Mandela",
+        "75. Martin Luther King Jr.",
+        "76. Franklin D. Roosevelt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founder",
+      "startRank": 135,
+      "endRank": 148,
+      "count": 14,
+      "examples": [
+        "135. Francis of Assisi",
+        "136. Ignatius of Loyola",
+        "137. Teresa of Ávila"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founder",
+      "startRank": 138,
+      "endRank": 149,
+      "count": 12,
+      "examples": [
+        "138. John Wesley",
+        "139. Joseph Smith",
+        "140. Brigham Young"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founder",
+      "startRank": 141,
+      "endRank": 150,
+      "count": 10,
+      "examples": [
+        "141. Mary Baker Eddy",
+        "142. Ellen G. White",
+        "143. Charles Taze Russell"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 165,
+      "endRank": 176,
+      "count": 12,
+      "examples": [
+        "165. Maimonides",
+        "166. Baruch Spinoza",
+        "167. Gottfried Wilhelm Leibniz"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 167,
+      "endRank": 178,
+      "count": 12,
+      "examples": [
+        "167. Gottfried Wilhelm Leibniz",
+        "168. Blaise Pascal",
+        "169. Pierre de Fermat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "mathematician",
+      "startRank": 167,
+      "endRank": 180,
+      "count": 14,
+      "examples": [
+        "167. Gottfried Wilhelm Leibniz",
+        "168. Blaise Pascal",
+        "169. Pierre de Fermat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 177,
+      "endRank": 191,
+      "count": 15,
+      "examples": [
+        "177. Claude Shannon",
+        "178. Norbert Wiener",
+        "179. Bertrand Russell"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 179,
+      "endRank": 192,
+      "count": 14,
+      "examples": [
+        "179. Bertrand Russell",
+        "180. Alfred North Whitehead",
+        "181. Ludwig Wittgenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 179,
+      "endRank": 193,
+      "count": 15,
+      "examples": [
+        "179. Bertrand Russell",
+        "180. Alfred North Whitehead",
+        "181. Ludwig Wittgenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 194,
+      "endRank": 204,
+      "count": 11,
+      "examples": [
+        "194. Émile Durkheim",
+        "195. Auguste Comte",
+        "196. Herbert Spencer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 196,
+      "endRank": 210,
+      "count": 15,
+      "examples": [
+        "196. Herbert Spencer",
+        "197. John Stuart Mill",
+        "198. Jeremy Bentham"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 196,
+      "endRank": 211,
+      "count": 16,
+      "examples": [
+        "196. Herbert Spencer",
+        "197. John Stuart Mill",
+        "198. Jeremy Bentham"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychologist",
+      "startRank": 217,
+      "endRank": 232,
+      "count": 16,
+      "examples": [
+        "217. James George Frazer",
+        "218. Carl Jung",
+        "219. Alfred Adler"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "psychologist",
+      "startRank": 218,
+      "endRank": 233,
+      "count": 16,
+      "examples": [
+        "218. Carl Jung",
+        "219. Alfred Adler",
+        "220. B.F. Skinner"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 229,
+      "endRank": 255,
+      "count": 27,
+      "examples": [
+        "229. Lawrence Kohlberg",
+        "230. Daniel Kahneman",
+        "231. Amos Tversky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 232,
+      "endRank": 256,
+      "count": 25,
+      "examples": [
+        "232. Herbert Simon",
+        "233. John Maynard Keynes",
+        "234. Friedrich Hayek"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 232,
+      "endRank": 281,
+      "count": 50,
+      "examples": [
+        "232. Herbert Simon",
+        "233. John Maynard Keynes",
+        "234. Friedrich Hayek"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 258,
+      "endRank": 299,
+      "count": 42,
+      "examples": [
+        "258. Simon Kuznets",
+        "259. Wassily Leontief",
+        "260. Ragnar Frisch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 283,
+      "endRank": 300,
+      "count": 18,
+      "examples": [
+        "283. Knut Wicksell",
+        "284. Gustav Cassel",
+        "285. Arthur Cecil Pigou"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 283,
+      "endRank": 301,
+      "count": 19,
+      "examples": [
+        "283. Knut Wicksell",
+        "284. Gustav Cassel",
+        "285. Arthur Cecil Pigou"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 326,
+      "endRank": 335,
+      "count": 10,
+      "examples": [
+        "326. Knut Hamsun",
+        "327. Selma Lagerlöf",
+        "328. Hans Christian Andersen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 350,
+      "endRank": 363,
+      "count": 14,
+      "examples": [
+        "350. Charles Dickens",
+        "351. Jane Austen",
+        "352. Charlotte Brontë"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 449,
+      "endRank": 460,
+      "count": 12,
+      "examples": [
+        "449. Claude McKay",
+        "450. Jean Toomer",
+        "451. Zora Neale Hurston"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 451,
+      "endRank": 471,
+      "count": 21,
+      "examples": [
+        "451. Zora Neale Hurston",
+        "452. Richard Wright",
+        "453. James Baldwin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 462,
+      "endRank": 472,
+      "count": 11,
+      "examples": [
+        "462. Norman Mailer",
+        "463. Truman Capote",
+        "464. Gore Vidal"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 462,
+      "endRank": 473,
+      "count": 12,
+      "examples": [
+        "462. Norman Mailer",
+        "463. Truman Capote",
+        "464. Gore Vidal"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "critic",
+      "startRank": 501,
+      "endRank": 512,
+      "count": 12,
+      "examples": [
+        "501. Carl Sandburg",
+        "502. Robert Penn Warren",
+        "503. Allen Tate"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "critic",
+      "startRank": 503,
+      "endRank": 513,
+      "count": 11,
+      "examples": [
+        "503. Allen Tate",
+        "504. John Crowe Ransom",
+        "505. Cleanth Brooks"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "critic",
+      "startRank": 503,
+      "endRank": 514,
+      "count": 12,
+      "examples": [
+        "503. Allen Tate",
+        "504. John Crowe Ransom",
+        "505. Cleanth Brooks"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theologian",
+      "startRank": 511,
+      "endRank": 530,
+      "count": 20,
+      "examples": [
+        "511. Van Wyck Brooks",
+        "512. Lewis Mumford",
+        "513. Reinhold Niebuhr"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theologian",
+      "startRank": 513,
+      "endRank": 531,
+      "count": 19,
+      "examples": [
+        "513. Reinhold Niebuhr",
+        "514. Paul Tillich",
+        "515. Karl Barth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "theologian",
+      "startRank": 513,
+      "endRank": 532,
+      "count": 20,
+      "examples": [
+        "513. Reinhold Niebuhr",
+        "514. Paul Tillich",
+        "515. Karl Barth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "ancient",
+      "startRank": 548,
+      "endRank": 561,
+      "count": 14,
+      "examples": [
+        "548. Odysseas Elytis",
+        "549. Yannis Ritsos",
+        "550. Sappho"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "ancient",
+      "startRank": 550,
+      "endRank": 562,
+      "count": 13,
+      "examples": [
+        "550. Sappho",
+        "551. Pindar",
+        "552. Aeschylus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "ancient",
+      "startRank": 550,
+      "endRank": 563,
+      "count": 14,
+      "examples": [
+        "550. Sappho",
+        "551. Pindar",
+        "552. Aeschylus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 561,
+      "endRank": 575,
+      "count": 15,
+      "examples": [
+        "561. Polybius",
+        "562. Livy",
+        "563. Tacitus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 562,
+      "endRank": 576,
+      "count": 15,
+      "examples": [
+        "562. Livy",
+        "563. Tacitus",
+        "564. Suetonius"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 568,
+      "endRank": 577,
+      "count": 10,
+      "examples": [
+        "568. Lucretius",
+        "569. Ovid",
+        "570. Horace"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historian",
+      "startRank": 621,
+      "endRank": 668,
+      "count": 48,
+      "examples": [
+        "621. Samuel Johnson",
+        "622. James Boswell",
+        "623. Edward Gibbon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historian",
+      "startRank": 623,
+      "endRank": 669,
+      "count": 47,
+      "examples": [
+        "623. Edward Gibbon",
+        "624. David Hume",
+        "625. Adam Ferguson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "historian",
+      "startRank": 623,
+      "endRank": 670,
+      "count": 48,
+      "examples": [
+        "623. Edward Gibbon",
+        "624. David Hume",
+        "625. Adam Ferguson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 667,
+      "endRank": 683,
+      "count": 17,
+      "examples": [
+        "667. Hayden White",
+        "668. Reinhart Koselleck",
+        "669. Jürgen Habermas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 669,
+      "endRank": 684,
+      "count": 16,
+      "examples": [
+        "669. Jürgen Habermas",
+        "670. Theodor Adorno",
+        "671. Max Horkheimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 669,
+      "endRank": 688,
+      "count": 20,
+      "examples": [
+        "669. Jürgen Habermas",
+        "670. Theodor Adorno",
+        "671. Max Horkheimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 707,
+      "endRank": 749,
+      "count": 43,
+      "examples": [
+        "707. Rollo May",
+        "708. Irvin Yalom",
+        "709. R. Buckminster Fuller"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 709,
+      "endRank": 750,
+      "count": 42,
+      "examples": [
+        "709. R. Buckminster Fuller",
+        "710. Frank Lloyd Wright",
+        "711. Le Corbusier"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 709,
+      "endRank": 751,
+      "count": 43,
+      "examples": [
+        "709. R. Buckminster Fuller",
+        "710. Frank Lloyd Wright",
+        "711. Le Corbusier"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 748,
+      "endRank": 759,
+      "count": 12,
+      "examples": [
+        "748. Gerrit Rietveld",
+        "749. Theo van Doesburg",
+        "750. Piet Mondrian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 750,
+      "endRank": 760,
+      "count": 11,
+      "examples": [
+        "750. Piet Mondrian",
+        "751. Kazimir Malevich",
+        "752. Wassily Kandinsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 750,
+      "endRank": 834,
+      "count": 85,
+      "examples": [
+        "750. Piet Mondrian",
+        "751. Kazimir Malevich",
+        "752. Wassily Kandinsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 762,
+      "endRank": 835,
+      "count": 74,
+      "examples": [
+        "762. Salvador Dalí",
+        "763. René Magritte",
+        "764. Max Ernst"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 762,
+      "endRank": 836,
+      "count": 75,
+      "examples": [
+        "762. Salvador Dalí",
+        "763. René Magritte",
+        "764. Max Ernst"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 833,
+      "endRank": 852,
+      "count": 20,
+      "examples": [
+        "833. Fra Angelico",
+        "834. Paolo Uccello",
+        "835. Donatello"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 835,
+      "endRank": 853,
+      "count": 19,
+      "examples": [
+        "835. Donatello",
+        "836. Lorenzo Ghiberti",
+        "837. Luca della Robbia"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 835,
+      "endRank": 854,
+      "count": 20,
+      "examples": [
+        "835. Donatello",
+        "836. Lorenzo Ghiberti",
+        "837. Luca della Robbia"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 856,
+      "endRank": 879,
+      "count": 24,
+      "examples": [
+        "856. Jasper Johns",
+        "857. Robert Rauschenberg",
+        "858. Jackson Pollock"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 858,
+      "endRank": 880,
+      "count": 23,
+      "examples": [
+        "858. Jackson Pollock",
+        "859. Willem de Kooning",
+        "860. Mark Rothko"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 858,
+      "endRank": 881,
+      "count": 24,
+      "examples": [
+        "858. Jackson Pollock",
+        "859. Willem de Kooning",
+        "860. Mark Rothko"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 878,
+      "endRank": 889,
+      "count": 12,
+      "examples": [
+        "878. Georg Baselitz",
+        "879. Sigmar Polke",
+        "880. Joseph Beuys"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 880,
+      "endRank": 890,
+      "count": 11,
+      "examples": [
+        "880. Joseph Beuys",
+        "881. Yves Klein",
+        "882. Lucio Fontana"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 880,
+      "endRank": 891,
+      "count": 12,
+      "examples": [
+        "880. Joseph Beuys",
+        "881. Yves Klein",
+        "882. Lucio Fontana"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 890,
+      "endRank": 922,
+      "count": 33,
+      "examples": [
+        "890. Katsushika Hokusai",
+        "891. Utagawa Hiroshige",
+        "892. Kitagawa Utamaro"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 893,
+      "endRank": 923,
+      "count": 31,
+      "examples": [
+        "893. Sesshū Tōyō",
+        "894. Hasegawa Tōhaku",
+        "895. Ogata Kōrin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 893,
+      "endRank": 924,
+      "count": 32,
+      "examples": [
+        "893. Sesshū Tōyō",
+        "894. Hasegawa Tōhaku",
+        "895. Ogata Kōrin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 921,
+      "endRank": 1000,
+      "count": 80,
+      "examples": [
+        "921. Wang Yuanqi",
+        "922. Yun Shouping",
+        "923. Giuseppe Verdi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 47,
+      "Asia": 3,
+      "Middle East": 13,
+      "Africa": 5,
+      "Americas": 1,
+      "Oceania": 0,
+      "Unknown": 931
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 52,
+      "Science/Technology": 28,
+      "Philosophy/Religion": 141,
+      "Arts/Literature": 493,
+      "Military": 7,
+      "Other": 279
+    }
+  },
+  "summary": "Issues: 7 exact duplicates; pattern collapse (max 85)"
+}

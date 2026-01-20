@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: DeepSeek V3.2 LIST 4 (January 14, 2026).txt
+Model: DeepSeek V3.2
+Timestamp: 2026-01-19T06:54:15.702Z
+
+VERDICT: FAIL
+
+Summary: Issues: 317 exact duplicates; pattern collapse (max 39)
+
+Scores:
+  Repetition: FAIL - 317 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 39 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (280):
+  - Exact duplicate: "muhammad" at ranks 2, 915
+  - Exact duplicate: "isaac newton" at ranks 3, 904, 999
+  - Exact duplicate: "confucius" at ranks 5, 598, 911
+  - Exact duplicate: "johannes gutenberg" at ranks 8, 592
+  - Exact duplicate: "albert einstein" at ranks 10, 903, 998
+  - Exact duplicate: "karl marx" at ranks 11, 521
+  - Exact duplicate: "louis pasteur" at ranks 12, 662
+  - Exact duplicate: "galileo galilei" at ranks 13, 905, 1000
+  - Exact duplicate: "aristotle" at ranks 14, 908
+  - Exact duplicate: "moses" at ranks 16, 602, 916
+  ... and 270 more issues
+
+Diversity Estimates:
+  Regions: Europe: 223, Asia: 43, Middle East: 17, Africa: 16, Americas: 159, Unknown: 542
+  Domains: Politics/Leadership: 134, Science/Technology: 73, Philosophy/Religion: 170, Arts/Literature: 289, Military: 15, Other: 319

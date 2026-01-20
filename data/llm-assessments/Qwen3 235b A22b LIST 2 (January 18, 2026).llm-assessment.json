@@ -1,0 +1,39 @@
+{
+  "file": "Qwen3 235b A22b LIST 2 (January 18, 2026).txt",
+  "model": "Qwen3 235b A22b",
+  "timestamp": "2026-01-19T07:11:43.768Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 3,
+      "historical_accuracy": 7,
+      "diversity": 6,
+      "no_hallucinations": 4,
+      "contribution_quality": 8
+    },
+    "overall_score": 5,
+    "suspicious_entries": [
+      "Socrates (duplicate entry)",
+      "Napoleon III (duplicate entry)",
+      "Gustave Eiffel (duplicate entry)"
+    ],
+    "glaring_omissions": [
+      "Ada Lovelace",
+      "Nelson Mandela",
+      "Marie Antoinette"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Socrates",
+        "rank": "Multiple ranks",
+        "issue": "Appears multiple times in different sections"
+      }
+    ],
+    "brief_assessment": "The list contains significant historical figures but suffers from major structural issues including duplicate entries and repetitive content across different ranking sections.",
+    "subjective_impression": "This looks like an AI-generated list that was copy-pasted without proper validation, creating a bizarre and unreliable ranking of historical figures."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

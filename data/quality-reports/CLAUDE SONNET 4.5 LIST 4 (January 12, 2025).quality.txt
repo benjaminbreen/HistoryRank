@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: CLAUDE SONNET 4.5 LIST 4 (January 12, 2025).txt
+Model: CLAUDE SONNET 4.5
+Timestamp: 2026-01-19T06:54:11.364Z
+
+VERDICT: FAIL
+
+Summary: Issues: 58 exact duplicates
+
+Scores:
+  Repetition: FAIL - 58 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+
+Issues (105):
+  - Exact duplicate: "adam smith" at ranks 14, 139
+  - Exact duplicate: "louis pasteur" at ranks 25, 512, 574
+  - Exact duplicate: "thomas edison" at ranks 28, 773
+  - Exact duplicate: "nicolaus copernicus" at ranks 29, 302, 600, 726
+  - Exact duplicate: "james watt" at ranks 30, 393
+  - Exact duplicate: "john locke" at ranks 37, 310, 710
+  - Exact duplicate: "ren descartes" at ranks 44, 327
+  - Exact duplicate: "saladin" at ranks 59, 504
+  - Exact duplicate: "hammurabi" at ranks 61, 202
+  - Exact duplicate: "hernn corts" at ranks 62, 570, 662, 669, 739, 788, 802
+  ... and 95 more issues
+
+Diversity Estimates:
+  Regions: Europe: 130, Asia: 14, Middle East: 22, Africa: 15, Americas: 29, Unknown: 790
+  Domains: Politics/Leadership: 49, Science/Technology: 8, Philosophy/Religion: 10, Arts/Literature: 25, Military: 24, Other: 884

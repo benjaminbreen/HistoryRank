@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Mistral Large 3 LIST 3 (January 16, 2026).txt
+Model: Mistral Large 3
+Timestamp: 2026-01-19T06:54:27.715Z
+
+VERDICT: FAIL
+
+Summary: Issues: 467 exact duplicates; pattern collapse (max 571)
+
+Scores:
+  Repetition: FAIL - 467 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 571 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 40/43 anchor figures found (93%)
+
+Issues (210):
+  - Exact duplicate: "isaac newton" at ranks 3, 370
+  - Exact duplicate: "karl marx" at ranks 6, 467
+  - Exact duplicate: "charles darwin" at ranks 10, 401
+  - Exact duplicate: "sigmund freud" at ranks 19, 426
+  - Exact duplicate: "louis pasteur" at ranks 24, 403
+  - Exact duplicate: "alexander fleming" at ranks 36, 404
+  - Exact duplicate: "nelson mandela" at ranks 37, 160
+  - Exact duplicate: "gregor mendel" at ranks 61, 402
+  - Exact duplicate: "edward jenner" at ranks 87, 406
+  - Exact duplicate: "web du bois" at ranks 93, 476
+  ... and 200 more issues
+
+Diversity Estimates:
+  Regions: Europe: 46, Asia: 11, Middle East: 8, Africa: 12, Americas: 19, Unknown: 904
+  Domains: Politics/Leadership: 67, Science/Technology: 149, Philosophy/Religion: 251, Arts/Literature: 45, Military: 16, Other: 472

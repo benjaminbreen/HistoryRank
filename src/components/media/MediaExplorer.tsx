@@ -105,12 +105,16 @@ function ratingLabel(source?: string | null) {
   if (source === 'googlebooks') {
     return 'Google Books user rating.';
   }
+  if (source === 'openlibrary') {
+    return 'Open Library user rating.';
+  }
   return 'User rating.';
 }
 
 function ratingSourceName(source?: string | null) {
   if (source === 'tmdb') return 'TMDB';
   if (source === 'googlebooks') return 'Google Books';
+  if (source === 'openlibrary') return 'Open Library';
   return 'Rating';
 }
 
@@ -357,14 +361,14 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               </Tooltip>
             </SortHeader>
           </TableHead>
-          <TableHead className="w-[10px]">
+          <TableHead className="w-[10px] hidden md:table-cell">
             <SortHeader column="accuracy">
               <Tooltip content="Composite average of LLM-generated accuracy scores (1–10).">
                 <span className="text-xs uppercase px-1 tracking-[0.12em]">Acc.</span>
               </Tooltip>
             </SortHeader>
           </TableHead>
-          <TableHead className="w-[10px]">
+          <TableHead className="w-[10px] hidden md:table-cell">
             <SortHeader column="quality">
               <Tooltip content="Composite average of LLM-generated quality scores (1–10).">
                 <span className="text-xs uppercase px-0 tracking-[0.12em]">Qual.</span>
@@ -394,14 +398,14 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               </Tooltip>
             </SortHeader>
           </TableHead>
-          <TableHead>
+          <TableHead className="hidden lg:table-cell">
             <SortHeader column="depicted">
               <Tooltip content="Time period depicted (start–end).">
                 <span>Span</span>
               </Tooltip>
             </SortHeader>
           </TableHead>
-          <TableHead>
+          <TableHead className="hidden lg:table-cell">
             <SortHeader column="region">
               <Tooltip content="Primary geographic region depicted.">
                 <span>Region</span>
@@ -443,36 +447,36 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
             <TableCell className="text-[11px] font-mono text-stone-700 text-center bg-stone-100/60">
               {rankById.get(item.id) ? `#${rankById.get(item.id)}` : '—'}
             </TableCell>
-            <TableCell className="text-sm text-stone-500">
+            <TableCell className="text-sm text-stone-500 hidden md:table-cell">
               {formatScore(item.llm_accuracy_score ?? item.llm_accuracy_rank)}
             </TableCell>
-            <TableCell className="text-sm text-stone-500">
+            <TableCell className="text-sm text-stone-500 hidden md:table-cell">
               {formatScore(item.llm_quality_score ?? item.llm_quality_rank)}
             </TableCell>
             <TableCell>
-              <div className="flex items-start gap-3">
-                <MediaThumbnail
-                  mediaId={item.id}
-                  wikipediaSlug={item.wikipedia_slug}
-                  title={item.title}
-                  size={40}
-                />
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div className="hidden sm:block">
+                  <MediaThumbnail
+                    mediaId={item.id}
+                    wikipediaSlug={item.wikipedia_slug}
+                    title={item.title}
+                    size={40}
+                  />
+                </div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     {item.recommended ? (
-                      <Star className="h-4 w-4 text-amber-500 fill-amber-400" />
+                      <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-500 fill-amber-400 flex-shrink-0" />
                     ) : (
-                      <Star className="h-4 w-4 text-stone-300" />
+                      <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-stone-300 flex-shrink-0" />
                     )}
-                    <div className="text-sm font-medium text-stone-900 max-w-[250px] truncate" title={item.title}>
+                    <div className="text-[13px] sm:text-sm font-medium text-stone-900 truncate" title={item.title}>
                       {item.title}
                     </div>
                   </div>
-                  {item.summary && (
-                    <div className="hr-media-notes mt-1 max-w-[32rem] text-xs text-stone-500">
-                      {item.summary}
-                    </div>
-                  )}
+                  <div className="hr-media-notes mt-1 text-xs text-stone-500 hidden sm:block">
+                    {item.summary}
+                  </div>
                 </div>
               </div>
             </TableCell>
@@ -496,7 +500,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 </div>
               )}
             </TableCell>
-            <TableCell className="text-sm text-stone-600">
+            <TableCell className="text-sm text-stone-600 hidden lg:table-cell">
               {(() => {
                 const start = formatYearParts(item.depicted_start_year ?? null);
                 const end = formatYearParts(item.depicted_end_year ?? null);
@@ -526,7 +530,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 );
               })()}
             </TableCell>
-            <TableCell className="text-sm text-stone-600">
+            <TableCell className="text-sm text-stone-600 hidden lg:table-cell">
               {item.primary_region ? (
                 <span
                   className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
@@ -577,25 +581,27 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-stone-200/70 bg-white/80 p-2 shadow-sm">
-        {CATEGORY_LABELS.map((category) => (
-          <button
-            key={category.id}
-            type="button"
-            onClick={() => setCategoryFilter(category.id)}
-            className={`rounded-full px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] transition-all ${
-              categoryFilter === category.id
-                ? 'bg-stone-900 text-white shadow-sm'
-                : 'text-stone-500 hover:bg-stone-100'
-            }`}
-          >
-            {category.label}
-          </button>
-        ))}
+      <div className="overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
+        <div className="flex items-center gap-2 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 p-2 shadow-sm min-w-max sm:min-w-0 sm:flex-wrap">
+          {CATEGORY_LABELS.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => setCategoryFilter(category.id)}
+              className={`rounded-full px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all whitespace-nowrap ${
+                categoryFilter === category.id
+                  ? 'bg-stone-900 dark:bg-amber-600 text-white shadow-sm'
+                  : 'text-stone-500 dark:text-slate-400 hover:bg-stone-100 dark:hover:bg-slate-700'
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1.4fr_1fr_1fr_auto_auto]">
-        <div className="relative">
+      <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_auto_auto]">
+        <div className="relative col-span-2 sm:col-span-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
           <Input
             value={query}
@@ -633,14 +639,15 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
         <button
           type="button"
           onClick={() => setRecommendedOnly((prev) => !prev)}
-          className={`flex items-center justify-center gap-2 rounded-md border px-3 text-sm transition-all ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 rounded-md border px-2 sm:px-3 py-2 text-xs sm:text-sm transition-all ${
             recommendedOnly
-              ? 'border-amber-300 bg-amber-50 text-amber-700'
-              : 'border-stone-200 text-stone-600 hover:border-stone-300 hover:bg-stone-50'
+              ? 'border-amber-300 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
+              : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
           }`}
         >
-          <Star className={`h-4 w-4 ${recommendedOnly ? 'fill-amber-400 text-amber-500' : ''}`} />
-          Recommended
+          <Star className={`h-3 w-3 sm:h-4 sm:w-4 ${recommendedOnly ? 'fill-amber-400 text-amber-500' : ''}`} />
+          <span className="hidden sm:inline">Recommended</span>
+          <span className="sm:hidden">Rec.</span>
         </button>
         <button
           type="button"
@@ -649,17 +656,17 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
             setSortBy('era_rank');
             setSortOrder('asc');
           }}
-          className={`flex items-center justify-center gap-2 rounded-md border px-3 text-sm transition-all ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 rounded-md border px-2 sm:px-3 py-2 text-xs sm:text-sm transition-all col-span-2 sm:col-span-1 ${
             rankedByEra
-              ? 'border-stone-900 bg-stone-900 text-white'
-              : 'border-stone-200 text-stone-600 hover:border-stone-300 hover:bg-stone-50'
+              ? 'border-stone-900 dark:border-amber-600 bg-stone-900 dark:bg-amber-600 text-white'
+              : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
           }`}
         >
-          {rankedByEra ? 'Ranked by era' : 'Combined rankings'}
+          {rankedByEra ? 'Ranked by era' : 'Combined'}
         </button>
       </div>
 
-      <div className="relative left-1/2 w-screen max-w-[92rem] -translate-x-1/2 px-2 sm:px-2">
+      <div className="w-full overflow-x-auto">
         {rankedByEra ? (
           <div className="space-y-6">
             {groupedByEra.map((group) => (
@@ -667,22 +674,22 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 <div className="px-2 text-xs uppercase tracking-[0.25em] text-stone-400">
                   {group.era} · {group.items.length}
                 </div>
-                <div className="rounded-2xl border border-stone-200/70 bg-white/90 shadow-sm overflow-x-auto">
+                <div className="rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 shadow-sm overflow-x-auto">
                   {renderTable(group.items)}
                 </div>
               </div>
             ))}
             {groupedByEra.length === 0 && (
-              <div className="px-6 py-8 text-center text-sm text-stone-500">
+              <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
                 No results yet. Try clearing filters.
               </div>
             )}
           </div>
         ) : (
-          <div className="rounded-2xl border border-stone-200/70 bg-white/90 shadow-sm overflow-x-auto">
+          <div className="rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 shadow-sm overflow-x-auto">
             {renderTable(filtered)}
             {filtered.length === 0 && (
-              <div className="px-6 py-8 text-center text-sm text-stone-500">
+              <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
                 No results yet. Try clearing filters.
               </div>
             )}

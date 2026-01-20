@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Gemini PRO 3 LIST 6 (January 14, 2026).txt
+Model: Gemini PRO 3
+Timestamp: 2026-01-19T06:54:22.701Z
+
+VERDICT: FAIL
+
+Summary: Issues: 474 exact duplicates
+
+Scores:
+  Repetition: FAIL - 474 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+
+Issues (232):
+  - Exact duplicate: "louis pasteur" at ranks 11, 692
+  - Exact duplicate: "antoine lavoisier" at ranks 20, 151, 228, 758
+  - Exact duplicate: "james watt" at ranks 22, 658
+  - Exact duplicate: "michael faraday" at ranks 23, 172
+  - Exact duplicate: "james clerk maxwell" at ranks 24, 171, 201
+  - Exact duplicate: "orville and wilbur wright" at ranks 28, 320
+  - Exact duplicate: "guglielmo marconi" at ranks 38, 189, 299, 317, 474, 508, 679, 771
+  - Exact duplicate: "adolf hitler" at ranks 39, 121
+  - Exact duplicate: "oliver cromwell" at ranks 41, 511
+  - Exact duplicate: "alexander graham bell" at ranks 42, 176, 236, 325, 485
+  ... and 222 more issues
+
+Diversity Estimates:
+  Regions: Europe: 122, Asia: 43, Middle East: 41, Africa: 31, Americas: 37, Unknown: 726
+  Domains: Politics/Leadership: 103, Science/Technology: 67, Philosophy/Religion: 81, Arts/Literature: 95, Military: 22, Other: 632

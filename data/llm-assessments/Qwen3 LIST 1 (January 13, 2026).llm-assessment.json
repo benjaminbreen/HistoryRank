@@ -1,0 +1,38 @@
+{
+  "file": "Qwen3 LIST 1 (January 13, 2026).txt",
+  "model": "Qwen3",
+  "timestamp": "2026-01-19T07:23:36.048Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 7,
+      "historical_accuracy": 9,
+      "no_hallucinations": 8,
+      "contribution_quality": 9,
+      "list_coherence": 6
+    },
+    "overall_score": 8,
+    "suspicious_entries": [
+      "Friedrich von Schlegel (bottom 25 repetitions)",
+      "Some duplicate entries in bottom 25"
+    ],
+    "glaring_omissions": [
+      "Marie Curie",
+      "Steve Jobs",
+      "Nelson Mandela"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Adolf Hitler",
+        "rank": 22,
+        "issue": "Controversial placement so high on an influential list"
+      }
+    ],
+    "brief_assessment": "A sophisticated and generally well-constructed ranking of historical figures with strong representation across philosophy, science, religion, and politics. The top 25 are particularly coherent and defensible.",
+    "subjective_impression": "This looks like a serious scholarly attempt to rank historical influence, with nuanced selections that go beyond simplistic Western-centric narratives."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

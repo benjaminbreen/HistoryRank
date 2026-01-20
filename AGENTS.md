@@ -52,6 +52,67 @@ This formula is implemented in `scripts/recalculate-consensus.cjs` (single sourc
 | `npm run thumbnails:check` | List figures missing thumbnails |
 | `node scripts/recalculate-consensus.cjs` | Recompute consensus after manual DB edits |
 | `npm run prepare:db` | Normalize `historyrank.db` for Vercel (disable WAL + remove `-wal`/`-shm`) |
+| `npx tsx scripts/assess-all-lists.ts` | Batch quality assessment of all lists |
+
+## List Quality Assessment
+
+Generated lists are automatically assessed for quality issues. The assessment runs after each list generation and produces a quality report alongside the list file.
+
+### Quality Metrics
+
+| Metric | Description | Thresholds |
+|--------|-------------|------------|
+| **Repetition** | Exact and fuzzy duplicate names | FAIL: >50 exact; WARN: >15 exact |
+| **Pattern Collapse** | Consecutive similar entries (e.g., "Lithuanian basketball player" × 20) | FAIL: >30 consecutive; WARN: >18 |
+| **Structural** | Valid JSON, 1000 entries, sequential ranks | FAIL: <900 entries or invalid structure |
+| **Anchor Coverage** | Presence of expected figures (Jesus, Newton, etc.) | FAIL: <70% coverage; WARN: <90% |
+
+### Model Quality Score
+
+The batch assessment calculates a quality score (0-100) for each model:
+- Starts at 100
+- Penalizes duplicates: -0.5 per duplicate (max -40)
+- Penalizes pattern collapse: -2 per sequence length (max -40)
+- Penalizes missing anchors: up to -20
+
+**Score interpretation:**
+- 🟢 80+ = High quality, suitable for consensus
+- 🟡 50-79 = Acceptable, minor issues
+- 🔴 <50 = Low quality, consider excluding
+
+### Output Files
+
+For each list `Model LIST N (Date).txt`, the generator creates:
+- `Model LIST N (Date).quality.json` - Full assessment report with all metrics
+- `Model LIST N (Date).quality.txt` - Human-readable report summary
+
+### Batch Assessment
+
+To re-assess all existing lists:
+
+```bash
+# Assess all lists, use cached reports where available
+npx tsx scripts/assess-all-lists.ts
+
+# Force re-assessment of all lists
+npx tsx scripts/assess-all-lists.ts --rerun
+
+# Show only failing lists
+npx tsx scripts/assess-all-lists.ts --failing-only
+```
+
+Outputs summary files to `data/quality-reports/`:
+- `summary.csv` - Spreadsheet-friendly summary
+- `summary.md` - Markdown report with recommendations
+
+### Model Exclusion Criteria
+
+Models are excluded from consensus rankings if they consistently fail quality checks:
+- **GLM 4.7**: Excluded due to pattern collapse (local minima generating irrelevant sequences)
+- **Qwen 3**: Excluded due to repetition (same figures appearing 6-7 times)
+- **Claude Haiku / GPT-5.2 Mini**: Never included due to category cycling and duplicate padding
+
+The quality assessment system makes these decisions transparent and reproducible.
 
 ## Adding new LLM lists (full workflow)
 ```bash
@@ -226,6 +287,9 @@ components/
 | `scripts/recalculate-consensus.cjs` | Recompute weighted consensus ranks |
 | `scripts/download-thumbnails.ts` | Download missing Wikipedia thumbnails |
 | `scripts/seed-aliases.ts` | Populate name_aliases from knownAliases array |
+| `scripts/generate-openrouter-list.ts` | Generate new LLM list via OpenRouter API (auto-assesses quality) |
+| `scripts/assess-all-lists.ts` | Batch quality assessment of all lists in data/raw/ |
+| `scripts/lib/assess-list-quality.ts` | Core quality assessment module (shared library) |
 
 ## Deprecated/redundant (candidates for removal)
 | Script | Replaced by |

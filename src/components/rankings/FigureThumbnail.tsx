@@ -89,6 +89,7 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
     <img
       src={imageUrl}
       alt={name}
+      loading="lazy"
       className={`rounded-full object-cover flex-shrink-0 transition-transform duration-200 ${className ?? ''}`}
       style={{ width: size, height: size }}
       onError={() => {

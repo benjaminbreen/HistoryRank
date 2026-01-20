@@ -30,10 +30,12 @@ export default function CaveatsPage() {
               <nav className="mt-4 space-y-2">
                 {[
                   ['problem', 'The problem'],
+                  ['influence', 'Defining influence'],
                   ['sunstein', 'Sunstein\'s critique'],
                   ['counterpoint', 'A counterpoint'],
                   ['foreign', 'Foreign intelligences'],
                   ['alignment', 'Alignment & bias'],
+                  ['known-biases', 'Known biases'],
                   ['essay', 'An essay'],
                   ['invitation', 'An invitation'],
                 ].map(([id, label]) => (
@@ -67,6 +69,46 @@ export default function CaveatsPage() {
               <p className="mt-3">
                 These are not merely rhetorical questions. They cut to the heart of what we mean by "importance"
                 and whether such a concept can be meaningfully quantified at all.
+              </p>
+            </section>
+
+            <section id="influence" className="scroll-mt-24">
+              <h2 className="text-xl font-semibold text-stone-900">What Do We Mean by "Influence"?</h2>
+              <p className="mt-3">
+                The prompt we give to models asks for "historical influence," but this term conceals profound
+                ambiguity. Consider how differently these dimensions might rank the same figures:
+              </p>
+              <ul className="mt-4 space-y-3 text-stone-700 dark:text-slate-300">
+                <li>
+                  <strong>Causal influence:</strong> Did this person's actions directly change the course of events?
+                  By this measure, Genghis Khan ranks highly&mdash;his conquests reshaped the demographics and
+                  politics of Eurasia for centuries.
+                </li>
+                <li>
+                  <strong>Ideological influence:</strong> Did this person's ideas spread and persist? Confucius,
+                  Jesus, and Marx score well here, though they commanded no armies.
+                </li>
+                <li>
+                  <strong>Scientific influence:</strong> Did this person advance human knowledge or capability?
+                  Newton and Darwin are obvious examples&mdash;but how do we weigh discovery against application?
+                </li>
+                <li>
+                  <strong>Cultural influence:</strong> Did this person shape how we see and represent the world?
+                  Shakespeare, Homer, the Buddha&mdash;their influence is pervasive but diffuse.
+                </li>
+                <li>
+                  <strong>Negative influence:</strong> How do we weigh those whose influence was primarily
+                  destructive? Hitler "influenced" history enormously. Should that count? How?
+                </li>
+              </ul>
+              <p className="mt-4">
+                Different models appear to weight these dimensions differently. Some lean toward "ideas that
+                persisted"; others toward "actions that changed events." Neither is wrong. Both are incomplete.
+              </p>
+              <p className="mt-3">
+                We have not attempted to resolve this ambiguity. Instead, we let models interpret "influence"
+                as they will, and we make their different interpretations visible through comparison. The
+                disagreements are often more illuminating than the consensus.
               </p>
             </section>
 
@@ -250,6 +292,73 @@ export default function CaveatsPage() {
                 Future directions might include: Do Chinese-developed models differ notably from American ones
                 in their assessments? What if you ask the same model the same prompt, but in French? German?
                 Turkish? Mandarin? Each variation becomes a probe into how language and training shape judgment.
+              </p>
+            </section>
+
+            <section id="known-biases" className="scroll-mt-24">
+              <h2 className="text-xl font-semibold text-stone-900">The Biases We Know About</h2>
+              <p className="mt-3">
+                Through our Compare tool, several systematic biases have become visible. We name them here not
+                to excuse them, but to make them explicit:
+              </p>
+
+              <div className="mt-4 space-y-4">
+                <div className="rounded-xl border border-stone-200/70 bg-stone-50/50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                  <h3 className="font-semibold text-stone-800 dark:text-slate-200">Language and Geography</h3>
+                  <p className="mt-2 text-sm">
+                    Models trained primarily on English text systematically underrank figures from non-Western
+                    traditions. Chinese philosophers, Indian mathematicians, and African leaders appear lower
+                    than their actual historical influence might warrant. This is not the models' "fault"&mdash;it
+                    reflects the composition of their training data.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-stone-200/70 bg-stone-50/50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                  <h3 className="font-semibold text-stone-800 dark:text-slate-200">Recency Bias</h3>
+                  <p className="mt-2 text-sm">
+                    More text exists about recent figures. A 20th-century scientist has thousands of papers,
+                    biographies, and Wikipedia edits documenting their work. An ancient philosopher has a handful
+                    of surviving fragments. This creates a structural tilt toward the modern era that no amount
+                    of prompt engineering can fully correct.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-stone-200/70 bg-stone-50/50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                  <h3 className="font-semibold text-stone-800 dark:text-slate-200">The "Great Man" Problem</h3>
+                  <p className="mt-2 text-sm">
+                    Historical texts disproportionately focus on rulers, generals, and named individuals. The
+                    contributions of movements, collectives, and anonymous innovators are harder to capture.
+                    Who invented agriculture? Who first domesticated horses? These transformative developments
+                    have no single author, and LLMs inherit this documentary bias.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-stone-200/70 bg-stone-50/50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                  <h3 className="font-semibold text-stone-800 dark:text-slate-200">Gender</h3>
+                  <p className="mt-2 text-sm">
+                    The historical record itself is male-dominated. Women were systematically excluded from
+                    public life for most of recorded history, and their contributions were less often documented.
+                    LLMs cannot correct for sources that don't exist. Despite prompts encouraging diversity,
+                    female figures rarely break the top 50 in any model's ranking.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-stone-200/70 bg-stone-50/50 p-4 dark:border-slate-700 dark:bg-slate-800/50">
+                  <h3 className="font-semibold text-stone-800 dark:text-slate-200">Domain Preferences</h3>
+                  <p className="mt-2 text-sm">
+                    Different models show measurably different affinities. Some favor scientists over artists;
+                    others weight religious figures more heavily. Models developed in China show different
+                    rankings for Chinese historical figures compared to Western-developed models. These
+                    differences may reflect training data composition, fine-tuning choices, or alignment
+                    decisions&mdash;but they are real and measurable.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4">
+                We surface these biases through the Compare page, which visualizes how models diverge. The goal
+                is not to eliminate bias&mdash;that may be impossible&mdash;but to make it visible and therefore
+                available for critical examination.
               </p>
             </section>
 

@@ -1,0 +1,44 @@
+{
+  "file": "Deepseek v3.2 LIST 2 (January 14, 2026).txt",
+  "model": "Deepseek v3.2",
+  "timestamp": "2026-01-19T07:21:25.062Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 7,
+      "historical_accuracy": 9,
+      "no_hallucinations": 8,
+      "contribution_quality": 8,
+      "list_coherence": 6
+    },
+    "overall_score": 8,
+    "suspicious_entries": [
+      "Manco Cápac",
+      "Huangdi (The Yellow Emperor)",
+      "Kanye West"
+    ],
+    "glaring_omissions": [
+      "Marie Curie",
+      "Abraham Lincoln",
+      "William Shakespeare"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Kanye West",
+        "rank": 981,
+        "issue": "Inappropriately included in a historical influence list"
+      },
+      {
+        "name": "Johannes Gutenberg",
+        "rank": 516,
+        "issue": "Inconsistent ranking (previously at #8)"
+      }
+    ],
+    "brief_assessment": "A generally solid and well-researched list of historically influential figures, with strong representation across cultures and disciplines. The top and middle sections are particularly strong, though the bottom section becomes problematically contemporary and sports-focused.",
+    "subjective_impression": "This looks like a thoughtful attempt to create a comprehensive historical influence ranking, but falls apart at the edges with some questionable modern inclusions and ranking inconsistencies."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

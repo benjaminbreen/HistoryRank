@@ -36,6 +36,14 @@ export const figures = sqliteTable('figures', {
   llmConsensusRank: real('llm_consensus_rank'),
   varianceScore: real('variance_score'), // 0-1, higher = more controversial
 
+  // Google Ngrams data (book mention frequency 1920-2019, sampled every 2 years)
+  ngramData: text('ngram_data'), // JSON: { years: [1920, 1922, ...], values: [0.0001, 0.0002, ...] }
+  ngramAvg: real('ngram_avg'), // Average frequency across all years
+  ngramPercentile: integer('ngram_percentile'), // 0-100, percentile rank among all figures
+
+  // Related figures (LLM-generated connections)
+  relatedFigures: text('related_figures'), // JSON: [{ id: "plato", name: "Plato", relationship: "teacher" }, ...]
+
   createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
   updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
 }, (table) => [

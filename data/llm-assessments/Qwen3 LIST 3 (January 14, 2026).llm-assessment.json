@@ -1,0 +1,35 @@
+{
+  "file": "Qwen3 LIST 3 (January 14, 2026).txt",
+  "model": "Qwen3",
+  "timestamp": "2026-01-19T07:11:50.701Z",
+  "assessment": {
+    "scores": {
+      "ranking_coherence": 8,
+      "historical_accuracy": 9,
+      "diversity": 9,
+      "no_hallucinations": 9,
+      "contribution_quality": 8
+    },
+    "overall_score": 9,
+    "suspicious_entries": [],
+    "glaring_omissions": [
+      "Leonardo da Vinci",
+      "Marie Curie",
+      "Nelson Mandela"
+    ],
+    "ranking_anomalies": [
+      {
+        "name": "Charlemagne",
+        "rank": 25,
+        "issue": "Appears again in bottom 25, which is impossible"
+      }
+    ],
+    "brief_assessment": "An impressively comprehensive and globally representative list of influential historical figures, spanning diverse regions, disciplines, and time periods with nuanced descriptions of contributions.",
+    "subjective_impression": "This list feels like an ambitious, meticulously crafted global intellectual history that transcends Eurocentric narratives and captures the true complexity of human achievement."
+  },
+  "sampled_entries": {
+    "top": 25,
+    "middle": 50,
+    "bottom": 25
+  }
+}

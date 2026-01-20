@@ -1,0 +1,2299 @@
+{
+  "file": "Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-01-19T06:54:14.675Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 9,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 59,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 128,
+          "endRank": 137,
+          "count": 10,
+          "examples": [
+            "128. Christopher Nolan",
+            "129. George Lucas",
+            "130. J.R.R. Tolkien"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 129,
+          "endRank": 138,
+          "count": 10,
+          "examples": [
+            "129. George Lucas",
+            "130. J.R.R. Tolkien",
+            "131. C.S. Lewis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 130,
+          "endRank": 141,
+          "count": 12,
+          "examples": [
+            "130. J.R.R. Tolkien",
+            "131. C.S. Lewis",
+            "132. J.K. Rowling"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 155,
+          "endRank": 164,
+          "count": 10,
+          "examples": [
+            "155. Marcel Proust",
+            "156. Franz Kafka",
+            "157. Albert Camus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 156,
+          "endRank": 170,
+          "count": 15,
+          "examples": [
+            "156. Franz Kafka",
+            "157. Albert Camus",
+            "158. Jean-Paul Sartre"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 157,
+          "endRank": 173,
+          "count": 17,
+          "examples": [
+            "157. Albert Camus",
+            "158. Jean-Paul Sartre",
+            "159. Simone de Beauvoir"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 166,
+          "endRank": 176,
+          "count": 11,
+          "examples": [
+            "166. Blaise Pascal",
+            "167. Gottfried Wilhelm Leibniz",
+            "168. David Hume"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 172,
+          "endRank": 183,
+          "count": 12,
+          "examples": [
+            "172. Voltaire",
+            "173. Montesquieu",
+            "174. Thomas Paine"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 175,
+          "endRank": 184,
+          "count": 10,
+          "examples": [
+            "175. Edmund Burke",
+            "176. John Stuart Mill",
+            "177. Jeremy Bentham"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 207,
+          "endRank": 216,
+          "count": 10,
+          "examples": [
+            "207. Friedrich Hayek",
+            "208. Ludwig von Mises",
+            "209. Joseph Schumpeter"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 355,
+          "endRank": 364,
+          "count": 10,
+          "examples": [
+            "355. Julio Cortázar",
+            "356. Miguel de Cervantes",
+            "357. Lope de Vega"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 356,
+          "endRank": 365,
+          "count": 10,
+          "examples": [
+            "356. Miguel de Cervantes",
+            "357. Lope de Vega",
+            "358. Pedro Calderón de la Barca"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playwright",
+          "startRank": 357,
+          "endRank": 366,
+          "count": 10,
+          "examples": [
+            "357. Lope de Vega",
+            "358. Pedro Calderón de la Barca",
+            "359. Molière"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "russian",
+          "startRank": 362,
+          "endRank": 380,
+          "count": 19,
+          "examples": [
+            "362. Henrik Ibsen",
+            "363. August Strindberg",
+            "364. Anton Chekhov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 385,
+          "endRank": 396,
+          "count": 12,
+          "examples": [
+            "385. Franz Kafka",
+            "386. Rainer Maria Rilke",
+            "387. Hermann Hesse"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 387,
+          "endRank": 397,
+          "count": 11,
+          "examples": [
+            "387. Hermann Hesse",
+            "388. Thomas Mann",
+            "389. Günter Grass"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 387,
+          "endRank": 398,
+          "count": 12,
+          "examples": [
+            "387. Hermann Hesse",
+            "388. Thomas Mann",
+            "389. Günter Grass"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 395,
+          "endRank": 407,
+          "count": 13,
+          "examples": [
+            "395. E.T.A. Hoffmann",
+            "396. Brothers Grimm",
+            "397. Hans Christian Andersen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 397,
+          "endRank": 410,
+          "count": 14,
+          "examples": [
+            "397. Hans Christian Andersen",
+            "398. Astrid Lindgren",
+            "399. Roald Dahl"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 403,
+          "endRank": 412,
+          "count": 10,
+          "examples": [
+            "403. Lewis Carroll",
+            "404. L. Frank Baum",
+            "405. C.S. Lewis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 413,
+          "endRank": 422,
+          "count": 10,
+          "examples": [
+            "413. Norman Mailer",
+            "414. Truman Capote",
+            "415. Harper Lee"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 416,
+          "endRank": 433,
+          "count": 18,
+          "examples": [
+            "416. John Steinbeck",
+            "417. Ernest Hemingway",
+            "418. F. Scott Fitzgerald"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 424,
+          "endRank": 434,
+          "count": 11,
+          "examples": [
+            "424. Richard Wright",
+            "425. Zora Neale Hurston",
+            "426. Flannery O'Connor"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 424,
+          "endRank": 435,
+          "count": 12,
+          "examples": [
+            "424. Richard Wright",
+            "425. Zora Neale Hurston",
+            "426. Flannery O'Connor"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 444,
+          "endRank": 454,
+          "count": 11,
+          "examples": [
+            "444. Anthony Burgess",
+            "445. Evelyn Waugh",
+            "446. Graham Greene"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 446,
+          "endRank": 455,
+          "count": 10,
+          "examples": [
+            "446. Graham Greene",
+            "447. Somerset Maugham",
+            "448. E.M. Forster"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 446,
+          "endRank": 456,
+          "count": 11,
+          "examples": [
+            "446. Graham Greene",
+            "447. Somerset Maugham",
+            "448. E.M. Forster"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 458,
+          "endRank": 467,
+          "count": 10,
+          "examples": [
+            "458. Rudyard Kipling",
+            "459. Robert Louis Stevenson",
+            "460. H. Rider Haggard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 459,
+          "endRank": 469,
+          "count": 11,
+          "examples": [
+            "459. Robert Louis Stevenson",
+            "460. H. Rider Haggard",
+            "461. Alexandre Dumas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "french",
+          "startRank": 461,
+          "endRank": 473,
+          "count": 13,
+          "examples": [
+            "461. Alexandre Dumas",
+            "462. Victor Hugo",
+            "463. Honoré de Balzac"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "french",
+          "startRank": 461,
+          "endRank": 474,
+          "count": 14,
+          "examples": [
+            "461. Alexandre Dumas",
+            "462. Victor Hugo",
+            "463. Honoré de Balzac"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 515,
+          "endRank": 526,
+          "count": 12,
+          "examples": [
+            "515. Ptolemy",
+            "516. Hypatia",
+            "517. Thales"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 516,
+          "endRank": 527,
+          "count": 12,
+          "examples": [
+            "516. Hypatia",
+            "517. Thales",
+            "518. Heraclitus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "islamic",
+          "startRank": 535,
+          "endRank": 545,
+          "count": 11,
+          "examples": [
+            "535. Bede",
+            "536. Ibn Khaldun",
+            "537. Al-Biruni"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "islamic",
+          "startRank": 536,
+          "endRank": 546,
+          "count": 11,
+          "examples": [
+            "536. Ibn Khaldun",
+            "537. Al-Biruni",
+            "538. Al-Khwarizmi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 580,
+          "endRank": 599,
+          "count": 20,
+          "examples": [
+            "580. Filippo Brunelleschi",
+            "581. Leon Battista Alberti",
+            "582. Sandro Botticelli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 582,
+          "endRank": 612,
+          "count": 31,
+          "examples": [
+            "582. Sandro Botticelli",
+            "583. Raphael",
+            "584. Titian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 601,
+          "endRank": 623,
+          "count": 23,
+          "examples": [
+            "601. Claude Monet",
+            "602. Pierre-Auguste Renoir",
+            "603. Edgar Degas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 614,
+          "endRank": 624,
+          "count": 11,
+          "examples": [
+            "614. Piet Mondrian",
+            "615. Kazimir Malevich",
+            "616. Marc Chagall"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 614,
+          "endRank": 625,
+          "count": 12,
+          "examples": [
+            "614. Piet Mondrian",
+            "615. Kazimir Malevich",
+            "616. Marc Chagall"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 642,
+          "endRank": 651,
+          "count": 10,
+          "examples": [
+            "642. Banksy",
+            "643. Ai Weiwei",
+            "644. Yayoi Kusama"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 643,
+          "endRank": 652,
+          "count": 10,
+          "examples": [
+            "643. Ai Weiwei",
+            "644. Yayoi Kusama",
+            "645. Takashi Murakami"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 644,
+          "endRank": 653,
+          "count": 10,
+          "examples": [
+            "644. Yayoi Kusama",
+            "645. Takashi Murakami",
+            "646. Katsushika Hokusai"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 646,
+          "endRank": 662,
+          "count": 17,
+          "examples": [
+            "646. Katsushika Hokusai",
+            "647. Utagawa Hiroshige",
+            "648. Sesshū Tōyō"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "chinese",
+          "startRank": 652,
+          "endRank": 663,
+          "count": 12,
+          "examples": [
+            "652. Gu Kaizhi",
+            "653. Wu Daozi",
+            "654. Fan Kuan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 648,
+          "endRank": 663,
+          "count": 16,
+          "examples": [
+            "648. Sesshū Tōyō",
+            "649. Hasegawa Tōhaku",
+            "650. Ogata Kōrin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "chinese",
+          "startRank": 652,
+          "endRank": 664,
+          "count": 13,
+          "examples": [
+            "652. Gu Kaizhi",
+            "653. Wu Daozi",
+            "654. Fan Kuan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 648,
+          "endRank": 664,
+          "count": 17,
+          "examples": [
+            "648. Sesshū Tōyō",
+            "649. Hasegawa Tōhaku",
+            "650. Ogata Kōrin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 661,
+          "endRank": 672,
+          "count": 12,
+          "examples": [
+            "661. Zhang Daqian",
+            "662. Xu Beihong",
+            "663. Auguste Rodin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 663,
+          "endRank": 673,
+          "count": 11,
+          "examples": [
+            "663. Auguste Rodin",
+            "664. Constantin Brâncuși",
+            "665. Alberto Giacometti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 663,
+          "endRank": 674,
+          "count": 12,
+          "examples": [
+            "663. Auguste Rodin",
+            "664. Constantin Brâncuși",
+            "665. Alberto Giacometti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 673,
+          "endRank": 682,
+          "count": 10,
+          "examples": [
+            "673. Damien Hirst",
+            "674. Christo and Jeanne-Claude",
+            "675. Robert Smithson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photographer",
+          "startRank": 681,
+          "endRank": 696,
+          "count": 16,
+          "examples": [
+            "681. Marina Abramović",
+            "682. Yoko Ono",
+            "683. Cindy Sherman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photographer",
+          "startRank": 683,
+          "endRank": 700,
+          "count": 18,
+          "examples": [
+            "683. Cindy Sherman",
+            "684. Diane Arbus",
+            "685. Richard Avedon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photographer",
+          "startRank": 683,
+          "endRank": 701,
+          "count": 19,
+          "examples": [
+            "683. Cindy Sherman",
+            "684. Diane Arbus",
+            "685. Richard Avedon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 699,
+          "endRank": 710,
+          "count": 12,
+          "examples": [
+            "699. Helmut Newton",
+            "700. Robert Mapplethorpe",
+            "701. Johann Sebastian Bach"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 701,
+          "endRank": 742,
+          "count": 42,
+          "examples": [
+            "701. Johann Sebastian Bach",
+            "702. Wolfgang Amadeus Mozart",
+            "703. Ludwig van Beethoven"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 712,
+          "endRank": 770,
+          "count": 59,
+          "examples": [
+            "712. Felix Mendelssohn",
+            "713. Hector Berlioz",
+            "714. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 744,
+          "endRank": 771,
+          "count": 28,
+          "examples": [
+            "744. Pierre Boulez",
+            "745. Olivier Messiaen",
+            "746. Arvo Pärt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 744,
+          "endRank": 772,
+          "count": 29,
+          "examples": [
+            "744. Pierre Boulez",
+            "745. Olivier Messiaen",
+            "746. Arvo Pärt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 829,
+          "endRank": 842,
+          "count": 14,
+          "examples": [
+            "829. Bruce Springsteen",
+            "830. Neil Young",
+            "831. Johnny Cash"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 831,
+          "endRank": 843,
+          "count": 13,
+          "examples": [
+            "831. Johnny Cash",
+            "832. Hank Williams",
+            "833. Willie Nelson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "singer",
+          "startRank": 842,
+          "endRank": 852,
+          "count": 11,
+          "examples": [
+            "842. Taylor Swift",
+            "843. Beyoncé",
+            "844. Whitney Houston"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "singer",
+          "startRank": 844,
+          "endRank": 854,
+          "count": 11,
+          "examples": [
+            "844. Whitney Houston",
+            "845. Mariah Carey",
+            "846. Celine Dion"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "singer",
+          "startRank": 844,
+          "endRank": 855,
+          "count": 12,
+          "examples": [
+            "844. Whitney Houston",
+            "845. Mariah Carey",
+            "846. Celine Dion"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "dancer",
+          "startRank": 853,
+          "endRank": 862,
+          "count": 10,
+          "examples": [
+            "853. Sammy Davis Jr.",
+            "854. Judy Garland",
+            "855. Fred Astaire"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "dancer",
+          "startRank": 854,
+          "endRank": 863,
+          "count": 10,
+          "examples": [
+            "854. Judy Garland",
+            "855. Fred Astaire",
+            "856. Gene Kelly"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "dancer",
+          "startRank": 855,
+          "endRank": 864,
+          "count": 10,
+          "examples": [
+            "855. Fred Astaire",
+            "856. Gene Kelly",
+            "857. Ginger Rogers"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "choreographer",
+          "startRank": 863,
+          "endRank": 874,
+          "count": 12,
+          "examples": [
+            "863. George Balanchine",
+            "864. Martha Graham",
+            "865. Merce Cunningham"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "choreographer",
+          "startRank": 865,
+          "endRank": 875,
+          "count": 11,
+          "examples": [
+            "865. Merce Cunningham",
+            "866. Alvin Ailey",
+            "867. Isadora Duncan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 884,
+          "endRank": 900,
+          "count": 17,
+          "examples": [
+            "884. Meryl Streep",
+            "885. Katharine Hepburn",
+            "886. Bette Davis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 887,
+          "endRank": 913,
+          "count": 27,
+          "examples": [
+            "887. Audrey Hepburn",
+            "888. Marilyn Monroe",
+            "889. James Dean"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 889,
+          "endRank": 914,
+          "count": 26,
+          "examples": [
+            "889. James Dean",
+            "890. Humphrey Bogart",
+            "891. Cary Grant"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 889,
+          "endRank": 915,
+          "count": 27,
+          "examples": [
+            "889. James Dean",
+            "890. Humphrey Bogart",
+            "891. Cary Grant"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 911,
+          "endRank": 929,
+          "count": 19,
+          "examples": [
+            "911. Alec Guinness",
+            "912. Richard Burton",
+            "913. Peter Sellers"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 913,
+          "endRank": 930,
+          "count": 18,
+          "examples": [
+            "913. Peter Sellers",
+            "914. Charlie Chaplin",
+            "915. Buster Keaton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 913,
+          "endRank": 931,
+          "count": 19,
+          "examples": [
+            "913. Peter Sellers",
+            "914. Charlie Chaplin",
+            "915. Buster Keaton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 927,
+          "endRank": 938,
+          "count": 12,
+          "examples": [
+            "927. Larry David",
+            "928. Mel Brooks",
+            "929. Woody Allen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 930,
+          "endRank": 949,
+          "count": 20,
+          "examples": [
+            "930. Billy Wilder",
+            "931. Ernst Lubitsch",
+            "932. Frank Capra"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 940,
+          "endRank": 953,
+          "count": 14,
+          "examples": [
+            "940. Vittorio De Sica",
+            "941. Roberto Rossellini",
+            "942. Luchino Visconti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 940,
+          "endRank": 962,
+          "count": 23,
+          "examples": [
+            "940. Vittorio De Sica",
+            "941. Roberto Rossellini",
+            "942. Luchino Visconti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 951,
+          "endRank": 963,
+          "count": 13,
+          "examples": [
+            "951. Pedro Almodóvar",
+            "952. Andrei Tarkovsky",
+            "953. Sergei Eisenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 955,
+          "endRank": 964,
+          "count": 10,
+          "examples": [
+            "955. Vsevolod Pudovkin",
+            "956. Krzysztof Kieślowski",
+            "957. Roman Polanski"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 959,
+          "endRank": 970,
+          "count": 12,
+          "examples": [
+            "959. Lars von Trier",
+            "960. Carl Theodor Dreyer",
+            "961. Yasujirō Ozu"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 961,
+          "endRank": 971,
+          "count": 11,
+          "examples": [
+            "961. Yasujirō Ozu",
+            "962. Kenji Mizoguchi",
+            "963. Hayao Miyazaki"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 961,
+          "endRank": 972,
+          "count": 12,
+          "examples": [
+            "961. Yasujirō Ozu",
+            "962. Kenji Mizoguchi",
+            "963. Hayao Miyazaki"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 974,
+          "endRank": 1000,
+          "count": 27,
+          "examples": [
+            "974. Ritwik Ghatak",
+            "975. Mrinal Sen",
+            "976. Zhang Yimou"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 59 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        74,
+        302
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charlie chaplin",
+      "ranks": [
+        118,
+        914
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        131,
+        405
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franz kafka",
+      "ranks": [
+        156,
+        385
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        325,
+        576
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hayao miyazaki",
+      "ranks": [
+        963,
+        970
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad yunus",
+        "askia muhammad"
+      ],
+      "ranks": [
+        2,
+        217,
+        503
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        286
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo",
+      "variants": [
+        "michelangelo",
+        "michelangelo antonioni"
+      ],
+      "ranks": [
+        31,
+        943
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry ford",
+      "variants": [
+        "henry ford",
+        "henry fonda"
+      ],
+      "ranks": [
+        69,
+        898
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john dalton",
+      "variants": [
+        "john dalton",
+        "john milton"
+      ],
+      "ranks": [
+        249,
+        327
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "simone veil",
+      "variants": [
+        "simone veil",
+        "simone weil"
+      ],
+      "ranks": [
+        297,
+        473
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "jalal addin rumi"
+      ],
+      "ranks": [
+        314,
+        546
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jerome",
+      "variants": [
+        "jerome",
+        "jerome robbins"
+      ],
+      "ranks": [
+        562,
+        871
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 128,
+      "endRank": 137,
+      "count": 10,
+      "examples": [
+        "128. Christopher Nolan",
+        "129. George Lucas",
+        "130. J.R.R. Tolkien"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 129,
+      "endRank": 138,
+      "count": 10,
+      "examples": [
+        "129. George Lucas",
+        "130. J.R.R. Tolkien",
+        "131. C.S. Lewis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 130,
+      "endRank": 141,
+      "count": 12,
+      "examples": [
+        "130. J.R.R. Tolkien",
+        "131. C.S. Lewis",
+        "132. J.K. Rowling"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 155,
+      "endRank": 164,
+      "count": 10,
+      "examples": [
+        "155. Marcel Proust",
+        "156. Franz Kafka",
+        "157. Albert Camus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 156,
+      "endRank": 170,
+      "count": 15,
+      "examples": [
+        "156. Franz Kafka",
+        "157. Albert Camus",
+        "158. Jean-Paul Sartre"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 157,
+      "endRank": 173,
+      "count": 17,
+      "examples": [
+        "157. Albert Camus",
+        "158. Jean-Paul Sartre",
+        "159. Simone de Beauvoir"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 166,
+      "endRank": 176,
+      "count": 11,
+      "examples": [
+        "166. Blaise Pascal",
+        "167. Gottfried Wilhelm Leibniz",
+        "168. David Hume"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 172,
+      "endRank": 183,
+      "count": 12,
+      "examples": [
+        "172. Voltaire",
+        "173. Montesquieu",
+        "174. Thomas Paine"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 175,
+      "endRank": 184,
+      "count": 10,
+      "examples": [
+        "175. Edmund Burke",
+        "176. John Stuart Mill",
+        "177. Jeremy Bentham"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 207,
+      "endRank": 216,
+      "count": 10,
+      "examples": [
+        "207. Friedrich Hayek",
+        "208. Ludwig von Mises",
+        "209. Joseph Schumpeter"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 355,
+      "endRank": 364,
+      "count": 10,
+      "examples": [
+        "355. Julio Cortázar",
+        "356. Miguel de Cervantes",
+        "357. Lope de Vega"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 356,
+      "endRank": 365,
+      "count": 10,
+      "examples": [
+        "356. Miguel de Cervantes",
+        "357. Lope de Vega",
+        "358. Pedro Calderón de la Barca"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playwright",
+      "startRank": 357,
+      "endRank": 366,
+      "count": 10,
+      "examples": [
+        "357. Lope de Vega",
+        "358. Pedro Calderón de la Barca",
+        "359. Molière"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "russian",
+      "startRank": 362,
+      "endRank": 380,
+      "count": 19,
+      "examples": [
+        "362. Henrik Ibsen",
+        "363. August Strindberg",
+        "364. Anton Chekhov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 385,
+      "endRank": 396,
+      "count": 12,
+      "examples": [
+        "385. Franz Kafka",
+        "386. Rainer Maria Rilke",
+        "387. Hermann Hesse"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 387,
+      "endRank": 397,
+      "count": 11,
+      "examples": [
+        "387. Hermann Hesse",
+        "388. Thomas Mann",
+        "389. Günter Grass"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 387,
+      "endRank": 398,
+      "count": 12,
+      "examples": [
+        "387. Hermann Hesse",
+        "388. Thomas Mann",
+        "389. Günter Grass"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 395,
+      "endRank": 407,
+      "count": 13,
+      "examples": [
+        "395. E.T.A. Hoffmann",
+        "396. Brothers Grimm",
+        "397. Hans Christian Andersen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 397,
+      "endRank": 410,
+      "count": 14,
+      "examples": [
+        "397. Hans Christian Andersen",
+        "398. Astrid Lindgren",
+        "399. Roald Dahl"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 403,
+      "endRank": 412,
+      "count": 10,
+      "examples": [
+        "403. Lewis Carroll",
+        "404. L. Frank Baum",
+        "405. C.S. Lewis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 413,
+      "endRank": 422,
+      "count": 10,
+      "examples": [
+        "413. Norman Mailer",
+        "414. Truman Capote",
+        "415. Harper Lee"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 416,
+      "endRank": 433,
+      "count": 18,
+      "examples": [
+        "416. John Steinbeck",
+        "417. Ernest Hemingway",
+        "418. F. Scott Fitzgerald"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 424,
+      "endRank": 434,
+      "count": 11,
+      "examples": [
+        "424. Richard Wright",
+        "425. Zora Neale Hurston",
+        "426. Flannery O'Connor"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 424,
+      "endRank": 435,
+      "count": 12,
+      "examples": [
+        "424. Richard Wright",
+        "425. Zora Neale Hurston",
+        "426. Flannery O'Connor"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 444,
+      "endRank": 454,
+      "count": 11,
+      "examples": [
+        "444. Anthony Burgess",
+        "445. Evelyn Waugh",
+        "446. Graham Greene"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 446,
+      "endRank": 455,
+      "count": 10,
+      "examples": [
+        "446. Graham Greene",
+        "447. Somerset Maugham",
+        "448. E.M. Forster"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 446,
+      "endRank": 456,
+      "count": 11,
+      "examples": [
+        "446. Graham Greene",
+        "447. Somerset Maugham",
+        "448. E.M. Forster"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 458,
+      "endRank": 467,
+      "count": 10,
+      "examples": [
+        "458. Rudyard Kipling",
+        "459. Robert Louis Stevenson",
+        "460. H. Rider Haggard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 459,
+      "endRank": 469,
+      "count": 11,
+      "examples": [
+        "459. Robert Louis Stevenson",
+        "460. H. Rider Haggard",
+        "461. Alexandre Dumas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "french",
+      "startRank": 461,
+      "endRank": 473,
+      "count": 13,
+      "examples": [
+        "461. Alexandre Dumas",
+        "462. Victor Hugo",
+        "463. Honoré de Balzac"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "french",
+      "startRank": 461,
+      "endRank": 474,
+      "count": 14,
+      "examples": [
+        "461. Alexandre Dumas",
+        "462. Victor Hugo",
+        "463. Honoré de Balzac"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 515,
+      "endRank": 526,
+      "count": 12,
+      "examples": [
+        "515. Ptolemy",
+        "516. Hypatia",
+        "517. Thales"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 516,
+      "endRank": 527,
+      "count": 12,
+      "examples": [
+        "516. Hypatia",
+        "517. Thales",
+        "518. Heraclitus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "islamic",
+      "startRank": 535,
+      "endRank": 545,
+      "count": 11,
+      "examples": [
+        "535. Bede",
+        "536. Ibn Khaldun",
+        "537. Al-Biruni"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "islamic",
+      "startRank": 536,
+      "endRank": 546,
+      "count": 11,
+      "examples": [
+        "536. Ibn Khaldun",
+        "537. Al-Biruni",
+        "538. Al-Khwarizmi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 580,
+      "endRank": 599,
+      "count": 20,
+      "examples": [
+        "580. Filippo Brunelleschi",
+        "581. Leon Battista Alberti",
+        "582. Sandro Botticelli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 582,
+      "endRank": 612,
+      "count": 31,
+      "examples": [
+        "582. Sandro Botticelli",
+        "583. Raphael",
+        "584. Titian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 601,
+      "endRank": 623,
+      "count": 23,
+      "examples": [
+        "601. Claude Monet",
+        "602. Pierre-Auguste Renoir",
+        "603. Edgar Degas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 614,
+      "endRank": 624,
+      "count": 11,
+      "examples": [
+        "614. Piet Mondrian",
+        "615. Kazimir Malevich",
+        "616. Marc Chagall"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 614,
+      "endRank": 625,
+      "count": 12,
+      "examples": [
+        "614. Piet Mondrian",
+        "615. Kazimir Malevich",
+        "616. Marc Chagall"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 642,
+      "endRank": 651,
+      "count": 10,
+      "examples": [
+        "642. Banksy",
+        "643. Ai Weiwei",
+        "644. Yayoi Kusama"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 643,
+      "endRank": 652,
+      "count": 10,
+      "examples": [
+        "643. Ai Weiwei",
+        "644. Yayoi Kusama",
+        "645. Takashi Murakami"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 644,
+      "endRank": 653,
+      "count": 10,
+      "examples": [
+        "644. Yayoi Kusama",
+        "645. Takashi Murakami",
+        "646. Katsushika Hokusai"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 646,
+      "endRank": 662,
+      "count": 17,
+      "examples": [
+        "646. Katsushika Hokusai",
+        "647. Utagawa Hiroshige",
+        "648. Sesshū Tōyō"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "chinese",
+      "startRank": 652,
+      "endRank": 663,
+      "count": 12,
+      "examples": [
+        "652. Gu Kaizhi",
+        "653. Wu Daozi",
+        "654. Fan Kuan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 648,
+      "endRank": 663,
+      "count": 16,
+      "examples": [
+        "648. Sesshū Tōyō",
+        "649. Hasegawa Tōhaku",
+        "650. Ogata Kōrin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "chinese",
+      "startRank": 652,
+      "endRank": 664,
+      "count": 13,
+      "examples": [
+        "652. Gu Kaizhi",
+        "653. Wu Daozi",
+        "654. Fan Kuan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 648,
+      "endRank": 664,
+      "count": 17,
+      "examples": [
+        "648. Sesshū Tōyō",
+        "649. Hasegawa Tōhaku",
+        "650. Ogata Kōrin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 661,
+      "endRank": 672,
+      "count": 12,
+      "examples": [
+        "661. Zhang Daqian",
+        "662. Xu Beihong",
+        "663. Auguste Rodin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 663,
+      "endRank": 673,
+      "count": 11,
+      "examples": [
+        "663. Auguste Rodin",
+        "664. Constantin Brâncuși",
+        "665. Alberto Giacometti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 663,
+      "endRank": 674,
+      "count": 12,
+      "examples": [
+        "663. Auguste Rodin",
+        "664. Constantin Brâncuși",
+        "665. Alberto Giacometti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 673,
+      "endRank": 682,
+      "count": 10,
+      "examples": [
+        "673. Damien Hirst",
+        "674. Christo and Jeanne-Claude",
+        "675. Robert Smithson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photographer",
+      "startRank": 681,
+      "endRank": 696,
+      "count": 16,
+      "examples": [
+        "681. Marina Abramović",
+        "682. Yoko Ono",
+        "683. Cindy Sherman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photographer",
+      "startRank": 683,
+      "endRank": 700,
+      "count": 18,
+      "examples": [
+        "683. Cindy Sherman",
+        "684. Diane Arbus",
+        "685. Richard Avedon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photographer",
+      "startRank": 683,
+      "endRank": 701,
+      "count": 19,
+      "examples": [
+        "683. Cindy Sherman",
+        "684. Diane Arbus",
+        "685. Richard Avedon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 699,
+      "endRank": 710,
+      "count": 12,
+      "examples": [
+        "699. Helmut Newton",
+        "700. Robert Mapplethorpe",
+        "701. Johann Sebastian Bach"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 701,
+      "endRank": 742,
+      "count": 42,
+      "examples": [
+        "701. Johann Sebastian Bach",
+        "702. Wolfgang Amadeus Mozart",
+        "703. Ludwig van Beethoven"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 712,
+      "endRank": 770,
+      "count": 59,
+      "examples": [
+        "712. Felix Mendelssohn",
+        "713. Hector Berlioz",
+        "714. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 744,
+      "endRank": 771,
+      "count": 28,
+      "examples": [
+        "744. Pierre Boulez",
+        "745. Olivier Messiaen",
+        "746. Arvo Pärt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 744,
+      "endRank": 772,
+      "count": 29,
+      "examples": [
+        "744. Pierre Boulez",
+        "745. Olivier Messiaen",
+        "746. Arvo Pärt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 829,
+      "endRank": 842,
+      "count": 14,
+      "examples": [
+        "829. Bruce Springsteen",
+        "830. Neil Young",
+        "831. Johnny Cash"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 831,
+      "endRank": 843,
+      "count": 13,
+      "examples": [
+        "831. Johnny Cash",
+        "832. Hank Williams",
+        "833. Willie Nelson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "singer",
+      "startRank": 842,
+      "endRank": 852,
+      "count": 11,
+      "examples": [
+        "842. Taylor Swift",
+        "843. Beyoncé",
+        "844. Whitney Houston"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "singer",
+      "startRank": 844,
+      "endRank": 854,
+      "count": 11,
+      "examples": [
+        "844. Whitney Houston",
+        "845. Mariah Carey",
+        "846. Celine Dion"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "singer",
+      "startRank": 844,
+      "endRank": 855,
+      "count": 12,
+      "examples": [
+        "844. Whitney Houston",
+        "845. Mariah Carey",
+        "846. Celine Dion"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "dancer",
+      "startRank": 853,
+      "endRank": 862,
+      "count": 10,
+      "examples": [
+        "853. Sammy Davis Jr.",
+        "854. Judy Garland",
+        "855. Fred Astaire"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "dancer",
+      "startRank": 854,
+      "endRank": 863,
+      "count": 10,
+      "examples": [
+        "854. Judy Garland",
+        "855. Fred Astaire",
+        "856. Gene Kelly"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "dancer",
+      "startRank": 855,
+      "endRank": 864,
+      "count": 10,
+      "examples": [
+        "855. Fred Astaire",
+        "856. Gene Kelly",
+        "857. Ginger Rogers"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "choreographer",
+      "startRank": 863,
+      "endRank": 874,
+      "count": 12,
+      "examples": [
+        "863. George Balanchine",
+        "864. Martha Graham",
+        "865. Merce Cunningham"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "choreographer",
+      "startRank": 865,
+      "endRank": 875,
+      "count": 11,
+      "examples": [
+        "865. Merce Cunningham",
+        "866. Alvin Ailey",
+        "867. Isadora Duncan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 884,
+      "endRank": 900,
+      "count": 17,
+      "examples": [
+        "884. Meryl Streep",
+        "885. Katharine Hepburn",
+        "886. Bette Davis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 887,
+      "endRank": 913,
+      "count": 27,
+      "examples": [
+        "887. Audrey Hepburn",
+        "888. Marilyn Monroe",
+        "889. James Dean"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 889,
+      "endRank": 914,
+      "count": 26,
+      "examples": [
+        "889. James Dean",
+        "890. Humphrey Bogart",
+        "891. Cary Grant"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 889,
+      "endRank": 915,
+      "count": 27,
+      "examples": [
+        "889. James Dean",
+        "890. Humphrey Bogart",
+        "891. Cary Grant"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 911,
+      "endRank": 929,
+      "count": 19,
+      "examples": [
+        "911. Alec Guinness",
+        "912. Richard Burton",
+        "913. Peter Sellers"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 913,
+      "endRank": 930,
+      "count": 18,
+      "examples": [
+        "913. Peter Sellers",
+        "914. Charlie Chaplin",
+        "915. Buster Keaton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 913,
+      "endRank": 931,
+      "count": 19,
+      "examples": [
+        "913. Peter Sellers",
+        "914. Charlie Chaplin",
+        "915. Buster Keaton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 927,
+      "endRank": 938,
+      "count": 12,
+      "examples": [
+        "927. Larry David",
+        "928. Mel Brooks",
+        "929. Woody Allen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 930,
+      "endRank": 949,
+      "count": 20,
+      "examples": [
+        "930. Billy Wilder",
+        "931. Ernst Lubitsch",
+        "932. Frank Capra"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 940,
+      "endRank": 953,
+      "count": 14,
+      "examples": [
+        "940. Vittorio De Sica",
+        "941. Roberto Rossellini",
+        "942. Luchino Visconti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 940,
+      "endRank": 962,
+      "count": 23,
+      "examples": [
+        "940. Vittorio De Sica",
+        "941. Roberto Rossellini",
+        "942. Luchino Visconti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 951,
+      "endRank": 963,
+      "count": 13,
+      "examples": [
+        "951. Pedro Almodóvar",
+        "952. Andrei Tarkovsky",
+        "953. Sergei Eisenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 955,
+      "endRank": 964,
+      "count": 10,
+      "examples": [
+        "955. Vsevolod Pudovkin",
+        "956. Krzysztof Kieślowski",
+        "957. Roman Polanski"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 959,
+      "endRank": 970,
+      "count": 12,
+      "examples": [
+        "959. Lars von Trier",
+        "960. Carl Theodor Dreyer",
+        "961. Yasujirō Ozu"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 961,
+      "endRank": 971,
+      "count": 11,
+      "examples": [
+        "961. Yasujirō Ozu",
+        "962. Kenji Mizoguchi",
+        "963. Hayao Miyazaki"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 961,
+      "endRank": 972,
+      "count": 12,
+      "examples": [
+        "961. Yasujirō Ozu",
+        "962. Kenji Mizoguchi",
+        "963. Hayao Miyazaki"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 974,
+      "endRank": 1000,
+      "count": 27,
+      "examples": [
+        "974. Ritwik Ghatak",
+        "975. Mrinal Sen",
+        "976. Zhang Yimou"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 163,
+      "Asia": 47,
+      "Middle East": 19,
+      "Africa": 15,
+      "Americas": 73,
+      "Oceania": 0,
+      "Unknown": 683
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 36,
+      "Science/Technology": 27,
+      "Philosophy/Religion": 80,
+      "Arts/Literature": 364,
+      "Military": 3,
+      "Other": 490
+    }
+  },
+  "summary": "Issues: 6 exact duplicates; pattern collapse (max 59)"
+}

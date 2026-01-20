@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import { BadgeType, BADGE_DEFINITIONS } from '@/types';
 import { Tooltip } from '@/components/ui/tooltip';
-import { Bot, BookOpen, Crown, Gem, Globe, Heart, Radar, TrendingUp } from 'lucide-react';
+import { Bot, BookOpen, Crown, Gem, Globe, Heart, PenLine, Radar, ScrollText, TrendingUp } from 'lucide-react';
 
 interface BadgeDisplayProps {
   badges: BadgeType[];
@@ -24,6 +24,8 @@ const BADGE_STYLES: Record<BadgeType, string> = {
   'under-the-radar': 'bg-sky-50 text-sky-700 border-sky-200',
   'global-icon': 'bg-teal-50 text-teal-700 border-teal-200',
   'universal-recognition': 'bg-amber-50 text-amber-700 border-amber-200',
+  'historians-favorite': 'bg-stone-100 text-stone-700 border-stone-300',
+  'underwritten': 'bg-orange-50 text-orange-700 border-orange-200',
 };
 
 export function BadgeDisplay({ badges, compact = false, maxVisible = 3 }: BadgeDisplayProps) {
@@ -49,6 +51,10 @@ export function BadgeDisplay({ badges, compact = false, maxVisible = 3 }: BadgeD
         return <BookOpen className={baseClass} />;
       case 'llm-favorite':
         return <Bot className={baseClass} />;
+      case 'historians-favorite':
+        return <ScrollText className={baseClass} />;
+      case 'underwritten':
+        return <PenLine className={baseClass} />;
       case 'claude-favorite':
       case 'gpt-favorite':
       case 'gemini-favorite':

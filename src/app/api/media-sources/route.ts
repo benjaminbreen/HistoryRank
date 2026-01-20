@@ -45,8 +45,9 @@ function normalizeTitle(value: string) {
 }
 
 function getSourceLabel(filename: string) {
-  const match = filename.match(/^(.+?)\\s+MEDIA LIST/i);
-  if (!match) return filename.replace(/\\.(json|txt)$/i, '');
+  // Extract model name before "MEDIA LIST" or "LIST"
+  const match = filename.match(/^(.+?)\s+(?:MEDIA\s+)?LIST/i);
+  if (!match) return filename.replace(/\.(json|txt)$/i, '');
   return match[1].trim();
 }
 

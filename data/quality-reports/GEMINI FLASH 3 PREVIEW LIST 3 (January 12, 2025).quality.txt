@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GEMINI FLASH 3 PREVIEW LIST 3 (January 12, 2025).txt
+Model: GEMINI FLASH 3 PREVIEW
+Timestamp: 2026-01-19T06:54:16.540Z
+
+VERDICT: FAIL
+
+Summary: Issues: 303 exact duplicates; pattern collapse (max 22)
+
+Scores:
+  Repetition: FAIL - 303 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 22 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (270):
+  - Exact duplicate: "muhammad" at ranks 1, 916
+  - Exact duplicate: "isaac newton" at ranks 2, 964
+  - Exact duplicate: "jesus christ" at ranks 3, 915
+  - Exact duplicate: "gautama buddha" at ranks 4, 914
+  - Exact duplicate: "confucius" at ranks 5, 912
+  - Exact duplicate: "st paul the apostle" at ranks 6, 920
+  - Exact duplicate: "albert einstein" at ranks 10, 963
+  - Exact duplicate: "louis pasteur" at ranks 11, 956
+  - Exact duplicate: "galileo galilei" at ranks 12, 965
+  - Exact duplicate: "aristotle" at ranks 13, 910
+  ... and 260 more issues
+
+Diversity Estimates:
+  Regions: Europe: 109, Asia: 27, Middle East: 29, Africa: 10, Americas: 20, Unknown: 805
+  Domains: Politics/Leadership: 124, Science/Technology: 75, Philosophy/Religion: 142, Arts/Literature: 171, Military: 18, Other: 470
