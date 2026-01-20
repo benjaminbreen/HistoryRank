@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition, Profiler } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -194,17 +194,6 @@ function HomeContent() {
     setDisplayLimit(prev => prev + 500);
   }, []);
 
-  const handleRenderProfile = useCallback((
-    id: string,
-    phase: 'mount' | 'update',
-    actualDuration: number,
-    baseDuration: number
-  ) => {
-    if (process.env.NODE_ENV === 'production') return;
-    if (actualDuration < 16) return;
-    // eslint-disable-next-line no-console
-    console.log(`[perf] ${id} ${phase} actual=${actualDuration.toFixed(1)}ms base=${baseDuration.toFixed(1)}ms`);
-  }, []);
 
   // Detail panel
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -787,32 +776,30 @@ function HomeContent() {
             })()
           ) : (
             <>
-              <Profiler id="RankingsTable" onRender={handleRenderProfile}>
-                <RankingsTable
-                  figures={figures}
-                  onSelectFigure={handleSelectFigure}
-                  onPrefetch={handlePrefetch}
-                  selectedId={selectedId}
-                  sortBy={sortBy}
-                  sortOrder={sortOrder}
-                  onSort={handleSort}
-                  density={settings.density}
-                  fontScale={settings.fontScale}
-                  thumbnailSize={
-                    settings.thumbnailSize === 'sm'
-                      ? 30
-                      : settings.thumbnailSize === 'lg'
-                        ? 46
-                        : 38
-                  }
-                  visibleColumns={{
-                    region: settings.showRegion,
-                    era: settings.showEra,
-                    variance: settings.showVariance,
-                    views: settings.showViews,
-                  }}
-                />
-              </Profiler>
+              <RankingsTable
+                figures={figures}
+                onSelectFigure={handleSelectFigure}
+                onPrefetch={handlePrefetch}
+                selectedId={selectedId}
+                sortBy={sortBy}
+                sortOrder={sortOrder}
+                onSort={handleSort}
+                density={settings.density}
+                fontScale={settings.fontScale}
+                thumbnailSize={
+                  settings.thumbnailSize === 'sm'
+                    ? 30
+                    : settings.thumbnailSize === 'lg'
+                      ? 46
+                      : 38
+                }
+                visibleColumns={{
+                  region: settings.showRegion,
+                  era: settings.showEra,
+                  variance: settings.showVariance,
+                  views: settings.showViews,
+                }}
+              />
             {hasMore && (
               <div className="mt-4 flex justify-center">
                 <Button
@@ -874,24 +861,22 @@ function HomeContent() {
       )}
 
       {/* Detail Panel */}
-      <Profiler id="FigureDetailPanel" onRender={handleRenderProfile}>
-        <FigureDetailPanel
-          figure={selectedFigure}
-          previewRow={selectedRow}
-          rankings={selectedRankings}
-          aliases={selectedAliases}
-          isOpen={selectedId !== null}
-          onClose={handleCloseDetail}
-          isLoading={isDetailLoading}
-          isFullDataLoading={isFullDataLoading}
-          llmRank={selectedLlmRank}
-          onPrevious={handlePreviousFigure}
-          onNext={handleNextFigure}
-          hasPrevious={currentFigureIndex > 0}
-          hasNext={currentFigureIndex >= 0 && currentFigureIndex < figures.length - 1}
-          onNavigate={setSelectedId}
-        />
-      </Profiler>
+      <FigureDetailPanel
+        figure={selectedFigure}
+        previewRow={selectedRow}
+        rankings={selectedRankings}
+        aliases={selectedAliases}
+        isOpen={selectedId !== null}
+        onClose={handleCloseDetail}
+        isLoading={isDetailLoading}
+        isFullDataLoading={isFullDataLoading}
+        llmRank={selectedLlmRank}
+        onPrevious={handlePreviousFigure}
+        onNext={handleNextFigure}
+        hasPrevious={currentFigureIndex > 0}
+        hasNext={currentFigureIndex >= 0 && currentFigureIndex < figures.length - 1}
+        onNavigate={setSelectedId}
+      />
     </main>
   );
 }
