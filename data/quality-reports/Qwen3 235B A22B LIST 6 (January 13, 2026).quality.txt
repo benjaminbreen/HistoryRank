@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Qwen3 235B A22B LIST 6 (January 13, 2026).txt
+Model: Qwen3 235B A22B
+Timestamp: 2026-01-20T04:16:10.975Z
+
+VERDICT: FAIL
+
+Summary: Issues: 259 exact duplicates; pattern collapse (max 11)
+
+Scores:
+  Repetition: FAIL - 259 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 11 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+
+Issues (203):
+  - Exact duplicate: "albert einstein" at ranks 6, 544
+  - Exact duplicate: "julius caesar" at ranks 10, 102
+  - Exact duplicate: "augustus" at ranks 11, 103
+  - Exact duplicate: "genghis khan" at ranks 12, 97, 205
+  - Exact duplicate: "karl marx" at ranks 15, 228, 533, 775
+  - Exact duplicate: "mao zedong" at ranks 20, 233
+  - Exact duplicate: "joseph stalin" at ranks 23, 232, 270
+  - Exact duplicate: "nelson mandela" at ranks 25, 889
+  - Exact duplicate: "michael faraday" at ranks 29, 524
+  - Exact duplicate: "james clerk maxwell" at ranks 30, 525
+  ... and 193 more issues
+
+Diversity Estimates:
+  Regions: Europe: 85, Asia: 30, Middle East: 97, Africa: 57, Americas: 8, Unknown: 723
+  Domains: Politics/Leadership: 31, Science/Technology: 13, Philosophy/Religion: 24, Arts/Literature: 74, Military: 10, Other: 848

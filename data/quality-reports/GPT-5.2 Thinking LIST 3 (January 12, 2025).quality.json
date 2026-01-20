@@ -1,0 +1,614 @@
+{
+  "file": "GPT-5.2 Thinking LIST 3 (January 12, 2025).txt",
+  "model": "GPT-5.2 Thinking",
+  "timestamp": "2026-01-20T04:15:57.409Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 1,
+      "fuzzy": 51,
+      "status": "PASS",
+      "details": "1 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 777,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "777 entries (expected 1000); non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 43,
+      "expected": 43,
+      "missing": [],
+      "status": "PASS",
+      "details": "43/43 anchor figures found (100%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "deng xiaoping",
+      "ranks": [
+        99,
+        340
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali jinnah",
+        "muhammad ibn musa alkhwarizmi",
+        "askia muhammad",
+        "muhammad ali"
+      ],
+      "ranks": [
+        1,
+        106,
+        166,
+        317,
+        499
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gautama buddha",
+      "variants": [
+        "gautama buddha",
+        "siddhartha gautama buddha"
+      ],
+      "ranks": [
+        3,
+        26
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "qin shi huang",
+      "variants": [
+        "qin shi huang",
+        "qin shi huang dup avoided"
+      ],
+      "ranks": [
+        10,
+        731
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        13,
+        144
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ashoka",
+      "variants": [
+        "ashoka",
+        "emperor ashoka dup avoided in continuation"
+      ],
+      "ranks": [
+        14,
+        509
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "genghis khan",
+      "variants": [
+        "genghis khan",
+        "temujin genghis khan",
+        "genghis khan temujin"
+      ],
+      "ranks": [
+        15,
+        87,
+        381
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "cyrus the great",
+      "variants": [
+        "cyrus the great",
+        "cyrus the great dup avoided"
+      ],
+      "ranks": [
+        28,
+        737
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn sina avicenna",
+      "variants": [
+        "ibn sina avicenna",
+        "ibn sina avicenna again"
+      ],
+      "ranks": [
+        71,
+        447
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alkhwarizmi",
+      "variants": [
+        "alkhwarizmi",
+        "muhammad ibn musa alkhwarizmi"
+      ],
+      "ranks": [
+        73,
+        166
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charlemagne",
+      "variants": [
+        "charlemagne",
+        "charlemagne again"
+      ],
+      "ranks": [
+        83,
+        454
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "timur",
+      "variants": [
+        "timur",
+        "tamerlane timur"
+      ],
+      "ranks": [
+        89,
+        503
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "zheng he",
+      "variants": [
+        "zheng he",
+        "zheng he ma he",
+        "zheng he again"
+      ],
+      "ranks": [
+        93,
+        215,
+        389
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "chiang kaishek",
+      "variants": [
+        "chiang kaishek",
+        "chiang kaishek dup avoided"
+      ],
+      "ranks": [
+        98,
+        658
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "margaret thatcher",
+      "variants": [
+        "margaret thatcher",
+        "margaret thatcher dup avoided"
+      ],
+      "ranks": [
+        100,
+        647
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        106,
+        499
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernn corts",
+      "variants": [
+        "hernn corts",
+        "hernn corts again"
+      ],
+      "ranks": [
+        110,
+        386
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bartolom de las casas",
+      "variants": [
+        "bartolom de las casas",
+        "bartolom de las casas again",
+        "bartolom de las casas dup avoided"
+      ],
+      "ranks": [
+        112,
+        387,
+        526
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "toussaint louverture",
+      "variants": [
+        "toussaint louverture",
+        "toussaint louverture again"
+      ],
+      "ranks": [
+        130,
+        385
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robespierre",
+      "variants": [
+        "robespierre",
+        "maximilien de robespierre again"
+      ],
+      "ranks": [
+        132,
+        393
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mary wollstonecraft",
+      "variants": [
+        "mary wollstonecraft",
+        "mary wollstonecraft dup avoided"
+      ],
+      "ranks": [
+        140,
+        682
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hongwu emperor",
+      "variants": [
+        "hongwu emperor",
+        "hongwu emperor dup avoided"
+      ],
+      "ranks": [
+        153,
+        571
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hatshepsut",
+      "variants": [
+        "hatshepsut",
+        "hatshepsut again avoided in continuation"
+      ],
+      "ranks": [
+        155,
+        501
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sun tzu",
+      "variants": [
+        "sun tzu",
+        "sun tzu again"
+      ],
+      "ranks": [
+        176,
+        438
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ramanuja",
+      "variants": [
+        "ramanuja",
+        "srinivasa ramanujan"
+      ],
+      "ranks": [
+        179,
+        703
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ignatius of loyola",
+      "variants": [
+        "ignatius of loyola",
+        "ignatius of loyola again"
+      ],
+      "ranks": [
+        186,
+        415
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ibn battuta",
+      "variants": [
+        "ibn battuta",
+        "ibn battuta dup avoided"
+      ],
+      "ranks": [
+        213,
+        730
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rachel carson",
+      "variants": [
+        "rachel carson",
+        "rachel carson dup avoided",
+        "rachel carson dup avoided again"
+      ],
+      "ranks": [
+        232,
+        620,
+        624
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert noyce",
+      "variants": [
+        "robert noyce",
+        "robert boyle"
+      ],
+      "ranks": [
+        252,
+        406
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "amartya sen",
+      "variants": [
+        "amartya sen",
+        "amartya sen dup avoided"
+      ],
+      "ranks": [
+        271,
+        636
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james watson",
+      "variants": [
+        "james watson",
+        "james watson again"
+      ],
+      "ranks": [
+        283,
+        366
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wangari maathai",
+      "variants": [
+        "wangari maathai",
+        "wangari maathai dup avoided"
+      ],
+      "ranks": [
+        288,
+        644
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        289,
+        561
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pol pot",
+      "variants": [
+        "pol pot",
+        "pol pot dup avoided"
+      ],
+      "ranks": [
+        291,
+        548
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "idi amin",
+      "variants": [
+        "idi amin",
+        "idi amin dup avoided"
+      ],
+      "ranks": [
+        313,
+        671
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "park chunghee",
+      "variants": [
+        "park chunghee",
+        "park chunghee dup avoided"
+      ],
+      "ranks": [
+        342,
+        659
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "norbert wiener",
+      "variants": [
+        "norbert wiener",
+        "norbert wiener dup avoided"
+      ],
+      "ranks": [
+        358,
+        712
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james joyce",
+      "variants": [
+        "james joyce",
+        "james joule"
+      ],
+      "ranks": [
+        369,
+        426
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "matteo ricci",
+      "variants": [
+        "matteo ricci",
+        "matteo ricci dup avoided"
+      ],
+      "ranks": [
+        416,
+        571
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ep thompson",
+      "variants": [
+        "ep thompson",
+        "ken thompson"
+      ],
+      "ranks": [
+        444,
+        716
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tipu sultan",
+      "variants": [
+        "tipu sultan",
+        "tipu sultan dup avoided"
+      ],
+      "ranks": [
+        462,
+        552
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "donald knuth",
+      "variants": [
+        "donald knuth",
+        "donald knuth dup avoided"
+      ],
+      "ranks": [
+        484,
+        718
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        546,
+        547
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "shen kuo",
+      "variants": [
+        "shen kuo",
+        "shen kuo dup avoided"
+      ],
+      "ranks": [
+        572,
+        730
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rachel carson dup avoided",
+      "variants": [
+        "rachel carson dup avoided",
+        "rachel carson dup avoided again"
+      ],
+      "ranks": [
+        620,
+        624
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 47,
+      "Asia": 46,
+      "Middle East": 27,
+      "Africa": 14,
+      "Americas": 10,
+      "Oceania": 0,
+      "Unknown": 633
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 777
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 20,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 21,
+      "Arts/Literature": 29,
+      "Military": 16,
+      "Other": 681
+    }
+  },
+  "summary": "Issues: 1 exact duplicates; 777 entries (expected 1000); non-sequential ranks"
+}

@@ -1,0 +1,263 @@
+{
+  "file": "GPT-5.2 Thinking LIST 2 (January 12, 2025).txt",
+  "model": "GPT-5.2 Thinking",
+  "timestamp": "2026-01-20T04:15:57.284Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 10,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "modern",
+          "startRank": 286,
+          "endRank": 295,
+          "count": 10,
+          "examples": [
+            "286. Albrecht Dürer",
+            "287. Hokusai",
+            "288. Frida Kahlo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "modern",
+          "startRank": 287,
+          "endRank": 296,
+          "count": 10,
+          "examples": [
+            "287. Hokusai",
+            "288. Frida Kahlo",
+            "289. Diego Rivera"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "FAIL",
+      "details": "500 entries (expected 1000)"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "socrates"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "zheng he",
+      "ranks": [
+        47,
+        317
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        56,
+        360
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deng xiaoping",
+      "ranks": [
+        115,
+        299
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernn corts",
+      "ranks": [
+        132,
+        445
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bartolom de las casas",
+      "ranks": [
+        134,
+        446
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        199,
+        484
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "askia muhammad",
+        "muhammad ibn musa alkhwarizmi",
+        "muhammad ali"
+      ],
+      "ranks": [
+        1,
+        206,
+        280,
+        374
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ashoka",
+      "variants": [
+        "ashoka",
+        "ashoka the great"
+      ],
+      "ranks": [
+        11,
+        493
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        14,
+        342
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alkhwarizmi",
+      "variants": [
+        "alkhwarizmi",
+        "muhammad ibn musa alkhwarizmi"
+      ],
+      "ranks": [
+        94,
+        280
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sappho",
+      "variants": [
+        "sappho",
+        "sappho of lesbos"
+      ],
+      "ranks": [
+        160,
+        302
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "desiderius erasmus",
+      "variants": [
+        "desiderius erasmus",
+        "erasmus"
+      ],
+      "ranks": [
+        185,
+        478
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernando de soto",
+      "variants": [
+        "hernando de soto",
+        "hernando de soto explorer"
+      ],
+      "ranks": [
+        319,
+        494
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sukarno",
+      "variants": [
+        "sukarno",
+        "suharto"
+      ],
+      "ranks": [
+        410,
+        411
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "modern",
+      "startRank": 286,
+      "endRank": 295,
+      "count": 10,
+      "examples": [
+        "286. Albrecht Dürer",
+        "287. Hokusai",
+        "288. Frida Kahlo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "modern",
+      "startRank": 287,
+      "endRank": 296,
+      "count": 10,
+      "examples": [
+        "287. Hokusai",
+        "288. Frida Kahlo",
+        "289. Diego Rivera"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 40,
+      "Asia": 38,
+      "Middle East": 23,
+      "Africa": 10,
+      "Americas": 7,
+      "Oceania": 0,
+      "Unknown": 382
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 17,
+      "Science/Technology": 9,
+      "Philosophy/Religion": 30,
+      "Arts/Literature": 27,
+      "Military": 5,
+      "Other": 412
+    }
+  },
+  "summary": "Issues: 6 exact duplicates; pattern collapse (max 10); 500 entries (expected 1000)"
+}

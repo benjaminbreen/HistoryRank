@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1 Fast LIST 3 (January 14, 2026).txt
+Model: Grok 4.1 Fast
+Timestamp: 2026-01-20T04:16:07.798Z
+
+VERDICT: FAIL
+
+Summary: Issues: 501 exact duplicates; pattern collapse (max 10)
+
+Scores:
+  Repetition: FAIL - 501 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (232):
+  - Exact duplicate: "confucius" at ranks 5, 553, 773
+  - Exact duplicate: "laozi" at ranks 8, 554, 775
+  - Exact duplicate: "charlemagne" at ranks 19, 295
+  - Exact duplicate: "isaac newton" at ranks 20, 979
+  - Exact duplicate: "charles darwin" at ranks 21, 172, 962
+  - Exact duplicate: "martin luther" at ranks 24, 102, 767
+  - Exact duplicate: "johannes gutenberg" at ranks 25, 242, 575, 616, 766, 934
+  - Exact duplicate: "karl marx" at ranks 26, 174
+  - Exact duplicate: "mahatma gandhi" at ranks 27, 530
+  - Exact duplicate: "galileo galilei" at ranks 29, 482, 980
+  ... and 222 more issues
+
+Diversity Estimates:
+  Regions: Europe: 71, Asia: 30, Middle East: 40, Africa: 17, Americas: 24, Unknown: 818
+  Domains: Politics/Leadership: 38, Science/Technology: 33, Philosophy/Religion: 46, Arts/Literature: 58, Military: 15, Other: 810

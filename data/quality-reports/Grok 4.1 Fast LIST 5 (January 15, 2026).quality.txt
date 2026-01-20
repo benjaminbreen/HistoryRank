@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1 Fast LIST 5 (January 15, 2026).txt
+Model: Grok 4.1 Fast
+Timestamp: 2026-01-20T04:16:07.931Z
+
+VERDICT: WARN
+
+Summary: Issues: 53 exact duplicates; pattern collapse (max 88)
+
+Scores:
+  Repetition: WARN - 53 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 88 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (161):
+  - Exact duplicate: "confucius" at ranks 5, 267
+  - Exact duplicate: "hypatia" at ranks 78, 235
+  - Exact duplicate: "elon musk" at ranks 197, 494
+  - Exact duplicate: "saddam hussein" at ranks 203, 290
+  - Exact duplicate: "muammar gaddafi" at ranks 205, 297
+  - Exact duplicate: "narendra modi" at ranks 411, 434
+  - Exact duplicate: "pel" at ranks 501, 581
+  - Exact duplicate: "serena williams" at ranks 505, 537
+  - Exact duplicate: "wayne gretzky" at ranks 511, 571
+  - Exact duplicate: "venus williams" at ranks 538, 546
+  ... and 151 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 20, Middle East: 8, Africa: 3, Americas: 7, Unknown: 915
+  Domains: Politics/Leadership: 99, Science/Technology: 9, Philosophy/Religion: 23, Arts/Literature: 18, Military: 9, Other: 842

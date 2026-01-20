@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Mistral Large 3 LIST 4 (January 17, 2026).txt
 Model: Mistral Large 3
-Timestamp: 2026-01-19T06:54:27.821Z
+Timestamp: 2026-01-20T04:16:09.880Z
 
 VERDICT: FAIL
 
@@ -10,7 +10,7 @@ Summary: Issues: 362 exact duplicates; pattern collapse (max 81); 7 missing anch
 
 Scores:
   Repetition: FAIL - 362 exact duplicates found
-  Pattern Collapse: FAIL - Max sequence of 81 similar entries
+  Pattern Collapse: WARN - Max sequence of 81 similar entries
   Structural: PASS - OK
   Anchor Coverage: WARN - 36/43 anchor figures found (84%)
 

@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 7 (January 19, 2026).txt
+Model: Grok 4
+Timestamp: 2026-01-20T04:16:07.163Z
+
+VERDICT: WARN
+
+Summary: Issues: 36 exact duplicates; pattern collapse (max 39)
+
+Scores:
+  Repetition: PASS - 36 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 39 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (99):
+  - Exact duplicate: "charles darwin" at ranks 12, 293
+  - Exact duplicate: "abraham lincoln" at ranks 15, 963
+  - Exact duplicate: "winston churchill" at ranks 28, 933
+  - Exact duplicate: "sigmund freud" at ranks 30, 786
+  - Exact duplicate: "tim bernerslee" at ranks 51, 316, 357, 651
+  - Exact duplicate: "karl benz" at ranks 54, 344
+  - Exact duplicate: "thomas jefferson" at ranks 57, 976
+  - Exact duplicate: "george washington" at ranks 58, 978
+  - Exact duplicate: "franklin d roosevelt" at ranks 59, 934
+  - Exact duplicate: "john f kennedy" at ranks 60, 935
+  ... and 89 more issues
+
+Diversity Estimates:
+  Regions: Europe: 39, Asia: 14, Middle East: 11, Africa: 5, Americas: 16, Unknown: 915
+  Domains: Politics/Leadership: 120, Science/Technology: 98, Philosophy/Religion: 146, Arts/Literature: 191, Military: 5, Other: 440

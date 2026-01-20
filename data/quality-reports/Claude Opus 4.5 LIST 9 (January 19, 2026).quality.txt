@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 9 (January 19, 2026).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-01-20T04:15:50.696Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 4 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 14 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+
+Issues (23):
+  - Exact duplicate: "ren descartes" at ranks 63, 787
+  - Exact duplicate: "jonas salk" at ranks 95, 710
+  - Exact duplicate: "niccol machiavelli" at ranks 409, 863
+  - Exact duplicate: "emmy noether" at ranks 456, 793
+  - Fuzzy duplicate: muhammad / muhammad ali / muhammad yunus / muhammad ali jinnah at ranks 1, 285, 438, 592
+  - Fuzzy duplicate: abraham lincoln / abraham at ranks 23, 80
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 27, 87
+  - Fuzzy duplicate: abraham / abraham maslow at ranks 80, 428
+  - Fuzzy duplicate: robert boyle / robert noyce at ranks 114, 490
+  - Fuzzy duplicate: john muir / joan mir at ranks 136, 898
+  ... and 13 more issues
+
+Diversity Estimates:
+  Regions: Europe: 95, Asia: 64, Middle East: 33, Africa: 26, Americas: 41, Unknown: 741
+  Domains: Politics/Leadership: 58, Science/Technology: 18, Philosophy/Religion: 17, Arts/Literature: 20, Military: 10, Other: 877

@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Gemini Flash 3 Preview LIST 6 (January 19, 2026).txt
+Model: Gemini Flash 3 Preview
+Timestamp: 2026-01-20T04:16:00.809Z
+
+VERDICT: WARN
+
+Summary: Issues: 19 exact duplicates; pattern collapse (max 73)
+
+Scores:
+  Repetition: PASS - 19 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 73 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 40/43 anchor figures found (93%)
+
+Issues (146):
+  - Exact duplicate: "karl marx" at ranks 20, 730
+  - Exact duplicate: "michael faraday" at ranks 30, 681
+  - Exact duplicate: "charles babbage" at ranks 41, 83
+  - Exact duplicate: "alan turing" at ranks 53, 478
+  - Exact duplicate: "winston churchill" at ranks 88, 141
+  - Exact duplicate: "john stuart mill" at ranks 133, 725
+  - Exact duplicate: "rosa luxemburg" at ranks 137, 732
+  - Exact duplicate: "elon musk" at ranks 158, 903
+  - Exact duplicate: "jeff bezos" at ranks 159, 902
+  - Exact duplicate: "alfred hitchcock" at ranks 190, 803
+  ... and 136 more issues
+
+Diversity Estimates:
+  Regions: Europe: 175, Asia: 72, Middle East: 8, Africa: 22, Americas: 225, Unknown: 498
+  Domains: Politics/Leadership: 95, Science/Technology: 89, Philosophy/Religion: 74, Arts/Literature: 87, Military: 12, Other: 643

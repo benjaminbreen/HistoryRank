@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useState, useRef, useEffect } from 'react';
+import { memo, useCallback, useState, useRef, useEffect, useMemo } from 'react';
 import {
   Table,
   TableBody,
@@ -49,6 +49,135 @@ const columnTooltips = {
   pageviews: 'Wikipedia pageviews (2025) — measures current internet attention and public interest',
 };
 
+const formatNumber = (n: number | null) => {
+  if (n === null) return '—';
+  if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
+  if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
+  return n.toString();
+};
+
+const formatRank = (n: number | null) => {
+  if (n === null) return '—';
+  return `#${Math.round(n)}`;
+};
+
+interface MemoizedTableRowProps {
+  figure: FigureRow;
+  rowIndex: number;
+  isSelected: boolean;
+  onSelect: (id: string, index: number, source: 'click' | 'pointer') => void;
+  onHover?: (id: string) => void;
+  rowRef: (el: HTMLTableRowElement | null) => void;
+  rowPadding: string;
+  secondaryText: string;
+  nameText: string;
+  thumbnailSize: number;
+  showRegion: boolean;
+  showEra: boolean;
+  showVariance: boolean;
+  showViews: boolean;
+}
+
+const MemoizedTableRow = memo(function MemoizedTableRow({
+  figure,
+  rowIndex,
+  isSelected,
+  onSelect,
+  onHover,
+  rowRef,
+  rowPadding,
+  secondaryText,
+  nameText,
+  thumbnailSize,
+  showRegion,
+  showEra,
+  showVariance,
+  showViews,
+}: MemoizedTableRowProps) {
+  return (
+    <TableRow
+      ref={rowRef}
+      data-figure-id={figure.id}
+      onClick={() => onSelect(figure.id, rowIndex, 'click')}
+      onMouseDown={(event) => {
+        if (event.button !== 0) return;
+        onSelect(figure.id, rowIndex, 'pointer');
+      }}
+      onMouseEnter={() => onHover?.(figure.id)}
+      className={`hr-table-row group cursor-pointer transition-colors ${
+        isSelected
+          ? 'bg-amber-100/70 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 border-l-4 border-l-amber-500 dark:border-l-amber-400'
+          : 'hover:bg-white dark:hover:bg-slate-800/80 border-l-4 border-l-transparent'
+      }`}
+      aria-selected={isSelected}
+    >
+      <TableCell className={`font-mono text-sm sm:text-base text-stone-900 dark:text-amber-100 font-medium ${rowPadding}`}>
+        {figure.llmRank ? `#${figure.llmRank}` : '—'}
+      </TableCell>
+      <TableCell className={`hidden sm:table-cell font-mono text-base text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+        {formatRank(figure.hpiRank)}
+      </TableCell>
+      <TableCell className={rowPadding}>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <FigureThumbnail
+            figureId={figure.id}
+            wikipediaSlug={figure.wikipediaSlug}
+            name={figure.name}
+            size={thumbnailSize}
+            className="group-hover:scale-105 flex-shrink-0"
+          />
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 truncate sm:whitespace-normal`}>{figure.name}</span>
+              {figure.badges && figure.badges.length > 0 && (
+                <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
+              )}
+            </div>
+            {figure.birthYear && (
+              <div className={`${secondaryText} text-stone-400 dark:text-slate-500`}>
+                {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
+                <span className="md:hidden">{figure.domain ? ` · ${figure.domain}` : ''}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </TableCell>
+      {showRegion && (
+        <TableCell className={`hidden lg:table-cell ${secondaryText} text-stone-600 dark:text-slate-400 ${rowPadding}`}>
+          {figure.regionSub ? (
+            <span
+              className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
+              style={{ backgroundColor: REGION_COLORS[figure.regionSub] || '#9ca3af' }}
+            >
+              {figure.regionSub}
+            </span>
+          ) : (
+            '—'
+          )}
+        </TableCell>
+      )}
+      <TableCell className={`hidden md:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+        {figure.domain || '—'}
+      </TableCell>
+      {showEra && (
+        <TableCell className={`hidden lg:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+          {figure.era || '—'}
+        </TableCell>
+      )}
+      {showVariance && (
+        <TableCell className={`hidden xl:table-cell ${rowPadding}`}>
+          <VarianceBadge level={getVarianceLevel(figure.varianceScore)} score={figure.varianceScore} />
+        </TableCell>
+      )}
+      {showViews && (
+        <TableCell className={`font-mono text-sm sm:text-base text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+          {formatNumber(figure.pageviews)}
+        </TableCell>
+      )}
+    </TableRow>
+  );
+});
+
 export function RankingsTable({
   figures,
   onSelectFigure,
@@ -67,12 +196,16 @@ export function RankingsTable({
     views: true,
   },
 }: RankingsTableProps) {
+  const baseRowHeight = density === 'compact' ? 44 : 56;
+  const rowHeight = Math.round(baseRowHeight * fontScale);
   // Keyboard navigation state
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [isTableFocused, setIsTableFocused] = useState(false);
+  const [renderRange, setRenderRange] = useState({ start: 0, end: 0 });
   const tableRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<Map<number, HTMLTableRowElement>>(new Map());
   const pendingFocusIndex = useRef<number | null>(null);
+  const mouseDownSelection = useRef<string | null>(null);
 
   // Reset focus when figures change (e.g., filtering)
   useEffect(() => {
@@ -87,9 +220,14 @@ export function RankingsTable({
       const row = rowRefs.current.get(focusedIndex);
       if (row) {
         row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        return;
       }
+      if (!tableRef.current) return;
+      const containerTop = tableRef.current.getBoundingClientRect().top + window.scrollY;
+      const targetTop = containerTop + (focusedIndex * rowHeight);
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
     }
-  }, [focusedIndex, isTableFocused]);
+  }, [focusedIndex, isTableFocused, rowHeight]);
 
   // Keyboard event handler
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
@@ -191,126 +329,73 @@ export function RankingsTable({
     </Tooltip>
   );
 
-  const formatNumber = (n: number | null) => {
-    if (n === null) return '—';
-    if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
-    if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
-    return n.toString();
-  };
-
-  const formatRank = (n: number | null) => {
-    if (n === null) return '—';
-    return `#${Math.round(n)}`;
-  };
-
   // Memoized row component to prevent unnecessary re-renders
   const rowPadding = density === 'compact' ? 'py-2' : 'py-3';
   const secondaryText = density === 'compact' ? 'text-xs' : 'text-sm';
   const nameText = density === 'compact' ? 'text-[14px]' : 'text-[15px]';
 
-  const MemoizedTableRow = memo(function MemoizedTableRow({
-    figure,
-    isSelected,
-    onSelect,
-    onHover,
-    onPointerDown,
-    rowRef,
-  }: {
-    figure: FigureRow;
-    isSelected: boolean;
-    onSelect: () => void;
-    onHover?: (id: string) => void;
-    onPointerDown?: () => void;
-    rowRef: (el: HTMLTableRowElement | null) => void;
-  }) {
-    return (
-      <TableRow
-        ref={rowRef}
-        data-figure-id={figure.id}
-        onClick={onSelect}
-        onMouseDown={onPointerDown}
-        onMouseEnter={() => onHover?.(figure.id)}
-        className={`hr-table-row group cursor-pointer transition-colors ${
-          isSelected
-            ? 'bg-amber-100/70 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 border-l-4 border-l-amber-500 dark:border-l-amber-400'
-            : 'hover:bg-white dark:hover:bg-slate-800/80 border-l-4 border-l-transparent'
-        }`}
-        aria-selected={isSelected}
-      >
-        <TableCell className={`font-mono text-sm sm:text-base text-stone-900 dark:text-amber-100 font-medium ${rowPadding}`}>
-          {figure.llmRank ? `#${figure.llmRank}` : '—'}
-        </TableCell>
-        <TableCell className={`hidden sm:table-cell font-mono text-base text-stone-500 dark:text-slate-400 ${rowPadding}`}>
-          {formatRank(figure.hpiRank)}
-        </TableCell>
-        <TableCell className={rowPadding}>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <FigureThumbnail
-              figureId={figure.id}
-              wikipediaSlug={figure.wikipediaSlug}
-              name={figure.name}
-              size={thumbnailSize}
-              className="group-hover:scale-105 flex-shrink-0"
-            />
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
-                <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 truncate sm:whitespace-normal`}>{figure.name}</span>
-                {figure.badges && figure.badges.length > 0 && (
-                  <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
-                )}
-              </div>
-              {figure.birthYear && (
-                <div className={`${secondaryText} text-stone-400 dark:text-slate-500`}>
-                  {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
-                  {/* Show domain on mobile since column is hidden */}
-                  <span className="md:hidden">{figure.domain ? ` · ${figure.domain}` : ''}</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </TableCell>
-        {visibleColumns.region && (
-          <TableCell className={`hidden lg:table-cell ${secondaryText} text-stone-600 dark:text-slate-400 ${rowPadding}`}>
-            {figure.regionSub ? (
-              <span
-                className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
-                style={{ backgroundColor: REGION_COLORS[figure.regionSub] || '#9ca3af' }}
-              >
-                {figure.regionSub}
-              </span>
-            ) : (
-              '—'
-            )}
-          </TableCell>
-        )}
-        <TableCell className={`hidden md:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
-          {figure.domain || '—'}
-        </TableCell>
-        {visibleColumns.era && (
-          <TableCell className={`hidden lg:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
-            {figure.era || '—'}
-          </TableCell>
-        )}
-        {visibleColumns.variance && (
-          <TableCell className={`hidden xl:table-cell ${rowPadding}`}>
-            <VarianceBadge level={getVarianceLevel(figure.varianceScore)} score={figure.varianceScore} />
-          </TableCell>
-        )}
-        {visibleColumns.views && (
-          <TableCell className={`font-mono text-sm sm:text-base text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
-            {formatNumber(figure.pageviews)}
-          </TableCell>
-        )}
-      </TableRow>
-    );
-  });
-
-  // Stable callback for row clicks
-  const handleRowClick = useCallback((id: string, index: number) => {
+  // Stable callback for row clicks/pointer down
+  const handleRowSelect = useCallback((id: string, index: number, source: 'click' | 'pointer') => {
+    if (source === 'click' && mouseDownSelection.current === id) {
+      mouseDownSelection.current = null;
+      return;
+    }
+    if (source === 'pointer') {
+      mouseDownSelection.current = id;
+      pendingFocusIndex.current = index;
+    }
     setIsTableFocused(true);
     setFocusedIndex(index);
     onSelectFigure(id);
   }, [onSelectFigure]);
+
+  const updateRenderRange = useCallback(() => {
+    if (!tableRef.current) return;
+    const rect = tableRef.current.getBoundingClientRect();
+    const containerTop = rect.top + window.scrollY;
+    const viewportTop = window.scrollY;
+    const viewportBottom = viewportTop + window.innerHeight;
+    const scrollTop = Math.max(0, viewportTop - containerTop);
+    const visibleHeight = Math.max(0, viewportBottom - containerTop);
+    const start = Math.max(0, Math.floor(scrollTop / rowHeight) - 8);
+    const end = Math.min(
+      figures.length,
+      Math.ceil((scrollTop + visibleHeight) / rowHeight) + 12
+    );
+    setRenderRange((prev) => (prev.start === start && prev.end === end ? prev : { start, end }));
+  }, [figures.length, rowHeight]);
+
+  useEffect(() => {
+    updateRenderRange();
+    let ticking = false;
+    const handleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateRenderRange();
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [updateRenderRange]);
+
+  const totalRowCount = figures.length;
+  const startIndex = renderRange.start;
+  const endIndex = Math.max(renderRange.end, startIndex);
+  const visibleRows = useMemo(() => figures.slice(startIndex, endIndex), [figures, startIndex, endIndex]);
+  const topSpacerHeight = startIndex * rowHeight;
+  const bottomSpacerHeight = Math.max(0, (totalRowCount - endIndex) * rowHeight);
+  const columnCount =
+    4 +
+    (visibleColumns.region ? 1 : 0) +
+    (visibleColumns.era ? 1 : 0) +
+    (visibleColumns.variance ? 1 : 0) +
+    (visibleColumns.views ? 1 : 0);
 
   return (
     <div className="relative group">
@@ -364,19 +449,38 @@ export function RankingsTable({
           </TableRow>
         </TableHeader>
         <TableBody role="rowgroup">
-          {figures.map((figure, index) => (
+          {topSpacerHeight > 0 && (
+            <TableRow aria-hidden="true">
+              <TableCell colSpan={columnCount} style={{ height: topSpacerHeight, padding: 0 }} />
+            </TableRow>
+          )}
+          {visibleRows.map((figure, offset) => {
+            const index = startIndex + offset;
+            return (
             <MemoizedTableRow
               key={figure.id}
               figure={figure}
+              rowIndex={index}
               isSelected={selectedId === figure.id}
-              onSelect={() => handleRowClick(figure.id, index)}
+              onSelect={handleRowSelect}
               onHover={onPrefetch}
-              onPointerDown={() => {
-                pendingFocusIndex.current = index;
-              }}
               rowRef={(el) => setRowRef(index, el)}
+              rowPadding={rowPadding}
+              secondaryText={secondaryText}
+              nameText={nameText}
+              thumbnailSize={thumbnailSize}
+              showRegion={visibleColumns.region}
+              showEra={visibleColumns.era}
+              showVariance={visibleColumns.variance}
+              showViews={visibleColumns.views}
             />
-          ))}
+          );
+          })}
+          {bottomSpacerHeight > 0 && (
+            <TableRow aria-hidden="true">
+              <TableCell colSpan={columnCount} style={{ height: bottomSpacerHeight, padding: 0 }} />
+            </TableRow>
+          )}
         </TableBody>
       </Table>
       </div>

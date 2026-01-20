@@ -1,0 +1,1741 @@
+{
+  "file": "Grok 4 LIST 6 (January 19, 2026).txt",
+  "model": "Grok 4",
+  "timestamp": "2026-01-20T04:16:06.598Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 9,
+      "fuzzy": 28,
+      "status": "PASS",
+      "details": "9 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 28,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 148,
+          "endRank": 158,
+          "count": 11,
+          "examples": [
+            "148. Ibn Sina (Avicenna)",
+            "149. Al-Khwarizmi",
+            "150. Ibn Khaldun"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 150,
+          "endRank": 164,
+          "count": 15,
+          "examples": [
+            "150. Ibn Khaldun",
+            "151. Maimonides",
+            "152. Baruch Spinoza"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 151,
+          "endRank": 165,
+          "count": 15,
+          "examples": [
+            "151. Maimonides",
+            "152. Baruch Spinoza",
+            "153. Georg Wilhelm Friedrich Hegel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 216,
+          "endRank": 227,
+          "count": 12,
+          "examples": [
+            "216. Beyoncé",
+            "217. Pablo Neruda",
+            "218. Gabriel García Márquez"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 218,
+          "endRank": 228,
+          "count": 11,
+          "examples": [
+            "218. Gabriel García Márquez",
+            "219. Leo Tolstoy",
+            "220. Fyodor Dostoevsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 218,
+          "endRank": 230,
+          "count": 13,
+          "examples": [
+            "218. Gabriel García Márquez",
+            "219. Leo Tolstoy",
+            "220. Fyodor Dostoevsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 263,
+          "endRank": 272,
+          "count": 10,
+          "examples": [
+            "263. Andy Warhol",
+            "264. Banksy",
+            "265. Gustav Klimt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 264,
+          "endRank": 280,
+          "count": 17,
+          "examples": [
+            "264. Banksy",
+            "265. Gustav Klimt",
+            "266. Edvard Munch"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 265,
+          "endRank": 281,
+          "count": 17,
+          "examples": [
+            "265. Gustav Klimt",
+            "266. Edvard Munch",
+            "267. Henri Matisse"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 323,
+          "endRank": 335,
+          "count": 13,
+          "examples": [
+            "323. Francisco Franco",
+            "324. Hideki Tojo",
+            "325. Harry S. Truman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 325,
+          "endRank": 336,
+          "count": 12,
+          "examples": [
+            "325. Harry S. Truman",
+            "326. Dwight D. Eisenhower",
+            "327. Richard Nixon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 325,
+          "endRank": 337,
+          "count": 13,
+          "examples": [
+            "325. Harry S. Truman",
+            "326. Dwight D. Eisenhower",
+            "327. Richard Nixon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "justice",
+          "startRank": 374,
+          "endRank": 384,
+          "count": 11,
+          "examples": [
+            "374. Marsha P. Johnson",
+            "375. Sylvia Rivera",
+            "376. Ruth Bader Ginsburg"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "justice",
+          "startRank": 376,
+          "endRank": 385,
+          "count": 10,
+          "examples": [
+            "376. Ruth Bader Ginsburg",
+            "377. Thurgood Marshall",
+            "378. Earl Warren"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "justice",
+          "startRank": 376,
+          "endRank": 386,
+          "count": 11,
+          "examples": [
+            "376. Ruth Bader Ginsburg",
+            "377. Thurgood Marshall",
+            "378. Earl Warren"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 412,
+          "endRank": 424,
+          "count": 13,
+          "examples": [
+            "412. Michael Sandel",
+            "413. Amartya Sen",
+            "414. Joseph Schumpeter"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "economist",
+          "startRank": 413,
+          "endRank": 425,
+          "count": 13,
+          "examples": [
+            "413. Amartya Sen",
+            "414. Joseph Schumpeter",
+            "415. Milton Friedman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "anthropologist",
+          "startRank": 439,
+          "endRank": 449,
+          "count": 11,
+          "examples": [
+            "439. Roman Jakobson",
+            "440. Edward Sapir",
+            "441. Benjamin Lee Whorf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "anthropologist",
+          "startRank": 440,
+          "endRank": 450,
+          "count": 11,
+          "examples": [
+            "440. Edward Sapir",
+            "441. Benjamin Lee Whorf",
+            "442. Claude Lévi-Strauss"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "anthropologist",
+          "startRank": 442,
+          "endRank": 451,
+          "count": 10,
+          "examples": [
+            "442. Claude Lévi-Strauss",
+            "443. Bronisław Malinowski",
+            "444. Margaret Mead"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociologist",
+          "startRank": 448,
+          "endRank": 460,
+          "count": 13,
+          "examples": [
+            "448. Mary Douglas",
+            "449. Victor Turner",
+            "450. Émile Durkheim"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociologist",
+          "startRank": 450,
+          "endRank": 461,
+          "count": 12,
+          "examples": [
+            "450. Émile Durkheim",
+            "451. Max Weber",
+            "452. Talcott Parsons"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociologist",
+          "startRank": 450,
+          "endRank": 462,
+          "count": 13,
+          "examples": [
+            "450. Émile Durkheim",
+            "451. Max Weber",
+            "452. Talcott Parsons"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 460,
+          "endRank": 476,
+          "count": 17,
+          "examples": [
+            "460. Saskia Sassen",
+            "461. Jane Jacobs",
+            "462. Le Corbusier"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 462,
+          "endRank": 477,
+          "count": 16,
+          "examples": [
+            "462. Le Corbusier",
+            "463. Frank Lloyd Wright",
+            "464. Ludwig Mies van der Rohe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 462,
+          "endRank": 478,
+          "count": 17,
+          "examples": [
+            "462. Le Corbusier",
+            "463. Frank Lloyd Wright",
+            "464. Ludwig Mies van der Rohe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "engineer",
+          "startRank": 476,
+          "endRank": 486,
+          "count": 11,
+          "examples": [
+            "476. Christopher Wren",
+            "477. Gustave Eiffel",
+            "478. Isambard Kingdom Brunel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "engineer",
+          "startRank": 477,
+          "endRank": 487,
+          "count": 11,
+          "examples": [
+            "477. Gustave Eiffel",
+            "478. Isambard Kingdom Brunel",
+            "479. George Stephenson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 541,
+          "endRank": 560,
+          "count": 20,
+          "examples": [
+            "541. Stephen Colbert",
+            "542. John Oliver",
+            "543. Trevor Noah"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 546,
+          "endRank": 561,
+          "count": 16,
+          "examples": [
+            "546. George Carlin",
+            "547. Richard Pryor",
+            "548. Eddie Murphy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 546,
+          "endRank": 562,
+          "count": 17,
+          "examples": [
+            "546. George Carlin",
+            "547. Richard Pryor",
+            "548. Eddie Murphy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 671,
+          "endRank": 681,
+          "count": 11,
+          "examples": [
+            "671. D.W. Griffith",
+            "672. Sergei Eisenstein",
+            "673. Luis Buñuel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 672,
+          "endRank": 688,
+          "count": 17,
+          "examples": [
+            "672. Sergei Eisenstein",
+            "673. Luis Buñuel",
+            "674. David Lean"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 674,
+          "endRank": 692,
+          "count": 19,
+          "examples": [
+            "674. David Lean",
+            "675. Francis Ford Coppola",
+            "676. Ridley Scott"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 683,
+          "endRank": 694,
+          "count": 12,
+          "examples": [
+            "683. Spike Lee",
+            "684. John Singleton",
+            "685. Ryan Coogler"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playing",
+          "startRank": 794,
+          "endRank": 811,
+          "count": 18,
+          "examples": [
+            "794. Saoirse Ronan",
+            "795. Zendaya",
+            "796. Tom Holland"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playing",
+          "startRank": 796,
+          "endRank": 812,
+          "count": 17,
+          "examples": [
+            "796. Tom Holland",
+            "797. Robert Downey Jr.",
+            "798. Chris Evans"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 804,
+          "endRank": 825,
+          "count": 22,
+          "examples": [
+            "804. Christopher Reeve",
+            "805. Sean Connery",
+            "806. Daniel Craig"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playing",
+          "startRank": 796,
+          "endRank": 813,
+          "count": 18,
+          "examples": [
+            "796. Tom Holland",
+            "797. Robert Downey Jr.",
+            "798. Chris Evans"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 813,
+          "endRank": 826,
+          "count": 14,
+          "examples": [
+            "813. Arnold Schwarzenegger",
+            "814. Sylvester Stallone",
+            "815. Bruce Willis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 813,
+          "endRank": 828,
+          "count": 16,
+          "examples": [
+            "813. Arnold Schwarzenegger",
+            "814. Sylvester Stallone",
+            "815. Bruce Willis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 835,
+          "endRank": 844,
+          "count": 10,
+          "examples": [
+            "835. Maya Rudolph",
+            "836. Bill Murray",
+            "837. Dan Aykroyd"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 836,
+          "endRank": 845,
+          "count": 10,
+          "examples": [
+            "836. Bill Murray",
+            "837. Dan Aykroyd",
+            "838. John Belushi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "character",
+          "startRank": 860,
+          "endRank": 878,
+          "count": 19,
+          "examples": [
+            "860. Marilyn Bellfontaine",
+            "861. Ted Mullens",
+            "862. David Rose"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "character",
+          "startRank": 861,
+          "endRank": 887,
+          "count": 27,
+          "examples": [
+            "861. Ted Mullens",
+            "862. David Rose",
+            "863. Alexis Rose"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "character",
+          "startRank": 861,
+          "endRank": 888,
+          "count": 28,
+          "examples": [
+            "861. Ted Mullens",
+            "862. David Rose",
+            "863. Alexis Rose"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "character",
+          "startRank": 880,
+          "endRank": 889,
+          "count": 10,
+          "examples": [
+            "880. Herb Ertlinger",
+            "881. Emilio",
+            "882. Dee Dee"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "grateful",
+          "startRank": 909,
+          "endRank": 923,
+          "count": 15,
+          "examples": [
+            "909. Jonathan Larson",
+            "910. Trey Anastasio",
+            "911. Jerry Garcia"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "grateful",
+          "startRank": 911,
+          "endRank": 924,
+          "count": 14,
+          "examples": [
+            "911. Jerry Garcia",
+            "912. Bob Weir",
+            "913. Phil Lesh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "grateful",
+          "startRank": 911,
+          "endRank": 925,
+          "count": 15,
+          "examples": [
+            "911. Jerry Garcia",
+            "912. Bob Weir",
+            "913. Phil Lesh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 970,
+          "endRank": 983,
+          "count": 14,
+          "examples": [
+            "970. Romare Bearden",
+            "971. Faith Ringgold",
+            "972. Kara Walker"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 974,
+          "endRank": 987,
+          "count": 14,
+          "examples": [
+            "974. Keith Haring",
+            "975. Cindy Sherman",
+            "976. Barbara Kruger"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 976,
+          "endRank": 991,
+          "count": 16,
+          "examples": [
+            "976. Barbara Kruger",
+            "977. Jenny Holzer",
+            "978. Marina Abramović"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "artist",
+          "startRank": 985,
+          "endRank": 994,
+          "count": 10,
+          "examples": [
+            "985. Olafur Eliasson",
+            "986. James Turrell",
+            "987. Bill Viola"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 28 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 42,
+      "expected": 43,
+      "missing": [
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "42/43 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        13,
+        309
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noam chomsky",
+      "ranks": [
+        159,
+        437
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ts eliot",
+      "ranks": [
+        247,
+        951
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "langston hughes",
+      "ranks": [
+        250,
+        957
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "max weber",
+      "ranks": [
+        451,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eddie murphy",
+      "ranks": [
+        548,
+        818
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tina fey",
+      "ranks": [
+        551,
+        832
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amy poehler",
+      "ranks": [
+        552,
+        833
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "satyajit ray",
+      "ranks": [
+        646,
+        696
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad",
+      "variants": [
+        "muhammad",
+        "muhammad ali"
+      ],
+      "ranks": [
+        2,
+        565
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham",
+      "variants": [
+        "abraham",
+        "abraham lincoln",
+        "abraham maslow"
+      ],
+      "ranks": [
+        14,
+        35,
+        433
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        80
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "franklin d roosevelt",
+      "variants": [
+        "franklin d roosevelt",
+        "franklin"
+      ],
+      "ranks": [
+        34,
+        178
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "queen elizabeth ii"
+      ],
+      "ranks": [
+        41,
+        204
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "otto von bismarck",
+      "variants": [
+        "otto von bismarck",
+        "bismarck"
+      ],
+      "ranks": [
+        77,
+        391
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ivan the terrible",
+      "variants": [
+        "ivan the terrible",
+        "ivan"
+      ],
+      "ranks": [
+        99,
+        874
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen isabella i",
+      "variants": [
+        "queen isabella i",
+        "queen isabella ii"
+      ],
+      "ranks": [
+        100,
+        318
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "miguel de cervantes",
+      "variants": [
+        "miguel de cervantes",
+        "miguel"
+      ],
+      "ranks": [
+        103,
+        886
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo",
+      "variants": [
+        "michelangelo",
+        "michelangelo antonioni"
+      ],
+      "ranks": [
+        107,
+        688
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rosalind franklin",
+      "variants": [
+        "rosalind franklin",
+        "franklin"
+      ],
+      "ranks": [
+        119,
+        178
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "krishna",
+      "variants": [
+        "krishna",
+        "venkatraman ramakrishnan"
+      ],
+      "ranks": [
+        137,
+        630
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rama",
+      "variants": [
+        "rama",
+        "rumi",
+        "cv raman",
+        "venkatraman ramakrishnan"
+      ],
+      "ranks": [
+        138,
+        147,
+        627,
+        630
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rumi",
+      "variants": [
+        "rumi",
+        "rumiko takahashi"
+      ],
+      "ranks": [
+        147,
+        720
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "franklin",
+      "variants": [
+        "franklin",
+        "benjamin franklin"
+      ],
+      "ranks": [
+        178,
+        179
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ivan iii of russia",
+      "variants": [
+        "ivan iii of russia",
+        "ivan"
+      ],
+      "ranks": [
+        312,
+        874
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george hw bush",
+      "variants": [
+        "george hw bush",
+        "george w bush"
+      ],
+      "ranks": [
+        329,
+        331
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bill clinton",
+      "variants": [
+        "bill clinton",
+        "clint"
+      ],
+      "ranks": [
+        330,
+        876
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "steve biko",
+      "variants": [
+        "steve biko",
+        "steve ditko"
+      ],
+      "ranks": [
+        362,
+        728
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "antonio gramsci",
+      "variants": [
+        "antonio gramsci",
+        "antonio"
+      ],
+      "ranks": [
+        403,
+        885
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ivan pavlov",
+      "variants": [
+        "ivan pavlov",
+        "ivan"
+      ],
+      "ranks": [
+        430,
+        874
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ellen degeneres",
+      "variants": [
+        "ellen degeneres",
+        "ellen"
+      ],
+      "ranks": [
+        539,
+        884
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "dave chappelle",
+      "variants": [
+        "dave chappelle",
+        "pel"
+      ],
+      "ranks": [
+        553,
+        561
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michelangelo antonioni",
+      "variants": [
+        "michelangelo antonioni",
+        "antonio"
+      ],
+      "ranks": [
+        688,
+        885
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robin duke",
+      "variants": [
+        "robin duke",
+        "duke"
+      ],
+      "ranks": [
+        859,
+        883
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 148,
+      "endRank": 158,
+      "count": 11,
+      "examples": [
+        "148. Ibn Sina (Avicenna)",
+        "149. Al-Khwarizmi",
+        "150. Ibn Khaldun"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 150,
+      "endRank": 164,
+      "count": 15,
+      "examples": [
+        "150. Ibn Khaldun",
+        "151. Maimonides",
+        "152. Baruch Spinoza"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 151,
+      "endRank": 165,
+      "count": 15,
+      "examples": [
+        "151. Maimonides",
+        "152. Baruch Spinoza",
+        "153. Georg Wilhelm Friedrich Hegel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 216,
+      "endRank": 227,
+      "count": 12,
+      "examples": [
+        "216. Beyoncé",
+        "217. Pablo Neruda",
+        "218. Gabriel García Márquez"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 218,
+      "endRank": 228,
+      "count": 11,
+      "examples": [
+        "218. Gabriel García Márquez",
+        "219. Leo Tolstoy",
+        "220. Fyodor Dostoevsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 218,
+      "endRank": 230,
+      "count": 13,
+      "examples": [
+        "218. Gabriel García Márquez",
+        "219. Leo Tolstoy",
+        "220. Fyodor Dostoevsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 263,
+      "endRank": 272,
+      "count": 10,
+      "examples": [
+        "263. Andy Warhol",
+        "264. Banksy",
+        "265. Gustav Klimt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 264,
+      "endRank": 280,
+      "count": 17,
+      "examples": [
+        "264. Banksy",
+        "265. Gustav Klimt",
+        "266. Edvard Munch"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 265,
+      "endRank": 281,
+      "count": 17,
+      "examples": [
+        "265. Gustav Klimt",
+        "266. Edvard Munch",
+        "267. Henri Matisse"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 323,
+      "endRank": 335,
+      "count": 13,
+      "examples": [
+        "323. Francisco Franco",
+        "324. Hideki Tojo",
+        "325. Harry S. Truman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 325,
+      "endRank": 336,
+      "count": 12,
+      "examples": [
+        "325. Harry S. Truman",
+        "326. Dwight D. Eisenhower",
+        "327. Richard Nixon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 325,
+      "endRank": 337,
+      "count": 13,
+      "examples": [
+        "325. Harry S. Truman",
+        "326. Dwight D. Eisenhower",
+        "327. Richard Nixon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "justice",
+      "startRank": 374,
+      "endRank": 384,
+      "count": 11,
+      "examples": [
+        "374. Marsha P. Johnson",
+        "375. Sylvia Rivera",
+        "376. Ruth Bader Ginsburg"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "justice",
+      "startRank": 376,
+      "endRank": 385,
+      "count": 10,
+      "examples": [
+        "376. Ruth Bader Ginsburg",
+        "377. Thurgood Marshall",
+        "378. Earl Warren"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "justice",
+      "startRank": 376,
+      "endRank": 386,
+      "count": 11,
+      "examples": [
+        "376. Ruth Bader Ginsburg",
+        "377. Thurgood Marshall",
+        "378. Earl Warren"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 412,
+      "endRank": 424,
+      "count": 13,
+      "examples": [
+        "412. Michael Sandel",
+        "413. Amartya Sen",
+        "414. Joseph Schumpeter"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "economist",
+      "startRank": 413,
+      "endRank": 425,
+      "count": 13,
+      "examples": [
+        "413. Amartya Sen",
+        "414. Joseph Schumpeter",
+        "415. Milton Friedman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "anthropologist",
+      "startRank": 439,
+      "endRank": 449,
+      "count": 11,
+      "examples": [
+        "439. Roman Jakobson",
+        "440. Edward Sapir",
+        "441. Benjamin Lee Whorf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "anthropologist",
+      "startRank": 440,
+      "endRank": 450,
+      "count": 11,
+      "examples": [
+        "440. Edward Sapir",
+        "441. Benjamin Lee Whorf",
+        "442. Claude Lévi-Strauss"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "anthropologist",
+      "startRank": 442,
+      "endRank": 451,
+      "count": 10,
+      "examples": [
+        "442. Claude Lévi-Strauss",
+        "443. Bronisław Malinowski",
+        "444. Margaret Mead"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociologist",
+      "startRank": 448,
+      "endRank": 460,
+      "count": 13,
+      "examples": [
+        "448. Mary Douglas",
+        "449. Victor Turner",
+        "450. Émile Durkheim"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociologist",
+      "startRank": 450,
+      "endRank": 461,
+      "count": 12,
+      "examples": [
+        "450. Émile Durkheim",
+        "451. Max Weber",
+        "452. Talcott Parsons"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociologist",
+      "startRank": 450,
+      "endRank": 462,
+      "count": 13,
+      "examples": [
+        "450. Émile Durkheim",
+        "451. Max Weber",
+        "452. Talcott Parsons"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 460,
+      "endRank": 476,
+      "count": 17,
+      "examples": [
+        "460. Saskia Sassen",
+        "461. Jane Jacobs",
+        "462. Le Corbusier"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 462,
+      "endRank": 477,
+      "count": 16,
+      "examples": [
+        "462. Le Corbusier",
+        "463. Frank Lloyd Wright",
+        "464. Ludwig Mies van der Rohe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 462,
+      "endRank": 478,
+      "count": 17,
+      "examples": [
+        "462. Le Corbusier",
+        "463. Frank Lloyd Wright",
+        "464. Ludwig Mies van der Rohe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "engineer",
+      "startRank": 476,
+      "endRank": 486,
+      "count": 11,
+      "examples": [
+        "476. Christopher Wren",
+        "477. Gustave Eiffel",
+        "478. Isambard Kingdom Brunel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "engineer",
+      "startRank": 477,
+      "endRank": 487,
+      "count": 11,
+      "examples": [
+        "477. Gustave Eiffel",
+        "478. Isambard Kingdom Brunel",
+        "479. George Stephenson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 541,
+      "endRank": 560,
+      "count": 20,
+      "examples": [
+        "541. Stephen Colbert",
+        "542. John Oliver",
+        "543. Trevor Noah"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 546,
+      "endRank": 561,
+      "count": 16,
+      "examples": [
+        "546. George Carlin",
+        "547. Richard Pryor",
+        "548. Eddie Murphy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 546,
+      "endRank": 562,
+      "count": 17,
+      "examples": [
+        "546. George Carlin",
+        "547. Richard Pryor",
+        "548. Eddie Murphy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 671,
+      "endRank": 681,
+      "count": 11,
+      "examples": [
+        "671. D.W. Griffith",
+        "672. Sergei Eisenstein",
+        "673. Luis Buñuel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 672,
+      "endRank": 688,
+      "count": 17,
+      "examples": [
+        "672. Sergei Eisenstein",
+        "673. Luis Buñuel",
+        "674. David Lean"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 674,
+      "endRank": 692,
+      "count": 19,
+      "examples": [
+        "674. David Lean",
+        "675. Francis Ford Coppola",
+        "676. Ridley Scott"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 683,
+      "endRank": 694,
+      "count": 12,
+      "examples": [
+        "683. Spike Lee",
+        "684. John Singleton",
+        "685. Ryan Coogler"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playing",
+      "startRank": 794,
+      "endRank": 811,
+      "count": 18,
+      "examples": [
+        "794. Saoirse Ronan",
+        "795. Zendaya",
+        "796. Tom Holland"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playing",
+      "startRank": 796,
+      "endRank": 812,
+      "count": 17,
+      "examples": [
+        "796. Tom Holland",
+        "797. Robert Downey Jr.",
+        "798. Chris Evans"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 804,
+      "endRank": 825,
+      "count": 22,
+      "examples": [
+        "804. Christopher Reeve",
+        "805. Sean Connery",
+        "806. Daniel Craig"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playing",
+      "startRank": 796,
+      "endRank": 813,
+      "count": 18,
+      "examples": [
+        "796. Tom Holland",
+        "797. Robert Downey Jr.",
+        "798. Chris Evans"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 813,
+      "endRank": 826,
+      "count": 14,
+      "examples": [
+        "813. Arnold Schwarzenegger",
+        "814. Sylvester Stallone",
+        "815. Bruce Willis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 813,
+      "endRank": 828,
+      "count": 16,
+      "examples": [
+        "813. Arnold Schwarzenegger",
+        "814. Sylvester Stallone",
+        "815. Bruce Willis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 835,
+      "endRank": 844,
+      "count": 10,
+      "examples": [
+        "835. Maya Rudolph",
+        "836. Bill Murray",
+        "837. Dan Aykroyd"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 836,
+      "endRank": 845,
+      "count": 10,
+      "examples": [
+        "836. Bill Murray",
+        "837. Dan Aykroyd",
+        "838. John Belushi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "character",
+      "startRank": 860,
+      "endRank": 878,
+      "count": 19,
+      "examples": [
+        "860. Marilyn Bellfontaine",
+        "861. Ted Mullens",
+        "862. David Rose"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "character",
+      "startRank": 861,
+      "endRank": 887,
+      "count": 27,
+      "examples": [
+        "861. Ted Mullens",
+        "862. David Rose",
+        "863. Alexis Rose"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "character",
+      "startRank": 861,
+      "endRank": 888,
+      "count": 28,
+      "examples": [
+        "861. Ted Mullens",
+        "862. David Rose",
+        "863. Alexis Rose"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "character",
+      "startRank": 880,
+      "endRank": 889,
+      "count": 10,
+      "examples": [
+        "880. Herb Ertlinger",
+        "881. Emilio",
+        "882. Dee Dee"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "grateful",
+      "startRank": 909,
+      "endRank": 923,
+      "count": 15,
+      "examples": [
+        "909. Jonathan Larson",
+        "910. Trey Anastasio",
+        "911. Jerry Garcia"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "grateful",
+      "startRank": 911,
+      "endRank": 924,
+      "count": 14,
+      "examples": [
+        "911. Jerry Garcia",
+        "912. Bob Weir",
+        "913. Phil Lesh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "grateful",
+      "startRank": 911,
+      "endRank": 925,
+      "count": 15,
+      "examples": [
+        "911. Jerry Garcia",
+        "912. Bob Weir",
+        "913. Phil Lesh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 970,
+      "endRank": 983,
+      "count": 14,
+      "examples": [
+        "970. Romare Bearden",
+        "971. Faith Ringgold",
+        "972. Kara Walker"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 974,
+      "endRank": 987,
+      "count": 14,
+      "examples": [
+        "974. Keith Haring",
+        "975. Cindy Sherman",
+        "976. Barbara Kruger"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 976,
+      "endRank": 991,
+      "count": 16,
+      "examples": [
+        "976. Barbara Kruger",
+        "977. Jenny Holzer",
+        "978. Marina Abramović"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "artist",
+      "startRank": 985,
+      "endRank": 994,
+      "count": 10,
+      "examples": [
+        "985. Olafur Eliasson",
+        "986. James Turrell",
+        "987. Bill Viola"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 40,
+      "Asia": 26,
+      "Middle East": 8,
+      "Africa": 12,
+      "Americas": 22,
+      "Oceania": 0,
+      "Unknown": 892
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 109,
+      "Science/Technology": 85,
+      "Philosophy/Religion": 70,
+      "Arts/Literature": 194,
+      "Military": 5,
+      "Other": 537
+    }
+  },
+  "summary": "List passes all quality checks"
+}

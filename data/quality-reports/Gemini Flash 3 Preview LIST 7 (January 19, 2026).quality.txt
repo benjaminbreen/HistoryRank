@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Gemini Flash 3 Preview LIST 7 (January 19, 2026).txt
+Model: Gemini Flash 3 Preview
+Timestamp: 2026-01-20T04:16:01.368Z
+
+VERDICT: WARN
+
+Summary: Issues: 10 exact duplicates; pattern collapse (max 31); 5 missing anchors
+
+Scores:
+  Repetition: PASS - 10 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 31 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: WARN - 38/43 anchor figures found (88%)
+
+Issues (39):
+  - Exact duplicate: "jawaharlal nehru" at ranks 135, 287
+  - Exact duplicate: "chinua achebe" at ranks 167, 613
+  - Exact duplicate: "desmond tutu" at ranks 277, 915
+  - Exact duplicate: "golda meir" at ranks 292, 478
+  - Exact duplicate: "david lloyd george" at ranks 428, 506
+  - Exact duplicate: "cyril ramaphosa" at ranks 538, 599
+  - Exact duplicate: "hayao miyazaki" at ranks 629, 980
+  - Exact duplicate: "kanye west" at ranks 743, 867
+  - Exact duplicate: "rihanna" at ranks 751, 866
+  - Exact duplicate: "greta thunberg" at ranks 878, 1000
+  ... and 29 more issues
+
+Diversity Estimates:
+  Regions: Europe: 92, Asia: 36, Middle East: 21, Africa: 31, Americas: 30, Unknown: 790
+  Domains: Politics/Leadership: 278, Science/Technology: 8, Philosophy/Religion: 35, Arts/Literature: 95, Military: 12, Other: 572

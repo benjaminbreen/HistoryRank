@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Qwen3 235B A22B LIST 5 (January 13, 2026).txt
+Model: Qwen3 235B A22B
+Timestamp: 2026-01-20T04:16:10.876Z
+
+VERDICT: FAIL
+
+Summary: Issues: 502 exact duplicates; pattern collapse (max 17)
+
+Scores:
+  Repetition: FAIL - 502 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 17 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 40/43 anchor figures found (93%)
+
+Issues (133):
+  - Exact duplicate: "karl marx" at ranks 10, 535
+  - Exact duplicate: "mao zedong" at ranks 14, 557
+  - Exact duplicate: "winston churchill" at ranks 21, 644
+  - Exact duplicate: "adolf hitler" at ranks 22, 646
+  - Exact duplicate: "immanuel kant" at ranks 24, 515
+  - Exact duplicate: "nikola tesla" at ranks 28, 198, 541
+  - Exact duplicate: "louis pasteur" at ranks 29, 529
+  - Exact duplicate: "thomas edison" at ranks 30, 197, 540
+  - Exact duplicate: "vladimir lenin" at ranks 33, 269, 554
+  - Exact duplicate: "john calvin" at ranks 34, 271, 311, 351, 391, 431, 471, 507, 761
+  ... and 123 more issues
+
+Diversity Estimates:
+  Regions: Europe: 118, Asia: 31, Middle East: 46, Africa: 11, Americas: 11, Unknown: 783
+  Domains: Politics/Leadership: 30, Science/Technology: 25, Philosophy/Religion: 58, Arts/Literature: 71, Military: 7, Other: 809

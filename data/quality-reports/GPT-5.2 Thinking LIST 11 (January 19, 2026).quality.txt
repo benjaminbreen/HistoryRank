@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 11 (January 19, 2026).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-01-20T04:15:57.030Z
+
+VERDICT: WARN
+
+Summary: Issues: 134 exact duplicates; pattern collapse (max 62)
+
+Scores:
+  Repetition: WARN - 134 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 62 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (185):
+  - Exact duplicate: "charles darwin" at ranks 20, 935
+  - Exact duplicate: "woodrow wilson" at ranks 29, 884
+  - Exact duplicate: "francisco pizarro" at ranks 44, 875
+  - Exact duplicate: "otto von bismarck" at ranks 49, 802
+  - Exact duplicate: "sigmund freud" at ranks 57, 903
+  - Exact duplicate: "albert einstein" at ranks 58, 934
+  - Exact duplicate: "louis pasteur" at ranks 59, 936
+  - Exact duplicate: "marie curie" at ranks 61, 968
+  - Exact duplicate: "james clerk maxwell" at ranks 63, 957
+  - Exact duplicate: "alan turing" at ranks 64, 906
+  ... and 175 more issues
+
+Diversity Estimates:
+  Regions: Europe: 104, Asia: 84, Middle East: 62, Africa: 34, Americas: 29, Unknown: 687
+  Domains: Politics/Leadership: 51, Science/Technology: 18, Philosophy/Religion: 24, Arts/Literature: 42, Military: 27, Other: 838

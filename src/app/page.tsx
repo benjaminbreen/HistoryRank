@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef, Suspense } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition, Profiler } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -194,6 +194,18 @@ function HomeContent() {
     setDisplayLimit(prev => prev + 500);
   }, []);
 
+  const handleRenderProfile = useCallback((
+    id: string,
+    phase: 'mount' | 'update',
+    actualDuration: number,
+    baseDuration: number
+  ) => {
+    if (process.env.NODE_ENV === 'production') return;
+    if (actualDuration < 16) return;
+    // eslint-disable-next-line no-console
+    console.log(`[perf] ${id} ${phase} actual=${actualDuration.toFixed(1)}ms base=${baseDuration.toFixed(1)}ms`);
+  }, []);
+
   // Detail panel
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedLlmRank, setSelectedLlmRank] = useState<number | null>(null);
@@ -288,9 +300,11 @@ function HomeContent() {
   const handleSelectFigure = (id: string) => {
     const figure = figures.find(f => f.id === id);
     suppressFigureSync.current = true;
-    setSelectedId(id);
-    setSelectedRow(figure || null);
-    setSelectedLlmRank(figure?.llmRank || null);
+    startTransition(() => {
+      setSelectedId(id);
+      setSelectedRow(figure || null);
+      setSelectedLlmRank(figure?.llmRank || null);
+    });
   };
 
   // Prefetch figure details on hover (warms SWR cache before click)
@@ -606,12 +620,17 @@ function HomeContent() {
                   <p className="text-stone-300 dark:text-slate-300 mb-2">
                     Applies reliability weights to each model based on automated quality assessment (duplicates, pattern collapse) and LLM evaluation.
                   </p>
+                  <p className="text-stone-400 dark:text-slate-400 mb-2">
+                    Weights reflect an average of suggested scores from multiple list audits by GPT-5.2 and Claude Opus 4.5.
+                  </p>
                   <div className="space-y-1 text-[10px] text-stone-400 dark:text-slate-400">
-                    <div className="flex justify-between"><span>Claude Opus, GPT-5.2 Thinking</span><span className="text-emerald-400">1.0×</span></div>
-                    <div className="flex justify-between"><span>Claude Sonnet, Gemini Flash</span><span className="text-emerald-400">0.8×</span></div>
-                    <div className="flex justify-between"><span>Gemini Pro, Grok 4</span><span className="text-amber-400">0.7×</span></div>
-                    <div className="flex justify-between"><span>DeepSeek, Qwen, GLM</span><span className="text-orange-400">0.2-0.4×</span></div>
-                    <div className="flex justify-between"><span>Mistral Large</span><span className="text-red-400">0.15×</span></div>
+                    <div className="flex justify-between"><span>Claude Opus</span><span className="text-emerald-400">1.0×</span></div>
+                    <div className="flex justify-between"><span>GPT-5.2 Thinking</span><span className="text-emerald-400">0.79×</span></div>
+                    <div className="flex justify-between"><span>Claude Sonnet</span><span className="text-amber-400">0.54×</span></div>
+                    <div className="flex justify-between"><span>Gemini Pro, Gemini Flash</span><span className="text-amber-400">0.33× / 0.29×</span></div>
+                    <div className="flex justify-between"><span>Grok 4, Qwen</span><span className="text-orange-400">0.29× / 0.26×</span></div>
+                    <div className="flex justify-between"><span>DeepSeek, Grok 4.1, GLM</span><span className="text-orange-400">0.18× / 0.18× / 0.11×</span></div>
+                    <div className="flex justify-between"><span>Mistral Large</span><span className="text-red-400">0.05×</span></div>
                   </div>
                   {modelSource && (
                     <p className="mt-2 text-amber-400 text-[10px]">
@@ -768,30 +787,32 @@ function HomeContent() {
             })()
           ) : (
             <>
-              <RankingsTable
-                figures={figures}
-              onSelectFigure={handleSelectFigure}
-              onPrefetch={handlePrefetch}
-              selectedId={selectedId}
-              sortBy={sortBy}
-              sortOrder={sortOrder}
-              onSort={handleSort}
-              density={settings.density}
-              fontScale={settings.fontScale}
-              thumbnailSize={
-                settings.thumbnailSize === 'sm'
-                  ? 30
-                  : settings.thumbnailSize === 'lg'
-                    ? 46
-                    : 38
-              }
-              visibleColumns={{
-                region: settings.showRegion,
-                era: settings.showEra,
-                variance: settings.showVariance,
-                views: settings.showViews,
-              }}
-            />
+              <Profiler id="RankingsTable" onRender={handleRenderProfile}>
+                <RankingsTable
+                  figures={figures}
+                  onSelectFigure={handleSelectFigure}
+                  onPrefetch={handlePrefetch}
+                  selectedId={selectedId}
+                  sortBy={sortBy}
+                  sortOrder={sortOrder}
+                  onSort={handleSort}
+                  density={settings.density}
+                  fontScale={settings.fontScale}
+                  thumbnailSize={
+                    settings.thumbnailSize === 'sm'
+                      ? 30
+                      : settings.thumbnailSize === 'lg'
+                        ? 46
+                        : 38
+                  }
+                  visibleColumns={{
+                    region: settings.showRegion,
+                    era: settings.showEra,
+                    variance: settings.showVariance,
+                    views: settings.showViews,
+                  }}
+                />
+              </Profiler>
             {hasMore && (
               <div className="mt-4 flex justify-center">
                 <Button
@@ -853,22 +874,24 @@ function HomeContent() {
       )}
 
       {/* Detail Panel */}
-      <FigureDetailPanel
-        figure={selectedFigure}
-        previewRow={selectedRow}
-        rankings={selectedRankings}
-        aliases={selectedAliases}
-        isOpen={selectedId !== null}
-        onClose={handleCloseDetail}
-        isLoading={isDetailLoading}
-        isFullDataLoading={isFullDataLoading}
-        llmRank={selectedLlmRank}
-        onPrevious={handlePreviousFigure}
-        onNext={handleNextFigure}
-        hasPrevious={currentFigureIndex > 0}
-        hasNext={currentFigureIndex >= 0 && currentFigureIndex < figures.length - 1}
-        onNavigate={setSelectedId}
-      />
+      <Profiler id="FigureDetailPanel" onRender={handleRenderProfile}>
+        <FigureDetailPanel
+          figure={selectedFigure}
+          previewRow={selectedRow}
+          rankings={selectedRankings}
+          aliases={selectedAliases}
+          isOpen={selectedId !== null}
+          onClose={handleCloseDetail}
+          isLoading={isDetailLoading}
+          isFullDataLoading={isFullDataLoading}
+          llmRank={selectedLlmRank}
+          onPrevious={handlePreviousFigure}
+          onNext={handleNextFigure}
+          hasPrevious={currentFigureIndex > 0}
+          hasNext={currentFigureIndex >= 0 && currentFigureIndex < figures.length - 1}
+          onNavigate={setSelectedId}
+        />
+      </Profiler>
     </main>
   );
 }

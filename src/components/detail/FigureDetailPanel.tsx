@@ -382,6 +382,7 @@ export function FigureDetailPanel({
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <SheetContent
+        forceMount
         showClose={false}
         className="w-full sm:max-w-xl lg:max-w-2xl overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0"
       >

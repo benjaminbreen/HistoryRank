@@ -22,24 +22,24 @@ let weightedRankCacheTimestamp = 0;
 const MODEL_WEIGHTS: Record<string, number> = {
   // Tier S - Excellent (weight 1.0)
   'claude-opus-4.5': 1.0,
-  'gpt-5.2-thinking': 1.0,
+  'gpt-5.2-thinking': 0.79,
 
   // Tier A - Strong (weight 0.8-0.85)
-  'claude-sonnet-4.5': 0.85,
-  'gemini-flash-3-preview': 0.80,
-  'gemini-pro-3': 0.75,
+  'claude-sonnet-4.5': 0.54,
+  'gemini-pro-3': 0.33,
+  'gemini-flash-3-preview': 0.29,
 
   // Tier B - Usable (weight 0.6-0.7)
-  'grok-4': 0.70,
-  'grok-4.1-fast': 0.60,
+  'grok-4': 0.29,
+  'grok-4.1-fast': 0.18,
 
   // Tier C - Problematic (weight 0.2-0.4)
-  'deepseek-v3.2': 0.40,       // High variance, some lists broken with K-pop
-  'qwen3-235b-a22b': 0.25,     // Looping bug, Socrates 27x
-  'glm-4.7': 0.20,             // 512-sequence sports collapse
+  'deepseek-v3.2': 0.18,       // High variance, some lists broken with K-pop
+  'qwen3-235b-a22b': 0.26,     // Looping bug, Socrates 27x
+  'glm-4.7': 0.11,             // 512-sequence sports collapse
 
   // Tier F - Severe issues (weight 0.15)
-  'mistral-large-3': 0.15,     // 328-571 pattern collapse
+  'mistral-large-3': 0.05,     // 328-571 pattern collapse
 };
 
 // Cache for stats

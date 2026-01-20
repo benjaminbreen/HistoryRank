@@ -1,13 +1,13 @@
 {
   "file": "Grok 4 LIST 4 (January 14, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-19T06:54:24.807Z",
-  "verdict": "FAIL",
+  "timestamp": "2026-01-20T04:16:05.808Z",
+  "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 162,
       "fuzzy": 11,
-      "status": "FAIL",
+      "status": "WARN",
       "details": "162 exact duplicates found"
     },
     "pattern_collapse": {
@@ -482,7 +482,7 @@
           ]
         }
       ],
-      "status": "WARN",
+      "status": "PASS",
       "details": "Max sequence of 29 similar entries"
     },
     "structural": {

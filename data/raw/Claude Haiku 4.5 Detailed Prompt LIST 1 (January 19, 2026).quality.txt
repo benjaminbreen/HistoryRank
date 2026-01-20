@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt
+Model: anthropic/claude-haiku-4.5
+Timestamp: 2026-01-20T04:55:03.321Z
+
+VERDICT: FAIL
+
+Summary: Issues: 26 exact duplicates; pattern collapse (max 75); 500 entries (expected 1000); 10 missing anchors
+
+Scores:
+  Repetition: PASS - 26 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 75 similar entries
+  Structural: FAIL - 500 entries (expected 1000)
+  Anchor Coverage: FAIL - 29/43 anchor figures found (67%)
+
+Issues (84):
+  - Exact duplicate: "newton isaac" at ranks 4, 58
+  - Exact duplicate: "descartes ren" at ranks 20, 405
+  - Exact duplicate: "locke john" at ranks 21, 409
+  - Exact duplicate: "watt james" at ranks 26, 318
+  - Exact duplicate: "volta alessandro" at ranks 27, 299
+  - Exact duplicate: "faraday michael" at ranks 28, 301
+  - Exact duplicate: "maxwell james clerk" at ranks 29, 302
+  - Exact duplicate: "edison thomas" at ranks 30, 306
+  - Exact duplicate: "tesla nikola" at ranks 31, 305
+  - Exact duplicate: "curie marie" at ranks 36, 274
+  ... and 74 more issues
+
+Diversity Estimates:
+  Regions: Europe: 17, Asia: 2, Middle East: 2, Africa: 3, Americas: 3, Unknown: 473
+  Domains: Politics/Leadership: 2, Science/Technology: 49, Philosophy/Religion: 4, Arts/Literature: 1, Military: 5, Other: 439

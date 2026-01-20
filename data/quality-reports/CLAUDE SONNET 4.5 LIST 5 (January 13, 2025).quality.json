@@ -1,13 +1,13 @@
 {
-  "file": "CLAUDE SONNET 4.5 LIST 5 (January 13, 2025).txt",
-  "model": "CLAUDE SONNET 4.5",
-  "timestamp": "2026-01-19T06:54:11.714Z",
-  "verdict": "FAIL",
+  "file": "Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-01-20T04:15:52.554Z",
+  "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 36,
       "fuzzy": 7,
-      "status": "WARN",
+      "status": "PASS",
       "details": "36 exact duplicates found"
     },
     "pattern_collapse": {
@@ -314,7 +314,7 @@
           ]
         }
       ],
-      "status": "FAIL",
+      "status": "WARN",
       "details": "Max sequence of 36 similar entries"
     },
     "structural": {

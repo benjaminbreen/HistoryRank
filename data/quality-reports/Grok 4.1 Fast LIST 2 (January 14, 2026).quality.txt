@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: Grok 4.1 Fast LIST 2 (January 14, 2026).txt
+Model: Grok 4.1 Fast
+Timestamp: 2026-01-20T04:16:07.718Z
+
+VERDICT: FAIL
+
+Summary: Issues: 449 exact duplicates; pattern collapse (max 10)
+
+Scores:
+  Repetition: FAIL - 449 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+
+Issues (222):
+  - Exact duplicate: "albert einstein" at ranks 17, 899
+  - Exact duplicate: "johannes gutenberg" at ranks 20, 101, 951
+  - Exact duplicate: "martin luther" at ranks 21, 102
+  - Exact duplicate: "ashoka the great" at ranks 23, 110
+  - Exact duplicate: "mahatma gandhi" at ranks 25, 900
+  - Exact duplicate: "euclid" at ranks 27, 364
+  - Exact duplicate: "archimedes" at ranks 33, 365
+  - Exact duplicate: "immanuel kant" at ranks 34, 401
+  - Exact duplicate: "ren descartes" at ranks 35, 175
+  - Exact duplicate: "adam smith" at ranks 38, 147
+  ... and 212 more issues
+
+Diversity Estimates:
+  Regions: Europe: 90, Asia: 30, Middle East: 15, Africa: 13, Americas: 34, Unknown: 818
+  Domains: Politics/Leadership: 84, Science/Technology: 37, Philosophy/Religion: 73, Arts/Literature: 99, Military: 18, Other: 689
