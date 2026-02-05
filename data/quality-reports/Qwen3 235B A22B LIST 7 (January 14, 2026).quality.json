@@ -1,12 +1,12 @@
 {
   "file": "Qwen3 235B A22B LIST 7 (January 14, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:11.189Z",
+  "timestamp": "2026-02-05T18:17:17.473Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 452,
-      "fuzzy": 38,
+      "fuzzy": 34,
       "status": "FAIL",
       "details": "452 exact duplicates found"
     },
@@ -61,21 +61,22 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 34,
-      "expected": 43,
+      "found": 47,
+      "expected": 61,
       "missing": [
         "abraham lincoln",
+        "lincoln",
+        "saint paul",
+        "paul the apostle",
         "euclid",
         "archimedes",
         "bach",
         "mozart",
         "voltaire",
-        "rousseau",
-        "hitler",
-        "stalin"
+        "rousseau"
       ],
-      "status": "WARN",
-      "details": "34/43 anchor figures found (79%)"
+      "status": "PASS",
+      "details": "47/61 anchor figures found (77%)"
     }
   },
   "issues": [
@@ -1767,22 +1768,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "tutankhamun",
-      "variants": [
-        "tutankhamun",
-        "tutankhamuns restorers",
-        "tutankhamuns embalmers",
-        "tutankhamuns jewelers"
-      ],
-      "ranks": [
-        63,
-        745,
-        771,
-        797
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "peter the great",
       "variants": [
         "peter the great",
@@ -1813,14 +1798,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "roxelana",
+      "name": "dante alighieris translators",
       "variants": [
-        "roxelana",
-        "roxelanas philanthropists"
+        "dante alighieris translators",
+        "dantes vernacular translators"
       ],
       "ranks": [
-        225,
-        241
+        221,
+        299
       ]
     },
     {
@@ -1833,18 +1818,6 @@
       "ranks": [
         242,
         340
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bessarion",
-      "variants": [
-        "bessarion",
-        "bessarions manuscript collectors"
-      ],
-      "ranks": [
-        246,
-        284
       ]
     },
     {
@@ -1897,14 +1870,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "tang xuanzang",
+      "name": "hatshepsuts expedition leaders",
       "variants": [
-        "tang xuanzang",
-        "xuanzang"
+        "hatshepsuts expedition leaders",
+        "hatshepsuts punt expedition leaders"
       ],
       "ranks": [
-        276,
-        827
+        269,
+        749
       ]
     },
     {
@@ -1917,6 +1890,18 @@
       "ranks": [
         277,
         507
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sundiatas griots",
+      "variants": [
+        "sundiatas griots",
+        "sundiata keitas griots"
+      ],
+      "ranks": [
+        279,
+        752
       ]
     },
     {
@@ -1943,6 +1928,18 @@
       "ranks": [
         322,
         512
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charlemagnes scholar rabanus maurus",
+      "variants": [
+        "charlemagnes scholar rabanus maurus",
+        "charlemagnes bishop hrabanus maurus"
+      ],
+      "ranks": [
+        332,
+        362
       ]
     },
     {
@@ -1988,49 +1985,35 @@
       "name": "alrazis student ali ibn sahl rabban altabari",
       "variants": [
         "alrazis student ali ibn sahl rabban altabari",
-        "altabari",
         "ibn sahl"
       ],
       "ranks": [
         344,
-        691,
         693
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "harun alrashids historian altabari",
+      "name": "ashokas physician",
       "variants": [
-        "harun alrashids historian altabari",
-        "altabari"
+        "ashokas physician",
+        "ashurbanipals physician"
       ],
       "ranks": [
-        388,
-        691
+        360,
+        385
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alidrisis contemporary alsamawal",
+      "name": "albattanis contemporary alfarghani",
       "variants": [
-        "alidrisis contemporary alsamawal",
-        "alsamawal"
+        "albattanis contemporary alfarghani",
+        "albattanis contemporary alsaghani"
       ],
       "ranks": [
-        389,
-        681
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shaka",
-      "variants": [
-        "shaka",
-        "shabaka"
-      ],
-      "ranks": [
-        414,
-        711
+        374,
+        394
       ]
     },
     {
@@ -2121,5 +2104,20 @@
       "Other": 740
     }
   },
-  "summary": "Issues: 452 exact duplicates; pattern collapse (max 24); 9 missing anchors"
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.005,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 10,
+    "longNameRate": 0.01,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 99.48
+  },
+  "summary": "Issues: 452 exact duplicates; pattern collapse (max 24)"
 }

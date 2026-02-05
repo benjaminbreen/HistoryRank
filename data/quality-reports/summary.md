@@ -1,11 +1,11 @@
 # List Quality Assessment Summary
 
-Generated: 2026-01-20T04:16:11.259Z
+Generated: 2026-02-05T18:17:17.879Z
 
-Total lists assessed: 78
+Total lists assessed: 79
 - PASS: 13
-- WARN: 22
-- FAIL: 43
+- WARN: 21
+- FAIL: 45
 
 ## Model Quality Ranking
 
@@ -13,19 +13,30 @@ Models ranked by quality score (0-100). Higher is better.
 
 | Rank | Model | Score | Lists | Avg Duplicates | Avg Max Sequence | Anchor Coverage |
 |------|-------|-------|-------|----------------|------------------|-----------------|
-| 1 | Claude Opus 4.5 | 🟡 54 | 10 | 27.2 | 15.4 | 99% |
-| 2 | GPT-5.2 Thinking | 🔴 45 | 11 | 71.6 | 9.3 | 99% |
-| 3 | Claude Sonnet 4.5 | 🔴 32 | 8 | 52.4 | 35.3 | 99% |
-| 4 | Grok 4 | 🔴 20 | 7 | 74.7 | 70.1 | 97% |
-| 5 | Qwen3 235B A22B | 🔴 19 | 7 | 504.0 | 15.4 | 90% |
-| 6 | Grok 4.1 Fast | 🔴 18 | 7 | 280.7 | 36.1 | 98% |
-| 7 | DeepSeek V3.2 | 🔴 18 | 5 | 540.8 | 159.8 | 98% |
-| 8 | Gemini Pro 3 | 🔴 18 | 7 | 114.7 | 48.0 | 98% |
-| 9 | Gemini Flash 3 Preview | 🔴 16 | 7 | 158.1 | 25.7 | 96% |
-| 10 | GLM 4.7 | 🔴 14 | 4 | 240.0 | 143.5 | 94% |
-| 11 | Mistral Large 3 | 🔴 5 | 5 | 275.4 | 328.4 | 85% |
+| 1 | Claude Opus 4.5 | 🟡 53 | 10 | 27.2 | 15.4 | 97% |
+| 2 | GPT-5.2 Thinking | 🔴 43 | 11 | 71.6 | 9.3 | 98% |
+| 3 | Claude Sonnet 4.5 | 🔴 30 | 8 | 52.4 | 38.4 | 96% |
+| 4 | Claude Haiku 4.5 Detailed Prompt | 🔴 27 | 1 | 26.0 | 75.0 | 51% |
+| 5 | Grok 4 | 🔴 18 | 7 | 74.7 | 72.0 | 96% |
+| 6 | DeepSeek V3.2 | 🔴 17 | 5 | 540.8 | 163.0 | 97% |
+| 7 | Grok 4.1 Fast | 🔴 16 | 7 | 280.7 | 36.1 | 96% |
+| 8 | Qwen3 235B A22B | 🔴 16 | 7 | 504.0 | 16.6 | 89% |
+| 9 | Gemini Pro 3 | 🔴 15 | 7 | 114.7 | 50.6 | 95% |
+| 10 | Gemini Flash 3 Preview | 🔴 14 | 7 | 158.1 | 25.7 | 94% |
+| 11 | GLM 4.7 | 🔴 12 | 4 | 240.0 | 173.0 | 92% |
+| 12 | Mistral Large 3 | 🔴 5 | 5 | 275.4 | 328.4 | 85% |
 
 ## Failing Lists
+
+### Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt
+- **Model:** Claude Haiku 4.5 Detailed Prompt
+- **Issues:** Issues: 26 exact duplicates; pattern collapse (max 75); 500 entries (expected 1000); 10 missing anchors
+- **Details:**
+  - Exact duplicate: "newton isaac" at ranks 4, 58
+  - Exact duplicate: "descartes ren" at ranks 20, 405
+  - Exact duplicate: "locke john" at ranks 21, 409
+  - Exact duplicate: "watt james" at ranks 26, 318
+  - Exact duplicate: "volta alessandro" at ranks 27, 299
 
 ### Claude Opus 4.5 LIST 4 (January 13, 2025).txt
 - **Model:** Claude Opus 4.5
@@ -57,9 +68,19 @@ Models ranked by quality score (0-100). Higher is better.
   - Exact duplicate: "moses" at ranks 13, 850
   - Exact duplicate: "thomas edison" at ranks 23, 823
 
+### Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt
+- **Model:** Claude Sonnet 4.5
+- **Issues:** Issues: 7 exact duplicates; pattern collapse (max 108)
+- **Details:**
+  - Exact duplicate: "francis bacon" at ranks 64, 874
+  - Exact duplicate: "david hume" at ranks 65, 624
+  - Exact duplicate: "john adams" at ranks 129, 1000
+  - Exact duplicate: "alexis de tocqueville" at ranks 202, 645
+  - Exact duplicate: "dante alighieri" at ranks 302, 597
+
 ### DeepSeek V3.2 LIST 1 (January 13, 2026).txt
 - **Model:** DeepSeek V3.2
-- **Issues:** Issues: 428 exact duplicates; pattern collapse (max 25)
+- **Issues:** Issues: 428 exact duplicates; pattern collapse (max 41)
 - **Details:**
   - Exact duplicate: "jesus christ" at ranks 1, 279, 551
   - Exact duplicate: "muhammad" at ranks 2, 280, 552, 806
@@ -119,7 +140,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### GLM 4.7 LIST 4 (January 18, 2026).txt
 - **Model:** GLM 4.7
-- **Issues:** Issues: 285 exact duplicates; pattern collapse (max 512)
+- **Issues:** Issues: 285 exact duplicates; pattern collapse (max 630)
 - **Details:**
   - Exact duplicate: "nelson mandela" at ranks 58, 117
   - Exact duplicate: "stephen curry" at ranks 235, 719
@@ -231,7 +252,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Gemini Pro 3 LIST 4 (January 13, 2025).txt
 - **Model:** Gemini Pro 3
-- **Issues:** Issues: 6 exact duplicates; 1004 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 6 exact duplicates; pattern collapse (max 23); 1004 entries (expected 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "gregor mendel" at ranks 58, 385
   - Exact duplicate: "sigmund freud" at ranks 69, 399
@@ -331,7 +352,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Mistral Large 3 LIST 1 (January 15, 2026).txt
 - **Model:** Mistral Large 3
-- **Issues:** Issues: 266 exact duplicates; pattern collapse (max 86); 6 missing anchors
+- **Issues:** Issues: 266 exact duplicates; pattern collapse (max 86)
 - **Details:**
   - Exact duplicate: "karl marx" at ranks 6, 239, 634, 640, 874
   - Exact duplicate: "leonardo da vinci" at ranks 9, 107
@@ -361,7 +382,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Mistral Large 3 LIST 4 (January 17, 2026).txt
 - **Model:** Mistral Large 3
-- **Issues:** Issues: 362 exact duplicates; pattern collapse (max 81); 7 missing anchors
+- **Issues:** Issues: 362 exact duplicates; pattern collapse (max 81)
 - **Details:**
   - Exact duplicate: "adam smith" at ranks 12, 48
   - Exact duplicate: "thomas edison" at ranks 15, 395
@@ -371,7 +392,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Mistral Large 3 LIST 5 (January 18, 2026).txt
 - **Model:** Mistral Large 3
-- **Issues:** Issues: 107 exact duplicates; pattern collapse (max 570); 10 missing anchors
+- **Issues:** Issues: 107 exact duplicates; pattern collapse (max 570)
 - **Details:**
   - Exact duplicate: "isaac newton" at ranks 2, 28
   - Exact duplicate: "karl marx" at ranks 6, 161
@@ -391,7 +412,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Qwen3 235B A22B LIST 2 (January 18, 2026).txt
 - **Model:** Qwen3 235B A22B
-- **Issues:** Issues: 920 exact duplicates; 10 missing anchors
+- **Issues:** Issues: 920 exact duplicates
 - **Details:**
   - Exact duplicate: "socrates" at ranks 12, 82, 118, 154, 190, 226, 262, 298, 334, 370, 406, 442, 478, 514, 550, 586, 622, 658, 694, 730, 766, 802, 838, 874, 910, 946, 982
   - Exact duplicate: "napoleon iii" at ranks 31, 80, 116, 152, 188, 224, 260, 296, 332, 368, 404, 440, 476, 512, 548, 584, 620, 656, 692, 728, 764, 800, 836, 872, 908, 944, 980
@@ -401,7 +422,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Qwen3 235B A22B LIST 3 (January 18, 2026).txt
 - **Model:** Qwen3 235B A22B
-- **Issues:** Issues: 306 exact duplicates; pattern collapse (max 24)
+- **Issues:** Issues: 306 exact duplicates; pattern collapse (max 31)
 - **Details:**
   - Exact duplicate: "albert einstein" at ranks 6, 197
   - Exact duplicate: "plato" at ranks 7, 115
@@ -411,7 +432,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Qwen3 235B A22B LIST 4 (January 19, 2026).txt
 - **Model:** Qwen3 235B A22B
-- **Issues:** Issues: 356 exact duplicates; pattern collapse (max 20)
+- **Issues:** Issues: 356 exact duplicates; pattern collapse (max 21)
 - **Details:**
   - Exact duplicate: "isaac newton" at ranks 3, 565
   - Exact duplicate: "albert einstein" at ranks 6, 625
@@ -441,7 +462,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Qwen3 235B A22B LIST 7 (January 14, 2026).txt
 - **Model:** Qwen3 235B A22B
-- **Issues:** Issues: 452 exact duplicates; pattern collapse (max 24); 9 missing anchors
+- **Issues:** Issues: 452 exact duplicates; pattern collapse (max 24)
 - **Details:**
   - Exact duplicate: "karl marx" at ranks 14, 171, 179
   - Exact duplicate: "genghis khan" at ranks 15, 467, 535
@@ -458,9 +479,8 @@ Models ranked by quality score (0-100). Higher is better.
 - **Claude Sonnet 4.5 LIST 2 (January 12, 2025).txt** (Claude Sonnet 4.5): Issues: 72 exact duplicates
 - **Claude Sonnet 4.5 LIST 4 (January 12, 2025).txt** (Claude Sonnet 4.5): Issues: 58 exact duplicates
 - **Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt** (Claude Sonnet 4.5): Issues: 36 exact duplicates; pattern collapse (max 36)
-- **Claude Sonnet 4.5 LIST 6 (January 14, 2026).txt** (Claude Sonnet 4.5): Issues: 10 exact duplicates; pattern collapse (max 58)
+- **Claude Sonnet 4.5 LIST 6 (January 14, 2026).txt** (Claude Sonnet 4.5): Issues: 10 exact duplicates; pattern collapse (max 60)
 - **Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt** (Claude Sonnet 4.5): Issues: 6 exact duplicates; pattern collapse (max 59)
-- **Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt** (Claude Sonnet 4.5): Issues: 7 exact duplicates; pattern collapse (max 85)
 - **GLM 4.7 LIST 2 (January 14, 2026).txt** (GLM 4.7): Issues: 91 exact duplicates; pattern collapse (max 40)
 - **GLM 4.7 LIST 3 (January 14, 2026).txt** (GLM 4.7): Issues: 76 exact duplicates; pattern collapse (max 22)
 - **GPT-5.2 Thinking LIST 11 (January 19, 2026).txt** (GPT-5.2 Thinking): Issues: 134 exact duplicates; pattern collapse (max 62)
@@ -468,9 +488,34 @@ Models ranked by quality score (0-100). Higher is better.
 - **Gemini Flash 3 Preview LIST 4 (January 12, 2025).txt** (Gemini Flash 3 Preview): Issues: 172 exact duplicates; pattern collapse (max 31)
 - **Gemini Flash 3 Preview LIST 5 (January 12, 2025).txt** (Gemini Flash 3 Preview): Issues: 132 exact duplicates; pattern collapse (max 12)
 - **Gemini Flash 3 Preview LIST 6 (January 19, 2026).txt** (Gemini Flash 3 Preview): Issues: 19 exact duplicates; pattern collapse (max 73)
-- **Gemini Flash 3 Preview LIST 7 (January 19, 2026).txt** (Gemini Flash 3 Preview): Issues: 10 exact duplicates; pattern collapse (max 31); 5 missing anchors
+- **Gemini Flash 3 Preview LIST 7 (January 19, 2026).txt** (Gemini Flash 3 Preview): Issues: 10 exact duplicates; pattern collapse (max 31)
 - **Gemini Pro 3 LIST 2 (January 12, 2025).txt** (Gemini Pro 3): Issues: 55 exact duplicates; pattern collapse (max 56)
 - **Grok 4 LIST 3 (January 14, 2026).txt** (Grok 4): Issues: 115 exact duplicates; pattern collapse (max 17)
-- **Grok 4 LIST 4 (January 14, 2026).txt** (Grok 4): Issues: 162 exact duplicates; pattern collapse (max 29)
+- **Grok 4 LIST 4 (January 14, 2026).txt** (Grok 4): Issues: 162 exact duplicates; pattern collapse (max 35)
 - **Grok 4 LIST 7 (January 19, 2026).txt** (Grok 4): Issues: 36 exact duplicates; pattern collapse (max 39)
 - **Grok 4.1 Fast LIST 5 (January 15, 2026).txt** (Grok 4.1 Fast): Issues: 53 exact duplicates; pattern collapse (max 88)
+
+## Worst Lists (Advanced Metrics)
+
+| Rank | File | Model | Advanced Score | Paren % | Multi % | Short % | Long % |
+|------|------|-------|----------------|---------|---------|---------|--------|
+| 1 | GPT-5.2 Thinking LIST 8 (January 14, 2026).txt | GPT-5.2 Thinking | 75.6 | 9.5% | 0.1% | 0.0% | 0.0% |
+| 2 | GPT-5.2 Thinking LIST 10 (January 19, 2026).txt | GPT-5.2 Thinking | 77.4 | 11.4% | 0.0% | 0.0% | 4.0% |
+| 3 | Claude Sonnet 4.5 LIST 4 (January 12, 2025).txt | Claude Sonnet 4.5 | 80.0 | 1.2% | 0.2% | 0.0% | 0.0% |
+| 4 | Grok 4.1 Fast LIST 6 (January 15, 2026).txt | Grok 4.1 Fast | 80.3 | 0.2% | 0.2% | 0.6% | 0.0% |
+| 5 | GLM 4.7 LIST 3 (January 14, 2026).txt | GLM 4.7 | 80.9 | 0.1% | 0.0% | 0.1% | 0.0% |
+| 6 | Grok 4.1 Fast LIST 7 (January 15, 2026).txt | Grok 4.1 Fast | 81.7 | 0.2% | 0.6% | 0.0% | 0.0% |
+| 7 | Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt | Claude Sonnet 4.5 | 82.5 | 0.4% | 0.0% | 0.0% | 0.0% |
+| 8 | Claude Sonnet 4.5 LIST 6 (January 14, 2026).txt | Claude Sonnet 4.5 | 83.0 | 0.0% | 0.0% | 0.0% | 0.0% |
+| 9 | Grok 4.1 Fast LIST 5 (January 15, 2026).txt | Grok 4.1 Fast | 83.2 | 0.1% | 0.0% | 0.0% | 0.0% |
+| 10 | Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt | Claude Sonnet 4.5 | 83.6 | 0.0% | 0.2% | 0.0% | 0.0% |
+| 11 | GLM 4.7 LIST 2 (January 14, 2026).txt | GLM 4.7 | 84.5 | 0.3% | 0.1% | 0.0% | 0.0% |
+| 12 | Qwen3 235B A22B LIST 2 (January 18, 2026).txt | Qwen3 235B A22B | 85.8 | 0.0% | 0.0% | 0.0% | 0.0% |
+| 13 | Claude Sonnet 4.5 LIST 1 (January 12, 2025).txt | Claude Sonnet 4.5 | 87.2 | 0.5% | 0.1% | 0.0% | 0.0% |
+| 14 | Grok 4.1 Fast LIST 3 (January 14, 2026).txt | Grok 4.1 Fast | 87.5 | 0.4% | 0.1% | 0.1% | 0.2% |
+| 15 | Grok 4.1 Fast LIST 4 (January 14, 2026).txt | Grok 4.1 Fast | 87.8 | 0.8% | 0.1% | 0.0% | 0.0% |
+| 16 | Grok 4.1 Fast LIST 2 (January 14, 2026).txt | Grok 4.1 Fast | 88.6 | 0.4% | 0.0% | 0.0% | 0.1% |
+| 17 | Grok 4 LIST 7 (January 19, 2026).txt | Grok 4 | 88.7 | 1.6% | 0.2% | 0.0% | 0.0% |
+| 18 | Grok 4 LIST 5 (January 15, 2026).txt | Grok 4 | 88.7 | 0.1% | 0.0% | 0.2% | 0.0% |
+| 19 | Grok 4.1 Fast LIST 1 (January 14, 2026).txt | Grok 4.1 Fast | 89.2 | 0.4% | 0.0% | 0.0% | 0.0% |
+| 20 | GPT-5.2 Thinking LIST 7 (January 13, 2025).txt | GPT-5.2 Thinking | 89.7 | 15.4% | 0.2% | 0.0% | 4.5% |

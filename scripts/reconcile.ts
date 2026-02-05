@@ -551,8 +551,12 @@ async function autoGenerateAliases(dryRun: boolean) {
   const allFigures = await db.query.figures.findMany();
   let added = 0;
 
+  const stripDiacritics = (value: string) =>
+    value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+
   for (const figure of allFigures) {
     const normalized = normalizeName(figure.canonicalName);
+    const asciiNormalized = normalizeName(stripDiacritics(figure.canonicalName));
     const slug = generateSlug(figure.canonicalName);
 
     // Add normalized name as alias
@@ -572,6 +576,18 @@ async function autoGenerateAliases(dryRun: boolean) {
       try {
         await db.insert(nameAliases)
           .values({ alias: slug, figureId: figure.id })
+          .onConflictDoNothing();
+        added++;
+      } catch (e) {
+        // Ignore
+      }
+    }
+
+    // Add ASCII-normalized alias for diacritic-insensitive matching
+    if (asciiNormalized !== normalized && asciiNormalized !== slug && !dryRun) {
+      try {
+        await db.insert(nameAliases)
+          .values({ alias: asciiNormalized, figureId: figure.id })
           .onConflictDoNothing();
         added++;
       } catch (e) {
@@ -701,6 +717,8 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const thumbnailsOnly = args.includes('--thumbnails');
   const enrichOnly = args.includes('--enrich');
+  const fastOnly = args.includes('--fast');
+  const noWiki = args.includes('--no-wiki');
   const limitArg = args.find((arg) => arg.startsWith('--limit='));
   const limit = limitArg ? Number(limitArg.split('=')[1]) : undefined;
 
@@ -731,20 +749,107 @@ async function main() {
   await performRenames(overrides.renames, dryRun);
 
   // 3. Apply updates (fetch Wikipedia data)
-  await performUpdates(overrides.updates, dryRun);
+  if (noWiki) {
+    console.log('\n📝 Applying updates without Wikipedia fetches...');
+    if (overrides.updates && Object.keys(overrides.updates).length > 0) {
+      const keyMap: Record<string, string> = {
+        canonical_name: 'canonicalName',
+        birth_year: 'birthYear',
+        death_year: 'deathYear',
+        region_macro: 'regionMacro',
+        region_sub: 'regionSub',
+        birth_polity: 'birthPolity',
+        birth_place: 'birthPlace',
+        birth_lat: 'birthLat',
+        birth_lon: 'birthLon',
+        wikipedia_slug: 'wikipediaSlug',
+        wikipedia_extract: 'wikipediaExtract',
+        wikidata_qid: 'wikidataQid',
+        source_confidence: 'sourceConfidence',
+        pageviews_2024: 'pageviews2024',
+        pageviews_2025: 'pageviews2025',
+        pageviews_by_language: 'pageviewsByLanguage',
+        pageviews_global: 'pageviewsGlobal',
+        hpi_rank: 'hpiRank',
+        hpi_score: 'hpiScore',
+        llm_consensus_rank: 'llmConsensusRank',
+        variance_score: 'varianceScore',
+        ngram_data: 'ngramData',
+        ngram_avg: 'ngramAvg',
+        ngram_percentile: 'ngramPercentile',
+        related_figures: 'relatedFigures',
+      };
+      const allowedKeys = new Set([
+        'canonicalName',
+        'birthYear',
+        'deathYear',
+        'domain',
+        'occupation',
+        'era',
+        'regionMacro',
+        'regionSub',
+        'birthPolity',
+        'birthPlace',
+        'birthLat',
+        'birthLon',
+        'wikipediaSlug',
+        'wikipediaExtract',
+        'wikidataQid',
+        'sourceConfidence',
+        'pageviews2024',
+        'pageviews2025',
+        'pageviewsByLanguage',
+        'pageviewsGlobal',
+        'hpiRank',
+        'hpiScore',
+        'llmConsensusRank',
+        'varianceScore',
+        'ngramData',
+        'ngramAvg',
+        'ngramPercentile',
+        'relatedFigures',
+      ]);
+      for (const [id, patch] of Object.entries(overrides.updates)) {
+        const cleaned = Object.fromEntries(
+          Object.entries(patch as Record<string, unknown>)
+            .filter(([, value]) => value !== undefined)
+            .map(([key, value]) => {
+              const mappedKey = keyMap[key] ?? key.replace(/_([a-z])/g, (_, c) => c.toUpperCase());
+              return [mappedKey, value];
+            })
+            .filter(([key]) => allowedKeys.has(String(key)))
+        );
+        if (Object.keys(cleaned).length === 0) {
+          continue;
+        }
+        if (dryRun) {
+          console.log(`   [dry-run] ${id}: ${Object.keys(cleaned).join(', ')}`);
+          continue;
+        }
+        await db
+          .update(figures)
+          .set(cleaned as any)
+          .where(eq(figures.id, id));
+      }
+    }
+  } else {
+    await performUpdates(overrides.updates, dryRun);
+  }
 
   // 4. Add aliases
   await addAliases(overrides.aliases, dryRun);
 
-  // 5. Enrich figures missing birth year, era, domain, pageviews
-  await enrichMissingData(dryRun, limit);
+  if (!fastOnly) {
+    // 5. Enrich figures missing birth year, era, domain, pageviews
+    await enrichMissingData(dryRun, limit);
 
-  // 6. Auto-generate aliases from canonical names
-  await autoGenerateAliases(dryRun);
+    // 6. Auto-generate aliases from canonical names
+    await autoGenerateAliases(dryRun);
 
-  // 7. Update consensus ranks
-  if (!dryRun) {
-    await updateConsensusRanks();
+    // 7. Update consensus ranks
+    if (!dryRun) {
+      await updateConsensusRanks();
+    }
   }
 
   // Print summary

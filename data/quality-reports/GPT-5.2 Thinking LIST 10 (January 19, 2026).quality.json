@@ -1,14 +1,14 @@
 {
   "file": "GPT-5.2 Thinking LIST 10 (January 19, 2026).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:56.513Z",
+  "timestamp": "2026-02-05T18:16:34.184Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 0,
-      "fuzzy": 104,
+      "fuzzy": 101,
       "status": "PASS",
-      "details": "104 fuzzy duplicates found"
+      "details": "101 fuzzy duplicates found"
     },
     "pattern_collapse": {
       "maxSequence": 0,
@@ -24,36 +24,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
-    {
-      "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali jinnah",
-        "muhammad yunus",
-        "askia muhammad i",
-        "muhammad abduh",
-        "muhammad ibn abd alwahhab",
-        "askia muhammad i duplicate check avoided"
-      ],
-      "ranks": [
-        1,
-        153,
-        264,
-        302,
-        397,
-        621,
-        653
-      ]
-    },
     {
       "type": "fuzzy_duplicate",
       "name": "albert einstein",
@@ -102,18 +82,6 @@
       "ranks": [
         23,
         640
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "ashoka duplicate check avoided"
-      ],
-      "ranks": [
-        24,
-        362
       ]
     },
     {
@@ -214,42 +182,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "charlemagne",
-      "variants": [
-        "charlemagne",
-        "charlemagne duplicate check avoided"
-      ],
-      "ranks": [
-        60,
-        438
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pericles",
-      "variants": [
-        "pericles",
-        "pericles duplicate check avoided"
-      ],
-      "ranks": [
-        65,
-        325
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mencius",
-      "variants": [
-        "mencius",
-        "mencius duplicate check avoided"
-      ],
-      "ranks": [
-        67,
-        972
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "sun tzu",
       "variants": [
         "sun tzu",
@@ -270,18 +202,6 @@
       "ranks": [
         70,
         436
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "akbar",
-      "variants": [
-        "akbar",
-        "akbar duplicate check avoided"
-      ],
-      "ranks": [
-        71,
-        977
       ]
     },
     {
@@ -339,25 +259,11 @@
       "name": "mehmed ii",
       "variants": [
         "mehmed ii",
-        "mahmud ii",
         "mehmed ii duplicate check avoided"
       ],
       "ranks": [
         79,
-        377,
         406
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saladin",
-      "variants": [
-        "saladin",
-        "saadi"
-      ],
-      "ranks": [
-        80,
-        732
       ]
     },
     {
@@ -532,18 +438,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        158,
-        637
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "shaka zulu",
       "variants": [
         "shaka zulu",
@@ -702,6 +596,42 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "johannes gutenberg duplicate check avoided",
+      "variants": [
+        "johannes gutenberg duplicate check avoided",
+        "john maynard keynes duplicate check avoided"
+      ],
+      "ranks": [
+        223,
+        577
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "otto von bismarck duplicate check avoided",
+      "variants": [
+        "otto von bismarck duplicate check avoided",
+        "otto von bismarck second duplicate check avoided"
+      ],
+      "ranks": [
+        232,
+        388
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        239,
+        336
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "eleanor roosevelt",
       "variants": [
         "eleanor roosevelt",
@@ -746,30 +676,6 @@
       "ranks": [
         270,
         967
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        285,
-        466
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
-      "variants": [
-        "srinivasa ramanujan",
-        "ramanuja"
-      ],
-      "ranks": [
-        289,
-        602
       ]
     },
     {
@@ -834,6 +740,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "nelson mandela duplicate check avoided",
+      "variants": [
+        "nelson mandela duplicate check avoided",
+        "nelson mandela second duplicate check avoided"
+      ],
+      "ranks": [
+        307,
+        672
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "ban zhao",
       "variants": [
         "ban zhao",
@@ -894,30 +812,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "babur",
-      "variants": [
-        "babur",
-        "kabir"
-      ],
-      "ranks": [
-        367,
-        606
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aurangzeb",
-      "variants": [
-        "aurangzeb",
-        "aurangzeb duplicate check avoided"
-      ],
-      "ranks": [
-        369,
-        980
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "muawiya i",
       "variants": [
         "muawiya i",
@@ -926,6 +820,30 @@
       "ranks": [
         373,
         617
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis ix of france",
+      "variants": [
+        "louis ix of france",
+        "louis xi of france"
+      ],
+      "ranks": [
+        383,
+        403
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas aquinas duplicate check avoided",
+      "variants": [
+        "thomas aquinas duplicate check avoided",
+        "thomas edison duplicate check avoided"
+      ],
+      "ranks": [
+        398,
+        473
       ]
     },
     {
@@ -942,18 +860,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rembrandt",
-      "variants": [
-        "rembrandt",
-        "rembrandt duplicate check avoided"
-      ],
-      "ranks": [
-        415,
-        888
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "claude monet",
       "variants": [
         "claude monet",
@@ -964,6 +870,18 @@
         418,
         844,
         889
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charlemagne duplicate check avoided",
+      "variants": [
+        "charlemagne duplicate check avoided",
+        "charles de gaulle duplicate check avoided"
+      ],
+      "ranks": [
+        438,
+        678
       ]
     },
     {
@@ -1030,18 +948,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hafez alassad",
-      "variants": [
-        "hafez alassad",
-        "hafez"
-      ],
-      "ranks": [
-        616,
-        733
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "norodom sihanouk",
       "variants": [
         "norodom sihanouk",
@@ -1050,18 +956,6 @@
       "ranks": [
         632,
         916
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "u nu",
-      "variants": [
-        "u nu",
-        "du fu"
-      ],
-      "ranks": [
-        633,
-        735
       ]
     },
     {
@@ -1086,6 +980,30 @@
       "ranks": [
         636,
         919
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sundiata keita duplicate check avoided",
+      "variants": [
+        "sundiata keita duplicate check avoided",
+        "sun tzu duplicate check avoided"
+      ],
+      "ranks": [
+        652,
+        973
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "desmond tutu duplicate check avoided",
+      "variants": [
+        "desmond tutu duplicate check avoided",
+        "desmond tutu second duplicate check avoided"
+      ],
+      "ranks": [
+        659,
+        968
       ]
     },
     {
@@ -1150,6 +1068,94 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "frantz fanon duplicate check avoided",
+      "variants": [
+        "frantz fanon duplicate check avoided",
+        "francisco de vitoria duplicate check avoided",
+        "francis of assisi duplicate check avoided"
+      ],
+      "ranks": [
+        779,
+        921,
+        933
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "albert schweitzer duplicate check avoided",
+      "variants": [
+        "albert schweitzer duplicate check avoided",
+        "albert einstein duplicate check avoided"
+      ],
+      "ranks": [
+        780,
+        781
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gro harlem brundtland duplicate check avoided",
+      "variants": [
+        "gro harlem brundtland duplicate check avoided",
+        "gro harlem brundtland second duplicate check avoided"
+      ],
+      "ranks": [
+        787,
+        939
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "claude monet duplicate check avoided",
+      "variants": [
+        "claude monet duplicate check avoided",
+        "claude monet second duplicate check avoided",
+        "claude shannon duplicate check avoided"
+      ],
+      "ranks": [
+        844,
+        889,
+        955
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "claude monet second duplicate check avoided",
+      "variants": [
+        "claude monet second duplicate check avoided",
+        "claude shannon duplicate check avoided"
+      ],
+      "ranks": [
+        889,
+        955
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "francisco de vitoria duplicate check avoided",
+      "variants": [
+        "francisco de vitoria duplicate check avoided",
+        "francis of assisi duplicate check avoided"
+      ],
+      "ranks": [
+        921,
+        933
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory vii duplicate check avoided",
+      "variants": [
+        "pope gregory vii duplicate check avoided",
+        "pope urban ii duplicate check avoided"
+      ],
+      "ranks": [
+        929,
+        930
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "im pei",
       "variants": [
         "im pei",
@@ -1187,6 +1193,21 @@
       "Military": 8,
       "Other": 924
     }
+  },
+  "advanced": {
+    "parentheticalCount": 114,
+    "parentheticalRate": 0.114,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 40,
+    "longNameRate": 0.04,
+    "contributionShortCount": 747,
+    "contributionShortRate": 0.747,
+    "score": 77.42
   },
   "summary": "List passes all quality checks"
 }

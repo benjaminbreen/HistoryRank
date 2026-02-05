@@ -1,12 +1,12 @@
 {
   "file": "Qwen3 235B A22B LIST 5 (January 13, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.876Z",
+  "timestamp": "2026-02-05T18:17:16.722Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 502,
-      "fuzzy": 9,
+      "fuzzy": 3,
       "status": "FAIL",
       "details": "502 exact duplicates found"
     },
@@ -61,15 +61,17 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 40,
-      "expected": 43,
+      "found": 56,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "qin shi huang",
         "archimedes",
         "beethoven"
       ],
       "status": "PASS",
-      "details": "40/43 anchor figures found (93%)"
+      "details": "56/61 anchor figures found (92%)"
     }
   },
   "issues": [
@@ -1438,46 +1440,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad alfatih mehmed ii",
-        "muhammad yunus",
-        "muhammad ali"
-      ],
-      "ranks": [
-        2,
-        155,
-        608,
-        699
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses maimonides"
-      ],
-      "ranks": [
-        31,
-        61
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "avicenna ibn sina",
-      "variants": [
-        "avicenna ibn sina",
-        "avicenna"
-      ],
-      "ranks": [
-        37,
-        767
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "rene descartes",
       "variants": [
         "rene descartes",
@@ -1510,18 +1472,6 @@
       "ranks": [
         615,
         616
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        672,
-        673
       ]
     },
     {
@@ -1587,6 +1537,21 @@
       "Military": 7,
       "Other": 809
     }
+  },
+  "advanced": {
+    "parentheticalCount": 14,
+    "parentheticalRate": 0.014,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 37,
+    "contributionShortRate": 0.037,
+    "score": 98.37
   },
   "summary": "Issues: 502 exact duplicates; pattern collapse (max 17)"
 }

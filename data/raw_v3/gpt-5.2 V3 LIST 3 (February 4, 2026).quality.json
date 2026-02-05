@@ -1,0 +1,119 @@
+{
+  "file": "gpt-5.2 V3 LIST 3 (February 4, 2026).txt",
+  "model": "gpt-5.2 V3 Prompt",
+  "timestamp": "2026-02-05T06:42:08.789Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "2 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 11,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "shaping",
+          "startRank": 374,
+          "endRank": 384,
+          "count": 11,
+          "examples": [
+            "374. Cecil Rhodes",
+            "375. Andrew Carnegie",
+            "376. John D. Rockefeller"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 11 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 56,
+      "expected": 61,
+      "missing": [
+        "mahatma gandhi",
+        "homer",
+        "moses",
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "56/61 anchor figures found (92%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        162
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        194,
+        242
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shaping",
+      "startRank": 374,
+      "endRank": 384,
+      "count": 11,
+      "examples": [
+        "374. Cecil Rhodes",
+        "375. Andrew Carnegie",
+        "376. John D. Rockefeller"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 64,
+      "Asia": 38,
+      "Middle East": 23,
+      "Africa": 12,
+      "Americas": 7,
+      "Oceania": 0,
+      "Unknown": 356
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 18,
+      "Science/Technology": 18,
+      "Philosophy/Religion": 11,
+      "Arts/Literature": 23,
+      "Military": 6,
+      "Other": 424
+    }
+  },
+  "summary": "List passes all quality checks"
+}

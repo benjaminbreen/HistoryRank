@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt
 Model: Claude Sonnet 4.5
-Timestamp: 2026-01-20T04:15:53.483Z
+Timestamp: 2026-02-05T18:16:25.471Z
 
 VERDICT: WARN
 
@@ -12,7 +12,7 @@ Scores:
   Repetition: PASS - 6 exact duplicates found
   Pattern Collapse: WARN - Max sequence of 59 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
 Issues (101):
   - Exact duplicate: "alan turing" at ranks 74, 302
@@ -21,12 +21,21 @@ Issues (101):
   - Exact duplicate: "franz kafka" at ranks 156, 385
   - Exact duplicate: "dante alighieri" at ranks 325, 576
   - Exact duplicate: "hayao miyazaki" at ranks 963, 970
-  - Fuzzy duplicate: muhammad / muhammad yunus / askia muhammad at ranks 2, 217, 503
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 15, 286
-  - Fuzzy duplicate: michelangelo / michelangelo antonioni at ranks 31, 943
-  - Fuzzy duplicate: henry ford / henry fonda at ranks 69, 898
+  - Fuzzy duplicate: simone veil / simone weil at ranks 297, 473
+  - Fuzzy duplicate: george gershwin / george and ira gershwin at ranks 737, 773
+  - Pattern collapse: "author" (10 entries, ranks 128-137)
   ... and 91 more issues
 
 Diversity Estimates:
   Regions: Europe: 163, Asia: 47, Middle East: 19, Africa: 15, Americas: 73, Unknown: 683
   Domains: Politics/Leadership: 36, Science/Technology: 27, Philosophy/Religion: 80, Arts/Literature: 364, Military: 3, Other: 490
+
+Advanced Metrics:
+  Advanced score: 83.6
+  Parenthetical names: 0.0%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 81.4%

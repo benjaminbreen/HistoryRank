@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 1 (January 12, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:56.075Z",
+  "timestamp": "2026-02-05T18:16:32.656Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 43,
-      "fuzzy": 31,
+      "fuzzy": 15,
       "status": "PASS",
       "details": "43 exact duplicates found"
     },
@@ -49,13 +49,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
-        "socrates"
+        "socrates",
+        "saint paul"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -377,56 +378,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad",
-        "muhammad ibn musa alkhwarizmi",
-        "muhammad ali",
-        "muhammad ali jinnah",
-        "muhammad yunus",
-        "muhammad bin musa alkhwarizmi",
-        "muhammad abduh",
-        "muhammad ali of egypt"
-      ],
-      "ranks": [
-        1,
-        206,
-        280,
-        374,
-        628,
-        735,
-        747,
-        805,
-        937
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "karl marx",
-      "variants": [
-        "karl marx",
-        "karl may"
-      ],
-      "ranks": [
-        7,
-        891
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "ashoka the great"
-      ],
-      "ranks": [
-        11,
-        493
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -435,6 +386,18 @@
       "ranks": [
         14,
         342
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vladimir lenin",
+      "variants": [
+        "vladimir lenin",
+        "vladimir ilyich lenin"
+      ],
+      "ranks": [
+        32,
+        851
       ]
     },
     {
@@ -451,20 +414,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "robert moses",
-        "moses mendelssohn"
-      ],
-      "ranks": [
-        73,
-        611,
-        889
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "thomas jefferson",
       "variants": [
         "thomas jefferson",
@@ -477,40 +426,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alkhwarizmi",
+      "name": "catherine the great",
       "variants": [
-        "alkhwarizmi",
-        "muhammad ibn musa alkhwarizmi",
-        "muhammad bin musa alkhwarizmi"
+        "catherine the great",
+        "catherine ii the great"
       ],
       "ranks": [
-        94,
-        280,
-        747
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hafez",
-      "variants": [
-        "hafez",
-        "hafez alassad"
-      ],
-      "ranks": [
-        157,
-        933
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "desiderius erasmus",
-      "variants": [
-        "desiderius erasmus",
-        "erasmus"
-      ],
-      "ranks": [
-        185,
-        478
+        127,
+        848
       ]
     },
     {
@@ -527,16 +450,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "saladin",
+      "name": "pope urban ii",
       "variants": [
-        "saladin",
-        "saadi",
-        "salah aldin saladin"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        245,
-        777,
-        840
+        244,
+        341
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ibn musa alkhwarizmi",
+      "variants": [
+        "muhammad ibn musa alkhwarizmi",
+        "muhammad bin musa alkhwarizmi"
+      ],
+      "ranks": [
+        280,
+        747
       ]
     },
     {
@@ -593,38 +526,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "harun alrashid",
+      "name": "king abdullah ii of jordan",
       "variants": [
-        "harun alrashid",
-        "rashi"
+        "king abdullah ii of jordan",
+        "king hussein of jordan"
       ],
       "ranks": [
-        525,
-        886
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kabir",
-      "variants": [
-        "kabir",
-        "babur"
-      ],
-      "ranks": [
-        815,
-        843
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "basho",
-      "variants": [
-        "basho",
-        "rashi"
-      ],
-      "ranks": [
-        858,
-        886
+        931,
+        932
       ]
     },
     {
@@ -678,6 +587,21 @@
       "Military": 10,
       "Other": 835
     }
+  },
+  "advanced": {
+    "parentheticalCount": 32,
+    "parentheticalRate": 0.032,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 97.99000000000001
   },
   "summary": "List passes all quality checks"
 }

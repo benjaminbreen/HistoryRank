@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 5 (January 13, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:58.187Z",
+  "timestamp": "2026-02-05T18:16:41.583Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 255,
-      "fuzzy": 27,
+      "fuzzy": 19,
       "status": "FAIL",
       "details": "255 exact duplicates found"
     },
@@ -24,11 +24,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -1780,30 +1782,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "maimonides moses ben maimon"
-      ],
-      "ranks": [
-        10,
-        802
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "christopher columbus",
-      "variants": [
-        "christopher columbus",
-        "columbus"
-      ],
-      "ranks": [
-        20,
-        368
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "han wudi emperor wu of han",
       "variants": [
         "han wudi emperor wu of han",
@@ -1864,30 +1842,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "shaka zulu",
-      "variants": [
-        "shaka zulu",
-        "shaka"
-      ],
-      "ranks": [
-        132,
-        605
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "atatrk mustafa kemal",
-      "variants": [
-        "atatrk mustafa kemal",
-        "atatrk"
-      ],
-      "ranks": [
-        135,
-        385
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "ibn alhaytham alhazen",
       "variants": [
         "ibn alhaytham alhazen",
@@ -1896,54 +1850,6 @@
       "ranks": [
         194,
         596
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "metternich",
-      "variants": [
-        "metternich",
-        "klemens von metternich"
-      ],
-      "ranks": [
-        267,
-        666
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "spinoza",
-      "variants": [
-        "spinoza",
-        "baruch spinoza"
-      ],
-      "ranks": [
-        269,
-        722
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john snow",
-      "variants": [
-        "john snow",
-        "john knox"
-      ],
-      "ranks": [
-        289,
-        828
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "liu bei",
-      "variants": [
-        "liu bei",
-        "li bai"
-      ],
-      "ranks": [
-        302,
-        501
       ]
     },
     {
@@ -1974,26 +1880,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "kant",
+      "name": "yongle emperor",
       "variants": [
-        "kant",
-        "mani"
+        "yongle emperor",
+        "yongzheng emperor"
       ],
       "ranks": [
-        388,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        418,
-        466
+        337,
+        582
       ]
     },
     {
@@ -2054,6 +1948,18 @@
       "ranks": [
         694,
         906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "leopold senghor",
+      "variants": [
+        "leopold senghor",
+        "leopold sdar senghor"
+      ],
+      "ranks": [
+        843,
+        849
       ]
     },
     {
@@ -2119,6 +2025,21 @@
       "Military": 18,
       "Other": 872
     }
+  },
+  "advanced": {
+    "parentheticalCount": 50,
+    "parentheticalRate": 0.05,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 4,
+    "longNameRate": 0.004,
+    "contributionShortCount": 21,
+    "contributionShortRate": 0.021,
+    "score": 96.4
   },
   "summary": "Issues: 255 exact duplicates"
 }

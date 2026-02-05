@@ -1,12 +1,12 @@
 {
   "file": "DeepSeek V3.2 LIST 5 (January 18, 2026).txt",
   "model": "DeepSeek V3.2",
-  "timestamp": "2026-01-20T04:15:54.784Z",
+  "timestamp": "2026-02-05T18:16:29.523Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 645,
-      "fuzzy": 13,
+      "fuzzy": 3,
       "status": "FAIL",
       "details": "645 exact duplicates found"
     },
@@ -277,14 +277,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
+        "lincoln",
+        "saint paul",
         "mozart",
         "rousseau"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1215,18 +1217,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "confucius",
-      "variants": [
-        "confucius",
-        "iu"
-      ],
-      "ranks": [
-        5,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1251,122 +1241,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "julius caesar",
+      "name": "pope urban ii",
       "variants": [
-        "julius caesar",
-        "iu"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        42,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mencius",
-      "variants": [
-        "mencius",
-        "iu"
-      ],
-      "ranks": [
-        80,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "sunmi"
-      ],
-      "ranks": [
-        93,
-        303
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chiune sugihara",
-      "variants": [
-        "chiune sugihara",
-        "iu"
-      ],
-      "ranks": [
-        181,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "superman",
-      "variants": [
-        "superman",
-        "superm"
-      ],
-      "ranks": [
-        229,
-        313
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jayz",
-      "variants": [
-        "jayz",
-        "wayv"
-      ],
-      "ranks": [
-        258,
-        312
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nwa",
-      "variants": [
-        "nwa",
-        "nct"
-      ],
-      "ranks": [
-        265,
-        311
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "exo",
-      "variants": [
-        "exo",
-        "txt"
-      ],
-      "ranks": [
-        293,
-        308
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "txt",
-      "variants": [
-        "txt",
-        "nct"
-      ],
-      "ranks": [
-        308,
-        311
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ikon",
-      "variants": [
-        "ikon",
-        "izone"
-      ],
-      "ranks": [
-        316,
-        325
+        72,
+        115
       ]
     },
     {
@@ -1648,6 +1530,21 @@
       "Military": 1,
       "Other": 792
     }
+  },
+  "advanced": {
+    "parentheticalCount": 3,
+    "parentheticalRate": 0.003,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 44,
+    "shortNameRate": 0.044,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 97.61999999999999
   },
   "summary": "Issues: 645 exact duplicates; pattern collapse (max 711)"
 }

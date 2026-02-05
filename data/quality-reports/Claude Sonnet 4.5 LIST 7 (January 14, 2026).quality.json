@@ -1,12 +1,12 @@
 {
   "file": "Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:53.483Z",
+  "timestamp": "2026-02-05T18:16:25.471Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 6,
-      "fuzzy": 9,
+      "fuzzy": 3,
       "status": "PASS",
       "details": "6 exact duplicates found"
     },
@@ -1056,6 +1056,66 @@
             "975. Mrinal Sen",
             "976. Zhang Yimou"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 328,
+          "endRank": 343,
+          "count": 16,
+          "examples": [
+            "328. Alexander Pope",
+            "329. William Wordsworth",
+            "330. Samuel Taylor Coleridge"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 582,
+          "endRank": 599,
+          "count": 18,
+          "examples": [
+            "582. Sandro Botticelli",
+            "583. Raphael",
+            "584. Titian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 641,
+          "endRank": 662,
+          "count": 22,
+          "examples": [
+            "641. Keith Haring",
+            "642. Banksy",
+            "643. Ai Weiwei"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 712,
+          "endRank": 742,
+          "count": 31,
+          "examples": [
+            "712. Felix Mendelssohn",
+            "713. Hector Berlioz",
+            "714. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 744,
+          "endRank": 774,
+          "count": 31,
+          "examples": [
+            "744. Pierre Boulez",
+            "745. Olivier Messiaen",
+            "746. Arvo Pärt"
+          ]
         }
       ],
       "status": "WARN",
@@ -1069,11 +1129,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -1127,20 +1189,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus",
-        "askia muhammad"
-      ],
-      "ranks": [
-        2,
-        217,
-        503
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1149,42 +1197,6 @@
       "ranks": [
         15,
         286
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michelangelo",
-      "variants": [
-        "michelangelo",
-        "michelangelo antonioni"
-      ],
-      "ranks": [
-        31,
-        943
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "henry ford",
-      "variants": [
-        "henry ford",
-        "henry fonda"
-      ],
-      "ranks": [
-        69,
-        898
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        249,
-        327
       ]
     },
     {
@@ -1201,26 +1213,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rumi",
+      "name": "george gershwin",
       "variants": [
-        "rumi",
-        "jalal addin rumi"
+        "george gershwin",
+        "george and ira gershwin"
       ],
       "ranks": [
-        314,
-        546
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jerome",
-      "variants": [
-        "jerome",
-        "jerome robbins"
-      ],
-      "ranks": [
-        562,
-        871
+        737,
+        773
       ]
     },
     {
@@ -2266,6 +2266,66 @@
         "975. Mrinal Sen",
         "976. Zhang Yimou"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 328,
+      "endRank": 343,
+      "count": 16,
+      "examples": [
+        "328. Alexander Pope",
+        "329. William Wordsworth",
+        "330. Samuel Taylor Coleridge"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 582,
+      "endRank": 599,
+      "count": 18,
+      "examples": [
+        "582. Sandro Botticelli",
+        "583. Raphael",
+        "584. Titian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 641,
+      "endRank": 662,
+      "count": 22,
+      "examples": [
+        "641. Keith Haring",
+        "642. Banksy",
+        "643. Ai Weiwei"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 712,
+      "endRank": 742,
+      "count": 31,
+      "examples": [
+        "712. Felix Mendelssohn",
+        "713. Hector Berlioz",
+        "714. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 744,
+      "endRank": 774,
+      "count": 31,
+      "examples": [
+        "744. Pierre Boulez",
+        "745. Olivier Messiaen",
+        "746. Arvo Pärt"
+      ]
     }
   ],
   "diversity": {
@@ -2294,6 +2354,21 @@
       "Military": 3,
       "Other": 490
     }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 814,
+    "contributionShortRate": 0.814,
+    "score": 83.62
   },
   "summary": "Issues: 6 exact duplicates; pattern collapse (max 59)"
 }

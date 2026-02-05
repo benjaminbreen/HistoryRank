@@ -2,19 +2,19 @@ Quality Assessment Report
 ========================
 File: Qwen3 235B A22B LIST 7 (January 14, 2026).txt
 Model: Qwen3 235B A22B
-Timestamp: 2026-01-20T04:16:11.189Z
+Timestamp: 2026-02-05T18:17:17.473Z
 
 VERDICT: FAIL
 
-Summary: Issues: 452 exact duplicates; pattern collapse (max 24); 9 missing anchors
+Summary: Issues: 452 exact duplicates; pattern collapse (max 24)
 
 Scores:
   Repetition: FAIL - 452 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 24 similar entries
   Structural: PASS - OK
-  Anchor Coverage: WARN - 34/43 anchor figures found (79%)
+  Anchor Coverage: PASS - 47/61 anchor figures found (77%)
 
-Issues (199):
+Issues (198):
   - Exact duplicate: "karl marx" at ranks 14, 171, 179
   - Exact duplicate: "genghis khan" at ranks 15, 467, 535
   - Exact duplicate: "adam smith" at ranks 17, 173, 181
@@ -25,8 +25,17 @@ Issues (199):
   - Exact duplicate: "ibn sina" at ranks 27, 432, 551, 913, 938, 993
   - Exact duplicate: "alkhwarizmi" at ranks 28, 207, 403, 518, 577, 640, 921, 947, 973
   - Exact duplicate: "napoleon bonaparte" at ranks 32, 79
-  ... and 189 more issues
+  ... and 188 more issues
 
 Diversity Estimates:
   Regions: Europe: 146, Asia: 97, Middle East: 138, Africa: 34, Americas: 20, Unknown: 565
   Domains: Politics/Leadership: 69, Science/Technology: 59, Philosophy/Religion: 53, Arts/Literature: 50, Military: 29, Other: 740
+
+Advanced Metrics:
+  Advanced score: 99.5
+  Parenthetical names: 0.5%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 1.0%
+  Short contributions: 0.1%

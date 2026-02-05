@@ -1,12 +1,12 @@
 {
   "file": "Claude Sonnet 4.5 LIST 3 (January 12, 2025).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:52.027Z",
+  "timestamp": "2026-02-05T18:16:20.392Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 222,
-      "fuzzy": 37,
+      "fuzzy": 19,
       "status": "FAIL",
       "details": "222 exact duplicates found"
     },
@@ -132,6 +132,18 @@
             "982. Leonhard Euler",
             "983. Joseph-Louis Lagrange"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 973,
+          "endRank": 992,
+          "count": 20,
+          "examples": [
+            "973. Tycho Brahe",
+            "974. Johannes Kepler",
+            "975. Robert Boyle"
+          ]
         }
       ],
       "status": "PASS",
@@ -145,13 +157,16 @@
       "details": "non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
-        "hitler"
+        "saint paul",
+        "paul the apostle",
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1667,6 +1682,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "johannes gutenberg",
+      "variants": [
+        "johannes gutenberg",
+        "johann gutenberg"
+      ],
+      "ranks": [
+        6,
+        575
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "paul of tarsus",
       "variants": [
         "paul of tarsus",
@@ -1675,18 +1702,6 @@
       "ranks": [
         14,
         707
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        19,
-        275
       ]
     },
     {
@@ -1703,78 +1718,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "siddhartha gautamas disciples",
-      "variants": [
-        "siddhartha gautamas disciples",
-        "siddhartha"
-      ],
-      "ranks": [
-        42,
-        719
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka the great",
-      "variants": [
-        "ashoka the great",
-        "ashoka"
-      ],
-      "ranks": [
-        55,
-        864
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dante alighieri",
-      "variants": [
-        "dante alighieri",
-        "dante"
-      ],
-      "ranks": [
-        63,
-        800
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "otto von bismarck",
-      "variants": [
-        "otto von bismarck",
-        "bismarck"
-      ],
-      "ranks": [
-        76,
-        846
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hannibal barca",
-      "variants": [
-        "hannibal barca",
-        "hannibal"
-      ],
-      "ranks": [
-        90,
-        816
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "miguel de cervantes",
-      "variants": [
-        "miguel de cervantes",
-        "cervantes"
-      ],
-      "ranks": [
-        107,
-        780
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "salah addin saladin",
       "variants": [
         "salah addin saladin",
@@ -1783,6 +1726,18 @@
       "ranks": [
         120,
         890
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wolfgang amadeus mozart",
+      "variants": [
+        "wolfgang amadeus mozart",
+        "wolfgang mozart"
+      ],
+      "ranks": [
+        126,
+        821
       ]
     },
     {
@@ -1799,42 +1754,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alrazi rhazes",
-      "variants": [
-        "alrazi rhazes",
-        "alrazi"
-      ],
-      "ranks": [
-        158,
-        930
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rembrandt van rijn",
-      "variants": [
-        "rembrandt van rijn",
-        "rembrandt"
-      ],
-      "ranks": [
-        173,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "xerxes i",
-      "variants": [
-        "xerxes i",
-        "xerxes"
-      ],
-      "ranks": [
-        176,
-        897
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "mustafa kemal atatrk",
       "variants": [
         "mustafa kemal atatrk",
@@ -1847,62 +1766,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "zoroaster zarathustra",
+      "name": "nicolaus of cusa",
       "variants": [
-        "zoroaster zarathustra",
-        "zarathustra"
+        "nicolaus of cusa",
+        "nicholas of cusa"
       ],
       "ranks": [
-        223,
-        286
+        204,
+        970
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ramakrishna",
+      "name": "anton van leeuwenhoek",
       "variants": [
-        "ramakrishna",
-        "ramakrishna paramahamsa"
+        "anton van leeuwenhoek",
+        "antoni van leeuwenhoek"
       ],
       "ranks": [
-        233,
-        697
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "johann wolfgang von goethe",
-      "variants": [
-        "johann wolfgang von goethe",
-        "goethe"
-      ],
-      "ranks": [
-        246,
-        865
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "akbar the great",
-      "variants": [
-        "akbar the great",
-        "akbar"
-      ],
-      "ranks": [
-        260,
-        812
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "richelieu",
-      "variants": [
-        "richelieu",
-        "cardinal richelieu"
-      ],
-      "ranks": [
-        269,
-        310
+        271,
+        976
       ]
     },
     {
@@ -1919,26 +1802,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "giotto di bondone",
+      "name": "pope urban ii",
       "variants": [
-        "giotto di bondone",
-        "giotto"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        299,
-        794
+        295,
+        398
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john dalton",
+      "name": "pope gregory i",
       "variants": [
-        "john dalton",
-        "john milton"
+        "pope gregory i",
+        "pope leo i"
       ],
       "ranks": [
-        308,
-        602
+        360,
+        375
       ]
     },
     {
@@ -1955,74 +1838,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "emperor justinian",
+      "name": "emperor otto i",
       "variants": [
-        "emperor justinian",
-        "justinian"
+        "emperor otto i",
+        "emperor theodosius i"
       ],
       "ranks": [
-        364,
-        838
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vespasian",
-      "variants": [
-        "vespasian",
-        "emperor vespasian"
-      ],
-      "ranks": [
-        372,
-        555
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thales of miletus",
-      "variants": [
-        "thales of miletus",
-        "thales"
-      ],
-      "ranks": [
-        403,
-        943
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "emperor ashoka",
-      "variants": [
-        "emperor ashoka",
-        "ashoka"
-      ],
-      "ranks": [
-        423,
-        864
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hideyoshi toyotomi",
-      "variants": [
-        "hideyoshi toyotomi",
-        "hideyoshi"
-      ],
-      "ranks": [
-        466,
-        777
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alhazen ibn alhaytham",
-      "variants": [
-        "alhazen ibn alhaytham",
-        "alhazen"
-      ],
-      "ranks": [
-        513,
-        932
+        524,
+        545
       ]
     },
     {
@@ -2063,26 +1886,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nebuchadnezzar ii",
+      "name": "guru ram das",
       "variants": [
-        "nebuchadnezzar ii",
-        "nebuchadnezzar"
+        "guru ram das",
+        "guru amar das"
       ],
       "ranks": [
-        573,
-        891
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "marcus tullius cicero",
-      "variants": [
-        "marcus tullius cicero",
-        "cicero"
-      ],
-      "ranks": [
-        590,
-        851
+        632,
+        760
       ]
     },
     {
@@ -2095,18 +1906,6 @@
       "ranks": [
         767,
         782
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "akbar",
-      "variants": [
-        "akbar",
-        "attar"
-      ],
-      "ranks": [
-        812,
-        936
       ]
     },
     {
@@ -2228,6 +2027,18 @@
         "982. Leonhard Euler",
         "983. Joseph-Louis Lagrange"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 973,
+      "endRank": 992,
+      "count": 20,
+      "examples": [
+        "973. Tycho Brahe",
+        "974. Johannes Kepler",
+        "975. Robert Boyle"
+      ]
     }
   ],
   "diversity": {
@@ -2256,6 +2067,21 @@
       "Military": 22,
       "Other": 302
     }
+  },
+  "advanced": {
+    "parentheticalCount": 11,
+    "parentheticalRate": 0.011,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 134,
+    "contributionShortRate": 0.134,
+    "score": 96.50999999999999
   },
   "summary": "Issues: 222 exact duplicates; pattern collapse (max 24); non-sequential ranks"
 }

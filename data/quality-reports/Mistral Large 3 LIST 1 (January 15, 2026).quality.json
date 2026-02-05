@@ -1,12 +1,12 @@
 {
   "file": "Mistral Large 3 LIST 1 (January 15, 2026).txt",
   "model": "Mistral Large 3",
-  "timestamp": "2026-01-20T04:16:09.312Z",
+  "timestamp": "2026-02-05T18:17:13.004Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 266,
-      "fuzzy": 11,
+      "fuzzy": 5,
       "status": "FAIL",
       "details": "266 exact duplicates found"
     },
@@ -1020,6 +1020,30 @@
             "945. Ta-Nehisi Coates",
             "946. Ibram X. Kendi"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 349,
+          "endRank": 363,
+          "count": 15,
+          "examples": [
+            "349. François Mitterrand",
+            "350. Nicolas Sarkozy",
+            "351. Jacques Chirac"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 425,
+          "endRank": 442,
+          "count": 18,
+          "examples": [
+            "425. Dietrich Bonhoeffer",
+            "426. Karl Barth",
+            "427. Paul Tillich"
+          ]
         }
       ],
       "status": "WARN",
@@ -1033,9 +1057,10 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 37,
-      "expected": 43,
+      "found": 54,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "qin shi huang",
         "pythagoras",
         "euclid",
@@ -1043,8 +1068,8 @@
         "copernicus",
         "kepler"
       ],
-      "status": "WARN",
-      "details": "37/43 anchor figures found (86%)"
+      "status": "PASS",
+      "details": "54/61 anchor figures found (89%)"
     }
   },
   "issues": [
@@ -2761,42 +2786,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "manisha sinha"
-      ],
-      "ranks": [
-        186,
-        807
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "suharto",
-      "variants": [
-        "suharto",
-        "sukarno"
-      ],
-      "ranks": [
-        254,
-        307
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kim jongil",
-      "variants": [
-        "kim jongil",
-        "kim jongun"
-      ],
-      "ranks": [
-        302,
-        303
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "king george vi",
       "variants": [
         "king george vi",
@@ -2817,32 +2806,6 @@
       "ranks": [
         371,
         431
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jerome",
-      "variants": [
-        "jerome",
-        "jerome bruner",
-        "jerome kagan"
-      ],
-      "ranks": [
-        400,
-        575,
-        576
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ambrose",
-      "variants": [
-        "ambrose",
-        "stephen ambrose"
-      ],
-      "ranks": [
-        401,
-        822
       ]
     },
     {
@@ -3864,6 +3827,30 @@
         "945. Ta-Nehisi Coates",
         "946. Ibram X. Kendi"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 349,
+      "endRank": 363,
+      "count": 15,
+      "examples": [
+        "349. François Mitterrand",
+        "350. Nicolas Sarkozy",
+        "351. Jacques Chirac"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 425,
+      "endRank": 442,
+      "count": 18,
+      "examples": [
+        "425. Dietrich Bonhoeffer",
+        "426. Karl Barth",
+        "427. Paul Tillich"
+      ]
     }
   ],
   "diversity": {
@@ -3893,5 +3880,20 @@
       "Other": 576
     }
   },
-  "summary": "Issues: 266 exact duplicates; pattern collapse (max 86); 6 missing anchors"
+  "advanced": {
+    "parentheticalCount": 3,
+    "parentheticalRate": 0.003,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.82
+  },
+  "summary": "Issues: 266 exact duplicates; pattern collapse (max 86)"
 }

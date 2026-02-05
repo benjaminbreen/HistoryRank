@@ -1,17 +1,17 @@
 {
   "file": "Grok 4 LIST 5 (January 15, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:06.084Z",
+  "timestamp": "2026-02-05T18:17:03.632Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 22,
-      "fuzzy": 32,
+      "fuzzy": 7,
       "status": "PASS",
       "details": "22 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 25,
+      "maxSequence": 30,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -444,10 +444,46 @@
             "977. Aya Shouoto",
             "978. Julietta Suzuki"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 455,
+          "endRank": 484,
+          "count": 30,
+          "examples": [
+            "455. John Keats",
+            "456. Percy Bysshe Shelley",
+            "457. Lord Byron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 849,
+          "endRank": 863,
+          "count": 15,
+          "examples": [
+            "849. Akira Toriyama",
+            "850. Eiichiro Oda",
+            "851. Masashi Kishimoto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 976,
+          "endRank": 990,
+          "count": 15,
+          "examples": [
+            "976. Sankichi Hinodeya",
+            "977. Aya Shouoto",
+            "978. Julietta Suzuki"
+          ]
         }
       ],
       "status": "PASS",
-      "details": "Max sequence of 25 similar entries"
+      "details": "Max sequence of 30 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -457,14 +493,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "copernicus",
         "kepler"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -646,30 +683,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        2,
-        582
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        13,
-        84
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -682,172 +695,50 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rumi",
+      "name": "robin williams",
       "variants": [
-        "rumi",
-        "rama",
-        "rumiko takahashi"
+        "robin williams",
+        "roberta williams"
       ],
       "ranks": [
-        51,
-        91,
-        855
+        564,
+        799
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
+      "name": "diego maradona",
       "variants": [
-        "moses",
-        "tomoseshunsaku"
+        "diego maradona",
+        "diego armando maradona"
       ],
       "ranks": [
-        83,
-        967
+        592,
+        610
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "krishna",
+      "name": "florence griffith joyner",
       "variants": [
-        "krishna",
-        "krishnadevaraya"
+        "florence griffith joyner",
+        "florence griffithjoyner"
       ],
       "ranks": [
-        90,
-        720
+        620,
+        675
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rama",
+      "name": "rajaraja chola",
       "variants": [
-        "rama",
-        "cv raman",
-        "srinivasa ramanujan",
-        "jos saramago",
-        "king rama i",
-        "fame",
-        "reia"
+        "rajaraja chola",
+        "rajendra chola"
       ],
       "ranks": [
-        91,
-        426,
-        427,
-        481,
-        735,
-        973,
-        975
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shiva",
-      "variants": [
-        "shiva",
-        "shivaji"
-      ],
-      "ranks": [
-        92,
-        711
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "odin",
-      "variants": [
-        "odin",
-        "ovid",
-        "sobin"
-      ],
-      "ranks": [
-        94,
-        142,
-        952
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thor",
-      "variants": [
-        "thor",
-        "ian thorpe"
-      ],
-      "ranks": [
-        100,
-        633
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "claude monet",
-      "variants": [
-        "claude monet",
-        "one"
-      ],
-      "ranks": [
-        277,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simone de beauvoir",
-      "variants": [
-        "simone de beauvoir",
-        "one"
-      ],
-      "ranks": [
-        316,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "prince",
-      "variants": [
-        "prince",
-        "prince shotoku"
-      ],
-      "ranks": [
-        520,
-        754
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dave chappelle",
-      "variants": [
-        "dave chappelle",
-        "pel"
-      ],
-      "ranks": [
-        569,
-        591
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "lionel messi",
-      "variants": [
-        "lionel messi",
-        "one"
-      ],
-      "ranks": [
-        593,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simone biles",
-      "variants": [
-        "simone biles",
-        "one"
-      ],
-      "ranks": [
-        598,
-        918
+        718,
+        719
       ]
     },
     {
@@ -864,54 +755,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "kim jongil",
-      "variants": [
-        "kim jongil",
-        "kim jongun"
-      ],
-      "ranks": [
-        741,
-        742
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "yasuhiro nakasone",
-      "variants": [
-        "yasuhiro nakasone",
-        "one"
-      ],
-      "ranks": [
-        747,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "eric barone",
-      "variants": [
-        "eric barone",
-        "one"
-      ],
-      "ranks": [
-        812,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chris avellone",
-      "variants": [
-        "chris avellone",
-        "one"
-      ],
-      "ranks": [
-        839,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "yusei matsui",
       "variants": [
         "yusei matsui",
@@ -920,42 +763,6 @@
       "ranks": [
         907,
         934
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "siu",
-      "variants": [
-        "siu",
-        "sow"
-      ],
-      "ranks": [
-        914,
-        949
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "one",
-      "variants": [
-        "one",
-        "kurone mishima"
-      ],
-      "ranks": [
-        918,
-        961
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "fuse",
-      "variants": [
-        "fuse",
-        "fame"
-      ],
-      "ranks": [
-        956,
-        973
       ]
     },
     {
@@ -1389,6 +1196,42 @@
         "977. Aya Shouoto",
         "978. Julietta Suzuki"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 455,
+      "endRank": 484,
+      "count": 30,
+      "examples": [
+        "455. John Keats",
+        "456. Percy Bysshe Shelley",
+        "457. Lord Byron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 849,
+      "endRank": 863,
+      "count": 15,
+      "examples": [
+        "849. Akira Toriyama",
+        "850. Eiichiro Oda",
+        "851. Masashi Kishimoto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 976,
+      "endRank": 990,
+      "count": 15,
+      "examples": [
+        "976. Sankichi Hinodeya",
+        "977. Aya Shouoto",
+        "978. Julietta Suzuki"
+      ]
     }
   ],
   "diversity": {
@@ -1417,6 +1260,21 @@
       "Military": 2,
       "Other": 485
     }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 2,
+    "shortNameRate": 0.002,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 555,
+    "contributionShortRate": 0.555,
+    "score": 88.74000000000001
   },
   "summary": "List passes all quality checks"
 }

@@ -1,12 +1,12 @@
 {
   "file": "Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:52.554Z",
+  "timestamp": "2026-02-05T18:16:22.210Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 36,
-      "fuzzy": 7,
+      "fuzzy": 4,
       "status": "PASS",
       "details": "36 exact duplicates found"
     },
@@ -325,11 +325,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -628,30 +631,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "david hume",
-      "variants": [
-        "david hume",
-        "david hubel"
-      ],
-      "ranks": [
-        53,
-        780
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn sina avicenna",
-      "variants": [
-        "ibn sina avicenna",
-        "avicenna"
-      ],
-      "ranks": [
-        98,
-        123
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "j robert oppenheimer",
       "variants": [
         "j robert oppenheimer",
@@ -664,14 +643,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john dalton",
+      "name": "wilhelm rntgen",
       "variants": [
-        "john dalton",
-        "john milton"
+        "wilhelm rntgen",
+        "wilhelm conrad rntgen"
       ],
       "ranks": [
-        165,
-        542
+        170,
+        172
       ]
     },
     {
@@ -684,18 +663,6 @@
       "ranks": [
         182,
         904
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "eric lander",
-      "variants": [
-        "eric lander",
-        "eric kandel"
-      ],
-      "ranks": [
-        746,
-        774
       ]
     },
     {
@@ -1025,6 +992,21 @@
       "Military": 5,
       "Other": 930
     }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 392,
+    "contributionShortRate": 0.392,
+    "score": 92.1
   },
   "summary": "Issues: 36 exact duplicates; pattern collapse (max 36)"
 }

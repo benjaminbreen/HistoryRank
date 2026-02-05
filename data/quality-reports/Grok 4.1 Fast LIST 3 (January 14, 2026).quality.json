@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 3 (January 14, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:07.798Z",
+  "timestamp": "2026-02-05T18:17:08.775Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 501,
-      "fuzzy": 11,
+      "fuzzy": 1,
       "status": "FAIL",
       "details": "501 exact duplicates found"
     },
@@ -37,11 +37,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "julius caesar",
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -2095,92 +2099,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali of egypt"
-      ],
-      "ranks": [
-        2,
-        419
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "gautama buddha",
-      "variants": [
-        "gautama buddha",
-        "buddha"
-      ],
-      "ranks": [
-        3,
-        774
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aristotle",
-      "variants": [
-        "aristotle",
-        "aristotles successor in influence thomas aquinas"
-      ],
-      "ranks": [
-        4,
-        23
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses maimonides",
-        "menes"
-      ],
-      "ranks": [
-        7,
-        230,
-        654
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka the great",
-      "variants": [
-        "ashoka the great",
-        "ashoka"
-      ],
-      "ranks": [
-        15,
-        831
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shah abbas i",
-      "variants": [
-        "shah abbas i",
-        "bb"
-      ],
-      "ranks": [
-        285,
-        600
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rembrandt van rijn",
-      "variants": [
-        "rembrandt van rijn",
-        "rembrandt"
-      ],
-      "ranks": [
-        348,
-        578
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "duns scotus",
       "variants": [
         "duns scotus",
@@ -2189,30 +2107,6 @@
       "ranks": [
         468,
         886
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bahullh",
-      "variants": [
-        "bahullh",
-        "bahaullah"
-      ],
-      "ranks": [
-        596,
-        627
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dogen",
-      "variants": [
-        "dogen",
-        "honen"
-      ],
-      "ranks": [
-        636,
-        637
       ]
     },
     {
@@ -2254,6 +2148,21 @@
       "Military": 15,
       "Other": 810
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 2,
+    "longNameRate": 0.002,
+    "contributionShortCount": 604,
+    "contributionShortRate": 0.604,
+    "score": 87.54
   },
   "summary": "Issues: 501 exact duplicates; pattern collapse (max 10)"
 }

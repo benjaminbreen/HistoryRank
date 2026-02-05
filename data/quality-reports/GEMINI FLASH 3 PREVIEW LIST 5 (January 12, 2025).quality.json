@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 5 (January 12, 2025).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:16:00.509Z",
+  "timestamp": "2026-02-05T18:16:49.173Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 132,
-      "fuzzy": 8,
+      "fuzzy": 2,
       "status": "WARN",
       "details": "132 exact duplicates found"
     },
@@ -85,13 +85,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1139,30 +1140,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        69,
-        828
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thomas malthus",
-      "variants": [
-        "thomas malthus",
-        "malthus"
-      ],
-      "ranks": [
-        83,
-        232
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "king sejong the great",
       "variants": [
         "king sejong the great",
@@ -1175,42 +1152,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ferdinand von zeppelin",
-      "variants": [
-        "ferdinand von zeppelin",
-        "pel"
-      ],
-      "ranks": [
-        335,
-        638
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tecumseh",
-      "variants": [
-        "tecumseh",
-        "william tecumseh sherman"
-      ],
-      "ranks": [
-        458,
-        710
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        472,
-        473
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "henry clay",
       "variants": [
         "henry clay",
@@ -1219,18 +1160,6 @@
       "ranks": [
         705,
         781
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kim jongil",
-      "variants": [
-        "kim jongil",
-        "kim jongun"
-      ],
-      "ranks": [
-        731,
-        732
       ]
     },
     {
@@ -1320,6 +1249,21 @@
       "Military": 24,
       "Other": 497
     }
+  },
+  "advanced": {
+    "parentheticalCount": 8,
+    "parentheticalRate": 0.008,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 3,
+    "contributionShortRate": 0.003,
+    "score": 99.41
   },
   "summary": "Issues: 132 exact duplicates; pattern collapse (max 12)"
 }

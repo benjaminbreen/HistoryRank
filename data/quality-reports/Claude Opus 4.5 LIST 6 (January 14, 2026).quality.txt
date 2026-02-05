@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Opus 4.5 LIST 6 (January 14, 2026).txt
 Model: Claude Opus 4.5
-Timestamp: 2026-01-20T04:15:49.247Z
+Timestamp: 2026-02-05T18:16:11.589Z
 
 VERDICT: PASS
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 8 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 10 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (26):
+Issues (16):
   - Exact duplicate: "enrico fermi" at ranks 103, 725
   - Exact duplicate: "blaise pascal" at ranks 124, 323
   - Exact duplicate: "baruch spinoza" at ranks 137, 229
@@ -23,10 +23,19 @@ Issues (26):
   - Exact duplicate: "theodore roosevelt" at ranks 353, 878
   - Exact duplicate: "samuel beckett" at ranks 403, 676
   - Exact duplicate: "cs lewis" at ranks 639, 976
-  - Fuzzy duplicate: muhammad / askia muhammad i / muhammad ali jinnah / muhammad ali / muhammad yunus at ranks 1, 251, 264, 692, 777
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 20, 90
-  ... and 16 more issues
+  - Fuzzy duplicate: gottfried wilhelm leibniz / wilhelm leibniz at ranks 67, 324
+  ... and 6 more issues
 
 Diversity Estimates:
   Regions: Europe: 87, Asia: 44, Middle East: 28, Africa: 20, Americas: 35, Unknown: 786
   Domains: Politics/Leadership: 54, Science/Technology: 19, Philosophy/Religion: 28, Arts/Literature: 18, Military: 11, Other: 870
+
+Advanced Metrics:
+  Advanced score: 95.9
+  Parenthetical names: 0.7%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 18.2%

@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 4 (January 13, 2025).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:48.436Z",
+  "timestamp": "2026-02-05T18:16:08.838Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 71,
-      "fuzzy": 61,
+      "fuzzy": 24,
       "status": "WARN",
       "details": "71 exact duplicates found"
     },
@@ -24,13 +24,15 @@
       "details": "1132 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
-        "hitler"
+        "saint paul",
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -562,66 +564,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "songhai askia muhammad",
-        "muhammad ibn musa alkhwarizmi",
-        "muhammad iqbal",
-        "muhammad ali boxer",
-        "qasim ibn muhammad",
-        "elijah muhammad",
-        "muhammad ahmad mahdi"
-      ],
-      "ranks": [
-        3,
-        222,
-        385,
-        431,
-        460,
-        568,
-        677,
-        692
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "albert einstein",
-      "variants": [
-        "albert einstein",
-        "stein"
-      ],
-      "ranks": [
-        10,
-        898
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tsai lun",
-      "variants": [
-        "tsai lun",
-        "cai lun"
-      ],
-      "ranks": [
-        11,
-        775
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses mendelssohn"
-      ],
-      "ranks": [
-        17,
-        867
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "julius caesar",
       "variants": [
         "julius caesar",
@@ -630,6 +572,18 @@
       "ranks": [
         19,
         951
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikolaus copernicus",
+      "variants": [
+        "nikolaus copernicus",
+        "nicolaus copernicus"
+      ],
+      "ranks": [
+        23,
+        826
       ]
     },
     {
@@ -646,110 +600,40 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ashoka the great",
-      "variants": [
-        "ashoka the great",
-        "ashoka"
-      ],
-      "ranks": [
-        32,
-        853
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        38,
-        47
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "homer",
-      "variants": [
-        "homer",
-        "homer simpson no sorry thats ramesses ii"
-      ],
-      "ranks": [
-        42,
-        110
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "gregor mendel",
       "variants": [
         "gregor mendel",
-        "gregory mendel"
+        "gregory mendel",
+        "gregor johann mendel"
       ],
       "ranks": [
         44,
-        364
+        364,
+        694
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "voltaire",
+      "name": "antoni van leeuwenhoek",
       "variants": [
-        "voltaire",
-        "franoismarie arouet voltaire"
+        "antoni van leeuwenhoek",
+        "antonie van leeuwenhoek"
       ],
       "ranks": [
-        61,
-        705
+        63,
+        724
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "akbar the great",
+      "name": "gottfried wilhelm leibniz",
       "variants": [
-        "akbar the great",
-        "akbar"
+        "gottfried wilhelm leibniz",
+        "gottfried von leibniz"
       ],
       "ranks": [
-        78,
-        404
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alkhwarizmi",
-      "variants": [
-        "alkhwarizmi",
-        "muhammad ibn musa alkhwarizmi"
-      ],
-      "ranks": [
-        102,
-        385
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nagarjuna",
-      "variants": [
-        "nagarjuna",
-        "ngrjuna"
-      ],
-      "ranks": [
-        103,
-        396
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shankara",
-      "variants": [
-        "shankara",
-        "sankara"
-      ],
-      "ranks": [
-        120,
-        276
+        95,
+        744
       ]
     },
     {
@@ -778,86 +662,38 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rumi",
+      "name": "pope gregory i",
       "variants": [
-        "rumi",
-        "jalal addin rumi"
+        "pope gregory i",
+        "pope leo i"
       ],
       "ranks": [
-        152,
-        677
+        185,
+        220
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "timur tamerlane",
+      "name": "pope urban ii",
       "variants": [
-        "timur tamerlane",
-        "tamerlane"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        154,
-        483
+        235,
+        388
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "paul dirac",
+      "name": "jonas salk",
       "variants": [
-        "paul dirac",
-        "dirac"
+        "jonas salk",
+        "jonas edward salk"
       ],
       "ranks": [
-        168,
-        738
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cicero",
-      "variants": [
-        "cicero",
-        "marcus tullius cicero"
-      ],
-      "ranks": [
-        180,
-        211
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mencius",
-      "variants": [
-        "mencius",
-        "ennius"
-      ],
-      "ranks": [
-        200,
-        864
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "raphael",
-      "variants": [
-        "raphael",
-        "rachel"
-      ],
-      "ranks": [
-        226,
-        300
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramanuja",
-      "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        236,
-        387
+        238,
+        331
       ]
     },
     {
@@ -865,25 +701,11 @@
       "name": "mustafa kemal atatrk",
       "variants": [
         "mustafa kemal atatrk",
-        "atatrk",
         "mustafa kemal"
       ],
       "ranks": [
         244,
-        842,
         932
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        250,
-        781
       ]
     },
     {
@@ -900,66 +722,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "amenhotep iii",
-      "variants": [
-        "amenhotep iii",
-        "amenhotep iv"
-      ],
-      "ranks": [
-        256,
-        998
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "boudicca",
-      "variants": [
-        "boudicca",
-        "boudica"
-      ],
-      "ranks": [
-        282,
-        662
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "fibonacci",
-      "variants": [
-        "fibonacci",
-        "leonardo fibonacci"
-      ],
-      "ranks": [
-        302,
-        944
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shivaji",
-      "variants": [
-        "shivaji",
-        "shivaji bhonsle"
-      ],
-      "ranks": [
-        317,
-        499
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "blriot louis",
-      "variants": [
-        "blriot louis",
-        "blriot"
-      ],
-      "ranks": [
-        318,
-        830
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "amenhotep iv akhenaten",
       "variants": [
         "amenhotep iv akhenaten",
@@ -972,76 +734,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "shaka zulu",
+      "name": "gregory mendel",
       "variants": [
-        "shaka zulu",
-        "shaka"
+        "gregory mendel",
+        "gregor johann mendel"
       ],
       "ranks": [
-        361,
-        700
+        364,
+        694
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ptolemy",
+      "name": "leopold von ranke",
       "variants": [
-        "ptolemy",
-        "ptolemy i soter",
-        "claudius ptolemy"
+        "leopold von ranke",
+        "leopold ranke"
       ],
       "ranks": [
-        382,
-        511,
-        965
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "toyotomi hideyori",
-      "variants": [
-        "toyotomi hideyori",
-        "toyotomi"
-      ],
-      "ranks": [
-        390,
-        938
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robespierre",
-      "variants": [
-        "robespierre",
-        "maximilien robespierre"
-      ],
-      "ranks": [
-        408,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        428,
-        655
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moctezuma i",
-      "variants": [
-        "moctezuma i",
-        "montezuma ii"
-      ],
-      "ranks": [
-        434,
-        668
+        383,
+        670
       ]
     },
     {
@@ -1058,38 +770,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "albrecht von wallenstein",
+      "name": "leopold ii of belgium",
       "variants": [
-        "albrecht von wallenstein",
-        "stein"
+        "leopold ii of belgium",
+        "leopold i of belgium"
       ],
       "ranks": [
-        454,
-        898
+        453,
+        703
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "avogadro",
+      "name": "theodor w adorno",
       "variants": [
-        "avogadro",
-        "amedeo avogadro"
+        "theodor w adorno",
+        "theodor adorno"
       ],
       "ranks": [
-        464,
-        678
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bla bartk",
-      "variants": [
-        "bla bartk",
-        "bartk"
-      ],
-      "ranks": [
-        467,
-        776
+        456,
+        828
       ]
     },
     {
@@ -1106,18 +806,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "gloria steinem",
-      "variants": [
-        "gloria steinem",
-        "stein"
-      ],
-      "ranks": [
-        617,
-        898
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "henri dunant",
       "variants": [
         "henri dunant",
@@ -1130,86 +818,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "li bai",
+      "name": "henry vii of england",
       "variants": [
-        "li bai",
-        "liu bei"
+        "henry vii of england",
+        "henry v of england"
       ],
       "ranks": [
-        665,
-        670
+        691,
+        838
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "shaka",
+      "name": "john quincy adams",
       "variants": [
-        "shaka",
-        "ashoka"
+        "john quincy adams",
+        "john adams"
       ],
       "ranks": [
-        700,
-        853
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thorstein veblen",
-      "variants": [
-        "thorstein veblen",
-        "stein"
-      ],
-      "ranks": [
-        833,
-        898
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sergei eisenstein",
-      "variants": [
-        "sergei eisenstein",
-        "stein"
-      ],
-      "ranks": [
-        854,
-        898
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "machiavelli",
-      "variants": [
-        "machiavelli",
-        "niccol machiavelli"
-      ],
-      "ranks": [
-        860,
-        990
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "stein",
-      "variants": [
-        "stein",
-        "ludwig wittgenstein"
-      ],
-      "ranks": [
-        898,
-        985
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "claudius ptolemy",
-      "variants": [
-        "claudius ptolemy",
-        "claudius"
-      ],
-      "ranks": [
-        965,
-        977
+        714,
+        891
       ]
     }
   ],
@@ -1239,6 +867,21 @@
       "Military": 15,
       "Other": 909
     }
+  },
+  "advanced": {
+    "parentheticalCount": 20,
+    "parentheticalRate": 0.0176678445229682,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0008833922261484099,
+    "commaNameCount": 3,
+    "commaNameRate": 0.00265017667844523,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.0008833922261484099,
+    "contributionShortCount": 251,
+    "contributionShortRate": 0.22173144876325088,
+    "score": 94.41696113074207
   },
   "summary": "Issues: 71 exact duplicates; 1132 entries (expected 1000); non-sequential ranks"
 }

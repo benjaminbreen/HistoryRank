@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 5 (January 15, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:07.931Z",
+  "timestamp": "2026-02-05T18:17:09.152Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 53,
-      "fuzzy": 61,
+      "fuzzy": 3,
       "status": "WARN",
       "details": "53 exact duplicates found"
     },
@@ -672,6 +672,90 @@
             "923. Luan Cândido",
             "924. Robert Renan"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 547,
+          "endRank": 570,
+          "count": 24,
+          "examples": [
+            "547. LeBron James",
+            "548. Kobe Bryant",
+            "549. Stephen Curry"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 582,
+          "endRank": 656,
+          "count": 75,
+          "examples": [
+            "582. Johan Cruyff",
+            "583. Franz Beckenbauer",
+            "584. Zinedine Zidane"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 707,
+          "endRank": 726,
+          "count": 20,
+          "examples": [
+            "707. Antonio Conte",
+            "708. Thomas Tuchel",
+            "709. Xabi Alonso"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 728,
+          "endRank": 742,
+          "count": 15,
+          "examples": [
+            "728. Liam Rosenior",
+            "729. Omer Riza",
+            "730. Paul Heckingbottom"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 774,
+          "endRank": 792,
+          "count": 19,
+          "examples": [
+            "774. Fernando Diniz",
+            "775. Tite",
+            "776. Dunga"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 836,
+          "endRank": 851,
+          "count": 16,
+          "examples": [
+            "836. Júnior",
+            "837. Toninho Cerezo",
+            "838. Oscar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 864,
+          "endRank": 878,
+          "count": 15,
+          "examples": [
+            "864. Cicinho",
+            "865. Robinho",
+            "866. Fred"
+          ]
         }
       ],
       "status": "WARN",
@@ -685,11 +769,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1091,42 +1178,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        2,
-        504
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander the great",
-      "variants": [
-        "alexander the great",
-        "der"
-      ],
-      "ranks": [
-        9,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "plato",
-      "variants": [
-        "plato",
-        "elano"
-      ],
-      "ranks": [
-        12,
-        867
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1135,394 +1186,6 @@
       "ranks": [
         16,
         97
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "socrates",
-      "variants": [
-        "socrates",
-        "scrates"
-      ],
-      "ranks": [
-        32,
-        833
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn sina avicenna",
-      "variants": [
-        "ibn sina avicenna",
-        "avicenna"
-      ],
-      "ranks": [
-        80,
-        238
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander graham bell",
-      "variants": [
-        "alexander graham bell",
-        "der"
-      ],
-      "ranks": [
-        102,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander fleming",
-      "variants": [
-        "alexander fleming",
-        "der"
-      ],
-      "ranks": [
-        161,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hirohito",
-      "variants": [
-        "hirohito",
-        "emperor hirohito"
-      ],
-      "ranks": [
-        208,
-        408
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "frederick barbarossa",
-      "variants": [
-        "frederick barbarossa",
-        "der"
-      ],
-      "ranks": [
-        225,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pliny the elder",
-      "variants": [
-        "pliny the elder",
-        "der"
-      ],
-      "ranks": [
-        260,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "virgil",
-      "variants": [
-        "virgil",
-        "virgil van dijk"
-      ],
-      "ranks": [
-        318,
-        612
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "juana ins de la cruz",
-      "variants": [
-        "juana ins de la cruz",
-        "juan"
-      ],
-      "ranks": [
-        322,
-        860
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sor juana",
-      "variants": [
-        "sor juana",
-        "juan"
-      ],
-      "ranks": [
-        323,
-        860
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "desiderius erasmus",
-      "variants": [
-        "desiderius erasmus",
-        "der"
-      ],
-      "ranks": [
-        369,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "frederick the great",
-      "variants": [
-        "frederick the great",
-        "der"
-      ],
-      "ranks": [
-        376,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nader shah",
-      "variants": [
-        "nader shah",
-        "der"
-      ],
-      "ranks": [
-        390,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hyder ali",
-      "variants": [
-        "hyder ali",
-        "der"
-      ],
-      "ranks": [
-        392,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jacinda ardern",
-      "variants": [
-        "jacinda ardern",
-        "der"
-      ],
-      "ranks": [
-        419,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander lukashenko",
-      "variants": [
-        "alexander lukashenko",
-        "der"
-      ],
-      "ranks": [
-        428,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander vucic",
-      "variants": [
-        "alexander vucic",
-        "der"
-      ],
-      "ranks": [
-        453,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "gerd wilders",
-      "variants": [
-        "gerd wilders",
-        "geert wilders",
-        "der"
-      ],
-      "ranks": [
-        462,
-        463,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "geert wilders",
-      "variants": [
-        "geert wilders",
-        "der"
-      ],
-      "ranks": [
-        463,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pedro snchez",
-      "variants": [
-        "pedro snchez",
-        "pedro"
-      ],
-      "ranks": [
-        467,
-        906
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mette frederiksen",
-      "variants": [
-        "mette frederiksen",
-        "der"
-      ],
-      "ranks": [
-        473,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "roger federer",
-      "variants": [
-        "roger federer",
-        "der"
-      ],
-      "ranks": [
-        523,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "barry sanders",
-      "variants": [
-        "barry sanders",
-        "der"
-      ],
-      "ranks": [
-        567,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "trent alexanderarnold",
-      "variants": [
-        "trent alexanderarnold",
-        "der"
-      ],
-      "ranks": [
-        611,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rodri",
-      "variants": [
-        "rodri",
-        "pedri",
-        "romrio"
-      ],
-      "ranks": [
-        614,
-        651,
-        840
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vincius jnior",
-      "variants": [
-        "vincius jnior",
-        "jnior"
-      ],
-      "ranks": [
-        626,
-        836
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pedro porro",
-      "variants": [
-        "pedro porro",
-        "pedro"
-      ],
-      "ranks": [
-        637,
-        906
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pedri",
-      "variants": [
-        "pedri",
-        "pedro"
-      ],
-      "ranks": [
-        651,
-        906
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "gavi",
-      "variants": [
-        "gavi",
-        "vav"
-      ],
-      "ranks": [
-        652,
-        812
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "estevo willian",
-      "variants": [
-        "estevo willian",
-        "willian"
-      ],
-      "ranks": [
-        671,
-        883
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chris wilder",
-      "variants": [
-        "chris wilder",
-        "der"
-      ],
-      "ranks": [
-        745,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "didier deschamps",
-      "variants": [
-        "didier deschamps",
-        "didi"
-      ],
-      "ranks": [
-        763,
-        806
       ]
     },
     {
@@ -1539,54 +1202,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mrio zagallo",
-      "variants": [
-        "mrio zagallo",
-        "zagallo"
-      ],
-      "ranks": [
-        779,
-        807
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tel santana",
-      "variants": [
-        "tel santana",
-        "joel santana"
-      ],
-      "ranks": [
-        784,
-        801
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vanderlei luxemburgo",
-      "variants": [
-        "vanderlei luxemburgo",
-        "der"
-      ],
-      "ranks": [
-        788,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "fbio carille",
-      "variants": [
-        "fbio carille",
-        "fbio"
-      ],
-      "ranks": [
-        791,
-        926
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "carlos alberto torres",
       "variants": [
         "carlos alberto torres",
@@ -1595,190 +1210,6 @@
       "ranks": [
         803,
         823
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zito",
-      "variants": [
-        "zito",
-        "zzimo",
-        "zico",
-        "zinho"
-      ],
-      "ranks": [
-        808,
-        813,
-        834,
-        844
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vav",
-      "variants": [
-        "vav",
-        "kak"
-      ],
-      "ranks": [
-        812,
-        862
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zzimo",
-      "variants": [
-        "zzimo",
-        "zico"
-      ],
-      "ranks": [
-        813,
-        834
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jairzinho",
-      "variants": [
-        "jairzinho",
-        "zinho"
-      ],
-      "ranks": [
-        824,
-        844
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "grson",
-      "variants": [
-        "grson",
-        "adson"
-      ],
-      "ranks": [
-        825,
-        910
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pelo",
-      "variants": [
-        "pelo",
-        "pedro"
-      ],
-      "ranks": [
-        828,
-        906
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zico",
-      "variants": [
-        "zico",
-        "zinho"
-      ],
-      "ranks": [
-        834,
-        844
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jnior",
-      "variants": [
-        "jnior",
-        "roque jnior"
-      ],
-      "ranks": [
-        836,
-        858
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "der",
-      "variants": [
-        "der",
-        "der milito"
-      ],
-      "ranks": [
-        839,
-        895
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "juan",
-      "variants": [
-        "juan",
-        "luan"
-      ],
-      "ranks": [
-        860,
-        912
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "allan",
-      "variants": [
-        "allan",
-        "luan"
-      ],
-      "ranks": [
-        890,
-        912
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "marquinhos",
-      "variants": [
-        "marquinhos",
-        "marquinhos gabriel"
-      ],
-      "ranks": [
-        898,
-        916
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "deyverson",
-      "variants": [
-        "deyverson",
-        "everson"
-      ],
-      "ranks": [
-        903,
-        929
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "luan",
-      "variants": [
-        "luan",
-        "luan cndido"
-      ],
-      "ranks": [
-        912,
-        923
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "weverton",
-      "variants": [
-        "weverton",
-        "everson"
-      ],
-      "ranks": [
-        928,
-        929
       ]
     },
     {
@@ -2440,6 +1871,90 @@
         "923. Luan Cândido",
         "924. Robert Renan"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 547,
+      "endRank": 570,
+      "count": 24,
+      "examples": [
+        "547. LeBron James",
+        "548. Kobe Bryant",
+        "549. Stephen Curry"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 582,
+      "endRank": 656,
+      "count": 75,
+      "examples": [
+        "582. Johan Cruyff",
+        "583. Franz Beckenbauer",
+        "584. Zinedine Zidane"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 707,
+      "endRank": 726,
+      "count": 20,
+      "examples": [
+        "707. Antonio Conte",
+        "708. Thomas Tuchel",
+        "709. Xabi Alonso"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 728,
+      "endRank": 742,
+      "count": 15,
+      "examples": [
+        "728. Liam Rosenior",
+        "729. Omer Riza",
+        "730. Paul Heckingbottom"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 774,
+      "endRank": 792,
+      "count": 19,
+      "examples": [
+        "774. Fernando Diniz",
+        "775. Tite",
+        "776. Dunga"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 836,
+      "endRank": 851,
+      "count": 16,
+      "examples": [
+        "836. Júnior",
+        "837. Toninho Cerezo",
+        "838. Oscar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 864,
+      "endRank": 878,
+      "count": 15,
+      "examples": [
+        "864. Cicinho",
+        "865. Robinho",
+        "866. Fred"
+      ]
     }
   ],
   "diversity": {
@@ -2468,6 +1983,21 @@
       "Military": 9,
       "Other": 842
     }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 838,
+    "contributionShortRate": 0.838,
+    "score": 83.18
   },
   "summary": "Issues: 53 exact duplicates; pattern collapse (max 88)"
 }

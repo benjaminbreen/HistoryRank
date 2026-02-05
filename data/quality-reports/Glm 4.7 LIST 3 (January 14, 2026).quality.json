@@ -1,12 +1,12 @@
 {
   "file": "GLM 4.7 LIST 3 (January 14, 2026).txt",
   "model": "GLM 4.7",
-  "timestamp": "2026-01-20T04:15:55.366Z",
+  "timestamp": "2026-02-05T18:16:30.813Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 76,
-      "fuzzy": 105,
+      "fuzzy": 50,
       "status": "WARN",
       "details": "76 exact duplicates found"
     },
@@ -337,15 +337,18 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 40,
-      "expected": 43,
+      "found": 55,
+      "expected": 61,
       "missing": [
         "abraham lincoln",
+        "lincoln",
+        "saint paul",
+        "paul the apostle",
         "archimedes",
         "kepler"
       ],
       "status": "PASS",
-      "details": "40/43 anchor figures found (93%)"
+      "details": "55/61 anchor figures found (90%)"
     }
   },
   "issues": [
@@ -924,68 +927,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad bin salman",
-        "abu muhammad aljariri"
-      ],
-      "ranks": [
-        1,
-        496,
-        688
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses mendelssohn"
-      ],
-      "ranks": [
-        41,
-        467
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john maynard keynes",
-      "variants": [
-        "john maynard keynes",
-        "ay"
-      ],
-      "ranks": [
-        48,
-        295
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "marquis de lafayette",
-      "variants": [
-        "marquis de lafayette",
-        "ay"
-      ],
-      "ranks": [
-        136,
-        295
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        176,
-        177
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "alexander ii of russia",
       "variants": [
         "alexander ii of russia",
@@ -1000,66 +941,26 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "ivan vi of russia",
+      "variants": [
+        "ivan vi of russia",
+        "ivan iii of russia"
+      ],
+      "ranks": [
+        213,
+        215
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "selim ii",
       "variants": [
         "selim ii",
-        "selim iii",
-        "seti ii"
+        "selim iii"
       ],
       "ranks": [
         226,
-        236,
-        299
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "murad iii",
-      "variants": [
-        "murad iii",
-        "murad iv"
-      ],
-      "ranks": [
-        227,
-        228
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "murad iv",
-      "variants": [
-        "murad iv",
-        "murad v"
-      ],
-      "ranks": [
-        228,
-        241
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibrahim",
-      "variants": [
-        "ibrahim",
-        "rahim",
-        "ibrahim ibn adham"
-      ],
-      "ranks": [
-        229,
-        572,
-        680
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ahmed i",
-      "variants": [
-        "ahmed i",
-        "mahmud i"
-      ],
-      "ranks": [
-        230,
-        233
+        236
       ]
     },
     {
@@ -1103,22 +1004,24 @@
       "name": "abdul hamid i",
       "variants": [
         "abdul hamid i",
+        "abdulmecid i",
         "abdul hamid ii"
       ],
       "ranks": [
         235,
+        239,
         242
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "abdulmecid i",
+      "name": "abdul hamid ii",
       "variants": [
-        "abdulmecid i",
+        "abdul hamid ii",
         "abdulmejid ii"
       ],
       "ranks": [
-        239,
+        242,
         245
       ]
     },
@@ -1136,30 +1039,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hayam wuruk",
-      "variants": [
-        "hayam wuruk",
-        "ay"
-      ],
-      "ranks": [
-        247,
-        295
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "airlangga",
-      "variants": [
-        "airlangga",
-        "erlangga"
-      ],
-      "ranks": [
-        249,
-        252
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "pakubuwono ii",
       "variants": [
         "pakubuwono ii",
@@ -1172,94 +1051,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "crassus",
+      "name": "ptolemy i soter",
       "variants": [
-        "crassus",
-        "cassius",
-        "erasmus"
+        "ptolemy i soter",
+        "ptolemy ix soter"
       ],
       "ranks": [
-        266,
-        273,
-        435
+        276,
+        283
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ptolemy iv philopator",
+      "name": "ptolemy x alexander",
       "variants": [
-        "ptolemy iv philopator",
-        "philo"
+        "ptolemy x alexander",
+        "ptolemy xi alexander"
       ],
       "ranks": [
-        279,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ptolemy vi philometor",
-      "variants": [
-        "ptolemy vi philometor",
-        "philo"
-      ],
-      "ranks": [
-        281,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ptolemy xiii",
-      "variants": [
-        "ptolemy xiii",
-        "ptolemy xiv"
-      ],
-      "ranks": [
-        287,
-        288
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ay",
-      "variants": [
-        "ay",
-        "ayman alzawahiri",
-        "recep tayyip erdoan",
-        "khalifa bin zayed al nahyan",
-        "krishnadevaraya",
-        "jayadeva",
-        "ibn alhaytham",
-        "omar khayyam",
-        "zayd ibn ali",
-        "bayazid bastami",
-        "junayd of baghdad",
-        "joseph louis gaylussac",
-        "tenzing norgay",
-        "matsukata masayoshi",
-        "kido takayoshi",
-        "ray bradbury",
-        "masayoshi son"
-      ],
-      "ranks": [
-        295,
-        484,
-        493,
-        497,
-        551,
-        573,
-        647,
-        648,
-        670,
-        674,
-        675,
-        749,
-        845,
-        914,
-        917,
-        947,
-        988
+        284,
+        285
       ]
     },
     {
@@ -1279,21 +1090,13 @@
       "name": "ramesses iii",
       "variants": [
         "ramesses iii",
-        "ramesses iv",
-        "ramesses vi",
         "ramesses vii",
-        "ramesses viii",
-        "ramesses ix",
-        "ramesses xi"
+        "ramesses viii"
       ],
       "ranks": [
         302,
-        303,
-        305,
         306,
-        307,
-        308,
-        310
+        307
       ]
     },
     {
@@ -1302,20 +1105,12 @@
       "variants": [
         "ramesses iv",
         "ramesses v",
-        "ramesses vi",
-        "ramesses vii",
-        "ramesses ix",
-        "ramesses x",
-        "ramesses xi"
+        "ramesses ix"
       ],
       "ranks": [
         303,
         304,
-        305,
-        306,
-        308,
-        309,
-        310
+        308
       ]
     },
     {
@@ -1326,18 +1121,14 @@
         "ramesses vi",
         "ramesses vii",
         "ramesses viii",
-        "ramesses ix",
-        "ramesses x",
-        "ramesses xi"
+        "ramesses x"
       ],
       "ranks": [
         304,
         305,
         306,
         307,
-        308,
-        309,
-        310
+        309
       ]
     },
     {
@@ -1347,16 +1138,12 @@
         "ramesses vi",
         "ramesses vii",
         "ramesses viii",
-        "ramesses ix",
-        "ramesses x",
         "ramesses xi"
       ],
       "ranks": [
         305,
         306,
         307,
-        308,
-        309,
         310
       ]
     },
@@ -1365,15 +1152,11 @@
       "name": "ramesses vii",
       "variants": [
         "ramesses vii",
-        "ramesses viii",
-        "ramesses ix",
-        "ramesses xi"
+        "ramesses viii"
       ],
       "ranks": [
         306,
-        307,
-        308,
-        310
+        307
       ]
     },
     {
@@ -1381,13 +1164,11 @@
       "name": "ramesses ix",
       "variants": [
         "ramesses ix",
-        "ramesses x",
-        "ramesses xi"
+        "ramesses x"
       ],
       "ranks": [
         308,
-        309,
-        310
+        309
       ]
     },
     {
@@ -1453,13 +1234,11 @@
       "name": "darius ii",
       "variants": [
         "darius ii",
-        "darius iii",
-        "areus ii"
+        "darius iii"
       ],
       "ranks": [
         318,
-        322,
-        382
+        322
       ]
     },
     {
@@ -1472,18 +1251,6 @@
       ],
       "ranks": [
         319,
-        320,
-        321
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "artaxerxes iii",
-      "variants": [
-        "artaxerxes iii",
-        "artaxerxes iv"
-      ],
-      "ranks": [
         320,
         321
       ]
@@ -1516,18 +1283,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "argaeus ii",
-      "variants": [
-        "argaeus ii",
-        "areus ii"
-      ],
-      "ranks": [
-        331,
-        382
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "alexander ii",
       "variants": [
         "alexander ii",
@@ -1536,6 +1291,18 @@
       "ranks": [
         333,
         337
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "demetrius i of macedon",
+      "variants": [
+        "demetrius i of macedon",
+        "demetrius ii of macedon"
+      ],
+      "ranks": [
+        342,
+        344
       ]
     },
     {
@@ -1555,25 +1322,11 @@
       "name": "agis ii",
       "variants": [
         "agis ii",
-        "agis iii",
-        "agis iv"
+        "agis iii"
       ],
       "ranks": [
         376,
-        379,
-        385
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "agis iii",
-      "variants": [
-        "agis iii",
-        "agis iv"
-      ],
-      "ranks": [
-        379,
-        385
+        379
       ]
     },
     {
@@ -1590,50 +1343,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nabis",
+      "name": "abu bakr albaghdadi",
       "variants": [
-        "nabis",
-        "kabir"
+        "abu bakr albaghdadi",
+        "abu hamza albaghdadi"
       ],
       "ranks": [
-        388,
-        567
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ebrahim raisi",
-      "variants": [
-        "ebrahim raisi",
-        "rahim"
-      ],
-      "ranks": [
-        492,
-        572
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rahim",
-      "variants": [
-        "rahim",
-        "ibrahim ibn adham"
-      ],
-      "ranks": [
-        572,
-        680
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chanakya",
-      "variants": [
-        "chanakya",
-        "charaka"
-      ],
-      "ranks": [
-        575,
-        581
+        487,
+        687
       ]
     },
     {
@@ -1646,30 +1363,6 @@
       "ranks": [
         619,
         626
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "wang wei",
-      "variants": [
-        "wang wei",
-        "wang bi"
-      ],
-      "ranks": [
-        708,
-        725
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "su shi",
-      "variants": [
-        "su shi",
-        "hu shi"
-      ],
-      "ranks": [
-        712,
-        905
       ]
     },
     {
@@ -2011,6 +1704,21 @@
       "Military": 10,
       "Other": 895
     }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 951,
+    "contributionShortRate": 0.951,
+    "score": 80.85000000000001
   },
   "summary": "Issues: 76 exact duplicates; pattern collapse (max 22)"
 }

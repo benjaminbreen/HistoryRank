@@ -1,12 +1,12 @@
 {
   "file": "Mistral Large 3 LIST 5 (January 18, 2026).txt",
   "model": "Mistral Large 3",
-  "timestamp": "2026-01-20T04:16:10.007Z",
+  "timestamp": "2026-02-05T18:17:14.688Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 107,
-      "fuzzy": 7,
+      "fuzzy": 8,
       "status": "WARN",
       "details": "107 exact duplicates found"
     },
@@ -252,6 +252,102 @@
             "936. Diego Luna",
             "937. Gael García Bernal"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 189,
+          "endRank": 207,
+          "count": 19,
+          "examples": [
+            "189. Walt Whitman",
+            "190. Emily Dickinson",
+            "191. T.S. Eliot"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 209,
+          "endRank": 242,
+          "count": 34,
+          "examples": [
+            "209. Homer",
+            "210. Virgil",
+            "211. Ovid"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 252,
+          "endRank": 268,
+          "count": 17,
+          "examples": [
+            "252. Michelangelo",
+            "253. Raphael",
+            "254. Sandro Botticelli"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 270,
+          "endRank": 284,
+          "count": 15,
+          "examples": [
+            "270. Vincent van Gogh",
+            "271. Paul Gauguin",
+            "272. Georges Seurat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 297,
+          "endRank": 313,
+          "count": 17,
+          "examples": [
+            "297. Yayoi Kusama",
+            "298. Damien Hirst",
+            "299. Jeff Koons"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 315,
+          "endRank": 330,
+          "count": 16,
+          "examples": [
+            "315. Hans Holbein the Younger",
+            "316. El Greco",
+            "317. Artemisia Gentileschi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 517,
+          "endRank": 547,
+          "count": 31,
+          "examples": [
+            "517. Audre Lorde",
+            "518. June Jordan",
+            "519. Alice Walker"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 593,
+          "endRank": 611,
+          "count": 19,
+          "examples": [
+            "593. Audre Lorde",
+            "594. James Baldwin",
+            "595. Oscar Wilde"
+          ]
         }
       ],
       "status": "FAIL",
@@ -265,22 +361,22 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 30,
-      "expected": 43,
+      "found": 43,
+      "expected": 61,
       "missing": [
         "moses",
+        "saint paul",
+        "paul the apostle",
         "qin shi huang",
         "pythagoras",
         "euclid",
         "archimedes",
         "copernicus",
         "kepler",
-        "descartes",
-        "voltaire",
-        "rousseau"
+        "descartes"
       ],
-      "status": "FAIL",
-      "details": "30/43 anchor figures found (70%)"
+      "status": "PASS",
+      "details": "43/61 anchor figures found (70%)"
     }
   },
   "issues": [
@@ -1105,6 +1201,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "jonathan ive",
+      "variants": [
+        "jonathan ive",
+        "jony ive"
+      ],
+      "ranks": [
+        369,
+        371
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "jordan peele",
       "variants": [
         "jordan peele",
@@ -1414,6 +1522,102 @@
         "936. Diego Luna",
         "937. Gael García Bernal"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 189,
+      "endRank": 207,
+      "count": 19,
+      "examples": [
+        "189. Walt Whitman",
+        "190. Emily Dickinson",
+        "191. T.S. Eliot"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 209,
+      "endRank": 242,
+      "count": 34,
+      "examples": [
+        "209. Homer",
+        "210. Virgil",
+        "211. Ovid"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 252,
+      "endRank": 268,
+      "count": 17,
+      "examples": [
+        "252. Michelangelo",
+        "253. Raphael",
+        "254. Sandro Botticelli"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 270,
+      "endRank": 284,
+      "count": 15,
+      "examples": [
+        "270. Vincent van Gogh",
+        "271. Paul Gauguin",
+        "272. Georges Seurat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 297,
+      "endRank": 313,
+      "count": 17,
+      "examples": [
+        "297. Yayoi Kusama",
+        "298. Damien Hirst",
+        "299. Jeff Koons"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 315,
+      "endRank": 330,
+      "count": 16,
+      "examples": [
+        "315. Hans Holbein the Younger",
+        "316. El Greco",
+        "317. Artemisia Gentileschi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 517,
+      "endRank": 547,
+      "count": 31,
+      "examples": [
+        "517. Audre Lorde",
+        "518. June Jordan",
+        "519. Alice Walker"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 593,
+      "endRank": 611,
+      "count": 19,
+      "examples": [
+        "593. Audre Lorde",
+        "594. James Baldwin",
+        "595. Oscar Wilde"
+      ]
     }
   ],
   "diversity": {
@@ -1443,5 +1647,20 @@
       "Other": 614
     }
   },
-  "summary": "Issues: 107 exact duplicates; pattern collapse (max 570); 10 missing anchors"
+  "advanced": {
+    "parentheticalCount": 26,
+    "parentheticalRate": 0.026,
+    "multiPersonCount": 8,
+    "multiPersonRate": 0.008,
+    "commaNameCount": 4,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 12,
+    "longNameRate": 0.012,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 97.75999999999999
+  },
+  "summary": "Issues: 107 exact duplicates; pattern collapse (max 570)"
 }

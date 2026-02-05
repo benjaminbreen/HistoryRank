@@ -1,12 +1,12 @@
 {
   "file": "Grok 4 LIST 2 (January 14, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:05.127Z",
+  "timestamp": "2026-02-05T18:17:01.091Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 93,
-      "fuzzy": 8,
+      "fuzzy": 11,
       "status": "WARN",
       "details": "93 exact duplicates found"
     },
@@ -288,6 +288,42 @@
             "982. Ivan Bunin",
             "983. Harold C. Urey"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 457,
+          "endRank": 471,
+          "count": 15,
+          "examples": [
+            "457. Alexander Pushkin",
+            "458. Lord Byron",
+            "459. Percy Bysshe Shelley"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 634,
+          "endRank": 653,
+          "count": 20,
+          "examples": [
+            "634. Joyce Banda",
+            "635. Ameenah Gurib-Fakim",
+            "636. Catherine Samba-Panza"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 666,
+          "endRank": 688,
+          "count": 23,
+          "examples": [
+            "666. Theresa May",
+            "667. Margaret Thatcher",
+            "668. Gro Harlem Brundtland"
+          ]
         }
       ],
       "status": "FAIL",
@@ -301,11 +337,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -999,18 +1037,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "johannes gutenberg",
-      "variants": [
-        "johannes gutenberg",
-        "gutenberg"
-      ],
-      "ranks": [
-        28,
-        201
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "dalai lama tenzin gyatso",
       "variants": [
         "dalai lama tenzin gyatso",
@@ -1019,18 +1045,6 @@
       "ranks": [
         107,
         223
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        130,
-        510
       ]
     },
     {
@@ -1059,14 +1073,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "lech walesa",
+      "name": "carol greider",
       "variants": [
-        "lech walesa",
-        "lech wasa"
+        "carol greider",
+        "carol w greider"
       ],
       "ranks": [
-        230,
-        821
+        735,
+        788
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "emily greene balch",
+      "variants": [
+        "emily greene balch",
+        "emily balch"
+      ],
+      "ranks": [
+        772,
+        839
       ]
     },
     {
@@ -1083,14 +1109,62 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ernst",
+      "name": "otto fritz meyerhof",
       "variants": [
-        "ernst",
-        "walther nernst"
+        "otto fritz meyerhof",
+        "otto meyerhof"
       ],
       "ranks": [
-        933,
-        935
+        936,
+        940
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johannes fibiger",
+      "variants": [
+        "johannes fibiger",
+        "johannes andreas grib fibiger"
+      ],
+      "ranks": [
+        950,
+        956
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "no medicine prize 1925",
+      "variants": [
+        "no medicine prize 1925",
+        "no literature prize 1925"
+      ],
+      "ranks": [
+        953,
+        954
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "no literature prize 1925",
+      "variants": [
+        "no literature prize 1925",
+        "no literature prize 1935"
+      ],
+      "ranks": [
+        954,
+        990
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "no chemistry prize 1933",
+      "variants": [
+        "no chemistry prize 1933",
+        "no chemistry prize 1934"
+      ],
+      "ranks": [
+        980,
+        988
       ]
     },
     {
@@ -1368,6 +1442,42 @@
         "982. Ivan Bunin",
         "983. Harold C. Urey"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 457,
+      "endRank": 471,
+      "count": 15,
+      "examples": [
+        "457. Alexander Pushkin",
+        "458. Lord Byron",
+        "459. Percy Bysshe Shelley"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 634,
+      "endRank": 653,
+      "count": 20,
+      "examples": [
+        "634. Joyce Banda",
+        "635. Ameenah Gurib-Fakim",
+        "636. Catherine Samba-Panza"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 666,
+      "endRank": 688,
+      "count": 23,
+      "examples": [
+        "666. Theresa May",
+        "667. Margaret Thatcher",
+        "668. Gro Harlem Brundtland"
+      ]
     }
   ],
   "diversity": {
@@ -1396,6 +1506,21 @@
       "Military": 13,
       "Other": 469
     }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 260,
+    "contributionShortRate": 0.26,
+    "score": 94.52999999999999
   },
   "summary": "Issues: 93 exact duplicates; pattern collapse (max 246)"
 }

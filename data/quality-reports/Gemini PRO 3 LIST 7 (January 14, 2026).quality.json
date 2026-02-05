@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 7 (January 14, 2026).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:04.551Z",
+  "timestamp": "2026-02-05T18:16:59.661Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 225,
-      "fuzzy": 21,
+      "fuzzy": 12,
       "status": "FAIL",
       "details": "225 exact duplicates found"
     },
@@ -252,6 +252,18 @@
             "918. Yang Huiyan",
             "919. Emily Ratajkowski"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 334,
+          "endRank": 350,
+          "count": 17,
+          "examples": [
+            "334. Ferdowsi",
+            "335. Geoffrey Chaucer",
+            "336. Miguel de Cervantes"
+          ]
         }
       ],
       "status": "PASS",
@@ -265,11 +277,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1907,44 +1922,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad yunus"
-      ],
-      "ranks": [
-        1,
-        224,
-        295
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "menes"
-      ],
-      "ranks": [
-        15,
-        96
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        48,
-        522
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "rene descartes",
       "variants": [
         "rene descartes",
@@ -1957,16 +1934,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
+      "name": "niccolo machiavelli",
       "variants": [
-        "mani",
-        "radhakishan damani",
-        "damani family"
+        "niccolo machiavelli",
+        "niccol machiavelli"
       ],
       "ranks": [
-        83,
-        942,
-        970
+        79,
+        598
       ]
     },
     {
@@ -1995,20 +1970,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pele",
-      "variants": [
-        "pele",
-        "pel",
-        "adele"
-      ],
-      "ranks": [
-        221,
-        698,
-        853
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "salvador dali",
       "variants": [
         "salvador dali",
@@ -2033,18 +1994,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sam walton",
-      "variants": [
-        "sam walton",
-        "jim walton"
-      ],
-      "ranks": [
-        280,
-        884
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "estee lauder",
       "variants": [
         "estee lauder",
@@ -2057,26 +2006,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "draco",
+      "name": "gabriel garcia marquez",
       "variants": [
-        "draco",
-        "drake"
+        "gabriel garcia marquez",
+        "gabriel garca mrquez"
       ],
       "ranks": [
-        311,
-        883
+        347,
+        601
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "cleopatra vii",
+      "name": "erwin schrodinger",
       "variants": [
-        "cleopatra vii",
-        "cleopatra"
+        "erwin schrodinger",
+        "erwin schrdinger"
       ],
       "ranks": [
-        388,
-        773
+        365,
+        696
       ]
     },
     {
@@ -2093,38 +2042,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "lech walesa",
+      "name": "mustafa kemal ataturk",
       "variants": [
-        "lech walesa",
-        "lech wasa"
+        "mustafa kemal ataturk",
+        "mustafa kemal atatrk"
       ],
       "ranks": [
-        407,
-        722
+        442,
+        550
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sukarno",
+      "name": "oskar schindler",
       "variants": [
-        "sukarno",
-        "suharto"
+        "oskar schindler",
+        "oscar schindler"
       ],
       "ranks": [
-        451,
-        452
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ferdinand von zeppelin",
-      "variants": [
-        "ferdinand von zeppelin",
-        "pel"
-      ],
-      "ranks": [
-        476,
-        698
+        492,
+        770
       ]
     },
     {
@@ -2366,6 +2303,18 @@
         "918. Yang Huiyan",
         "919. Emily Ratajkowski"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 334,
+      "endRank": 350,
+      "count": 17,
+      "examples": [
+        "334. Ferdowsi",
+        "335. Geoffrey Chaucer",
+        "336. Miguel de Cervantes"
+      ]
     }
   ],
   "diversity": {
@@ -2394,6 +2343,21 @@
       "Military": 9,
       "Other": 393
     }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.005,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 21,
+    "contributionShortRate": 0.021,
+    "score": 99.22
   },
   "summary": "Issues: 225 exact duplicates; pattern collapse (max 18)"
 }

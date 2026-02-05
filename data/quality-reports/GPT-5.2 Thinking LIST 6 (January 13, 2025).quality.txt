@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: GPT-5.2 Thinking LIST 6 (January 13, 2025).txt
 Model: GPT-5.2 Thinking
-Timestamp: 2026-01-20T04:15:58.346Z
+Timestamp: 2026-02-05T18:16:42.078Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: FAIL - 255 exact duplicates found
   Pattern Collapse: PASS - No pattern collapse detected
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
-Issues (239):
+Issues (231):
   - Exact duplicate: "muhammad" at ranks 1, 360, 796
   - Exact duplicate: "jesus of nazareth" at ranks 2, 359, 795
   - Exact duplicate: "siddhartha gautama the buddha" at ranks 3, 794
@@ -25,8 +25,17 @@ Issues (239):
   - Exact duplicate: "genghis khan" at ranks 8, 371
   - Exact duplicate: "ashoka" at ranks 9, 356
   - Exact duplicate: "aristotle" at ranks 12, 389, 797
-  ... and 229 more issues
+  ... and 221 more issues
 
 Diversity Estimates:
   Regions: Europe: 56, Asia: 63, Middle East: 30, Africa: 13, Americas: 16, Unknown: 822
   Domains: Politics/Leadership: 34, Science/Technology: 14, Philosophy/Religion: 33, Arts/Literature: 29, Military: 18, Other: 872
+
+Advanced Metrics:
+  Advanced score: 96.4
+  Parenthetical names: 5.0%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.4%
+  Short contributions: 2.1%

@@ -2,19 +2,19 @@ Quality Assessment Report
 ========================
 File: Mistral Large 3 LIST 5 (January 18, 2026).txt
 Model: Mistral Large 3
-Timestamp: 2026-01-20T04:16:10.007Z
+Timestamp: 2026-02-05T18:17:14.688Z
 
 VERDICT: FAIL
 
-Summary: Issues: 107 exact duplicates; pattern collapse (max 570); 10 missing anchors
+Summary: Issues: 107 exact duplicates; pattern collapse (max 570)
 
 Scores:
   Repetition: WARN - 107 exact duplicates found
   Pattern Collapse: FAIL - Max sequence of 570 similar entries
   Structural: PASS - OK
-  Anchor Coverage: FAIL - 30/43 anchor figures found (70%)
+  Anchor Coverage: PASS - 43/61 anchor figures found (70%)
 
-Issues (127):
+Issues (136):
   - Exact duplicate: "isaac newton" at ranks 2, 28
   - Exact duplicate: "karl marx" at ranks 6, 161
   - Exact duplicate: "leonardo da vinci" at ranks 8, 251
@@ -25,8 +25,17 @@ Issues (127):
   - Exact duplicate: "nikola tesla" at ranks 32, 116
   - Exact duplicate: "alexander graham bell" at ranks 39, 117
   - Exact duplicate: "bill gates" at ranks 41, 124
-  ... and 117 more issues
+  ... and 126 more issues
 
 Diversity Estimates:
   Regions: Europe: 98, Asia: 15, Middle East: 3, Africa: 21, Americas: 91, Unknown: 772
   Domains: Politics/Leadership: 45, Science/Technology: 26, Philosophy/Religion: 60, Arts/Literature: 253, Military: 2, Other: 614
+
+Advanced Metrics:
+  Advanced score: 97.8
+  Parenthetical names: 2.6%
+  Multi-person names: 0.8%
+  Comma names: 0.4%
+  Short names: 0.0%
+  Long names: 1.2%
+  Short contributions: 0.0%

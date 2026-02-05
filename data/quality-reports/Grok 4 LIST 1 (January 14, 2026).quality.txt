@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Grok 4 LIST 1 (January 14, 2026).txt
 Model: Grok 4
-Timestamp: 2026-01-20T04:16:04.750Z
+Timestamp: 2026-02-05T18:17:00.175Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: WARN - 86 exact duplicates found
   Pattern Collapse: FAIL - Max sequence of 107 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 41/43 anchor figures found (95%)
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
 
-Issues (167):
+Issues (110):
   - Exact duplicate: "genghis khan" at ranks 8, 204
   - Exact duplicate: "isaac newton" at ranks 9, 890
   - Exact duplicate: "vladimir lenin" at ranks 28, 458
@@ -25,8 +25,17 @@ Issues (167):
   - Exact duplicate: "voltaire" at ranks 46, 440
   - Exact duplicate: "john locke" at ranks 47, 517
   - Exact duplicate: "thomas jefferson" at ranks 51, 429
-  ... and 157 more issues
+  ... and 100 more issues
 
 Diversity Estimates:
   Regions: Europe: 42, Asia: 80, Middle East: 6, Africa: 17, Americas: 9, Unknown: 846
   Domains: Politics/Leadership: 232, Science/Technology: 130, Philosophy/Religion: 121, Arts/Literature: 169, Military: 19, Other: 329
+
+Advanced Metrics:
+  Advanced score: 90.4
+  Parenthetical names: 0.0%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 47.3%

@@ -206,6 +206,7 @@ export function RankingsTable({
   const rowRefs = useRef<Map<number, HTMLTableRowElement>>(new Map());
   const pendingFocusIndex = useRef<number | null>(null);
   const mouseDownSelection = useRef<string | null>(null);
+  const lastRenderRangeRef = useRef({ start: 0, end: 0 });
 
   // Reset focus when figures change (e.g., filtering)
   useEffect(() => {
@@ -351,6 +352,7 @@ export function RankingsTable({
 
   const updateRenderRange = useCallback(() => {
     if (!tableRef.current) return;
+    if (!Number.isFinite(rowHeight) || rowHeight <= 0) return;
     const rect = tableRef.current.getBoundingClientRect();
     const containerTop = rect.top + window.scrollY;
     const viewportTop = window.scrollY;
@@ -362,7 +364,11 @@ export function RankingsTable({
       figures.length,
       Math.ceil((scrollTop + visibleHeight) / rowHeight) + 12
     );
-    setRenderRange((prev) => (prev.start === start && prev.end === end ? prev : { start, end }));
+    if (!Number.isFinite(start) || !Number.isFinite(end)) return;
+    const prev = lastRenderRangeRef.current;
+    if (prev.start === start && prev.end === end) return;
+    lastRenderRangeRef.current = { start, end };
+    setRenderRange({ start, end });
   }, [figures.length, rowHeight]);
 
   useEffect(() => {

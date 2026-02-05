@@ -2,19 +2,19 @@ Quality Assessment Report
 ========================
 File: Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt
 Model: Claude Sonnet 4.5
-Timestamp: 2026-01-20T04:15:53.994Z
+Timestamp: 2026-02-05T18:16:26.961Z
 
-VERDICT: WARN
+VERDICT: FAIL
 
-Summary: Issues: 7 exact duplicates; pattern collapse (max 85)
+Summary: Issues: 7 exact duplicates; pattern collapse (max 108)
 
 Scores:
   Repetition: PASS - 7 exact duplicates found
-  Pattern Collapse: WARN - Max sequence of 85 similar entries
+  Pattern Collapse: FAIL - Max sequence of 108 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (77):
+Issues (85):
   - Exact duplicate: "francis bacon" at ranks 64, 874
   - Exact duplicate: "david hume" at ranks 65, 624
   - Exact duplicate: "john adams" at ranks 129, 1000
@@ -23,10 +23,19 @@ Issues (77):
   - Exact duplicate: "flannery oconnor" at ranks 473, 533
   - Exact duplicate: "piet mondrian" at ranks 750, 766
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 17, 75
-  - Fuzzy duplicate: louis xiv / louis xvi at ranks 120, 121
-  - Fuzzy duplicate: sessh ty / sessh at ranks 893, 898
-  ... and 67 more issues
+  - Pattern collapse: "president" (10 entries, ranks 73-82)
+  - Pattern collapse: "president" (10 entries, ranks 74-83)
+  ... and 75 more issues
 
 Diversity Estimates:
   Regions: Europe: 47, Asia: 3, Middle East: 13, Africa: 5, Americas: 1, Unknown: 931
   Domains: Politics/Leadership: 52, Science/Technology: 28, Philosophy/Religion: 141, Arts/Literature: 493, Military: 7, Other: 279
+
+Advanced Metrics:
+  Advanced score: 82.5
+  Parenthetical names: 0.4%
+  Multi-person names: 0.0%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 86.2%

@@ -1,12 +1,12 @@
 {
   "file": "Claude Sonnet 4.5 LIST 4 (January 12, 2025).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:52.223Z",
+  "timestamp": "2026-02-05T18:16:20.960Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 58,
-      "fuzzy": 69,
+      "fuzzy": 391,
       "status": "WARN",
       "details": "58 exact duplicates found"
     },
@@ -24,14 +24,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
         "homer",
-        "hitler"
+        "saint paul",
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -424,22 +426,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "johannes gutenberg",
       "variants": [
-        "muhammad",
-        "muhammad ibn musa alkhwarizmi",
-        "muhammad ali pasha",
-        "elijah muhammad",
-        "muhammad ahmad",
-        "muhammad ibn abd alwahhab"
+        "johannes gutenberg",
+        "johann gutenberg"
       ],
       "ranks": [
-        3,
-        58,
-        95,
-        206,
-        241,
-        462
+        1,
+        652
       ]
     },
     {
@@ -452,54 +446,6 @@
       "ranks": [
         18,
         650
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham lincoln"
-      ],
-      "ranks": [
-        40,
-        55
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michael faraday",
-      "variants": [
-        "michael faraday",
-        "faraday"
-      ],
-      "ranks": [
-        41,
-        714
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "akbar the great",
-      "variants": [
-        "akbar the great",
-        "akbar"
-      ],
-      "ranks": [
-        65,
-        460
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        89,
-        219
       ]
     },
     {
@@ -530,124 +476,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ibn sina avicenna",
+      "name": "cecil rhodes",
       "variants": [
-        "ibn sina avicenna",
-        "avicenna"
+        "cecil rhodes",
+        "cecil john rhodes"
       ],
       "ranks": [
-        111,
-        136
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "harun alrashid",
-      "variants": [
-        "harun alrashid",
-        "harun"
-      ],
-      "ranks": [
-        115,
-        147
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nanak",
-      "variants": [
-        "nanak",
-        "guru nanak dev",
-        "guru nanak dev ji"
-      ],
-      "ranks": [
-        125,
-        505,
-        810
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramanujan",
-      "variants": [
-        "ramanujan",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        141,
-        409
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        143,
-        178
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hannibal",
-      "variants": [
-        "hannibal",
-        "hannibal hamlin"
-      ],
-      "ranks": [
-        146,
-        567
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "averroes",
-      "variants": [
-        "averroes",
-        "ibn rushd averroes"
-      ],
-      "ranks": [
-        150,
-        431
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "babar",
-      "variants": [
-        "babar",
-        "akbar"
-      ],
-      "ranks": [
-        164,
-        460
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "amenhotep iv akhenaten",
-      "variants": [
-        "amenhotep iv akhenaten",
-        "akhenaten"
-      ],
-      "ranks": [
-        167,
-        473
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robespierre",
-      "variants": [
-        "robespierre",
-        "maximilien robespierre"
-      ],
-      "ranks": [
-        175,
-        247
+        113,
+        540
       ]
     },
     {
@@ -666,40 +502,28 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "elijah muhammad",
+      "name": "georgesjacques danton",
       "variants": [
-        "elijah muhammad",
-        "elijah"
+        "georgesjacques danton",
+        "georges danton"
       ],
       "ranks": [
-        206,
-        760
+        214,
+        483
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hector berlioz",
+      "name": "pope gregory vii",
       "variants": [
-        "hector berlioz",
-        "hector"
+        "pope gregory vii",
+        "pope clement vii",
+        "pope gregory xiii"
       ],
       "ranks": [
-        224,
-        761
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "jalaluddin rumi",
-        "rurik"
-      ],
-      "ranks": [
-        294,
-        564,
-        916
+        298,
+        684,
+        790
       ]
     },
     {
@@ -707,35 +531,13 @@
       "name": "guru tegh bahadur",
       "variants": [
         "guru tegh bahadur",
+        "guru teg bahadur",
         "guru tegh bahadur ji"
       ],
       "ranks": [
         303,
+        777,
         822
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john wycliffe",
-      "variants": [
-        "john wycliffe",
-        "wycliffe"
-      ],
-      "ranks": [
-        335,
-        525
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tacitus",
-      "variants": [
-        "tacitus",
-        "titus"
-      ],
-      "ranks": [
-        352,
-        568
       ]
     },
     {
@@ -743,23 +545,13 @@
       "name": "pope urban ii",
       "variants": [
         "pope urban ii",
+        "pope john paul ii",
         "urban ii"
       ],
       "ranks": [
         369,
+        405,
         944
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shivaji",
-      "variants": [
-        "shivaji",
-        "shivaji maharaj"
-      ],
-      "ranks": [
-        395,
-        666
       ]
     },
     {
@@ -767,11 +559,25 @@
       "name": "pope innocent iii",
       "variants": [
         "pope innocent iii",
+        "pope innocent iv",
         "innocent iii"
       ],
       "ranks": [
         396,
+        780,
         847
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john adams",
+      "variants": [
+        "john adams",
+        "john quincy adams"
+      ],
+      "ranks": [
+        398,
+        408
       ]
     },
     {
@@ -838,6 +644,20 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "pope leo i",
+      "variants": [
+        "pope leo i",
+        "pope gregory i",
+        "pope sergius i"
+      ],
+      "ranks": [
+        528,
+        740,
+        865
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "guru arjan",
       "variants": [
         "guru arjan",
@@ -850,16 +670,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pope pius ix",
+      "name": "guru ram das",
       "variants": [
-        "pope pius ix",
-        "pope pius xii",
-        "pope pius v"
+        "guru ram das",
+        "guru amar das"
       ],
       "ranks": [
-        636,
-        668,
-        749
+        653,
+        677
       ]
     },
     {
@@ -900,18 +718,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "abelard",
-      "variants": [
-        "abelard",
-        "peter abelard"
-      ],
-      "ranks": [
-        688,
-        786
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "antonin dvok",
       "variants": [
         "antonin dvok",
@@ -936,26 +742,68 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "henry v of england",
+      "name": "pope paul vi",
       "variants": [
-        "henry v of england",
-        "henry v"
+        "pope paul vi",
+        "pope alexander vi"
       ],
       "ranks": [
-        727,
-        962
+        721,
+        829
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "diocletian",
+      "name": "henry v of england",
       "variants": [
-        "diocletian",
-        "emperor diocletian"
+        "henry v of england",
+        "henry ii of england",
+        "henry vii of england",
+        "henry v",
+        "henry i of england"
       ],
       "ranks": [
-        745,
-        766
+        727,
+        779,
+        806,
+        962,
+        996
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo xiii",
+      "variants": [
+        "pope leo xiii",
+        "pope gregory xiii"
+      ],
+      "ranks": [
+        734,
+        790
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory i",
+      "variants": [
+        "pope gregory i",
+        "pope sergius i"
+      ],
+      "ranks": [
+        740,
+        865
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius v",
+      "variants": [
+        "pope pius v",
+        "pope sixtus v"
+      ],
+      "ranks": [
+        749,
+        764
       ]
     },
     {
@@ -972,14 +820,170 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "henry ii of england",
+      "variants": [
+        "henry ii of england",
+        "henry vii of england",
+        "henry i of england"
+      ],
+      "ranks": [
+        779,
+        806,
+        996
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru amar das ji",
+      "variants": [
+        "guru amar das ji",
+        "guru angad dev ji",
+        "guru har gobind ji",
+        "guru teg bahadur ji",
+        "guru nanak dev ji",
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        792,
+        795,
+        797,
+        808,
+        810,
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru angad dev ji",
+      "variants": [
+        "guru angad dev ji",
+        "guru har gobind ji",
+        "guru teg bahadur ji",
+        "guru nanak dev ji",
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        795,
+        797,
+        808,
+        810,
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru har gobind ji",
+      "variants": [
+        "guru har gobind ji",
+        "guru teg bahadur ji",
+        "guru nanak dev ji",
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        797,
+        808,
+        810,
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "henry vii of england",
       "variants": [
         "henry vii of england",
-        "henry v"
+        "henry v",
+        "henry i of england"
       ],
       "ranks": [
         806,
-        962
+        962,
+        996
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru teg bahadur ji",
+      "variants": [
+        "guru teg bahadur ji",
+        "guru nanak dev ji",
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        808,
+        810,
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru nanak dev ji",
+      "variants": [
+        "guru nanak dev ji",
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        810,
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru arjan dev ji",
+      "variants": [
+        "guru arjan dev ji",
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        814,
+        816,
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru hargobind ji",
+      "variants": [
+        "guru hargobind ji",
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        816,
+        822,
+        842
       ]
     },
     {
@@ -992,6 +996,36 @@
       "ranks": [
         819,
         942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "guru tegh bahadur ji",
+      "variants": [
+        "guru tegh bahadur ji",
+        "guru granth sahib ji"
+      ],
+      "ranks": [
+        822,
+        842
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhai mani singh",
+      "variants": [
+        "bhai mani singh",
+        "bhai vir singh",
+        "bhai sahib singh",
+        "bhai taru singh",
+        "bhai subeg singh"
+      ],
+      "ranks": [
+        830,
+        866,
+        894,
+        905,
+        931
       ]
     },
     {
@@ -1011,11 +1045,67 @@
       "name": "leo iii",
       "variants": [
         "leo iii",
-        "leo ix"
+        "leopold iii"
       ],
       "ranks": [
         835,
-        988
+        982
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba deep singh",
+      "variants": [
+        "baba deep singh",
+        "baba joga singh",
+        "baba jarnail singh",
+        "baba karam singh",
+        "baba hazara singh",
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        838,
+        902,
+        911,
+        925,
+        927,
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
       ]
     },
     {
@@ -1032,14 +1122,58 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "baba atal",
+      "name": "bhai vir singh",
       "variants": [
-        "baba atal",
-        "baba lal"
+        "bhai vir singh",
+        "bhai sahib singh",
+        "bhai taru singh",
+        "bhai subeg singh"
       ],
       "ranks": [
-        852,
-        898
+        866,
+        894,
+        905,
+        931
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba budha ji",
+      "variants": [
+        "baba budha ji",
+        "baba dip singh ji",
+        "baba gurditta ji"
+      ],
+      "ranks": [
+        868,
+        870,
+        907
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba dip singh ji",
+      "variants": [
+        "baba dip singh ji",
+        "baba gurditta ji"
+      ],
+      "ranks": [
+        870,
+        907
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis vii of france",
+      "variants": [
+        "louis vii of france",
+        "louis ix of france",
+        "louis vi of france"
+      ],
+      "ranks": [
+        871,
+        950,
+        994
       ]
     },
     {
@@ -1058,6 +1192,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "baba sri chand",
+      "variants": [
+        "baba sri chand",
+        "baba prithi chand"
+      ],
+      "ranks": [
+        888,
+        919
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "baldwin i",
       "variants": [
         "baldwin i",
@@ -1066,6 +1212,34 @@
       "ranks": [
         893,
         954
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhai sahib singh",
+      "variants": [
+        "bhai sahib singh",
+        "bhai taru singh",
+        "bhai subeg singh"
+      ],
+      "ranks": [
+        894,
+        905,
+        931
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhai dayal das",
+      "variants": [
+        "bhai dayal das",
+        "bhai mathra das",
+        "bhai sati das"
+      ],
+      "ranks": [
+        896,
+        947,
+        951
       ]
     },
     {
@@ -1082,6 +1256,246 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "bhai ghanaya ji",
+      "variants": [
+        "bhai ghanaya ji",
+        "bhai buddha ji"
+      ],
+      "ranks": [
+        900,
+        921
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba joga singh",
+      "variants": [
+        "baba joga singh",
+        "baba jarnail singh",
+        "baba karam singh",
+        "baba hazara singh",
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        902,
+        911,
+        925,
+        927,
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhai taru singh",
+      "variants": [
+        "bhai taru singh",
+        "bhai subeg singh"
+      ],
+      "ranks": [
+        905,
+        931
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba jarnail singh",
+      "variants": [
+        "baba jarnail singh",
+        "baba karam singh",
+        "baba hazara singh",
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        911,
+        925,
+        927,
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "emperor justinian ii",
+      "variants": [
+        "emperor justinian ii",
+        "emperor basil ii"
+      ],
+      "ranks": [
+        920,
+        940
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba karam singh",
+      "variants": [
+        "baba karam singh",
+        "baba hazara singh",
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        925,
+        927,
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba hazara singh",
+      "variants": [
+        "baba hazara singh",
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        927,
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "basil i",
       "variants": [
         "basil i",
@@ -1094,26 +1508,158 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "henry iii",
+      "name": "baba jodh singh",
       "variants": [
-        "henry iii",
-        "henry iv"
+        "baba jodh singh",
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
       ],
       "ranks": [
-        934,
-        942
+        933,
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "henry iv",
+      "name": "baba tilok singh",
       "variants": [
-        "henry iv",
-        "henry v"
+        "baba tilok singh",
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
       ],
       "ranks": [
-        942,
-        962
+        943,
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhai mathra das",
+      "variants": [
+        "bhai mathra das",
+        "bhai sati das"
+      ],
+      "ranks": [
+        947,
+        951
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis ix of france",
+      "variants": [
+        "louis ix of france",
+        "louis vi of france"
+      ],
+      "ranks": [
+        950,
+        994
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba gurditta singh",
+      "variants": [
+        "baba gurditta singh",
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        953,
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
       ]
     },
     {
@@ -1130,6 +1676,120 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "baba bota singh",
+      "variants": [
+        "baba bota singh",
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        957,
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba baghel singh",
+      "variants": [
+        "baba baghel singh",
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        961,
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba gurbakhsh singh",
+      "variants": [
+        "baba gurbakhsh singh",
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        963,
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "baba sohan singh bhakna",
       "variants": [
         "baba sohan singh bhakna",
@@ -1138,6 +1798,282 @@
       "ranks": [
         965,
         989
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba mihan singh",
+      "variants": [
+        "baba mihan singh",
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        967,
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba charan singh",
+      "variants": [
+        "baba charan singh",
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        971,
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba nihal singh",
+      "variants": [
+        "baba nihal singh",
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        979,
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba kharak singh",
+      "variants": [
+        "baba kharak singh",
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        981,
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba sahib singh",
+      "variants": [
+        "baba sahib singh",
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        983,
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba amar singh",
+      "variants": [
+        "baba amar singh",
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        985,
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba bahadur singh",
+      "variants": [
+        "baba bahadur singh",
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        987,
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba sohan singh",
+      "variants": [
+        "baba sohan singh",
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        989,
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba gurdit singh",
+      "variants": [
+        "baba gurdit singh",
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        991,
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba narain singh",
+      "variants": [
+        "baba narain singh",
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        993,
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba bhai singh",
+      "variants": [
+        "baba bhai singh",
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        995,
+        997,
+        999
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "baba ishar singh",
+      "variants": [
+        "baba ishar singh",
+        "baba gurmukh singh"
+      ],
+      "ranks": [
+        997,
+        999
       ]
     }
   ],
@@ -1167,6 +2103,21 @@
       "Military": 24,
       "Other": 884
     }
+  },
+  "advanced": {
+    "parentheticalCount": 12,
+    "parentheticalRate": 0.012,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 957,
+    "contributionShortRate": 0.957,
+    "score": 80.03
   },
   "summary": "Issues: 58 exact duplicates"
 }

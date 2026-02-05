@@ -22,6 +22,16 @@ Benjamin Breen (UCSC), author of *Res Obscura*.
 ## Core LLM prompt (use exactly, unchanged)
 Role: You are a senior historian and data scientist specializing in "Historiometry"—the statistical analysis of historical data. Task: Generate a ranked list of the 1,000 most influential figures in world history. Ranking Criteria: "Importance" must be calculated based on the following three metrics: Breadth: The geographic extent of their influence (Global vs. Regional). Depth: The degree to which they fundamentally altered human behavior, thought, or the state of the world. Longevity: The duration of their impact across centuries. Strict Constraints to Prevent Clustering: No Categorical Grouping: Do not group figures by profession, era, or nationality. This is a singular, linear competition of impact. For example, if rank #450 is a scientist and #451 is a poet, it must be because the scientist’s total score marginally exceeds the poet’s, not because you are listing "famous scientists" and then "famous poets." Linear Degradation: The list must represent a true descending order of influence. Rank #1 must be demonstrably more influential than #100, and #500 more than #1000. Global Balance: Ensure the list reflects major figures based on what you determine to be their objective historical weight, not just fame in one culture or region. Output Format: Provide the data in a raw JSON array of objects. Each object must contain: {"rank": integer, "name": "string", "primary_contribution": "string"} Technical Instruction: Do not include introductory or concluding conversational text—output the JSON block only. output the FULL list with no duplicates.
 
+## Experimental V2 prompt + workflow (do not mix with existing lists)
+Purpose: generate a new set of LLM lists using a stricter, more reliable methodology (candidate-pool + merge) for comparison with the v1 lists. Keep v1 consensus unchanged.
+
+Workflow:
+1) Run `node --import tsx scripts/generate-openrouter-list-v2.ts --model <model>` to produce V2 lists.
+2) Output goes to `data/raw_v2/` with filename pattern: `MODEL NAME V2 LIST N (Date).txt`.
+3) V2 lists are *not* imported into the main DB by default. Comparison is done offline or in a future parallel DB.
+
+Key idea: generate multiple candidate pools (chunked), forbid repeats across chunks, then merge + rank by rubric scores. This reduces local-minima collapse without forcing quotas.
+
 ## Data and pipeline notes
 - LLM lists are stored in `data/raw/` and normalized to JSON arrays before import.
 - `npm run import:llm` imports all LLM lists and recalculates consensus ranks.

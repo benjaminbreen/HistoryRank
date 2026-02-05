@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: gemini-3-flash-preview V3 LIST 1 (February 4, 2026).txt
+Model: gemini-3-flash-preview V3 Prompt
+Timestamp: 2026-02-05T06:54:53.929Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 8 fuzzy duplicates found
+  Pattern Collapse: PASS - Max sequence of 14 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (13):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 24, 73
+  - Fuzzy duplicate: elizabeth i / elizabeth ii at ranks 83, 444
+  - Fuzzy duplicate: henry ii of england / henry viii of england at ranks 405, 422
+  - Fuzzy duplicate: george iv / george v at ranks 438, 441
+  - Fuzzy duplicate: edward vii / edward viii at ranks 440, 442
+  - Fuzzy duplicate: george v / george vi at ranks 441, 443
+  - Fuzzy duplicate: alexander ii of russia / alexander i of russia at ranks 447, 448
+  - Fuzzy duplicate: pedro i of brazil / pedro ii of brazil at ranks 472, 473
+  - Pattern collapse: "founded" (11 entries, ranks 229-239)
+  - Pattern collapse: "founded" (11 entries, ranks 230-240)
+  ... and 3 more issues
+
+Diversity Estimates:
+  Regions: Europe: 83, Asia: 8, Middle East: 12, Africa: 8, Americas: 30, Unknown: 359
+  Domains: Politics/Leadership: 111, Science/Technology: 5, Philosophy/Religion: 17, Arts/Literature: 32, Military: 9, Other: 326

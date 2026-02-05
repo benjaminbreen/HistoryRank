@@ -2,19 +2,19 @@ Quality Assessment Report
 ========================
 File: Qwen3 235B A22B LIST 4 (January 19, 2026).txt
 Model: Qwen3 235B A22B
-Timestamp: 2026-01-20T04:16:10.683Z
+Timestamp: 2026-02-05T18:17:16.464Z
 
 VERDICT: FAIL
 
-Summary: Issues: 356 exact duplicates; pattern collapse (max 20)
+Summary: Issues: 356 exact duplicates; pattern collapse (max 21)
 
 Scores:
   Repetition: FAIL - 356 exact duplicates found
-  Pattern Collapse: PASS - Max sequence of 20 similar entries
+  Pattern Collapse: PASS - Max sequence of 21 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (245):
+Issues (138):
   - Exact duplicate: "isaac newton" at ranks 3, 565
   - Exact duplicate: "albert einstein" at ranks 6, 625
   - Exact duplicate: "alexander the great" at ranks 9, 439
@@ -25,8 +25,17 @@ Issues (245):
   - Exact duplicate: "george washington" at ranks 20, 575
   - Exact duplicate: "thomas jefferson" at ranks 21, 574
   - Exact duplicate: "winston churchill" at ranks 22, 199
-  ... and 235 more issues
+  ... and 128 more issues
 
 Diversity Estimates:
   Regions: Europe: 75, Asia: 5, Middle East: 20, Africa: 13, Americas: 10, Unknown: 877
   Domains: Politics/Leadership: 162, Science/Technology: 12, Philosophy/Religion: 40, Arts/Literature: 57, Military: 22, Other: 707
+
+Advanced Metrics:
+  Advanced score: 99.9
+  Parenthetical names: 0.1%
+  Multi-person names: 0.0%
+  Comma names: 0.1%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 0.0%

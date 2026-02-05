@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 5 (January 13, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:03.932Z",
+  "timestamp": "2026-02-05T18:16:58.129Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 8,
-      "fuzzy": 16,
+      "fuzzy": 6,
       "status": "PASS",
       "details": "8 exact duplicates found"
     },
@@ -396,6 +396,66 @@
             "974. Guccio Gucci",
             "975. Thierry Hermes"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 281,
+          "endRank": 308,
+          "count": 28,
+          "examples": [
+            "281. Kobe Bryant",
+            "282. Shaquille O'Neal",
+            "283. Magic Johnson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 318,
+          "endRank": 366,
+          "count": 49,
+          "examples": [
+            "318. Walter Hagen",
+            "319. Sam Snead",
+            "320. Byron Nelson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 416,
+          "endRank": 498,
+          "count": 83,
+          "examples": [
+            "416. Mia Hamm",
+            "417. Abby Wambach",
+            "418. Alex Morgan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 695,
+          "endRank": 710,
+          "count": 16,
+          "examples": [
+            "695. Andrew Wiles",
+            "696. Grigori Perelman",
+            "697. Edward Witten"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 752,
+          "endRank": 770,
+          "count": 19,
+          "examples": [
+            "752. Moliere",
+            "753. Henrik Ibsen",
+            "754. Anton Chekhov"
+          ]
         }
       ],
       "status": "FAIL",
@@ -409,13 +469,15 @@
       "details": "1003 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "mozart"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -485,66 +547,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "johann gutenberg",
       "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad ali jinnah",
-        "muhammad yunus"
+        "johann gutenberg",
+        "johannes gutenberg"
       ],
       "ranks": [
-        1,
-        260,
-        551,
-        600
+        8,
+        169
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
+      "name": "pope urban ii",
       "variants": [
-        "moses",
-        "menes"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        15,
-        96
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        32,
-        647
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        48,
-        107
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "giorgio armani"
-      ],
-      "ranks": [
-        83,
-        978
+        51,
+        562
       ]
     },
     {
@@ -561,18 +583,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "louis xiv",
-      "variants": [
-        "louis xiv",
-        "louis xvi"
-      ],
-      "ranks": [
-        137,
-        527
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "montezuma ii",
       "variants": [
         "montezuma ii",
@@ -585,18 +595,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hirohito",
-      "variants": [
-        "hirohito",
-        "emperor hirohito"
-      ],
-      "ranks": [
-        162,
-        547
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "muhammad ali",
       "variants": [
         "muhammad ali",
@@ -605,42 +603,6 @@
       "ranks": [
         260,
         551
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "virgil van dijk",
-      "variants": [
-        "virgil van dijk",
-        "virgil"
-      ],
-      "ranks": [
-        391,
-        663
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "princess diana",
-      "variants": [
-        "princess diana",
-        "prince"
-      ],
-      "ranks": [
-        569,
-        788
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        607,
-        702
       ]
     },
     {
@@ -1038,6 +1000,66 @@
         "974. Guccio Gucci",
         "975. Thierry Hermes"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 281,
+      "endRank": 308,
+      "count": 28,
+      "examples": [
+        "281. Kobe Bryant",
+        "282. Shaquille O'Neal",
+        "283. Magic Johnson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 318,
+      "endRank": 366,
+      "count": 49,
+      "examples": [
+        "318. Walter Hagen",
+        "319. Sam Snead",
+        "320. Byron Nelson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 416,
+      "endRank": 498,
+      "count": 83,
+      "examples": [
+        "416. Mia Hamm",
+        "417. Abby Wambach",
+        "418. Alex Morgan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 695,
+      "endRank": 710,
+      "count": 16,
+      "examples": [
+        "695. Andrew Wiles",
+        "696. Grigori Perelman",
+        "697. Edward Witten"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 752,
+      "endRank": 770,
+      "count": 19,
+      "examples": [
+        "752. Moliere",
+        "753. Henrik Ibsen",
+        "754. Anton Chekhov"
+      ]
     }
   ],
   "diversity": {
@@ -1066,6 +1088,21 @@
       "Military": 14,
       "Other": 488
     }
+  },
+  "advanced": {
+    "parentheticalCount": 6,
+    "parentheticalRate": 0.005982053838484547,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0009970089730807576,
+    "commaNameCount": 1,
+    "commaNameRate": 0.0009970089730807576,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 165,
+    "contributionShortRate": 0.16450648055832504,
+    "score": 96.29112662013956
   },
   "summary": "Issues: 8 exact duplicates; pattern collapse (max 220); 1003 entries (expected 1000); non-sequential ranks"
 }

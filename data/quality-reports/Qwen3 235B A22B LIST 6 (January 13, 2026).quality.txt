@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Qwen3 235B A22B LIST 6 (January 13, 2026).txt
 Model: Qwen3 235B A22B
-Timestamp: 2026-01-20T04:16:10.975Z
+Timestamp: 2026-02-05T18:17:16.990Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: FAIL - 259 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 11 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
 
-Issues (203):
+Issues (207):
   - Exact duplicate: "albert einstein" at ranks 6, 544
   - Exact duplicate: "julius caesar" at ranks 10, 102
   - Exact duplicate: "augustus" at ranks 11, 103
@@ -25,8 +25,17 @@ Issues (203):
   - Exact duplicate: "nelson mandela" at ranks 25, 889
   - Exact duplicate: "michael faraday" at ranks 29, 524
   - Exact duplicate: "james clerk maxwell" at ranks 30, 525
-  ... and 193 more issues
+  ... and 197 more issues
 
 Diversity Estimates:
   Regions: Europe: 85, Asia: 30, Middle East: 97, Africa: 57, Americas: 8, Unknown: 723
   Domains: Politics/Leadership: 31, Science/Technology: 13, Philosophy/Religion: 24, Arts/Literature: 74, Military: 10, Other: 848
+
+Advanced Metrics:
+  Advanced score: 98.5
+  Parenthetical names: 2.1%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.9%

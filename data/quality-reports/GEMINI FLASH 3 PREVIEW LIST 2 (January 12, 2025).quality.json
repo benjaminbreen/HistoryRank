@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 2 (January 12, 2025).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:16:00.003Z",
+  "timestamp": "2026-02-05T18:16:47.909Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 267,
-      "fuzzy": 11,
+      "fuzzy": 7,
       "status": "FAIL",
       "details": "267 exact duplicates found"
     },
@@ -97,11 +97,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -2229,38 +2231,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "wilhelm rntgen",
       "variants": [
-        "muhammad",
-        "muhammad yunus"
+        "wilhelm rntgen",
+        "wilhelm rontgen"
       ],
       "ranks": [
-        1,
-        971
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "robert moses"
-      ],
-      "ranks": [
-        15,
-        413
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        32,
-        693
+        66,
+        891
       ]
     },
     {
@@ -2273,18 +2251,6 @@
       "ranks": [
         88,
         652
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cavour",
-      "variants": [
-        "cavour",
-        "camillo di cavour"
-      ],
-      "ranks": [
-        165,
-        609
       ]
     },
     {
@@ -2313,6 +2279,30 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "gabriel garca mrquez",
+      "variants": [
+        "gabriel garca mrquez",
+        "gabriel garcia marquez"
+      ],
+      "ranks": [
+        304,
+        706
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "diego velzquez",
+      "variants": [
+        "diego velzquez",
+        "diego velazquez"
+      ],
+      "ranks": [
+        316,
+        828
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "salvador dal",
       "variants": [
         "salvador dal",
@@ -2321,42 +2311,6 @@
       "ranks": [
         318,
         834
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pel",
-      "variants": [
-        "pel",
-        "pele"
-      ],
-      "ranks": [
-        335,
-        792
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saadi shirazi",
-      "variants": [
-        "saadi shirazi",
-        "saadi"
-      ],
-      "ranks": [
-        373,
-        719
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        910,
-        911
       ]
     },
     {
@@ -2458,6 +2412,21 @@
       "Military": 24,
       "Other": 504
     }
+  },
+  "advanced": {
+    "parentheticalCount": 11,
+    "parentheticalRate": 0.011,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 99.17
   },
   "summary": "Issues: 267 exact duplicates; pattern collapse (max 11)"
 }

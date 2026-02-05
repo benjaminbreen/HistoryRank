@@ -1,17 +1,17 @@
 {
   "file": "Gemini Pro 3 LIST 4 (January 13, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:03.421Z",
+  "timestamp": "2026-02-05T18:16:56.813Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 6,
-      "fuzzy": 19,
+      "fuzzy": 5,
       "status": "PASS",
       "details": "6 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 5,
+      "maxSequence": 23,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -24,10 +24,22 @@
             "977. Steffi Graf",
             "978. Martina Navratilova"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 818,
+          "endRank": 840,
+          "count": 23,
+          "examples": [
+            "818. Banksy",
+            "819. Jean-Michel Basquiat",
+            "820. Keith Haring"
+          ]
         }
       ],
       "status": "PASS",
-      "details": "Max sequence of 5 similar entries"
+      "details": "Max sequence of 23 similar entries"
     },
     "structural": {
       "entries": 1004,
@@ -37,11 +49,14 @@
       "details": "1004 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -95,48 +110,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad iqbal",
-        "muhammad ali jinnah",
-        "muhammad yunus",
-        "muhammad abduh"
-      ],
-      "ranks": [
-        1,
-        330,
-        331,
-        527,
-        607
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "confucius",
-      "variants": [
-        "confucius",
-        "confuciuss disciples analects compilers"
-      ],
-      "ranks": [
-        5,
-        245
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "menes"
-      ],
-      "ranks": [
-        15,
-        96
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -149,56 +122,38 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john dalton",
+      "name": "antony van leeuwenhoek",
       "variants": [
-        "john dalton",
-        "john milton"
+        "antony van leeuwenhoek",
+        "antonie van leeuwenhoek"
       ],
       "ranks": [
-        32,
-        892
+        36,
+        796
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "laozi",
+      "name": "pope urban ii",
       "variants": [
-        "laozi",
-        "mozi"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        73,
-        677
+        51,
+        253
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
+      "name": "queen isabella i",
       "variants": [
-        "mani",
-        "qasem soleimani",
-        "mozi",
-        "giorgio armani",
-        "sergei rachmaninoff"
+        "queen isabella i",
+        "queen elizabeth i"
       ],
       "ranks": [
-        83,
-        327,
-        677,
-        741,
-        835
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert koch",
-      "variants": [
-        "robert koch",
-        "robert bosch"
-      ],
-      "ranks": [
-        128,
-        556
+        65,
+        94
       ]
     },
     {
@@ -214,44 +169,6 @@
       ]
     },
     {
-      "type": "fuzzy_duplicate",
-      "name": "rashi",
-      "variants": [
-        "rashi",
-        "harun alrashid",
-        "rashid rida"
-      ],
-      "ranks": [
-        261,
-        365,
-        608
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pele",
-      "variants": [
-        "pele",
-        "bede"
-      ],
-      "ranks": [
-        471,
-        598
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        625,
-        626
-      ]
-    },
-    {
       "type": "pattern_collapse",
       "pattern": "tennis player",
       "startRank": 976,
@@ -261,6 +178,18 @@
         "976. Rod Laver",
         "977. Steffi Graf",
         "978. Martina Navratilova"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 818,
+      "endRank": 840,
+      "count": 23,
+      "examples": [
+        "818. Banksy",
+        "819. Jean-Michel Basquiat",
+        "820. Keith Haring"
       ]
     }
   ],
@@ -291,5 +220,20 @@
       "Other": 459
     }
   },
-  "summary": "Issues: 6 exact duplicates; 1004 entries (expected 1000); non-sequential ranks"
+  "advanced": {
+    "parentheticalCount": 8,
+    "parentheticalRate": 0.00796812749003984,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.00099601593625498,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.00099601593625498,
+    "contributionShortCount": 48,
+    "contributionShortRate": 0.04780876494023904,
+    "score": 98.53585657370517
+  },
+  "summary": "Issues: 6 exact duplicates; pattern collapse (max 23); 1004 entries (expected 1000); non-sequential ranks"
 }

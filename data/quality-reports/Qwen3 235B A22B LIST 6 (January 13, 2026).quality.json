@@ -1,12 +1,12 @@
 {
   "file": "Qwen3 235B A22B LIST 6 (January 13, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.975Z",
+  "timestamp": "2026-02-05T18:17:16.990Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 259,
-      "fuzzy": 64,
+      "fuzzy": 162,
       "status": "FAIL",
       "details": "259 exact duplicates found"
     },
@@ -73,16 +73,18 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 39,
-      "expected": 43,
+      "found": 55,
+      "expected": 61,
       "missing": [
         "michelangelo",
+        "saint paul",
+        "paul the apostle",
         "beethoven",
         "mozart",
         "kepler"
       ],
       "status": "PASS",
-      "details": "39/43 anchor figures found (91%)"
+      "details": "55/61 anchor figures found (90%)"
     }
   },
   "issues": [
@@ -1439,90 +1441,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad i",
-        "muhammad albaqir",
-        "muhammad ali of egypt",
-        "alkhwarizmi muhammad",
-        "altabari muhammad ibn jarir",
-        "muhammad yunus",
-        "muhammad iqbal",
-        "muhammadu buhari"
-      ],
-      "ranks": [
-        2,
-        139,
-        165,
-        280,
-        373,
-        393,
-        625,
-        753,
-        908
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aristotle",
-      "variants": [
-        "aristotle",
-        "aristotle of stagira"
-      ],
-      "ranks": [
-        8,
-        51
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "claudius ptolemy",
-      "variants": [
-        "claudius ptolemy",
-        "ptolemy"
-      ],
-      "ranks": [
-        57,
-        653
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "li bai",
-      "variants": [
-        "li bai",
-        "li si"
-      ],
-      "ranks": [
-        72,
-        196
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "harsha",
-      "variants": [
-        "harsha",
-        "aisha"
-      ],
-      "ranks": [
-        124,
-        169
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "ibn rushd averroes",
       "variants": [
         "ibn rushd averroes",
-        "alibn rushd averroes",
-        "averroes"
+        "alibn rushd averroes"
       ],
       "ranks": [
         159,
-        286,
-        671
+        286
       ]
     },
     {
@@ -1530,37 +1456,11 @@
       "name": "nasir aldin altusi",
       "variants": [
         "nasir aldin altusi",
-        "altusi",
         "alnasir aldin altusi"
       ],
       "ranks": [
         164,
-        306,
         347
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "harun alrashid",
-      "variants": [
-        "harun alrashid",
-        "rashi"
-      ],
-      "ranks": [
-        175,
-        223
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "orhan",
-      "variants": [
-        "orhan",
-        "orhan pamuk"
-      ],
-      "ranks": [
-        182,
-        853
       ]
     },
     {
@@ -1577,64 +1477,60 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "avicenna ibn sina",
-      "variants": [
-        "avicenna ibn sina",
-        "avicenna"
-      ],
-      "ranks": [
-        219,
-        670
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "averroes ibn rushd",
-      "variants": [
-        "averroes ibn rushd",
-        "averroes"
-      ],
-      "ranks": [
-        220,
-        671
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "pope urban ii",
       "variants": [
         "pope urban ii",
-        "pope urban i"
+        "pope john paul ii",
+        "pope julius ii",
+        "pope paul ii",
+        "pope urban i",
+        "pope sixtus ii",
+        "pope boniface ii",
+        "pope john ii"
       ],
       "ranks": [
         259,
-        418
+        310,
+        316,
+        368,
+        418,
+        432,
+        488,
+        490
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alzahrawi",
+      "name": "pope gregory vii",
       "variants": [
-        "alzahrawi",
-        "alzahrawi abulcasis",
-        "altahawi"
+        "pope gregory vii",
+        "pope pius vii",
+        "pope alexander vii",
+        "pope gregory xiii"
       ],
       "ranks": [
-        277,
-        311,
-        427
+        274,
+        334,
+        356,
+        364
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alibn rushd averroes",
+      "name": "pope innocent iii",
       "variants": [
-        "alibn rushd averroes",
-        "averroes"
+        "pope innocent iii",
+        "pope paul iii",
+        "pope innocent xiii",
+        "pope innocent xii",
+        "pope felix iii"
       ],
       "ranks": [
-        286,
-        671
+        287,
+        314,
+        348,
+        354,
+        474
       ]
     },
     {
@@ -1642,29 +1538,13 @@
       "name": "pope pius ix",
       "variants": [
         "pope pius ix",
-        "pope pius xii",
         "pope pius x",
-        "pope pius vii",
-        "pope pius vi"
+        "pope clement ix"
       ],
       "ranks": [
         290,
-        320,
         328,
-        334,
-        336
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alkhindi",
-      "variants": [
-        "alkhindi",
-        "alkindi"
-      ],
-      "ranks": [
-        291,
-        303
+        358
       ]
     },
     {
@@ -1672,29 +1552,33 @@
       "name": "pope alexander vi",
       "variants": [
         "pope alexander vi",
+        "pope pius vi",
         "pope alexander viii",
-        "pope alexander vii"
+        "pope alexander vii",
+        "pope alexander i"
       ],
       "ranks": [
         296,
+        336,
         352,
-        356
+        356,
+        408
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "altusi",
+      "name": "pope boniface viii",
       "variants": [
-        "altusi",
-        "alsufi",
-        "alnasir aldin altusi",
-        "alfasi"
+        "pope boniface viii",
+        "pope alexander viii",
+        "pope clement viii",
+        "pope boniface ii"
       ],
       "ranks": [
-        306,
-        321,
-        347,
-        375
+        299,
+        352,
+        360,
+        488
       ]
     },
     {
@@ -1702,11 +1586,33 @@
       "name": "pope clement v",
       "variants": [
         "pope clement v",
-        "pope clement viii"
+        "pope clement viii",
+        "pope martin v"
       ],
       "ranks": [
         308,
-        360
+        360,
+        376
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope julius ii",
+        "pope paul ii",
+        "pope sixtus ii",
+        "pope boniface ii",
+        "pope john ii"
+      ],
+      "ranks": [
+        310,
+        316,
+        368,
+        432,
+        488,
+        490
       ]
     },
     {
@@ -1714,11 +1620,31 @@
       "name": "pope paul iii",
       "variants": [
         "pope paul iii",
-        "pope paul ii"
+        "pope paul ii",
+        "pope felix iii"
       ],
       "ranks": [
         314,
-        368
+        368,
+        474
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope julius ii",
+      "variants": [
+        "pope julius ii",
+        "pope paul ii",
+        "pope sixtus ii",
+        "pope boniface ii",
+        "pope john ii"
+      ],
+      "ranks": [
+        316,
+        368,
+        432,
+        488,
+        490
       ]
     },
     {
@@ -1726,11 +1652,17 @@
       "name": "pope benedict xvi",
       "variants": [
         "pope benedict xvi",
-        "pope benedict xv"
+        "pope benedict xv",
+        "pope gregory xvi",
+        "pope benedict xiv",
+        "pope benedict xiii"
       ],
       "ranks": [
         318,
-        326
+        326,
+        332,
+        342,
+        346
       ]
     },
     {
@@ -1740,51 +1672,57 @@
         "pope pius xii",
         "pope pius x",
         "pope pius vii",
-        "pope pius vi"
+        "pope clement xii",
+        "pope innocent xii"
       ],
       "ranks": [
         320,
         328,
         334,
-        336
+        344,
+        354
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alnasawi",
+      "name": "pope benedict xv",
       "variants": [
-        "alnasawi",
-        "altahawi",
-        "alnasafi"
+        "pope benedict xv",
+        "pope benedict xiv"
       ],
       "ranks": [
-        323,
-        427,
-        441
+        326,
+        342
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pope pius x",
+      "name": "pope leo xiii",
       "variants": [
-        "pope pius x",
-        "pope pius vi"
+        "pope leo xiii",
+        "pope clement xiii",
+        "pope benedict xiii",
+        "pope innocent xiii",
+        "pope gregory xiii"
       ],
       "ranks": [
-        328,
-        336
+        330,
+        340,
+        346,
+        348,
+        364
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alkaraji",
+      "name": "pope gregory xvi",
       "variants": [
-        "alkaraji",
-        "alharami"
+        "pope gregory xvi",
+        "pope gregory xiii"
       ],
       "ranks": [
-        329,
-        423
+        332,
+        364
       ]
     },
     {
@@ -1792,11 +1730,13 @@
       "name": "pope pius vii",
       "variants": [
         "pope pius vii",
-        "pope pius vi"
+        "pope pius vi",
+        "pope alexander vii"
       ],
       "ranks": [
         334,
-        336
+        336,
+        356
       ]
     },
     {
@@ -1804,10 +1744,16 @@
       "name": "pope clement xiv",
       "variants": [
         "pope clement xiv",
+        "pope clement xiii",
+        "pope benedict xiv",
+        "pope clement xii",
         "pope clement xi"
       ],
       "ranks": [
         338,
+        340,
+        342,
+        344,
         350
       ]
     },
@@ -1817,12 +1763,32 @@
       "variants": [
         "pope clement xiii",
         "pope clement xii",
-        "pope clement xi"
+        "pope benedict xiii",
+        "pope innocent xiii",
+        "pope clement xi",
+        "pope clement viii",
+        "pope gregory xiii"
       ],
       "ranks": [
         340,
         344,
-        350
+        346,
+        348,
+        350,
+        360,
+        364
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope benedict xiv",
+      "variants": [
+        "pope benedict xiv",
+        "pope benedict xiii"
+      ],
+      "ranks": [
+        342,
+        346
       ]
     },
     {
@@ -1830,11 +1796,29 @@
       "name": "pope clement xii",
       "variants": [
         "pope clement xii",
-        "pope clement xi"
+        "pope clement xi",
+        "pope innocent xii",
+        "pope clement viii"
       ],
       "ranks": [
         344,
-        350
+        350,
+        354,
+        360
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope benedict xiii",
+      "variants": [
+        "pope benedict xiii",
+        "pope innocent xiii",
+        "pope gregory xiii"
+      ],
+      "ranks": [
+        346,
+        348,
+        364
       ]
     },
     {
@@ -1842,11 +1826,13 @@
       "name": "pope innocent xiii",
       "variants": [
         "pope innocent xiii",
-        "pope innocent xii"
+        "pope innocent xii",
+        "pope gregory xiii"
       ],
       "ranks": [
         348,
-        354
+        354,
+        364
       ]
     },
     {
@@ -1854,11 +1840,25 @@
       "name": "pope alexander viii",
       "variants": [
         "pope alexander viii",
-        "pope alexander vii"
+        "pope alexander vii",
+        "pope clement viii"
       ],
       "ranks": [
         352,
-        356
+        356,
+        360
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope alexander vii",
+      "variants": [
+        "pope alexander vii",
+        "pope alexander i"
+      ],
+      "ranks": [
+        356,
+        408
       ]
     },
     {
@@ -1866,11 +1866,59 @@
       "name": "pope sixtus iv",
       "variants": [
         "pope sixtus iv",
-        "pope sixtus ii"
+        "pope nicholas iv",
+        "pope eugene iv",
+        "pope sixtus ii",
+        "pope felix iv"
       ],
       "ranks": [
         366,
-        432
+        374,
+        378,
+        432,
+        486
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope paul ii",
+      "variants": [
+        "pope paul ii",
+        "pope sixtus ii",
+        "pope boniface ii",
+        "pope john ii"
+      ],
+      "ranks": [
+        368,
+        432,
+        488,
+        490
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope nicholas iv",
+      "variants": [
+        "pope nicholas iv",
+        "pope eugene iv",
+        "pope felix iv"
+      ],
+      "ranks": [
+        374,
+        378,
+        486
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope eugene iv",
+      "variants": [
+        "pope eugene iv",
+        "pope felix iv"
+      ],
+      "ranks": [
+        378,
+        486
       ]
     },
     {
@@ -1878,23 +1926,177 @@
       "name": "pope alexander i",
       "variants": [
         "pope alexander i",
+        "pope victor i",
+        "pope callistus i",
+        "pope urban i",
+        "pope lucius i",
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i",
         "alexander i"
       ],
       "ranks": [
         408,
+        412,
+        416,
+        418,
+        428,
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498,
         873
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "albaydawi",
+      "name": "pope victor i",
       "variants": [
-        "albaydawi",
-        "albazdawi"
+        "pope victor i",
+        "pope callistus i",
+        "pope urban i",
+        "pope lucius i",
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
       ],
       "ranks": [
-        431,
-        437
+        412,
+        416,
+        418,
+        428,
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope callistus i",
+      "variants": [
+        "pope callistus i",
+        "pope urban i",
+        "pope lucius i",
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        416,
+        418,
+        428,
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban i",
+      "variants": [
+        "pope urban i",
+        "pope lucius i",
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        418,
+        428,
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope lucius i",
+      "variants": [
+        "pope lucius i",
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        428,
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope stephen i",
+      "variants": [
+        "pope stephen i",
+        "pope felix i",
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        430,
+        436,
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope sixtus ii",
+      "variants": [
+        "pope sixtus ii",
+        "pope boniface ii",
+        "pope john ii"
+      ],
+      "ranks": [
+        432,
+        488,
+        490
       ]
     },
     {
@@ -1902,25 +2104,57 @@
       "name": "pope felix i",
       "variants": [
         "pope felix i",
+        "pope marcellus i",
         "pope felix iii",
-        "pope felix iv"
+        "pope gelasius i",
+        "pope john i",
+        "pope felix iv",
+        "pope agapetus i",
+        "pope pelagius i"
       ],
       "ranks": [
         436,
+        444,
         474,
-        486
+        476,
+        484,
+        486,
+        492,
+        498
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pope felix iii",
+      "name": "pope marcellus i",
       "variants": [
-        "pope felix iii",
-        "pope felix iv"
+        "pope marcellus i",
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
       ],
       "ranks": [
-        474,
-        486
+        444,
+        476,
+        484,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gelasius i",
+      "variants": [
+        "pope gelasius i",
+        "pope john i",
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        476,
+        484,
+        492,
+        498
       ]
     },
     {
@@ -1928,11 +2162,39 @@
       "name": "pope john i",
       "variants": [
         "pope john i",
-        "pope john ii"
+        "pope john ii",
+        "pope agapetus i",
+        "pope pelagius i"
       ],
       "ranks": [
         484,
+        490,
+        492,
+        498
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope boniface ii",
+      "variants": [
+        "pope boniface ii",
+        "pope john ii"
+      ],
+      "ranks": [
+        488,
         490
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope agapetus i",
+      "variants": [
+        "pope agapetus i",
+        "pope pelagius i"
+      ],
+      "ranks": [
+        492,
+        498
       ]
     },
     {
@@ -1945,18 +2207,6 @@
       "ranks": [
         526,
         556
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "william james",
-      "variants": [
-        "william james",
-        "william jones"
-      ],
-      "ranks": [
-        536,
-        837
       ]
     },
     {
@@ -1981,18 +2231,6 @@
       "ranks": [
         716,
         820
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "edward sapir",
-      "variants": [
-        "edward sapir",
-        "edward said"
-      ],
-      "ranks": [
-        834,
-        845
       ]
     },
     {
@@ -2070,6 +2308,21 @@
       "Military": 10,
       "Other": 848
     }
+  },
+  "advanced": {
+    "parentheticalCount": 21,
+    "parentheticalRate": 0.021,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 9,
+    "contributionShortRate": 0.009,
+    "score": 98.50999999999999
   },
   "summary": "Issues: 259 exact duplicates; pattern collapse (max 11)"
 }

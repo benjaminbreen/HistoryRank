@@ -1,12 +1,12 @@
 {
   "file": "Qwen3 235B A22B LIST 1 (January 18, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.435Z",
+  "timestamp": "2026-02-05T18:17:15.810Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 733,
-      "fuzzy": 4,
+      "fuzzy": 1,
       "status": "FAIL",
       "details": "733 exact duplicates found"
     },
@@ -61,14 +61,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
         "michelangelo",
+        "saint paul",
+        "paul the apostle",
         "voltaire"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1311,32 +1313,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ibn abd alwahhab",
-        "muhammad yunus"
-      ],
-      "ranks": [
-        2,
-        179,
-        215
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "buddha",
-      "variants": [
-        "buddha",
-        "gautama buddha"
-      ],
-      "ranks": [
-        21,
-        162
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "nikola tesla",
       "variants": [
         "nikola tesla",
@@ -1410,6 +1386,21 @@
       "Military": 39,
       "Other": 635
     }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 202,
+    "contributionShortRate": 0.202,
+    "score": 95.96
   },
   "summary": "Issues: 733 exact duplicates; pattern collapse (max 12)"
 }

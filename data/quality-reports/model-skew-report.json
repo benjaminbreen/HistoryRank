@@ -1,0 +1,493 @@
+{
+  "consensus": {
+    "region": {
+      "Asia": 0.167,
+      "Europe": 0.485,
+      "Africa": 0.049,
+      "Americas": 0.225,
+      "Unknown": 0.069,
+      "Oceania": 0.005
+    },
+    "era": {
+      "Late Antiquity": 0.039,
+      "Classical": 0.073,
+      "Early Modern": 0.17,
+      "Industrial": 0.329,
+      "Medieval": 0.11,
+      "Ancient": 0.022,
+      "Modern": 0.141,
+      "Unknown": 0.034,
+      "Contemporary": 0.082
+    },
+    "domain": {
+      "Religion": 0.067,
+      "Philosophy": 0.097,
+      "Science": 0.214,
+      "Economics": 0.037,
+      "Military": 0.029,
+      "Politics": 0.271,
+      "Arts": 0.206,
+      "Exploration": 0.023,
+      "Social Reform": 0.029,
+      "Medicine": 0.011,
+      "Other": 0.016
+    }
+  },
+  "report": [
+    {
+      "model": "mistral-large-3",
+      "regionJs": 0.02484816699156267,
+      "eraJs": 0.039871841340746075,
+      "domainJs": 0.013379272135813738,
+      "avgJs": 0.02603309348937416,
+      "counts": {
+        "region": {
+          "Asia": 0.122,
+          "Europe": 0.387,
+          "Americas": 0.272,
+          "Africa": 0.04,
+          "Unknown": 0.171,
+          "Oceania": 0.008
+        },
+        "era": {
+          "Classical": 0.032,
+          "Late Antiquity": 0.016,
+          "Early Modern": 0.107,
+          "Industrial": 0.349,
+          "Medieval": 0.054,
+          "Ancient": 0.012,
+          "Unknown": 0.047,
+          "Modern": 0.221,
+          "Contemporary": 0.162
+        },
+        "domain": {
+          "Religion": 0.079,
+          "Science": 0.223,
+          "Philosophy": 0.077,
+          "Economics": 0.069,
+          "Arts": 0.214,
+          "Military": 0.014,
+          "Politics": 0.251,
+          "Social Reform": 0.029,
+          "Exploration": 0.004,
+          "Medicine": 0.014,
+          "Other": 0.026
+        }
+      }
+    },
+    {
+      "model": "gpt-5.2-thinking",
+      "regionJs": 0.03492028443802293,
+      "eraJs": 0.02659552239231093,
+      "domainJs": 0.01236449680095545,
+      "avgJs": 0.024626767877096434,
+      "counts": {
+        "region": {
+          "Asia": 0.177,
+          "Europe": 0.417,
+          "Americas": 0.147,
+          "Africa": 0.044,
+          "Unknown": 0.21,
+          "Oceania": 0.005
+        },
+        "era": {
+          "Late Antiquity": 0.051,
+          "Classical": 0.053,
+          "Early Modern": 0.174,
+          "Medieval": 0.147,
+          "Industrial": 0.297,
+          "Ancient": 0.014,
+          "Unknown": 0.109,
+          "Contemporary": 0.038,
+          "Modern": 0.117
+        },
+        "domain": {
+          "Religion": 0.091,
+          "Philosophy": 0.085,
+          "Science": 0.187,
+          "Politics": 0.332,
+          "Economics": 0.028,
+          "Military": 0.043,
+          "Exploration": 0.019,
+          "Arts": 0.141,
+          "Medicine": 0.016,
+          "Social Reform": 0.039,
+          "Other": 0.017,
+          "Unknown": 0.002
+        }
+      }
+    },
+    {
+      "model": "gemini-flash-3-preview",
+      "regionJs": 0.025248482435654532,
+      "eraJs": 0.020762171405027383,
+      "domainJs": 0.02232313107608399,
+      "avgJs": 0.02277792830558863,
+      "counts": {
+        "region": {
+          "Asia": 0.138,
+          "Europe": 0.394,
+          "Africa": 0.042,
+          "Americas": 0.23,
+          "Oceania": 0.012,
+          "Unknown": 0.184
+        },
+        "era": {
+          "Late Antiquity": 0.027,
+          "Early Modern": 0.138,
+          "Classical": 0.047,
+          "Medieval": 0.08,
+          "Industrial": 0.322,
+          "Ancient": 0.011,
+          "Unknown": 0.085,
+          "Contemporary": 0.139,
+          "Modern": 0.151
+        },
+        "domain": {
+          "Religion": 0.049,
+          "Science": 0.174,
+          "Philosophy": 0.064,
+          "Exploration": 0.024,
+          "Politics": 0.291,
+          "Economics": 0.026,
+          "Military": 0.033,
+          "Arts": 0.214,
+          "Medicine": 0.018,
+          "Social Reform": 0.031,
+          "Other": 0.074,
+          "Unknown": 0.002
+        }
+      }
+    },
+    {
+      "model": "deepseek-v3.2",
+      "regionJs": 0.01774031969667792,
+      "eraJs": 0.018592355869743414,
+      "domainJs": 0.022302397461405096,
+      "avgJs": 0.01954502434260881,
+      "counts": {
+        "region": {
+          "Asia": 0.103,
+          "Europe": 0.442,
+          "Africa": 0.035,
+          "Americas": 0.277,
+          "Unknown": 0.139,
+          "Oceania": 0.004
+        },
+        "era": {
+          "Classical": 0.06,
+          "Late Antiquity": 0.021,
+          "Early Modern": 0.118,
+          "Medieval": 0.085,
+          "Industrial": 0.318,
+          "Ancient": 0.017,
+          "Unknown": 0.036,
+          "Modern": 0.186,
+          "Contemporary": 0.159
+        },
+        "domain": {
+          "Religion": 0.06,
+          "Science": 0.216,
+          "Philosophy": 0.081,
+          "Exploration": 0.015,
+          "Economics": 0.029,
+          "Politics": 0.172,
+          "Military": 0.026,
+          "Arts": 0.325,
+          "Social Reform": 0.03,
+          "Medicine": 0.01,
+          "Other": 0.036
+        }
+      }
+    },
+    {
+      "model": "glm-4.7",
+      "regionJs": 0.016803023216191076,
+      "eraJs": 0.017953650968570812,
+      "domainJs": 0.01619475850712828,
+      "avgJs": 0.01698381089729672,
+      "counts": {
+        "region": {
+          "Asia": 0.189,
+          "Europe": 0.43,
+          "Africa": 0.049,
+          "Americas": 0.171,
+          "Unknown": 0.156,
+          "Oceania": 0.005
+        },
+        "era": {
+          "Late Antiquity": 0.056,
+          "Early Modern": 0.166,
+          "Classical": 0.092,
+          "Medieval": 0.126,
+          "Industrial": 0.248,
+          "Ancient": 0.019,
+          "Modern": 0.094,
+          "Contemporary": 0.145,
+          "Unknown": 0.054
+        },
+        "domain": {
+          "Religion": 0.073,
+          "Science": 0.163,
+          "Philosophy": 0.082,
+          "Exploration": 0.029,
+          "Economics": 0.047,
+          "Military": 0.034,
+          "Politics": 0.302,
+          "Arts": 0.177,
+          "Social Reform": 0.021,
+          "Medicine": 0.01,
+          "Other": 0.062
+        }
+      }
+    },
+    {
+      "model": "qwen3-235b-a22b",
+      "regionJs": 0.00840576717778419,
+      "eraJs": 0.013961394206942642,
+      "domainJs": 0.027999534027552266,
+      "avgJs": 0.0167888984707597,
+      "counts": {
+        "region": {
+          "Asia": 0.185,
+          "Europe": 0.478,
+          "Americas": 0.164,
+          "Africa": 0.052,
+          "Unknown": 0.117,
+          "Oceania": 0.004
+        },
+        "era": {
+          "Classical": 0.078,
+          "Late Antiquity": 0.056,
+          "Early Modern": 0.173,
+          "Industrial": 0.269,
+          "Medieval": 0.162,
+          "Ancient": 0.037,
+          "Modern": 0.11,
+          "Unknown": 0.059,
+          "Contemporary": 0.056
+        },
+        "domain": {
+          "Religion": 0.131,
+          "Science": 0.202,
+          "Philosophy": 0.089,
+          "Military": 0.034,
+          "Politics": 0.329,
+          "Economics": 0.043,
+          "Social Reform": 0.027,
+          "Arts": 0.089,
+          "Medicine": 0.013,
+          "Other": 0.023,
+          "Exploration": 0.02
+        }
+      }
+    },
+    {
+      "model": "claude-sonnet-4.5",
+      "regionJs": 0.02032491457399207,
+      "eraJs": 0.011341043633820921,
+      "domainJs": 0.009300522179998062,
+      "avgJs": 0.013655493462603684,
+      "counts": {
+        "region": {
+          "Asia": 0.126,
+          "Europe": 0.489,
+          "Africa": 0.037,
+          "Americas": 0.177,
+          "Unknown": 0.168,
+          "Oceania": 0.003
+        },
+        "era": {
+          "Classical": 0.089,
+          "Late Antiquity": 0.037,
+          "Early Modern": 0.188,
+          "Medieval": 0.099,
+          "Industrial": 0.341,
+          "Ancient": 0.023,
+          "Unknown": 0.069,
+          "Modern": 0.111,
+          "Contemporary": 0.043
+        },
+        "domain": {
+          "Religion": 0.076,
+          "Philosophy": 0.122,
+          "Science": 0.163,
+          "Economics": 0.049,
+          "Arts": 0.264,
+          "Military": 0.031,
+          "Politics": 0.217,
+          "Exploration": 0.023,
+          "Social Reform": 0.027,
+          "Medicine": 0.009,
+          "Other": 0.019
+        }
+      }
+    },
+    {
+      "model": "claude-opus-4.5",
+      "regionJs": 0.01661706952751664,
+      "eraJs": 0.014888947728047271,
+      "domainJs": 0.008964579601517638,
+      "avgJs": 0.013490198952360519,
+      "counts": {
+        "region": {
+          "Asia": 0.174,
+          "Europe": 0.467,
+          "Africa": 0.057,
+          "Americas": 0.149,
+          "Oceania": 0.005,
+          "Unknown": 0.148
+        },
+        "era": {
+          "Late Antiquity": 0.046,
+          "Early Modern": 0.195,
+          "Classical": 0.072,
+          "Medieval": 0.116,
+          "Industrial": 0.333,
+          "Ancient": 0.021,
+          "Unknown": 0.079,
+          "Modern": 0.09,
+          "Contemporary": 0.048
+        },
+        "domain": {
+          "Religion": 0.083,
+          "Science": 0.233,
+          "Philosophy": 0.097,
+          "Military": 0.034,
+          "Economics": 0.041,
+          "Politics": 0.301,
+          "Exploration": 0.018,
+          "Arts": 0.138,
+          "Social Reform": 0.025,
+          "Medicine": 0.012,
+          "Other": 0.014,
+          "Unknown": 0.004
+        }
+      }
+    },
+    {
+      "model": "grok-4.1-fast",
+      "regionJs": 0.008324545163815325,
+      "eraJs": 0.016502520597291778,
+      "domainJs": 0.015147903612370882,
+      "avgJs": 0.013324989791159328,
+      "counts": {
+        "region": {
+          "Asia": 0.177,
+          "Europe": 0.42,
+          "Africa": 0.056,
+          "Americas": 0.215,
+          "Unknown": 0.127,
+          "Oceania": 0.005
+        },
+        "era": {
+          "Classical": 0.071,
+          "Late Antiquity": 0.031,
+          "Early Modern": 0.167,
+          "Medieval": 0.117,
+          "Industrial": 0.267,
+          "Ancient": 0.015,
+          "Unknown": 0.055,
+          "Modern": 0.112,
+          "Contemporary": 0.165
+        },
+        "domain": {
+          "Religion": 0.046,
+          "Philosophy": 0.081,
+          "Military": 0.037,
+          "Science": 0.17,
+          "Politics": 0.325,
+          "Economics": 0.035,
+          "Social Reform": 0.025,
+          "Arts": 0.196,
+          "Exploration": 0.02,
+          "Medicine": 0.008,
+          "Other": 0.057
+        }
+      }
+    },
+    {
+      "model": "grok-4",
+      "regionJs": 0.020171602106174732,
+      "eraJs": 0.01218750196968582,
+      "domainJs": 0.007428760404614491,
+      "avgJs": 0.01326262149349168,
+      "counts": {
+        "region": {
+          "Asia": 0.114,
+          "Europe": 0.438,
+          "Americas": 0.234,
+          "Africa": 0.042,
+          "Unknown": 0.168,
+          "Oceania": 0.004
+        },
+        "era": {
+          "Classical": 0.067,
+          "Late Antiquity": 0.026,
+          "Early Modern": 0.123,
+          "Industrial": 0.328,
+          "Medieval": 0.076,
+          "Ancient": 0.022,
+          "Modern": 0.187,
+          "Contemporary": 0.122,
+          "Unknown": 0.049
+        },
+        "domain": {
+          "Religion": 0.047,
+          "Philosophy": 0.093,
+          "Science": 0.244,
+          "Military": 0.022,
+          "Economics": 0.058,
+          "Politics": 0.219,
+          "Social Reform": 0.035,
+          "Arts": 0.218,
+          "Exploration": 0.032,
+          "Medicine": 0.009,
+          "Other": 0.023
+        }
+      }
+    },
+    {
+      "model": "gemini-pro-3",
+      "regionJs": 0.0030725060086325886,
+      "eraJs": 0.003504069601021122,
+      "domainJs": 0.028129134654392797,
+      "avgJs": 0.011568570088015503,
+      "counts": {
+        "region": {
+          "Asia": 0.153,
+          "Europe": 0.459,
+          "Africa": 0.051,
+          "Americas": 0.228,
+          "Oceania": 0.005,
+          "Unknown": 0.104
+        },
+        "era": {
+          "Late Antiquity": 0.036,
+          "Early Modern": 0.163,
+          "Classical": 0.071,
+          "Medieval": 0.086,
+          "Industrial": 0.34,
+          "Ancient": 0.02,
+          "Unknown": 0.047,
+          "Modern": 0.129,
+          "Contemporary": 0.108
+        },
+        "domain": {
+          "Religion": 0.057,
+          "Science": 0.191,
+          "Philosophy": 0.075,
+          "Exploration": 0.024,
+          "Politics": 0.241,
+          "Economics": 0.03,
+          "Military": 0.039,
+          "Arts": 0.201,
+          "Medicine": 0.012,
+          "Social Reform": 0.03,
+          "Other": 0.096,
+          "Unknown": 0.004
+        }
+      }
+    }
+  ]
+}

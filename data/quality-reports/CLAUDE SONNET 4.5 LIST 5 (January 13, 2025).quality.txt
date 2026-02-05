@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt
 Model: Claude Sonnet 4.5
-Timestamp: 2026-01-20T04:15:52.554Z
+Timestamp: 2026-02-05T18:16:22.210Z
 
 VERDICT: WARN
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 36 exact duplicates found
   Pattern Collapse: WARN - Max sequence of 36 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (67):
+Issues (64):
   - Exact duplicate: "galileo galilei" at ranks 13, 199
   - Exact duplicate: "adam smith" at ranks 14, 275
   - Exact duplicate: "sigmund freud" at ranks 25, 181, 322
@@ -25,8 +25,17 @@ Issues (67):
   - Exact duplicate: "miguel de cervantes" at ranks 81, 555
   - Exact duplicate: "tim bernerslee" at ranks 144, 416
   - Exact duplicate: "alan turing" at ranks 145, 409
-  ... and 57 more issues
+  ... and 54 more issues
 
 Diversity Estimates:
   Regions: Europe: 64, Asia: 26, Middle East: 12, Africa: 17, Americas: 24, Unknown: 857
   Domains: Politics/Leadership: 14, Science/Technology: 17, Philosophy/Religion: 9, Arts/Literature: 25, Military: 5, Other: 930
+
+Advanced Metrics:
+  Advanced score: 92.1
+  Parenthetical names: 0.1%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 39.2%

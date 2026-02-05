@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 3 (January 13, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:02.880Z",
+  "timestamp": "2026-02-05T18:16:55.407Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 14,
-      "fuzzy": 11,
+      "fuzzy": 5,
       "status": "PASS",
       "details": "14 exact duplicates found"
     },
@@ -708,6 +708,54 @@
             "971. El Chapo (Joaquin Guzman)",
             "972. Al Capone"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 299,
+          "endRank": 316,
+          "count": 19,
+          "examples": [
+            "299. Hafez",
+            "300. Rabindranath Tagore",
+            "301. Leo Tolstoy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 667,
+          "endRank": 685,
+          "count": 19,
+          "examples": [
+            "667. Alfredo Di Stefano",
+            "668. Ferenc Puskas",
+            "669. Eusebio"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 818,
+          "endRank": 838,
+          "count": 21,
+          "examples": [
+            "818. Hillary Clinton",
+            "819. Nancy Pelosi",
+            "820. Kamala Harris"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 952,
+          "endRank": 967,
+          "count": 16,
+          "examples": [
+            "952. Norodom Sihanouk",
+            "953. Bhumibol Adulyadej",
+            "954. Mahathir Mohamad"
+          ]
         }
       ],
       "status": "PASS",
@@ -721,13 +769,15 @@
       "details": "1017 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "mahatma gandhi",
+        "saint paul",
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -845,66 +895,50 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "antony van leeuwenhoek",
       "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad yunus"
+        "antony van leeuwenhoek",
+        "antonie van leeuwenhoek"
       ],
       "ranks": [
-        1,
-        240,
-        811
+        36,
+        608
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
+      "name": "pope urban ii",
       "variants": [
-        "moses",
-        "menes"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        15,
-        96
+        51,
+        531
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
+      "name": "queen isabella i",
       "variants": [
-        "mani",
-        "giorgio armani",
-        "qasem soleimani"
+        "queen isabella i",
+        "queen elizabeth i"
       ],
       "ranks": [
-        83,
-        757,
-        929
+        65,
+        94
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "lenin",
+      "name": "ingrid bergman",
       "variants": [
-        "lenin",
-        "vladimir lenin"
+        "ingrid bergman",
+        "ingmar bergman"
       ],
       "ranks": [
-        84,
-        510
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tecumseh",
-      "variants": [
-        "tecumseh",
-        "william tecumseh sherman"
-      ],
-      "ranks": [
-        258,
-        885
+        406,
+        421
       ]
     },
     {
@@ -917,42 +951,6 @@
       "ranks": [
         433,
         616
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "megawati sukarnoputri",
-      "variants": [
-        "megawati sukarnoputri",
-        "sukarno"
-      ],
-      "ranks": [
-        826,
-        950
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kim jongil",
-      "variants": [
-        "kim jongil",
-        "kim jongun"
-      ],
-      "ranks": [
-        945,
-        946
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        950,
-        951
       ]
     },
     {
@@ -1650,6 +1648,54 @@
         "971. El Chapo (Joaquin Guzman)",
         "972. Al Capone"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 299,
+      "endRank": 316,
+      "count": 19,
+      "examples": [
+        "299. Hafez",
+        "300. Rabindranath Tagore",
+        "301. Leo Tolstoy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 667,
+      "endRank": 685,
+      "count": 19,
+      "examples": [
+        "667. Alfredo Di Stefano",
+        "668. Ferenc Puskas",
+        "669. Eusebio"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 818,
+      "endRank": 838,
+      "count": 21,
+      "examples": [
+        "818. Hillary Clinton",
+        "819. Nancy Pelosi",
+        "820. Kamala Harris"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 952,
+      "endRank": 967,
+      "count": 16,
+      "examples": [
+        "952. Norodom Sihanouk",
+        "953. Bhumibol Adulyadej",
+        "954. Mahathir Mohamad"
+      ]
     }
   ],
   "diversity": {
@@ -1678,6 +1724,21 @@
       "Military": 32,
       "Other": 459
     }
+  },
+  "advanced": {
+    "parentheticalCount": 13,
+    "parentheticalRate": 0.012782694198623401,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0009832841691248771,
+    "commaNameCount": 1,
+    "commaNameRate": 0.0009832841691248771,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 2,
+    "contributionShortRate": 0.0019665683382497543,
+    "score": 99.13470993117011
   },
   "summary": "Issues: 14 exact duplicates; pattern collapse (max 23); 1017 entries (expected 1000); non-sequential ranks"
 }

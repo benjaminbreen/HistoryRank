@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 6 (January 14, 2026).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:04.483Z",
+  "timestamp": "2026-02-05T18:16:59.476Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 474,
-      "fuzzy": 6,
+      "fuzzy": 4,
       "status": "FAIL",
       "details": "474 exact duplicates found"
     },
@@ -24,16 +24,18 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 39,
-      "expected": 43,
+      "found": 55,
+      "expected": 61,
       "missing": [
         "socrates",
         "leonardo da vinci",
+        "saint paul",
+        "paul the apostle",
         "pythagoras",
         "archimedes"
       ],
       "status": "PASS",
-      "details": "39/43 anchor figures found (91%)"
+      "details": "55/61 anchor figures found (90%)"
     }
   },
   "issues": [
@@ -2095,14 +2097,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "antony van leeuwenhoek",
       "variants": [
-        "muhammad",
-        "jalal addin muhammad rumi"
+        "antony van leeuwenhoek",
+        "antoni van leeuwenhoek"
       ],
       "ranks": [
-        1,
-        425
+        36,
+        426
       ]
     },
     {
@@ -2119,38 +2121,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
+      "name": "queen isabella i",
       "variants": [
-        "mani",
-        "mozi"
+        "queen isabella i",
+        "queen elizabeth i"
       ],
       "ranks": [
-        101,
-        862
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        191,
-        862
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jalal addin muhammad rumi",
-      "variants": [
-        "jalal addin muhammad rumi",
-        "rumi"
-      ],
-      "ranks": [
-        425,
-        663
+        65,
+        91
       ]
     },
     {
@@ -2192,6 +2170,21 @@
       "Military": 22,
       "Other": 632
     }
+  },
+  "advanced": {
+    "parentheticalCount": 7,
+    "parentheticalRate": 0.007,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 99.46000000000001
   },
   "summary": "Issues: 474 exact duplicates"
 }

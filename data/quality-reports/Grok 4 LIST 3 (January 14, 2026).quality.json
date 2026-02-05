@@ -1,12 +1,12 @@
 {
   "file": "Grok 4 LIST 3 (January 14, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:05.475Z",
+  "timestamp": "2026-02-05T18:17:02.200Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 115,
-      "fuzzy": 87,
+      "fuzzy": 35,
       "status": "WARN",
       "details": "115 exact duplicates found"
     },
@@ -193,14 +193,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "copernicus",
         "kepler"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1091,230 +1093,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "plato",
-      "variants": [
-        "plato",
-        "latto"
-      ],
-      "ranks": [
-        6,
-        840
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "socrates",
-      "variants": [
-        "socrates",
-        "isocrates"
-      ],
-      "ranks": [
-        13,
-        275
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
-        "martin luther king jr",
-        "her"
+        "martin luther king jr"
       ],
       "ranks": [
         22,
-        101,
-        956
+        101
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "homer",
+      "name": "alan turing",
       "variants": [
-        "homer",
-        "her"
+        "alan turing",
+        "alan mathison turing"
       ],
       "ranks": [
-        24,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "johannes gutenberg",
-      "variants": [
-        "johannes gutenberg",
-        "anne"
-      ],
-      "ranks": [
-        33,
-        883
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "christopher columbus",
-      "variants": [
-        "christopher columbus",
-        "her"
-      ],
-      "ranks": [
-        38,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "martin luther king jr",
-      "variants": [
-        "martin luther king jr",
-        "her"
-      ],
-      "ranks": [
-        101,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mother teresa",
-      "variants": [
-        "mother teresa",
-        "her"
-      ],
-      "ranks": [
-        103,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "miguel de cervantes",
-      "variants": [
-        "miguel de cervantes",
-        "miguel"
-      ],
-      "ranks": [
-        154,
-        978
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "theodor herzl",
-      "variants": [
-        "theodor herzl",
-        "her"
-      ],
-      "ranks": [
-        219,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "margaret thatcher",
-      "variants": [
-        "margaret thatcher",
-        "her"
-      ],
-      "ranks": [
-        225,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "heraclitus",
-      "variants": [
-        "heraclitus",
-        "heraclius",
-        "her"
-      ],
-      "ranks": [
-        266,
-        609,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shivaji",
-      "variants": [
-        "shivaji",
-        "shiva"
-      ],
-      "ranks": [
-        310,
-        325
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "krishnadevaraya",
-      "variants": [
-        "krishnadevaraya",
-        "krishna"
-      ],
-      "ranks": [
-        316,
-        324
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vikramaditya",
-      "variants": [
-        "vikramaditya",
-        "rama"
-      ],
-      "ranks": [
-        322,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rama",
-      "variants": [
-        "rama",
-        "brahma",
-        "raja ramanna",
-        "cv raman",
-        "pami"
-      ],
-      "ranks": [
-        323,
-        327,
-        497,
-        498,
-        987
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "brahma",
-      "variants": [
-        "brahma",
-        "subrahmanyan chandrasekhar"
-      ],
-      "ranks": [
-        327,
-        500
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "zane",
-        "pami"
-      ],
-      "ranks": [
-        329,
-        918,
-        987
+        107,
+        168
       ]
     },
     {
@@ -1334,13 +1132,11 @@
       "name": "henry iv",
       "variants": [
         "henry iv",
-        "henry iv of france",
-        "henry v"
+        "henry iv of france"
       ],
       "ranks": [
         367,
-        811,
-        851
+        811
       ]
     },
     {
@@ -1348,25 +1144,11 @@
       "name": "charles v",
       "variants": [
         "charles v",
-        "charles i",
-        "charles ii"
+        "charles i"
       ],
       "ranks": [
         370,
-        863,
-        871
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "maria theresa",
-      "variants": [
-        "maria theresa",
-        "her"
-      ],
-      "ranks": [
-        376,
-        956
+        863
       ]
     },
     {
@@ -1374,87 +1156,13 @@
       "name": "charles xii",
       "variants": [
         "charles xii",
-        "charles i",
         "charles ii",
         "charles iii"
       ],
       "ranks": [
         379,
-        863,
         871,
         931
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "wright brothers",
-      "variants": [
-        "wright brothers",
-        "her"
-      ],
-      "ranks": [
-        471,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "wernher von braun",
-      "variants": [
-        "wernher von braun",
-        "her"
-      ],
-      "ranks": [
-        490,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hermann oberth",
-      "variants": [
-        "hermann oberth",
-        "her"
-      ],
-      "ranks": [
-        493,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "queen victoria",
-      "variants": [
-        "queen victoria",
-        "victoria"
-      ],
-      "ranks": [
-        516,
-        907
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "heraclius",
-      "variants": [
-        "heraclius",
-        "her"
-      ],
-      "ranks": [
-        609,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "suzanne collins",
-      "variants": [
-        "suzanne collins",
-        "anne"
-      ],
-      "ranks": [
-        610,
-        883
       ]
     },
     {
@@ -1463,28 +1171,12 @@
       "variants": [
         "mehmed ii",
         "mehmed iv",
-        "mahmud ii",
-        "mehmed v",
         "mehmed vi"
       ],
       "ranks": [
         653,
         665,
-        701,
-        721,
         725
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "murad ii",
-      "variants": [
-        "murad ii",
-        "murad v"
-      ],
-      "ranks": [
-        661,
-        713
       ]
     },
     {
@@ -1492,25 +1184,11 @@
       "name": "mehmed iv",
       "variants": [
         "mehmed iv",
-        "mehmed v",
-        "mehmed vi"
+        "mehmed v"
       ],
       "ranks": [
         665,
-        721,
-        725
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "herbert hoover",
-      "variants": [
-        "herbert hoover",
-        "her"
-      ],
-      "ranks": [
-        667,
-        956
+        721
       ]
     },
     {
@@ -1527,25 +1205,15 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mustafa iii",
-      "variants": [
-        "mustafa iii",
-        "mustafa iv"
-      ],
-      "ranks": [
-        685,
-        697
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "abdul hamid i",
       "variants": [
         "abdul hamid i",
+        "abdulmejid i",
         "abdul hamid ii"
       ],
       "ranks": [
         689,
+        705,
         717
       ]
     },
@@ -1563,14 +1231,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rutherford b hayes",
+      "name": "abdul hamid ii",
       "variants": [
-        "rutherford b hayes",
-        "her"
+        "abdul hamid ii",
+        "abdulmejid ii"
       ],
       "ranks": [
-        711,
-        956
+        717,
+        729
       ]
     },
     {
@@ -1595,42 +1263,6 @@
       "ranks": [
         765,
         833
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "heather graham",
-      "variants": [
-        "heather graham",
-        "her"
-      ],
-      "ranks": [
-        786,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "lennox",
-      "variants": [
-        "lennox",
-        "ari lennox"
-      ],
-      "ranks": [
-        792,
-        976
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "catherine coulter",
-      "variants": [
-        "catherine coulter",
-        "her"
-      ],
-      "ranks": [
-        806,
-        956
       ]
     },
     {
@@ -1661,18 +1293,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sherryl woods",
-      "variants": [
-        "sherryl woods",
-        "her"
-      ],
-      "ranks": [
-        854,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "charles i",
       "variants": [
         "charles i",
@@ -1699,25 +1319,12 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "anne",
-      "variants": [
-        "anne",
-        "zane"
-      ],
-      "ranks": [
-        883,
-        918
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "george i",
       "variants": [
         "george i",
         "george ii",
         "george iii",
         "george iv",
-        "george v",
         "george vi"
       ],
       "ranks": [
@@ -1725,7 +1332,6 @@
         891,
         895,
         899,
-        915,
         923
       ]
     },
@@ -1736,38 +1342,10 @@
         "george ii",
         "george iii",
         "george iv",
-        "george v",
         "george vi"
       ],
       "ranks": [
         891,
-        895,
-        899,
-        915,
-        923
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sherrilyn kenyon",
-      "variants": [
-        "sherrilyn kenyon",
-        "her"
-      ],
-      "ranks": [
-        894,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "george iii",
-      "variants": [
-        "george iii",
-        "george iv",
-        "george vi"
-      ],
-      "ranks": [
         895,
         899,
         923
@@ -1778,27 +1356,11 @@
       "name": "george iv",
       "variants": [
         "george iv",
-        "george v",
-        "george vi"
+        "george v"
       ],
       "ranks": [
         899,
-        915,
-        923
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "victoria",
-      "variants": [
-        "victoria",
-        "victoria monet",
-        "victoria christopher murray"
-      ],
-      "ranks": [
-        907,
-        920,
-        950
+        915
       ]
     },
     {
@@ -1823,30 +1385,6 @@
       "ranks": [
         915,
         923
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "victoria christopher murray",
-      "variants": [
-        "victoria christopher murray",
-        "her"
-      ],
-      "ranks": [
-        950,
-        956
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "her",
-      "variants": [
-        "her",
-        "usher"
-      ],
-      "ranks": [
-        956,
-        984
       ]
     },
     {
@@ -2068,6 +1606,21 @@
       "Military": 15,
       "Other": 621
     }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 496,
+    "contributionShortRate": 0.496,
+    "score": 89.75999999999999
   },
   "summary": "Issues: 115 exact duplicates; pattern collapse (max 17)"
 }

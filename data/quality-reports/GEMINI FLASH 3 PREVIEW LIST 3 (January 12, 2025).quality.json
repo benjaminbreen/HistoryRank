@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 3 (January 12, 2025).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:16:00.128Z",
+  "timestamp": "2026-02-05T18:16:48.247Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 303,
-      "fuzzy": 21,
+      "fuzzy": 5,
       "status": "FAIL",
       "details": "303 exact duplicates found"
     },
@@ -180,6 +180,18 @@
             "670. Frank Lloyd Wright",
             "671. Ludwig Mies van der Rohe"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 424,
+          "endRank": 442,
+          "count": 19,
+          "examples": [
+            "424. Bob Marley",
+            "425. Ravi Shankar",
+            "426. Ludwig van Beethoven"
+          ]
         }
       ],
       "status": "PASS",
@@ -193,13 +205,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -2181,30 +2194,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "michelangelo",
-      "variants": [
-        "michelangelo",
-        "michelangelo buonarroti"
-      ],
-      "ranks": [
-        50,
-        462
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "asoka",
-      "variants": [
-        "asoka",
-        "asoka the great"
-      ],
-      "ranks": [
-        52,
-        875
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "st augustine",
       "variants": [
         "st augustine",
@@ -2213,70 +2202,6 @@
       "ranks": [
         53,
         922
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "francisco pizarro",
-      "variants": [
-        "francisco pizarro",
-        "francis"
-      ],
-      "ranks": [
-        60,
-        324
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hernan cortes",
-      "variants": [
-        "hernan cortes",
-        "hernn corts"
-      ],
-      "ranks": [
-        61,
-        245
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "malthus",
-      "variants": [
-        "malthus",
-        "thomas malthus",
-        "thomas robert malthus"
-      ],
-      "ranks": [
-        77,
-        259,
-        801
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "giorgio armani"
-      ],
-      "ranks": [
-        85,
-        446
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "timur tamerlane",
-      "variants": [
-        "timur tamerlane",
-        "timur",
-        "tamerlane"
-      ],
-      "ranks": [
-        147,
-        293,
-        878
       ]
     },
     {
@@ -2293,78 +2218,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "jinnah",
+      "name": "thomas malthus",
       "variants": [
-        "jinnah",
-        "muhammad ali jinnah"
+        "thomas malthus",
+        "thomas robert malthus"
       ],
       "ranks": [
-        302,
-        843
+        259,
+        801
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "kim jongil",
+      "name": "soren kierkegaard",
       "variants": [
-        "kim jongil",
-        "kim jongun"
+        "soren kierkegaard",
+        "sren kierkegaard"
       ],
       "ranks": [
-        315,
-        316
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        318,
-        319
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "francis",
-      "variants": [
-        "francis",
-        "francis ford coppola",
-        "francisco goya",
-        "francis of assisi"
-      ],
-      "ranks": [
-        324,
-        400,
-        466,
-        927
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        348,
-        738
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "linnaeus",
-      "variants": [
-        "linnaeus",
-        "carl linnaeus"
-      ],
-      "ranks": [
-        352,
-        796
+        336,
+        934
       ]
     },
     {
@@ -2377,18 +2250,6 @@
       "ranks": [
         500,
         634
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "horace mann",
-      "variants": [
-        "horace mann",
-        "horace"
-      ],
-      "ranks": [
-        566,
-        606
       ]
     },
     {
@@ -2558,6 +2419,18 @@
         "670. Frank Lloyd Wright",
         "671. Ludwig Mies van der Rohe"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 424,
+      "endRank": 442,
+      "count": 19,
+      "examples": [
+        "424. Bob Marley",
+        "425. Ravi Shankar",
+        "426. Ludwig van Beethoven"
+      ]
     }
   ],
   "diversity": {
@@ -2586,6 +2459,21 @@
       "Military": 18,
       "Other": 470
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 9,
+    "multiPersonRate": 0.009,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.31
   },
   "summary": "Issues: 303 exact duplicates; pattern collapse (max 22)"
 }

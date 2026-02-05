@@ -2,7 +2,6 @@
   "_comment": "Figure overrides and corrections. Run: npx tsx scripts/reconcile.ts",
   "merges": {
     "_comment": "Merge duplicate figures. Format: 'keep_id': ['delete_id1', 'delete_id2']",
-
     "_comment_section1": "=== EXISTING MERGES ===",
     "mani": [
       "the-prophet-mani"
@@ -41,89 +40,144 @@
     "napoleon": [
       "napoleon-bonaparte"
     ],
-
+    "_comment_section1b": "=== MERGES FOR V2 DUPLICATES (Feb 2026) ===",
+    "pope-gregory-i": [
+      "gregory-i"
+    ],
+    "maimonides": [
+      "moshe-ben-maimon"
+    ],
+    "pope-innocent-iii": [
+      "innocent-iii"
+    ],
+    "athanasius-of-alexandria": [
+      "athanasius"
+    ],
+    "henry-viii-of-england": [
+      "henry-viii"
+    ],
+    "otto-von-bismarck": [
+      "bismarck"
+    ],
+    "prince-henry-the-navigator": [
+      "henry-the-navigator"
+    ],
+    "cixi": [
+      "empress-dowager-cixi"
+    ],
+    "henry-dunant": [
+      "henri-dunant"
+    ],
     "_comment_section2": "=== GPT-5.2 CRITIQUE FIXES (Jan 2026) ===",
-
     "_comment_buddha": "Buddha appears as both 'Gautama Buddha' (#3) and 'The Buddha' (#1672)",
     "gautama-buddha": [
       "the-buddha"
     ],
-
     "_comment_victoria": "Queen Victoria (#147) vs plain 'Victoria' (#1393)",
     "queen-victoria": [
       "victoria"
     ],
-
     "_comment_hypatia": "Hypatia (#373) vs 'Hypatia of Alexandria' (#1867)",
     "hypatia": [
       "hypatia-of-alexandria"
     ],
-
     "_comment_nicholas": "Nicholas II appears in multiple forms",
     "nicholas-ii-of-russia": [
       "tsar-nicholas-ii",
       "nicholas-ii"
     ],
-
     "_comment_cailun": "Cai Lun appears twice with different transliterations",
     "cai-lun": [
       "ts-ai-lun"
     ],
-
     "_comment_taizong": "Emperor Taizong of Tang = Li Shimin",
     "li-shimin": [
       "emperor-taizong-of-tang"
     ],
-
     "_comment_ataturk": "Atatürk vs Mustafa Kemal Atatürk",
     "mustafa-kemal-atat-rk": [
       "atat-rk"
     ],
-
     "_comment_bahaullah": "Bahá'u'lláh appears in different transliterations",
     "bah-u-ll-h": [
       "baha-u-llah"
     ],
-
     "_comment_seneca": "Seneca vs Seneca the Younger (same person)",
     "seneca-the-younger": [
       "seneca"
     ],
-
     "_comment_mehmed": "Mehmed II = Mehmed the Conqueror = Sultan Mehmed II",
     "mehmed-ii": [
       "mehmed-the-conqueror",
       "sultan-mehmed-ii"
     ],
-
     "_comment_sanmartin": "José de San Martín appears with/without accent",
     "jose-de-san-martin": [
       "jos-de-san-mart-n"
     ],
-
     "_comment_leeuwenhoek": "Antonie/Antoni van Leeuwenhoek variants",
     "antonie-van-leeuwenhoek": [
       "antoni-van-leeuwenhoek"
     ],
-
     "_comment_cyrus": "Cyrus the Great = Cyrus II (same Persian emperor)",
     "cyrus-the-great": [
       "cyrus-ii"
     ],
-
     "_comment_frederick": "Frederick the Great = Frederick II of Prussia (NOT Holy Roman Emperor)",
     "frederick-the-great": [
       "frederick-ii"
     ],
-
     "_comment_leonidas": "Leonidas = Leonidas I (Spartan king)",
     "leonidas-i": [
       "leonidas"
+    ],
+    "ferdinand-i-holy-roman-emperor": [
+      "ferdinand-i"
+    ],
+    "aeschylus": [
+      "aiskhylos"
+    ],
+    "andreas-vesalius": [
+      "vesalius-andreas"
+    ],
+    "catherine-the-great": [
+      "catherine-ii"
+    ],
+    "christian-doppler": [
+      "doppler"
+    ],
+    "gilbert-du-motier-marquis-de-lafayette": [
+      "gilbert-du-motier"
+    ],
+    "jan-amos-comenius": [
+      "johann-amos-comenius"
+    ],
+    "john-nash": [
+      "nash"
+    ],
+    "karl-pearson": [
+      "pearson"
+    ],
+    "koxinga": [
+      "zheng-chenggong"
+    ],
+    "mae-jemison": [
+      "jemison-mae"
+    ],
+    "pericles": [
+      "perikles"
+    ],
+    "pol-pot": [
+      "saloth-sar"
+    ],
+    "pope-pius-xii": [
+      "eugenio-pacelli"
     ]
   },
   "renames": {
     "_comment": "Rename canonical_name for figures",
-    "aristotle-s-teacher-ammonius-saccas": "Ammonius Saccas"
+    "aristotle-s-teacher-ammonius-saccas": "Ammonius Saccas",
+    "avicenna-s-teacher-abu-sahl-al-masihi": "Abu Sahl al-Masihi"
   },
   "updates": {
     "_comment": "Update figure data. Wikipedia slug will be used to fetch birth_year, birth_place, etc.",
@@ -133,6 +187,10 @@
     },
     "aristotle-s-teacher-ammonius-saccas": {
       "wikipedia_slug": "Ammonius_Saccas"
+    },
+    "avicenna-s-teacher-abu-sahl-al-masihi": {
+      "canonical_name": "Abu Sahl al-Masihi",
+      "wikipedia_slug": "Abu_Sahl_al-Masihi"
     },
     "mencius": {
       "wikipedia_slug": "Mencius"
@@ -282,7 +340,8 @@
       "domain": "Politics"
     },
     "li-shimin": {
-      "domain": "Politics"
+      "domain": "Politics",
+      "canonical_name": "Emperor Gaozu of Tang"
     },
     "chandragupta-maurya": {
       "domain": "Politics"
@@ -339,7 +398,8 @@
       "domain": "Science"
     },
     "kautilya": {
-      "domain": "Politics"
+      "domain": "Politics",
+      "canonical_name": "Chanakya"
     },
     "mehmed-ii": {
       "domain": "Politics"
@@ -540,7 +600,8 @@
       "domain": "Economics"
     },
     "al-razi": {
-      "domain": "Medicine"
+      "domain": "Medicine",
+      "canonical_name": "Abu Bakr al-Razi"
     },
     "hernando-de-soto": {
       "domain": "Exploration"
@@ -708,7 +769,8 @@
       "wikipedia_slug": "Hong_Xiuquan"
     },
     "john-of-the-cross": {
-      "wikipedia_slug": "John_of_the_Cross"
+      "wikipedia_slug": "John_of_the_Cross",
+      "canonical_name": "John of the Cross"
     },
     "jonathan-swift": {
       "wikipedia_slug": "Jonathan_Swift"
@@ -826,11 +888,3076 @@
     },
     "brothers-grimm": {
       "wikipedia_slug": "Brothers_Grimm"
+    },
+    "bah-u-ll-h": {
+      "wikipedia_slug": "Baháʼu'lláh"
+    },
+    "steve-biko": {
+      "wikipedia_slug": "Steve_Biko"
+    },
+    "taylor-swift": {
+      "wikipedia_slug": "Taylor_Swift"
+    },
+    "cristiano-ronaldo": {
+      "wikipedia_slug": "Cristiano_Ronaldo"
+    },
+    "lionel-messi": {
+      "wikipedia_slug": "Lionel_Messi"
+    },
+    "jean-michel-basquiat": {
+      "wikipedia_slug": "Jean-Michel_Basquiat"
+    },
+    "kanye-west": {
+      "wikipedia_slug": "Kanye_West"
+    },
+    "simone-biles": {
+      "wikipedia_slug": "Simone_Biles"
+    },
+    "vera-rubin": {
+      "wikipedia_slug": "Vera_Rubin"
+    },
+    "craig-venter": {
+      "wikipedia_slug": "Craig_Venter"
+    },
+    "dr-dre": {
+      "wikipedia_slug": "Dr._Dre"
+    },
+    "james-cameron": {
+      "wikipedia_slug": "James_Cameron"
+    },
+    "james-lovelock": {
+      "wikipedia_slug": "James_Lovelock"
+    },
+    "kim-jong-un": {
+      "wikipedia_slug": "Kim_Jong_Un"
+    },
+    "nadine-gordimer": {
+      "wikipedia_slug": "Nadine_Gordimer"
+    },
+    "quentin-tarantino": {
+      "wikipedia_slug": "Quentin_Tarantino"
+    },
+    "arundhati-roy": {
+      "wikipedia_slug": "Arundhati_Roy"
+    },
+    "ban-ki-moon": {
+      "wikipedia_slug": "Ban_Ki-moon"
+    },
+    "jay-z": {
+      "wikipedia_slug": "Jay-Z"
+    },
+    "kiichiro-toyoda": {
+      "wikipedia_slug": "Kiichiro_Toyoda"
+    },
+    "mae-jemison": {
+      "wikipedia_slug": "Mae_Jemison"
+    },
+    "neil-degrasse-tyson": {
+      "wikipedia_slug": "Neil_deGrasse_Tyson"
+    },
+    "philip-glass": {
+      "wikipedia_slug": "Philip_Glass"
+    },
+    "ralph-ellison": {
+      "wikipedia_slug": "Ralph_Ellison"
+    },
+    "robert-falcon-scott": {
+      "wikipedia_slug": "Robert_Falcon_Scott"
+    },
+    "wayne-gretzky": {
+      "wikipedia_slug": "Wayne_Gretzky"
+    },
+    "yoshua-bengio": {
+      "wikipedia_slug": "Yoshua_Bengio"
+    },
+    "zulfikar-ali-bhutto": {
+      "wikipedia_slug": "Zulfikar_Ali_Bhutto"
+    },
+    "andrei-tarkovsky": {
+      "wikipedia_slug": "Andrei_Tarkovsky"
+    },
+    "andrew-wiles": {
+      "wikipedia_slug": "Andrew_Wiles"
+    },
+    "demis-hassabis": {
+      "wikipedia_slug": "Demis_Hassabis"
+    },
+    "j-m-coetzee": {
+      "wikipedia_slug": "J._M._Coetzee"
+    },
+    "norman-foster": {
+      "wikipedia_slug": "Norman_Foster"
+    },
+    "roy-lichtenstein": {
+      "wikipedia_slug": "Roy_Lichtenstein"
+    },
+    "sophie-germain": {
+      "wikipedia_slug": "Sophie_Germain"
+    },
+    "tupac-shakur": {
+      "wikipedia_slug": "Tupac_Shakur"
+    },
+    "zhang-yimou": {
+      "wikipedia_slug": "Zhang_Yimou"
+    },
+    "audre-lorde": {
+      "wikipedia_slug": "Audre_Lorde"
+    },
+    "ban-zhao": {
+      "wikipedia_slug": "Ban_Zhao"
+    },
+    "c-v-raman": {
+      "wikipedia_slug": "C._V._Raman"
+    },
+    "esther-duflo": {
+      "wikipedia_slug": "Esther_Duflo"
+    },
+    "georges-seurat": {
+      "wikipedia_slug": "Georges_Seurat"
+    },
+    "giorgio-armani": {
+      "wikipedia_slug": "Giorgio_Armani"
+    },
+    "henri-cartier-bresson": {
+      "wikipedia_slug": "Henri_Cartier-Bresson"
+    },
+    "julio-cort-zar": {
+      "wikipedia_slug": "Julio_Cortázar"
+    },
+    "louise-bourgeois": {
+      "wikipedia_slug": "Louise_Bourgeois"
+    },
+    "marina-abramovi": {
+      "wikipedia_slug": "Marina_Abramović"
+    },
+    "martha-nussbaum": {
+      "wikipedia_slug": "Martha_Nussbaum"
+    },
+    "mary-cassatt": {
+      "wikipedia_slug": "Mary_Cassatt"
+    },
+    "peter-higgs": {
+      "wikipedia_slug": "Peter_Higgs"
+    },
+    "ralph-bunche": {
+      "wikipedia_slug": "Ralph_Bunche"
+    },
+    "ralph-lauren": {
+      "wikipedia_slug": "Ralph_Lauren"
+    },
+    "robert-schuman": {
+      "wikipedia_slug": "Robert_Schuman"
+    },
+    "sylvia-earle": {
+      "wikipedia_slug": "Sylvia_Earle"
+    },
+    "sylvia-plath": {
+      "wikipedia_slug": "Sylvia_Plath"
+    },
+    "syngman-rhee": {
+      "wikipedia_slug": "Syngman_Rhee"
+    },
+    "ted-turner": {
+      "wikipedia_slug": "Ted_Turner"
+    },
+    "tom-brady": {
+      "wikipedia_slug": "Tom_Brady"
+    },
+    "tony-blair": {
+      "wikipedia_slug": "Tony_Blair"
+    },
+    "walter-gropius": {
+      "wikipedia_slug": "Walter_Gropius"
+    },
+    "yayoi-kusama": {
+      "wikipedia_slug": "Yayoi_Kusama"
+    },
+    "yongle-emperor": {
+      "wikipedia_slug": "Yongle_Emperor"
+    },
+    "yuval-noah-harari": {
+      "wikipedia_slug": "Yuval_Noah_Harari"
+    },
+    "aleksandr-solzhenitsyn": {
+      "wikipedia_slug": "Aleksandr_Solzhenitsyn"
+    },
+    "ban-gu": {
+      "wikipedia_slug": "Ban_Gu"
+    },
+    "buckminster-fuller": {
+      "wikipedia_slug": "Buckminster_Fuller"
+    },
+    "carlos-slim": {
+      "wikipedia_slug": "Carlos_Slim"
+    },
+    "cindy-sherman": {
+      "wikipedia_slug": "Cindy_Sherman"
+    },
+    "damien-hirst": {
+      "wikipedia_slug": "Damien_Hirst"
+    },
+    "dogen": {
+      "wikipedia_slug": "Dōgen"
+    },
+    "dorothea-lange": {
+      "wikipedia_slug": "Dorothea_Lange"
+    },
+    "edward-witten": {
+      "wikipedia_slug": "Edward_Witten"
+    },
+    "ernst-mayr": {
+      "wikipedia_slug": "Ernst_Mayr"
+    },
+    "frank-gehry": {
+      "wikipedia_slug": "Frank_Gehry"
+    },
+    "fran-ois-truffaut": {
+      "wikipedia_slug": "François_Truffaut"
+    },
+    "georges-braque": {
+      "wikipedia_slug": "Georges_Braque"
+    },
+    "georgy-zhukov": {
+      "wikipedia_slug": "Georgy_Zhukov"
+    },
+    "han-fei": {
+      "wikipedia_slug": "Han_Fei"
+    },
+    "hideo-kojima": {
+      "wikipedia_slug": "Hideo_Kojima"
+    },
+    "jair-bolsonaro": {
+      "wikipedia_slug": "Jair_Bolsonaro"
+    },
+    "james-monroe": {
+      "wikipedia_slug": "James_Monroe"
+    },
+    "jiddu-krishnamurti": {
+      "wikipedia_slug": "Jiddu_Krishnamurti"
+    },
+    "joseph-campbell": {
+      "wikipedia_slug": "Joseph_Campbell"
+    },
+    "kazimir-malevich": {
+      "wikipedia_slug": "Kazimir_Malevich"
+    },
+    "kim-dae-jung": {
+      "wikipedia_slug": "Kim_Dae-jung"
+    },
+    "man-ray": {
+      "wikipedia_slug": "Man_Ray"
+    },
+    "mark-rothko": {
+      "wikipedia_slug": "Mark_Rothko"
+    },
+    "max-ernst": {
+      "wikipedia_slug": "Max_Ernst"
+    },
+    "meryl-streep": {
+      "wikipedia_slug": "Meryl_Streep"
+    },
+    "henri-de-toulouse-lautrec": {
+      "wikipedia_slug": "Henri_de_Toulouse-Lautrec"
+    },
+    "alfred-stieglitz": {
+      "wikipedia_slug": "Alfred_Stieglitz"
+    },
+    "paul-farmer": {
+      "wikipedia_slug": "Paul_Farmer"
+    },
+    "edmund-spenser": {
+      "wikipedia_slug": "Edmund_Spenser"
+    },
+    "roman-jakobson": {
+      "wikipedia_slug": "Roman_Jakobson"
+    },
+    "gotthold-ephraim-lessing": {
+      "wikipedia_slug": "Gotthold_Ephraim_Lessing"
+    },
+    "sydney-brenner": {
+      "wikipedia_slug": "Sydney_Brenner"
+    },
+    "han-kang": {
+      "wikipedia_slug": "Han_Kang"
+    },
+    "rem-koolhaas": {
+      "wikipedia_slug": "Rem_Koolhaas"
+    },
+    "robert-bunsen": {
+      "wikipedia_slug": "Robert_Bunsen"
+    },
+    "robert-louis-stevenson": {
+      "wikipedia_slug": "Robert_Louis_Stevenson"
+    },
+    "anna-pavlova": {
+      "wikipedia_slug": "Anna_Pavlova"
+    },
+    "michelle-bachelet": {
+      "wikipedia_slug": "Michelle_Bachelet"
+    },
+    "mikhail-kalashnikov": {
+      "wikipedia_slug": "Mikhail_Kalashnikov"
+    },
+    "norodom-sihanouk": {
+      "wikipedia_slug": "Norodom_Sihanouk"
+    },
+    "oscar-niemeyer": {
+      "wikipedia_slug": "Oscar_Niemeyer"
+    },
+    "paramahansa-yogananda": {
+      "wikipedia_slug": "Paramahansa_Yogananda"
+    },
+    "philip-k-dick": {
+      "wikipedia_slug": "Philip_K._Dick"
+    },
+    "robert-capa": {
+      "wikipedia_slug": "Robert_Capa"
+    },
+    "santiago-ram-n-y-cajal": {
+      "wikipedia_slug": "Santiago_Ramón_y_Cajal"
+    },
+    "slavoj-i-ek": {
+      "wikipedia_slug": "Slavoj_Žižek"
+    },
+    "su-shi": {
+      "wikipedia_slug": "Su_Shi"
+    },
+    "tulsidas": {
+      "wikipedia_slug": "Tulsidas"
+    },
+    "vandana-shiva": {
+      "wikipedia_slug": "Vandana_Shiva"
+    },
+    "xunzi": {
+      "wikipedia_slug": "Xunzi_(philosopher)"
+    },
+    "alan-greenspan": {
+      "wikipedia_slug": "Alan_Greenspan"
+    },
+    "alfred-kinsey": {
+      "wikipedia_slug": "Alfred_Kinsey"
+    },
+    "amancio-ortega": {
+      "wikipedia_slug": "Amancio_Ortega"
+    },
+    "anish-kapoor": {
+      "wikipedia_slug": "Anish_Kapoor"
+    },
+    "ariel-sharon": {
+      "wikipedia_slug": "Ariel_Sharon"
+    },
+    "arthur-c-clarke": {
+      "wikipedia_slug": "Arthur_C._Clarke"
+    },
+    "bernard-arnault": {
+      "wikipedia_slug": "Bernard_Arnault"
+    },
+    "boutros-boutros-ghali": {
+      "wikipedia_slug": "Boutros_Boutros-Ghali"
+    },
+    "caspar-david-friedrich": {
+      "wikipedia_slug": "Caspar_David_Friedrich"
+    },
+    "christine-de-pizan": {
+      "wikipedia_slug": "Christine_de_Pizan"
+    },
+    "clifford-geertz": {
+      "wikipedia_slug": "Clifford_Geertz"
+    },
+    "cornel-west": {
+      "wikipedia_slug": "Cornel_West"
+    },
+    "d-w-griffith": {
+      "wikipedia_slug": "D._W._Griffith"
+    },
+    "dr-seuss": {
+      "wikipedia_slug": "Dr._Seuss"
+    },
+    "edward-snowden": {
+      "wikipedia_slug": "Edward_Snowden"
+    },
+    "ellen-g-white": {
+      "wikipedia_slug": "Ellen_G._White"
+    },
+    "enzo-ferrari": {
+      "wikipedia_slug": "Enzo_Ferrari"
+    },
+    "eric-hobsbawm": {
+      "wikipedia_slug": "Eric_Hobsbawm"
+    },
+    "evo-morales": {
+      "wikipedia_slug": "Evo_Morales"
+    },
+    "francis-collins": {
+      "wikipedia_slug": "Francis_Collins"
+    },
+    "h-p-lovecraft": {
+      "wikipedia_slug": "H._P._Lovecraft"
+    },
+    "hank-williams": {
+      "wikipedia_slug": "Hank_Williams"
+    },
+    "henry-hudson": {
+      "wikipedia_slug": "Henry_Hudson"
+    },
+    "herg": {
+      "wikipedia_slug": "Hergé"
+    },
+    "ibn-al-nafis": {
+      "wikipedia_slug": "Ibn_al-Nafis"
+    },
+    "isaiah-berlin": {
+      "wikipedia_slug": "Isaiah_Berlin"
+    },
+    "ivan-turgenev": {
+      "wikipedia_slug": "Ivan_Turgenev"
+    },
+    "jean-sibelius": {
+      "wikipedia_slug": "Jean_Sibelius"
+    },
+    "johnny-cash": {
+      "wikipedia_slug": "Johnny_Cash"
+    },
+    "kimberl-crenshaw": {
+      "wikipedia_slug": "Kimberlé_Crenshaw"
+    },
+    "ludwig-von-mises": {
+      "wikipedia_slug": "Ludwig_von_Mises"
+    },
+    "marsha-p-johnson": {
+      "wikipedia_slug": "Marsha_P._Johnson"
+    },
+    "mary-seacole": {
+      "wikipedia_slug": "Mary_Seacole"
+    },
+    "niels-henrik-abel": {
+      "wikipedia_slug": "Niels_Henrik_Abel"
+    },
+    "paul-tillich": {
+      "wikipedia_slug": "Paul_Tillich"
+    },
+    "primo-levi": {
+      "wikipedia_slug": "Primo_Levi"
+    },
+    "rainer-maria-rilke": {
+      "wikipedia_slug": "Rainer_Maria_Rilke"
+    },
+    "raoul-wallenberg": {
+      "wikipedia_slug": "Raoul_Wallenberg"
+    },
+    "ray-bradbury": {
+      "wikipedia_slug": "Ray_Bradbury"
+    },
+    "reinhold-niebuhr": {
+      "wikipedia_slug": "Reinhold_Niebuhr"
+    },
+    "renzo-piano": {
+      "wikipedia_slug": "Renzo_Piano"
+    },
+    "richard-strauss": {
+      "wikipedia_slug": "Richard_Strauss"
+    },
+    "roald-dahl": {
+      "wikipedia_slug": "Roald_Dahl"
+    },
+    "robert-clive": {
+      "wikipedia_slug": "Robert_Clive"
+    },
+    "ronald-fisher": {
+      "wikipedia_slug": "Ronald_Fisher"
+    },
+    "vo-nguyen-giap": {
+      "wikipedia_slug": "Võ_Nguyên_Giáp"
+    },
+    "willem-de-kooning": {
+      "wikipedia_slug": "Willem_de_Kooning"
+    },
+    "yasunari-kawabata": {
+      "wikipedia_slug": "Yasunari_Kawabata"
+    },
+    "akira-toriyama": {
+      "wikipedia_slug": "Akira_Toriyama"
+    },
+    "al-shafi-i": {
+      "wikipedia_slug": "Al-Shafi'i"
+    },
+    "alvar-aalto": {
+      "wikipedia_slug": "Alvar_Aalto"
+    },
+    "andrew-ng": {
+      "wikipedia_slug": "Andrew_Ng"
+    },
+    "annie-jump-cannon": {
+      "wikipedia_slug": "Annie_Jump_Cannon"
+    },
+    "artemisia-gentileschi": {
+      "wikipedia_slug": "Artemisia_Gentileschi"
+    },
+    "bartolom-esteban-murillo": {
+      "wikipedia_slug": "Bartolomé_Esteban_Murillo"
+    },
+    "bhagat-singh": {
+      "wikipedia_slug": "Bhagat_Singh"
+    },
+    "chaim-weizmann": {
+      "wikipedia_slug": "Chaim_Weizmann"
+    },
+    "chiang-ching-kuo": {
+      "wikipedia_slug": "Chiang_Ching-kuo"
+    },
+    "chimamanda-ngozi-adichie": {
+      "wikipedia_slug": "Chimamanda_Ngozi_Adichie"
+    },
+    "christine-lagarde": {
+      "wikipedia_slug": "Christine_Lagarde"
+    },
+    "don-bradman": {
+      "wikipedia_slug": "Don_Bradman"
+    },
+    "donna-haraway": {
+      "wikipedia_slug": "Donna_Haraway"
+    },
+    "e-p-thompson": {
+      "wikipedia_slug": "E._P._Thompson"
+    },
+    "elisha-otis": {
+      "wikipedia_slug": "Elisha_Otis"
+    },
+    "francis-galton": {
+      "wikipedia_slug": "Francis_Galton"
+    },
+    "frederick-winslow-taylor": {
+      "wikipedia_slug": "Frederick_Winslow_Taylor"
+    },
+    "george-c-marshall": {
+      "wikipedia_slug": "George_C._Marshall"
+    },
+    "george-fox": {
+      "wikipedia_slug": "George_Fox"
+    },
+    "george-iii": {
+      "wikipedia_slug": "George_III"
+    },
+    "georges-danton": {
+      "wikipedia_slug": "Georges_Danton"
+    },
+    "helena-blavatsky": {
+      "wikipedia_slug": "Helena_Blavatsky"
+    },
+    "herbert-marcuse": {
+      "wikipedia_slug": "Herbert_Marcuse"
+    },
+    "homi-j-bhabha": {
+      "wikipedia_slug": "Homi_J._Bhabha"
+    },
+    "howard-zinn": {
+      "wikipedia_slug": "Howard_Zinn"
+    },
+    "isoroku-yamamoto": {
+      "wikipedia_slug": "Isoroku_Yamamoto"
+    },
+    "john-cabot": {
+      "wikipedia_slug": "John_Cabot"
+    },
+    "john-constable": {
+      "wikipedia_slug": "John_Constable"
+    },
+    "john-deere": {
+      "wikipedia_slug": "John_Deere"
+    },
+    "john-ford": {
+      "wikipedia_slug": "John_Ford"
+    },
+    "jose-rizal": {
+      "wikipedia_slug": "José_Rizal"
+    },
+    "joseph-pulitzer": {
+      "wikipedia_slug": "Joseph_Pulitzer"
+    },
+    "julian-assange": {
+      "wikipedia_slug": "Julian_Assange"
+    },
+    "karen-horney": {
+      "wikipedia_slug": "Karen_Horney"
+    },
+    "karl-barth": {
+      "wikipedia_slug": "Karl_Barth"
+    },
+    "karl-landsteiner": {
+      "wikipedia_slug": "Karl_Landsteiner"
+    },
+    "katharine-hepburn": {
+      "wikipedia_slug": "Katharine_Hepburn"
+    },
+    "luis-bu-uel": {
+      "wikipedia_slug": "Luis_Buñuel"
+    },
+    "maryam-mirzakhani": {
+      "wikipedia_slug": "Maryam_Mirzakhani"
+    },
+    "neil-gaiman": {
+      "wikipedia_slug": "Neil_Gaiman"
+    },
+    "nichiren": {
+      "wikipedia_slug": "Nichiren"
+    },
+    "oscar-romero": {
+      "wikipedia_slug": "Óscar_Romero"
+    },
+    "oswald-spengler": {
+      "wikipedia_slug": "Oswald_Spengler"
+    },
+    "paul-mccartney": {
+      "wikipedia_slug": "Paul_McCartney"
+    },
+    "peter-singer": {
+      "wikipedia_slug": "Peter_Singer"
+    },
+    "robert-peary": {
+      "wikipedia_slug": "Robert_Peary"
+    },
+    "robert-rauschenberg": {
+      "wikipedia_slug": "Robert_Rauschenberg"
+    },
+    "saigo-takamori": {
+      "wikipedia_slug": "Saigō_Takamori"
+    },
+    "samora-machel": {
+      "wikipedia_slug": "Samora_Machel"
+    },
+    "sundar-pichai": {
+      "wikipedia_slug": "Sundar_Pichai"
+    },
+    "tawakkol-karman": {
+      "wikipedia_slug": "Tawakkol_Karman"
+    },
+    "thomas-cranmer": {
+      "wikipedia_slug": "Thomas_Cranmer"
+    },
+    "u-thant": {
+      "wikipedia_slug": "U_Thant"
+    },
+    "virginia-apgar": {
+      "wikipedia_slug": "Virginia_Apgar"
+    },
+    "willard-van-orman-quine": {
+      "wikipedia_slug": "Willard_Van_Orman_Quine"
+    },
+    "william-randolph-hearst": {
+      "wikipedia_slug": "William_Randolph_Hearst"
+    },
+    "zbigniew-brzezinski": {
+      "wikipedia_slug": "Zbigniew_Brzezinski"
+    },
+    "albertus-magnus": {
+      "wikipedia_slug": "Albertus_Magnus"
+    },
+    "alexander-calder": {
+      "wikipedia_slug": "Alexander_Calder"
+    },
+    "andrew-lloyd-webber": {
+      "wikipedia_slug": "Andrew_Lloyd_Webber"
+    },
+    "andrey-kolmogorov": {
+      "wikipedia_slug": "Andrey_Kolmogorov"
+    },
+    "anton-bruckner": {
+      "wikipedia_slug": "Anton_Bruckner"
+    },
+    "athanasius-of-alexandria": {
+      "wikipedia_slug": "Athanasius_of_Alexandria"
+    },
+    "belisarius": {
+      "wikipedia_slug": "Belisarius"
+    },
+    "buster-keaton": {
+      "wikipedia_slug": "Buster_Keaton"
+    },
+    "camille-pissarro": {
+      "wikipedia_slug": "Camille_Pissarro"
+    },
+    "carl-bosch": {
+      "wikipedia_slug": "Carl_Bosch"
+    },
+    "charles-taze-russell": {
+      "wikipedia_slug": "Charles_Taze_Russell"
+    },
+    "chuck-yeager": {
+      "wikipedia_slug": "Chuck_Yeager"
+    },
+    "dean-acheson": {
+      "wikipedia_slug": "Dean_Acheson"
+    },
+    "deepak-chopra": {
+      "wikipedia_slug": "Deepak_Chopra"
+    },
+    "dorothy-vaughan": {
+      "wikipedia_slug": "Dorothy_Vaughan"
+    },
+    "douglass-north": {
+      "wikipedia_slug": "Douglass_North"
+    },
+    "eckhart-tolle": {
+      "wikipedia_slug": "Eckhart_Tolle"
+    },
+    "edward-r-murrow": {
+      "wikipedia_slug": "Edward_R._Murrow"
+    },
+    "emilio-aguinaldo": {
+      "wikipedia_slug": "Emilio_Aguinaldo"
+    },
+    "ferdinand-porsche": {
+      "wikipedia_slug": "Ferdinand_Porsche"
+    },
+    "gabriel-garcia-marquez": {
+      "wikipedia_slug": "Gabriel_García_Márquez"
+    },
+    "george-washington-carver": {
+      "wikipedia_slug": "George_Washington_Carver"
+    },
+    "george-whitefield": {
+      "wikipedia_slug": "George_Whitefield"
+    },
+    "gilles-deleuze": {
+      "wikipedia_slug": "Gilles_Deleuze"
+    },
+    "harriet-martineau": {
+      "wikipedia_slug": "Harriet_Martineau"
+    },
+    "hu-jintao": {
+      "wikipedia_slug": "Hu_Jintao"
+    },
+    "humphrey-bogart": {
+      "wikipedia_slug": "Humphrey_Bogart"
+    },
+    "jacques-lacan": {
+      "wikipedia_slug": "Jacques_Lacan"
+    },
+    "jasper-johns": {
+      "wikipedia_slug": "Jasper_Johns"
+    },
+    "jean-baudrillard": {
+      "wikipedia_slug": "Jean_Baudrillard"
+    },
+    "jim-henson": {
+      "wikipedia_slug": "Jim_Henson"
+    },
+    "john-chrysostom": {
+      "wikipedia_slug": "John_Chrysostom"
+    },
+    "john-donne": {
+      "wikipedia_slug": "John_Donne"
+    },
+    "john-quincy-adams": {
+      "wikipedia_slug": "John_Quincy_Adams"
+    },
+    "kang-youwei": {
+      "wikipedia_slug": "Kang_Youwei"
+    },
+    "kenzabur-e": {
+      "wikipedia_slug": "Kenzaburō_Ōe"
+    },
+    "leon-battista-alberti": {
+      "wikipedia_slug": "Leon_Battista_Alberti"
+    },
+    "liang-qichao": {
+      "wikipedia_slug": "Liang_Qichao"
+    },
+    "lynn-margulis": {
+      "wikipedia_slug": "Lynn_Margulis"
+    },
+    "martha-graham": {
+      "wikipedia_slug": "Martha_Graham"
+    },
+    "marvin-gaye": {
+      "wikipedia_slug": "Marvin_Gaye"
+    },
+    "mikhail-bulgakov": {
+      "wikipedia_slug": "Mikhail_Bulgakov"
+    },
+    "moshoeshoe-i": {
+      "wikipedia_slug": "Moshoeshoe_I"
+    },
+    "octavia-e-butler": {
+      "wikipedia_slug": "Octavia_E._Butler"
+    },
+    "p-t-barnum": {
+      "wikipedia_slug": "P._T._Barnum"
+    },
+    "padmasambhava": {
+      "wikipedia_slug": "Padmasambhava"
+    },
+    "porphyry": {
+      "wikipedia_slug": "Porphyry_(philosopher)"
+    },
+    "proclus": {
+      "wikipedia_slug": "Proclus"
+    },
+    "qu-yuan": {
+      "wikipedia_slug": "Qu_Yuan"
+    },
+    "richard-rorty": {
+      "wikipedia_slug": "Richard_Rorty"
+    },
+    "robert-johnson": {
+      "wikipedia_slug": "Robert_Johnson"
+    },
+    "roger-bannister": {
+      "wikipedia_slug": "Roger_Bannister"
+    },
+    "roger-penrose": {
+      "wikipedia_slug": "Roger_Penrose"
+    },
+    "rudolf-steiner": {
+      "wikipedia_slug": "Rudolf_Steiner"
+    },
+    "seamus-heaney": {
+      "wikipedia_slug": "Seamus_Heaney"
+    },
+    "stephen-sondheim": {
+      "wikipedia_slug": "Stephen_Sondheim"
+    },
+    "stonewall-jackson": {
+      "wikipedia_slug": "Stonewall_Jackson"
+    },
+    "suetonius": {
+      "wikipedia_slug": "Suetonius"
+    },
+    "svante-arrhenius": {
+      "wikipedia_slug": "Svante_Arrhenius"
+    },
+    "theodosius-dobzhansky": {
+      "wikipedia_slug": "Theodosius_Dobzhansky"
+    },
+    "warren-hastings": {
+      "wikipedia_slug": "Warren_Hastings"
+    },
+    "werner-herzog": {
+      "wikipedia_slug": "Werner_Herzog"
+    },
+    "william-wallace": {
+      "wikipedia_slug": "William_Wallace"
+    },
+    "yuan-shikai": {
+      "wikipedia_slug": "Yuan_Shikai"
+    },
+    "adam-mickiewicz": {
+      "wikipedia_slug": "Adam_Mickiewicz"
+    },
+    "al-tabari": {
+      "wikipedia_slug": "Al-Tabari"
+    },
+    "alban-berg": {
+      "wikipedia_slug": "Alban_Berg"
+    },
+    "albert-ellis": {
+      "wikipedia_slug": "Albert_Ellis"
+    },
+    "alice-paul": {
+      "wikipedia_slug": "Alice_Paul"
+    },
+    "andr-gide": {
+      "wikipedia_slug": "André_Gide"
+    },
+    "angus-deaton": {
+      "wikipedia_slug": "Angus_Deaton"
+    },
+    "anton-webern": {
+      "wikipedia_slug": "Anton_Webern"
+    },
+    "bai-juyi": {
+      "wikipedia_slug": "Bai_Juyi"
+    },
+    "barnett-newman": {
+      "wikipedia_slug": "Barnett_Newman"
+    },
+    "benoit-mandelbrot": {
+      "wikipedia_slug": "Benoit_Mandelbrot"
+    },
+    "bruno-latour": {
+      "wikipedia_slug": "Bruno_Latour"
+    },
+    "cyril-of-alexandria": {
+      "wikipedia_slug": "Cyril_of_Alexandria"
+    },
+    "dorothea-dix": {
+      "wikipedia_slug": "Dorothea_Dix"
+    },
+    "edward-bernays": {
+      "wikipedia_slug": "Edward_Bernays"
+    },
+    "edward-elgar": {
+      "wikipedia_slug": "Edward_Elgar"
+    },
+    "edward-iii": {
+      "wikipedia_slug": "Edward_III"
+    },
+    "eugene-v-debs": {
+      "wikipedia_slug": "Eugene_V._Debs"
+    },
+    "ferdinand-de-lesseps": {
+      "wikipedia_slug": "Ferdinand_de_Lesseps"
+    },
+    "ferdinand-von-zeppelin": {
+      "wikipedia_slug": "Ferdinand_von_Zeppelin"
+    },
+    "francisco-de-vitoria": {
+      "wikipedia_slug": "Francisco_de_Vitoria"
+    },
+    "gabriela-mistral": {
+      "wikipedia_slug": "Gabriela_Mistral"
+    },
+    "graham-greene": {
+      "wikipedia_slug": "Graham_Greene"
+    },
+    "haile-gebrselassie": {
+      "wikipedia_slug": "Haile_Gebrselassie"
+    },
+    "harold-godwinson": {
+      "wikipedia_slug": "Harold_Godwinson"
+    },
+    "herbert-a-simon": {
+      "wikipedia_slug": "Herbert_A._Simon"
+    },
+    "hiawatha": {
+      "wikipedia_slug": "Hiawatha"
+    },
+    "hipparchus": {
+      "wikipedia_slug": "Hipparchus"
+    },
+    "hiram-maxim": {
+      "wikipedia_slug": "Hiram_Maxim"
+    },
+    "homi-k-bhabha": {
+      "wikipedia_slug": "Homi_K._Bhabha"
+    },
+    "james-hansen": {
+      "wikipedia_slug": "James_Hansen"
+    },
+    "janet-yellen": {
+      "wikipedia_slug": "Janet_Yellen"
+    },
+    "jiang-zemin": {
+      "wikipedia_slug": "Jiang_Zemin"
+    },
+    "john-huston": {
+      "wikipedia_slug": "John_Huston"
+    },
+    "john-jay": {
+      "wikipedia_slug": "John_Jay"
+    },
+    "jos-saramago": {
+      "wikipedia_slug": "José_Saramago"
+    },
+    "kenzaburo-oe": {
+      "wikipedia_slug": "Kenzaburō_Ōe"
+    },
+    "konrad-zuse": {
+      "wikipedia_slug": "Konrad_Zuse"
+    },
+    "lee-de-forest": {
+      "wikipedia_slug": "Lee_de_Forest"
+    },
+    "lewis-carroll": {
+      "wikipedia_slug": "Lewis_Carroll"
+    },
+    "li-hongzhang": {
+      "wikipedia_slug": "Li_Hongzhang"
+    },
+    "mahmoud-darwish": {
+      "wikipedia_slug": "Mahmoud_Darwish"
+    },
+    "mary-beard": {
+      "wikipedia_slug": "Mary_Beard"
+    },
+    "mayer-amschel-rothschild": {
+      "wikipedia_slug": "Mayer_Amschel_Rothschild"
+    },
+    "menno-simons": {
+      "wikipedia_slug": "Menno_Simons"
+    },
+    "natsume-s-seki": {
+      "wikipedia_slug": "Natsume_Sōseki"
+    },
+    "nelson-rockefeller": {
+      "wikipedia_slug": "Nelson_Rockefeller"
+    },
+    "nikolai-rimsky-korsakov": {
+      "wikipedia_slug": "Nikolai_Rimsky-Korsakov"
+    },
+    "prince-sh-toku": {
+      "wikipedia_slug": "Prince_Shōtoku"
+    },
+    "richard-rogers": {
+      "wikipedia_slug": "Richard_Rogers"
+    },
+    "robert-burns": {
+      "wikipedia_slug": "Robert_Burns"
+    },
+    "saadi-shirazi": {
+      "wikipedia_slug": "Saadi_Shirazi"
+    },
+    "satyendra-nath-bose": {
+      "wikipedia_slug": "Satyendra_Nath_Bose"
+    },
+    "sergei-diaghilev": {
+      "wikipedia_slug": "Sergei_Diaghilev"
+    },
+    "shakira": {
+      "wikipedia_slug": "Shakira"
+    },
+    "thelonious-monk": {
+      "wikipedia_slug": "Thelonious_Monk"
+    },
+    "torquato-tasso": {
+      "wikipedia_slug": "Torquato_Tasso"
+    },
+    "ulugh-beg": {
+      "wikipedia_slug": "Ulugh_Beg"
+    },
+    "upton-sinclair": {
+      "wikipedia_slug": "Upton_Sinclair"
+    },
+    "vercingetorix": {
+      "wikipedia_slug": "Vercingetorix"
+    },
+    "whitney-houston": {
+      "wikipedia_slug": "Whitney_Houston"
+    },
+    "wis-awa-szymborska": {
+      "wikipedia_slug": "Wisława_Szymborska"
+    },
+    "zolt-n-kod-ly": {
+      "wikipedia_slug": "Zoltán_Kodály"
+    },
+    "afonso-i-of-kongo": {
+      "wikipedia_slug": "Afonso_I_of_Kongo"
+    },
+    "al-mansur": {
+      "wikipedia_slug": "Al-Mansur"
+    },
+    "alcuin": {
+      "wikipedia_slug": "Alcuin"
+    },
+    "alfred-lord-tennyson": {
+      "wikipedia_slug": "Alfred,_Lord_Tennyson"
+    },
+    "anne-hutchinson": {
+      "wikipedia_slug": "Anne_Hutchinson"
+    },
+    "basava": {
+      "wikipedia_slug": "Basava"
+    },
+    "bayard-rustin": {
+      "wikipedia_slug": "Bayard_Rustin"
+    },
+    "ben-bernanke": {
+      "wikipedia_slug": "Ben_Bernanke"
+    },
+    "benjamin-britten": {
+      "wikipedia_slug": "Benjamin_Britten"
+    },
+    "bismarck": {
+      "wikipedia_slug": "Bismarck"
+    },
+    "catherine-of-siena": {
+      "wikipedia_slug": "Catherine_of_Siena"
+    },
+    "cato-the-younger": {
+      "wikipedia_slug": "Cato_the_Younger"
+    },
+    "charles-best": {
+      "wikipedia_slug": "Charles_Best"
+    },
+    "chiune-sugihara": {
+      "wikipedia_slug": "Chiune_Sugihara"
+    },
+    "czes-aw-mi-osz": {
+      "wikipedia_slug": "Czesław_Miłosz"
+    },
+    "daniel-ortega": {
+      "wikipedia_slug": "Daniel_Ortega"
+    },
+    "derek-walcott": {
+      "wikipedia_slug": "Derek_Walcott"
+    },
+    "diophantus": {
+      "wikipedia_slug": "Diophantus"
+    },
+    "elizabeth-taylor": {
+      "wikipedia_slug": "Elizabeth_Taylor"
+    },
+    "enrico-caruso": {
+      "wikipedia_slug": "Enrico_Caruso"
+    },
+    "enver-pasha": {
+      "wikipedia_slug": "Enver_Pasha"
+    },
+    "ernst-haeckel": {
+      "wikipedia_slug": "Ernst_Haeckel"
+    },
+    "fernando-pessoa": {
+      "wikipedia_slug": "Fernando_Pessoa"
+    },
+    "franjo-tu-man": {
+      "wikipedia_slug": "Franjo_Tuđman"
+    },
+    "frederick-law-olmsted": {
+      "wikipedia_slug": "Frederick_Law_Olmsted"
+    },
+    "g-h-hardy": {
+      "wikipedia_slug": "G._H._Hardy"
+    },
+    "gorgias": {
+      "wikipedia_slug": "Gorgias"
+    },
+    "gregory-of-nazianzus": {
+      "wikipedia_slug": "Gregory_of_Nazianzus"
+    },
+    "grigori-perelman": {
+      "wikipedia_slug": "Grigori_Perelman"
+    },
+    "g-nter-grass": {
+      "wikipedia_slug": "Günter_Grass"
+    },
+    "henry-fielding": {
+      "wikipedia_slug": "Henry_Fielding"
+    },
+    "irena-sendler": {
+      "wikipedia_slug": "Irena_Sendler"
+    },
+    "italo-calvino": {
+      "wikipedia_slug": "Italo_Calvino"
+    },
+    "j-edgar-hoover": {
+      "wikipedia_slug": "J._Edgar_Hoover"
+    },
+    "jean-baptiste-colbert": {
+      "wikipedia_slug": "Jean-Baptiste_Colbert"
+    },
+    "john-searle": {
+      "wikipedia_slug": "John_Searle_(philosopher)"
+    },
+    "julia-child": {
+      "wikipedia_slug": "Julia_Child"
+    },
+    "juscelino-kubitschek": {
+      "wikipedia_slug": "Juscelino_Kubitschek"
+    },
+    "karl-jaspers": {
+      "wikipedia_slug": "Karl_Jaspers"
+    },
+    "katalin-karik": {
+      "wikipedia_slug": "Katalin_Karikó"
+    },
+    "king-c-gillette": {
+      "wikipedia_slug": "King_C._Gillette"
+    },
+    "kurt-lewin": {
+      "wikipedia_slug": "Kurt_Lewin"
+    },
+    "lester-b-pearson": {
+      "wikipedia_slug": "Lester_B._Pearson"
+    },
+    "leymah-gbowee": {
+      "wikipedia_slug": "Leymah_Gbowee"
+    },
+    "little-richard": {
+      "wikipedia_slug": "Little_Richard"
+    },
+    "liu-xiaobo": {
+      "wikipedia_slug": "Liu_Xiaobo"
+    },
+    "louis-althusser": {
+      "wikipedia_slug": "Louis_Althusser"
+    },
+    "lucian-freud": {
+      "wikipedia_slug": "Lucian_Freud"
+    },
+    "lucille-ball": {
+      "wikipedia_slug": "Lucille_Ball"
+    },
+    "luigi-pirandello": {
+      "wikipedia_slug": "Luigi_Pirandello"
+    },
+    "lu-s-de-cam-es": {
+      "wikipedia_slug": "Luís_de_Camões"
+    },
+    "maharishi-mahesh-yogi": {
+      "wikipedia_slug": "Maharishi_Mahesh_Yogi"
+    },
+    "martin-buber": {
+      "wikipedia_slug": "Martin_Buber"
+    },
+    "mary-jackson": {
+      "wikipedia_slug": "Mary_Jackson_(engineer)"
+    },
+    "melanie-klein": {
+      "wikipedia_slug": "Melanie_Klein"
+    },
+    "meriwether-lewis": {
+      "wikipedia_slug": "Meriwether_Lewis"
+    },
+    "mikhail-bakhtin": {
+      "wikipedia_slug": "Mikhail_Bakhtin"
+    },
+    "norman-rockwell": {
+      "wikipedia_slug": "Norman_Rockwell"
+    },
+    "paul-klee": {
+      "wikipedia_slug": "Paul_Klee"
+    },
+    "prince-shotoku": {
+      "wikipedia_slug": "Prince_Shōtoku"
+    },
+    "r-k-narayan": {
+      "wikipedia_slug": "R._K._Narayan"
+    },
+    "robert-mcnamara": {
+      "wikipedia_slug": "Robert_McNamara"
+    },
+    "robert-peel": {
+      "wikipedia_slug": "Robert_Peel"
+    },
+    "saig-takamori": {
+      "wikipedia_slug": "Saigō_Takamori"
+    },
+    "salvador-dali": {
+      "wikipedia_slug": "Salvador_Dalí"
+    },
+    "sargon-ii": {
+      "wikipedia_slug": "Sargon_II"
+    },
+    "saul-kripke": {
+      "wikipedia_slug": "Saul_Kripke"
+    },
+    "shang-yang": {
+      "wikipedia_slug": "Shang_Yang"
+    },
+    "simon-wiesenthal": {
+      "wikipedia_slug": "Simon_Wiesenthal"
+    },
+    "stephanie-kwolek": {
+      "wikipedia_slug": "Stephanie_Kwolek"
+    },
+    "susan-sontag": {
+      "wikipedia_slug": "Susan_Sontag"
+    },
+    "sylvia-rivera": {
+      "wikipedia_slug": "Sylvia_Rivera"
+    },
+    "theodor-mommsen": {
+      "wikipedia_slug": "Theodor_Mommsen"
+    },
+    "umm-kulthum": {
+      "wikipedia_slug": "Umm_Kulthum"
+    },
+    "vasubandhu": {
+      "wikipedia_slug": "Vasubandhu"
+    },
+    "w-h-auden": {
+      "wikipedia_slug": "W._H._Auden"
+    },
+    "william-clark": {
+      "wikipedia_slug": "William_Clark"
+    },
+    "william-tecumseh-sherman": {
+      "wikipedia_slug": "William_Tecumseh_Sherman"
+    },
+    "woody-guthrie": {
+      "wikipedia_slug": "Woody_Guthrie"
+    },
+    "zeng-guofan": {
+      "wikipedia_slug": "Zeng_Guofan"
+    },
+    "milie-du-ch-telet": {
+      "wikipedia_slug": "Émilie_du_Châtelet"
+    },
+    "a-philip-randolph": {
+      "wikipedia_slug": "A._Philip_Randolph"
+    },
+    "afonso-de-albuquerque": {
+      "wikipedia_slug": "Afonso_de_Albuquerque"
+    },
+    "al-battani": {
+      "wikipedia_slug": "Al-Battani"
+    },
+    "alice-munro": {
+      "wikipedia_slug": "Alice_Munro"
+    },
+    "anders-hejlsberg": {
+      "wikipedia_slug": "Anders_Hejlsberg"
+    },
+    "arminius": {
+      "wikipedia_slug": "Arminius"
+    },
+    "billy-wilder": {
+      "wikipedia_slug": "Billy_Wilder"
+    },
+    "camille-saint-sa-ns": {
+      "wikipedia_slug": "Camille_Saint-Saëns"
+    },
+    "camillo-benso-count-of-cavour": {
+      "wikipedia_slug": "Camillo_Benso,_Count_of_Cavour"
+    },
+    "camillo-golgi": {
+      "wikipedia_slug": "Camillo_Golgi"
+    },
+    "chandragupta-ii": {
+      "wikipedia_slug": "Chandragupta_II"
+    },
+    "charles-david-keeling": {
+      "wikipedia_slug": "Charles_David_Keeling"
+    },
+    "christopher-marlowe": {
+      "wikipedia_slug": "Christopher_Marlowe"
+    },
+    "clarence-birdseye": {
+      "wikipedia_slug": "Clarence_Birdseye"
+    },
+    "count-basie": {
+      "wikipedia_slug": "Count_Basie"
+    },
+    "daniel-bernoulli": {
+      "wikipedia_slug": "Daniel_Bernoulli"
+    },
+    "daniel-boone": {
+      "wikipedia_slug": "Daniel_Boone"
+    },
+    "el-cid": {
+      "wikipedia_slug": "El_Cid"
+    },
+    "ernst-mach": {
+      "wikipedia_slug": "Ernst_Mach"
+    },
+    "eva-peron": {
+      "wikipedia_slug": "Eva_Perón"
+    },
+    "francesco-borromini": {
+      "wikipedia_slug": "Francesco_Borromini"
+    },
+    "friedrich-list": {
+      "wikipedia_slug": "Friedrich_List"
+    },
+    "friedrich-schleiermacher": {
+      "wikipedia_slug": "Friedrich_Schleiermacher"
+    },
+    "fukuzawa-yukichi": {
+      "wikipedia_slug": "Fukuzawa_Yukichi"
+    },
+    "g-k-chesterton": {
+      "wikipedia_slug": "G._K._Chesterton"
+    },
+    "george-gamow": {
+      "wikipedia_slug": "George_Gamow"
+    },
+    "georges-clemenceau": {
+      "wikipedia_slug": "Georges_Clemenceau"
+    },
+    "gianni-versace": {
+      "wikipedia_slug": "Gianni_Versace"
+    },
+    "gu-kaizhi": {
+      "wikipedia_slug": "Gu_Kaizhi"
+    },
+    "guru-tegh-bahadur": {
+      "wikipedia_slug": "Guru_Tegh_Bahadur"
+    },
+    "harry-houdini": {
+      "wikipedia_slug": "Harry_Houdini"
+    },
+    "henry-clay": {
+      "wikipedia_slug": "Henry_Clay"
+    },
+    "hugo-chavez": {
+      "wikipedia_slug": "Hugo_Chávez"
+    },
+    "jagadish-chandra-bose": {
+      "wikipedia_slug": "Jagadish_Chandra_Bose"
+    },
+    "james-hargreaves": {
+      "wikipedia_slug": "James_Hargreaves"
+    },
+    "jean-fran-ois-champollion": {
+      "wikipedia_slug": "Jean-François_Champollion"
+    },
+    "jean-fran-ois-millet": {
+      "wikipedia_slug": "Jean-François_Millet"
+    },
+    "jhumpa-lahiri": {
+      "wikipedia_slug": "Jhumpa_Lahiri"
+    },
+    "john-backus": {
+      "wikipedia_slug": "John_Backus"
+    },
+    "john-bowlby": {
+      "wikipedia_slug": "John_Bowlby"
+    },
+    "john-scotus-eriugena": {
+      "wikipedia_slug": "John_Scotus_Eriugena"
+    },
+    "john-smith": {
+      "wikipedia_slug": "John_Smith_(explorer)"
+    },
+    "jordan-peterson": {
+      "wikipedia_slug": "Jordan_Peterson"
+    },
+    "josiah-wedgwood": {
+      "wikipedia_slug": "Josiah_Wedgwood"
+    },
+    "jos-ortega-y-gasset": {
+      "wikipedia_slug": "José_Ortega_y_Gasset"
+    },
+    "juan-gin-s-de-sep-lveda": {
+      "wikipedia_slug": "Juan_Ginés_de_Sepúlveda"
+    },
+    "julia-alvarez": {
+      "wikipedia_slug": "Julia_Alvarez"
+    },
+    "julian-of-norwich": {
+      "wikipedia_slug": "Julian_of_Norwich"
+    },
+    "jyotirao-phule": {
+      "wikipedia_slug": "Jyotirao_Phule"
+    },
+    "kazuo-ishiguro": {
+      "wikipedia_slug": "Kazuo_Ishiguro"
+    },
+    "kurt-godel": {
+      "wikipedia_slug": "Kurt_Gödel"
+    },
+    "lao-she": {
+      "wikipedia_slug": "Lao_She"
+    },
+    "lin-biao": {
+      "wikipedia_slug": "Lin_Biao"
+    },
+    "louis-kahn": {
+      "wikipedia_slug": "Louis_Kahn"
+    },
+    "louise-gl-ck": {
+      "wikipedia_slug": "Louise_Glück"
+    },
+    "luchino-visconti": {
+      "wikipedia_slug": "Luchino_Visconti"
+    },
+    "ludovico-ariosto": {
+      "wikipedia_slug": "Ludovico_Ariosto"
+    },
+    "lycurgus": {
+      "wikipedia_slug": "Lycurgus"
+    },
+    "mahmoud-abbas": {
+      "wikipedia_slug": "Mahmoud_Abbas"
+    },
+    "margaret-atwood": {
+      "wikipedia_slug": "Margaret_Atwood"
+    },
+    "maria-mitchell": {
+      "wikipedia_slug": "Maria_Mitchell"
+    },
+    "martha-stewart": {
+      "wikipedia_slug": "Martha_Stewart"
+    },
+    "maurice-merleau-ponty": {
+      "wikipedia_slug": "Maurice_Merleau-Ponty"
+    },
+    "menander": {
+      "wikipedia_slug": "Menander"
+    },
+    "michelangelo-antonioni": {
+      "wikipedia_slug": "Michelangelo_Antonioni"
+    },
+    "ngozi-okonjo-iweala": {
+      "wikipedia_slug": "Ngozi_Okonjo-Iweala"
+    },
+    "nicholas-of-cusa": {
+      "wikipedia_slug": "Nicholas_of_Cusa"
+    },
+    "nurhaci": {
+      "wikipedia_slug": "Nurhaci"
+    },
+    "omar-bradley": {
+      "wikipedia_slug": "Omar_Bradley"
+    },
+    "paul-verlaine": {
+      "wikipedia_slug": "Paul_Verlaine"
+    },
+    "pedro-calder-n-de-la-barca": {
+      "wikipedia_slug": "Pedro_Calderón_de_la_Barca"
+    },
+    "pete-seeger": {
+      "wikipedia_slug": "Pete_Seeger"
+    },
+    "philip-johnson": {
+      "wikipedia_slug": "Philip_Johnson"
+    },
+    "piero-della-francesca": {
+      "wikipedia_slug": "Piero_della_Francesca"
+    },
+    "pierre-trudeau": {
+      "wikipedia_slug": "Pierre_Trudeau"
+    },
+    "pliny-the-elder": {
+      "wikipedia_slug": "Pliny_the_Elder"
+    },
+    "r-d-laing": {
+      "wikipedia_slug": "R._D._Laing"
+    },
+    "raja-ram-mohan-roy": {
+      "wikipedia_slug": "Raja_Ram_Mohan_Roy"
+    },
+    "roberto-rossellini": {
+      "wikipedia_slug": "Roberto_Rossellini"
+    },
+    "saint-boniface": {
+      "wikipedia_slug": "Saint_Boniface"
+    },
+    "saint-dominic": {
+      "wikipedia_slug": "Saint_Dominic"
+    },
+    "samuel-richardson": {
+      "wikipedia_slug": "Samuel_Richardson"
+    },
+    "santiago-calatrava": {
+      "wikipedia_slug": "Santiago_Calatrava"
+    },
+    "sennacherib": {
+      "wikipedia_slug": "Sennacherib"
+    },
+    "sidney-poitier": {
+      "wikipedia_slug": "Sidney_Poitier"
+    },
+    "st-phane-mallarm": {
+      "wikipedia_slug": "Stéphane_Mallarmé"
+    },
+    "thomas-carlyle": {
+      "wikipedia_slug": "Thomas_Carlyle"
+    },
+    "thomas-henry-huxley": {
+      "wikipedia_slug": "Thomas_Henry_Huxley"
+    },
+    "timnit-gebru": {
+      "wikipedia_slug": "Timnit_Gebru"
+    },
+    "topa-inca-yupanqui": {
+      "wikipedia_slug": "Topa_Inca_Yupanqui"
+    },
+    "vikram-sarabhai": {
+      "wikipedia_slug": "Vikram_Sarabhai"
+    },
+    "viktor-orb-n": {
+      "wikipedia_slug": "Viktor_Orbán"
+    },
+    "vittorio-de-sica": {
+      "wikipedia_slug": "Vittorio_De_Sica"
+    },
+    "al-mutanabbi": {
+      "wikipedia_slug": "Al-Mutanabbi"
+    },
+    "al-mutawakkil": {
+      "wikipedia_slug": "Al-Mutawakkil"
+    },
+    "alexander-scriabin": {
+      "wikipedia_slug": "Alexander_Scriabin"
+    },
+    "alfonso-x-of-castile": {
+      "wikipedia_slug": "Alfonso_X_of_Castile"
+    },
+    "ambroise-par": {
+      "wikipedia_slug": "Ambroise_Paré"
+    },
+    "antoine-arnauld": {
+      "wikipedia_slug": "Antoine_Arnauld"
+    },
+    "antonin-dvo-k": {
+      "wikipedia_slug": "Antonín_Dvořák"
+    },
+    "antonio-stradivari": {
+      "wikipedia_slug": "Antonio_Stradivari"
+    },
+    "antonio-de-montesinos": {
+      "wikipedia_slug": "Antonio_de_Montesinos"
+    },
+    "auguste-escoffier": {
+      "wikipedia_slug": "Auguste_Escoffier"
+    },
+    "baldassare-castiglione": {
+      "wikipedia_slug": "Baldassare_Castiglione"
+    },
+    "batu-khan": {
+      "wikipedia_slug": "Batu_Khan"
+    },
+    "benedict-arnold": {
+      "wikipedia_slug": "Benedict_Arnold"
+    },
+    "bobby-fischer": {
+      "wikipedia_slug": "Bobby_Fischer"
+    },
+    "brian-wilson": {
+      "wikipedia_slug": "Brian_Wilson"
+    },
+    "cao-rui": {
+      "wikipedia_slug": "Cao_Rui"
+    },
+    "catherine-booth": {
+      "wikipedia_slug": "Catherine_Booth"
+    },
+    "christoph-willibald-gluck": {
+      "wikipedia_slug": "Christoph_Willibald_Gluck"
+    },
+    "colonel-sanders": {
+      "wikipedia_slug": "Colonel_Sanders"
+    },
+    "daniel-webster": {
+      "wikipedia_slug": "Daniel_Webster"
+    },
+    "eduard-bernstein": {
+      "wikipedia_slug": "Eduard_Bernstein"
+    },
+    "elijah-muhammad": {
+      "wikipedia_slug": "Elijah_Muhammad"
+    },
+    "emile-zola": {
+      "wikipedia_slug": "Émile_Zola"
+    },
+    "emmanuel-levinas": {
+      "wikipedia_slug": "Emmanuel_Levinas"
+    },
+    "eug-ne-viollet-le-duc": {
+      "wikipedia_slug": "Eugène_Viollet-le-Duc"
+    },
+    "ferruccio-lamborghini": {
+      "wikipedia_slug": "Ferruccio_Lamborghini"
+    },
+    "frank-herbert": {
+      "wikipedia_slug": "Frank_Herbert"
+    },
+    "garry-kasparov": {
+      "wikipedia_slug": "Garry_Kasparov"
+    },
+    "gerhard-domagk": {
+      "wikipedia_slug": "Gerhard_Domagk"
+    },
+    "giambattista-vico": {
+      "wikipedia_slug": "Giambattista_Vico"
+    },
+    "guru-arjan": {
+      "wikipedia_slug": "Guru_Arjan"
+    },
+    "harold-pinter": {
+      "wikipedia_slug": "Harold_Pinter"
+    },
+    "heinrich-b-ll": {
+      "wikipedia_slug": "Heinrich_Böll"
+    },
+    "iamblichus": {
+      "wikipedia_slug": "Iamblichus"
+    },
+    "ibn-al-athir": {
+      "wikipedia_slug": "Ibn_al-Athir"
+    },
+    "jean-de-la-fontaine": {
+      "wikipedia_slug": "Jean_de_La_Fontaine"
+    },
+    "jensen-huang": {
+      "wikipedia_slug": "Jensen_Huang"
+    },
+    "jethro-tull": {
+      "wikipedia_slug": "Jethro_Tull"
+    },
+    "john-maynard-smith": {
+      "wikipedia_slug": "John_Maynard_Smith"
+    },
+    "josephine-baker": {
+      "wikipedia_slug": "Josephine_Baker"
+    },
+    "juan-peron": {
+      "wikipedia_slug": "Juan_Perón"
+    },
+    "karl-friedrich-schinkel": {
+      "wikipedia_slug": "Karl_Friedrich_Schinkel"
+    },
+    "kenzo-tange": {
+      "wikipedia_slug": "Kenzō_Tange"
+    },
+    "li-qingzhao": {
+      "wikipedia_slug": "Li_Qingzhao"
+    },
+    "ludwig-ii-of-bavaria": {
+      "wikipedia_slug": "Ludwig_II_of_Bavaria"
+    },
+    "l-on-blum": {
+      "wikipedia_slug": "Léon_Blum"
+    },
+    "malik-ibn-anas": {
+      "wikipedia_slug": "Malik_ibn_Anas"
+    },
+    "mary-church-terrell": {
+      "wikipedia_slug": "Mary_Church_Terrell"
+    },
+    "masaru-ibuka": {
+      "wikipedia_slug": "Masaru_Ibuka"
+    },
+    "moctezuma-i": {
+      "wikipedia_slug": "Moctezuma_I"
+    },
+    "nassim-nicholas-taleb": {
+      "wikipedia_slug": "Nassim_Nicholas_Taleb"
+    },
+    "nestorius": {
+      "wikipedia_slug": "Nestorius"
+    },
+    "niklaus-wirth": {
+      "wikipedia_slug": "Niklaus_Wirth"
+    },
+    "northrop-frye": {
+      "wikipedia_slug": "Northrop_Frye"
+    },
+    "oliver-goldsmith": {
+      "wikipedia_slug": "Oliver_Goldsmith"
+    },
+    "parakramabahu-i": {
+      "wikipedia_slug": "Parakramabahu_I"
+    },
+    "patrick-henry": {
+      "wikipedia_slug": "Patrick_Henry"
+    },
+    "paul-revere": {
+      "wikipedia_slug": "Paul_Revere"
+    },
+    "philip-roth": {
+      "wikipedia_slug": "Philip_Roth"
+    },
+    "praxiteles": {
+      "wikipedia_slug": "Praxiteles"
+    },
+    "pyrrho": {
+      "wikipedia_slug": "Pyrrho"
+    },
+    "richard-leakey": {
+      "wikipedia_slug": "Richard_Leakey"
+    },
+    "ringo-starr": {
+      "wikipedia_slug": "Ringo_Starr"
+    },
+    "rub-n-dar-o": {
+      "wikipedia_slug": "Rubén_Darío"
+    },
+    "samuel-slater": {
+      "wikipedia_slug": "Samuel_Slater"
+    },
+    "sandra-cisneros": {
+      "wikipedia_slug": "Sandra_Cisneros"
+    },
+    "saul-bellow": {
+      "wikipedia_slug": "Saul_Bellow"
+    },
+    "savitribai-phule": {
+      "wikipedia_slug": "Savitribai_Phule"
+    },
+    "sextus-empiricus": {
+      "wikipedia_slug": "Sextus_Empiricus"
+    },
+    "taksin": {
+      "wikipedia_slug": "Taksin"
+    },
+    "tariq-ibn-ziyad": {
+      "wikipedia_slug": "Tariq_ibn_Ziyad"
+    },
+    "thomas-cromwell": {
+      "wikipedia_slug": "Thomas_Cromwell"
+    },
+    "vitus-bering": {
+      "wikipedia_slug": "Vitus_Bering"
+    },
+    "walter-lippmann": {
+      "wikipedia_slug": "Walter_Lippmann"
+    },
+    "wang-chong": {
+      "wikipedia_slug": "Wang_Chong"
+    },
+    "wang-jingwei": {
+      "wikipedia_slug": "Wang_Jingwei"
+    },
+    "xenophanes": {
+      "wikipedia_slug": "Xenophanes"
+    },
+    "yamagata-aritomo": {
+      "wikipedia_slug": "Yamagata_Aritomo"
+    },
+    "zenobia": {
+      "wikipedia_slug": "Zenobia"
+    },
+    "zhu-rongji": {
+      "wikipedia_slug": "Zhu_Rongji"
+    },
+    "abd-al-rahman-iii": {
+      "wikipedia_slug": "Abd_al-Rahman_III"
+    },
+    "ab-bakr": {
+      "wikipedia_slug": "Abu_Bakr"
+    },
+    "adolf-loos": {
+      "wikipedia_slug": "Adolf_Loos"
+    },
+    "agrippina-the-younger": {
+      "wikipedia_slug": "Agrippina_the_Younger"
+    },
+    "al-masudi": {
+      "wikipedia_slug": "Al-Masudi"
+    },
+    "albrecht-durer": {
+      "wikipedia_slug": "Albrecht_Dürer"
+    },
+    "albrecht-von-haller": {
+      "wikipedia_slug": "Albrecht_von_Haller"
+    },
+    "alexander-nevsky": {
+      "wikipedia_slug": "Alexander_Nevsky"
+    },
+    "alvin-toffler": {
+      "wikipedia_slug": "Alvin_Toffler"
+    },
+    "andrew-marvell": {
+      "wikipedia_slug": "Andrew_Marvell"
+    },
+    "andr-malraux": {
+      "wikipedia_slug": "André_Malraux"
+    },
+    "anna-komnene": {
+      "wikipedia_slug": "Anna_Komnene"
+    },
+    "antonio-l-pez-de-santa-anna": {
+      "wikipedia_slug": "Antonio_López_de_Santa_Anna"
+    },
+    "augustus-pugin": {
+      "wikipedia_slug": "Augustus_Pugin"
+    },
+    "augustus-saint-gaudens": {
+      "wikipedia_slug": "Augustus_Saint-Gaudens"
+    },
+    "bartolina-sisa": {
+      "wikipedia_slug": "Bartolina_Sisa"
+    },
+    "bh-skara-ii": {
+      "wikipedia_slug": "Bhāskara_II"
+    },
+    "celia-cruz": {
+      "wikipedia_slug": "Celia_Cruz"
+    },
+    "cesare-lombroso": {
+      "wikipedia_slug": "Cesare_Lombroso"
+    },
+    "cotton-mather": {
+      "wikipedia_slug": "Cotton_Mather"
+    },
+    "dale-carnegie": {
+      "wikipedia_slug": "Dale_Carnegie"
+    },
+    "denis-papin": {
+      "wikipedia_slug": "Denis_Papin"
+    },
+    "eamon-de-valera": {
+      "wikipedia_slug": "Éamon_de_Valera"
+    },
+    "edith-cavell": {
+      "wikipedia_slug": "Edith_Cavell"
+    },
+    "edward-hopper": {
+      "wikipedia_slug": "Edward_Hopper"
+    },
+    "elias-howe": {
+      "wikipedia_slug": "Elias_Howe"
+    },
+    "emperor-guangwu-of-han": {
+      "wikipedia_slug": "Emperor_Guangwu_of_Han"
+    },
+    "enheduanna": {
+      "wikipedia_slug": "Enheduanna"
+    },
+    "fairuz": {
+      "wikipedia_slug": "Fairuz"
+    },
+    "ferdinand-iii-of-castile": {
+      "wikipedia_slug": "Ferdinand_III_of_Castile"
+    },
+    "francisco-de-miranda": {
+      "wikipedia_slug": "Francisco_de_Miranda"
+    },
+    "georg-simmel": {
+      "wikipedia_slug": "Georg_Simmel"
+    },
+    "george-harrison": {
+      "wikipedia_slug": "George_Harrison"
+    },
+    "gerrit-rietveld": {
+      "wikipedia_slug": "Gerrit_Rietveld"
+    },
+    "gifford-pinchot": {
+      "wikipedia_slug": "Gifford_Pinchot"
+    },
+    "giovanni-giolitti": {
+      "wikipedia_slug": "Giovanni_Giolitti"
+    },
+    "gregory-bateson": {
+      "wikipedia_slug": "Gregory_Bateson"
+    },
+    "guru-amar-das": {
+      "wikipedia_slug": "Guru_Amar_Das"
+    },
+    "guru-ram-das": {
+      "wikipedia_slug": "Guru_Ram_Das"
+    },
+    "henri-de-saint-simon": {
+      "wikipedia_slug": "Henri_de_Saint-Simon"
+    },
+    "henry-vii-of-england": {
+      "wikipedia_slug": "Henry_VII_of_England"
+    },
+    "hiram-bingham-iii": {
+      "wikipedia_slug": "Hiram_Bingham_III"
+    },
+    "hong-taiji": {
+      "wikipedia_slug": "Hong_Taiji"
+    },
+    "jakob-fugger": {
+      "wikipedia_slug": "Jakob_Fugger"
+    },
+    "james-boswell": {
+      "wikipedia_slug": "James_Boswell"
+    },
+    "james-fenimore-cooper": {
+      "wikipedia_slug": "James_Fenimore_Cooper"
+    },
+    "jayavarman-ii": {
+      "wikipedia_slug": "Jayavarman_II"
+    },
+    "jean-baptiste-say": {
+      "wikipedia_slug": "Jean-Baptiste_Say"
+    },
+    "jerome-kern": {
+      "wikipedia_slug": "Jerome_Kern"
+    },
+    "jerzy-neyman": {
+      "wikipedia_slug": "Jerzy_Neyman"
+    },
+    "john-c-calhoun": {
+      "wikipedia_slug": "John_C._Calhoun"
+    },
+    "john-dryden": {
+      "wikipedia_slug": "John_Dryden"
+    },
+    "john-ruskin": {
+      "wikipedia_slug": "John_Ruskin"
+    },
+    "john-singer-sargent": {
+      "wikipedia_slug": "John_Singer_Sargent"
+    },
+    "josquin-des-prez": {
+      "wikipedia_slug": "Josquin_des_Prez"
+    },
+    "jules-hardouin-mansart": {
+      "wikipedia_slug": "Jules_Hardouin-Mansart"
+    },
+    "junot-d-az": {
+      "wikipedia_slug": "Junot_Díaz"
+    },
+    "kailash-satyarthi": {
+      "wikipedia_slug": "Kailash_Satyarthi"
+    },
+    "zheng-chenggong": {
+      "canonical_name": "Koxinga"
+    },
+    "the-beatles": {
+      "canonical_name": "The Beatles"
+    },
+    "tenzin-gyatso": {
+      "canonical_name": "14th Dalai Lama"
+    },
+    "dalai-lama": {
+      "canonical_name": "Dalai Lama",
+      "wikipedia_slug": "Dalai_Lama"
+    },
+    "gregory-i": {
+      "canonical_name": "Pope Gregory I",
+      "wikipedia_slug": "Pope_Gregory_I"
+    },
+    "huangdi": {
+      "canonical_name": "Yellow Emperor",
+      "wikipedia_slug": "Yellow_Emperor"
+    },
+    "gilbert-du-motier": {
+      "canonical_name": "Gilbert du Motier, Marquis de Lafayette",
+      "wikipedia_slug": "Gilbert_du_Motier,_Marquis_de_Lafayette"
+    },
+    "saloth-sar": {
+      "canonical_name": "Pol Pot",
+      "wikipedia_slug": "Pol_Pot"
+    },
+    "zoser": {
+      "canonical_name": "Djoser",
+      "wikipedia_slug": "Djoser"
+    },
+    "arthur-wellesley": {
+      "canonical_name": "Arthur Wellesley, 1st Duke of Wellington",
+      "wikipedia_slug": "Arthur_Wellesley,_1st_Duke_of_Wellington"
+    },
+    "aiskhylos": {
+      "canonical_name": "Aeschylus",
+      "wikipedia_slug": "Aeschylus"
+    },
+    "eugenio-pacelli": {
+      "canonical_name": "Pope Pius XII",
+      "wikipedia_slug": "Pope_Pius_XII"
+    },
+    "catherine-ii": {
+      "canonical_name": "Catherine the Great",
+      "wikipedia_slug": "Catherine_the_Great"
+    },
+    "nash": {
+      "canonical_name": "John Nash",
+      "wikipedia_slug": "John_Nash"
+    },
+    "maximilien-de-robespierre": {
+      "canonical_name": "Maximilien Robespierre",
+      "wikipedia_slug": "Maximilien_Robespierre"
+    },
+    "johann-amos-comenius": {
+      "canonical_name": "Jan Amos Comenius",
+      "wikipedia_slug": "Jan_Amos_Comenius_(film)"
+    },
+    "doppler": {
+      "canonical_name": "Christian Doppler",
+      "wikipedia_slug": "Christian_Doppler"
+    },
+    "toynbee": {
+      "canonical_name": "Arnold J. Toynbee",
+      "wikipedia_slug": "Arnold_J._Toynbee"
+    },
+    "koxinga": {
+      "canonical_name": "Koxinga",
+      "wikipedia_slug": "Koxinga"
+    },
+    "almanzor": {
+      "canonical_name": "Al-Mansur Ibn Abi Aamir",
+      "wikipedia_slug": "Almanzor"
+    },
+    "king-chulalongkorn": {
+      "canonical_name": "Chulalongkorn",
+      "wikipedia_slug": "Chulalongkorn"
+    },
+    "empress-myeongseong": {
+      "canonical_name": "Empress Myeongseong",
+      "wikipedia_slug": "Empress_Myeongseong"
+    },
+    "pearson": {
+      "canonical_name": "Karl Pearson",
+      "wikipedia_slug": "Karl_Pearson"
+    },
+    "nadar": {
+      "canonical_name": "Nadar",
+      "wikipedia_slug": "Nadar"
+    },
+    "emperor-gaozu-of-han": {
+      "canonical_name": "Emperor Gaozu of Han",
+      "wikipedia_slug": "Emperor_Gaozu_of_Han"
+    },
+    "perikles": {
+      "canonical_name": "Pericles",
+      "wikipedia_slug": "Pericles"
+    },
+    "kraftwerk": {
+      "wikipedia_slug": "Kraftwerk"
+    },
+    "laszlo-biro": {
+      "wikipedia_slug": "László_Bíró"
+    },
+    "leo-baekeland": {
+      "wikipedia_slug": "Leo_Baekeland"
+    },
+    "leon-walras": {
+      "wikipedia_slug": "Léon_Walras"
+    },
+    "lin-zexu": {
+      "wikipedia_slug": "Lin_Zexu"
+    },
+    "liu-cixin": {
+      "wikipedia_slug": "Liu_Cixin"
+    },
+    "michael-graves": {
+      "wikipedia_slug": "Michael_Graves"
+    },
+    "miguel-ngel-asturias": {
+      "wikipedia_slug": "Miguel_Ángel_Asturias"
+    },
+    "mustafa-iii": {
+      "wikipedia_slug": "Mustafa_III"
+    },
+    "napoleon-hill": {
+      "wikipedia_slug": "Napoleon_Hill"
+    },
+    "nikos-kazantzakis": {
+      "wikipedia_slug": "Nikos_Kazantzakis"
+    },
+    "omar-ibn-said": {
+      "wikipedia_slug": "Omar_ibn_Said"
+    },
+    "oskar-morgenstern": {
+      "wikipedia_slug": "Oskar_Morgenstern"
+    },
+    "oswald-avery": {
+      "wikipedia_slug": "Oswald_Avery"
+    },
+    "otto-wagner": {
+      "wikipedia_slug": "Otto_Wagner"
+    },
+    "paul-hindemith": {
+      "wikipedia_slug": "Paul_Hindemith"
+    },
+    "peter-behrens": {
+      "wikipedia_slug": "Peter_Behrens"
+    },
+    "plautus": {
+      "wikipedia_slug": "Plautus"
+    },
+    "pope-leo-iii": {
+      "wikipedia_slug": "Pope_Leo_III"
+    },
+    "quintilian": {
+      "wikipedia_slug": "Quintilian"
+    },
+    "rene-magritte": {
+      "wikipedia_slug": "René_Magritte"
+    },
+    "robert-venturi": {
+      "wikipedia_slug": "Robert_Venturi"
+    },
+    "roberto-bola-o": {
+      "wikipedia_slug": "Roberto_Bolaño"
+    },
+    "sam-houston": {
+      "wikipedia_slug": "Sam_Houston"
+    },
+    "saul-alinsky": {
+      "wikipedia_slug": "Saul_Alinsky"
+    },
+    "snorri-sturluson": {
+      "wikipedia_slug": "Snorri_Sturluson"
+    },
+    "tadeusz-ko-ciuszko": {
+      "wikipedia_slug": "Tadeusz_Kościuszko"
+    },
+    "theodor-schwann": {
+      "wikipedia_slug": "Theodor_Schwann"
+    },
+    "thor-heyerdahl": {
+      "wikipedia_slug": "Thor_Heyerdahl"
+    },
+    "usman-dan-fodio": {
+      "wikipedia_slug": "Usman_dan_Fodio"
+    },
+    "victor-horta": {
+      "wikipedia_slug": "Victor_Horta"
+    },
+    "v-clav-klaus": {
+      "wikipedia_slug": "Václav_Klaus"
+    },
+    "willie-mays": {
+      "wikipedia_slug": "Willie_Mays"
+    },
+    "xu-guangqi": {
+      "wikipedia_slug": "Xu_Guangqi"
+    },
+    "yehudi-menuhin": {
+      "wikipedia_slug": "Yehudi_Menuhin"
+    },
+    "zhengde-emperor": {
+      "wikipedia_slug": "Zhengde_Emperor"
+    },
+    "alejo-carpentier": {
+      "wikipedia_slug": "Alejo_Carpentier"
+    },
+    "alessandro-manzoni": {
+      "wikipedia_slug": "Alessandro_Manzoni"
+    },
+    "alfred-dreyfus": {
+      "wikipedia_slug": "Alfred_Dreyfus"
+    },
+    "anawrahta": {
+      "wikipedia_slug": "Anawrahta"
+    },
+    "antonio-salieri": {
+      "wikipedia_slug": "Antonio_Salieri"
+    },
+    "barbara-liskov": {
+      "wikipedia_slug": "Barbara_Liskov"
+    },
+    "bartolomeo-cristofori": {
+      "wikipedia_slug": "Bartolomeo_Cristofori"
+    },
+    "bayinnaung": {
+      "wikipedia_slug": "Bayinnaung"
+    },
+    "bernal-d-az-del-castillo": {
+      "wikipedia_slug": "Bernal_Díaz_del_Castillo"
+    },
+    "billy-the-kid": {
+      "wikipedia_slug": "Billy_the_Kid"
+    },
+    "carl-menger": {
+      "wikipedia_slug": "Carl_Menger"
+    },
+    "carl-orff": {
+      "wikipedia_slug": "Carl_Orff"
+    },
+    "cesare-pavese": {
+      "wikipedia_slug": "Cesare_Pavese"
+    },
+    "clara-zetkin": {
+      "wikipedia_slug": "Clara_Zetkin"
+    },
+    "claude-nicolas-ledoux": {
+      "wikipedia_slug": "Claude_Nicolas_Ledoux"
+    },
+    "curtis-lemay": {
+      "wikipedia_slug": "Curtis_LeMay"
+    },
+    "davy-crockett": {
+      "wikipedia_slug": "Davy_Crockett"
+    },
+    "elihu-yale": {
+      "wikipedia_slug": "Elihu_Yale"
+    },
+    "elizabeth-barrett-browning": {
+      "wikipedia_slug": "Elizabeth_Barrett_Browning"
+    },
+    "emperor-taizu-of-song": {
+      "wikipedia_slug": "Emperor_Taizu_of_Song"
+    },
+    "ernst-bloch": {
+      "wikipedia_slug": "Ernst_Bloch"
+    },
+    "ernst-cassirer": {
+      "wikipedia_slug": "Ernst_Cassirer"
+    },
+    "fanny-blankers-koen": {
+      "wikipedia_slug": "Fanny_Blankers-Koen"
+    },
+    "ferdinand-foch": {
+      "wikipedia_slug": "Ferdinand_Foch"
+    },
+    "gaston-bachelard": {
+      "wikipedia_slug": "Gaston_Bachelard"
+    },
+    "georg-b-chner": {
+      "wikipedia_slug": "Georg_Büchner"
+    },
+    "george-santayana": {
+      "wikipedia_slug": "George_Santayana"
+    },
+    "giuseppe-tartini": {
+      "wikipedia_slug": "Giuseppe_Tartini"
+    },
+    "godfrey-of-bouillon": {
+      "wikipedia_slug": "Godfrey_of_Bouillon"
+    },
+    "guru-angad": {
+      "wikipedia_slug": "Guru_Angad"
+    },
+    "guru-har-krishan": {
+      "wikipedia_slug": "Guru_Har_Krishan"
+    },
+    "guru-har-rai": {
+      "wikipedia_slug": "Guru_Har_Rai"
+    },
+    "guru-hargobind": {
+      "wikipedia_slug": "Guru_Hargobind"
+    },
+    "hafsa-bint-umar": {
+      "wikipedia_slug": "Hafsa_bint_Umar"
+    },
+    "hannibal-hamlin": {
+      "wikipedia_slug": "Hannibal_Hamlin"
+    },
+    "harriet-jacobs": {
+      "wikipedia_slug": "Harriet_Jacobs"
+    },
+    "hojo-tokimune": {
+      "wikipedia_slug": "Hōjō_Tokimune"
+    },
+    "hubert-humphrey": {
+      "wikipedia_slug": "Hubert_Humphrey"
+    },
+    "hugo-von-hofmannsthal": {
+      "wikipedia_slug": "Hugo_von_Hofmannsthal"
+    },
+    "ilya-prigogine": {
+      "wikipedia_slug": "Ilya_Prigogine"
+    },
+    "james-harrington": {
+      "wikipedia_slug": "James_Harrington_(author)"
+    },
+    "jean-cocteau": {
+      "wikipedia_slug": "Jean_Cocteau"
+    },
+    "jesse-james": {
+      "wikipedia_slug": "Jesse_James"
+    },
+    "john-dunlop": {
+      "wikipedia_slug": "John_Dunlop"
+    },
+    "john-herschel": {
+      "wikipedia_slug": "John_Herschel"
+    },
+    "joseph-paxton": {
+      "wikipedia_slug": "Joseph_Paxton"
+    },
+    "juan-rulfo": {
+      "wikipedia_slug": "Juan_Rulfo"
+    },
+    "kate-sheppard": {
+      "wikipedia_slug": "Kate_Sheppard"
+    },
+    "mahalia-jackson": {
+      "wikipedia_slug": "Mahalia_Jackson"
+    },
+    "manuel-de-falla": {
+      "wikipedia_slug": "Manuel_de_Falla"
+    },
+    "nezahualcoyotl": {
+      "wikipedia_slug": "Nezahualcoyotl"
+    },
+    "oliver-heaviside": {
+      "wikipedia_slug": "Oliver_Heaviside"
+    },
+    "otto-von-guericke": {
+      "wikipedia_slug": "Otto_von_Guericke"
+    },
+    "peter-minuit": {
+      "wikipedia_slug": "Peter_Minuit"
+    },
+    "pierre-teilhard-de-chardin": {
+      "wikipedia_slug": "Pierre_Teilhard_de_Chardin"
+    },
+    "polly-toynbee": {
+      "wikipedia_slug": "Polly_Toynbee"
+    },
+    "procopius": {
+      "wikipedia_slug": "Procopius"
+    },
+    "rama-i": {
+      "wikipedia_slug": "Rama_I"
+    },
+    "ramana-maharshi": {
+      "wikipedia_slug": "Ramana_Maharshi"
+    },
+    "robert-moog": {
+      "wikipedia_slug": "Robert_Moog"
+    },
+    "rudolf-carnap": {
+      "wikipedia_slug": "Rudolf_Carnap"
+    },
+    "rurik": {
+      "wikipedia_slug": "Rurik"
+    },
+    "salazar": {
+      "wikipedia_slug": "Salazar"
+    },
+    "simeon-de-witt": {
+      "wikipedia_slug": "Simeon_De_Witt"
+    },
+    "ted-nelson": {
+      "wikipedia_slug": "Ted_Nelson"
+    },
+    "thomas-robert-malthus": {
+      "wikipedia_slug": "Thomas_Robert_Malthus"
+    },
+    "victoria-woodhull": {
+      "wikipedia_slug": "Victoria_Woodhull"
+    },
+    "wallace-carothers": {
+      "wikipedia_slug": "Wallace_Carothers"
+    },
+    "wild-bill-hickok": {
+      "wikipedia_slug": "Wild_Bill_Hickok"
+    },
+    "wyatt-earp": {
+      "wikipedia_slug": "Wyatt_Earp"
+    },
+    "mile-cou": {
+      "wikipedia_slug": "Émile_Coué"
+    },
+    "tienne-louis-boull-e": {
+      "wikipedia_slug": "Étienne-Louis_Boullée"
+    },
+    "aldus-manutius": {
+      "wikipedia_slug": "Aldus_Manutius"
+    },
+    "bernardo-houssay": {
+      "wikipedia_slug": "Bernardo_Houssay"
+    },
+    "averroes-commentaries-reader-thomas-bradwardine": {
+      "canonical_name": "Thomas Bradwardine",
+      "wikipedia_slug": "Thomas_Bradwardine"
+    },
+    "thomas-babington-macaulay-1st-baron-macaulay": {
+      "canonical_name": "Thomas Babington Macaulay",
+      "wikipedia_slug": "Thomas_Babington_Macaulay"
+    },
+    "louis-mountbatten-1st-earl-mountbatten-of-burma": {
+      "canonical_name": "Louis Mountbatten, 1st Earl Mountbatten of Burma",
+      "wikipedia_slug": "Louis_Mountbatten,_1st_Earl_Mountbatten_of_Burma"
+    },
+    "george-iii-of-the-united-kingdom": {
+      "canonical_name": "George III of the United Kingdom",
+      "wikipedia_slug": "George_III_of_the_United_Kingdom"
+    },
+    "william-iv-of-the-united-kingdom": {
+      "canonical_name": "William IV of the United Kingdom",
+      "wikipedia_slug": "William_IV_of_the_United_Kingdom"
+    },
+    "george-iv-of-the-united-kingdom": {
+      "canonical_name": "George IV of the United Kingdom",
+      "wikipedia_slug": "George_IV_of_the_United_Kingdom"
+    },
+    "ibrahim-of-the-ottoman-empire": {
+      "canonical_name": "Ibrahim of the Ottoman Empire",
+      "wikipedia_slug": "Ibrahim_of_the_Ottoman_Empire"
+    },
+    "james-son-of-zebedee": {
+      "canonical_name": "James, son of Zebedee",
+      "wikipedia_slug": "James,_son_of_Zebedee"
+    },
+    "calamity-jane": {
+      "wikipedia_slug": "Calamity_Jane"
+    },
+    "enrico-bombieri": {
+      "wikipedia_slug": "Enrico_Bombieri"
+    },
+    "ernst-gombrich": {
+      "wikipedia_slug": "Ernst_Gombrich"
+    },
+    "frances-xavier-cabrini": {
+      "wikipedia_slug": "Frances_Xavier_Cabrini"
+    },
+    "fumihiko-maki": {
+      "wikipedia_slug": "Fumihiko_Maki"
+    },
+    "gennadius-scholarius": {
+      "wikipedia_slug": "Gennadius_Scholarius"
+    },
+    "gerrit-smith": {
+      "wikipedia_slug": "Gerrit_Smith"
+    },
+    "guru-granth-sahib": {
+      "wikipedia_slug": "Guru_Granth_Sahib"
+    },
+    "h-l-mencken": {
+      "wikipedia_slug": "H._L._Mencken"
+    },
+    "henry-george": {
+      "wikipedia_slug": "Henry_George"
+    },
+    "horace-greeley": {
+      "wikipedia_slug": "Horace_Greeley"
+    },
+    "horace-walpole": {
+      "wikipedia_slug": "Horace_Walpole"
+    },
+    "h-ch-minh": {
+      "wikipedia_slug": "Ho_Chi_Minh"
+    },
+    "h-xu-n-h-ng": {
+      "wikipedia_slug": "Hồ_Xuân_Hương"
+    },
+    "jacob-riis": {
+      "wikipedia_slug": "Jacob_Riis"
+    },
+    "jose-marti": {
+      "wikipedia_slug": "José_Martí"
+    },
+    "leila-ahmed": {
+      "wikipedia_slug": "Leila_Ahmed"
+    },
+    "muhammad-ahmad": {
+      "wikipedia_slug": "Muhammad_Ahmad"
+    },
+    "nicolas-appert": {
+      "wikipedia_slug": "Nicolas_Appert"
+    },
+    "octavia": {
+      "wikipedia_slug": "Octavia"
+    },
+    "ogedei-khan": {
+      "wikipedia_slug": "Ögedei_Khan"
+    },
+    "salah-jadid": {
+      "wikipedia_slug": "Salah_Jadid"
+    },
+    "shinichi-suzuki": {
+      "wikipedia_slug": "Shinichi_Suzuki"
+    },
+    "simon-newcomb": {
+      "wikipedia_slug": "Simon_Newcomb"
+    },
+    "herbert-simon": {
+      "wikipedia_slug": "Herbert_A._Simon"
+    },
+    "joseph-ii": {
+      "wikipedia_slug": "Joseph_II,_Holy_Roman_Emperor"
+    },
+    "rani-lakshmibai": {
+      "wikipedia_slug": "Rani_of_Jhansi"
+    },
+    "tito": {
+      "wikipedia_slug": "Josip_Broz_Tito"
+    },
+    "lula-da-silva": {
+      "wikipedia_slug": "Luiz_Inácio_Lula_da_Silva"
+    },
+    "rajaraja-chola-i": {
+      "wikipedia_slug": "Rajaraja_I"
+    },
+    "miguel-hidalgo": {
+      "wikipedia_slug": "Miguel_Hidalgo_y_Costilla"
+    },
+    "henry-the-navigator": {
+      "wikipedia_slug": "Henry_the_Navigator"
+    },
+    "notorious-b-i-g": {
+      "wikipedia_slug": "The_Notorious_B.I.G."
+    },
+    "dom-pedro-i": {
+      "wikipedia_slug": "Pedro_I_of_Brazil"
+    },
+    "henry-v": {
+      "wikipedia_slug": "Henry_V_of_England"
+    },
+    "sor-juana-in-s-de-la-cruz": {
+      "wikipedia_slug": "Sor_Juana_Inés_de_la_Cruz"
+    },
+    "rasputin": {
+      "wikipedia_slug": "Grigori_Rasputin"
+    },
+    "king-john": {
+      "wikipedia_slug": "John,_King_of_England"
+    },
+    "reza-shah-pahlavi": {
+      "wikipedia_slug": "Reza_Shah"
+    },
+    "metternich": {
+      "wikipedia_slug": "Klemens_von_Metternich"
+    },
+    "henri-dunant": {
+      "wikipedia_slug": "Henry_Dunant"
+    },
+    "shah-abbas-i": {
+      "wikipedia_slug": "Abbas_I_of_Persia"
+    },
+    "athanasius": {
+      "wikipedia_slug": "Athanasius_of_Alexandria"
+    },
+    "saadi": {
+      "wikipedia_slug": "Saadi_Shirazi"
+    },
+    "utagawa-hiroshige": {
+      "wikipedia_slug": "Hiroshige"
+    },
+    "dominic-de-guzm-n": {
+      "wikipedia_slug": "Saint_Dominic"
+    },
+    "vesalius-andreas": {
+      "canonical_name": "Andreas Vesalius",
+      "wikipedia_slug": "Andreas_Vesalius"
+    },
+    "jemison-mae": {
+      "canonical_name": "Mae Jemison",
+      "wikipedia_slug": "Mae_Jemison"
+    },
+    "nozick-robert": {
+      "canonical_name": "Robert Nozick",
+      "wikipedia_slug": "Robert_Nozick"
+    },
+    "thomas-john-watson-sr": {
+      "canonical_name": "Thomas J. Watson",
+      "wikipedia_slug": "Thomas_J._Watson"
+    },
+    "anthony-giddens-baron-giddens": {
+      "canonical_name": "Anthony Giddens",
+      "wikipedia_slug": "Anthony_Giddens"
+    },
+    "justin-whitlock-dart-jr": {
+      "canonical_name": "Justin Dart Jr.",
+      "wikipedia_slug": "Justin_Dart_Jr."
+    },
+    "john-w-rogers-jr": {
+      "canonical_name": "John W. Rogers Jr.",
+      "wikipedia_slug": "John_W._Rogers_Jr."
+    },
+    "henry-louis-gates-jr": {
+      "canonical_name": "Henry Louis Gates Jr.",
+      "wikipedia_slug": "Henry_Louis_Gates_Jr."
+    },
+    "muhammad-ali-pasha": {
+      "wikipedia_slug": "Muhammad_Ali_of_Egypt"
+    },
+    "leopold-senghor": {
+      "wikipedia_slug": "Léopold_Sédar_Senghor"
+    },
+    "liu-bang": {
+      "wikipedia_slug": "Liu_Bang"
+    },
+    "lawrence-of-arabia": {
+      "wikipedia_slug": "T._E._Lawrence"
+    },
+    "james-frazer": {
+      "wikipedia_slug": "James_George_Frazer"
+    },
+    "richard-iii": {
+      "wikipedia_slug": "Richard_III_of_England"
+    },
+    "alexander-solzhenitsyn": {
+      "wikipedia_slug": "Aleksandr_Solzhenitsyn"
+    },
+    "rammohun-roy": {
+      "wikipedia_slug": "Raja_Ram_Mohan_Roy"
+    },
+    "hassan-i-sabbah": {
+      "wikipedia_slug": "Hassan-i_Sabbah"
+    },
+    "edsger-dijkstra": {
+      "wikipedia_slug": "Edsger_W._Dijkstra"
+    },
+    "rabi-a-al-adawiyya": {
+      "wikipedia_slug": "Rabia_of_Basra"
+    },
+    "yasir-arafat": {
+      "wikipedia_slug": "Yasser_Arafat"
+    },
+    "henrietta-leavitt": {
+      "wikipedia_slug": "Henrietta_Swan_Leavitt"
+    },
+    "empress-theodora": {
+      "wikipedia_slug": "Theodora_(empress)"
+    },
+    "francisco-madero": {
+      "wikipedia_slug": "Francisco_I._Madero"
+    },
+    "philo-of-alexandria": {
+      "wikipedia_slug": "Philo_of_Alexandria"
+    },
+    "ibn-majid": {
+      "wikipedia_slug": "Ibn_Majid"
+    },
+    "faisal-i-of-iraq": {
+      "wikipedia_slug": "Faisal_I_of_Iraq"
+    },
+    "innocent-iii": {
+      "wikipedia_slug": "Pope_Innocent_III"
+    },
+    "boccaccio": {
+      "wikipedia_slug": "Giovanni_Boccaccio"
+    },
+    "est-e-lauder": {
+      "wikipedia_slug": "Estée_Lauder"
+    },
+    "auguste-lumiere": {
+      "wikipedia_slug": "Auguste_Lumière"
+    },
+    "louis-lumiere": {
+      "wikipedia_slug": "Louis_Lumière"
+    },
+    "cyril": {
+      "wikipedia_slug": "Cyril_and_Methodius"
+    },
+    "methodius": {
+      "wikipedia_slug": "Cyril_and_Methodius"
+    },
+    "ayatollah-ruhollah-khomeini": {
+      "wikipedia_slug": "Ruhollah_Khomeini"
+    },
+    "mirza-ghalib": {
+      "wikipedia_slug": "Mirza_Ghalib_(film)"
+    },
+    "edward-i-of-england": {
+      "wikipedia_slug": "Edward_I"
+    },
+    "king-david": {
+      "wikipedia_slug": "King_David_(film)"
+    },
+    "king-faisal-of-saudi-arabia": {
+      "wikipedia_slug": "Faisal_of_Saudi_Arabia"
+    },
+    "king-hussein-of-jordan": {
+      "wikipedia_slug": "Hussein_of_Jordan"
+    },
+    "queen-lili-uokalani": {
+      "wikipedia_slug": "Liliʻuokalani"
+    },
+    "s-kou-tour": {
+      "wikipedia_slug": "Ahmed_Sékou_Touré"
+    },
+    "thales": {
+      "wikipedia_slug": "Thales_(disambiguation)"
+    },
+    "al-idrisi": {
+      "wikipedia_slug": "Muhammad_al-Idrisi"
+    },
+    "jan-amos-comenius": {
+      "wikipedia_slug": "Jan_Amos_Comenius_(film)"
+    },
+    "robert-baden-powell": {
+      "wikipedia_slug": "Robert_Baden-Powell,_1st_Baron_Baden-Powell"
+    },
+    "abdulaziz-ibn-saud": {
+      "wikipedia_slug": "Ibn_Saud"
+    },
+    "abelard": {
+      "wikipedia_slug": "Abelard_(disambiguation)"
+    },
+    "alfred-tennyson": {
+      "wikipedia_slug": "Portrait_of_Alfred_Tennyson"
+    },
+    "antonio-salazar": {
+      "wikipedia_slug": "Antonio_Salazar_(disambiguation)"
+    },
+    "bhimrao-ramji-ambedkar": {
+      "wikipedia_slug": "Dr._Bhimrao_Ramji_Ambedkar_Government_Medical_College,_Kannauj"
+    },
+    "dante": {
+      "wikipedia_slug": "Dante_(disambiguation)"
+    },
+    "jalal-ad-din-rumi": {
+      "wikipedia_slug": "Jalal_ad-Din"
+    },
+    "james-simpson": {
+      "wikipedia_slug": "James_Simpson"
+    },
+    "king-hussein": {
+      "wikipedia_slug": "King_Hussein_Mosque"
+    },
+    "mendelssohn": {
+      "wikipedia_slug": "Mendelssohn_(disambiguation)"
+    },
+    "saint-jerome": {
+      "wikipedia_slug": "Saint-Jérôme"
+    },
+    "anaximenes": {
+      "wikipedia_slug": "Anaximenes"
+    },
+    "dom-pedro-i-of-brazil": {
+      "wikipedia_slug": "Pedro_I_of_Brazil"
+    },
+    "dom-pedro-ii-of-brazil": {
+      "wikipedia_slug": "Pedro_II_of_Brazil"
+    },
+    "emperor-franz-joseph-i": {
+      "wikipedia_slug": "Franz_Joseph_I"
+    },
+    "emperor-menelik-ii": {
+      "wikipedia_slug": "Menelik_II"
+    },
+    "empress-l-zhi": {
+      "wikipedia_slug": "Empress_Lü"
+    },
+    "empress-maria-theresa": {
+      "wikipedia_slug": "Maria_Theresa"
+    },
+    "haj-amin-al-husseini": {
+      "wikipedia_slug": "Amin_al-Husseini"
+    },
+    "hiroshima-mayor-shinzo-hamai": {
+      "wikipedia_slug": "Shinzo_Hamai"
+    },
+    "john-hus": {
+      "wikipedia_slug": "John_Hus_(1977_film)"
+    },
+    "saint-columba": {
+      "wikipedia_slug": "Saint_Columba_(disambiguation)"
+    },
+    "saint-cyril": {
+      "wikipedia_slug": "Saint_Cyril"
+    },
+    "saint-francis-of-assisi": {
+      "wikipedia_slug": "Francis_of_Assisi"
+    },
+    "saint-thomas-aquinas": {
+      "wikipedia_slug": "Thomas_Aquinas"
+    },
+    "sardar-patel": {
+      "wikipedia_slug": "Sardar_Patel_Stadium"
+    },
+    "swami-dayananda-saraswati": {
+      "wikipedia_slug": "Dayananda_Saraswati"
+    },
+    "alaric-the-goth": {
+      "wikipedia_slug": "Alaric_the_Goth:_Fall_of_the_Western_Roman_Empire"
+    },
+    "avogadro": {
+      "wikipedia_slug": "Avogadro"
+    },
+    "buffalo-bill-cody": {
+      "wikipedia_slug": "Buffalo_Bill"
+    },
+    "charles-garnier": {
+      "wikipedia_slug": "Charles_Garnier_(architect)"
+    },
+    "emperor-basil-ii": {
+      "wikipedia_slug": "Basil_II"
+    },
+    "emperor-xuanzong": {
+      "wikipedia_slug": "Emperor_Xuanzong_of_Tang"
+    },
+    "hans-holbein": {
+      "wikipedia_slug": "Hans_Holbein_the_Younger"
+    },
+    "king-alfred-the-great": {
+      "wikipedia_slug": "Alfred_the_Great"
+    },
+    "malinowski": {
+      "wikipedia_slug": "Malinowski"
+    },
+    "saint-thomas-more": {
+      "wikipedia_slug": "Thomas_More"
+    },
+    "amir-timur": {
+      "wikipedia_slug": "Amir_Timur_Square"
+    },
+    "baudelaire": {
+      "wikipedia_slug": "Baudelaire_(surname)"
+    },
+    "conrad-iii": {
+      "wikipedia_slug": "Conrad_III_of_Germany"
+    },
+    "emperor-septimius-severus": {
+      "wikipedia_slug": "Septimius_Severus"
+    },
+    "ferdinand-of-aragon": {
+      "wikipedia_slug": "Ferdinand_of_Aragon"
+    },
+    "galileo-s-patron-cosimo-ii-de-medici": {
+      "wikipedia_slug": "Cosimo_II_de'_Medici"
+    },
+    "guru-gobind-singh-ji": {
+      "wikipedia_slug": "Guru_Gobind_Singh"
+    },
+    "guru-har-krishan-ji": {
+      "wikipedia_slug": "Guru_Har_Krishan"
+    },
+    "guru-har-rai-ji": {
+      "wikipedia_slug": "Guru_Har_Rai"
+    },
+    "guru-ram-das-ji": {
+      "wikipedia_slug": "Guru_Ram_Das"
+    },
+    "h-ross-perot": {
+      "wikipedia_slug": "Ross_Perot"
+    },
+    "hernando-de-magallanes": {
+      "wikipedia_slug": "Hernando_de_Magallanes_metro_station"
+    },
+    "king-philip-ii-of-spain": {
+      "wikipedia_slug": "Philip_II_of_Spain"
+    },
+    "mazzini": {
+      "wikipedia_slug": "Mazzini_(surname)"
+    },
+    "subhash-chandra-bose": {
+      "wikipedia_slug": "Subhash_Chandra_Bose_Aapda_Prabandhan_Puraskar"
+    },
+    "the-gracchi-brothers": {
+      "wikipedia_slug": "Gracchi_brothers"
+    },
+    "tom-s-de-torquemada": {
+      "wikipedia_slug": "Tomás_de_Torquemada"
+    },
+    "vasily-arkhipov": {
+      "wikipedia_slug": "Vasily_Arkhipov"
+    },
+    "william-laud": {
+      "wikipedia_slug": "William_Laud"
+    },
+    "alberto-santos-dumont": {
+      "wikipedia_slug": "Alberto_Santos-Dumont"
+    },
+    "edmund-halley": {
+      "wikipedia_slug": "Edmond_Halley"
+    },
+    "edwin-land": {
+      "wikipedia_slug": "Edwin_H._Land"
+    },
+    "rosalyn-yalow": {
+      "wikipedia_slug": "Rosalyn_Sussman_Yalow"
+    },
+    "vasily-kandinsky": {
+      "wikipedia_slug": "Wassily_Kandinsky"
+    },
+    "cixi": {
+      "wikipedia_slug": "Empress_Dowager_Cixi"
+    },
+    "edward-o-wilson": {
+      "wikipedia_slug": "E._O._Wilson"
+    },
+    "emperor-ashoka": {
+      "wikipedia_slug": "Ashoka"
+    },
+    "haussmann": {
+      "wikipedia_slug": "Georges-Eugène_Haussmann"
+    },
+    "james-joule": {
+      "wikipedia_slug": "James_Prescott_Joule"
+    },
+    "le-duc-tho": {
+      "wikipedia_slug": "Lê_Đức_Thọ"
+    },
+    "michaelangelo": {
+      "wikipedia_slug": "Michelangelo"
+    },
+    "nicolaus-steno": {
+      "wikipedia_slug": "Niels_Stensen"
+    },
+    "nur-ad-din": {
+      "wikipedia_slug": "Nur_ad-Din_(died_1174)"
+    },
+    "richard-gatling": {
+      "wikipedia_slug": "Richard_Jordan_Gatling"
+    },
+    "condorcet": {
+      "wikipedia_slug": "Marquis_de_Condorcet"
+    },
+    "emperor-yongle": {
+      "wikipedia_slug": "Yongle_Emperor"
+    },
+    "george-mendel": {
+      "wikipedia_slug": "Gregor_Mendel"
+    },
+    "nicol-s-cop-rnico": {
+      "wikipedia_slug": "Nicolaus_Copernicus"
+    },
+    "rafael-lemkin": {
+      "wikipedia_slug": "Raphael_Lemkin"
+    },
+    "song-taizu": {
+      "wikipedia_slug": "Emperor_Taizu_of_Song"
+    },
+    "the-prophet-samuel": {
+      "wikipedia_slug": "Samuel"
+    },
+    "viking-leader-leif-erikson": {
+      "wikipedia_slug": "Leif_Erikson"
+    },
+    "aisha-bint-abi-bakr": {
+      "wikipedia_slug": "Aisha"
+    },
+    "aurobindo-ghose": {
+      "wikipedia_slug": "Sri_Aurobindo"
+    },
+    "diderot": {
+      "wikipedia_slug": "Denis_Diderot"
+    },
+    "emperor-claudius": {
+      "wikipedia_slug": "Claudius"
+    },
+    "emperor-diocletian": {
+      "wikipedia_slug": "Diocletian"
+    },
+    "emperor-hadrian": {
+      "wikipedia_slug": "Hadrian"
+    },
+    "emperor-nero": {
+      "wikipedia_slug": "Nero"
+    },
+    "emperor-trajan": {
+      "wikipedia_slug": "Trajan"
+    },
+    "euclid-of-alexandria": {
+      "wikipedia_slug": "Euclid"
+    },
+    "girolamo-cardano": {
+      "wikipedia_slug": "Gerolamo_Cardano"
+    },
+    "jacques-yves-cousteau": {
+      "wikipedia_slug": "Jacques_Cousteau"
+    },
+    "jalaluddin-rumi": {
+      "wikipedia_slug": "Rumi"
+    },
+    "lucian-of-samosata": {
+      "wikipedia_slug": "Lucian"
+    },
+    "malthus": {
+      "wikipedia_slug": "Thomas_Robert_Malthus"
+    },
+    "sappho-of-lesbos": {
+      "wikipedia_slug": "Sappho"
+    },
+    "shivaji-bhonsle": {
+      "wikipedia_slug": "Shivaji"
+    },
+    "shotoku-taishi": {
+      "wikipedia_slug": "Prince_Shōtoku"
+    },
+    "toyoda-sakichi": {
+      "wikipedia_slug": "Sakichi_Toyoda"
+    },
+    "umar-khayyam": {
+      "wikipedia_slug": "Omar_Khayyam"
+    },
+    "vesalius": {
+      "wikipedia_slug": "Andreas_Vesalius"
+    },
+    "xerxes-the-great": {
+      "wikipedia_slug": "Xerxes_I"
+    },
+    "asoka-s-minister-moggaliputta-tissa": {
+      "wikipedia_slug": "Moggaliputta-Tissa"
+    },
+    "averroes-student-samuel-ibn-tibbon": {
+      "wikipedia_slug": "Samuel_ibn_Tibbon"
+    },
+    "avicenna-s-teacher-abu-sahl-al-masihi": {
+      "wikipedia_slug": "Abu_Sahl_al-Masihi"
+    },
+    "camilo-golgi": {
+      "wikipedia_slug": "Camillo_Golgi"
+    },
+    "georges-jacques-danton": {
+      "wikipedia_slug": "Georges_Danton"
+    },
+    "hammamurabi": {
+      "wikipedia_slug": "Hammurabi"
+    },
+    "john-rockefeller": {
+      "wikipedia_slug": "John_D._Rockefeller"
+    },
+    "king-john-of-england": {
+      "wikipedia_slug": "John,_King_of_England"
+    },
+    "king-sejong-s-scholar-jang-yeong-sil": {
+      "wikipedia_slug": "Jang_Yeong-sil"
+    },
+    "kuo-mo-jo": {
+      "wikipedia_slug": "Guo_Moruo"
+    },
+    "maximilian-robespierre": {
+      "wikipedia_slug": "Maximilien_Robespierre"
+    },
+    "miyazaki-hayao": {
+      "wikipedia_slug": "Hayao_Miyazaki"
+    },
+    "nicolaus-of-cusa": {
+      "wikipedia_slug": "Nicholas_of_Cusa"
+    },
+    "tarik-ibn-ziyad": {
+      "wikipedia_slug": "Tariq_ibn_Ziyad"
+    },
+    "toussaint-l-ouverture": {
+      "wikipedia_slug": "Toussaint_Louverture"
     }
   },
   "aliases": {
     "_comment": "Additional aliases to add. Format: 'figure_id': ['alias1', 'alias2']",
-
     "_comment_existing": "=== EXISTING ALIASES ===",
     "mani": [
       "the prophet mani",
@@ -869,7 +3996,6 @@
       "nicolaus august otto",
       "nikolaus august otto"
     ],
-
     "_comment_new": "=== NEW ALIASES (Jan 2026) ===",
     "gautama-buddha": [
       "the buddha",
@@ -900,7 +4026,8 @@
       "taizong",
       "taizong of tang",
       "emperor taizong of tang",
-      "tang taizong"
+      "tang taizong",
+      "Li Shimin (Emperor Taizong)"
     ],
     "mustafa-kemal-atat-rk": [
       "ataturk",
@@ -956,6 +4083,125 @@
       "leonidas",
       "leonidas of sparta",
       "king leonidas"
+    ],
+    "kautilya": [
+      "Kautilya (Chanakya)"
+    ],
+    "zheng-chenggong": [
+      "Zheng Chenggong (Koxinga)"
+    ],
+    "the-beatles": [
+      "The Beatles (collective)"
+    ],
+    "al-razi": [
+      "Al-Razi (Rhazes)"
+    ],
+    "tenzin-gyatso": [
+      "Tenzin Gyatso (14th Dalai Lama)"
+    ],
+    "dalai-lama": [
+      "Dalai Lama (14th)",
+      "Succession of the 14th Dalai Lama"
+    ],
+    "gregory-i": [
+      "Gregory I (Pope)"
+    ],
+    "huangdi": [
+      "Huangdi (Yellow Emperor)"
+    ],
+    "gilbert-du-motier": [
+      "Gilbert du Motier (Lafayette)",
+      "Gilbert du Motier, Marquis de Lafayette"
+    ],
+    "saloth-sar": [
+      "Saloth Sar (Pol Pot)"
+    ],
+    "zoser": [
+      "Zoser (Djoser)"
+    ],
+    "arthur-wellesley": [
+      "Arthur Wellesley (Wellington)"
+    ],
+    "aiskhylos": [
+      "Aiskhylos (Aeschylus)"
+    ],
+    "eugenio-pacelli": [
+      "Eugenio Pacelli (Pope Pius XII)"
+    ],
+    "catherine-ii": [
+      "Catherine II (the Great)"
+    ],
+    "nash": [
+      "Nash (John Nash)"
+    ],
+    "maximilien-de-robespierre": [
+      "Maximilien de Robespierre (again)"
+    ],
+    "johann-amos-comenius": [
+      "Johann Amos Comenius (Comenius)"
+    ],
+    "doppler": [
+      "Doppler (Christian Doppler)"
+    ],
+    "toynbee": [
+      "Toynbee (Arnold J. Toynbee)"
+    ],
+    "koxinga": [
+      "Koxinga (Zheng Chenggong)"
+    ],
+    "almanzor": [
+      "Almanzor (Al-Mansur Ibn Abi Aamir)"
+    ],
+    "king-chulalongkorn": [
+      "King Chulalongkorn (Rama V)"
+    ],
+    "empress-myeongseong": [
+      "Empress Myeongseong (Queen Min)"
+    ],
+    "pearson": [
+      "Pearson (Karl Pearson)"
+    ],
+    "nadar": [
+      "Nadar (Gaspard-Félix Tournachon)"
+    ],
+    "emperor-gaozu-of-han": [
+      "Emperor Gaozu of Han (Liu Bang)"
+    ],
+    "perikles": [
+      "Perikles (dup avoided)"
+    ],
+    "john-of-the-cross": [
+      "John of the Cross"
+    ],
+    "averroes-commentaries-reader-thomas-bradwardine": [
+      "Averroes' commentaries reader Thomas Bradwardine"
+    ],
+    "thomas-babington-macaulay-1st-baron-macaulay": [
+      "Thomas Babington Macaulay, 1st Baron Macaulay"
+    ],
+    "vesalius-andreas": [
+      "Vesalius, Andreas"
+    ],
+    "jemison-mae": [
+      "Jemison, Mae"
+    ],
+    "nozick-robert": [
+      "Nozick, Robert"
+    ],
+    "thomas-john-watson-sr": [
+      "Thomas John Watson, Sr."
+    ],
+    "anthony-giddens-baron-giddens": [
+      "Anthony Giddens, Baron Giddens"
+    ],
+    "justin-whitlock-dart-jr": [
+      "Justin Whitlock Dart, Jr."
+    ],
+    "john-w-rogers-jr": [
+      "John W. Rogers, Jr."
+    ],
+    "henry-louis-gates-jr": [
+      "Henry Louis Gates, Jr."
     ]
   },
   "compound_names": {
@@ -1011,6 +4257,34 @@
     "brin & page": [
       "larry-page",
       "sergey-brin"
+    ],
+    "james-watson-francis-crick": [
+      "james-watson",
+      "francis-crick"
+    ],
+    "sergey-brin-larry-page": [
+      "sergey-brin",
+      "larry-page"
+    ],
+    "larry-page-and-sergey-brin": [
+      "larry-page",
+      "sergey-brin"
+    ],
+    "auguste-and-louis-lumi-re": [
+      "auguste-lumiere",
+      "louis-lumiere"
+    ],
+    "cyril-and-methodius": [
+      "cyril",
+      "methodius"
+    ],
+    "cyril-methodius": [
+      "cyril",
+      "methodius"
+    ],
+    "ferdinand-and-isabella": [
+      "ferdinand-ii-of-aragon",
+      "isabella-i-of-castile"
     ]
   }
 }

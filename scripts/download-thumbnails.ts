@@ -11,8 +11,6 @@ import { db, figures } from '../src/lib/db';
 import { isNotNull } from 'drizzle-orm';
 import * as fs from 'fs';
 import * as path from 'path';
-import https from 'https';
-import http from 'http';
 import * as wikipedia from './lib/wikipedia.js';
 
 const THUMBNAILS_DIR = path.join(process.cwd(), 'public', 'thumbnails');
@@ -29,64 +27,63 @@ function thumbnailExists(figureId: string): string | null {
 async function fetchWikipediaThumbnail(slug: string): Promise<string | null> {
   try {
     const json = await wikipedia.fetchWikipediaSummary(slug);
-    return json?.thumbnail?.source || null;
+    return json?.thumbnail?.source || json?.originalimage?.source || null;
   } catch {
     return null;
   }
 }
 
-async function downloadImage(figureId: string, imageUrl: string): Promise<boolean> {
-  return new Promise((resolve) => {
-    // Determine extension from URL
-    let ext = 'jpg';
-    if (imageUrl.includes('.png')) ext = 'png';
-    else if (imageUrl.includes('.webp')) ext = 'webp';
+async function downloadImage(figureId: string, imageUrl: string): Promise<{ ok: boolean; status?: number }> {
+  // Determine extension from URL
+  let ext = 'jpg';
+  if (imageUrl.includes('.png')) ext = 'png';
+  else if (imageUrl.includes('.webp')) ext = 'webp';
+  else if (imageUrl.includes('.jpeg')) ext = 'jpg';
 
-    const filePath = path.join(THUMBNAILS_DIR, `${figureId}.${ext}`);
+  const filePath = path.join(THUMBNAILS_DIR, `${figureId}.${ext}`);
 
-    const makeRequest = (requestUrl: string, redirectCount = 0) => {
-      if (redirectCount > 5) {
-        resolve(false);
-        return;
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    try {
+      const response = await fetch(imageUrl, {
+        redirect: 'follow',
+        headers: {
+          'User-Agent': 'HistoryRank/1.0',
+          'Accept': 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+        },
+      });
+
+      if (response.status === 429 || response.status >= 500) {
+        const retryAfter = Number(response.headers.get('retry-after') || 0);
+        const backoff = Math.max(500, retryAfter * 1000, attempt * 1000);
+        await new Promise((r) => setTimeout(r, backoff));
+        continue;
       }
 
-      const protocol = requestUrl.startsWith('https') ? https : http;
+      if (!response.ok) {
+        return { ok: false, status: response.status };
+      }
 
-      protocol.get(requestUrl, { headers: { 'User-Agent': 'HistoryRank/1.0' } }, (res) => {
-        if (res.statusCode === 301 || res.statusCode === 302) {
-          const redirect = res.headers.location;
-          if (redirect) {
-            makeRequest(redirect, redirectCount + 1);
-            return;
-          }
-        }
+      const buffer = Buffer.from(await response.arrayBuffer());
+      fs.writeFileSync(filePath, buffer);
+      return { ok: true };
+    } catch {
+      if (attempt < 4) {
+        await new Promise((r) => setTimeout(r, attempt * 750));
+        continue;
+      }
+      return { ok: false };
+    }
+  }
 
-        if (res.statusCode !== 200) {
-          resolve(false);
-          return;
-        }
-
-        const fileStream = fs.createWriteStream(filePath);
-        res.pipe(fileStream);
-        fileStream.on('finish', () => {
-          fileStream.close();
-          resolve(true);
-        });
-        fileStream.on('error', () => {
-          fs.unlink(filePath, () => {});
-          resolve(false);
-        });
-      }).on('error', () => resolve(false));
-    };
-
-    makeRequest(imageUrl);
-  });
+  return { ok: false };
 }
 
 async function main() {
   const args = process.argv.slice(2);
   const forceAll = args.includes('--force');
   const checkOnly = args.includes('--check');
+  const limitArg = args.find((arg) => arg.startsWith('--limit='));
+  const limit = limitArg ? Number(limitArg.split('=')[1]) : null;
 
   console.log('🖼️  Thumbnail Downloader\n');
 
@@ -139,9 +136,11 @@ async function main() {
   let downloaded = 0;
   let failed = 0;
 
-  for (let i = 0; i < missing.length; i++) {
-    const fig = missing[i];
-    process.stdout.write(`[${i + 1}/${missing.length}] ${fig.id}... `);
+  const toDownload = limit ? missing.slice(0, limit) : missing;
+
+  for (let i = 0; i < toDownload.length; i++) {
+    const fig = toDownload[i];
+    process.stdout.write(`[${i + 1}/${toDownload.length}] ${fig.id}... `);
 
     const thumbnailUrl = await fetchWikipediaThumbnail(fig.slug);
 
@@ -151,13 +150,13 @@ async function main() {
       continue;
     }
 
-    const success = await downloadImage(fig.id, thumbnailUrl);
+    const { ok, status } = await downloadImage(fig.id, thumbnailUrl);
 
-    if (success) {
+    if (ok) {
       console.log('✓');
       downloaded++;
     } else {
-      console.log('❌ download failed');
+      console.log(`❌ download failed${status ? ` (${status})` : ''}`);
       failed++;
     }
 

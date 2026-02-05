@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 1 (January 12, 2025).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:46.555Z",
+  "timestamp": "2026-02-05T18:16:01.853Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 87,
-      "fuzzy": 35,
+      "fuzzy": 15,
       "status": "WARN",
       "details": "87 exact duplicates found"
     },
@@ -24,11 +24,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -632,48 +634,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali of egypt",
-        "askia muhammad",
-        "jall addn muhammad rm",
-        "muhammad ali"
-      ],
-      "ranks": [
-        1,
-        215,
-        702,
-        814,
-        984
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tsai lun",
-      "variants": [
-        "tsai lun",
-        "cai lun"
-      ],
-      "ranks": [
-        14,
-        595
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        20,
-        522
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -686,90 +646,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "copernicus",
+      "name": "thomas edison",
       "variants": [
-        "copernicus",
-        "nikolas copernicus",
-        "nikolaus copernicus",
-        "nicolaus copernicus"
+        "thomas edison",
+        "thomas alva edison"
       ],
       "ranks": [
-        27,
-        243,
-        693,
-        826
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka the great",
-      "variants": [
-        "ashoka the great",
-        "ashoka"
-      ],
-      "ranks": [
-        28,
-        627
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        34,
-        80
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "menes"
-      ],
-      "ranks": [
-        37,
-        320
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shankara",
-      "variants": [
-        "shankara",
-        "sankara"
-      ],
-      "ranks": [
-        45,
-        574
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn sina avicenna",
-      "variants": [
-        "ibn sina avicenna",
-        "avicenna"
-      ],
-      "ranks": [
-        51,
-        296
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        85,
-        389
+        30,
+        672
       ]
     },
     {
@@ -798,18 +682,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ramanujan",
-      "variants": [
-        "ramanujan",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        101,
-        355
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "wu zetian",
       "variants": [
         "wu zetian",
@@ -818,66 +690,6 @@
       "ranks": [
         104,
         308
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        114,
-        897
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "jalal aldin rumi"
-      ],
-      "ranks": [
-        126,
-        492
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "asoka",
-      "variants": [
-        "asoka",
-        "ashoka"
-      ],
-      "ranks": [
-        179,
-        627
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zheng he",
-      "variants": [
-        "zheng he",
-        "cheng ho"
-      ],
-      "ranks": [
-        188,
-        446
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "claudius galen",
-      "variants": [
-        "claudius galen",
-        "claudius"
-      ],
-      "ranks": [
-        197,
-        447
       ]
     },
     {
@@ -894,18 +706,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "theodora",
-      "variants": [
-        "theodora",
-        "empress theodora"
-      ],
-      "ranks": [
-        236,
-        495
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "j robert oppenheimer",
       "variants": [
         "j robert oppenheimer",
@@ -918,26 +718,52 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sima qian",
+      "name": "nikolas copernicus",
       "variants": [
-        "sima qian",
-        "sima yan"
+        "nikolas copernicus",
+        "nikolaus copernicus",
+        "nicolaus copernicus"
       ],
       "ranks": [
-        248,
-        690
+        243,
+        693,
+        826
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nasser",
+      "name": "jacques cousteau",
       "variants": [
-        "nasser",
-        "gamal abdel nasser"
+        "jacques cousteau",
+        "jacquesyves cousteau"
       ],
       "ranks": [
-        448,
-        870
+        397,
+        914
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alfred lord tennyson",
+      "variants": [
+        "alfred lord tennyson",
+        "alfred tennyson"
+      ],
+      "ranks": [
+        445,
+        976
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "werner von braun",
+      "variants": [
+        "werner von braun",
+        "wernher von braun"
+      ],
+      "ranks": [
+        504,
+        806
       ]
     },
     {
@@ -954,50 +780,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "horace mann",
+      "name": "nikolaus copernicus",
       "variants": [
-        "horace mann",
-        "horace"
+        "nikolaus copernicus",
+        "nicolaus copernicus"
       ],
       "ranks": [
-        624,
-        743
+        693,
+        826
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "montaigne",
+      "name": "aleksandr pushkin",
       "variants": [
-        "montaigne",
-        "michel de montaigne"
+        "aleksandr pushkin",
+        "alexander pushkin"
       ],
       "ranks": [
-        651,
-        899
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "prince henry the navigator",
-      "variants": [
-        "prince henry the navigator",
-        "prince"
-      ],
-      "ranks": [
-        669,
-        978
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "flavius josephus",
-      "variants": [
-        "flavius josephus",
-        "josephus"
-      ],
-      "ranks": [
-        761,
-        825
+        846,
+        927
       ]
     }
   ],
@@ -1027,6 +829,21 @@
       "Military": 11,
       "Other": 757
     }
+  },
+  "advanced": {
+    "parentheticalCount": 8,
+    "parentheticalRate": 0.008,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 95,
+    "contributionShortRate": 0.095,
+    "score": 97.5
   },
   "summary": "Issues: 87 exact duplicates"
 }

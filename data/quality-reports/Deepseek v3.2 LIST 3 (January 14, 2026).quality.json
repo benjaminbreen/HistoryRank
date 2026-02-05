@@ -1,12 +1,12 @@
 {
   "file": "DeepSeek V3.2 LIST 3 (January 14, 2026).txt",
   "model": "DeepSeek V3.2",
-  "timestamp": "2026-01-20T04:15:54.612Z",
+  "timestamp": "2026-02-05T18:16:28.968Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 689,
-      "fuzzy": 6,
+      "fuzzy": 2,
       "status": "FAIL",
       "details": "689 exact duplicates found"
     },
@@ -37,11 +37,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -2118,59 +2120,11 @@
       "name": "siddhartha buddha",
       "variants": [
         "siddhartha buddha",
-        "buddha"
-      ],
-      "ranks": [
-        36,
-        492
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "akbar the great",
-      "variants": [
-        "akbar the great",
-        "akbar"
-      ],
-      "ranks": [
-        77,
-        480
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
-      "variants": [
-        "srinivasa ramanujan",
-        "ramanuja"
-      ],
-      "ranks": [
-        279,
-        392
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "buddha",
-      "variants": [
-        "buddha",
         "siddhartha gautama buddha"
       ],
       "ranks": [
-        492,
+        36,
         645
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cleopatra",
-      "variants": [
-        "cleopatra",
-        "cleopatra vii"
-      ],
-      "ranks": [
-        545,
-        955
       ]
     },
     {
@@ -2224,6 +2178,21 @@
       "Military": 11,
       "Other": 315
     }
+  },
+  "advanced": {
+    "parentheticalCount": 26,
+    "parentheticalRate": 0.026,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 98.37
   },
   "summary": "Issues: 689 exact duplicates; pattern collapse (max 10)"
 }

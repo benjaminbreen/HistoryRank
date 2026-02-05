@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition, useDeferredValue } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -43,6 +43,11 @@ function HomeContent() {
 
   // Filters (local state for instant UI updates)
   const [search, setSearch] = useState('');
+  const deferredSearch = useDeferredValue(search);
+  const [smartSearch, setSmartSearch] = useState(true);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [useV2, setUseV2] = useState(false);
+  const [useV3, setUseV3] = useState(false);
   const [domain, setDomain] = useState<string | null>(null);
   const [era, setEra] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<string>('llmRank');
@@ -51,6 +56,8 @@ function HomeContent() {
   const [modelSource, setModelSource] = useState<string | null>(null);
   const [badgeFilter, setBadgeFilter] = useState<BadgeType | null>(null);
   const [useWeightedAvg, setUseWeightedAvg] = useState(false);
+  const [useWeightedAvgV2, setUseWeightedAvgV2] = useState(false);
+  const [useWeightedAvgV3, setUseWeightedAvgV3] = useState(false);
   const { settings, updateSettings, resetSettings } = useSettings();
   const [shareOrigin, setShareOrigin] = useState('');
   const hasAnimatedCounts = useRef(false);
@@ -65,39 +72,115 @@ function HomeContent() {
     // Only modelSource and weighted require server-side recomputation
     if (modelSource) params.set('modelSource', modelSource);
     if (useWeightedAvg) params.set('weighted', 'true');
+    if (useWeightedAvgV2) params.set('weighted2', 'true');
+    if (useWeightedAvgV3) params.set('weighted3', 'true');
+    if (useV2) params.set('v2', 'true');
+    if (useV3) params.set('v3', 'true');
     return `/api/figures?${params}`;
-  }, [modelSource, useWeightedAvg]);
+  }, [modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3, useV2, useV3]);
+
+  // Pagination state - how many to show (increases with "Load more")
+  const [displayLimit, setDisplayLimit] = useState(500);
 
   // Fetch all figures once with SWR (refetches only when modelSource changes)
-  const { data: figuresData, error: figuresError, isLoading } = useSWR<FiguresResponse>(
+  const { data: figuresData, error: figuresError, isLoading: isFiguresLoading } = useSWR<FiguresResponse>(
     apiUrl,
+    fetcher,
+    { ...listDataConfig, revalidateOnFocus: false }
+  );
+
+  const searchApiUrl = useMemo(() => {
+    if (!deferredSearch) return null;
+    const params = new URLSearchParams();
+    params.set('search', deferredSearch);
+    params.set('limit', String(displayLimit));
+    if (!smartSearch) params.set('smart', 'false');
+    if (domain) params.set('domain', domain);
+    if (era) params.set('era', era);
+    if (region) params.set('region', region);
+    if (modelSource) params.set('modelSource', modelSource);
+    if (useWeightedAvg) params.set('weighted', 'true');
+    if (useWeightedAvgV2) params.set('weighted2', 'true');
+    if (useWeightedAvgV3) params.set('weighted3', 'true');
+    if (useV2) params.set('v2', 'true');
+    if (useV3) params.set('v3', 'true');
+    return `/api/figures?${params}`;
+  }, [deferredSearch, displayLimit, smartSearch, domain, era, region, modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3, useV2, useV3]);
+
+  const { data: searchData, error: searchError, isLoading: isSearchLoading } = useSWR<FiguresResponse>(
+    searchApiUrl,
     fetcher,
     { ...listDataConfig, revalidateOnFocus: false }
   );
 
   // Extract data from SWR response
   const allFigures = figuresData?.figures ?? [];
-  const totalLists = figuresData?.stats?.totalLists ?? 0;
-  const totalModels = figuresData?.stats?.totalModels ?? 0;
-  const errorMessage = figuresError ? 'Failed to fetch figures.' : null;
+  const activeData = deferredSearch ? searchData : figuresData;
+  const totalLists = activeData?.stats?.totalLists ?? 0;
+  const totalModels = activeData?.stats?.totalModels ?? 0;
+  const errorMessage = (deferredSearch ? searchError : figuresError) ? 'Failed to fetch figures.' : null;
+  const isLoading = deferredSearch ? isSearchLoading : isFiguresLoading;
 
   // Display counters for animation
   const [displayTotal, setDisplayTotal] = useState(0);
   const [displayLists, setDisplayLists] = useState(0);
   const [displayModels, setDisplayModels] = useState(0);
 
-  // Pagination state - how many to show (increases with "Load more")
-  const [displayLimit, setDisplayLimit] = useState(500);
-
   // Reset display limit when filters change (so we start at 500 again)
   // Note: useWeightedAvg changes trigger API refetch via apiUrl, which resets data anyway
   useEffect(() => {
     setDisplayLimit(500);
-  }, [domain, era, region, search, badgeFilter, modelSource]);
+  }, [domain, era, region, deferredSearch, badgeFilter, modelSource, smartSearch, useV2, useV3, useWeightedAvgV2, useWeightedAvgV3, useWeightedAvg]);
+
+  useEffect(() => {
+    if (modelSource && useV2) setUseV2(false);
+    if (modelSource && useV3) setUseV3(false);
+  }, [modelSource, useV2, useV3]);
+
+  useEffect(() => {
+    if (modelSource && useWeightedAvg) setUseWeightedAvg(false);
+    if (modelSource && useWeightedAvgV2) setUseWeightedAvgV2(false);
+    if (modelSource && useWeightedAvgV3) setUseWeightedAvgV3(false);
+  }, [modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3]);
+
+  useEffect(() => {
+    if (useWeightedAvgV2) {
+      if (useWeightedAvg) setUseWeightedAvg(false);
+      if (useWeightedAvgV3) setUseWeightedAvgV3(false);
+      if (useV2) setUseV2(false);
+      if (useV3) setUseV3(false);
+    }
+  }, [useWeightedAvgV2, useWeightedAvg, useWeightedAvgV3, useV2, useV3]);
+
+  useEffect(() => {
+    if (useWeightedAvgV3) {
+      if (useWeightedAvg) setUseWeightedAvg(false);
+      if (useWeightedAvgV2) setUseWeightedAvgV2(false);
+      if (useV2) setUseV2(false);
+      if (useV3) setUseV3(false);
+    }
+  }, [useWeightedAvgV3, useWeightedAvg, useWeightedAvgV2, useV2, useV3]);
+
+  useEffect(() => {
+    if (useWeightedAvg && useWeightedAvgV2) {
+      setUseWeightedAvgV2(false);
+    }
+    if (useWeightedAvg && useWeightedAvgV3) {
+      setUseWeightedAvgV3(false);
+    }
+  }, [useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3]);
 
   // Client-side filtering and sorting (instant!)
   const filteredAndSorted = useMemo(() => {
-    let filtered = allFigures;
+    const baseFigures = deferredSearch ? (searchData?.figures ?? []) : allFigures;
+    let filtered = baseFigures;
+
+    if (deferredSearch) {
+      if (badgeFilter) {
+        filtered = filtered.filter(f => f.badges?.includes(badgeFilter));
+      }
+      return filtered;
+    }
 
     // Apply filters
     if (domain) {
@@ -109,8 +192,8 @@ function HomeContent() {
     if (region) {
       filtered = filtered.filter(f => f.regionSub === region);
     }
-    if (search) {
-      const searchLower = search.toLowerCase();
+    if (deferredSearch) {
+      const searchLower = deferredSearch.toLowerCase();
       filtered = filtered.filter(f =>
         f.name?.toLowerCase().includes(searchLower)
       );
@@ -179,10 +262,12 @@ function HomeContent() {
     });
 
     return sorted;
-  }, [allFigures, domain, era, region, search, badgeFilter, sortBy, sortOrder]);
+  }, [allFigures, searchData, deferredSearch, domain, era, region, badgeFilter, sortBy, sortOrder]);
 
   // Total filtered count (before pagination)
-  const total = filteredAndSorted.length;
+  const total = deferredSearch && !badgeFilter
+    ? (searchData?.total ?? filteredAndSorted.length)
+    : filteredAndSorted.length;
 
   // Apply pagination - only show up to displayLimit
   const figures = useMemo(() => {
@@ -328,25 +413,38 @@ function HomeContent() {
   // Note: We use a ref to track selectedId to avoid dependency loop
   const selectedIdRef = useRef(selectedId);
   selectedIdRef.current = selectedId;
+  const lastUrlSyncRef = useRef<string | null>(null);
 
   useEffect(() => {
+    const currentQuery = searchParams.toString();
+    if (lastUrlSyncRef.current === currentQuery) return;
     const nextSearch = searchParams.get('search') ?? '';
     const nextDomain = searchParams.get('domain');
     const nextEra = searchParams.get('era');
     const nextRegion = searchParams.get('region');
     const nextModel = searchParams.get('modelSource');
     const nextWeighted = searchParams.get('weighted') === 'true';
+    const nextWeighted2 = searchParams.get('weighted2') === 'true';
+    const nextWeighted3 = searchParams.get('weighted3') === 'true';
+    const nextV2 = searchParams.get('v2') === 'true';
+    const nextV3 = searchParams.get('v3') === 'true';
     const nextSortBy = searchParams.get('sortBy') ?? 'llmRank';
     const nextSortOrder = (searchParams.get('sortOrder') as 'asc' | 'desc') ?? 'asc';
     const nextBadge = searchParams.get('badge') as BadgeType | null;
     const nextFigure = searchParams.get('figure');
+    const nextSmart = searchParams.get('smart') !== 'false';
 
     setSearch(nextSearch);
+    setSmartSearch(nextSmart);
     setDomain(nextDomain || null);
     setEra(nextEra || null);
     setRegion(nextRegion || null);
     setModelSource(nextModel || null);
     setUseWeightedAvg(nextWeighted);
+    setUseWeightedAvgV2(nextWeighted2);
+    setUseWeightedAvgV3(nextWeighted3);
+    setUseV2(nextV2);
+    setUseV3(nextV3);
     setSortBy(nextSortBy);
     setSortOrder(nextSortOrder);
     setBadgeFilter(nextBadge && BADGE_DEFINITIONS[nextBadge] ? nextBadge : null);
@@ -370,12 +468,17 @@ function HomeContent() {
 
     const timeout = setTimeout(() => {
       const params = new URLSearchParams();
-      if (search) params.set('search', search);
+      if (deferredSearch) params.set('search', deferredSearch);
+      if (!smartSearch) params.set('smart', 'false');
       if (domain) params.set('domain', domain);
       if (era) params.set('era', era);
       if (region) params.set('region', region);
       if (modelSource) params.set('modelSource', modelSource);
       if (useWeightedAvg) params.set('weighted', 'true');
+      if (useWeightedAvgV2) params.set('weighted2', 'true');
+      if (useWeightedAvgV3) params.set('weighted3', 'true');
+      if (useV2) params.set('v2', 'true');
+      if (useV3) params.set('v3', 'true');
       if (badgeFilter) params.set('badge', badgeFilter);
       if (sortBy !== 'llmRank') params.set('sortBy', sortBy);
       if (sortOrder !== 'asc') params.set('sortOrder', sortOrder);
@@ -384,6 +487,7 @@ function HomeContent() {
       const nextQuery = params.toString();
       const currentQuery = searchParams.toString();
       if (nextQuery !== currentQuery) {
+        lastUrlSyncRef.current = nextQuery;
         router.replace(nextQuery ? `/?${nextQuery}` : '/', { scroll: false });
       }
     }, 150); // Small debounce to batch rapid filter changes
@@ -391,12 +495,17 @@ function HomeContent() {
     return () => clearTimeout(timeout);
   }, [
     pathname,
-    search,
+    deferredSearch,
+    smartSearch,
     domain,
     era,
     region,
     modelSource,
     useWeightedAvg,
+    useWeightedAvgV2,
+    useWeightedAvgV3,
+    useV2,
+    useV3,
     badgeFilter,
     sortBy,
     sortOrder,
@@ -435,24 +544,26 @@ function HomeContent() {
   const shareUrl = useMemo(() => {
     if (!shareOrigin) return '';
     const params = new URLSearchParams();
-    if (search) params.set('search', search);
+    if (deferredSearch) params.set('search', deferredSearch);
     if (domain) params.set('domain', domain);
     if (era) params.set('era', era);
     if (region) params.set('region', region);
     if (modelSource) params.set('modelSource', modelSource);
     if (useWeightedAvg) params.set('weighted', 'true');
+    if (useWeightedAvgV2) params.set('weighted2', 'true');
     if (badgeFilter) params.set('badge', badgeFilter);
     if (sortBy !== 'llmRank') params.set('sortBy', sortBy);
     if (sortOrder !== 'asc') params.set('sortOrder', sortOrder);
     return `${shareOrigin}/?${params.toString()}`;
   }, [
     shareOrigin,
-    search,
+    deferredSearch,
     domain,
     era,
     region,
     modelSource,
     useWeightedAvg,
+    useWeightedAvgV2,
     badgeFilter,
     sortBy,
     sortOrder,
@@ -582,7 +693,18 @@ function HomeContent() {
             <div className="flex items-center gap-2">
               <div className="relative group">
                 <button
-                  onClick={() => setUseWeightedAvg(!useWeightedAvg)}
+                  onClick={() => {
+                    if (modelSource) return;
+                    setUseWeightedAvg((prev) => {
+                      const next = !prev;
+                      if (next) {
+                        setUseWeightedAvgV2(false);
+                        setUseV2(false);
+                        setUseV3(false);
+                      }
+                      return next;
+                    });
+                  }}
                   disabled={!!modelSource}
                   className={`
                     flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all
@@ -630,6 +752,61 @@ function HomeContent() {
                 </div>
               </div>
 
+              {/* Expanded Avg (Weighted v3) Toggle */}
+              <div className="relative group">
+                <button
+                  onClick={() => {
+                    if (modelSource) return;
+                    setUseWeightedAvgV3((prev) => {
+                      const next = !prev;
+                      if (next) {
+                        setUseWeightedAvg(false);
+                        setUseV2(false);
+                        setUseV3(false);
+                      }
+                      return next;
+                    });
+                  }}
+                  disabled={!!modelSource}
+                  className={`
+                    flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all
+                    ${modelSource
+                      ? 'bg-stone-100 text-stone-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500'
+                      : useWeightedAvgV3
+                        ? 'bg-sky-100 text-sky-900 border border-sky-300 shadow-sm dark:bg-sky-900/30 dark:text-sky-100 dark:border-sky-700'
+                        : 'bg-white/70 text-stone-600 border border-stone-200/70 hover:bg-white hover:border-stone-300 hover:shadow-sm dark:bg-slate-800/50 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800'
+                    }
+                  `}
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12h16M8 7h12M8 17h12" />
+                  </svg>
+                  <span>Expanded Avg</span>
+                  {useWeightedAvgV3 && (
+                    <span className="ml-1 text-[10px] bg-sky-200 dark:bg-sky-800 px-1.5 py-0.5 rounded-full">ON</span>
+                  )}
+                </button>
+
+                <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-stone-900 dark:bg-slate-950 text-white text-xs rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="font-semibold mb-2">Expanded Average</div>
+                  <p className="text-stone-300 dark:text-slate-300 mb-2">
+                    Averages three prompt variants (v1, v2, v3) to reduce prompt-based bias.
+                  </p>
+                  <p className="text-stone-400 dark:text-slate-400 mb-2">
+                    Uses canonical model weights, coverage-aware penalties, and Bayesian shrinkage for low-coverage figures.
+                  </p>
+                  <p className="text-stone-400 dark:text-slate-400 mb-2">
+                    Drops the ten worst lists using quantified quality metrics (duplicates, pattern collapse, name hygiene).
+                  </p>
+                  {modelSource && (
+                    <p className="mt-2 text-sky-400 text-[10px]">
+                      Disabled when viewing single model rankings.
+                    </p>
+                  )}
+                  <div className="absolute -top-1 right-4 w-2 h-2 bg-stone-900 dark:bg-slate-950 rotate-45" />
+                </div>
+              </div>
+
               {/* Download Dropdown */}
               <DownloadDropdown
                 figures={filteredAndSorted}
@@ -640,6 +817,10 @@ function HomeContent() {
                   search,
                   modelSource,
                   useWeightedAvg,
+                  useWeightedAvgV2,
+                  useWeightedAvgV3,
+                  useV2,
+                  useV3,
                 }}
               />
             </div>
@@ -689,6 +870,11 @@ function HomeContent() {
           <RankingsFilters
             search={search}
             onSearchChange={setSearch}
+            onSearchFocus={() => setSearchFocused(true)}
+            onSearchBlur={() => setSearchFocused(false)}
+            smartSearch={smartSearch}
+            onSmartSearchChange={setSmartSearch}
+            showSmartSearchToggle={searchFocused || Boolean(search) || !smartSearch}
             domain={domain}
             onDomainChange={setDomain}
             era={era}

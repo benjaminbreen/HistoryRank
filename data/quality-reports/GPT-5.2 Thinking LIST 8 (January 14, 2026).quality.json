@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 8 (January 14, 2026).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:58.972Z",
+  "timestamp": "2026-02-05T18:16:44.666Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 1,
-      "fuzzy": 82,
+      "fuzzy": 63,
       "status": "PASS",
       "details": "1 exact duplicates found"
     },
@@ -24,11 +24,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -38,32 +40,6 @@
       "ranks": [
         106,
         199
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad albukhari",
-        "jalal aldin muhammad rumi",
-        "askia muhammad",
-        "muhammad ali pasha",
-        "muhammad ali boxer",
-        "muhammad iqbal",
-        "muhammad abduh",
-        "muhammad yunus"
-      ],
-      "ranks": [
-        1,
-        225,
-        250,
-        450,
-        481,
-        587,
-        613,
-        627,
-        976
       ]
     },
     {
@@ -94,18 +70,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "ashoka relisted"
-      ],
-      "ranks": [
-        19,
-        888
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "thomas aquinas",
       "variants": [
         "thomas aquinas",
@@ -114,30 +78,6 @@
       "ranks": [
         21,
         858
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "homer",
-      "variants": [
-        "homer",
-        "homer relisted"
-      ],
-      "ranks": [
-        23,
-        709
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hammurabi",
-      "variants": [
-        "hammurabi",
-        "hammurabi relisted"
-      ],
-      "ranks": [
-        26,
-        893
       ]
     },
     {
@@ -202,98 +142,16 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "akbar",
-      "variants": [
-        "akbar",
-        "akbar relisted"
-      ],
-      "ranks": [
-        48,
-        889
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "louis xiv",
-      "variants": [
-        "louis xiv",
-        "louis xvi"
-      ],
-      "ranks": [
-        49,
-        366
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "hernn corts",
       "variants": [
         "hernn corts",
+        "hernando corts",
         "hernn corts relisted"
       ],
       "ranks": [
         65,
+        304,
         633
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pythagoras",
-      "variants": [
-        "pythagoras",
-        "pythagoras relisted"
-      ],
-      "ranks": [
-        73,
-        726
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "herodotus",
-      "variants": [
-        "herodotus",
-        "herodotus relisted"
-      ],
-      "ranks": [
-        74,
-        1000
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        76,
-        785
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "timur",
-      "variants": [
-        "timur",
-        "tamerlane timur"
-      ],
-      "ranks": [
-        81,
-        446
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saladin",
-      "variants": [
-        "saladin",
-        "saadi"
-      ],
-      "ranks": [
-        82,
-        619
       ]
     },
     {
@@ -322,18 +180,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "voltaire",
-      "variants": [
-        "voltaire",
-        "voltaire franoismarie arouet"
-      ],
-      "ranks": [
-        89,
-        256
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "alan turing",
       "variants": [
         "alan turing",
@@ -342,18 +188,6 @@
       "ranks": [
         115,
         528
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "jalal aldin muhammad rumi"
-      ],
-      "ranks": [
-        131,
-        250
       ]
     },
     {
@@ -406,34 +240,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hirohito",
-      "variants": [
-        "hirohito",
-        "emperor hirohito relisted"
-      ],
-      "ranks": [
-        172,
-        605
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto",
-        "sukarno relisted",
-        "sukarno duplicate removed placeholder"
-      ],
-      "ranks": [
-        180,
-        181,
-        910,
-        931
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "aung san",
       "variants": [
         "aung san",
@@ -458,38 +264,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ramanuja",
+      "name": "pope urban ii",
       "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        231,
-        524
+        223,
+        430
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mani",
+      "name": "pope innocent iii",
       "variants": [
-        "mani",
-        "mozi"
+        "pope innocent iii",
+        "pope paul iii"
       ],
       "ranks": [
-        236,
-        785
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saicho",
-      "variants": [
-        "saicho",
-        "sappho"
-      ],
-      "ranks": [
-        241,
-        507
+        224,
+        636
       ]
     },
     {
@@ -518,28 +312,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "du fu",
+      "name": "antonie van leeuwenhoek",
       "variants": [
-        "du fu",
-        "du fu relisted",
-        "du you"
+        "antonie van leeuwenhoek",
+        "antoine van leeuwenhoek"
       ],
       "ranks": [
-        265,
-        714,
-        779
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "james joyce",
-      "variants": [
-        "james joyce",
-        "james joule"
-      ],
-      "ranks": [
-        279,
-        700
+        293,
+        294
       ]
     },
     {
@@ -592,20 +372,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "babur",
-      "variants": [
-        "babur",
-        "babur relisted",
-        "kabir"
-      ],
-      "ranks": [
-        322,
-        667,
-        790
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "cyrus the great",
       "variants": [
         "cyrus the great",
@@ -626,20 +392,6 @@
       "ranks": [
         329,
         891
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pericles",
-      "variants": [
-        "pericles",
-        "pericles relisted",
-        "pericles duplicate removed placeholder"
-      ],
-      "ranks": [
-        331,
-        458,
-        892
       ]
     },
     {
@@ -740,26 +492,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hatshepsut",
+      "name": "yongzheng emperor",
       "variants": [
-        "hatshepsut",
-        "hatshepsut relisted"
+        "yongzheng emperor",
+        "yongle emperor"
       ],
       "ranks": [
-        454,
-        896
+        460,
+        463
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sappho",
+      "name": "antonie lavoisier relisted",
       "variants": [
-        "sappho",
-        "sappho relisted"
+        "antonie lavoisier relisted",
+        "antoni gaud relisted"
       ],
       "ranks": [
-        507,
-        886
+        519,
+        802
       ]
     },
     {
@@ -788,6 +540,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "martin luther relisted",
+      "variants": [
+        "martin luther relisted",
+        "mark zuckerberg relisted"
+      ],
+      "ranks": [
+        595,
+        969
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "lech wasa",
       "variants": [
         "lech wasa",
@@ -800,14 +564,28 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "kim jongil",
+      "name": "emperor hirohito relisted",
       "variants": [
-        "kim jongil",
-        "kim jongun"
+        "emperor hirohito relisted",
+        "emperor taizong relisted",
+        "emperor wu of han relisted"
       ],
       "ranks": [
-        610,
-        611
+        605,
+        775,
+        776
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernn corts relisted",
+      "variants": [
+        "hernn corts relisted",
+        "herodotus relisted"
+      ],
+      "ranks": [
+        633,
+        1000
       ]
     },
     {
@@ -824,26 +602,62 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "boudica",
+      "name": "ibn battuta relisted",
       "variants": [
-        "boudica",
-        "boudica relisted"
+        "ibn battuta relisted",
+        "ibn khaldun relisted"
       ],
       "ranks": [
-        655,
-        887
+        641,
+        998
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "vyasa",
+      "name": "babur relisted",
       "variants": [
-        "vyasa",
-        "bhasa"
+        "babur relisted",
+        "b r ambedkar relisted"
       ],
       "ranks": [
-        710,
-        713
+        667,
+        849
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "adam smith relisted",
+      "variants": [
+        "adam smith relisted",
+        "ada lovelace relisted"
+      ],
+      "ranks": [
+        747,
+        884
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "st francis xavier relisted",
+      "variants": [
+        "st francis xavier relisted",
+        "st thomas aquinas relisted"
+      ],
+      "ranks": [
+        767,
+        858
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "emperor taizong relisted",
+      "variants": [
+        "emperor taizong relisted",
+        "emperor wu of han relisted"
+      ],
+      "ranks": [
+        775,
+        776
       ]
     },
     {
@@ -880,6 +694,56 @@
       "ranks": [
         822,
         969
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harun alrashid relisted",
+      "variants": [
+        "harun alrashid relisted",
+        "harriet beecher stowe relisted"
+      ],
+      "ranks": [
+        843,
+        873
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "b r ambedkar relisted",
+      "variants": [
+        "b r ambedkar relisted",
+        "benedict spinoza relisted",
+        "boudica relisted"
+      ],
+      "ranks": [
+        849,
+        867,
+        887
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "francis bacon relisted",
+      "variants": [
+        "francis bacon relisted",
+        "franz fanon relisted"
+      ],
+      "ranks": [
+        860,
+        880
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry dunant relisted",
+      "variants": [
+        "henry dunant relisted",
+        "henry kissinger relisted"
+      ],
+      "ranks": [
+        864,
+        984
       ]
     },
     {
@@ -921,6 +785,21 @@
       "Military": 7,
       "Other": 922
     }
+  },
+  "advanced": {
+    "parentheticalCount": 95,
+    "parentheticalRate": 0.095,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 933,
+    "contributionShortRate": 0.933,
+    "score": 75.59
   },
   "summary": "List passes all quality checks"
 }

@@ -1,17 +1,17 @@
 {
   "file": "GLM 4.7 LIST 4 (January 18, 2026).txt",
   "model": "GLM 4.7",
-  "timestamp": "2026-01-20T04:15:55.726Z",
+  "timestamp": "2026-02-05T18:16:31.968Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 285,
-      "fuzzy": 10,
+      "fuzzy": 5,
       "status": "FAIL",
       "details": "285 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 512,
+      "maxSequence": 630,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -144,10 +144,58 @@
             "490. David Tavčar",
             "491. Gal Mekel"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 240,
+          "endRank": 275,
+          "count": 36,
+          "examples": [
+            "240. Venus Williams",
+            "241. Billie Jean King",
+            "242. Marta Vieira da Silva"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 295,
+          "endRank": 326,
+          "count": 32,
+          "examples": [
+            "295. Raphinha",
+            "296. Vinícius Júnior",
+            "297. Rodrygo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 346,
+          "endRank": 369,
+          "count": 24,
+          "examples": [
+            "346. Nicolás de la Cruz",
+            "347. Federico Valverde",
+            "348. Lucas Torreira"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 371,
+          "endRank": 1000,
+          "count": 630,
+          "examples": [
+            "371. Julián Álvarez",
+            "372. Lautaro Martínez",
+            "373. Ángel Di María"
+          ]
         }
       ],
       "status": "FAIL",
-      "details": "Max sequence of 512 similar entries"
+      "details": "Max sequence of 630 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -157,14 +205,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "archimedes",
         "kepler"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -1162,20 +1211,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        1,
-        156,
-        217
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther king jr",
       "variants": [
         "martin luther king jr",
@@ -1188,62 +1223,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "virgil",
+      "name": "pope john paul ii",
       "variants": [
-        "virgil",
-        "virgil van dijk"
+        "pope john paul ii",
+        "pope urban ii"
       ],
       "ranks": [
-        77,
-        273
+        129,
+        131
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "saladin",
+      "name": "marta vieira da silva",
       "variants": [
-        "saladin",
-        "saadi"
+        "marta vieira da silva",
+        "martn silva"
       ],
       "ranks": [
-        143,
-        150
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "frederick douglass",
-      "variants": [
-        "frederick douglass",
-        "fred"
-      ],
-      "ranks": [
-        200,
-        293
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pel",
-      "variants": [
-        "pel",
-        "klemen prepeli"
-      ],
-      "ranks": [
-        220,
-        690
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alejandro gmez",
-      "variants": [
-        "alejandro gmez",
-        "alejandro vlez"
-      ],
-      "ranks": [
-        375,
-        418
+        242,
+        390
       ]
     },
     {
@@ -1401,6 +1400,54 @@
         "490. David Tavčar",
         "491. Gal Mekel"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 240,
+      "endRank": 275,
+      "count": 36,
+      "examples": [
+        "240. Venus Williams",
+        "241. Billie Jean King",
+        "242. Marta Vieira da Silva"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 295,
+      "endRank": 326,
+      "count": 32,
+      "examples": [
+        "295. Raphinha",
+        "296. Vinícius Júnior",
+        "297. Rodrygo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 346,
+      "endRank": 369,
+      "count": 24,
+      "examples": [
+        "346. Nicolás de la Cruz",
+        "347. Federico Valverde",
+        "348. Lucas Torreira"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 371,
+      "endRank": 1000,
+      "count": 630,
+      "examples": [
+        "371. Julián Álvarez",
+        "372. Lautaro Martínez",
+        "373. Ángel Di María"
+      ]
     }
   ],
   "diversity": {
@@ -1430,5 +1477,20 @@
       "Other": 869
     }
   },
-  "summary": "Issues: 285 exact duplicates; pattern collapse (max 512)"
+  "advanced": {
+    "parentheticalCount": 3,
+    "parentheticalRate": 0.003,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 184,
+    "contributionShortRate": 0.184,
+    "score": 95.98999999999998
+  },
+  "summary": "Issues: 285 exact duplicates; pattern collapse (max 630)"
 }

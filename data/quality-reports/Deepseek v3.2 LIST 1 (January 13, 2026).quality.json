@@ -1,17 +1,17 @@
 {
   "file": "DeepSeek V3.2 LIST 1 (January 13, 2026).txt",
   "model": "DeepSeek V3.2",
-  "timestamp": "2026-01-20T04:15:54.464Z",
+  "timestamp": "2026-02-05T18:16:28.484Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 428,
-      "fuzzy": 3,
+      "fuzzy": 0,
       "status": "FAIL",
       "details": "428 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 25,
+      "maxSequence": 41,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -576,10 +576,58 @@
             "951. Aretha Franklin",
             "952. Beyoncé"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 345,
+          "endRank": 360,
+          "count": 16,
+          "examples": [
+            "345. Rachel Carson",
+            "346. Galileo Galilei",
+            "347. Johannes Kepler"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 572,
+          "endRank": 612,
+          "count": 41,
+          "examples": [
+            "572. Alan Turing",
+            "573. Nikola Tesla",
+            "574. Thomas Edison"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 705,
+          "endRank": 723,
+          "count": 19,
+          "examples": [
+            "705. Bob Kahn",
+            "706. Paul Baran",
+            "707. Donald Davies"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 871,
+          "endRank": 897,
+          "count": 27,
+          "examples": [
+            "871. Nelson Rockefeller",
+            "872. Ronald Reagan",
+            "873. Margaret Thatcher"
+          ]
         }
       ],
-      "status": "PASS",
-      "details": "Max sequence of 25 similar entries"
+      "status": "WARN",
+      "details": "Max sequence of 41 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -589,13 +637,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "rousseau"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -2309,42 +2358,6 @@
       ]
     },
     {
-      "type": "fuzzy_duplicate",
-      "name": "buddha siddhartha gautama",
-      "variants": [
-        "buddha siddhartha gautama",
-        "buddha"
-      ],
-      "ranks": [
-        4,
-        553
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "siddhartha gautama buddha",
-      "variants": [
-        "siddhartha gautama buddha",
-        "buddha"
-      ],
-      "ranks": [
-        278,
-        553
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham maslow"
-      ],
-      "ranks": [
-        282,
-        463
-      ]
-    },
-    {
       "type": "pattern_collapse",
       "pattern": "whose",
       "startRank": 271,
@@ -2907,6 +2920,54 @@
         "951. Aretha Franklin",
         "952. Beyoncé"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 345,
+      "endRank": 360,
+      "count": 16,
+      "examples": [
+        "345. Rachel Carson",
+        "346. Galileo Galilei",
+        "347. Johannes Kepler"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 572,
+      "endRank": 612,
+      "count": 41,
+      "examples": [
+        "572. Alan Turing",
+        "573. Nikola Tesla",
+        "574. Thomas Edison"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 705,
+      "endRank": 723,
+      "count": 19,
+      "examples": [
+        "705. Bob Kahn",
+        "706. Paul Baran",
+        "707. Donald Davies"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 871,
+      "endRank": 897,
+      "count": 27,
+      "examples": [
+        "871. Nelson Rockefeller",
+        "872. Ronald Reagan",
+        "873. Margaret Thatcher"
+      ]
     }
   ],
   "diversity": {
@@ -2936,5 +2997,20 @@
       "Other": 250
     }
   },
-  "summary": "Issues: 428 exact duplicates; pattern collapse (max 25)"
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.35000000000001
+  },
+  "summary": "Issues: 428 exact duplicates; pattern collapse (max 41)"
 }

@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Opus 4.5 LIST 8 (January 16, 2026).txt
 Model: Claude Opus 4.5
-Timestamp: 2026-01-20T04:15:50.217Z
+Timestamp: 2026-02-05T18:16:14.724Z
 
 VERDICT: PASS
 
@@ -12,21 +12,28 @@ Scores:
   Repetition: PASS - 5 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 10 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
-Issues (15):
+Issues (9):
   - Exact duplicate: "francis bacon" at ranks 68, 627
   - Exact duplicate: "jeanjacques rousseau" at ranks 70, 954
   - Exact duplicate: "chiang kaishek" at ranks 111, 220
   - Exact duplicate: "booker t washington" at ranks 339, 955
   - Exact duplicate: "rachel carson" at ranks 353, 979
-  - Fuzzy duplicate: muhammad / muhammad yunus / muhammad ali at ranks 1, 415, 902
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 20, 115
-  - Fuzzy duplicate: abraham / abraham lincoln / abraham maslow at ranks 31, 45, 940
-  - Fuzzy duplicate: srinivasa ramanujan / ramanuja at ranks 90, 257
-  - Fuzzy duplicate: sukarno / suharto at ranks 225, 226
-  ... and 5 more issues
+  - Pattern collapse: "founded" (10 entries, ranks 258-267)
+  - Pattern collapse: "architecture," (10 entries, ranks 660-669)
+  - Pattern collapse: "cinema," (10 entries, ranks 772-781)
 
 Diversity Estimates:
   Regions: Europe: 106, Asia: 44, Middle East: 23, Africa: 26, Americas: 36, Unknown: 765
   Domains: Politics/Leadership: 56, Science/Technology: 17, Philosophy/Religion: 22, Arts/Literature: 28, Military: 6, Other: 871
+
+Advanced Metrics:
+  Advanced score: 94.8
+  Parenthetical names: 1.0%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 22.9%

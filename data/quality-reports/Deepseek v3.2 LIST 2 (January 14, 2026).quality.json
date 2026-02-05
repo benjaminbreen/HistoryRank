@@ -1,12 +1,12 @@
 {
   "file": "DeepSeek V3.2 LIST 2 (January 14, 2026).txt",
   "model": "DeepSeek V3.2",
-  "timestamp": "2026-01-20T04:15:54.567Z",
+  "timestamp": "2026-02-05T18:16:28.762Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 625,
-      "fuzzy": 4,
+      "fuzzy": 24,
       "status": "FAIL",
       "details": "625 exact duplicates found"
     },
@@ -61,11 +61,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -2005,38 +2007,42 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "gautama buddha",
+      "name": "sui wen di emperor wen of sui",
       "variants": [
-        "gautama buddha",
-        "buddha"
+        "sui wen di emperor wen of sui",
+        "sui wenti emperor wen of sui"
       ],
       "ranks": [
-        234,
-        942
+        471,
+        573
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john knox",
+      "name": "pope sixtus iv",
       "variants": [
-        "john knox",
-        "john snow"
+        "pope sixtus iv",
+        "pope adrian iv",
+        "pope innocent iv",
+        "pope eugene iv"
       ],
       "ranks": [
-        481,
-        599
+        852,
+        874,
+        878,
+        894
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "buddha siddhartha gautama",
+      "name": "pope boniface viii",
       "variants": [
-        "buddha siddhartha gautama",
-        "buddha"
+        "pope boniface viii",
+        "pope urban viii"
       ],
       "ranks": [
-        743,
-        942
+        854,
+        862
       ]
     },
     {
@@ -2044,11 +2050,137 @@
       "name": "pope clement v",
       "variants": [
         "pope clement v",
-        "pope clement vii"
+        "pope clement vii",
+        "pope celestine v"
       ],
       "ranks": [
         856,
-        866
+        866,
+        876
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement vii",
+      "variants": [
+        "pope clement vii",
+        "pope pius vii"
+      ],
+      "ranks": [
+        866,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope adrian iv",
+      "variants": [
+        "pope adrian iv",
+        "pope innocent iv",
+        "pope eugene iv"
+      ],
+      "ranks": [
+        874,
+        878,
+        894
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent iv",
+      "variants": [
+        "pope innocent iv",
+        "pope eugene iv"
+      ],
+      "ranks": [
+        878,
+        894
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope stephen ii",
+      "variants": [
+        "pope stephen ii",
+        "pope marcellus ii",
+        "pope paschal ii"
+      ],
+      "ranks": [
+        880,
+        884,
+        896
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope marcellus ii",
+      "variants": [
+        "pope marcellus ii",
+        "pope paschal ii"
+      ],
+      "ranks": [
+        884,
+        896
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope sergius iii",
+      "variants": [
+        "pope sergius iii",
+        "pope honorius iii",
+        "pope callixtus iii",
+        "pope lucius iii",
+        "pope victor iii"
+      ],
+      "ranks": [
+        886,
+        888,
+        890,
+        898,
+        900
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope honorius iii",
+      "variants": [
+        "pope honorius iii",
+        "pope callixtus iii",
+        "pope lucius iii",
+        "pope victor iii"
+      ],
+      "ranks": [
+        888,
+        890,
+        898,
+        900
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope callixtus iii",
+      "variants": [
+        "pope callixtus iii",
+        "pope lucius iii",
+        "pope victor iii"
+      ],
+      "ranks": [
+        890,
+        898,
+        900
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope lucius iii",
+      "variants": [
+        "pope lucius iii",
+        "pope victor iii"
+      ],
+      "ranks": [
+        898,
+        900
       ]
     },
     {
@@ -2114,6 +2246,21 @@
       "Military": 13,
       "Other": 323
     }
+  },
+  "advanced": {
+    "parentheticalCount": 31,
+    "parentheticalRate": 0.031,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 2,
+    "longNameRate": 0.002,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 98.03
   },
   "summary": "Issues: 625 exact duplicates; pattern collapse (max 14)"
 }

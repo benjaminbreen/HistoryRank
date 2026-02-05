@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 3 (January 12, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:57.409Z",
+  "timestamp": "2026-02-05T18:16:38.374Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 1,
-      "fuzzy": 51,
+      "fuzzy": 38,
       "status": "PASS",
       "details": "1 exact duplicates found"
     },
@@ -24,11 +24,13 @@
       "details": "777 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -38,24 +40,6 @@
       "ranks": [
         99,
         340
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali jinnah",
-        "muhammad ibn musa alkhwarizmi",
-        "askia muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        1,
-        106,
-        166,
-        317,
-        499
       ]
     },
     {
@@ -96,18 +80,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "emperor ashoka dup avoided in continuation"
-      ],
-      "ranks": [
-        14,
-        509
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "genghis khan",
       "variants": [
         "genghis khan",
@@ -142,42 +114,6 @@
       "ranks": [
         71,
         447
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alkhwarizmi",
-      "variants": [
-        "alkhwarizmi",
-        "muhammad ibn musa alkhwarizmi"
-      ],
-      "ranks": [
-        73,
-        166
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "charlemagne",
-      "variants": [
-        "charlemagne",
-        "charlemagne again"
-      ],
-      "ranks": [
-        83,
-        454
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "timur",
-      "variants": [
-        "timur",
-        "tamerlane timur"
-      ],
-      "ranks": [
-        89,
-        503
       ]
     },
     {
@@ -270,18 +206,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "robespierre",
-      "variants": [
-        "robespierre",
-        "maximilien de robespierre again"
-      ],
-      "ranks": [
-        132,
-        393
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "mary wollstonecraft",
       "variants": [
         "mary wollstonecraft",
@@ -306,18 +230,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hatshepsut",
-      "variants": [
-        "hatshepsut",
-        "hatshepsut again avoided in continuation"
-      ],
-      "ranks": [
-        155,
-        501
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "sun tzu",
       "variants": [
         "sun tzu",
@@ -326,18 +238,6 @@
       "ranks": [
         176,
         438
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramanuja",
-      "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        179,
-        703
       ]
     },
     {
@@ -376,18 +276,6 @@
         232,
         620,
         624
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert noyce",
-      "variants": [
-        "robert noyce",
-        "robert boyle"
-      ],
-      "ranks": [
-        252,
-        406
       ]
     },
     {
@@ -488,18 +376,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "james joyce",
-      "variants": [
-        "james joyce",
-        "james joule"
-      ],
-      "ranks": [
-        369,
-        426
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "matteo ricci",
       "variants": [
         "matteo ricci",
@@ -508,18 +384,6 @@
       "ranks": [
         416,
         571
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ep thompson",
-      "variants": [
-        "ep thompson",
-        "ken thompson"
-      ],
-      "ranks": [
-        444,
-        716
       ]
     },
     {
@@ -548,14 +412,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sukarno",
+      "name": "dom pedro i of brazil",
       "variants": [
-        "sukarno",
-        "suharto"
+        "dom pedro i of brazil",
+        "dom pedro ii of brazil"
       ],
       "ranks": [
-        546,
-        547
+        532,
+        533
       ]
     },
     {
@@ -580,6 +444,18 @@
       "ranks": [
         620,
         624
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "margaret thatcher dup avoided",
+      "variants": [
+        "margaret thatcher dup avoided",
+        "mary wollstonecraft dup avoided"
+      ],
+      "ranks": [
+        647,
+        682
       ]
     }
   ],
@@ -609,6 +485,21 @@
       "Military": 16,
       "Other": 681
     }
+  },
+  "advanced": {
+    "parentheticalCount": 67,
+    "parentheticalRate": 0.08622908622908623,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001287001287001287,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 2,
+    "longNameRate": 0.002574002574002574,
+    "contributionShortCount": 3,
+    "contributionShortRate": 0.003861003861003861,
+    "score": 94.63320463320463
   },
   "summary": "Issues: 1 exact duplicates; 777 entries (expected 1000); non-sequential ranks"
 }

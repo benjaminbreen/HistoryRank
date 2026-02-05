@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 7 (January 14, 2026).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:49.732Z",
+  "timestamp": "2026-02-05T18:16:13.130Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 8,
-      "fuzzy": 14,
+      "fuzzy": 12,
       "status": "PASS",
       "details": "8 exact duplicates found"
     },
@@ -229,14 +229,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 41,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
         "moses",
+        "saint paul",
         "kepler"
       ],
       "status": "PASS",
-      "details": "41/43 anchor figures found (95%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -306,20 +307,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus",
-        "muhammad ali jinnah"
-      ],
-      "ranks": [
-        1,
-        278,
-        331
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -368,50 +355,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rumi",
+      "name": "marie curie",
       "variants": [
-        "rumi",
-        "rumiko takahashi"
+        "marie curie",
+        "marie sklodowska curie"
       ],
       "ranks": [
-        107,
-        955
+        83,
+        185
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hafez",
+      "name": "grace hopper",
       "variants": [
-        "hafez",
-        "hafez alassad"
+        "grace hopper",
+        "grace murray hopper"
       ],
       "ranks": [
-        108,
-        349
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michelangelo",
-      "variants": [
-        "michelangelo",
-        "michelangelo antonioni"
-      ],
-      "ranks": [
-        141,
-        885
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        217,
-        239
+        189,
+        598
       ]
     },
     {
@@ -428,26 +391,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ken thompson",
+      "name": "john adams",
       "variants": [
-        "ken thompson",
-        "ep thompson"
+        "john adams",
+        "john quincy adams"
       ],
       "ranks": [
-        242,
-        669
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bob kahn",
-      "variants": [
-        "bob kahn",
-        "bob kane"
-      ],
-      "ranks": [
-        248,
-        950
+        292,
+        293
       ]
     },
     {
@@ -460,6 +411,42 @@
       "ranks": [
         410,
         411
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander i of russia",
+      "variants": [
+        "alexander i of russia",
+        "alexander ii of russia"
+      ],
+      "ranks": [
+        432,
+        434
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nicholas i of russia",
+      "variants": [
+        "nicholas i of russia",
+        "nicholas ii of russia"
+      ],
+      "ranks": [
+        433,
+        435
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        445,
+        452
       ]
     },
     {
@@ -693,6 +680,21 @@
       "Military": 19,
       "Other": 865
     }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 338,
+    "contributionShortRate": 0.338,
+    "score": 92.68999999999998
   },
   "summary": "List passes all quality checks"
 }

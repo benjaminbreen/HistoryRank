@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 1 (January 14, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:07.657Z",
+  "timestamp": "2026-02-05T18:17:08.398Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 480,
-      "fuzzy": 8,
+      "fuzzy": 2,
       "status": "FAIL",
       "details": "480 exact duplicates found"
     },
@@ -84,6 +84,18 @@
             "888. Enrico Fermi",
             "889. Werner Heisenberg"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 877,
+          "endRank": 901,
+          "count": 25,
+          "examples": [
+            "877. Katherine Johnson",
+            "878. Alan Turing",
+            "879. Grace Hopper"
+          ]
         }
       ],
       "status": "WARN",
@@ -97,11 +109,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -2190,66 +2204,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "gautama buddha",
-      "variants": [
-        "gautama buddha",
-        "buddha"
-      ],
-      "ranks": [
-        3,
-        935
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "augustus caesar",
-      "variants": [
-        "augustus caesar",
-        "augustus"
-      ],
-      "ranks": [
-        13,
-        967
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cleopatra vii",
-      "variants": [
-        "cleopatra vii",
-        "cleopatra"
-      ],
-      "ranks": [
-        66,
-        972
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "babur",
-      "variants": [
-        "babur",
-        "kabir"
-      ],
-      "ranks": [
-        439,
-        804
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
-      "variants": [
-        "srinivasa ramanujan",
-        "ramanuja"
-      ],
-      "ranks": [
-        511,
-        586
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "samory tour",
       "variants": [
         "samory tour",
@@ -2270,18 +2224,6 @@
       "ranks": [
         674,
         860
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hernan cortes",
-      "variants": [
-        "hernan cortes",
-        "hernn corts"
-      ],
-      "ranks": [
-        865,
-        983
       ]
     },
     {
@@ -2355,6 +2297,18 @@
         "888. Enrico Fermi",
         "889. Werner Heisenberg"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 877,
+      "endRank": 901,
+      "count": 25,
+      "examples": [
+        "877. Katherine Johnson",
+        "878. Alan Turing",
+        "879. Grace Hopper"
+      ]
     }
   ],
   "diversity": {
@@ -2383,6 +2337,21 @@
       "Military": 13,
       "Other": 746
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 529,
+    "contributionShortRate": 0.529,
+    "score": 89.18
   },
   "summary": "Issues: 480 exact duplicates; pattern collapse (max 97)"
 }

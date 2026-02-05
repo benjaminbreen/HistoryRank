@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 4 (January 12, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:57.710Z",
+  "timestamp": "2026-02-05T18:16:39.376Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 3,
-      "fuzzy": 133,
+      "fuzzy": 129,
       "status": "PASS",
       "details": "3 exact duplicates found"
     },
@@ -37,11 +37,13 @@
       "details": "1026 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -71,28 +73,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali jinnah",
-        "muhammad ibn musa alkhwarizmi",
-        "askia muhammad",
-        "muhammad ali",
-        "elijah muhammad",
-        "muhammad dup avoided earlier list"
-      ],
-      "ranks": [
-        1,
-        106,
-        166,
-        317,
-        499,
-        894,
-        976
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "jesus of nazareth",
       "variants": [
         "jesus of nazareth",
@@ -115,18 +95,6 @@
         3,
         26,
         979
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "confucius",
-      "variants": [
-        "confucius",
-        "confucius dup avoided earlier list"
-      ],
-      "ranks": [
-        4,
-        978
       ]
     },
     {
@@ -205,18 +173,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "augustus",
-      "variants": [
-        "augustus",
-        "augustus dup avoided earlier list"
-      ],
-      "ranks": [
-        11,
-        981
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -229,18 +185,6 @@
         144,
         986,
         997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "emperor ashoka dup avoided in continuation"
-      ],
-      "ranks": [
-        14,
-        509
       ]
     },
     {
@@ -525,38 +469,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alkhwarizmi",
+      "name": "pope urban ii",
       "variants": [
-        "alkhwarizmi",
-        "muhammad ibn musa alkhwarizmi"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        73,
-        166
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "charlemagne",
-      "variants": [
-        "charlemagne",
-        "charlemagne again"
-      ],
-      "ranks": [
-        83,
-        454
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "timur",
-      "variants": [
-        "timur",
-        "tamerlane timur"
-      ],
-      "ranks": [
-        89,
-        503
+        85,
+        888
       ]
     },
     {
@@ -735,30 +655,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "robespierre",
-      "variants": [
-        "robespierre",
-        "maximilien de robespierre again"
-      ],
-      "ranks": [
-        132,
-        393
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "voltaire",
-      "variants": [
-        "voltaire",
-        "voltaire dup avoided earlier list"
-      ],
-      "ranks": [
-        133,
-        769
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "jeanjacques rousseau",
       "variants": [
         "jeanjacques rousseau",
@@ -843,18 +739,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ramanuja",
-      "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        179,
-        703
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "ignatius of loyola",
       "variants": [
         "ignatius of loyola",
@@ -915,18 +799,6 @@
       "ranks": [
         233,
         949
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert noyce",
-      "variants": [
-        "robert noyce",
-        "robert boyle"
-      ],
-      "ranks": [
-        252,
-        406
       ]
     },
     {
@@ -1243,30 +1115,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "james joyce",
-      "variants": [
-        "james joyce",
-        "james joule"
-      ],
-      "ranks": [
-        369,
-        426
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pope paul iii",
-      "variants": [
-        "pope paul iii",
-        "pope paul vi"
-      ],
-      "ranks": [
-        414,
-        887
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "matteo ricci",
       "variants": [
         "matteo ricci",
@@ -1287,18 +1135,6 @@
       "ranks": [
         436,
         957
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ep thompson",
-      "variants": [
-        "ep thompson",
-        "ken thompson"
-      ],
-      "ranks": [
-        444,
-        716
       ]
     },
     {
@@ -1351,28 +1187,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pele",
+      "name": "dom pedro i of brazil",
       "variants": [
-        "pele",
-        "bede"
+        "dom pedro i of brazil",
+        "dom pedro ii of brazil"
       ],
       "ranks": [
-        498,
-        756
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto",
-        "sukarno dup avoided earlier list"
-      ],
-      "ranks": [
-        546,
-        547,
-        939
+        532,
+        533
       ]
     },
     {
@@ -1442,23 +1264,27 @@
       "name": "margaret thatcher dup avoided",
       "variants": [
         "margaret thatcher dup avoided",
-        "margaret thatcher dup avoided earlier list"
+        "mary wollstonecraft dup avoided",
+        "margaret thatcher dup avoided earlier list",
+        "marshall plan architect jean monnet dup avoided"
       ],
       "ranks": [
         647,
-        832
+        682,
+        832,
+        965
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hirohito",
+      "name": "mary wollstonecraft dup avoided",
       "variants": [
-        "hirohito",
-        "emperor hirohito dup avoided earlier list"
+        "mary wollstonecraft dup avoided",
+        "marshall plan architect jean monnet dup avoided"
       ],
       "ranks": [
-        656,
-        936
+        682,
+        965
       ]
     },
     {
@@ -1475,6 +1301,94 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "charles dickens dup avoided earlier list",
+      "variants": [
+        "charles dickens dup avoided earlier list",
+        "charles keeling dup avoided earlier list",
+        "charles babbage dup avoided earlier list"
+      ],
+      "ranks": [
+        786,
+        862,
+        908
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "margaret thatcher dup avoided earlier list",
+      "variants": [
+        "margaret thatcher dup avoided earlier list",
+        "martin luther dup avoided earlier list",
+        "martin luther king jr dup avoided earlier list"
+      ],
+      "ranks": [
+        832,
+        986,
+        997
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas edison dup avoided earlier list",
+      "variants": [
+        "thomas edison dup avoided earlier list",
+        "thomas hobbes dup avoided earlier list"
+      ],
+      "ranks": [
+        845,
+        974
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles keeling dup avoided earlier list",
+      "variants": [
+        "charles keeling dup avoided earlier list",
+        "charles babbage dup avoided earlier list"
+      ],
+      "ranks": [
+        862,
+        908
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james madison dup avoided earlier list",
+      "variants": [
+        "james madison dup avoided earlier list",
+        "james clerk maxwell dup avoided earlier list"
+      ],
+      "ranks": [
+        864,
+        912
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ada lovelace dup avoided earlier list",
+      "variants": [
+        "ada lovelace dup avoided earlier list",
+        "adam smith dup avoided earlier list"
+      ],
+      "ranks": [
+        907,
+        972
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "claude lvistrauss dup avoided earlier list",
+      "variants": [
+        "claude lvistrauss dup avoided earlier list",
+        "claude shannon dup avoided earlier list"
+      ],
+      "ranks": [
+        947,
+        1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "shannon dup avoided earlier list",
       "variants": [
         "shannon dup avoided earlier list",
@@ -1483,6 +1397,56 @@
       "ranks": [
         952,
         1000
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john von neumann dup avoided earlier list",
+      "variants": [
+        "john von neumann dup avoided earlier list",
+        "johannes gutenberg dup avoided earlier list",
+        "john locke dup avoided earlier list"
+      ],
+      "ranks": [
+        953,
+        970,
+        973
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johannes gutenberg dup avoided earlier list",
+      "variants": [
+        "johannes gutenberg dup avoided earlier list",
+        "john locke dup avoided earlier list"
+      ],
+      "ranks": [
+        970,
+        973
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "confucius dup avoided earlier list",
+      "variants": [
+        "confucius dup avoided earlier list",
+        "constantine the great dup avoided earlier list"
+      ],
+      "ranks": [
+        978,
+        987
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther dup avoided earlier list",
+      "variants": [
+        "martin luther dup avoided earlier list",
+        "martin luther king jr dup avoided earlier list"
+      ],
+      "ranks": [
+        986,
+        997
       ]
     },
     {
@@ -1524,6 +1488,21 @@
       "Military": 19,
       "Other": 902
     }
+  },
+  "advanced": {
+    "parentheticalCount": 157,
+    "parentheticalRate": 0.1530214424951267,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.001949317738791423,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 45,
+    "longNameRate": 0.043859649122807015,
+    "contributionShortCount": 3,
+    "contributionShortRate": 0.0029239766081871343,
+    "score": 89.78557504873294
   },
   "summary": "Issues: 3 exact duplicates; pattern collapse (max 10); 1026 entries (expected 1000); non-sequential ranks"
 }

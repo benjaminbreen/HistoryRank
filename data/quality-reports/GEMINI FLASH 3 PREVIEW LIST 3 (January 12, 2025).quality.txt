@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Gemini Flash 3 Preview LIST 3 (January 12, 2025).txt
 Model: Gemini Flash 3 Preview
-Timestamp: 2026-01-20T04:16:00.128Z
+Timestamp: 2026-02-05T18:16:48.247Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: FAIL - 303 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 22 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (270):
+Issues (259):
   - Exact duplicate: "muhammad" at ranks 1, 916
   - Exact duplicate: "isaac newton" at ranks 2, 964
   - Exact duplicate: "jesus christ" at ranks 3, 915
@@ -25,8 +25,17 @@ Issues (270):
   - Exact duplicate: "louis pasteur" at ranks 11, 956
   - Exact duplicate: "galileo galilei" at ranks 12, 965
   - Exact duplicate: "aristotle" at ranks 13, 910
-  ... and 260 more issues
+  ... and 249 more issues
 
 Diversity Estimates:
   Regions: Europe: 109, Asia: 27, Middle East: 29, Africa: 10, Americas: 20, Unknown: 805
   Domains: Politics/Leadership: 124, Science/Technology: 75, Philosophy/Religion: 142, Arts/Literature: 171, Military: 18, Other: 470
+
+Advanced Metrics:
+  Advanced score: 99.3
+  Parenthetical names: 0.4%
+  Multi-person names: 0.9%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

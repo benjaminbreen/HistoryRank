@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Grok 4.1 Fast LIST 6 (January 15, 2026).txt
 Model: Grok 4.1 Fast
-Timestamp: 2026-01-20T04:16:08.384Z
+Timestamp: 2026-02-05T18:17:10.569Z
 
 VERDICT: PASS
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 31 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 27 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
 
-Issues (152):
+Issues (55):
   - Exact duplicate: "marcus aurelius" at ranks 65, 254
   - Exact duplicate: "winston churchill" at ranks 71, 357
   - Exact duplicate: "richard feynman" at ranks 100, 664
@@ -25,8 +25,17 @@ Issues (152):
   - Exact duplicate: "alexander lukashenko" at ranks 298, 320
   - Exact duplicate: "jack kilby" at ranks 390, 610
   - Exact duplicate: "robert noyce" at ranks 391, 611
-  ... and 142 more issues
+  ... and 45 more issues
 
 Diversity Estimates:
   Regions: Europe: 38, Asia: 16, Middle East: 9, Africa: 9, Americas: 8, Unknown: 920
   Domains: Politics/Leadership: 106, Science/Technology: 11, Philosophy/Religion: 16, Arts/Literature: 13, Military: 7, Other: 847
+
+Advanced Metrics:
+  Advanced score: 80.3
+  Parenthetical names: 0.2%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.6%
+  Long names: 0.0%
+  Short contributions: 95.7%

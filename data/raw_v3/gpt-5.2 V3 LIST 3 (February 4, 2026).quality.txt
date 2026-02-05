@@ -1,0 +1,24 @@
+Quality Assessment Report
+========================
+File: gpt-5.2 V3 LIST 3 (February 4, 2026).txt
+Model: gpt-5.2 V3 Prompt
+Timestamp: 2026-02-05T06:42:08.789Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 2 fuzzy duplicates found
+  Pattern Collapse: PASS - Max sequence of 11 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 56/61 anchor figures found (92%)
+
+Issues (3):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 16, 162
+  - Fuzzy duplicate: pope john paul ii / pope urban ii at ranks 194, 242
+  - Pattern collapse: "shaping" (11 entries, ranks 374-384)
+
+Diversity Estimates:
+  Regions: Europe: 64, Asia: 38, Middle East: 23, Africa: 12, Americas: 7, Unknown: 356
+  Domains: Politics/Leadership: 18, Science/Technology: 18, Philosophy/Religion: 11, Arts/Literature: 23, Military: 6, Other: 424

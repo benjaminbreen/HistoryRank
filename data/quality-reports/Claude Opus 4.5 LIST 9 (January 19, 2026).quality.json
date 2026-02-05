@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 9 (January 19, 2026).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:50.696Z",
+  "timestamp": "2026-02-05T18:16:16.239Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 4,
-      "fuzzy": 15,
+      "fuzzy": 8,
       "status": "PASS",
       "details": "4 exact duplicates found"
     },
@@ -97,11 +97,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -139,34 +141,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad yunus",
-        "muhammad ali jinnah"
-      ],
-      "ranks": [
-        1,
-        285,
-        438,
-        592
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        23,
-        80
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -179,38 +153,16 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "abraham",
+      "name": "pope urban ii",
       "variants": [
-        "abraham",
-        "abraham maslow"
+        "pope urban ii",
+        "pope john paul ii",
+        "pope julius ii"
       ],
       "ranks": [
-        80,
-        428
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        114,
-        490
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john muir",
-      "variants": [
-        "john muir",
-        "joan mir"
-      ],
-      "ranks": [
-        136,
-        898
+        202,
+        847,
+        855
       ]
     },
     {
@@ -227,18 +179,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hafez",
-      "variants": [
-        "hafez",
-        "hafez alassad"
-      ],
-      "ranks": [
-        366,
-        642
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "jack kilby",
       "variants": [
         "jack kilby",
@@ -247,18 +187,6 @@
       "ranks": [
         491,
         525
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        580,
-        581
       ]
     },
     {
@@ -275,26 +203,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
+      "name": "king hussein of jordan",
       "variants": [
-        "srinivasa ramanujan",
-        "ramanuja"
+        "king hussein of jordan",
+        "king abdullah ii of jordan"
       ],
       "ranks": [
-        790,
-        833
+        655,
+        656
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pope pius xii",
+      "name": "pope john paul ii",
       "variants": [
-        "pope pius xii",
-        "pope pius ix"
+        "pope john paul ii",
+        "pope julius ii"
       ],
       "ranks": [
-        850,
-        856
+        847,
+        855
       ]
     },
     {
@@ -396,6 +324,21 @@
       "Military": 10,
       "Other": 877
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 382,
+    "contributionShortRate": 0.382,
+    "score": 92.02000000000001
   },
   "summary": "List passes all quality checks"
 }

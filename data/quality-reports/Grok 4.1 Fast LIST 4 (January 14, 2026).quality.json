@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 4 (January 14, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:07.850Z",
+  "timestamp": "2026-02-05T18:17:08.899Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 419,
-      "fuzzy": 15,
+      "fuzzy": 10,
       "status": "FAIL",
       "details": "419 exact duplicates found"
     },
@@ -24,11 +24,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -1874,54 +1876,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nicolaus copernicus",
-      "variants": [
-        "nicolaus copernicus",
-        "copernicus"
-      ],
-      "ranks": [
-        21,
-        512
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "augustus caesar",
-      "variants": [
-        "augustus caesar",
-        "augustus"
-      ],
-      "ranks": [
-        26,
-        141
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "homer",
-      "variants": [
-        "homer",
-        "honen"
-      ],
-      "ranks": [
-        63,
-        575
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn rushd averroes",
-      "variants": [
-        "ibn rushd averroes",
-        "averroes"
-      ],
-      "ranks": [
-        87,
-        330
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "wu zetian",
       "variants": [
         "wu zetian",
@@ -1937,25 +1891,11 @@
       "name": "samori toure",
       "variants": [
         "samori toure",
-        "samori tour",
-        "samory tour"
+        "samori tour"
       ],
       "ranks": [
         256,
-        479,
-        795
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shivaji maharaj",
-      "variants": [
-        "shivaji maharaj",
-        "shivaji"
-      ],
-      "ranks": [
-        435,
-        587
+        479
       ]
     },
     {
@@ -1984,14 +1924,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "honen",
+      "name": "richard feynman",
       "variants": [
-        "honen",
-        "dogen"
+        "richard feynman",
+        "richard phillips feynman"
       ],
       "ranks": [
-        575,
-        576
+        558,
+        972
       ]
     },
     {
@@ -2008,14 +1948,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mozi",
+      "name": "william henry bragg",
       "variants": [
-        "mozi",
-        "mooji"
+        "william henry bragg",
+        "william lawrence bragg"
       ],
       "ranks": [
-        854,
-        893
+        952,
+        953
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pavel alekseyevich cherenkov",
+      "variants": [
+        "pavel alekseyevich cherenkov",
+        "pavel alekseevich cherenkov"
+      ],
+      "ranks": [
+        963,
+        977
       ]
     }
   ],
@@ -2045,6 +1997,21 @@
       "Military": 12,
       "Other": 824
     }
+  },
+  "advanced": {
+    "parentheticalCount": 8,
+    "parentheticalRate": 0.008,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 583,
+    "contributionShortRate": 0.583,
+    "score": 87.79
   },
   "summary": "Issues: 419 exact duplicates"
 }

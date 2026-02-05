@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 6 (January 19, 2026).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:16:00.809Z",
+  "timestamp": "2026-02-05T18:16:50.009Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 19,
-      "fuzzy": 7,
+      "fuzzy": 1,
       "status": "PASS",
       "details": "19 exact duplicates found"
     },
@@ -1464,6 +1464,66 @@
             "942. Kathrine Switzer",
             "943. Bobby Hull"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 338,
+          "endRank": 358,
+          "count": 21,
+          "examples": [
+            "338. Ferenc Puskás",
+            "339. Alfredo Di Stéfano",
+            "340. Garrincha"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 379,
+          "endRank": 402,
+          "count": 24,
+          "examples": [
+            "379. Kevin Durant",
+            "380. Jerry West",
+            "381. Joe Montana"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 513,
+          "endRank": 528,
+          "count": 16,
+          "examples": [
+            "513. Jacinda Ardern",
+            "514. Sanna Marin",
+            "515. Ellen Johnson Sirleaf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 648,
+          "endRank": 696,
+          "count": 49,
+          "examples": [
+            "648. James Lovelock",
+            "649. E.O. Wilson",
+            "650. Richard Dawkins"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 984,
+          "endRank": 1000,
+          "count": 17,
+          "examples": [
+            "984. Dylan Larkin",
+            "985. Roope Hintz",
+            "986. Sebastian Aho"
+          ]
         }
       ],
       "status": "WARN",
@@ -1477,15 +1537,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 40,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
         "michelangelo",
+        "saint paul",
         "pythagoras",
         "archimedes"
       ],
       "status": "PASS",
-      "details": "40/43 anchor figures found (93%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1643,18 +1704,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        3,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1663,56 +1712,6 @@
       "ranks": [
         21,
         57
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "adele",
-      "variants": [
-        "adele",
-        "madeleine albright"
-      ],
-      "ranks": [
-        232,
-        532
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "misty copeland",
-      "variants": [
-        "misty copeland",
-        "pel"
-      ],
-      "ranks": [
-        263,
-        302
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pel",
-      "variants": [
-        "pel",
-        "nancy pelosi",
-        "dave chappelle"
-      ],
-      "ranks": [
-        302,
-        529,
-        770
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "steve biko",
-      "variants": [
-        "steve biko",
-        "steve ditko"
-      ],
-      "ranks": [
-        613,
-        867
       ]
     },
     {
@@ -3166,6 +3165,66 @@
         "942. Kathrine Switzer",
         "943. Bobby Hull"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 338,
+      "endRank": 358,
+      "count": 21,
+      "examples": [
+        "338. Ferenc Puskás",
+        "339. Alfredo Di Stéfano",
+        "340. Garrincha"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 379,
+      "endRank": 402,
+      "count": 24,
+      "examples": [
+        "379. Kevin Durant",
+        "380. Jerry West",
+        "381. Joe Montana"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 513,
+      "endRank": 528,
+      "count": 16,
+      "examples": [
+        "513. Jacinda Ardern",
+        "514. Sanna Marin",
+        "515. Ellen Johnson Sirleaf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 648,
+      "endRank": 696,
+      "count": 49,
+      "examples": [
+        "648. James Lovelock",
+        "649. E.O. Wilson",
+        "650. Richard Dawkins"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 984,
+      "endRank": 1000,
+      "count": 17,
+      "examples": [
+        "984. Dylan Larkin",
+        "985. Roope Hintz",
+        "986. Sebastian Aho"
+      ]
     }
   ],
   "diversity": {
@@ -3194,6 +3253,21 @@
       "Military": 12,
       "Other": 643
     }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.005,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.60000000000001
   },
   "summary": "Issues: 19 exact duplicates; pattern collapse (max 73)"
 }

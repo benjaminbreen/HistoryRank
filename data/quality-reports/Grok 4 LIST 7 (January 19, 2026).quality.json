@@ -1,12 +1,12 @@
 {
   "file": "Grok 4 LIST 7 (January 19, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:07.163Z",
+  "timestamp": "2026-02-05T18:17:06.941Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 36,
-      "fuzzy": 15,
+      "fuzzy": 2,
       "status": "PASS",
       "details": "36 exact duplicates found"
     },
@@ -696,6 +696,30 @@
             "992. Bashar al-Assad",
             "993. Nicolas Maduro"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 388,
+          "endRank": 405,
+          "count": 18,
+          "examples": [
+            "388. Michael Bloomberg",
+            "389. Larry Ellison",
+            "390. Sergey Mikhaylov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 937,
+          "endRank": 962,
+          "count": 26,
+          "examples": [
+            "937. Barack Obama",
+            "938. Ronald Reagan",
+            "939. Bill Clinton"
+          ]
         }
       ],
       "status": "WARN",
@@ -709,11 +733,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -993,76 +1020,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "alan turing",
       "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammadu buhari"
+        "alan turing",
+        "alan mathison turing"
       ],
       "ranks": [
-        2,
-        221,
-        997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "krishna",
-      "variants": [
-        "krishna",
-        "sri ramakrishna",
-        "jiddu krishnamurti"
-      ],
-      "ranks": [
-        74,
-        419,
-        425
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rama",
-      "variants": [
-        "rama",
-        "rumi",
-        "cv raman",
-        "ramanuja",
-        "sri ramakrishna",
-        "paramahansa yogananda",
-        "cyril ramaphosa"
-      ],
-      "ranks": [
-        75,
-        101,
-        308,
-        415,
-        419,
-        420,
-        994
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saladin",
-      "variants": [
-        "saladin",
-        "saadi"
-      ],
-      "ranks": [
-        91,
-        476
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "margaret thatcher",
-      "variants": [
-        "margaret thatcher",
-        "cher"
-      ],
-      "ranks": [
-        206,
-        747
+        52,
+        246
       ]
     },
     {
@@ -1075,30 +1040,6 @@
       "ranks": [
         309,
         853
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "miles davis",
-      "variants": [
-        "miles davis",
-        "mike davis"
-      ],
-      "ranks": [
-        681,
-        878
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sting",
-      "variants": [
-        "sting",
-        "leon festinger"
-      ],
-      "ranks": [
-        759,
-        807
       ]
     },
     {
@@ -1784,6 +1725,30 @@
         "992. Bashar al-Assad",
         "993. Nicolas Maduro"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 388,
+      "endRank": 405,
+      "count": 18,
+      "examples": [
+        "388. Michael Bloomberg",
+        "389. Larry Ellison",
+        "390. Sergey Mikhaylov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 937,
+      "endRank": 962,
+      "count": 26,
+      "examples": [
+        "937. Barack Obama",
+        "938. Ronald Reagan",
+        "939. Bill Clinton"
+      ]
     }
   ],
   "diversity": {
@@ -1812,6 +1777,21 @@
       "Military": 5,
       "Other": 440
     }
+  },
+  "advanced": {
+    "parentheticalCount": 16,
+    "parentheticalRate": 0.016,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 514,
+    "contributionShortRate": 0.514,
+    "score": 88.66000000000001
   },
   "summary": "Issues: 36 exact duplicates; pattern collapse (max 39)"
 }

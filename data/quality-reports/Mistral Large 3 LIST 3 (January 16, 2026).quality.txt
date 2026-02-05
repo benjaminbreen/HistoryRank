@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Mistral Large 3 LIST 3 (January 16, 2026).txt
 Model: Mistral Large 3
-Timestamp: 2026-01-20T04:16:09.775Z
+Timestamp: 2026-02-05T18:17:14.099Z
 
 VERDICT: FAIL
 
@@ -12,7 +12,7 @@ Scores:
   Repetition: FAIL - 467 exact duplicates found
   Pattern Collapse: FAIL - Max sequence of 571 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 40/43 anchor figures found (93%)
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
 
 Issues (210):
   - Exact duplicate: "isaac newton" at ranks 3, 370
@@ -30,3 +30,12 @@ Issues (210):
 Diversity Estimates:
   Regions: Europe: 46, Asia: 11, Middle East: 8, Africa: 12, Americas: 19, Unknown: 904
   Domains: Politics/Leadership: 67, Science/Technology: 149, Philosophy/Religion: 251, Arts/Literature: 45, Military: 16, Other: 472
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

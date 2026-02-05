@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Opus 4.5 LIST 3 (January 12, 2025).txt
 Model: Claude Opus 4.5
-Timestamp: 2026-01-20T04:15:47.963Z
+Timestamp: 2026-02-05T18:16:07.235Z
 
 VERDICT: WARN
 
@@ -12,21 +12,30 @@ Scores:
   Repetition: PASS - 2 exact duplicates found
   Pattern Collapse: WARN - Max sequence of 65 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
-Issues (35):
+Issues (30):
   - Exact duplicate: "nikos kazantzakis" at ranks 623, 948
   - Exact duplicate: "salman rushdie" at ranks 842, 933
-  - Fuzzy duplicate: muhammad / askia muhammad / muhammad ali jinnah / muhammad iqbal / muhammad ali / muhammad yunus at ranks 1, 193, 373, 615, 638, 884
-  - Fuzzy duplicate: aristotle / aristotle onassis at ranks 7, 820
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 29, 76
-  - Fuzzy duplicate: ananda / vivekananda at ranks 111, 227
-  - Fuzzy duplicate: rachel carson / rachel at ranks 135, 828
-  - Fuzzy duplicate: john dalton / john milton at ranks 266, 633
-  - Fuzzy duplicate: raphael / rachel at ranks 320, 828
-  - Fuzzy duplicate: virgil / virgilio piera at ranks 331, 981
-  ... and 25 more issues
+  - Fuzzy duplicate: henry vii of england / henry ii of england at ranks 344, 603
+  - Fuzzy duplicate: muhammad ali jinnah / muhammad ali at ranks 373, 638
+  - Fuzzy duplicate: tsar alexander ii / tsar nicholas ii at ranks 389, 813
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 434, 516
+  - Fuzzy duplicate: john hus / john huston at ranks 481, 807
+  - Pattern collapse: "indian" (10 entries, ranks 854-863)
+  - Pattern collapse: "nobel" (64 entries, ranks 864-927)
+  ... and 20 more issues
 
 Diversity Estimates:
   Regions: Europe: 169, Asia: 62, Middle East: 39, Africa: 34, Americas: 76, Unknown: 620
   Domains: Politics/Leadership: 99, Science/Technology: 24, Philosophy/Religion: 34, Arts/Literature: 169, Military: 17, Other: 657
+
+Advanced Metrics:
+  Advanced score: 99.4
+  Parenthetical names: 0.9%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.1%

@@ -1,17 +1,17 @@
 {
   "file": "Grok 4 LIST 6 (January 19, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:06.598Z",
+  "timestamp": "2026-02-05T18:17:04.853Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 9,
-      "fuzzy": 28,
+      "fuzzy": 6,
       "status": "PASS",
       "details": "9 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 28,
+      "maxSequence": 30,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -660,10 +660,46 @@
             "986. James Turrell",
             "987. Bill Viola"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 111,
+          "endRank": 130,
+          "count": 20,
+          "examples": [
+            "111. Euclid",
+            "112. Archimedes",
+            "113. Pythagoras"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 262,
+          "endRank": 280,
+          "count": 19,
+          "examples": [
+            "262. Salvador Dalí",
+            "263. Andy Warhol",
+            "264. Banksy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 930,
+          "endRank": 959,
+          "count": 30,
+          "examples": [
+            "930. Gregory Corso",
+            "931. Lawrence Ferlinghetti",
+            "932. Gary Snyder"
+          ]
         }
       ],
       "status": "PASS",
-      "details": "Max sequence of 28 similar entries"
+      "details": "Max sequence of 30 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -673,13 +709,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "kepler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -757,32 +795,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        2,
-        565
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham lincoln",
-        "abraham maslow"
-      ],
-      "ranks": [
-        14,
-        35,
-        433
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -791,18 +803,6 @@
       "ranks": [
         22,
         80
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "franklin d roosevelt",
-      "variants": [
-        "franklin d roosevelt",
-        "franklin"
-      ],
-      "ranks": [
-        34,
-        178
       ]
     },
     {
@@ -819,30 +819,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "otto von bismarck",
-      "variants": [
-        "otto von bismarck",
-        "bismarck"
-      ],
-      "ranks": [
-        77,
-        391
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ivan the terrible",
-      "variants": [
-        "ivan the terrible",
-        "ivan"
-      ],
-      "ranks": [
-        99,
-        874
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "queen isabella i",
       "variants": [
         "queen isabella i",
@@ -855,102 +831,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "miguel de cervantes",
+      "name": "ada lovelace",
       "variants": [
-        "miguel de cervantes",
-        "miguel"
+        "ada lovelace",
+        "ada byron lovelace"
       ],
       "ranks": [
-        103,
-        886
+        129,
+        286
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "michelangelo",
+      "name": "queen elizabeth ii",
       "variants": [
-        "michelangelo",
-        "michelangelo antonioni"
+        "queen elizabeth ii",
+        "queen isabella ii"
       ],
       "ranks": [
-        107,
-        688
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rosalind franklin",
-      "variants": [
-        "rosalind franklin",
-        "franklin"
-      ],
-      "ranks": [
-        119,
-        178
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "krishna",
-      "variants": [
-        "krishna",
-        "venkatraman ramakrishnan"
-      ],
-      "ranks": [
-        137,
-        630
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rama",
-      "variants": [
-        "rama",
-        "rumi",
-        "cv raman",
-        "venkatraman ramakrishnan"
-      ],
-      "ranks": [
-        138,
-        147,
-        627,
-        630
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "rumiko takahashi"
-      ],
-      "ranks": [
-        147,
-        720
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "franklin",
-      "variants": [
-        "franklin",
-        "benjamin franklin"
-      ],
-      "ranks": [
-        178,
-        179
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ivan iii of russia",
-      "variants": [
-        "ivan iii of russia",
-        "ivan"
-      ],
-      "ranks": [
-        312,
-        874
+        204,
+        318
       ]
     },
     {
@@ -963,102 +863,6 @@
       "ranks": [
         329,
         331
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bill clinton",
-      "variants": [
-        "bill clinton",
-        "clint"
-      ],
-      "ranks": [
-        330,
-        876
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "steve biko",
-      "variants": [
-        "steve biko",
-        "steve ditko"
-      ],
-      "ranks": [
-        362,
-        728
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "antonio gramsci",
-      "variants": [
-        "antonio gramsci",
-        "antonio"
-      ],
-      "ranks": [
-        403,
-        885
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ivan pavlov",
-      "variants": [
-        "ivan pavlov",
-        "ivan"
-      ],
-      "ranks": [
-        430,
-        874
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ellen degeneres",
-      "variants": [
-        "ellen degeneres",
-        "ellen"
-      ],
-      "ranks": [
-        539,
-        884
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dave chappelle",
-      "variants": [
-        "dave chappelle",
-        "pel"
-      ],
-      "ranks": [
-        553,
-        561
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michelangelo antonioni",
-      "variants": [
-        "michelangelo antonioni",
-        "antonio"
-      ],
-      "ranks": [
-        688,
-        885
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robin duke",
-      "variants": [
-        "robin duke",
-        "duke"
-      ],
-      "ranks": [
-        859,
-        883
       ]
     },
     {
@@ -1708,6 +1512,42 @@
         "986. James Turrell",
         "987. Bill Viola"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 111,
+      "endRank": 130,
+      "count": 20,
+      "examples": [
+        "111. Euclid",
+        "112. Archimedes",
+        "113. Pythagoras"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 262,
+      "endRank": 280,
+      "count": 19,
+      "examples": [
+        "262. Salvador Dalí",
+        "263. Andy Warhol",
+        "264. Banksy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 930,
+      "endRank": 959,
+      "count": 30,
+      "examples": [
+        "930. Gregory Corso",
+        "931. Lawrence Ferlinghetti",
+        "932. Gary Snyder"
+      ]
     }
   ],
   "diversity": {
@@ -1736,6 +1576,21 @@
       "Military": 5,
       "Other": 537
     }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 415,
+    "contributionShortRate": 0.415,
+    "score": 91.14999999999999
   },
   "summary": "List passes all quality checks"
 }

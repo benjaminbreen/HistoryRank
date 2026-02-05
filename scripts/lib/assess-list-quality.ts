@@ -54,6 +54,22 @@ export type DiversityMetrics = {
   estimatedDomains: Record<string, number>;
 };
 
+export type AdvancedMetrics = {
+  parentheticalCount: number;
+  parentheticalRate: number;
+  multiPersonCount: number;
+  multiPersonRate: number;
+  commaNameCount: number;
+  commaNameRate: number;
+  shortNameCount: number;
+  shortNameRate: number;
+  longNameCount: number;
+  longNameRate: number;
+  contributionShortCount: number;
+  contributionShortRate: number;
+  score: number; // 0-100, higher is better
+};
+
 export type QualityReport = {
   file: string;
   model: string;
@@ -62,6 +78,7 @@ export type QualityReport = {
   scores: QualityScores;
   issues: (RepetitionIssue | PatternCollapseIssue | CategoryCyclingIssue)[];
   diversity: DiversityMetrics;
+  advanced: AdvancedMetrics;
   summary: string;
 };
 
@@ -121,6 +138,75 @@ function normalizeName(name: string): string {
     .trim();
 }
 
+function computeAdvancedMetrics(entries: ListEntry[]): AdvancedMetrics {
+  const total = Math.max(1, entries.length);
+
+  let parentheticalCount = 0;
+  let multiPersonCount = 0;
+  let commaNameCount = 0;
+  let shortNameCount = 0;
+  let longNameCount = 0;
+  let contributionShortCount = 0;
+
+  const multiPersonPattern = /\b(and|&|\/|;|\+|vs)\b/i;
+
+  for (const entry of entries) {
+    const name = entry.name || '';
+    const normalized = normalizeName(name);
+    const words = normalized.split(' ').filter(Boolean);
+
+    if (/[()]/.test(name)) parentheticalCount += 1;
+    if (multiPersonPattern.test(name)) multiPersonCount += 1;
+    if (name.includes(',')) commaNameCount += 1;
+
+    if (normalized.length <= 2 || (name.length <= 3 && /^[A-Z0-9.]+$/.test(name))) {
+      shortNameCount += 1;
+    }
+
+    if (name.length > 40 || words.length > 6) {
+      longNameCount += 1;
+    }
+
+    const contrib = entry.primary_contribution || '';
+    const contribWords = contrib.trim().split(/\s+/).filter(Boolean);
+    if (contribWords.length > 0 && contribWords.length < 4) {
+      contributionShortCount += 1;
+    }
+  }
+
+  const parentheticalRate = parentheticalCount / total;
+  const multiPersonRate = multiPersonCount / total;
+  const commaNameRate = commaNameCount / total;
+  const shortNameRate = shortNameCount / total;
+  const longNameRate = longNameCount / total;
+  const contributionShortRate = contributionShortCount / total;
+
+  let score = 100;
+  score -= parentheticalRate * 60;
+  score -= multiPersonRate * 50;
+  score -= shortNameRate * 50;
+  score -= longNameRate * 20;
+  score -= contributionShortRate * 20;
+  score -= commaNameRate * 10;
+  score = Math.max(0, Math.min(100, score));
+
+  return {
+    parentheticalCount,
+    parentheticalRate,
+    multiPersonCount,
+    multiPersonRate,
+    commaNameCount,
+    commaNameRate,
+    shortNameCount,
+    shortNameRate,
+    longNameCount,
+    longNameRate,
+    contributionShortCount,
+    contributionShortRate,
+    score,
+  };
+}
+
 /**
  * Calculate Levenshtein distance between two strings
  */
@@ -160,14 +246,34 @@ function isFuzzyMatch(name1: string, name2: string): boolean {
 
   if (n1 === n2) return true;
 
-  // Check if one contains the other (e.g., "Alexander" vs "Alexander the Great")
-  if (n1.includes(n2) || n2.includes(n1)) return true;
+  const t1 = n1.split(' ').filter(Boolean);
+  const t2 = n2.split(' ').filter(Boolean);
+  if (t1.length < 2 || t2.length < 2) return false;
 
-  // Check Levenshtein distance for short names
+  // Exact last-name match + similar first token (reduces false positives)
+  const last1 = t1[t1.length - 1];
+  const last2 = t2[t2.length - 1];
+  if (last1 === last2) {
+    const first1 = t1[0];
+    const first2 = t2[0];
+    if (first1.startsWith(first2.slice(0, 3)) || first2.startsWith(first1.slice(0, 3))) {
+      return true;
+    }
+  }
+
+  // Containment only if both are multi-token and shorter is substantial
+  const shorter = n1.length <= n2.length ? n1 : n2;
+  const longer = n1.length <= n2.length ? n2 : n1;
+  if (shorter.length >= 6 && longer.includes(shorter)) {
+    return true;
+  }
+
+  // Levenshtein ratio for moderate-length names
   const maxLen = Math.max(n1.length, n2.length);
-  if (maxLen < 15) {
+  if (maxLen >= 8) {
     const distance = levenshteinDistance(n1, n2);
-    if (distance <= 2) return true;
+    const similarity = 1 - distance / maxLen;
+    if (similarity >= 0.88) return true;
   }
 
   return false;
@@ -338,13 +444,51 @@ function detectPatternCollapse(entries: ListEntry[]): {
     }
   }
 
+  // Category-based collapse (domain-style cues in contribution text)
+  const categoryKeywords: Record<string, string[]> = {
+    politics: ['president', 'prime minister', 'emperor', 'king', 'queen', 'statesman', 'ruler', 'politician'],
+    science: ['scientist', 'physicist', 'chemist', 'mathematician', 'biologist', 'inventor', 'engineer', 'astronomer'],
+    religion: ['religious', 'prophet', 'saint', 'theologian', 'spiritual', 'founder of'],
+    arts: ['artist', 'painter', 'composer', 'musician', 'writer', 'poet', 'novelist', 'playwright'],
+    military: ['general', 'admiral', 'commander', 'warrior', 'conqueror', 'military'],
+    sports: ['athlete', 'player', 'football', 'basketball', 'soccer', 'tennis', 'baseball', 'hockey'],
+  };
+
+  const categories = entries.map((entry) => {
+    const contrib = entry.primary_contribution.toLowerCase();
+    for (const [category, keywords] of Object.entries(categoryKeywords)) {
+      if (keywords.some((kw) => contrib.includes(kw))) return category;
+    }
+    return 'other';
+  });
+
+  let runStart = 0;
+  for (let i = 1; i <= categories.length; i++) {
+    if (i === categories.length || categories[i] !== categories[runStart]) {
+      const runLength = i - runStart;
+      const runCategory = categories[runStart];
+      if (runLength >= 15 && runCategory !== 'other') {
+        sequences.push({
+          type: 'pattern_collapse',
+          pattern: `category:${runCategory}`,
+          startRank: entries[runStart].rank,
+          endRank: entries[i - 1].rank,
+          count: runLength,
+          examples: entries.slice(runStart, runStart + 3).map(e => `${e.rank}. ${e.name}`),
+        });
+        maxSequence = Math.max(maxSequence, runLength);
+      }
+      runStart = i;
+    }
+  }
+
   return { maxSequence, sequences };
 }
 
 /**
  * Check structural validity
  */
-function checkStructural(entries: ListEntry[]): {
+function checkStructural(entries: ListEntry[], expectedCount: number): {
   entries: number;
   validJson: boolean;
   sequentialRanks: boolean;
@@ -365,12 +509,12 @@ function checkStructural(entries: ListEntry[]): {
   }
 
   const issues: string[] = [];
-  if (entryCount !== 1000) issues.push(`${entryCount} entries (expected 1000)`);
+  if (entryCount !== expectedCount) issues.push(`${entryCount} entries (expected ${expectedCount})`);
   if (!sequentialRanks) issues.push('non-sequential ranks');
 
   let status: QualityStatus = 'PASS';
-  if (entryCount < 900 || !sequentialRanks) status = 'FAIL';
-  else if (entryCount < 1000) status = 'WARN';
+  if (entryCount < Math.floor(expectedCount * 0.9) || !sequentialRanks) status = 'FAIL';
+  else if (entryCount < expectedCount) status = 'WARN';
 
   return {
     entries: entryCount,
@@ -435,8 +579,7 @@ function checkAnchorCoverage(entries: ListEntry[]): {
   const coverage = found / expected;
 
   let status: QualityStatus = 'PASS';
-  if (coverage < 0.7) status = 'FAIL';
-  else if (coverage < 0.9) status = 'WARN';
+  if (coverage < 0.7) status = 'WARN';
 
   return {
     found,
@@ -538,16 +681,18 @@ function estimateDiversity(entries: ListEntry[]): DiversityMetrics {
 export function assessListQuality(
   entries: ListEntry[],
   filename: string,
-  model: string
+  model: string,
+  expectedCount = 1000
 ): QualityReport {
   const timestamp = new Date().toISOString();
 
   // Run all checks
   const repetition = detectRepetition(entries);
   const collapse = detectPatternCollapse(entries);
-  const structural = checkStructural(entries);
+  const structural = checkStructural(entries, expectedCount);
   const anchors = checkAnchorCoverage(entries);
   const diversity = estimateDiversity(entries);
+  const advanced = computeAdvancedMetrics(entries);
 
   // Compile issues
   const issues: (RepetitionIssue | PatternCollapseIssue | CategoryCyclingIssue)[] = [
@@ -629,6 +774,7 @@ export function assessListQuality(
     scores,
     issues,
     diversity,
+    advanced,
     summary,
   };
 }
@@ -674,6 +820,14 @@ export function formatReportAsText(report: QualityReport): string {
   lines.push(``, `Diversity Estimates:`);
   lines.push(`  Regions: ${Object.entries(report.diversity.estimatedRegions).filter(([,v]) => v > 0).map(([k,v]) => `${k}: ${v}`).join(', ')}`);
   lines.push(`  Domains: ${Object.entries(report.diversity.estimatedDomains).filter(([,v]) => v > 0).map(([k,v]) => `${k}: ${v}`).join(', ')}`);
+  lines.push(``, `Advanced Metrics:`);
+  lines.push(`  Advanced score: ${report.advanced.score.toFixed(1)}`);
+  lines.push(`  Parenthetical names: ${(report.advanced.parentheticalRate * 100).toFixed(1)}%`);
+  lines.push(`  Multi-person names: ${(report.advanced.multiPersonRate * 100).toFixed(1)}%`);
+  lines.push(`  Comma names: ${(report.advanced.commaNameRate * 100).toFixed(1)}%`);
+  lines.push(`  Short names: ${(report.advanced.shortNameRate * 100).toFixed(1)}%`);
+  lines.push(`  Long names: ${(report.advanced.longNameRate * 100).toFixed(1)}%`);
+  lines.push(`  Short contributions: ${(report.advanced.contributionShortRate * 100).toFixed(1)}%`);
 
   return lines.join('\n');
 }

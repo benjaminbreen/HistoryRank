@@ -1,12 +1,12 @@
 {
   "file": "Claude Sonnet 4.5 LIST 2 (January 12, 2025).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:51.667Z",
+  "timestamp": "2026-02-05T18:16:19.124Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 72,
-      "fuzzy": 18,
+      "fuzzy": 10,
       "status": "WARN",
       "details": "72 exact duplicates found"
     },
@@ -24,13 +24,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
-        "homer"
+        "homer",
+        "saint paul",
+        "paul the apostle"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -556,20 +558,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ibn musa alkhwarizmi",
-        "elijah muhammad"
-      ],
-      "ranks": [
-        2,
-        94,
-        317
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "ramesses ii",
       "variants": [
         "ramesses ii",
@@ -582,38 +570,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "timur",
+      "name": "hernn corts",
       "variants": [
-        "timur",
-        "amir timur"
+        "hernn corts",
+        "hernando corts"
       ],
       "ranks": [
-        103,
-        162
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "averroes ibn rushd",
-      "variants": [
-        "averroes ibn rushd",
-        "averroes"
-      ],
-      "ranks": [
-        104,
-        350
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simn bolvar",
-      "variants": [
-        "simn bolvar",
-        "simon bolivar"
-      ],
-      "ranks": [
-        119,
-        674
+        112,
+        242
       ]
     },
     {
@@ -630,110 +594,62 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "leonidas",
+      "name": "gerolamo cardano",
       "variants": [
-        "leonidas",
-        "leonidas i"
+        "gerolamo cardano",
+        "girolamo cardano"
       ],
       "ranks": [
-        144,
-        310
+        139,
+        670
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "cicero",
+      "name": "thomas malthus",
       "variants": [
-        "cicero",
-        "marcus tullius cicero"
+        "thomas malthus",
+        "thomas robert malthus"
       ],
       "ranks": [
-        171,
-        315
+        140,
+        580
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ptolemy",
+      "name": "hildegard of bingen",
       "variants": [
-        "ptolemy",
-        "claudius ptolemy"
+        "hildegard of bingen",
+        "hildegard von bingen"
       ],
       "ranks": [
-        235,
-        395
+        294,
+        716
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john milton",
+      "name": "anton chekhov",
       "variants": [
-        "john milton",
-        "john dalton"
+        "anton chekhov",
+        "anton pavlovich chekhov"
       ],
       "ranks": [
-        243,
-        286
+        301,
+        791
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "henry viii",
+      "name": "john adams",
       "variants": [
-        "henry viii",
-        "henry ii"
+        "john adams",
+        "john quincy adams"
       ],
       "ranks": [
-        250,
-        632
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "atatrk",
-      "variants": [
-        "atatrk",
-        "mustafa kemal atatrk"
-      ],
-      "ranks": [
-        254,
-        311
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "horace",
-      "variants": [
-        "horace",
-        "horace mann"
-      ],
-      "ranks": [
-        266,
-        470
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jan hus",
-      "variants": [
-        "jan hus",
-        "john hus"
-      ],
-      "ranks": [
-        306,
-        520
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "elijah muhammad",
-      "variants": [
-        "elijah muhammad",
-        "elijah"
-      ],
-      "ranks": [
-        317,
-        710
+        374,
+        649
       ]
     },
     {
@@ -750,14 +666,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "xenophanes",
+      "name": "giambattista della porta",
       "variants": [
-        "xenophanes",
-        "xenophanes of colophon"
+        "giambattista della porta",
+        "giacomo della porta"
       ],
       "ranks": [
-        423,
-        573
+        696,
+        956
       ]
     }
   ],
@@ -787,6 +703,21 @@
       "Military": 17,
       "Other": 881
     }
+  },
+  "advanced": {
+    "parentheticalCount": 12,
+    "parentheticalRate": 0.012,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 107,
+    "contributionShortRate": 0.107,
+    "score": 97.09
   },
   "summary": "Issues: 72 exact duplicates"
 }

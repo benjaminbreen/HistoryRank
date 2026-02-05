@@ -179,6 +179,9 @@ function calculateModelStats(reports: QualityReport[]): ModelStats[] {
 
 function generateSummaryMarkdown(reports: QualityReport[]): string {
   const modelStats = calculateModelStats(reports);
+  const worstByAdvanced = [...reports]
+    .sort((a, b) => a.advanced.score - b.advanced.score)
+    .slice(0, 20);
 
   const lines: string[] = [
     '# List Quality Assessment Summary',
@@ -231,6 +234,23 @@ function generateSummaryMarkdown(reports: QualityReport[]): string {
     lines.push('', '## Warning Lists', '');
     for (const report of warningReports) {
       lines.push(`- **${report.file}** (${report.model}): ${report.summary}`);
+    }
+  }
+
+  if (worstByAdvanced.length > 0) {
+    lines.push('', '## Worst Lists (Advanced Metrics)', '');
+    lines.push('| Rank | File | Model | Advanced Score | Paren % | Multi % | Short % | Long % |');
+    lines.push('|------|------|-------|----------------|---------|---------|---------|--------|');
+    let rank = 1;
+    for (const report of worstByAdvanced) {
+      lines.push(
+        `| ${rank} | ${report.file} | ${report.model} | ${report.advanced.score.toFixed(1)} | ` +
+        `${(report.advanced.parentheticalRate * 100).toFixed(1)}% | ` +
+        `${(report.advanced.multiPersonRate * 100).toFixed(1)}% | ` +
+        `${(report.advanced.shortNameRate * 100).toFixed(1)}% | ` +
+        `${(report.advanced.longNameRate * 100).toFixed(1)}% |`
+      );
+      rank++;
     }
   }
 
@@ -353,6 +373,25 @@ async function main() {
     console.log('\n⚠️  Models scoring below 50 (consider excluding):');
     for (const stat of worstModels) {
       console.log(`   - ${stat.model}: score ${stat.qualityScore.toFixed(0)}, avg ${stat.avgDuplicates.toFixed(0)} duplicates`);
+    }
+  }
+
+  const worstByAdvanced = [...reports]
+    .sort((a, b) => a.advanced.score - b.advanced.score)
+    .slice(0, 20);
+  if (worstByAdvanced.length > 0) {
+    console.log('\nWorst 20 lists by advanced metrics (for review):');
+    let rank = 1;
+    for (const report of worstByAdvanced) {
+      console.log(
+        `${String(rank).padStart(2)}. ${report.file} ` +
+        `(model=${report.model}, advanced=${report.advanced.score.toFixed(1)}, ` +
+        `paren=${(report.advanced.parentheticalRate * 100).toFixed(1)}%, ` +
+        `multi=${(report.advanced.multiPersonRate * 100).toFixed(1)}%, ` +
+        `short=${(report.advanced.shortNameRate * 100).toFixed(1)}%, ` +
+        `long=${(report.advanced.longNameRate * 100).toFixed(1)}%)`
+      );
+      rank++;
     }
   }
 }

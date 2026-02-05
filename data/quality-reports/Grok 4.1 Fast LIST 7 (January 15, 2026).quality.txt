@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Grok 4.1 Fast LIST 7 (January 15, 2026).txt
 Model: Grok 4.1 Fast
-Timestamp: 2026-01-20T04:16:08.854Z
+Timestamp: 2026-02-05T18:17:11.669Z
 
 VERDICT: PASS
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 32 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 21 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
-Issues (66):
+Issues (49):
   - Exact duplicate: "confucius" at ranks 4, 245
   - Exact duplicate: "socrates" at ranks 7, 42
   - Exact duplicate: "hypatia" at ranks 90, 91
@@ -25,8 +25,17 @@ Issues (66):
   - Exact duplicate: "kehinde wiley" at ranks 526, 692
   - Exact duplicate: "damien hirst" at ranks 529, 609, 688
   - Exact duplicate: "jeff koons" at ranks 530, 608
-  ... and 56 more issues
+  ... and 39 more issues
 
 Diversity Estimates:
   Regions: Europe: 31, Asia: 14, Middle East: 11, Africa: 2, Americas: 10, Unknown: 932
   Domains: Politics/Leadership: 84, Science/Technology: 3, Philosophy/Religion: 25, Arts/Literature: 38, Military: 7, Other: 843
+
+Advanced Metrics:
+  Advanced score: 81.7
+  Parenthetical names: 0.2%
+  Multi-person names: 0.6%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 89.4%

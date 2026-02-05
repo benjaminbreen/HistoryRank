@@ -1,17 +1,17 @@
 {
   "file": "Claude Sonnet 4.5 LIST 8 (January 14, 2026).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:53.994Z",
-  "verdict": "WARN",
+  "timestamp": "2026-02-05T18:16:26.961Z",
+  "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 7,
-      "fuzzy": 3,
+      "fuzzy": 1,
       "status": "PASS",
       "details": "7 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 85,
+      "maxSequence": 108,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -816,10 +816,130 @@
             "922. Yun Shouping",
             "923. Giuseppe Verdi"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 307,
+          "endRank": 327,
+          "count": 21,
+          "examples": [
+            "307. Leo Tolstoy",
+            "308. Fyodor Dostoevsky",
+            "309. Anton Chekhov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 329,
+          "endRank": 348,
+          "count": 20,
+          "examples": [
+            "329. Victor Hugo",
+            "330. Honoré de Balzac",
+            "331. Gustave Flaubert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 350,
+          "endRank": 384,
+          "count": 35,
+          "examples": [
+            "350. Charles Dickens",
+            "351. Jane Austen",
+            "352. Charlotte Brontë"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 405,
+          "endRank": 504,
+          "count": 100,
+          "examples": [
+            "405. Louisa May Alcott",
+            "406. F. Scott Fitzgerald",
+            "407. Ernest Hemingway"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 513,
+          "endRank": 530,
+          "count": 18,
+          "examples": [
+            "513. Reinhold Niebuhr",
+            "514. Paul Tillich",
+            "515. Karl Barth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 532,
+          "endRank": 556,
+          "count": 25,
+          "examples": [
+            "532. Thomas Merton",
+            "533. Flannery O'Connor",
+            "534. Walker Percy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 597,
+          "endRank": 613,
+          "count": 17,
+          "examples": [
+            "597. Dante Alighieri",
+            "598. Petrarch",
+            "599. Boccaccio"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 749,
+          "endRank": 834,
+          "count": 86,
+          "examples": [
+            "749. Theo van Doesburg",
+            "750. Piet Mondrian",
+            "751. Kazimir Malevich"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 853,
+          "endRank": 890,
+          "count": 38,
+          "examples": [
+            "853. Damien Hirst",
+            "854. Andy Warhol",
+            "855. Roy Lichtenstein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 893,
+          "endRank": 1000,
+          "count": 108,
+          "examples": [
+            "893. Sesshū Tōyō",
+            "894. Hasegawa Tōhaku",
+            "895. Ogata Kōrin"
+          ]
         }
       ],
-      "status": "WARN",
-      "details": "Max sequence of 85 similar entries"
+      "status": "FAIL",
+      "details": "Max sequence of 108 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -829,13 +949,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "kepler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -905,30 +1026,6 @@
       "ranks": [
         17,
         75
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "louis xiv",
-      "variants": [
-        "louis xiv",
-        "louis xvi"
-      ],
-      "ranks": [
-        120,
-        121
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sessh ty",
-      "variants": [
-        "sessh ty",
-        "sessh"
-      ],
-      "ranks": [
-        893,
-        898
       ]
     },
     {
@@ -1734,6 +1831,126 @@
         "922. Yun Shouping",
         "923. Giuseppe Verdi"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 307,
+      "endRank": 327,
+      "count": 21,
+      "examples": [
+        "307. Leo Tolstoy",
+        "308. Fyodor Dostoevsky",
+        "309. Anton Chekhov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 329,
+      "endRank": 348,
+      "count": 20,
+      "examples": [
+        "329. Victor Hugo",
+        "330. Honoré de Balzac",
+        "331. Gustave Flaubert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 350,
+      "endRank": 384,
+      "count": 35,
+      "examples": [
+        "350. Charles Dickens",
+        "351. Jane Austen",
+        "352. Charlotte Brontë"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 405,
+      "endRank": 504,
+      "count": 100,
+      "examples": [
+        "405. Louisa May Alcott",
+        "406. F. Scott Fitzgerald",
+        "407. Ernest Hemingway"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 513,
+      "endRank": 530,
+      "count": 18,
+      "examples": [
+        "513. Reinhold Niebuhr",
+        "514. Paul Tillich",
+        "515. Karl Barth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 532,
+      "endRank": 556,
+      "count": 25,
+      "examples": [
+        "532. Thomas Merton",
+        "533. Flannery O'Connor",
+        "534. Walker Percy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 597,
+      "endRank": 613,
+      "count": 17,
+      "examples": [
+        "597. Dante Alighieri",
+        "598. Petrarch",
+        "599. Boccaccio"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 749,
+      "endRank": 834,
+      "count": 86,
+      "examples": [
+        "749. Theo van Doesburg",
+        "750. Piet Mondrian",
+        "751. Kazimir Malevich"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 853,
+      "endRank": 890,
+      "count": 38,
+      "examples": [
+        "853. Damien Hirst",
+        "854. Andy Warhol",
+        "855. Roy Lichtenstein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 893,
+      "endRank": 1000,
+      "count": 108,
+      "examples": [
+        "893. Sesshū Tōyō",
+        "894. Hasegawa Tōhaku",
+        "895. Ogata Kōrin"
+      ]
     }
   ],
   "diversity": {
@@ -1763,5 +1980,20 @@
       "Other": 279
     }
   },
-  "summary": "Issues: 7 exact duplicates; pattern collapse (max 85)"
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 862,
+    "contributionShortRate": 0.862,
+    "score": 82.51
+  },
+  "summary": "Issues: 7 exact duplicates; pattern collapse (max 108)"
 }

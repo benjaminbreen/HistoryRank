@@ -1,17 +1,17 @@
 {
   "file": "Claude Sonnet 4.5 LIST 6 (January 14, 2026).txt",
   "model": "Claude Sonnet 4.5",
-  "timestamp": "2026-01-20T04:15:53.047Z",
+  "timestamp": "2026-02-05T18:16:23.825Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 10,
-      "fuzzy": 18,
+      "fuzzy": 4,
       "status": "PASS",
       "details": "10 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 58,
+      "maxSequence": 60,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -876,10 +876,106 @@
             "971. Ahmed Ben Bella",
             "972. Houari Boumédiène"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 250,
+          "endRank": 286,
+          "count": 37,
+          "examples": [
+            "250. Johann Wolfgang von Goethe",
+            "251. Friedrich Schiller",
+            "252. Victor Hugo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 288,
+          "endRank": 305,
+          "count": 18,
+          "examples": [
+            "288. Oscar Wilde",
+            "289. George Bernard Shaw",
+            "290. Henrik Ibsen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 310,
+          "endRank": 341,
+          "count": 32,
+          "examples": [
+            "310. Rudyard Kipling",
+            "311. Joseph Conrad",
+            "312. D. H. Lawrence"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 347,
+          "endRank": 406,
+          "count": 60,
+          "examples": [
+            "347. Kabir",
+            "348. Tulsidas",
+            "349. Mirabai"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 440,
+          "endRank": 481,
+          "count": 42,
+          "examples": [
+            "440. Diego Velázquez",
+            "441. Francisco Goya",
+            "442. El Greco"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 544,
+          "endRank": 558,
+          "count": 15,
+          "examples": [
+            "544. Max Planck",
+            "545. Niels Bohr",
+            "546. Werner Heisenberg"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 570,
+          "endRank": 628,
+          "count": 59,
+          "examples": [
+            "570. Linus Pauling",
+            "571. Gilbert N. Lewis",
+            "572. Fritz Haber"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 747,
+          "endRank": 764,
+          "count": 18,
+          "examples": [
+            "747. Wernher von Braun",
+            "748. Konstantin Tsiolkovsky",
+            "749. Robert Goddard"
+          ]
         }
       ],
       "status": "WARN",
-      "details": "Max sequence of 58 similar entries"
+      "details": "Max sequence of 60 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -889,11 +985,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -972,34 +1070,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus",
-        "muhammad abduh",
-        "muhammad iqbal"
-      ],
-      "ranks": [
-        2,
-        788,
-        942,
-        944
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses mendelssohn"
-      ],
-      "ranks": [
-        12,
-        899
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1024,18 +1094,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "augustus",
-      "variants": [
-        "augustus",
-        "augustus de morgan"
-      ],
-      "ranks": [
-        42,
-        613
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "mustafa kemal atatrk",
       "variants": [
         "mustafa kemal atatrk",
@@ -1044,114 +1102,6 @@
       "ranks": [
         90,
         967
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        138,
-        143
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramanuja",
-      "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        146,
-        624
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thales",
-      "variants": [
-        "thales",
-        "rhazes"
-      ],
-      "ranks": [
-        186,
-        888
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hippocrates",
-      "variants": [
-        "hippocrates",
-        "hippocrates of kos"
-      ],
-      "ranks": [
-        205,
-        870
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kalidasa",
-      "variants": [
-        "kalidasa",
-        "klidsa"
-      ],
-      "ranks": [
-        328,
-        344
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hafez",
-      "variants": [
-        "hafez",
-        "hafez alassad"
-      ],
-      "ranks": [
-        330,
-        961
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "qu yuan",
-      "variants": [
-        "qu yuan",
-        "ma yuan"
-      ],
-      "ranks": [
-        339,
-        504
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "prince",
-      "variants": [
-        "prince",
-        "prince eugene of savoy"
-      ],
-      "ranks": [
-        428,
-        806
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        566,
-        726
       ]
     },
     {
@@ -2029,6 +1979,102 @@
         "971. Ahmed Ben Bella",
         "972. Houari Boumédiène"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 250,
+      "endRank": 286,
+      "count": 37,
+      "examples": [
+        "250. Johann Wolfgang von Goethe",
+        "251. Friedrich Schiller",
+        "252. Victor Hugo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 288,
+      "endRank": 305,
+      "count": 18,
+      "examples": [
+        "288. Oscar Wilde",
+        "289. George Bernard Shaw",
+        "290. Henrik Ibsen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 310,
+      "endRank": 341,
+      "count": 32,
+      "examples": [
+        "310. Rudyard Kipling",
+        "311. Joseph Conrad",
+        "312. D. H. Lawrence"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 347,
+      "endRank": 406,
+      "count": 60,
+      "examples": [
+        "347. Kabir",
+        "348. Tulsidas",
+        "349. Mirabai"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 440,
+      "endRank": 481,
+      "count": 42,
+      "examples": [
+        "440. Diego Velázquez",
+        "441. Francisco Goya",
+        "442. El Greco"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 544,
+      "endRank": 558,
+      "count": 15,
+      "examples": [
+        "544. Max Planck",
+        "545. Niels Bohr",
+        "546. Werner Heisenberg"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 570,
+      "endRank": 628,
+      "count": 59,
+      "examples": [
+        "570. Linus Pauling",
+        "571. Gilbert N. Lewis",
+        "572. Fritz Haber"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 747,
+      "endRank": 764,
+      "count": 18,
+      "examples": [
+        "747. Wernher von Braun",
+        "748. Konstantin Tsiolkovsky",
+        "749. Robert Goddard"
+      ]
     }
   ],
   "diversity": {
@@ -2058,5 +2104,20 @@
       "Other": 311
     }
   },
-  "summary": "Issues: 10 exact duplicates; pattern collapse (max 58)"
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 851,
+    "contributionShortRate": 0.851,
+    "score": 82.97
+  },
+  "summary": "Issues: 10 exact duplicates; pattern collapse (max 60)"
 }

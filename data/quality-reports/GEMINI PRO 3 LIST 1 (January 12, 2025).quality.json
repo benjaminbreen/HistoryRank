@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 1 (January 12, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:01.903Z",
+  "timestamp": "2026-02-05T18:16:52.873Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 21,
-      "fuzzy": 20,
+      "fuzzy": 5,
       "status": "PASS",
       "details": "21 exact duplicates found"
     },
@@ -217,11 +217,14 @@
       "details": "1028 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -388,56 +391,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "pope urban ii",
       "variants": [
-        "muhammad",
-        "muhammad ali jinnah",
-        "muhammad ali",
-        "muhammad yunus"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        1,
-        497,
-        600,
-        743
+        51,
+        406
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "moses",
+      "name": "queen isabella i",
       "variants": [
-        "moses",
-        "menes"
+        "queen isabella i",
+        "queen elizabeth i"
       ],
       "ranks": [
-        15,
-        96
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        73,
-        758
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "mozi",
-        "giorgio armani"
-      ],
-      "ranks": [
-        83,
-        758,
-        992
+        65,
+        94
       ]
     },
     {
@@ -454,78 +427,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "rurik"
-      ],
-      "ranks": [
-        172,
-        301
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nero",
-      "variants": [
-        "nero",
-        "herg"
-      ],
-      "ranks": [
-        185,
-        694
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tolstoy",
-      "variants": [
-        "tolstoy",
-        "leo tolstoy"
-      ],
-      "ranks": [
-        306,
-        640
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chekhov",
-      "variants": [
-        "chekhov",
-        "anton chekhov"
-      ],
-      "ranks": [
-        307,
-        545
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pavlov",
-      "variants": [
-        "pavlov",
-        "ivan pavlov"
-      ],
-      "ranks": [
-        311,
-        629
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "montesquieu",
-      "variants": [
-        "montesquieu",
-        "baron de montesquieu"
-      ],
-      "ranks": [
-        424,
-        443
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "muhammad ali jinnah",
       "variants": [
         "muhammad ali jinnah",
@@ -534,54 +435,6 @@
       "ranks": [
         497,
         600
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tecumseh",
-      "variants": [
-        "tecumseh",
-        "william tecumseh sherman"
-      ],
-      "ranks": [
-        526,
-        569
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        620,
-        704
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hafez",
-      "variants": [
-        "hafez",
-        "hafez alassad"
-      ],
-      "ranks": [
-        650,
-        818
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john snow",
-      "variants": [
-        "john snow",
-        "john knox"
-      ],
-      "ranks": [
-        717,
-        732
       ]
     },
     {
@@ -815,6 +668,21 @@
       "Military": 29,
       "Other": 456
     }
+  },
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.009727626459143969,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 23,
+    "contributionShortRate": 0.02237354085603113,
+    "score": 98.96887159533074
   },
   "summary": "Issues: 21 exact duplicates; pattern collapse (max 14); 1028 entries (expected 1000); non-sequential ranks"
 }

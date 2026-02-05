@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 9 (January 19, 2026).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:59.442Z",
+  "timestamp": "2026-02-05T18:16:46.327Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 87,
-      "fuzzy": 47,
+      "fuzzy": 29,
       "status": "WARN",
       "details": "87 exact duplicates found"
     },
@@ -24,13 +24,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -641,26 +642,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad i",
-        "muhammad ibn abd alwahhab",
-        "muhammad ali",
-        "jinnah muhammad ali jinnah",
-        "muhammad iqbal"
-      ],
-      "ranks": [
-        1,
-        428,
-        470,
-        684,
-        872,
-        873
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -685,40 +666,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "mahatma gandhi",
-      "variants": [
-        "mahatma gandhi",
-        "gandhi"
-      ],
-      "ranks": [
-        60,
-        871
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "ibn sina avicenna",
       "variants": [
         "ibn sina avicenna",
-        "avicenna",
         "ibn sina"
       ],
       "ranks": [
         66,
-        949,
         984
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn rushd averroes",
-      "variants": [
-        "ibn rushd averroes",
-        "averroes"
-      ],
-      "ranks": [
-        67,
-        948
       ]
     },
     {
@@ -735,26 +690,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "louis daguerre",
+      "name": "gottfried wilhelm leibniz",
       "variants": [
-        "louis daguerre",
-        "daguerre"
+        "gottfried wilhelm leibniz",
+        "gottfried leibniz"
       ],
       "ranks": [
-        108,
-        672
+        104,
+        738
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "laozi",
+      "name": "antoine lavoisier",
       "variants": [
-        "laozi",
-        "mozi"
+        "antoine lavoisier",
+        "antonie lavoisier"
       ],
       "ranks": [
-        131,
-        666
+        121,
+        373
       ]
     },
     {
@@ -771,6 +726,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "rajendra chola i",
+      "variants": [
+        "rajendra chola i",
+        "raja raja chola i"
+      ],
+      "ranks": [
+        163,
+        918
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "aung san",
       "variants": [
         "aung san",
@@ -783,124 +750,40 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sukarno",
+      "name": "shah abbas i",
       "variants": [
-        "sukarno",
-        "suharto"
+        "shah abbas i",
+        "shapur i"
       ],
       "ranks": [
-        173,
-        174
+        180,
+        923
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "saladin",
+      "name": "pope gregory i",
       "variants": [
-        "saladin",
-        "salah addin saladin",
-        "saadi"
+        "pope gregory i",
+        "pope leo i",
+        "pope gelasius i"
       ],
       "ranks": [
-        181,
-        471,
-        633
+        201,
+        732,
+        733
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "maimonides",
+      "name": "pope urban ii",
       "variants": [
-        "maimonides",
-        "moses maimonides"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        193,
-        950
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "moses maimonides"
-      ],
-      "ranks": [
-        194,
-        950
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "david",
-      "variants": [
-        "david",
-        "david bengurion",
-        "david livingstone",
-        "ovid",
-        "jacqueslouis david",
-        "david hilbert",
-        "david hume",
-        "henry david thoreau"
-      ],
-      "ranks": [
-        195,
-        351,
-        423,
-        452,
-        549,
-        585,
-        810,
-        908
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "solomon",
-      "variants": [
-        "solomon",
-        "solon"
-      ],
-      "ranks": [
-        196,
-        286
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "mozi"
-      ],
-      "ranks": [
-        198,
-        666
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anselm of canterbury",
-      "variants": [
-        "anselm of canterbury",
-        "anselm"
-      ],
-      "ranks": [
-        251,
-        496
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "otto von bismarck",
-      "variants": [
-        "otto von bismarck",
-        "bismarck"
-      ],
-      "ranks": [
-        257,
-        734
+        202,
+        448
       ]
     },
     {
@@ -917,6 +800,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "ivan iv the terrible",
+      "variants": [
+        "ivan iv the terrible",
+        "ivan the terrible"
+      ],
+      "ranks": [
+        306,
+        760
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "basil ii",
       "variants": [
         "basil ii",
@@ -929,14 +824,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "louis xiv",
+      "name": "james i of england",
       "variants": [
-        "louis xiv",
-        "louis ix"
+        "james i of england",
+        "james ii of england"
       ],
       "ranks": [
-        397,
-        518
+        400,
+        416
       ]
     },
     {
@@ -953,6 +848,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "mary ii of england",
+      "variants": [
+        "mary ii of england",
+        "mary i of england"
+      ],
+      "ranks": [
+        418,
+        758
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "menelik ii",
       "variants": [
         "menelik ii",
@@ -961,18 +868,6 @@
       "ranks": [
         434,
         688
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alcuin of york",
-      "variants": [
-        "alcuin of york",
-        "alcuin"
-      ],
-      "ranks": [
-        459,
-        833
       ]
     },
     {
@@ -1013,18 +908,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "altabari",
-      "variants": [
-        "altabari",
-        "aljazari"
-      ],
-      "ranks": [
-        608,
-        926
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "dom pedro i",
       "variants": [
         "dom pedro i",
@@ -1057,6 +940,18 @@
       "ranks": [
         699,
         930
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo i",
+      "variants": [
+        "pope leo i",
+        "pope gelasius i"
+      ],
+      "ranks": [
+        732,
+        733
       ]
     },
     {
@@ -1110,6 +1005,21 @@
       "Military": 11,
       "Other": 879
     }
+  },
+  "advanced": {
+    "parentheticalCount": 32,
+    "parentheticalRate": 0.032,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 53,
+    "contributionShortRate": 0.053,
+    "score": 96.89
   },
   "summary": "Issues: 87 exact duplicates"
 }

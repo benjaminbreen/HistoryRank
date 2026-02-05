@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 8 (January 16, 2026).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:50.217Z",
+  "timestamp": "2026-02-05T18:16:14.724Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 5,
-      "fuzzy": 9,
+      "fuzzy": 1,
       "status": "PASS",
       "details": "5 exact duplicates found"
     },
@@ -61,11 +61,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -111,20 +113,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus",
-        "muhammad ali"
-      ],
-      "ranks": [
-        1,
-        415,
-        902
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -133,68 +121,6 @@
       "ranks": [
         20,
         115
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham lincoln",
-        "abraham maslow"
-      ],
-      "ranks": [
-        31,
-        45,
-        940
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
-      "variants": [
-        "srinivasa ramanujan",
-        "ramanuja"
-      ],
-      "ranks": [
-        90,
-        257
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        225,
-        226
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "sergei rachmaninoff"
-      ],
-      "ranks": [
-        261,
-        691
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john muir",
-      "variants": [
-        "john muir",
-        "joan mir"
-      ],
-      "ranks": [
-        354,
-        624
       ]
     },
     {
@@ -260,6 +186,21 @@
       "Military": 6,
       "Other": 871
     }
+  },
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 229,
+    "contributionShortRate": 0.229,
+    "score": 94.77000000000001
   },
   "summary": "List passes all quality checks"
 }

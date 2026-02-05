@@ -1,17 +1,17 @@
 {
   "file": "Grok 4 LIST 4 (January 14, 2026).txt",
   "model": "Grok 4",
-  "timestamp": "2026-01-20T04:16:05.808Z",
+  "timestamp": "2026-02-05T18:17:02.950Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 162,
-      "fuzzy": 11,
+      "fuzzy": 5,
       "status": "WARN",
       "details": "162 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 29,
+      "maxSequence": 35,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -480,10 +480,46 @@
             "432. Henri Matisse",
             "433. Paul Cézanne"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 125,
+          "endRank": 139,
+          "count": 15,
+          "examples": [
+            "125. Wernher von Braun",
+            "126. Robert Oppenheimer",
+            "127. Enrico Fermi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 141,
+          "endRank": 175,
+          "count": 35,
+          "examples": [
+            "141. Euclid",
+            "142. Pythagoras",
+            "143. Archimedes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 271,
+          "endRank": 285,
+          "count": 15,
+          "examples": [
+            "271. Plautus",
+            "272. Terence",
+            "273. Molière"
+          ]
         }
       ],
-      "status": "PASS",
-      "details": "Max sequence of 29 similar entries"
+      "status": "WARN",
+      "details": "Max sequence of 35 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -493,13 +529,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "kepler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1738,30 +1775,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus"
-      ],
-      "ranks": [
-        2,
-        193
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        14,
-        62
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -1786,14 +1799,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "cleopatra",
+      "name": "marie curie",
       "variants": [
-        "cleopatra",
-        "cleopatra vii"
+        "marie curie",
+        "marie skodowska curie"
       ],
       "ranks": [
-        55,
-        534
+        41,
+        513
       ]
     },
     {
@@ -1810,30 +1823,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham maslow"
-      ],
-      "ranks": [
-        62,
-        229
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        103,
-        520
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "robert oppenheimer",
       "variants": [
         "robert oppenheimer",
@@ -1842,30 +1831,6 @@
       "ranks": [
         126,
         625
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john williams",
-      "variants": [
-        "john williams",
-        "joy williams"
-      ],
-      "ranks": [
-        415,
-        905
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john muir",
-      "variants": [
-        "john muir",
-        "joan mir"
-      ],
-      "ranks": [
-        483,
-        674
       ]
     },
     {
@@ -2335,6 +2300,42 @@
         "432. Henri Matisse",
         "433. Paul Cézanne"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 125,
+      "endRank": 139,
+      "count": 15,
+      "examples": [
+        "125. Wernher von Braun",
+        "126. Robert Oppenheimer",
+        "127. Enrico Fermi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 141,
+      "endRank": 175,
+      "count": 35,
+      "examples": [
+        "141. Euclid",
+        "142. Pythagoras",
+        "143. Archimedes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 271,
+      "endRank": 285,
+      "count": 15,
+      "examples": [
+        "271. Plautus",
+        "272. Terence",
+        "273. Molière"
+      ]
     }
   ],
   "diversity": {
@@ -2364,5 +2365,20 @@
       "Other": 350
     }
   },
-  "summary": "Issues: 162 exact duplicates; pattern collapse (max 29)"
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 232,
+    "contributionShortRate": 0.232,
+    "score": 95.36
+  },
+  "summary": "Issues: 162 exact duplicates; pattern collapse (max 35)"
 }

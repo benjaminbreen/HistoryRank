@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Mistral Large 3 LIST 2 (January 15, 2026).txt
 Model: Mistral Large 3
-Timestamp: 2026-01-20T04:16:09.480Z
+Timestamp: 2026-02-05T18:17:13.502Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: WARN - 175 exact duplicates found
   Pattern Collapse: FAIL - Max sequence of 334 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 39/43 anchor figures found (91%)
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
 
-Issues (223):
+Issues (170):
   - Exact duplicate: "leonardo da vinci" at ranks 8, 651
   - Exact duplicate: "william shakespeare" at ranks 9, 585
   - Exact duplicate: "thomas edison" at ranks 15, 78
@@ -25,8 +25,17 @@ Issues (223):
   - Exact duplicate: "nelson mandela" at ranks 92, 118, 224
   - Exact duplicate: "winston churchill" at ranks 93, 343
   - Exact duplicate: "franklin d roosevelt" at ranks 94, 328
-  ... and 213 more issues
+  ... and 160 more issues
 
 Diversity Estimates:
   Regions: Europe: 61, Asia: 37, Middle East: 26, Africa: 19, Americas: 34, Unknown: 823
   Domains: Politics/Leadership: 297, Science/Technology: 4, Philosophy/Religion: 43, Arts/Literature: 271, Military: 11, Other: 374
+
+Advanced Metrics:
+  Advanced score: 99.8
+  Parenthetical names: 0.2%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 0.0%

@@ -20,6 +20,11 @@ interface RankingsFiltersProps {
   onModelSourceChange: (value: string | null) => void;
   badgeFilter: BadgeType | null;
   onBadgeFilterChange: (value: BadgeType | null) => void;
+  smartSearch: boolean;
+  onSmartSearchChange: (value: boolean) => void;
+  showSmartSearchToggle: boolean;
+  onSearchFocus?: () => void;
+  onSearchBlur?: () => void;
   isLoading?: boolean;
   resultCount?: number;
   totalCount?: number;
@@ -109,6 +114,11 @@ export function RankingsFilters({
   onModelSourceChange,
   badgeFilter,
   onBadgeFilterChange,
+  smartSearch,
+  onSmartSearchChange,
+  showSmartSearchToggle,
+  onSearchFocus,
+  onSearchBlur,
   isLoading = false,
   resultCount,
   totalCount,
@@ -129,6 +139,8 @@ export function RankingsFilters({
           placeholder="Search figures..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
+          onFocus={onSearchFocus}
+          onBlur={onSearchBlur}
           className={cn(
             "pl-9 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600",
             isLoading && "border-amber-300 dark:border-amber-700"
@@ -143,6 +155,18 @@ export function RankingsFilters({
           </button>
         )}
       </div>
+
+      {showSmartSearchToggle && (
+        <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none">
+          <input
+            type="checkbox"
+            checked={smartSearch}
+            onChange={(e) => onSmartSearchChange(e.target.checked)}
+            className="h-4 w-4 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+          />
+          Smart search
+        </label>
+      )}
 
       {/* Result count indicator */}
       {showResultCount && (

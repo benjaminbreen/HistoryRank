@@ -1,0 +1,308 @@
+{
+  "file": "claude-sonnet-4.5 V2 LIST 2 (February 4, 2026).txt",
+  "model": "claude-sonnet-4.5 V2 Prompt",
+  "timestamp": "2026-02-04T20:34:35.800Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "2 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 15,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 233,
+          "endRank": 242,
+          "count": 10,
+          "examples": [
+            "233. Du Fu",
+            "234. Ferdowsi",
+            "235. Francisco Pizarro"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 236,
+          "endRank": 250,
+          "count": 15,
+          "examples": [
+            "236. Josquin des Prez",
+            "237. Kalidasa",
+            "238. Li Bai"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 240,
+          "endRank": 251,
+          "count": 12,
+          "examples": [
+            "240. Pericles",
+            "241. Ramesses II",
+            "242. Tokugawa Ieyasu"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 244,
+          "endRank": 253,
+          "count": 10,
+          "examples": [
+            "244. Antonio Vivaldi",
+            "245. Attila the Hun",
+            "246. Cleopatra VII"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 378,
+          "endRank": 388,
+          "count": 11,
+          "examples": [
+            "378. Auguste Rodin",
+            "379. Charles Dickens",
+            "380. Claude Debussy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 458,
+          "endRank": 469,
+          "count": 12,
+          "examples": [
+            "458. Cornelius Vanderbilt",
+            "459. Elizabeth Blackwell",
+            "460. Elizabeth Cady Stanton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 461,
+          "endRank": 471,
+          "count": 11,
+          "examples": [
+            "461. Emmeline Pankhurst",
+            "462. Frederick Douglass",
+            "463. Giambattista Vico"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 461,
+          "endRank": 472,
+          "count": 12,
+          "examples": [
+            "461. Emmeline Pankhurst",
+            "462. Frederick Douglass",
+            "463. Giambattista Vico"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "through",
+          "startRank": 465,
+          "endRank": 475,
+          "count": 11,
+          "examples": [
+            "465. Harriet Tubman",
+            "466. Jacques-Louis David",
+            "467. Jonathan Edwards"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 15 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "socrates",
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        315
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilhelm wundt",
+      "variants": [
+        "wilhelm wundt",
+        "william wundt"
+      ],
+      "ranks": [
+        295,
+        297
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 233,
+      "endRank": 242,
+      "count": 10,
+      "examples": [
+        "233. Du Fu",
+        "234. Ferdowsi",
+        "235. Francisco Pizarro"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 236,
+      "endRank": 250,
+      "count": 15,
+      "examples": [
+        "236. Josquin des Prez",
+        "237. Kalidasa",
+        "238. Li Bai"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 240,
+      "endRank": 251,
+      "count": 12,
+      "examples": [
+        "240. Pericles",
+        "241. Ramesses II",
+        "242. Tokugawa Ieyasu"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 244,
+      "endRank": 253,
+      "count": 10,
+      "examples": [
+        "244. Antonio Vivaldi",
+        "245. Attila the Hun",
+        "246. Cleopatra VII"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 378,
+      "endRank": 388,
+      "count": 11,
+      "examples": [
+        "378. Auguste Rodin",
+        "379. Charles Dickens",
+        "380. Claude Debussy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 458,
+      "endRank": 469,
+      "count": 12,
+      "examples": [
+        "458. Cornelius Vanderbilt",
+        "459. Elizabeth Blackwell",
+        "460. Elizabeth Cady Stanton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 461,
+      "endRank": 471,
+      "count": 11,
+      "examples": [
+        "461. Emmeline Pankhurst",
+        "462. Frederick Douglass",
+        "463. Giambattista Vico"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 461,
+      "endRank": 472,
+      "count": 12,
+      "examples": [
+        "461. Emmeline Pankhurst",
+        "462. Frederick Douglass",
+        "463. Giambattista Vico"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "through",
+      "startRank": 465,
+      "endRank": 475,
+      "count": 11,
+      "examples": [
+        "465. Harriet Tubman",
+        "466. Jacques-Louis David",
+        "467. Jonathan Edwards"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 82,
+      "Asia": 14,
+      "Middle East": 20,
+      "Africa": 4,
+      "Americas": 19,
+      "Oceania": 0,
+      "Unknown": 361
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 25,
+      "Science/Technology": 4,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 23,
+      "Military": 15,
+      "Other": 424
+    }
+  },
+  "summary": "List passes all quality checks"
+}

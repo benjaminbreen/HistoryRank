@@ -1,12 +1,12 @@
 {
   "file": "GLM 4.7 LIST 2 (January 14, 2026).txt",
   "model": "GLM 4.7",
-  "timestamp": "2026-01-20T04:15:54.977Z",
+  "timestamp": "2026-02-05T18:16:29.911Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 91,
-      "fuzzy": 29,
+      "fuzzy": 7,
       "status": "WARN",
       "details": "91 exact duplicates found"
     },
@@ -433,13 +433,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "paul the apostle",
         "kepler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1166,32 +1167,16 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad yunus",
-        "muhammad ali",
-        "muhammad ali pasha",
-        "askia muhammad"
-      ],
-      "ranks": [
-        1,
-        273,
-        396,
-        587,
-        594
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "orville and wilbur wright",
       "variants": [
         "orville and wilbur wright",
-        "wilbur wright"
+        "wilbur wright",
+        "orville wright"
       ],
       "ranks": [
         95,
-        691
+        691,
+        692
       ]
     },
     {
@@ -1208,66 +1193,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "cleopatra vii",
-      "variants": [
-        "cleopatra vii",
-        "cleopatra"
-      ],
-      "ranks": [
-        162,
-        968
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robespierre",
-      "variants": [
-        "robespierre",
-        "maximilien robespierre"
-      ],
-      "ranks": [
-        176,
-        522
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tacitus",
-      "variants": [
-        "tacitus",
-        "titus"
-      ],
-      "ranks": [
-        218,
-        954
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "princess diana",
-      "variants": [
-        "princess diana",
-        "prince"
-      ],
-      "ranks": [
-        231,
-        796
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "arash ferdowsi",
-      "variants": [
-        "arash ferdowsi",
-        "ferdowsi"
-      ],
-      "ranks": [
-        357,
-        556
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "muhammad ali",
       "variants": [
         "muhammad ali",
@@ -1280,130 +1205,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nas",
+      "name": "rajendra chola i",
       "variants": [
-        "nas",
-        "nasir aldin altusi",
-        "jonas salk",
-        "athanasius of alexandria",
-        "john nash",
-        "ashurnasirpal ii"
+        "rajendra chola i",
+        "raja raja chola i"
       ],
       "ranks": [
-        440,
-        559,
-        656,
-        807,
-        918,
-        995
+        572,
+        573
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sally jessy raphael",
+      "name": "emperor wen of sui",
       "variants": [
-        "sally jessy raphael",
-        "raphael"
+        "emperor wen of sui",
+        "emperor yang of sui"
       ],
       "ranks": [
-        467,
-        900
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "prince shtoku",
-      "variants": [
-        "prince shtoku",
-        "prince"
-      ],
-      "ranks": [
-        550,
-        796
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "selim i",
-      "variants": [
-        "selim i",
-        "seti i"
-      ],
-      "ranks": [
-        562,
-        984
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "du fu",
-      "variants": [
-        "du fu",
-        "lu bu"
-      ],
-      "ranks": [
-        617,
-        640
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "li bai",
-      "variants": [
-        "li bai",
-        "liu bei"
-      ],
-      "ranks": [
-        618,
-        630
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "han yu",
-      "variants": [
-        "han yu",
-        "guan yu"
-      ],
-      "ranks": [
-        627,
-        633
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "liu bei",
-      "variants": [
-        "liu bei",
-        "liu hui"
-      ],
-      "ranks": [
-        630,
-        974
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "philo",
-      "variants": [
-        "philo",
-        "ptolemy iv philopator"
-      ],
-      "ranks": [
-        803,
-        972
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "erasmus",
-      "variants": [
-        "erasmus",
-        "crassus"
-      ],
-      "ranks": [
-        815,
-        960
+        642,
+        643
       ]
     },
     {
@@ -1416,30 +1237,6 @@
       "ranks": [
         843,
         867
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nerva",
-      "variants": [
-        "nerva",
-        "nero"
-      ],
-      "ranks": [
-        951,
-        955
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "crassus",
-      "variants": [
-        "crassus",
-        "cassius"
-      ],
-      "ranks": [
-        960,
-        966
       ]
     },
     {
@@ -1877,6 +1674,21 @@
       "Military": 14,
       "Other": 933
     }
+  },
+  "advanced": {
+    "parentheticalCount": 3,
+    "parentheticalRate": 0.003,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 763,
+    "contributionShortRate": 0.763,
+    "score": 84.50999999999999
   },
   "summary": "Issues: 91 exact duplicates; pattern collapse (max 40)"
 }

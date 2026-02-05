@@ -1,17 +1,17 @@
 {
   "file": "Qwen3 235B A22B LIST 3 (January 18, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.485Z",
+  "timestamp": "2026-02-05T18:17:15.929Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 306,
-      "fuzzy": 46,
+      "fuzzy": 30,
       "status": "FAIL",
       "details": "306 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 24,
+      "maxSequence": 31,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -348,10 +348,34 @@
             "688. Yevgeny Zamyatin",
             "689. George Orwell"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 251,
+          "endRank": 281,
+          "count": 31,
+          "examples": [
+            "251. Woodrow Wilson",
+            "252. Theodore Roosevelt",
+            "253. William Howard Taft"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 559,
+          "endRank": 574,
+          "count": 16,
+          "examples": [
+            "559. Charles III",
+            "560. Margaret Thatcher",
+            "561. Tony Blair"
+          ]
         }
       ],
-      "status": "PASS",
-      "details": "Max sequence of 24 similar entries"
+      "status": "WARN",
+      "details": "Max sequence of 31 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -361,13 +385,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
-        "moses"
+        "moses",
+        "saint paul",
+        "paul the apostle"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -1428,126 +1454,40 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "george h w bush",
       "variants": [
-        "muhammad",
-        "muhammad of ghor",
-        "muhammad bin tughluq",
-        "muhammad iqbal"
+        "george h w bush",
+        "george w bush"
       ],
       "ranks": [
-        2,
-        448,
-        460,
-        726
+        263,
+        265
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "johannes gutenberg",
+      "name": "pope urban ii",
       "variants": [
-        "johannes gutenberg",
-        "anne"
+        "pope urban ii",
+        "pope john paul ii",
+        "pope julius ii"
       ],
       "ranks": [
-        28,
-        547
+        302,
+        308,
+        527
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "johannes kepler",
+      "name": "pope john paul ii",
       "variants": [
-        "johannes kepler",
-        "anne"
+        "pope john paul ii",
+        "pope julius ii"
       ],
       "ranks": [
-        54,
-        547
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        95,
-        215
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "heraclitus",
-      "variants": [
-        "heraclitus",
-        "heraclius"
-      ],
-      "ranks": [
-        104,
-        412
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "boniface",
-      "variants": [
-        "boniface",
-        "pope boniface viii"
-      ],
-      "ranks": [
-        125,
-        304
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "giovanni boccaccio",
-      "variants": [
-        "giovanni boccaccio",
-        "boccaccio"
-      ],
-      "ranks": [
-        136,
-        524
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "benjamin franklin",
-      "variants": [
-        "benjamin franklin",
-        "jami"
-      ],
-      "ranks": [
-        169,
-        765
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "queen victoria",
-      "variants": [
-        "queen victoria",
-        "victoria"
-      ],
-      "ranks": [
-        181,
-        553
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "benjamin cardozo",
-      "variants": [
-        "benjamin cardozo",
-        "jami"
-      ],
-      "ranks": [
-        245,
-        765
+        308,
+        527
       ]
     },
     {
@@ -1572,18 +1512,6 @@
       "ranks": [
         421,
         429
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "orhan",
-      "variants": [
-        "orhan",
-        "orhan pamuk"
-      ],
-      "ranks": [
-        423,
-        745
       ]
     },
     {
@@ -1615,16 +1543,12 @@
       "name": "mehmed i",
       "variants": [
         "mehmed i",
-        "ahmed i",
         "mehmed iv",
-        "mehmed v",
         "mehmed vi"
       ],
       "ranks": [
         426,
-        430,
         433,
-        438,
         439
       ]
     },
@@ -1642,28 +1566,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ibrahim",
-      "variants": [
-        "ibrahim",
-        "ibrahim lodi"
-      ],
-      "ranks": [
-        432,
-        463
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "mehmed iv",
       "variants": [
         "mehmed iv",
-        "mehmed v",
-        "mehmed vi"
+        "mehmed v"
       ],
       "ranks": [
         433,
-        438,
-        439
+        438
       ]
     },
     {
@@ -1683,35 +1593,37 @@
       "name": "chandragupta i",
       "variants": [
         "chandragupta i",
-        "chandragupta ii"
+        "chandragupta ii",
+        "charles i"
       ],
       "ranks": [
         491,
-        493
+        493,
+        541
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "anne boleyn",
+      "name": "chandragupta ii",
       "variants": [
-        "anne boleyn",
-        "anne"
+        "chandragupta ii",
+        "charles ii"
       ],
       "ranks": [
-        532,
-        547
+        493,
+        543
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "anne of cleves",
+      "name": "raja raja chola i",
       "variants": [
-        "anne of cleves",
-        "anne"
+        "raja raja chola i",
+        "rajendra chola i"
       ],
       "ranks": [
-        534,
-        547
+        496,
+        497
       ]
     },
     {
@@ -1742,43 +1654,17 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "william iii",
-      "variants": [
-        "william iii",
-        "william iv"
-      ],
-      "ranks": [
-        545,
-        552
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anne",
-      "variants": [
-        "anne",
-        "anne frank"
-      ],
-      "ranks": [
-        547,
-        647
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "george i",
       "variants": [
         "george i",
         "george ii",
         "george iv",
-        "george v",
         "george vi"
       ],
       "ranks": [
         548,
         549,
         551,
-        555,
         557
       ]
     },
@@ -1788,13 +1674,11 @@
       "variants": [
         "george ii",
         "george iv",
-        "george v",
         "george vi"
       ],
       "ranks": [
         549,
         551,
-        555,
         557
       ]
     },
@@ -1803,13 +1687,11 @@
       "name": "george iv",
       "variants": [
         "george iv",
-        "george v",
-        "george vi"
+        "george v"
       ],
       "ranks": [
         551,
-        555,
-        557
+        555
       ]
     },
     {
@@ -1846,6 +1728,18 @@
       "ranks": [
         595,
         596
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander solzhenitsyn",
+      "variants": [
+        "alexander solzhenitsyn",
+        "aleksandr solzhenitsyn"
+      ],
+      "ranks": [
+        672,
+        681
       ]
     },
     {
@@ -2183,6 +2077,30 @@
         "688. Yevgeny Zamyatin",
         "689. George Orwell"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 251,
+      "endRank": 281,
+      "count": 31,
+      "examples": [
+        "251. Woodrow Wilson",
+        "252. Theodore Roosevelt",
+        "253. William Howard Taft"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 559,
+      "endRank": 574,
+      "count": 16,
+      "examples": [
+        "559. Charles III",
+        "560. Margaret Thatcher",
+        "561. Tony Blair"
+      ]
     }
   ],
   "diversity": {
@@ -2212,5 +2130,20 @@
       "Other": 401
     }
   },
-  "summary": "Issues: 306 exact duplicates; pattern collapse (max 24)"
+  "advanced": {
+    "parentheticalCount": 30,
+    "parentheticalRate": 0.03,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 98.08000000000001
+  },
+  "summary": "Issues: 306 exact duplicates; pattern collapse (max 31)"
 }

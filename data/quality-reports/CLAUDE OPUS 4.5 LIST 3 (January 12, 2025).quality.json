@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 3 (January 12, 2025).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:47.963Z",
+  "timestamp": "2026-02-05T18:16:07.235Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 2,
-      "fuzzy": 18,
+      "fuzzy": 6,
       "status": "PASS",
       "details": "2 exact duplicates found"
     },
@@ -240,6 +240,42 @@
             "986. José Donoso",
             "987. Manuel Puig"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 902,
+          "endRank": 925,
+          "count": 24,
+          "examples": [
+            "902. Herta Müller",
+            "903. Doris Lessing",
+            "904. Nadine Gordimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 935,
+          "endRank": 959,
+          "count": 25,
+          "examples": [
+            "935. Haruki Murakami",
+            "936. Gabriel García Márquez",
+            "937. Jorge Luis Borges"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 970,
+          "endRank": 995,
+          "count": 26,
+          "examples": [
+            "970. Ana Castillo",
+            "971. Helena María Viramontes",
+            "972. Cherríe Moraga"
+          ]
         }
       ],
       "status": "WARN",
@@ -253,11 +289,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -279,38 +317,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad",
-        "muhammad ali jinnah",
-        "muhammad iqbal",
-        "muhammad ali",
-        "muhammad yunus"
-      ],
-      "ranks": [
-        1,
-        193,
-        373,
-        615,
-        638,
-        884
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aristotle",
-      "variants": [
-        "aristotle",
-        "aristotle onassis"
-      ],
-      "ranks": [
-        7,
-        820
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -323,62 +329,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ananda",
+      "name": "henry vii of england",
       "variants": [
-        "ananda",
-        "vivekananda"
+        "henry vii of england",
+        "henry ii of england"
       ],
       "ranks": [
-        111,
-        227
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rachel carson",
-      "variants": [
-        "rachel carson",
-        "rachel"
-      ],
-      "ranks": [
-        135,
-        828
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        266,
-        633
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "raphael",
-      "variants": [
-        "raphael",
-        "rachel"
-      ],
-      "ranks": [
-        320,
-        828
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "virgil",
-      "variants": [
-        "virgil",
-        "virgilio piera"
-      ],
-      "ranks": [
-        331,
-        981
+        344,
+        603
       ]
     },
     {
@@ -395,6 +353,30 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "tsar alexander ii",
+      "variants": [
+        "tsar alexander ii",
+        "tsar nicholas ii"
+      ],
+      "ranks": [
+        389,
+        813
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        434,
+        516
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "john hus",
       "variants": [
         "john hus",
@@ -403,54 +385,6 @@
       "ranks": [
         481,
         807
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramakrishna",
-      "variants": [
-        "ramakrishna",
-        "venkatraman ramakrishnan"
-      ],
-      "ranks": [
-        635,
-        869
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "thales",
-      "variants": [
-        "thales",
-        "rhazes"
-      ],
-      "ranks": [
-        653,
-        713
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nero",
-      "variants": [
-        "nero",
-        "sandra cisneros"
-      ],
-      "ranks": [
-        733,
-        962
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "montezuma i",
-      "variants": [
-        "montezuma i",
-        "moctezuma ii"
-      ],
-      "ranks": [
-        783,
-        785
       ]
     },
     {
@@ -680,6 +614,42 @@
         "986. José Donoso",
         "987. Manuel Puig"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 902,
+      "endRank": 925,
+      "count": 24,
+      "examples": [
+        "902. Herta Müller",
+        "903. Doris Lessing",
+        "904. Nadine Gordimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 935,
+      "endRank": 959,
+      "count": 25,
+      "examples": [
+        "935. Haruki Murakami",
+        "936. Gabriel García Márquez",
+        "937. Jorge Luis Borges"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 970,
+      "endRank": 995,
+      "count": 26,
+      "examples": [
+        "970. Ana Castillo",
+        "971. Helena María Viramontes",
+        "972. Cherríe Moraga"
+      ]
     }
   ],
   "diversity": {
@@ -708,6 +678,21 @@
       "Military": 17,
       "Other": 657
     }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 99.39
   },
   "summary": "Issues: 2 exact duplicates; pattern collapse (max 65)"
 }

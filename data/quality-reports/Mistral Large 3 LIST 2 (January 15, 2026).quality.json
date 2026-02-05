@@ -1,12 +1,12 @@
 {
   "file": "Mistral Large 3 LIST 2 (January 15, 2026).txt",
   "model": "Mistral Large 3",
-  "timestamp": "2026-01-20T04:16:09.480Z",
+  "timestamp": "2026-02-05T18:17:13.502Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 175,
-      "fuzzy": 69,
+      "fuzzy": 2,
       "status": "WARN",
       "details": "175 exact duplicates found"
     },
@@ -732,6 +732,78 @@
             "666. Édouard Manet",
             "667. Claude Monet"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 298,
+          "endRank": 361,
+          "count": 64,
+          "examples": [
+            "298. George Washington",
+            "299. John Adams",
+            "300. Thomas Jefferson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 383,
+          "endRank": 397,
+          "count": 15,
+          "examples": [
+            "383. Shinzo Abe",
+            "384. Fumio Kishida",
+            "385. Yoshihide Suga"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 401,
+          "endRank": 418,
+          "count": 18,
+          "examples": [
+            "401. Moon Jae-in",
+            "402. Yoon Suk-yeol",
+            "403. Park Chung-hee"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 707,
+          "endRank": 730,
+          "count": 24,
+          "examples": [
+            "707. Mark Rothko",
+            "708. Willem de Kooning",
+            "709. Franz Kline"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 751,
+          "endRank": 773,
+          "count": 23,
+          "examples": [
+            "751. Judy Chicago",
+            "752. Cindy Sherman",
+            "753. Barbara Kruger"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 801,
+          "endRank": 831,
+          "count": 31,
+          "examples": [
+            "801. Bach",
+            "802. Mozart",
+            "803. Beethoven"
+          ]
         }
       ],
       "status": "FAIL",
@@ -745,16 +817,18 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 39,
-      "expected": 43,
+      "found": 55,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "pythagoras",
         "euclid",
         "archimedes",
         "kepler"
       ],
       "status": "PASS",
-      "details": "39/43 anchor figures found (91%)"
+      "details": "55/61 anchor figures found (90%)"
     }
   },
   "issues": [
@@ -1649,750 +1723,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ibn abdullah"
-      ],
-      "ranks": [
-        2,
-        197
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "plato",
-      "variants": [
-        "plato",
-        "plant"
-      ],
-      "ranks": [
-        21,
-        888
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "jones"
-      ],
-      "ranks": [
-        32,
-        889
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "werner heisenberg",
-      "variants": [
-        "werner heisenberg",
-        "berg"
-      ],
-      "ranks": [
-        35,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "stephen hawking",
-      "variants": [
-        "stephen hawking",
-        "king"
-      ],
-      "ranks": [
-        40,
-        900
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jonas salk",
-      "variants": [
-        "jonas salk",
-        "nas"
-      ],
-      "ranks": [
-        45,
-        952
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "larry page",
-      "variants": [
-        "larry page",
-        "page"
-      ],
-      "ranks": [
-        74,
-        887
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mark zuckerberg",
-      "variants": [
-        "mark zuckerberg",
-        "berg"
-      ],
-      "ranks": [
-        75,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "neil armstrong",
-      "variants": [
-        "neil armstrong",
-        "armstrong"
-      ],
-      "ranks": [
-        84,
-        844
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sony",
-      "variants": [
-        "sony",
-        "monk",
-        "moby"
-      ],
-      "ranks": [
-        182,
-        847,
-        987
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "rachmaninoff",
-        "monk",
-        "vai"
-      ],
-      "ranks": [
-        196,
-        830,
-        847,
-        895
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "gamal abdel nasser",
-      "variants": [
-        "gamal abdel nasser",
-        "nas"
-      ],
-      "ranks": [
-        219,
-        952
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anwar sadat",
-      "variants": [
-        "anwar sadat",
-        "nwa"
-      ],
-      "ranks": [
-        220,
-        963
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ban kimoon",
-      "variants": [
-        "ban kimoon",
-        "moon"
-      ],
-      "ranks": [
-        236,
-        886
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "greta thunberg",
-      "variants": [
-        "greta thunberg",
-        "berg"
-      ],
-      "ranks": [
-        245,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "madeleine albright",
-      "variants": [
-        "madeleine albright",
-        "adele"
-      ],
-      "ranks": [
-        275,
-        945
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "oliver wendell holmes jr",
-      "variants": [
-        "oliver wendell holmes jr",
-        "jr"
-      ],
-      "ranks": [
-        291,
-        765
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "john adams",
       "variants": [
         "john adams",
-        "adams"
+        "john quincy adams"
       ],
       "ranks": [
         299,
-        838
+        303
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john quincy adams",
+      "name": "george h w bush",
       "variants": [
-        "john quincy adams",
-        "adams"
+        "george h w bush",
+        "george w bush"
       ],
       "ranks": [
-        303,
-        838
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "william henry harrison",
-      "variants": [
-        "william henry harrison",
-        "harrison"
-      ],
-      "ranks": [
-        306,
-        876
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zachary taylor",
-      "variants": [
-        "zachary taylor",
-        "taylor"
-      ],
-      "ranks": [
-        309,
-        871
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "andrew johnson",
-      "variants": [
-        "andrew johnson",
-        "johnson"
-      ],
-      "ranks": [
-        314,
-        899
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "benjamin harrison",
-      "variants": [
-        "benjamin harrison",
-        "harrison"
-      ],
-      "ranks": [
-        320,
-        876
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "boris johnson",
-      "variants": [
-        "boris johnson",
-        "johnson"
-      ],
-      "ranks": [
-        348,
-        899
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "gordon brown",
-      "variants": [
-        "gordon brown",
-        "gordon"
-      ],
-      "ranks": [
-        355,
-        858
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kim jongil",
-      "variants": [
-        "kim jongil",
-        "kim jongun"
-      ],
-      "ranks": [
-        399,
-        400
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moon jaein",
-      "variants": [
-        "moon jaein",
-        "moon"
-      ],
-      "ranks": [
-        401,
-        886
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "suharto",
-      "variants": [
-        "suharto",
-        "sukarno"
-      ],
-      "ranks": [
-        408,
-        409
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "megawati sukarnoputri"
-      ],
-      "ranks": [
-        409,
-        441
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "f scott fitzgerald",
-      "variants": [
-        "f scott fitzgerald",
-        "fitzgerald"
-      ],
-      "ranks": [
-        607,
-        851
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john steinbeck",
-      "variants": [
-        "john steinbeck",
-        "beck"
-      ],
-      "ranks": [
-        609,
-        892
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jrr tolkien",
-      "variants": [
-        "jrr tolkien",
-        "jr"
-      ],
-      "ranks": [
-        612,
-        765
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "breyten breytenbach",
-      "variants": [
-        "breyten breytenbach",
-        "bach"
-      ],
-      "ranks": [
-        641,
-        801
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "robert rauschenberg",
-      "variants": [
-        "robert rauschenberg",
-        "berg"
-      ],
-      "ranks": [
-        717,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "richard prince",
-      "variants": [
-        "richard prince",
-        "prince"
-      ],
-      "ranks": [
-        756,
-        940
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jr",
-      "variants": [
-        "jr",
-        "prt",
-        "bjrk"
-      ],
-      "ranks": [
-        765,
-        840,
-        997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ansel adams",
-      "variants": [
-        "ansel adams",
-        "adams"
-      ],
-      "ranks": [
-        776,
-        838
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "walker evans",
-      "variants": [
-        "walker evans",
-        "evans"
-      ],
-      "ranks": [
-        782,
-        862
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bach",
-      "variants": [
-        "bach",
-        "beck"
-      ],
-      "ranks": [
-        801,
-        892
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "wagner",
-      "variants": [
-        "wagner",
-        "jagger"
-      ],
-      "ranks": [
-        806,
-        878
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mahler",
-      "variants": [
-        "mahler",
-        "ayler"
-      ],
-      "ranks": [
-        818,
-        869
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "schoenberg",
-      "variants": [
-        "schoenberg",
-        "berg"
-      ],
-      "ranks": [
-        823,
-        824
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "berg",
-      "variants": [
-        "berg",
-        "beck",
-        "bjrk"
-      ],
-      "ranks": [
-        824,
-        892,
-        997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bartk",
-      "variants": [
-        "bartk",
-        "bjrk"
-      ],
-      "ranks": [
-        826,
-        997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cage",
-      "variants": [
-        "cage",
-        "page"
-      ],
-      "ranks": [
-        835,
-        887
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "monk",
-      "variants": [
-        "monk",
-        "moon",
-        "moby"
-      ],
-      "ranks": [
-        847,
-        886,
-        987
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "fitzgerald",
-      "variants": [
-        "fitzgerald",
-        "ella fitzgerald"
-      ],
-      "ranks": [
-        851,
-        922
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "holiday",
-      "variants": [
-        "holiday",
-        "billie holiday"
-      ],
-      "ranks": [
-        852,
-        921
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "basie",
-      "variants": [
-        "basie",
-        "bowie"
-      ],
-      "ranks": [
-        853,
-        873
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "brubeck",
-      "variants": [
-        "brubeck",
-        "beck"
-      ],
-      "ranks": [
-        861,
-        892
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ayler",
-      "variants": [
-        "ayler",
-        "taylor"
-      ],
-      "ranks": [
-        869,
-        871
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "taylor",
-      "variants": [
-        "taylor",
-        "taylor swift"
-      ],
-      "ranks": [
-        871,
-        944
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "wood",
-      "variants": [
-        "wood",
-        "moon"
-      ],
-      "ranks": [
-        880,
-        886
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "watts",
-      "variants": [
-        "watts",
-        "waters"
-      ],
-      "ranks": [
-        881,
-        901
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moon",
-      "variants": [
-        "moon",
-        "moby"
-      ],
-      "ranks": [
-        886,
-        987
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "beck",
-      "variants": [
-        "beck",
-        "bjrk"
-      ],
-      "ranks": [
-        892,
-        997
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "vai",
-      "variants": [
-        "vai",
-        "nas"
-      ],
-      "ranks": [
-        895,
-        952
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "johnson",
-      "variants": [
-        "johnson",
-        "robert johnson"
-      ],
-      "ranks": [
-        899,
-        908
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "king",
-      "variants": [
-        "king",
-        "bb king",
-        "albert king",
-        "freddie king"
-      ],
-      "ranks": [
-        900,
-        904,
-        905,
-        906
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "waters",
-      "variants": [
-        "waters",
-        "muddy waters"
-      ],
-      "ranks": [
-        901,
-        903
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nas",
-      "variants": [
-        "nas",
-        "nwa"
-      ],
-      "ranks": [
-        952,
-        963
+        337,
+        339
       ]
     },
     {
@@ -3114,6 +2464,78 @@
         "666. Édouard Manet",
         "667. Claude Monet"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 298,
+      "endRank": 361,
+      "count": 64,
+      "examples": [
+        "298. George Washington",
+        "299. John Adams",
+        "300. Thomas Jefferson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 383,
+      "endRank": 397,
+      "count": 15,
+      "examples": [
+        "383. Shinzo Abe",
+        "384. Fumio Kishida",
+        "385. Yoshihide Suga"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 401,
+      "endRank": 418,
+      "count": 18,
+      "examples": [
+        "401. Moon Jae-in",
+        "402. Yoon Suk-yeol",
+        "403. Park Chung-hee"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 707,
+      "endRank": 730,
+      "count": 24,
+      "examples": [
+        "707. Mark Rothko",
+        "708. Willem de Kooning",
+        "709. Franz Kline"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 751,
+      "endRank": 773,
+      "count": 23,
+      "examples": [
+        "751. Judy Chicago",
+        "752. Cindy Sherman",
+        "753. Barbara Kruger"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 801,
+      "endRank": 831,
+      "count": 31,
+      "examples": [
+        "801. Bach",
+        "802. Mozart",
+        "803. Beethoven"
+      ]
     }
   ],
   "diversity": {
@@ -3142,6 +2564,21 @@
       "Military": 11,
       "Other": 374
     }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.83
   },
   "summary": "Issues: 175 exact duplicates; pattern collapse (max 334)"
 }

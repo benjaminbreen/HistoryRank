@@ -22,6 +22,7 @@
     "thumbnails": "npx tsx scripts/download-thumbnails.ts",
     "thumbnails:check": "npx tsx scripts/download-thumbnails.ts --check",
     "download:thumbnails": "npx tsx scripts/download-thumbnails.ts",
+    "embeddings:build": "npx tsx scripts/build-figure-embeddings.ts",
     "prepare:db": "node scripts/prepare-db-for-deploy.cjs",
     "generate:qwen": "npx tsx scripts/generate-openrouter-list.ts",
     "generate:media": "npx tsx scripts/generate-openrouter-media.ts",

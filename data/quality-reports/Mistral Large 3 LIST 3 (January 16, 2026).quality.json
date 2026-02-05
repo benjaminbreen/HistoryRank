@@ -1,12 +1,12 @@
 {
   "file": "Mistral Large 3 LIST 3 (January 16, 2026).txt",
   "model": "Mistral Large 3",
-  "timestamp": "2026-01-20T04:16:09.775Z",
+  "timestamp": "2026-02-05T18:17:14.099Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 467,
-      "fuzzy": 3,
+      "fuzzy": 0,
       "status": "FAIL",
       "details": "467 exact duplicates found"
     },
@@ -324,6 +324,18 @@
             "431. Lev Vygotsky",
             "432. Abraham Maslow"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 353,
+          "endRank": 400,
+          "count": 48,
+          "examples": [
+            "353. Archimedes",
+            "354. Pythagoras",
+            "355. Carl Friedrich Gauss"
+          ]
         }
       ],
       "status": "FAIL",
@@ -337,15 +349,18 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 40,
-      "expected": 43,
+      "found": 55,
+      "expected": 61,
       "missing": [
         "julius caesar",
+        "caesar",
+        "saint paul",
         "qin shi huang",
-        "hitler"
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "40/43 anchor figures found (93%)"
+      "details": "55/61 anchor figures found (90%)"
     }
   },
   "issues": [
@@ -2098,22 +2113,6 @@
       ]
     },
     {
-      "type": "fuzzy_duplicate",
-      "name": "david",
-      "variants": [
-        "david",
-        "david attenborough",
-        "david hilbert",
-        "david hubel"
-      ],
-      "ranks": [
-        75,
-        139,
-        359,
-        446
-      ]
-    },
-    {
       "type": "pattern_collapse",
       "pattern": "global",
       "startRank": 121,
@@ -2424,6 +2423,18 @@
         "431. Lev Vygotsky",
         "432. Abraham Maslow"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 353,
+      "endRank": 400,
+      "count": 48,
+      "examples": [
+        "353. Archimedes",
+        "354. Pythagoras",
+        "355. Carl Friedrich Gauss"
+      ]
     }
   ],
   "diversity": {
@@ -2452,6 +2463,21 @@
       "Military": 16,
       "Other": 472
     }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.95
   },
   "summary": "Issues: 467 exact duplicates; pattern collapse (max 571)"
 }

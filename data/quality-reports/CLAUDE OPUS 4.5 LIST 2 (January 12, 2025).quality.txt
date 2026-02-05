@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Claude Opus 4.5 LIST 2 (January 12, 2025).txt
 Model: Claude Opus 4.5
-Timestamp: 2026-01-20T04:15:47.506Z
+Timestamp: 2026-02-05T18:16:05.429Z
 
 VERDICT: PASS
 
@@ -12,21 +12,30 @@ Scores:
   Repetition: PASS - 5 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 18 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
 
-Issues (53):
+Issues (40):
   - Exact duplicate: "lao she" at ranks 179, 927
   - Exact duplicate: "naguib mahfouz" at ranks 502, 911
   - Exact duplicate: "salman rushdie" at ranks 548, 920
   - Exact duplicate: "james baldwin" at ranks 686, 886
   - Exact duplicate: "margaret atwood" at ranks 882, 945
-  - Fuzzy duplicate: muhammad / muhammad ali / muhammad yunus / muhammad iqbal at ranks 2, 728, 770, 915
-  - Fuzzy duplicate: aristotle / aristotles teacher ammonius saccas at ranks 8, 79
   - Fuzzy duplicate: martin luther / martin luther king jr at ranks 19, 193
-  - Fuzzy duplicate: laozi / mozi at ranks 22, 289
-  - Fuzzy duplicate: abraham / abraham lincoln at ranks 24, 54
-  ... and 43 more issues
+  - Fuzzy duplicate: thomas edison / nikola teslas rival thomas edison at ranks 28, 562
+  - Fuzzy duplicate: nikola tesla / nikola teslas rival thomas edison / nikola teslas rival george westinghouse at ranks 37, 562, 730
+  - Fuzzy duplicate: gregor mendel / gregor mendels rediscoverer hugo de vries at ranks 74, 649
+  - Fuzzy duplicate: nikita khrushchev / nikita khrushchevs rival lavrentiy beria at ranks 90, 425
+  ... and 30 more issues
 
 Diversity Estimates:
   Regions: Europe: 98, Asia: 63, Middle East: 38, Africa: 30, Americas: 39, Unknown: 732
   Domains: Politics/Leadership: 15, Science/Technology: 12, Philosophy/Religion: 16, Arts/Literature: 33, Military: 8, Other: 916
+
+Advanced Metrics:
+  Advanced score: 95.3
+  Parenthetical names: 1.0%
+  Multi-person names: 0.1%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 1.2%
+  Short contributions: 18.9%

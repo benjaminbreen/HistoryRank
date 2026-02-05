@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 7 (January 19, 2026).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:16:01.368Z",
+  "timestamp": "2026-02-05T18:16:51.341Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 10,
-      "fuzzy": 17,
+      "fuzzy": 10,
       "status": "PASS",
       "details": "10 exact duplicates found"
     },
@@ -216,6 +216,42 @@
             "962. Haruki Murakami",
             "963. Kenzaburō Ōe"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 414,
+          "endRank": 437,
+          "count": 24,
+          "examples": [
+            "414. Peter Fraser",
+            "415. Robert Muldoon",
+            "416. David Lange"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 522,
+          "endRank": 544,
+          "count": 23,
+          "examples": [
+            "522. Salva Kiir Mayardit",
+            "523. Isaias Afwerki",
+            "524. Meles Zenawi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 957,
+          "endRank": 975,
+          "count": 19,
+          "examples": [
+            "957. Samuel Beckett",
+            "958. Jorge Luis Borges",
+            "959. Pablo Neruda"
+          ]
         }
       ],
       "status": "WARN",
@@ -229,17 +265,20 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 38,
-      "expected": 43,
+      "found": 53,
+      "expected": 61,
       "missing": [
         "michelangelo",
+        "saint paul",
         "pythagoras",
         "archimedes",
         "hitler",
-        "stalin"
+        "adolf hitler",
+        "stalin",
+        "joseph stalin"
       ],
-      "status": "WARN",
-      "details": "38/43 anchor figures found (88%)"
+      "status": "PASS",
+      "details": "53/61 anchor figures found (87%)"
     }
   },
   "issues": [
@@ -325,22 +364,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad ali jinnah",
-        "muhammadu buhari"
-      ],
-      "ranks": [
-        1,
-        202,
-        378,
-        555
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -349,34 +372,6 @@
       "ranks": [
         25,
         91
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dalton john",
-      "variants": [
-        "dalton john",
-        "elton john"
-      ],
-      "ranks": [
-        44,
-        707
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "qasem soleimani",
-        "azali assoumani",
-        "giorgio armani"
-      ],
-      "ranks": [
-        80,
-        492,
-        577,
-        857
       ]
     },
     {
@@ -405,6 +400,18 @@
     },
     {
       "type": "fuzzy_duplicate",
+      "name": "dalai lama 14th",
+      "variants": [
+        "dalai lama 14th",
+        "dalai lama 13th"
+      ],
+      "ranks": [
+        276,
+        374
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
       "name": "aung san suu kyi",
       "variants": [
         "aung san suu kyi",
@@ -417,40 +424,50 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "sukarno",
+      "name": "pedro i of brazil",
       "variants": [
-        "sukarno",
-        "suharto",
-        "megawati sukarnoputri"
+        "pedro i of brazil",
+        "pedro ii of brazil"
       ],
       "ranks": [
-        354,
-        355,
-        403
+        309,
+        310
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "kim jongil",
+      "name": "king hussein of jordan",
       "variants": [
-        "kim jongil",
-        "kim jongun"
+        "king hussein of jordan",
+        "king abdullah ii of jordan"
       ],
       "ranks": [
-        359,
-        360
+        484,
+        485
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "hafez alassad",
+      "name": "king hassan ii of morocco",
       "variants": [
-        "hafez alassad",
-        "hafez"
+        "king hassan ii of morocco",
+        "king mohammed vi of morocco"
       ],
       "ranks": [
-        486,
-        931
+        517,
+        518
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king sobhuza ii",
+      "variants": [
+        "king sobhuza ii",
+        "king moshoeshoe ii"
+      ],
+      "ranks": [
+        578,
+        580
       ]
     },
     {
@@ -463,18 +480,6 @@
       "ranks": [
         728,
         923
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "virgil abloh",
-      "variants": [
-        "virgil abloh",
-        "virgil"
-      ],
-      "ranks": [
-        865,
-        940
       ]
     },
     {
@@ -680,6 +685,42 @@
         "962. Haruki Murakami",
         "963. Kenzaburō Ōe"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 414,
+      "endRank": 437,
+      "count": 24,
+      "examples": [
+        "414. Peter Fraser",
+        "415. Robert Muldoon",
+        "416. David Lange"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 522,
+      "endRank": 544,
+      "count": 23,
+      "examples": [
+        "522. Salva Kiir Mayardit",
+        "523. Isaias Afwerki",
+        "524. Meles Zenawi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 957,
+      "endRank": 975,
+      "count": 19,
+      "examples": [
+        "957. Samuel Beckett",
+        "958. Jorge Luis Borges",
+        "959. Pablo Neruda"
+      ]
     }
   ],
   "diversity": {
@@ -709,5 +750,20 @@
       "Other": 572
     }
   },
-  "summary": "Issues: 10 exact duplicates; pattern collapse (max 31); 5 missing anchors"
+  "advanced": {
+    "parentheticalCount": 24,
+    "parentheticalRate": 0.024,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 4,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 3,
+    "contributionShortRate": 0.003,
+    "score": 98.41
+  },
+  "summary": "Issues: 10 exact duplicates; pattern collapse (max 31)"
 }

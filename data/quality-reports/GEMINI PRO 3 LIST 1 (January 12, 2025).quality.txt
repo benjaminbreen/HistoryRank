@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Gemini Pro 3 LIST 1 (January 12, 2025).txt
 Model: Gemini Pro 3
-Timestamp: 2026-01-20T04:16:01.903Z
+Timestamp: 2026-02-05T18:16:52.873Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 21 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 14 similar entries
   Structural: FAIL - 1028 entries (expected 1000); non-sequential ranks
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (53):
+Issues (41):
   - Exact duplicate: "johannes gutenberg" at ranks 8, 848
   - Exact duplicate: "louis pasteur" at ranks 11, 716, 853
   - Exact duplicate: "martin luther" at ranks 25, 729
@@ -25,8 +25,17 @@ Issues (53):
   - Exact duplicate: "ho chi minh" at ranks 164, 765
   - Exact duplicate: "lee kuan yew" at ranks 165, 768
   - Exact duplicate: "spartacus" at ranks 184, 899
-  ... and 43 more issues
+  ... and 31 more issues
 
 Diversity Estimates:
   Regions: Europe: 97, Asia: 28, Middle East: 29, Africa: 12, Americas: 25, Unknown: 837
   Domains: Politics/Leadership: 179, Science/Technology: 119, Philosophy/Religion: 115, Arts/Literature: 130, Military: 29, Other: 456
+
+Advanced Metrics:
+  Advanced score: 99.0
+  Parenthetical names: 1.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 2.2%

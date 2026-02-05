@@ -11,26 +11,30 @@ interface FigureThumbnailProps {
 }
 
 export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikipediaSlug, name, size = 32, className }: FigureThumbnailProps) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [remoteUrl, setRemoteUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [localAttempt, setLocalAttempt] = useState<0 | 1 | 2>(0);
+  const [localAttempt, setLocalAttempt] = useState(0);
+
+  const localSources = figureId
+    ? [
+        `/thumbnails/${figureId}.jpg`,
+        `/thumbnails/${figureId}.png`,
+        `/thumbnails/${figureId}.webp`,
+      ]
+    : [];
+  const localUrl = localAttempt < localSources.length ? localSources[localAttempt] : null;
+  const imageUrl = localUrl ?? remoteUrl;
 
   useEffect(() => {
-    if (figureId) {
-      if (localAttempt === 0) {
-        setImageUrl(`/thumbnails/${figureId}.jpg`);
-        return;
-      }
-      if (localAttempt === 1) {
-        setImageUrl(`/thumbnails/${figureId}.png`);
-        return;
-      }
-      if (localAttempt === 2) {
-        setImageUrl(`/thumbnails/${figureId}.webp`);
-        return;
-      }
-    }
+    setRemoteUrl(null);
+    setLoading(false);
+    setError(false);
+    setLocalAttempt(0);
+  }, [figureId, wikipediaSlug]);
+
+  useEffect(() => {
+    if (localUrl) return;
 
     if (!wikipediaSlug) {
       setError(true);
@@ -43,7 +47,7 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
         const res = await fetch(`/api/wikipedia/${encodeURIComponent(wikipediaSlug)}`);
         const data = await res.json();
         if (data.thumbnail?.source) {
-          setImageUrl(data.thumbnail.source);
+          setRemoteUrl(data.thumbnail.source);
         } else {
           setError(true);
         }
@@ -55,7 +59,7 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
     };
 
     fetchThumbnail();
-  }, [wikipediaSlug, figureId, localAttempt]);
+  }, [localUrl, wikipediaSlug]);
 
   // Placeholder with initials
   const initials = name
@@ -93,8 +97,8 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
       className={`rounded-full object-cover flex-shrink-0 transition-transform duration-200 ${className ?? ''}`}
       style={{ width: size, height: size }}
       onError={() => {
-        if (figureId && localAttempt < 2) {
-          setLocalAttempt((localAttempt + 1) as 1 | 2);
+        if (localUrl && localAttempt < localSources.length - 1) {
+          setLocalAttempt((prev) => prev + 1);
           return;
         }
         setError(true);

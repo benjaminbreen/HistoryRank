@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db, figures, rankings } from '@/lib/db';
-import { asc, desc, like, eq, sql, isNotNull, and } from 'drizzle-orm';
+import { db, figures, rankings, nameAliases, importLogs } from '@/lib/db';
+import { asc, desc, like, eq, sql, isNotNull, and, inArray, or } from 'drizzle-orm';
 import { getVarianceLevel } from '@/types';
 import type { FigureRow, FiguresResponse, BadgeType } from '@/types';
+import { dot, embedQuery, loadFigureEmbeddings, normalizeVector } from '@/lib/embeddings';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export const runtime = 'nodejs';
 
@@ -14,6 +17,25 @@ const CACHE_TTL = 60000; // 1 minute
 // Cache for weighted rank lookup
 let weightedRankCache: Map<string, number> | null = null;
 let weightedRankCacheTimestamp = 0;
+let weightedNormalizedRankCache: Map<string, number> | null = null;
+let weightedNormalizedRankCacheTimestamp = 0;
+let weightedRobustRankCache: Map<string, number> | null = null;
+let weightedRobustRankCacheTimestamp = 0;
+
+// Cache for name aliases/merges (used by V2/V3 ingestion)
+let aliasMapCache: Map<string, string> | null = null;
+let aliasMapCacheTimestamp = 0;
+let mergeRemapCache: Map<string, string> | null = null;
+let mergeRemapCacheTimestamp = 0;
+
+// Cache for V2 rank lookup
+let v2RankCache: Map<string, number> | null = null;
+let v2RankCacheTimestamp = 0;
+let v2MetaCache: { listCount: number; modelCount: number; orderedIds: string[] } | null = null;
+// Cache for V3 rank lookup
+let v3RankCache: Map<string, number> | null = null;
+let v3RankCacheTimestamp = 0;
+let v3MetaCache: { listCount: number; modelCount: number; orderedIds: string[] } | null = null;
 
 // Model quality weights based on automated + LLM assessment
 // Higher = more reliable/higher quality lists
@@ -42,9 +64,49 @@ const MODEL_WEIGHTS: Record<string, number> = {
   'mistral-large-3': 0.05,     // 328-571 pattern collapse
 };
 
+// Canonical model weights for Weighted v3 (merge variants like gpt-5.2-thinking)
+const V3_MODEL_WEIGHTS: Record<string, number> = {
+  'claude-opus-4.5': 0.806,
+  'gemini-flash-3-preview': 0.805,
+  'claude-sonnet-4.5': 0.803,
+  'grok-4.1-fast': 0.760,
+  'deepseek-v3.2': 0.753,
+  'gpt-5.2': 0.752,
+  'glm-4.7': 0.748,
+  'gemini-pro-3': 0.738,
+  'qwen3-235b-a22b': 0.721,
+  'grok-4': 0.718,
+  'mistral-large-3': 0.677,
+};
+
+const V2_DIR = path.join(process.cwd(), 'data', 'raw_v2');
+const V3_DIR = path.join(process.cwd(), 'data', 'raw_v3');
+const OVERRIDES_FILE = path.join(process.cwd(), 'data', 'figure-overrides.json');
+const GROUP_EXCLUDE = new Set([
+  'the-beatles',
+]);
+
+// Exclude worst-performing lists from weighted v3 (February 2026 review)
+const WEIGHTED_V3_EXCLUDED_LISTS = new Set([
+  'GLM 4.7 LIST 3 (January 14, 2026).txt',
+  'Mistral Large 3 LIST 5 (January 18, 2026).txt',
+  'Qwen3 235B A22B LIST 7 (January 14, 2026).txt',
+  'GLM 4.7 LIST 2 (January 14, 2026).txt',
+  'Grok 4 LIST 1 (January 14, 2026).txt',
+  'Mistral Large 3 LIST 4 (January 17, 2026).txt',
+  'Grok 4.1 Fast LIST 1 (January 14, 2026).txt',
+  'Mistral Large 3 LIST 1 (January 15, 2026).txt',
+  'Grok 4 LIST 3 (January 14, 2026).txt',
+  'Claude Sonnet 4.5 LIST 3 (January 12, 2025).txt',
+]);
+
 // Cache for stats
 let statsCache: { totalLists: number; totalModels: number } | null = null;
 let statsCacheTimestamp = 0;
+let weightedStatsCache: { totalLists: number; totalModels: number } | null = null;
+let weightedStatsCacheTimestamp = 0;
+let weightedV3StatsCache: { totalLists: number; totalModels: number } | null = null;
+let weightedV3StatsCacheTimestamp = 0;
 
 // Cache for badge data (source averages per figure)
 interface SourceAverage {
@@ -110,6 +172,127 @@ const BADGE_THRESHOLDS = {
   UNDERWRITTEN_MAX_RANK: 500,         // LLMs recognize importance
   UNDERWRITTEN_MIN_PAGEVIEWS: 100000, // Must be notable enough to matter
 };
+
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+async function getAliasMap(): Promise<Map<string, string>> {
+  const now = Date.now();
+  if (aliasMapCache && now - aliasMapCacheTimestamp < CACHE_TTL) {
+    return aliasMapCache;
+  }
+
+  const rows = await db
+    .select({ alias: nameAliases.alias, figureId: nameAliases.figureId })
+    .from(nameAliases);
+
+  const map = new Map<string, string>();
+  for (const row of rows) {
+    map.set(row.alias, row.figureId);
+  }
+
+  aliasMapCache = map;
+  aliasMapCacheTimestamp = now;
+  return map;
+}
+
+function getMergeRemap(): Map<string, string> {
+  const now = Date.now();
+  if (mergeRemapCache && now - mergeRemapCacheTimestamp < CACHE_TTL) {
+    return mergeRemapCache;
+  }
+
+  const remap = new Map<string, string>();
+  if (fs.existsSync(OVERRIDES_FILE)) {
+    const overrides = JSON.parse(fs.readFileSync(OVERRIDES_FILE, 'utf8')) as { merges?: Record<string, string[]> };
+    const merges = overrides.merges || {};
+    for (const [keepId, deleteIds] of Object.entries(merges)) {
+      for (const deleteId of deleteIds) remap.set(deleteId, keepId);
+    }
+  }
+
+  mergeRemapCache = remap;
+  mergeRemapCacheTimestamp = now;
+  return remap;
+}
+
+type RankAccumulator = Map<string, Map<string, { sum: number; count: number }>>;
+
+async function loadV2V3Rankings(excludedFiles?: Set<string>): Promise<{ sources: Set<string>; ranks: RankAccumulator; listLengths: Map<string, number> }> {
+  const aliasMap = await getAliasMap();
+  const mergeRemap = getMergeRemap();
+
+  const sources = new Set<string>();
+  const ranks: RankAccumulator = new Map();
+  const listLengths = new Map<string, number>();
+
+  const loadDir = (dir: string, version: 'v2' | 'v3') => {
+    if (!fs.existsSync(dir)) return;
+    const files = fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith('.txt') && !f.endsWith('.quality.txt') && !f.endsWith('.failed.txt') && !f.endsWith('.raw.txt') && !f.endsWith('.repaired.txt'))
+      .sort();
+
+    for (const file of files) {
+      if (excludedFiles?.has(file)) continue;
+      const filePath = path.join(dir, file);
+      const content = fs.readFileSync(filePath, 'utf8');
+      const start = content.indexOf('[');
+      const end = content.lastIndexOf(']');
+      if (start === -1 || end === -1 || end <= start) continue;
+      let entries: Array<{ rank?: number; name: string }> = [];
+      try {
+        entries = JSON.parse(content.slice(start, end + 1));
+      } catch {
+        continue;
+      }
+      if (!Array.isArray(entries) || entries.length === 0) continue;
+
+      const model = version === 'v2'
+        ? file.replace(/\.txt$/, '').split(' V2 LIST ')[0].trim()
+        : file.replace(/\.txt$/, '').split(' V3 LIST ')[0].trim();
+      sources.add(model);
+      const existingLen = listLengths.get(model) || 0;
+      if (entries.length > existingLen) listLengths.set(model, entries.length);
+
+      const listRanks = new Map<string, number>();
+      entries.forEach((entry, idx) => {
+        if (!entry?.name) return;
+        const nameNorm = normalizeName(entry.name);
+        const figureId = aliasMap.get(nameNorm);
+        if (!figureId) return;
+        const mergedId = mergeRemap.get(figureId) || figureId;
+        const rank = typeof entry.rank === 'number' ? entry.rank : idx + 1;
+        if (listRanks.has(mergedId)) {
+          const existing = listRanks.get(mergedId) as number;
+          if (rank < existing) listRanks.set(mergedId, rank);
+          return;
+        }
+        listRanks.set(mergedId, rank);
+      });
+
+      for (const [figureId, rank] of listRanks.entries()) {
+        if (GROUP_EXCLUDE.has(figureId)) continue;
+        const figMap = ranks.get(figureId) || new Map<string, { sum: number; count: number }>();
+        ranks.set(figureId, figMap);
+        const record = figMap.get(model) || { sum: 0, count: 0 };
+        record.sum += rank;
+        record.count += 1;
+        figMap.set(model, record);
+      }
+    }
+  };
+
+  loadDir(V2_DIR, 'v2');
+  loadDir(V3_DIR, 'v3');
+
+  return { sources, ranks, listLengths };
+}
 
 async function getBadgeData(): Promise<Map<string, SourceAverage[]>> {
   const now = Date.now();
@@ -475,6 +658,112 @@ async function getStats(): Promise<{ totalLists: number; totalModels: number }> 
   return statsCache;
 }
 
+function getListFiles(dir: string, version: 'v2' | 'v3'): string[] {
+  if (!fs.existsSync(dir)) return [];
+  const token = version === 'v2' ? ' V2 LIST ' : ' V3 LIST ';
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.txt') && f.includes(token))
+    .filter((f) => !f.endsWith('.quality.txt') && !f.endsWith('.failed.txt') && !f.endsWith('.raw.txt') && !f.endsWith('.repaired.txt'))
+    .sort();
+}
+
+function inferModelFromList(file: string, version: 'v2' | 'v3'): string {
+  const base = file.replace(/\.txt$/, '');
+  const token = version === 'v2' ? ' V2 LIST ' : ' V3 LIST ';
+  const parts = base.split(token);
+  return parts[0].trim();
+}
+
+async function getWeightedStats(): Promise<{ totalLists: number; totalModels: number }> {
+  const now = Date.now();
+  if (weightedStatsCache && now - weightedStatsCacheTimestamp < CACHE_TTL) {
+    return weightedStatsCache;
+  }
+
+  const listStats = await getStats();
+
+  const v2Files = getListFiles(V2_DIR, 'v2');
+  const v3Files = getListFiles(V3_DIR, 'v3');
+  const v2Models = new Set(v2Files.map((file) => inferModelFromList(file, 'v2')));
+  const v3Models = new Set(v3Files.map((file) => inferModelFromList(file, 'v3')));
+
+  const modelRows = await db
+    .select({ source: rankings.source })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`)
+    .groupBy(rankings.source);
+  const modelSet = new Set(modelRows.map((row) => row.source));
+  for (const model of v2Models) modelSet.add(model);
+  for (const model of v3Models) modelSet.add(model);
+
+  weightedStatsCache = {
+    totalLists: listStats.totalLists + v2Files.length + v3Files.length,
+    totalModels: modelSet.size,
+  };
+  weightedStatsCacheTimestamp = now;
+
+  return weightedStatsCache;
+}
+
+async function getWeightedV3Stats(): Promise<{ totalLists: number; totalModels: number }> {
+  const now = Date.now();
+  if (weightedV3StatsCache && now - weightedV3StatsCacheTimestamp < CACHE_TTL) {
+    return weightedV3StatsCache;
+  }
+
+  const excluded = Array.from(WEIGHTED_V3_EXCLUDED_LISTS);
+
+  // Count distinct source + sampleId combinations for v1, excluding flagged filenames
+  let listCount = 0;
+  const listRows = await db
+    .select({ source: rankings.source, sampleId: rankings.sampleId })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`)
+    .groupBy(rankings.source, rankings.sampleId);
+
+  const excludedKeys = new Set<string>();
+  if (excluded.length > 0) {
+    const excludedRows = await db
+      .select({ source: importLogs.source, sampleId: importLogs.sampleId })
+      .from(importLogs)
+      .where(inArray(importLogs.filename, excluded));
+    for (const row of excludedRows) {
+      excludedKeys.add(`${row.source}::${row.sampleId ?? ''}`);
+    }
+  }
+
+  for (const row of listRows) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    listCount += 1;
+  }
+
+  const v2Files = getListFiles(V2_DIR, 'v2').filter((f) => !WEIGHTED_V3_EXCLUDED_LISTS.has(f));
+  const v3Files = getListFiles(V3_DIR, 'v3').filter((f) => !WEIGHTED_V3_EXCLUDED_LISTS.has(f));
+  listCount += v2Files.length + v3Files.length;
+
+  // Canonicalized model count
+  const modelSet = new Set<string>();
+  const modelRows = listRows;
+  for (const row of modelRows) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    modelSet.add(getCanonicalModelId(row.source.toLowerCase()));
+  }
+
+  const v2Models = new Set(v2Files.map((file) => inferModelFromList(file, 'v2')));
+  const v3Models = new Set(v3Files.map((file) => inferModelFromList(file, 'v3')));
+  for (const model of v2Models) modelSet.add(getCanonicalModelId(model.toLowerCase()));
+  for (const model of v3Models) modelSet.add(getCanonicalModelId(model.toLowerCase()));
+
+  weightedV3StatsCache = {
+    totalLists: listCount,
+    totalModels: modelSet.size,
+  };
+  weightedV3StatsCacheTimestamp = now;
+
+  return weightedV3StatsCache;
+}
+
 async function getLLMRankLookup(): Promise<Map<string, number>> {
   const now = Date.now();
   if (llmRankCache && now - cacheTimestamp < CACHE_TTL) {
@@ -512,20 +801,64 @@ function getModelWeight(source: string): number {
   return 0.5;
 }
 
+function getCanonicalModelId(sourceLower: string): string {
+  if (sourceLower.includes('gpt-5.2')) return 'gpt-5.2';
+  if (sourceLower.includes('claude-opus-4.5')) return 'claude-opus-4.5';
+  if (sourceLower.includes('claude-sonnet-4.5')) return 'claude-sonnet-4.5';
+  if (sourceLower.includes('grok-4.1-fast')) return 'grok-4.1-fast';
+  if (sourceLower.includes('grok-4')) return 'grok-4';
+  if (sourceLower.includes('deepseek-v3.2')) return 'deepseek-v3.2';
+  if (sourceLower.includes('glm-4.7')) return 'glm-4.7';
+  if (sourceLower.includes('mistral-large-3')) return 'mistral-large-3';
+  if (sourceLower.includes('qwen3') && sourceLower.includes('235') && sourceLower.includes('a22b')) {
+    return 'qwen3-235b-a22b';
+  }
+  if (sourceLower.includes('gemini') && sourceLower.includes('flash') && sourceLower.includes('3')) {
+    return 'gemini-flash-3-preview';
+  }
+  if (sourceLower.includes('gemini') && sourceLower.includes('pro') && sourceLower.includes('3')) {
+    return 'gemini-pro-3';
+  }
+  return sourceLower;
+}
+
+function getV3ModelWeight(source: string): number {
+  const canonical = getCanonicalModelId(source.toLowerCase());
+  if (V3_MODEL_WEIGHTS[canonical] !== undefined) {
+    return V3_MODEL_WEIGHTS[canonical];
+  }
+  return 0.5;
+}
+
 async function getWeightedRankLookup(): Promise<Map<string, number>> {
   const now = Date.now();
   if (weightedRankCache && now - weightedRankCacheTimestamp < CACHE_TTL) {
     return weightedRankCache;
   }
 
-  // Imputed rank for figures not ranked by a model (outside top 1000)
-  const IMPUTED_RANK = 1001;
+  const mergeRemap = getMergeRemap();
 
   // Get all rankings grouped by figure
+  const excludedKeys = new Set<string>();
+  if (WEIGHTED_V3_EXCLUDED_LISTS.size > 0) {
+    const excludedRows = await db
+      .select({
+        source: importLogs.source,
+        sampleId: importLogs.sampleId,
+        filename: importLogs.filename,
+      })
+      .from(importLogs)
+      .where(inArray(importLogs.filename, Array.from(WEIGHTED_V3_EXCLUDED_LISTS)));
+    for (const row of excludedRows) {
+      excludedKeys.add(`${row.source}::${row.sampleId ?? ''}`);
+    }
+  }
+
   const allRankings = await db
     .select({
       figureId: rankings.figureId,
       source: rankings.source,
+      sampleId: rankings.sampleId,
       rank: rankings.rank,
     })
     .from(rankings)
@@ -535,6 +868,23 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   const modelSources = new Set<string>();
   for (const row of allRankings) {
     modelSources.add(row.source);
+  }
+
+  // Load V2/V3 lists and include their model sources
+  const v2v3 = await loadV2V3Rankings(WEIGHTED_V3_EXCLUDED_LISTS);
+  for (const source of v2v3.sources) {
+    modelSources.add(source);
+  }
+
+  // Track max rank per source to normalize missing-rank penalty by list size
+  const maxRankBySource = new Map<string, number>();
+  for (const row of allRankings) {
+    const current = maxRankBySource.get(row.source) || 0;
+    if (row.rank > current) maxRankBySource.set(row.source, row.rank);
+  }
+  for (const [source, length] of v2v3.listLengths.entries()) {
+    const current = maxRankBySource.get(source) || 0;
+    if (length > current) maxRankBySource.set(source, length);
   }
 
   // Calculate total possible weight (sum of all model weights)
@@ -553,10 +903,12 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   }>();
 
   for (const row of allRankings) {
-    if (!figureRankings.has(row.figureId)) {
-      figureRankings.set(row.figureId, { sourcesWithRanks: new Map() });
+    const mergedId = mergeRemap.get(row.figureId) || row.figureId;
+    if (GROUP_EXCLUDE.has(mergedId)) continue;
+    if (!figureRankings.has(mergedId)) {
+      figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
     }
-    const figData = figureRankings.get(row.figureId)!;
+    const figData = figureRankings.get(mergedId)!;
 
     if (!figData.sourcesWithRanks.has(row.source)) {
       figData.sourcesWithRanks.set(row.source, { sum: 0, count: 0 });
@@ -564,6 +916,22 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
     const sourceData = figData.sourcesWithRanks.get(row.source)!;
     sourceData.sum += row.rank;
     sourceData.count += 1;
+  }
+
+  // Fold V2/V3 ranks into per-source aggregates
+  for (const [figureId, sourceMap] of v2v3.ranks.entries()) {
+    if (!figureRankings.has(figureId)) {
+      figureRankings.set(figureId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(figureId)!;
+    for (const [source, rankData] of sourceMap.entries()) {
+      if (!figData.sourcesWithRanks.has(source)) {
+        figData.sourcesWithRanks.set(source, { sum: 0, count: 0 });
+      }
+      const sourceData = figData.sourcesWithRanks.get(source)!;
+      sourceData.sum += rankData.sum;
+      sourceData.count += rankData.count;
+    }
   }
 
   // Compute weighted averages with imputed ranks for missing models
@@ -579,10 +947,11 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
       weightedSum += avgRankForSource * weight;
     }
 
-    // Add imputed rankings for missing models
+    // Add imputed rankings for missing models (list-length aware)
     for (const [source, weight] of modelWeightsMap) {
       if (!figData.sourcesWithRanks.has(source)) {
-        weightedSum += IMPUTED_RANK * weight;
+        const maxRank = maxRankBySource.get(source) || 1000;
+        weightedSum += (maxRank + 1) * weight;
       }
     }
 
@@ -606,6 +975,309 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   weightedRankCache = lookup;
   weightedRankCacheTimestamp = now;
   return lookup;
+}
+
+async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
+  const now = Date.now();
+  if (weightedNormalizedRankCache && now - weightedNormalizedRankCacheTimestamp < CACHE_TTL) {
+    return weightedNormalizedRankCache;
+  }
+
+  const mergeRemap = getMergeRemap();
+
+  const allRankings = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      rank: rankings.rank,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`);
+
+  const modelSources = new Set<string>();
+  const maxRankByModel = new Map<string, number>();
+  const figureRankings = new Map<string, { sourcesWithRanks: Map<string, { sum: number; count: number }> }>();
+
+  for (const row of allRankings) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
+    modelSources.add(canonical);
+    const currentMax = maxRankByModel.get(canonical) || 0;
+    if (row.rank > currentMax) maxRankByModel.set(canonical, row.rank);
+
+    const mergedId = mergeRemap.get(row.figureId) || row.figureId;
+    if (GROUP_EXCLUDE.has(mergedId)) continue;
+
+    if (!figureRankings.has(mergedId)) {
+      figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(mergedId)!;
+    if (!figData.sourcesWithRanks.has(row.source)) {
+      figData.sourcesWithRanks.set(row.source, { sum: 0, count: 0 });
+    }
+    const sourceData = figData.sourcesWithRanks.get(row.source)!;
+    sourceData.sum += row.rank;
+    sourceData.count += 1;
+  }
+
+  const v2v3 = await loadV2V3Rankings();
+  for (const source of v2v3.sources) {
+    modelSources.add(source);
+  }
+  for (const [source, length] of v2v3.listLengths.entries()) {
+    const currentMax = maxRankBySource.get(source) || 0;
+    if (length > currentMax) maxRankBySource.set(source, length);
+  }
+
+  for (const [figureId, sourceMap] of v2v3.ranks.entries()) {
+    if (!figureRankings.has(figureId)) {
+      figureRankings.set(figureId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(figureId)!;
+    for (const [source, rankData] of sourceMap.entries()) {
+      if (!figData.sourcesWithRanks.has(source)) {
+        figData.sourcesWithRanks.set(source, { sum: 0, count: 0 });
+      }
+      const sourceData = figData.sourcesWithRanks.get(source)!;
+      sourceData.sum += rankData.sum;
+      sourceData.count += rankData.count;
+    }
+  }
+
+  const modelWeightsMap = new Map<string, number>();
+  let totalPossibleWeight = 0;
+  for (const source of modelSources) {
+    const weight = getModelWeight(source);
+    modelWeightsMap.set(source, weight);
+    totalPossibleWeight += weight;
+  }
+
+  const weightedAverages: Array<{ id: string; avgRank: number }> = [];
+
+  for (const [figureId, figData] of figureRankings) {
+    let weightedSum = 0;
+    for (const [source, rankData] of figData.sourcesWithRanks) {
+      const avgRankForSource = rankData.sum / rankData.count;
+      const maxRank = maxRankBySource.get(source) || 1000;
+      const denom = Math.max(1, maxRank - 1);
+      const percentile = Math.min(1, Math.max(0, (avgRankForSource - 1) / denom));
+      const weight = modelWeightsMap.get(source) || 0.5;
+      weightedSum += percentile * weight;
+    }
+
+    for (const [source, weight] of modelWeightsMap) {
+      if (!figData.sourcesWithRanks.has(source)) {
+        weightedSum += 1 * weight;
+      }
+    }
+
+    weightedAverages.push({
+      id: figureId,
+      avgRank: weightedSum / totalPossibleWeight,
+    });
+  }
+
+  weightedAverages.sort((a, b) => a.avgRank - b.avgRank);
+  const lookup = new Map<string, number>();
+  weightedAverages.forEach((fig, index) => {
+    lookup.set(fig.id, index + 1);
+  });
+
+  weightedNormalizedRankCache = lookup;
+  weightedNormalizedRankCacheTimestamp = now;
+  return lookup;
+}
+
+async function getWeightedRobustRankLookup(): Promise<Map<string, number>> {
+  const now = Date.now();
+  if (weightedRobustRankCache && now - weightedRobustRankCacheTimestamp < CACHE_TTL) {
+    return weightedRobustRankCache;
+  }
+
+  const mergeRemap = getMergeRemap();
+
+  const allRankings = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      rank: rankings.rank,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`);
+
+  const modelSources = new Set<string>();
+  const maxRankByModel = new Map<string, number>();
+  const figureRankings = new Map<string, { sourcesWithRanks: Map<string, { sum: number; count: number }> }>();
+
+  for (const row of allRankings) {
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
+    modelSources.add(canonical);
+    const currentMax = maxRankByModel.get(canonical) || 0;
+    if (row.rank > currentMax) maxRankByModel.set(canonical, row.rank);
+
+    const mergedId = mergeRemap.get(row.figureId) || row.figureId;
+    if (GROUP_EXCLUDE.has(mergedId)) continue;
+
+    if (!figureRankings.has(mergedId)) {
+      figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(mergedId)!;
+    if (!figData.sourcesWithRanks.has(canonical)) {
+      figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
+    }
+    const sourceData = figData.sourcesWithRanks.get(canonical)!;
+    sourceData.sum += row.rank;
+    sourceData.count += 1;
+  }
+
+  const v2v3 = await loadV2V3Rankings();
+  for (const source of v2v3.sources) {
+    const canonical = getCanonicalModelId(source.toLowerCase());
+    modelSources.add(canonical);
+  }
+  for (const [source, length] of v2v3.listLengths.entries()) {
+    const canonical = getCanonicalModelId(source.toLowerCase());
+    const currentMax = maxRankByModel.get(canonical) || 0;
+    if (length > currentMax) maxRankByModel.set(canonical, length);
+  }
+
+  for (const [figureId, sourceMap] of v2v3.ranks.entries()) {
+    if (!figureRankings.has(figureId)) {
+      figureRankings.set(figureId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(figureId)!;
+    for (const [source, rankData] of sourceMap.entries()) {
+      const canonical = getCanonicalModelId(source.toLowerCase());
+      if (!figData.sourcesWithRanks.has(canonical)) {
+        figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
+      }
+      const sourceData = figData.sourcesWithRanks.get(canonical)!;
+      sourceData.sum += rankData.sum;
+      sourceData.count += rankData.count;
+    }
+  }
+
+  const modelWeightsMap = new Map<string, number>();
+  let totalPossibleWeight = 0;
+  const globalMaxRank = Math.max(1, ...Array.from(maxRankByModel.values()));
+  for (const source of modelSources) {
+    const baseWeight = getV3ModelWeight(source);
+    const maxRank = maxRankByModel.get(source) || globalMaxRank;
+    const coveragePct = Math.min(1, Math.max(0, maxRank / globalMaxRank));
+    const weight = baseWeight * Math.sqrt(coveragePct);
+    modelWeightsMap.set(source, weight);
+    totalPossibleWeight += weight;
+  }
+
+  const weightedAverages: Array<{ id: string; avgRank: number }> = [];
+
+  for (const [figureId, figData] of figureRankings) {
+    const perSource = Array.from(figData.sourcesWithRanks.entries()).map(([source, rankData]) => ({
+      source,
+      avg: rankData.sum / rankData.count,
+    }));
+
+    let weightedSum = 0;
+    const present = new Set<string>();
+    for (const { source, avg } of perSource) {
+      present.add(source);
+      const weight = modelWeightsMap.get(source) || 0.5;
+      weightedSum += avg * weight;
+    }
+
+    // Missing models get list-length-aware penalty
+    for (const [source, weight] of modelWeightsMap) {
+      if (!present.has(source)) {
+        const maxRank = maxRankByModel.get(source) || globalMaxRank;
+        weightedSum += (maxRank + 1) * weight;
+      }
+    }
+
+    const baseAvg = weightedSum / totalPossibleWeight;
+    const coveragePct = present.size / Math.max(1, modelWeightsMap.size);
+    const priorMean = (globalMaxRank + 1) / 2;
+    const k = 5; // strength of shrinkage prior
+    const shrinkage = k * (1 - coveragePct);
+    const shrunkAvg = (baseAvg * totalPossibleWeight + priorMean * shrinkage) / (totalPossibleWeight + shrinkage);
+
+    weightedAverages.push({
+      id: figureId,
+      avgRank: shrunkAvg,
+    });
+  }
+
+  weightedAverages.sort((a, b) => a.avgRank - b.avgRank);
+  const lookup = new Map<string, number>();
+  weightedAverages.forEach((fig, index) => {
+    lookup.set(fig.id, index + 1);
+  });
+
+  weightedRobustRankCache = lookup;
+  weightedRobustRankCacheTimestamp = now;
+  return lookup;
+}
+
+async function getV2RankLookup(): Promise<{ rankLookup: Map<string, number>; orderedIds: string[]; listCount: number; modelCount: number }> {
+  const now = Date.now();
+  if (v2RankCache && v2MetaCache && now - v2RankCacheTimestamp < CACHE_TTL) {
+    return { rankLookup: v2RankCache, orderedIds: v2MetaCache.orderedIds, listCount: v2MetaCache.listCount, modelCount: v2MetaCache.modelCount };
+  }
+
+  const v2Path = path.join(process.cwd(), 'data', 'derived', 'v2-consensus.json');
+  if (!fs.existsSync(v2Path)) {
+    return { rankLookup: new Map(), orderedIds: [], listCount: 0, modelCount: 0 };
+  }
+
+  const payload = JSON.parse(fs.readFileSync(v2Path, 'utf8')) as {
+    listCount: number;
+    modelCount: number;
+    figures: Array<{ id: string; avgRank: number }>;
+  };
+
+  const lookup = new Map<string, number>();
+  const orderedIds: string[] = [];
+  payload.figures.forEach((fig, index) => {
+    lookup.set(fig.id, index + 1);
+    orderedIds.push(fig.id);
+  });
+
+  v2RankCache = lookup;
+  v2MetaCache = { listCount: payload.listCount, modelCount: payload.modelCount, orderedIds };
+  v2RankCacheTimestamp = now;
+
+  return { rankLookup: lookup, orderedIds, listCount: payload.listCount, modelCount: payload.modelCount };
+}
+
+async function getV3RankLookup(): Promise<{ rankLookup: Map<string, number>; orderedIds: string[]; listCount: number; modelCount: number } | null> {
+  const now = Date.now();
+  if (v3RankCache && v3MetaCache && now - v3RankCacheTimestamp < CACHE_TTL) {
+    return { rankLookup: v3RankCache, orderedIds: v3MetaCache.orderedIds, listCount: v3MetaCache.listCount, modelCount: v3MetaCache.modelCount };
+  }
+
+  const v3Path = path.join(process.cwd(), 'data', 'derived', 'v3-consensus.json');
+  if (!fs.existsSync(v3Path)) {
+    return null;
+  }
+
+  const payload = JSON.parse(fs.readFileSync(v3Path, 'utf8')) as {
+    listCount: number;
+    modelCount: number;
+    figures: Array<{ id: string; avgRank: number }>;
+  };
+
+  const lookup = new Map<string, number>();
+  const orderedIds = payload.figures
+    .sort((a, b) => a.avgRank - b.avgRank)
+    .map((entry) => {
+      lookup.set(entry.id, entry.avgRank);
+      return entry.id;
+    });
+
+  v3RankCache = lookup;
+  v3MetaCache = { listCount: payload.listCount, modelCount: payload.modelCount, orderedIds };
+  v3RankCacheTimestamp = now;
+
+  return { rankLookup: lookup, orderedIds, listCount: payload.listCount, modelCount: payload.modelCount };
 }
 
 async function getSourceRankLookup(source: string): Promise<Map<string, { avgRank: number; position: number }>> {
@@ -637,12 +1309,233 @@ export async function GET(request: NextRequest) {
   const search = searchParams.get('search');
   const modelSource = searchParams.get('modelSource');
   const weighted = searchParams.get('weighted') === 'true';
+  const weighted2 = searchParams.get('weighted2') === 'true';
+  const weighted3 = searchParams.get('weighted3') === 'true';
+  const useV2 = searchParams.get('v2') === 'true';
+  const useV3 = searchParams.get('v3') === 'true';
   const sortBy = searchParams.get('sortBy') || 'llmConsensusRank';
   const sortOrder = searchParams.get('sortOrder') || 'asc';
   const limit = parseInt(searchParams.get('limit') || '100');
   const offset = parseInt(searchParams.get('offset') || '0');
 
   try {
+    if (search) {
+      const normalized = search.toLowerCase();
+      const likeTerm = `%${normalized.replace(/%/g, '\\%').replace(/_/g, '\\_')}%`;
+
+      const filterConditions = [];
+      if (domain) filterConditions.push(eq(figures.domain, domain));
+      if (era) filterConditions.push(eq(figures.era, era));
+      if (region) filterConditions.push(eq(figures.regionSub, region));
+      const filterClause = filterConditions.length > 0
+        ? (filterConditions.length === 1 ? filterConditions[0] : and(...filterConditions))
+        : undefined;
+
+      const lexicalRows = await db
+        .select({
+          id: figures.id,
+          name: figures.canonicalName,
+          occupation: figures.occupation,
+          domain: figures.domain,
+          era: figures.era,
+          regionSub: figures.regionSub,
+          regionMacro: figures.regionMacro,
+          wikipediaExtract: figures.wikipediaExtract,
+        })
+        .from(figures)
+        .where(
+          filterClause
+            ? and(
+                filterClause,
+                or(
+                  sql`lower(${figures.canonicalName}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.wikipediaExtract}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.occupation}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.domain}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.era}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.regionSub}) like ${likeTerm} escape '\\'`,
+                  sql`lower(${figures.regionMacro}) like ${likeTerm} escape '\\'`
+                )
+              )
+            : or(
+                sql`lower(${figures.canonicalName}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.wikipediaExtract}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.occupation}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.domain}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.era}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.regionSub}) like ${likeTerm} escape '\\'`,
+                sql`lower(${figures.regionMacro}) like ${likeTerm} escape '\\'`
+              )
+        )
+        .limit(400);
+
+      const lexicalScores = new Map<string, number>();
+      const terms = normalized.split(/\s+/).filter(Boolean);
+      for (const row of lexicalRows) {
+        const name = row.name?.toLowerCase() || '';
+        const occupation = row.occupation?.toLowerCase() || '';
+        const rowDomain = row.domain?.toLowerCase() || '';
+        const rowEra = row.era?.toLowerCase() || '';
+        const regionSub = row.regionSub?.toLowerCase() || '';
+        const regionMacro = row.regionMacro?.toLowerCase() || '';
+        const extract = row.wikipediaExtract?.toLowerCase() || '';
+
+        let score = 0;
+        if (name.includes(normalized)) score += 3;
+        if (occupation.includes(normalized)) score += 2;
+        if (rowDomain.includes(normalized)) score += 1.5;
+        if (rowEra.includes(normalized)) score += 1;
+        if (regionSub.includes(normalized) || regionMacro.includes(normalized)) score += 1;
+        if (extract.includes(normalized)) score += 0.5;
+
+        for (const term of terms) {
+          if (term.length < 3) continue;
+          if (name.includes(term)) score += 1.5;
+          if (occupation.includes(term)) score += 1;
+          if (rowDomain.includes(term)) score += 0.5;
+          if (extract.includes(term)) score += 0.25;
+        }
+
+        if (score > 0) lexicalScores.set(row.id, score);
+      }
+
+      const smartSearch = request.nextUrl.searchParams.get('smart') !== 'false';
+      const embeddingsIndex = loadFigureEmbeddings();
+      let semanticScores = new Map<string, number>();
+      if (smartSearch && embeddingsIndex && process.env.OPENAI_API_KEY) {
+        try {
+          const queryEmbedding = normalizeVector(await embedQuery(search));
+          semanticScores = new Map(
+            embeddingsIndex.figures.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
+          );
+        } catch (error) {
+          console.warn('[search] Semantic search failed, using lexical only', error);
+        }
+      }
+
+      const semanticMax = Math.max(0, ...semanticScores.values());
+      const lexicalMax = Math.max(0, ...lexicalScores.values());
+      const semanticWeight = semanticScores.size ? 0.7 : 0;
+      const lexicalWeight = lexicalScores.size ? 0.3 : 1;
+
+      const combinedScores = new Map<string, number>();
+      const allIds = new Set<string>([...semanticScores.keys(), ...lexicalScores.keys()]);
+      allIds.forEach((id) => {
+        const semantic = semanticMax > 0 ? (semanticScores.get(id) || 0) / semanticMax : 0;
+        const lexicalScore = lexicalMax > 0 ? (lexicalScores.get(id) || 0) / lexicalMax : 0;
+        const combined = semantic * semanticWeight + lexicalScore * lexicalWeight;
+        if (combined > 0) combinedScores.set(id, combined);
+      });
+
+      let rankedIds = Array.from(combinedScores.entries())
+        .sort((a, b) => b[1] - a[1])
+        .map(([id]) => id);
+
+      if (filterClause) {
+        const filteredRows = await db
+          .select({ id: figures.id })
+          .from(figures)
+          .where(filterClause);
+        const allowed = new Set(filteredRows.map((row) => row.id));
+        rankedIds = rankedIds.filter((id) => allowed.has(id));
+      }
+
+      const v2Data = useV2 ? await getV2RankLookup() : null;
+      const v3Data = useV3 ? await getV3RankLookup() : null;
+      if ((useV3 && v3Data) || (useV2 && v2Data)) {
+        const allowed = new Set((useV3 && v3Data ? v3Data.orderedIds : v2Data?.orderedIds) || []);
+        rankedIds = rankedIds.filter((id) => allowed.has(id));
+      }
+
+      const total = rankedIds.length;
+      const pagedIds = rankedIds.slice(offset, offset + limit);
+
+      if (pagedIds.length === 0) {
+        const stats = weighted3
+          ? await getWeightedV3Stats()
+          : (weighted || weighted2)
+            ? await getWeightedStats()
+            : await getStats();
+        return NextResponse.json({ figures: [], total, stats });
+      }
+
+      const results = await db
+        .select()
+        .from(figures)
+        .where(inArray(figures.id, pagedIds));
+
+      const rowsById = new Map(results.map((row) => [row.id, row]));
+      const rankLookup = useV3
+        ? (v3Data?.rankLookup || new Map())
+        : useV2
+          ? (v2Data?.rankLookup || new Map())
+          : weighted3
+            ? await getWeightedRobustRankLookup()
+            : weighted2
+              ? await getWeightedNormalizedRankLookup()
+              : weighted
+                ? await getWeightedRankLookup()
+                : await getLLMRankLookup();
+
+      const v2DisplayRank = useV2 && v2Data
+        ? new Map(v2Data.orderedIds.map((id, idx) => [id, idx + 1]))
+        : null;
+      const v3DisplayRank = useV3 && v3Data
+        ? new Map(v3Data.orderedIds.map((id, idx) => [id, idx + 1]))
+        : null;
+      const sourceLookup = modelSource ? await getSourceRankLookup(modelSource) : null;
+      const badgeData = await getBadgeData();
+      const modelFavoriteCaps = await getModelFavoriteCaps();
+
+      const figureRows: FigureRow[] = pagedIds
+        .map((id) => rowsById.get(id))
+        .filter(Boolean)
+        .map((fig) => ({
+          id: fig!.id,
+          name: fig!.canonicalName,
+          birthYear: fig!.birthYear,
+          domain: fig!.domain,
+          era: fig!.era,
+          regionSub: fig!.regionSub,
+          hpiRank: fig!.hpiRank,
+          llmRank: sourceLookup
+            ? (sourceLookup.get(fig!.id)?.position || null)
+            : useV3
+              ? (v3DisplayRank?.get(fig!.id) || null)
+              : useV2
+                ? (v2DisplayRank?.get(fig!.id) || null)
+                : (rankLookup.get(fig!.id) || null),
+          llmConsensusRank: fig!.llmConsensusRank,
+          varianceScore: fig!.varianceScore,
+          pageviews: fig!.pageviewsGlobal ?? fig!.pageviews2025,
+          varianceLevel: getVarianceLevel(fig!.varianceScore),
+          badges: calculateBadges(fig!.id, fig!.llmConsensusRank, fig!.hpiRank, fig!.pageviewsGlobal ?? fig!.pageviews2025, badgeData.get(fig!.id) || [], fig!.varianceScore, modelFavoriteCaps, fig!.pageviews2025, fig!.ngramPercentile, fig!.era, fig!.domain),
+          wikipediaSlug: fig!.wikipediaSlug,
+        }));
+
+      const stats = weighted3
+        ? await getWeightedV3Stats()
+        : (weighted || weighted2)
+          ? await getWeightedStats()
+          : await getStats();
+      const effectiveStats = useV3 && v3Data
+        ? { totalLists: v3Data.listCount, totalModels: v3Data.modelCount }
+        : useV2 && v2Data
+          ? { totalLists: v2Data.listCount, totalModels: v2Data.modelCount }
+        : stats;
+      const response: FiguresResponse = {
+        figures: figureRows,
+        total,
+        stats: effectiveStats,
+      };
+
+      return NextResponse.json(response, {
+        headers: {
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        },
+      });
+    }
+
     // Build conditions array
     const conditions = [];
 
@@ -669,6 +1562,147 @@ export async function GET(request: NextRequest) {
     const whereClause = conditions.length > 0
       ? (conditions.length === 1 ? conditions[0] : and(...conditions))
       : undefined;
+
+    if (useV3 || useV2) {
+      const v3Data = useV3 ? await getV3RankLookup() : null;
+      const v2Data = !useV3 ? await getV2RankLookup() : null;
+      const data = useV3 ? v3Data : v2Data;
+      if (!data) {
+        return NextResponse.json(
+          { error: useV3 ? 'V3 consensus data not found. Run scripts/build-v3-consensus.ts first.' : 'V2 consensus data not found. Run scripts/build-v2-consensus.ts first.' },
+          { status: 400 }
+        );
+      }
+      let orderedIds = data.orderedIds;
+      const displayRank = new Map(orderedIds.map((id, idx) => [id, idx + 1]));
+
+      if (whereClause) {
+        const allowedRows = await db
+          .select({ id: figures.id })
+          .from(figures)
+          .where(whereClause);
+        const allowed = new Set(allowedRows.map((row) => row.id));
+        orderedIds = orderedIds.filter((id) => allowed.has(id));
+      }
+
+      const total = orderedIds.length;
+      const pagedIds = orderedIds.slice(offset, offset + limit);
+
+      if (pagedIds.length === 0) {
+        return NextResponse.json({ figures: [], total, stats: { totalLists: data.listCount, totalModels: data.modelCount } });
+      }
+
+      const results = await db
+        .select()
+        .from(figures)
+        .where(inArray(figures.id, pagedIds));
+
+      const rowsById = new Map(results.map((row) => [row.id, row]));
+      const badgeData = await getBadgeData();
+      const modelFavoriteCaps = await getModelFavoriteCaps();
+
+      const figureRows: FigureRow[] = pagedIds
+        .map((id) => rowsById.get(id))
+        .filter(Boolean)
+        .map((fig) => ({
+          id: fig!.id,
+          name: fig!.canonicalName,
+          birthYear: fig!.birthYear,
+          domain: fig!.domain,
+          era: fig!.era,
+          regionSub: fig!.regionSub,
+          hpiRank: fig!.hpiRank,
+          llmRank: displayRank.get(fig!.id) || null,
+          llmConsensusRank: fig!.llmConsensusRank,
+          varianceScore: fig!.varianceScore,
+          pageviews: fig!.pageviewsGlobal ?? fig!.pageviews2025,
+          varianceLevel: getVarianceLevel(fig!.varianceScore),
+          badges: calculateBadges(fig!.id, fig!.llmConsensusRank, fig!.hpiRank, fig!.pageviewsGlobal ?? fig!.pageviews2025, badgeData.get(fig!.id) || [], fig!.varianceScore, modelFavoriteCaps, fig!.pageviews2025, fig!.ngramPercentile, fig!.era, fig!.domain),
+          wikipediaSlug: fig!.wikipediaSlug,
+        }));
+
+      const response: FiguresResponse = {
+        figures: figureRows,
+        total,
+        stats: { totalLists: data.listCount, totalModels: data.modelCount },
+      };
+
+      return NextResponse.json(response, {
+        headers: {
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        },
+      });
+    }
+
+    if ((weighted || weighted2 || weighted3) && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
+      const rankLookup = weighted3
+        ? await getWeightedRobustRankLookup()
+        : weighted2
+          ? await getWeightedNormalizedRankLookup()
+          : await getWeightedRankLookup();
+      let orderedIds = Array.from(rankLookup.entries())
+        .sort((a, b) => a[1] - b[1])
+        .map(([id]) => id);
+
+      if (whereClause) {
+        const allowedRows = await db
+          .select({ id: figures.id })
+          .from(figures)
+          .where(whereClause);
+        const allowed = new Set(allowedRows.map((row) => row.id));
+        orderedIds = orderedIds.filter((id) => allowed.has(id));
+      }
+
+      const total = orderedIds.length;
+      const pagedIds = orderedIds.slice(offset, offset + limit);
+
+      if (pagedIds.length === 0) {
+        const stats = weighted3 ? await getWeightedV3Stats() : await getWeightedStats();
+        return NextResponse.json({ figures: [], total, stats });
+      }
+
+      const results = await db
+        .select()
+        .from(figures)
+        .where(inArray(figures.id, pagedIds));
+
+      const rowsById = new Map(results.map((row) => [row.id, row]));
+      const badgeData = await getBadgeData();
+      const modelFavoriteCaps = await getModelFavoriteCaps();
+
+      const figureRows: FigureRow[] = pagedIds
+        .map((id) => rowsById.get(id))
+        .filter(Boolean)
+        .map((fig) => ({
+          id: fig!.id,
+          name: fig!.canonicalName,
+          birthYear: fig!.birthYear,
+          domain: fig!.domain,
+          era: fig!.era,
+          regionSub: fig!.regionSub,
+          hpiRank: fig!.hpiRank,
+          llmRank: rankLookup.get(fig!.id) || null,
+          llmConsensusRank: fig!.llmConsensusRank,
+          varianceScore: fig!.varianceScore,
+          pageviews: fig!.pageviewsGlobal ?? fig!.pageviews2025,
+          varianceLevel: getVarianceLevel(fig!.varianceScore),
+          badges: calculateBadges(fig!.id, fig!.llmConsensusRank, fig!.hpiRank, fig!.pageviewsGlobal ?? fig!.pageviews2025, badgeData.get(fig!.id) || [], fig!.varianceScore, modelFavoriteCaps, fig!.pageviews2025, fig!.ngramPercentile, fig!.era, fig!.domain),
+          wikipediaSlug: fig!.wikipediaSlug,
+        }));
+
+      const stats = weighted3 ? await getWeightedV3Stats() : await getWeightedStats();
+      const response: FiguresResponse = {
+        figures: figureRows,
+        total,
+        stats,
+      };
+
+      return NextResponse.json(response, {
+        headers: {
+          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        },
+      });
+    }
 
     // Get total count with filters
     const countQuery = db
@@ -739,7 +1773,11 @@ export async function GET(request: NextRequest) {
         wikipediaSlug: fig.wikipediaSlug,
       }));
 
-      const stats = await getStats();
+      const stats = weighted3
+        ? await getWeightedV3Stats()
+        : (weighted || weighted2)
+          ? await getWeightedStats()
+          : await getStats();
       const response: FiguresResponse = {
         figures: figureRows,
         total,
@@ -841,7 +1879,11 @@ export async function GET(request: NextRequest) {
       wikipediaSlug: fig.wikipediaSlug,
     }));
 
-    const stats = await getStats();
+    const stats = weighted3
+      ? await getWeightedV3Stats()
+      : weighted
+        ? await getWeightedStats()
+        : await getStats();
     const response: FiguresResponse = {
       figures: figureRows,
       total,

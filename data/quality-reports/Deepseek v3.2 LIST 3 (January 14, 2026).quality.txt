@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: DeepSeek V3.2 LIST 3 (January 14, 2026).txt
 Model: DeepSeek V3.2
-Timestamp: 2026-01-20T04:15:54.612Z
+Timestamp: 2026-02-05T18:16:28.968Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: FAIL - 689 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 10 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
 
-Issues (204):
+Issues (200):
   - Exact duplicate: "jesus of nazareth" at ranks 1, 643, 752, 938
   - Exact duplicate: "muhammad" at ranks 2, 490, 644, 753, 854, 939
   - Exact duplicate: "isaac newton" at ranks 3, 143, 489, 532, 640, 754, 852, 936
@@ -25,8 +25,17 @@ Issues (204):
   - Exact duplicate: "albert einstein" at ranks 8, 137, 488, 533, 639, 761, 853, 937
   - Exact duplicate: "christopher columbus" at ranks 9, 138, 487, 536, 646, 760, 862, 945
   - Exact duplicate: "karl marx" at ranks 10, 119, 231, 486, 529, 647, 849, 947
-  ... and 194 more issues
+  ... and 190 more issues
 
 Diversity Estimates:
   Regions: Europe: 210, Asia: 49, Middle East: 61, Africa: 3, Americas: 44, Unknown: 633
   Domains: Politics/Leadership: 229, Science/Technology: 170, Philosophy/Religion: 173, Arts/Literature: 102, Military: 11, Other: 315
+
+Advanced Metrics:
+  Advanced score: 98.4
+  Parenthetical names: 2.6%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.1%
+  Short contributions: 0.0%

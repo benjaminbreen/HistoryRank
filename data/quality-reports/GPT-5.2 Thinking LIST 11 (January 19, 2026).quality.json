@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 11 (January 19, 2026).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:57.030Z",
+  "timestamp": "2026-02-05T18:16:36.958Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 134,
-      "fuzzy": 34,
+      "fuzzy": 18,
       "status": "WARN",
       "details": "134 exact duplicates found"
     },
@@ -361,13 +361,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
+        "saint paul",
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1445,28 +1446,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad",
-        "muhammad ibn abd alwahhab",
-        "muhammad yunus",
-        "muhammad ahmad the mahdi",
-        "muhammad abduh",
-        "muhammad ali jinnah"
-      ],
-      "ranks": [
-        1,
-        134,
-        167,
-        383,
-        528,
-        531,
-        817
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "johannes gutenberg",
       "variants": [
         "johannes gutenberg",
@@ -1477,20 +1456,6 @@
         6,
         269,
         348
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "shaka",
-        "emperor ashoka edicts"
-      ],
-      "ranks": [
-        16,
-        131,
-        302
       ]
     },
     {
@@ -1507,18 +1472,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "ramanuja",
-      "variants": [
-        "ramanuja",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        71,
-        446
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "taizong of tang",
       "variants": [
         "taizong of tang",
@@ -1531,52 +1484,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "harun alrashid",
-      "variants": [
-        "harun alrashid",
-        "rashi"
-      ],
-      "ranks": [
-        85,
-        629
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "saladin",
-      "variants": [
-        "saladin",
-        "saadi"
-      ],
-      "ranks": [
-        89,
-        483
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "mehmed ii",
       "variants": [
         "mehmed ii",
-        "mahmud ii",
         "mehmed i"
       ],
       "ranks": [
         90,
-        620,
         720
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "timur",
-      "variants": [
-        "timur",
-        "tamerlane timur institutional legacy"
-      ],
-      "ranks": [
-        91,
-        311
       ]
     },
     {
@@ -1623,18 +1538,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "michelangelo",
-      "variants": [
-        "michelangelo",
-        "michelangelos rival gian lorenzo bernini"
-      ],
-      "ranks": [
-        219,
-        783
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "murasaki shikibu",
       "variants": [
         "murasaki shikibu",
@@ -1671,18 +1574,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        351,
-        914
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "henry dunant",
       "variants": [
         "henry dunant",
@@ -1695,50 +1586,38 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "saadi",
+      "name": "mary i of england",
       "variants": [
-        "saadi",
-        "saadia gaon"
+        "mary i of england",
+        "mary ii of england"
       ],
       "ranks": [
-        483,
-        630
+        372,
+        373
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "pope pius ix",
+      "name": "king moshoeshoe i",
       "variants": [
-        "pope pius ix",
-        "pope pius xii"
+        "king moshoeshoe i",
+        "king muteesa i"
       ],
       "ranks": [
-        548,
-        549
+        525,
+        526
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "l li",
+      "name": "charles i of england",
       "variants": [
-        "l li",
-        "carl linnaeus"
+        "charles i of england",
+        "charles ii of england"
       ],
       "ranks": [
-        606,
-        651
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bede",
-      "variants": [
-        "bede",
-        "pele"
-      ],
-      "ranks": [
-        723,
-        932
+        684,
+        686
       ]
     },
     {
@@ -2104,6 +1983,21 @@
       "Military": 27,
       "Other": 838
     }
+  },
+  "advanced": {
+    "parentheticalCount": 40,
+    "parentheticalRate": 0.04,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 12,
+    "longNameRate": 0.012,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 97.29
   },
   "summary": "Issues: 134 exact duplicates; pattern collapse (max 62)"
 }

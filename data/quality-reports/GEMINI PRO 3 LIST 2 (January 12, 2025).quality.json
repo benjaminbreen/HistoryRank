@@ -1,12 +1,12 @@
 {
   "file": "Gemini Pro 3 LIST 2 (January 12, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-01-20T04:16:02.438Z",
+  "timestamp": "2026-02-05T18:16:54.406Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 55,
-      "fuzzy": 31,
+      "fuzzy": 7,
       "status": "WARN",
       "details": "55 exact duplicates found"
     },
@@ -312,6 +312,42 @@
             "964. Spike Lee",
             "965. Pedro Almodovar"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 716,
+          "endRank": 755,
+          "count": 40,
+          "examples": [
+            "716. Baldassare Castiglione",
+            "717. Ludovico Ariosto",
+            "718. Torquato Tasso"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 778,
+          "endRank": 805,
+          "count": 28,
+          "examples": [
+            "778. Stephen Foster",
+            "779. Scott Joplin",
+            "780. Jelly Roll Morton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 918,
+          "endRank": 948,
+          "count": 31,
+          "examples": [
+            "918. Alan Moore",
+            "919. Neil Gaiman",
+            "920. Stephen King"
+          ]
         }
       ],
       "status": "WARN",
@@ -325,11 +361,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -719,30 +758,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "johannes gutenberg",
-      "variants": [
-        "johannes gutenberg",
-        "berg"
-      ],
-      "ranks": [
-        8,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "moses",
-      "variants": [
-        "moses",
-        "menes"
-      ],
-      "ranks": [
-        15,
-        96
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -755,64 +770,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john dalton",
+      "name": "pope urban ii",
       "variants": [
-        "john dalton",
-        "john milton"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        32,
-        365
+        51,
+        420
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "werner heisenberg",
+      "name": "queen isabella i",
       "variants": [
-        "werner heisenberg",
-        "berg"
+        "queen isabella i",
+        "queen elizabeth i"
       ],
       "ranks": [
-        46,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simon bolivar",
-      "variants": [
-        "simon bolivar",
-        "simn bolvar"
-      ],
-      "ranks": [
-        48,
-        120
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michelangelo",
-      "variants": [
-        "michelangelo",
-        "michelangelo antonioni"
-      ],
-      "ranks": [
-        50,
-        979
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mani",
-      "variants": [
-        "mani",
-        "amanirenas",
-        "rachmaninoff"
-      ],
-      "ranks": [
-        83,
-        620,
-        744
+        65,
+        94
       ]
     },
     {
@@ -829,14 +806,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "socrates",
+      "name": "john d rockefeller",
       "variants": [
-        "socrates",
-        "isocrates"
+        "john d rockefeller",
+        "john rockefeller"
       ],
       "ranks": [
-        130,
-        683
+        180,
+        238
       ]
     },
     {
@@ -849,212 +826,6 @@
       "ranks": [
         185,
         245
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "babar",
-      "variants": [
-        "babar",
-        "barber"
-      ],
-      "ranks": [
-        190,
-        755
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "francis drake",
-      "variants": [
-        "francis drake",
-        "drake"
-      ],
-      "ranks": [
-        203,
-        819
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "max weber",
-      "variants": [
-        "max weber",
-        "weber"
-      ],
-      "ranks": [
-        244,
-        733
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "lech wasa",
-      "variants": [
-        "lech wasa",
-        "lech walesa"
-      ],
-      "ranks": [
-        306,
-        554
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "louis sullivan",
-      "variants": [
-        "louis sullivan",
-        "sullivan"
-      ],
-      "ranks": [
-        318,
-        776
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mark zuckerberg",
-      "variants": [
-        "mark zuckerberg",
-        "berg"
-      ],
-      "ranks": [
-        368,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "frederick douglass",
-      "variants": [
-        "frederick douglass",
-        "glass"
-      ],
-      "ranks": [
-        378,
-        757
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "charles lindbergh",
-      "variants": [
-        "charles lindbergh",
-        "berg"
-      ],
-      "ranks": [
-        399,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rumi",
-      "variants": [
-        "rumi",
-        "rumiko takahashi"
-      ],
-      "ranks": [
-        434,
-        877
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hafez",
-      "variants": [
-        "hafez",
-        "abdel halim hafez"
-      ],
-      "ranks": [
-        452,
-        855
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pele",
-      "variants": [
-        "pele",
-        "bede",
-        "adele"
-      ],
-      "ranks": [
-        460,
-        694,
-        812
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nero",
-      "variants": [
-        "nero",
-        "berg"
-      ],
-      "ranks": [
-        519,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "draco",
-      "variants": [
-        "draco",
-        "drake"
-      ],
-      "ranks": [
-        677,
-        819
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bede",
-      "variants": [
-        "bede",
-        "berg"
-      ],
-      "ranks": [
-        694,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "weber",
-      "variants": [
-        "weber",
-        "webern"
-      ],
-      "ranks": [
-        733,
-        752
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "schoenberg",
-      "variants": [
-        "schoenberg",
-        "berg"
-      ],
-      "ranks": [
-        750,
-        751
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "berg",
-      "variants": [
-        "berg",
-        "steven spielberg"
-      ],
-      "ranks": [
-        751,
-        951
       ]
     },
     {
@@ -1368,6 +1139,42 @@
         "964. Spike Lee",
         "965. Pedro Almodovar"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 716,
+      "endRank": 755,
+      "count": 40,
+      "examples": [
+        "716. Baldassare Castiglione",
+        "717. Ludovico Ariosto",
+        "718. Torquato Tasso"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 778,
+      "endRank": 805,
+      "count": 28,
+      "examples": [
+        "778. Stephen Foster",
+        "779. Scott Joplin",
+        "780. Jelly Roll Morton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 918,
+      "endRank": 948,
+      "count": 31,
+      "examples": [
+        "918. Alan Moore",
+        "919. Neil Gaiman",
+        "920. Stephen King"
+      ]
     }
   ],
   "diversity": {
@@ -1396,6 +1203,21 @@
       "Military": 15,
       "Other": 389
     }
+  },
+  "advanced": {
+    "parentheticalCount": 7,
+    "parentheticalRate": 0.007,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 275,
+    "contributionShortRate": 0.275,
+    "score": 93.93
   },
   "summary": "Issues: 55 exact duplicates; pattern collapse (max 56)"
 }

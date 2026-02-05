@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Gemini Pro 3 LIST 5 (January 13, 2025).txt
 Model: Gemini Pro 3
-Timestamp: 2026-01-20T04:16:03.932Z
+Timestamp: 2026-02-05T18:16:58.129Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: PASS - 8 exact duplicates found
   Pattern Collapse: FAIL - Max sequence of 220 similar entries
   Structural: FAIL - 1003 entries (expected 1000); non-sequential ranks
-  Anchor Coverage: PASS - 42/43 anchor figures found (98%)
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
 
-Issues (54):
+Issues (51):
   - Exact duplicate: "tim bernerslee" at ranks 102, 864
   - Exact duplicate: "suleiman the magnificent" at ranks 104, 197
   - Exact duplicate: "florence nightingale" at ranks 120, 571
@@ -23,10 +23,19 @@ Issues (54):
   - Exact duplicate: "hypatia" at ranks 244, 692
   - Exact duplicate: "coco chanel" at ranks 251, 716
   - Exact duplicate: "rivaldo" at ranks 351, 408
-  - Fuzzy duplicate: muhammad / muhammad ali / muhammad ali jinnah / muhammad yunus at ranks 1, 260, 551, 600
-  - Fuzzy duplicate: moses / menes at ranks 15, 96
-  ... and 44 more issues
+  - Fuzzy duplicate: johann gutenberg / johannes gutenberg at ranks 8, 169
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 51, 562
+  ... and 41 more issues
 
 Diversity Estimates:
   Regions: Europe: 71, Asia: 20, Middle East: 16, Africa: 14, Americas: 22, Unknown: 860
   Domains: Politics/Leadership: 158, Science/Technology: 117, Philosophy/Religion: 96, Arts/Literature: 130, Military: 14, Other: 488
+
+Advanced Metrics:
+  Advanced score: 96.3
+  Parenthetical names: 0.6%
+  Multi-person names: 0.1%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 16.5%

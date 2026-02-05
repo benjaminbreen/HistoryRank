@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 7 (January 15, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:08.854Z",
+  "timestamp": "2026-02-05T18:17:11.669Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 32,
-      "fuzzy": 27,
+      "fuzzy": 4,
       "status": "PASS",
       "details": "32 exact duplicates found"
     },
@@ -253,11 +253,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -477,30 +479,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali"
-      ],
-      "ranks": [
-        2,
-        418
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "adam smith",
-      "variants": [
-        "adam smith",
-        "sam smith"
-      ],
-      "ranks": [
-        25,
-        911
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -509,80 +487,6 @@
       "ranks": [
         27,
         384
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "homer",
-      "variants": [
-        "homer",
-        "hozier",
-        "hole"
-      ],
-      "ranks": [
-        41,
-        908,
-        942
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ibn sina avicenna",
-      "variants": [
-        "ibn sina avicenna",
-        "avicenna"
-      ],
-      "ranks": [
-        85,
-        261
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shankara",
-      "variants": [
-        "shankara",
-        "shakira"
-      ],
-      "ranks": [
-        94,
-        884
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "virgil",
-      "variants": [
-        "virgil",
-        "virgil abloh"
-      ],
-      "ranks": [
-        104,
-        829
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "desiderius erasmus",
-      "variants": [
-        "desiderius erasmus",
-        "erasmus"
-      ],
-      "ranks": [
-        123,
-        266
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mikhail gorbachev",
-      "variants": [
-        "mikhail gorbachev",
-        "bach"
-      ],
-      "ranks": [
-        136,
-        228
       ]
     },
     {
@@ -599,80 +503,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "henry viii",
+      "name": "philip ii of spain",
       "variants": [
-        "henry viii",
-        "henry ii"
+        "philip ii of spain",
+        "philip iv of spain"
       ],
       "ranks": [
-        173,
-        208
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bach",
-      "variants": [
-        "bach",
-        "basho",
-        "frank auerbach"
-      ],
-      "ranks": [
-        228,
-        336,
-        638
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "chopin",
-      "variants": [
-        "chopin",
-        "chon"
-      ],
-      "ranks": [
-        230,
-        992
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "panini",
-      "variants": [
-        "panini",
-        "plini"
-      ],
-      "ranks": [
-        321,
-        991
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "basho",
-      "variants": [
-        "basho",
-        "matsuo basho"
-      ],
-      "ranks": [
-        336,
-        337
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pel",
-      "variants": [
-        "pel",
-        "david lachapelle",
-        "pod",
-        "whitechapel"
-      ],
-      "ranks": [
-        414,
-        790,
-        972,
-        983
+        179,
+        203
       ]
     },
     {
@@ -685,58 +523,6 @@
       "ranks": [
         789,
         915
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "madeleine vionnet",
-      "variants": [
-        "madeleine vionnet",
-        "adele"
-      ],
-      "ranks": [
-        809,
-        874
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bode",
-      "variants": [
-        "bode",
-        "emily adams bode",
-        "hole",
-        "pod"
-      ],
-      "ranks": [
-        865,
-        866,
-        942,
-        972
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pink",
-      "variants": [
-        "pink",
-        "plini"
-      ],
-      "ranks": [
-        882,
-        991
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nita strauss",
-      "variants": [
-        "nita strauss",
-        "nita"
-      ],
-      "ranks": [
-        994,
-        996
       ]
     },
     {
@@ -994,6 +780,21 @@
       "Military": 7,
       "Other": 843
     }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 6,
+    "multiPersonRate": 0.006,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 894,
+    "contributionShortRate": 0.894,
+    "score": 81.7
   },
   "summary": "List passes all quality checks"
 }

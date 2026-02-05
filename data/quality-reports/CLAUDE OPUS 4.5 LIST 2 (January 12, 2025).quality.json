@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 2 (January 12, 2025).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:47.506Z",
+  "timestamp": "2026-02-05T18:16:05.429Z",
   "verdict": "PASS",
   "scores": {
     "repetition": {
       "exact": 5,
-      "fuzzy": 50,
+      "fuzzy": 31,
       "status": "PASS",
       "details": "5 exact duplicates found"
     },
@@ -97,13 +97,16 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
-        "hitler"
+        "julius caesar",
+        "saint paul",
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -149,34 +152,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali",
-        "muhammad yunus",
-        "muhammad iqbal"
-      ],
-      "ranks": [
-        2,
-        728,
-        770,
-        915
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aristotle",
-      "variants": [
-        "aristotle",
-        "aristotles teacher ammonius saccas"
-      ],
-      "ranks": [
-        8,
-        79
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -185,30 +160,6 @@
       "ranks": [
         19,
         193
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        22,
-        289
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "abraham lincoln"
-      ],
-      "ranks": [
-        24,
-        54
       ]
     },
     {
@@ -263,26 +214,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "saladin",
+      "name": "gottfried wilhelm leibniz",
       "variants": [
-        "saladin",
-        "saladins vizier alqadi alfadil"
+        "gottfried wilhelm leibniz",
+        "gottfried von leibniz"
       ],
       "ranks": [
-        97,
-        471
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ptolemy",
-      "variants": [
-        "ptolemy",
-        "claudius ptolemy"
-      ],
-      "ranks": [
-        116,
-        260
+        103,
+        360
       ]
     },
     {
@@ -295,30 +234,6 @@
       "ranks": [
         126,
         655
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "herodotus",
-      "variants": [
-        "herodotus",
-        "herodotus contemporary hecataeus"
-      ],
-      "ranks": [
-        135,
-        667
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramanujan",
-      "variants": [
-        "ramanujan",
-        "srinivasa ramanujan"
-      ],
-      "ranks": [
-        142,
-        446
       ]
     },
     {
@@ -347,20 +262,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "maimonides",
-      "variants": [
-        "maimonides",
-        "maimonides student joseph ben judah",
-        "maimonides predecessor saadia gaon"
-      ],
-      "ranks": [
-        161,
-        522,
-        597
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "rachel carson",
       "variants": [
         "rachel carson",
@@ -385,18 +286,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "robert boyle",
-      "variants": [
-        "robert boyle",
-        "robert noyce"
-      ],
-      "ranks": [
-        191,
-        772
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "rabindranath tagore",
       "variants": [
         "rabindranath tagore",
@@ -407,20 +296,6 @@
         192,
         539,
         569
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cicero",
-      "variants": [
-        "cicero",
-        "ciceros student marcus caelius rufus",
-        "marcus tullius cicero"
-      ],
-      "ranks": [
-        195,
-        404,
-        642
       ]
     },
     {
@@ -473,20 +348,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "seneca",
-      "variants": [
-        "seneca",
-        "seneca the younger",
-        "seneca falls organizer elizabeth cady stanton"
-      ],
-      "ranks": [
-        226,
-        249,
-        377
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "sitting bull",
       "variants": [
         "sitting bull",
@@ -495,32 +356,6 @@
       "ranks": [
         233,
         353
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "erasmus",
-      "variants": [
-        "erasmus",
-        "desiderius erasmus",
-        "erasmus darwin"
-      ],
-      "ranks": [
-        238,
-        537,
-        671
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "avogadro",
-      "variants": [
-        "avogadro",
-        "amedeo avogadro"
-      ],
-      "ranks": [
-        251,
-        460
       ]
     },
     {
@@ -549,14 +384,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "edward said",
+      "name": "werner von braun",
       "variants": [
-        "edward said",
-        "edward sapir"
+        "werner von braun",
+        "wernher magnus von braun"
       ],
       "ranks": [
-        307,
-        741
+        301,
+        554
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philo of alexandria",
+      "variants": [
+        "philo of alexandria",
+        "philos student clement of alexandria"
+      ],
+      "ranks": [
+        339,
+        362
       ]
     },
     {
@@ -581,6 +428,18 @@
       "ranks": [
         373,
         676
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        381,
+        867
       ]
     },
     {
@@ -617,30 +476,6 @@
       "ranks": [
         495,
         805
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "emil kraepelin",
-      "variants": [
-        "emil kraepelin",
-        "pel"
-      ],
-      "ranks": [
-        600,
-        729
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "kenzabur e",
-      "variants": [
-        "kenzabur e",
-        "kenzaburo oe"
-      ],
-      "ranks": [
-        608,
-        925
       ]
     },
     {
@@ -766,6 +601,21 @@
       "Military": 8,
       "Other": 916
     }
+  },
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 12,
+    "longNameRate": 0.012,
+    "contributionShortCount": 189,
+    "contributionShortRate": 0.189,
+    "score": 95.32000000000001
   },
   "summary": "List passes all quality checks"
 }

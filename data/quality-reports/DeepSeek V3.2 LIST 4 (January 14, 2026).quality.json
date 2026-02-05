@@ -1,12 +1,12 @@
 {
   "file": "DeepSeek V3.2 LIST 4 (January 14, 2026).txt",
   "model": "DeepSeek V3.2",
-  "timestamp": "2026-01-20T04:15:54.646Z",
+  "timestamp": "2026-02-05T18:16:29.050Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 317,
-      "fuzzy": 7,
+      "fuzzy": 3,
       "status": "FAIL",
       "details": "317 exact duplicates found"
     },
@@ -576,6 +576,78 @@
             "493. Sigmar Polke",
             "494. Anselm Kiefer"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 201,
+          "endRank": 220,
+          "count": 20,
+          "examples": [
+            "201. Virgil",
+            "202. Ovid",
+            "203. Horace"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 270,
+          "endRank": 294,
+          "count": 25,
+          "examples": [
+            "270. Wole Soyinka",
+            "271. Naguib Mahfouz",
+            "272. Orhan Pamuk"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 405,
+          "endRank": 432,
+          "count": 28,
+          "examples": [
+            "405. Mickalene Thomas",
+            "406. Kehinde Wiley",
+            "407. Amy Sherald"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 454,
+          "endRank": 468,
+          "count": 15,
+          "examples": [
+            "454. Robert Smithson",
+            "455. Michael Heizer",
+            "456. Walter De Maria"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 479,
+          "endRank": 500,
+          "count": 22,
+          "examples": [
+            "479. Yinka Shonibare",
+            "480. Chris Ofili",
+            "481. Steve McQueen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 771,
+          "endRank": 785,
+          "count": 15,
+          "examples": [
+            "771. John Milton",
+            "772. William Wordsworth",
+            "773. Samuel Taylor Coleridge"
+          ]
         }
       ],
       "status": "WARN",
@@ -589,13 +661,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 60,
+      "expected": 61,
       "missing": [
         "pythagoras"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -2507,42 +2579,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "augustus caesar",
-      "variants": [
-        "augustus caesar",
-        "augustus"
-      ],
-      "ranks": [
-        19,
-        834
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
-      "variants": [
-        "abraham lincoln",
-        "abraham"
-      ],
-      "ranks": [
-        49,
-        917
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "ashoka the great"
-      ],
-      "ranks": [
-        53,
-        832
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "james watson francis crick",
       "variants": [
         "james watson francis crick",
@@ -2565,18 +2601,6 @@
       "ranks": [
         103,
         527
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simn bolvar",
-      "variants": [
-        "simn bolvar",
-        "simon bolivar"
-      ],
-      "ranks": [
-        508,
-        855
       ]
     },
     {
@@ -3142,6 +3166,78 @@
         "493. Sigmar Polke",
         "494. Anselm Kiefer"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 201,
+      "endRank": 220,
+      "count": 20,
+      "examples": [
+        "201. Virgil",
+        "202. Ovid",
+        "203. Horace"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 270,
+      "endRank": 294,
+      "count": 25,
+      "examples": [
+        "270. Wole Soyinka",
+        "271. Naguib Mahfouz",
+        "272. Orhan Pamuk"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 405,
+      "endRank": 432,
+      "count": 28,
+      "examples": [
+        "405. Mickalene Thomas",
+        "406. Kehinde Wiley",
+        "407. Amy Sherald"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 454,
+      "endRank": 468,
+      "count": 15,
+      "examples": [
+        "454. Robert Smithson",
+        "455. Michael Heizer",
+        "456. Walter De Maria"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 479,
+      "endRank": 500,
+      "count": 22,
+      "examples": [
+        "479. Yinka Shonibare",
+        "480. Chris Ofili",
+        "481. Steve McQueen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 771,
+      "endRank": 785,
+      "count": 15,
+      "examples": [
+        "771. John Milton",
+        "772. William Wordsworth",
+        "773. Samuel Taylor Coleridge"
+      ]
     }
   ],
   "diversity": {
@@ -3170,6 +3266,21 @@
       "Military": 15,
       "Other": 319
     }
+  },
+  "advanced": {
+    "parentheticalCount": 13,
+    "parentheticalRate": 0.013,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 2,
+    "contributionShortRate": 0.002,
+    "score": 99.14
   },
   "summary": "Issues: 317 exact duplicates; pattern collapse (max 39)"
 }

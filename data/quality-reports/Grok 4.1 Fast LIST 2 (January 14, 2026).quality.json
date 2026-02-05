@@ -1,12 +1,12 @@
 {
   "file": "Grok 4.1 Fast LIST 2 (January 14, 2026).txt",
   "model": "Grok 4.1 Fast",
-  "timestamp": "2026-01-20T04:16:07.718Z",
+  "timestamp": "2026-02-05T18:17:08.537Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 449,
-      "fuzzy": 9,
+      "fuzzy": 4,
       "status": "FAIL",
       "details": "449 exact duplicates found"
     },
@@ -37,13 +37,15 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 58,
+      "expected": 61,
       "missing": [
+        "saint paul",
+        "paul the apostle",
         "kepler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "58/61 anchor figures found (95%)"
     }
   },
   "issues": [
@@ -2018,54 +2020,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "desiderius erasmus",
-      "variants": [
-        "desiderius erasmus",
-        "erasmus"
-      ],
-      "ranks": [
-        243,
-        626
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john dalton",
-      "variants": [
-        "john dalton",
-        "john milton"
-      ],
-      "ranks": [
-        293,
-        320
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shivaji",
-      "variants": [
-        "shivaji",
-        "shivaji maharaj"
-      ],
-      "ranks": [
-        349,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "srinivasa ramanujan",
-      "variants": [
-        "srinivasa ramanujan",
-        "ramanujan"
-      ],
-      "ranks": [
-        516,
-        914
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "sunni ali",
       "variants": [
         "sunni ali",
@@ -2074,18 +2028,6 @@
       "ranks": [
         551,
         799
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        598,
-        690
       ]
     },
     {
@@ -2127,6 +2069,21 @@
       "Military": 18,
       "Other": 689
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 559,
+    "contributionShortRate": 0.559,
+    "score": 88.56
   },
   "summary": "Issues: 449 exact duplicates; pattern collapse (max 10)"
 }

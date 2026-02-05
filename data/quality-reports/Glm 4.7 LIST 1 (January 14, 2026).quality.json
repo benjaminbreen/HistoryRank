@@ -1,12 +1,12 @@
 {
   "file": "GLM 4.7 LIST 1 (January 14, 2026).txt",
   "model": "GLM 4.7",
-  "timestamp": "2026-01-20T04:15:54.932Z",
+  "timestamp": "2026-02-05T18:16:29.781Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 508,
-      "fuzzy": 9,
+      "fuzzy": 5,
       "status": "FAIL",
       "details": "508 exact duplicates found"
     },
@@ -24,16 +24,20 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 39,
-      "expected": 43,
+      "found": 53,
+      "expected": 61,
       "missing": [
+        "julius caesar",
         "abraham lincoln",
+        "lincoln",
         "moses",
+        "saint paul",
+        "paul the apostle",
         "pythagoras",
         "archimedes"
       ],
       "status": "PASS",
-      "details": "39/43 anchor figures found (91%)"
+      "details": "53/61 anchor figures found (87%)"
     }
   },
   "issues": [
@@ -2206,38 +2210,16 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "jalal addin muhammad rumi"
-      ],
-      "ranks": [
-        1,
-        668
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "orville wilbur wright",
       "variants": [
         "orville wilbur wright",
-        "wilbur wright"
+        "wilbur wright",
+        "orville wright"
       ],
       "ranks": [
         20,
-        819
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "averroes ibn rushd",
-      "variants": [
-        "averroes ibn rushd",
-        "averroes"
-      ],
-      "ranks": [
-        124,
-        471
+        819,
+        820
       ]
     },
     {
@@ -2254,62 +2236,26 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "li bai",
+      "name": "claude lvistrauss",
       "variants": [
-        "li bai",
-        "li si"
+        "claude lvistrauss",
+        "claude levistrauss"
       ],
       "ranks": [
-        199,
-        292
+        647,
+        977
       ]
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "averroes",
+      "name": "gabriel garca mrquez",
       "variants": [
-        "averroes",
-        "ibn rushd averroes"
+        "gabriel garca mrquez",
+        "gabriel garcia marquez"
       ],
       "ranks": [
-        471,
-        568
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "han yu",
-      "variants": [
-        "han yu",
-        "guan yu"
-      ],
-      "ranks": [
-        652,
-        656
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "su shi",
-      "variants": [
-        "su shi",
-        "hu shih"
-      ],
-      "ranks": [
-        653,
-        732
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dgen",
-      "variants": [
-        "dgen",
-        "hnen"
-      ],
-      "ranks": [
-        891,
-        893
+        777,
+        947
       ]
     }
   ],
@@ -2339,6 +2285,21 @@
       "Military": 12,
       "Other": 896
     }
+  },
+  "advanced": {
+    "parentheticalCount": 6,
+    "parentheticalRate": 0.006,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 436,
+    "contributionShortRate": 0.436,
+    "score": 90.9
   },
   "summary": "Issues: 508 exact duplicates"
 }

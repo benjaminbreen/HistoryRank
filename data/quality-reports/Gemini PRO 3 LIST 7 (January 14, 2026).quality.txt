@@ -2,7 +2,7 @@ Quality Assessment Report
 ========================
 File: Gemini Pro 3 LIST 7 (January 14, 2026).txt
 Model: Gemini Pro 3
-Timestamp: 2026-01-20T04:16:04.551Z
+Timestamp: 2026-02-05T18:16:59.661Z
 
 VERDICT: FAIL
 
@@ -12,9 +12,9 @@ Scores:
   Repetition: FAIL - 225 exact duplicates found
   Pattern Collapse: PASS - Max sequence of 18 similar entries
   Structural: PASS - OK
-  Anchor Coverage: PASS - 43/43 anchor figures found (100%)
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
 
-Issues (239):
+Issues (234):
   - Exact duplicate: "isaac newton" at ranks 2, 788
   - Exact duplicate: "confucius" at ranks 5, 608
   - Exact duplicate: "johannes gutenberg" at ranks 8, 650
@@ -25,8 +25,17 @@ Issues (239):
   - Exact duplicate: "charles darwin" at ranks 16, 724
   - Exact duplicate: "constantine the great" at ranks 21, 666
   - Exact duplicate: "james watt" at ranks 22, 578
-  ... and 229 more issues
+  ... and 224 more issues
 
 Diversity Estimates:
   Regions: Europe: 68, Asia: 37, Middle East: 18, Africa: 16, Americas: 34, Unknown: 827
   Domains: Politics/Leadership: 162, Science/Technology: 135, Philosophy/Religion: 151, Arts/Literature: 150, Military: 9, Other: 393
+
+Advanced Metrics:
+  Advanced score: 99.2
+  Parenthetical names: 0.5%
+  Multi-person names: 0.1%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 2.1%

@@ -1,7 +1,7 @@
 {
   "file": "Mistral Large 3 LIST 4 (January 17, 2026).txt",
   "model": "Mistral Large 3",
-  "timestamp": "2026-01-20T04:16:09.880Z",
+  "timestamp": "2026-02-05T18:17:14.343Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -1152,6 +1152,54 @@
             "983. Chun Doo-hwan",
             "984. Kim Dae-jung"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 701,
+          "endRank": 718,
+          "count": 18,
+          "examples": [
+            "701. Syngman Rhee",
+            "702. Park Chung-hee",
+            "703. Chun Doo-hwan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 720,
+          "endRank": 735,
+          "count": 16,
+          "examples": [
+            "720. Chiang Ching-kuo",
+            "721. Lee Teng-hui",
+            "722. Chen Shui-bian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:military",
+          "startRank": 763,
+          "endRank": 777,
+          "count": 15,
+          "examples": [
+            "763. Ban Ki-moon",
+            "764. Kofi Annan",
+            "765. Boutros Boutros-Ghali"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 981,
+          "endRank": 998,
+          "count": 18,
+          "examples": [
+            "981. Syngman Rhee",
+            "982. Park Chung-hee",
+            "983. Chun Doo-hwan"
+          ]
         }
       ],
       "status": "WARN",
@@ -1165,19 +1213,21 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 36,
-      "expected": 43,
+      "found": 52,
+      "expected": 61,
       "missing": [
         "michelangelo",
         "homer",
+        "saint paul",
         "pythagoras",
         "euclid",
         "archimedes",
         "kepler",
-        "hitler"
+        "hitler",
+        "adolf hitler"
       ],
-      "status": "WARN",
-      "details": "36/43 anchor figures found (84%)"
+      "status": "PASS",
+      "details": "52/61 anchor figures found (85%)"
     }
   },
   "issues": [
@@ -4195,6 +4245,54 @@
         "983. Chun Doo-hwan",
         "984. Kim Dae-jung"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 701,
+      "endRank": 718,
+      "count": 18,
+      "examples": [
+        "701. Syngman Rhee",
+        "702. Park Chung-hee",
+        "703. Chun Doo-hwan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 720,
+      "endRank": 735,
+      "count": 16,
+      "examples": [
+        "720. Chiang Ching-kuo",
+        "721. Lee Teng-hui",
+        "722. Chen Shui-bian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:military",
+      "startRank": 763,
+      "endRank": 777,
+      "count": 15,
+      "examples": [
+        "763. Ban Ki-moon",
+        "764. Kofi Annan",
+        "765. Boutros Boutros-Ghali"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 981,
+      "endRank": 998,
+      "count": 18,
+      "examples": [
+        "981. Syngman Rhee",
+        "982. Park Chung-hee",
+        "983. Chun Doo-hwan"
+      ]
     }
   ],
   "diversity": {
@@ -4224,5 +4322,20 @@
       "Other": 372
     }
   },
-  "summary": "Issues: 362 exact duplicates; pattern collapse (max 81); 7 missing anchors"
+  "advanced": {
+    "parentheticalCount": 3,
+    "parentheticalRate": 0.003,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 4,
+    "longNameRate": 0.004,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.74
+  },
+  "summary": "Issues: 362 exact duplicates; pattern collapse (max 81)"
 }

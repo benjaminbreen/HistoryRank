@@ -43,6 +43,7 @@ export default function MethodologyPage() {
                   ['limitations', 'Limitations'],
                   ['roadmap', 'Roadmap'],
                   ['future-work', 'Future work'],
+                  ['feb-2026-update', 'February 2026 update'],
                 ].map(([id, label]) => (
                   <a
                     key={id}
@@ -617,6 +618,34 @@ export default function MethodologyPage() {
                 within-model stability metrics to clarify which differences reflect model priors versus
                 prompt framing.
               </p>
+            </section>
+
+            <section id="feb-2026-update" className="scroll-mt-24">
+              <h2 className="text-xl font-semibold text-stone-900">February 2026 update</h2>
+              <p className="mt-3">
+                We introduced a new “Weighted Avg v3” view that combines all three list pools
+                (v1, v2, and v3) while adding robust weighting and quality filters.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-stone-600 dark:text-slate-400">
+                <li>Weighted v3 aggregates lists from `data/raw`, `data/raw_v2`, and `data/raw_v3`.</li>
+                <li>Model IDs are canonicalized (e.g., `gpt-5.2` and `gpt-5.2-thinking` are merged).</li>
+                <li>Canonical model weights are derived from cross-model reliability analysis.</li>
+                <li>Weights are coverage-aware: shorter lists contribute less via a √(coverage) penalty.</li>
+                <li>Missing ranks are imputed as (list length + 1), so shorter lists do not inflate impact.</li>
+                <li>Bayesian shrinkage pulls sparse-coverage figures toward a neutral prior.</li>
+                <li>Alias + merge remapping collapses known duplicates before aggregation.</li>
+                <li>Worst 10 lists (by combined quality + advanced name hygiene metrics) are excluded from v3 weighted:</li>
+                <li>GLM 4.7 LIST 3 (January 14, 2026).txt</li>
+                <li>Mistral Large 3 LIST 5 (January 18, 2026).txt</li>
+                <li>Qwen3 235B A22B LIST 7 (January 14, 2026).txt</li>
+                <li>GLM 4.7 LIST 2 (January 14, 2026).txt</li>
+                <li>Grok 4 LIST 1 (January 14, 2026).txt</li>
+                <li>Mistral Large 3 LIST 4 (January 17, 2026).txt</li>
+                <li>Grok 4.1 Fast LIST 1 (January 14, 2026).txt</li>
+                <li>Mistral Large 3 LIST 1 (January 15, 2026).txt</li>
+                <li>Grok 4 LIST 3 (January 14, 2026).txt</li>
+                <li>Claude Sonnet 4.5 LIST 3 (January 12, 2025).txt</li>
+              </ul>
             </section>
           </div>
         </div>

@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: grok-4.1-fast V2 LIST 1 (February 4, 2026).txt
+Model: grok-4.1-fast V2 Prompt
+Timestamp: 2026-02-04T19:13:36.583Z
+
+VERDICT: FAIL
+
+Summary: Issues: pattern collapse (max 56); 500 entries (expected 1000)
+
+Scores:
+  Repetition: PASS - 5 fuzzy duplicates found
+  Pattern Collapse: WARN - Max sequence of 56 similar entries
+  Structural: FAIL - 500 entries (expected 1000)
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (16):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 127, 209
+  - Fuzzy duplicate: henry viii of england / henry ii of england at ranks 229, 333
+  - Fuzzy duplicate: ramesses ii / ramesses iii at ranks 239, 275
+  - Fuzzy duplicate: rajaraja chola i / rajendra chola i at ranks 365, 366
+  - Fuzzy duplicate: shah ismail i / shah abbas i at ranks 368, 455
+  - Pattern collapse: "category:other" (49 entries, ranks 52-100)
+  - Pattern collapse: "category:other" (30 entries, ranks 117-146)
+  - Pattern collapse: "category:other" (24 entries, ranks 148-171)
+  - Pattern collapse: "category:other" (28 entries, ranks 173-200)
+  - Pattern collapse: "category:other" (16 entries, ranks 223-238)
+  ... and 6 more issues
+
+Diversity Estimates:
+  Regions: Europe: 64, Asia: 6, Middle East: 24, Africa: 3, Americas: 5, Unknown: 398
+  Domains: Politics/Leadership: 13, Science/Technology: 11, Philosophy/Religion: 4, Arts/Literature: 13, Military: 8, Other: 451

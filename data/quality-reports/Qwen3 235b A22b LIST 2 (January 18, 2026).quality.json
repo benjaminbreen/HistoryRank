@@ -1,7 +1,7 @@
 {
   "file": "Qwen3 235B A22B LIST 2 (January 18, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.471Z",
+  "timestamp": "2026-02-05T18:17:15.900Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -24,22 +24,22 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 32,
-      "expected": 43,
+      "found": 47,
+      "expected": 61,
       "missing": [
         "michelangelo",
         "moses",
         "paul",
+        "saint paul",
+        "paul the apostle",
         "euclid",
         "archimedes",
         "beethoven",
         "kepler",
-        "descartes",
-        "voltaire",
-        "rousseau"
+        "descartes"
       ],
-      "status": "WARN",
-      "details": "32/43 anchor figures found (74%)"
+      "status": "PASS",
+      "details": "47/61 anchor figures found (77%)"
     }
   },
   "issues": [
@@ -1255,5 +1255,20 @@
       "Other": 880
     }
   },
-  "summary": "Issues: 920 exact duplicates; 10 missing anchors"
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 711,
+    "contributionShortRate": 0.711,
+    "score": 85.78
+  },
+  "summary": "Issues: 920 exact duplicates"
 }

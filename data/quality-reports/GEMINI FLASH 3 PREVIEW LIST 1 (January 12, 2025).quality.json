@@ -1,12 +1,12 @@
 {
   "file": "Gemini Flash 3 Preview LIST 1 (January 12, 2025).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-01-20T04:15:59.787Z",
+  "timestamp": "2026-02-05T18:16:47.313Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 204,
-      "fuzzy": 5,
+      "fuzzy": 4,
       "status": "FAIL",
       "details": "204 exact duplicates found"
     },
@@ -24,13 +24,16 @@
       "details": "1026 entries (expected 1000); non-sequential ranks"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 57,
+      "expected": 61,
       "missing": [
-        "hitler"
+        "saint paul",
+        "paul the apostle",
+        "hitler",
+        "adolf hitler"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "57/61 anchor figures found (93%)"
     }
   },
   "issues": [
@@ -1598,38 +1601,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "asoka the great",
       "variants": [
-        "muhammad",
-        "muhammad ali"
+        "asoka the great",
+        "ashoka the great"
       ],
       "ranks": [
-        1,
-        839
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "laozi",
-      "variants": [
-        "laozi",
-        "mozi"
-      ],
-      "ranks": [
-        67,
-        230
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "michaelangelo",
-      "variants": [
-        "michaelangelo",
-        "michelangelo"
-      ],
-      "ranks": [
-        128,
-        818
+        62,
+        871
       ]
     },
     {
@@ -1642,6 +1621,18 @@
       "ranks": [
         175,
         579
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "niels abel",
+      "variants": [
+        "niels abel",
+        "niels henrik abel"
+      ],
+      "ranks": [
+        240,
+        923
       ]
     },
     {
@@ -1683,6 +1674,21 @@
       "Military": 16,
       "Other": 685
     }
+  },
+  "advanced": {
+    "parentheticalCount": 7,
+    "parentheticalRate": 0.00682261208576998,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 11,
+    "commaNameRate": 0.010721247563352826,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.0009746588693957114,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.46393762183236
   },
   "summary": "Issues: 204 exact duplicates; 1026 entries (expected 1000); non-sequential ranks"
 }

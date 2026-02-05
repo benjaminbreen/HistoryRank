@@ -1,12 +1,12 @@
 {
   "file": "Claude Opus 4.5 LIST 5 (January 14, 2026).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-01-20T04:15:48.884Z",
+  "timestamp": "2026-02-05T18:16:10.404Z",
   "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 71,
-      "fuzzy": 15,
+      "fuzzy": 7,
       "status": "WARN",
       "details": "71 exact duplicates found"
     },
@@ -73,11 +73,13 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 43,
-      "expected": 43,
-      "missing": [],
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
       "status": "PASS",
-      "details": "43/43 anchor figures found (100%)"
+      "details": "60/61 anchor figures found (98%)"
     }
   },
   "issues": [
@@ -651,22 +653,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "muhammad ali jinnah",
-        "muhammad ibn abd alwahhab",
-        "askia muhammad"
-      ],
-      "ranks": [
-        1,
-        160,
-        393,
-        548
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "siddhartha gautama buddha",
       "variants": [
         "siddhartha gautama buddha",
@@ -691,98 +677,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "abraham lincoln",
+      "name": "gottfried wilhelm leibniz",
       "variants": [
-        "abraham lincoln",
-        "abraham"
+        "gottfried wilhelm leibniz",
+        "gottfried leibniz"
       ],
       "ranks": [
-        31,
-        94
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "erasmus",
-      "variants": [
-        "erasmus",
-        "erasmus of rotterdam"
-      ],
-      "ranks": [
-        104,
-        583
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "montesquieu",
-      "variants": [
-        "montesquieu",
-        "baron de montesquieu"
-      ],
-      "ranks": [
-        106,
-        605
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "babur",
-      "variants": [
-        "babur",
-        "kabir"
-      ],
-      "ranks": [
-        180,
-        408
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pope pius ix",
-      "variants": [
-        "pope pius ix",
-        "pope pius xii"
-      ],
-      "ranks": [
-        232,
-        380
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramakrishna",
-      "variants": [
-        "ramakrishna",
-        "ramakrishna paramahamsa"
-      ],
-      "ranks": [
-        243,
-        660
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "seneca",
-      "variants": [
-        "seneca",
-        "seneca the younger"
-      ],
-      "ranks": [
-        259,
-        549
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        353,
-        354
+        111,
+        522
       ]
     },
     {
@@ -807,6 +709,30 @@
       "ranks": [
         728,
         848
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bhante gunaratana",
+      "variants": [
+        "bhante gunaratana",
+        "bhante henepola gunaratana"
+      ],
+      "ranks": [
+        750,
+        792
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kyabje ling rinpoche",
+      "variants": [
+        "kyabje ling rinpoche",
+        "kyabje trijang rinpoche"
+      ],
+      "ranks": [
+        862,
+        864
       ]
     },
     {
@@ -884,6 +810,21 @@
       "Military": 6,
       "Other": 691
     }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 204,
+    "contributionShortRate": 0.204,
+    "score": 95.68
   },
   "summary": "Issues: 71 exact duplicates; pattern collapse (max 11)"
 }

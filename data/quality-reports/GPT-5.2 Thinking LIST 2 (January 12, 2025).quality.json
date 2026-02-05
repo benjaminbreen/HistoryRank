@@ -1,12 +1,12 @@
 {
   "file": "GPT-5.2 Thinking LIST 2 (January 12, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-01-20T04:15:57.284Z",
+  "timestamp": "2026-02-05T18:16:38.000Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 6,
-      "fuzzy": 10,
+      "fuzzy": 3,
       "status": "PASS",
       "details": "6 exact duplicates found"
     },
@@ -49,13 +49,14 @@
       "details": "500 entries (expected 1000)"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
-        "socrates"
+        "socrates",
+        "saint paul"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -109,34 +110,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
-      "variants": [
-        "muhammad",
-        "askia muhammad",
-        "muhammad ibn musa alkhwarizmi",
-        "muhammad ali"
-      ],
-      "ranks": [
-        1,
-        206,
-        280,
-        374
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ashoka",
-      "variants": [
-        "ashoka",
-        "ashoka the great"
-      ],
-      "ranks": [
-        11,
-        493
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "martin luther",
       "variants": [
         "martin luther",
@@ -149,38 +122,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "alkhwarizmi",
+      "name": "pope urban ii",
       "variants": [
-        "alkhwarizmi",
-        "muhammad ibn musa alkhwarizmi"
+        "pope urban ii",
+        "pope john paul ii"
       ],
       "ranks": [
-        94,
-        280
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sappho",
-      "variants": [
-        "sappho",
-        "sappho of lesbos"
-      ],
-      "ranks": [
-        160,
-        302
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "desiderius erasmus",
-      "variants": [
-        "desiderius erasmus",
-        "erasmus"
-      ],
-      "ranks": [
-        185,
-        478
+        244,
+        341
       ]
     },
     {
@@ -193,18 +142,6 @@
       "ranks": [
         319,
         494
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sukarno",
-      "variants": [
-        "sukarno",
-        "suharto"
-      ],
-      "ranks": [
-        410,
-        411
       ]
     },
     {
@@ -258,6 +195,21 @@
       "Military": 5,
       "Other": 412
     }
+  },
+  "advanced": {
+    "parentheticalCount": 15,
+    "parentheticalRate": 0.03,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 98.2
   },
   "summary": "Issues: 6 exact duplicates; pattern collapse (max 10); 500 entries (expected 1000)"
 }

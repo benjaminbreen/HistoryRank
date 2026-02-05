@@ -1,17 +1,17 @@
 {
   "file": "Qwen3 235B A22B LIST 4 (January 19, 2026).txt",
   "model": "Qwen3 235B A22B",
-  "timestamp": "2026-01-20T04:16:10.683Z",
+  "timestamp": "2026-02-05T18:17:16.464Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
       "exact": 356,
-      "fuzzy": 234,
+      "fuzzy": 23,
       "status": "FAIL",
       "details": "356 exact duplicates found"
     },
     "pattern_collapse": {
-      "maxSequence": 20,
+      "maxSequence": 21,
       "sequences": [
         {
           "type": "pattern_collapse",
@@ -144,10 +144,22 @@
             "654. Reed Hastings",
             "655. Steve Jobs"
           ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 394,
+          "endRank": 414,
+          "count": 21,
+          "examples": [
+            "394. Jeroboam",
+            "395. Abijah",
+            "396. Asa"
+          ]
         }
       ],
       "status": "PASS",
-      "details": "Max sequence of 20 similar entries"
+      "details": "Max sequence of 21 similar entries"
     },
     "structural": {
       "entries": 1000,
@@ -157,13 +169,14 @@
       "details": "OK"
     },
     "anchor_coverage": {
-      "found": 42,
-      "expected": 43,
+      "found": 59,
+      "expected": 61,
       "missing": [
-        "michelangelo"
+        "michelangelo",
+        "saint paul"
       ],
       "status": "PASS",
-      "details": "42/43 anchor figures found (98%)"
+      "details": "59/61 anchor figures found (97%)"
     }
   },
   "issues": [
@@ -1295,404 +1308,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "muhammad",
+      "name": "martin luther king jr",
       "variants": [
-        "muhammad",
-        "ham"
+        "martin luther king jr",
+        "martin luther king sr"
       ],
       "ranks": [
-        2,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sigmund freud",
-      "variants": [
-        "sigmund freud",
-        "reu"
-      ],
-      "ranks": [
-        17,
-        330
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cleopatra",
-      "variants": [
-        "cleopatra",
-        "ra"
-      ],
-      "ranks": [
-        27,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "socrates",
-      "variants": [
-        "socrates",
-        "ra"
-      ],
-      "ranks": [
-        33,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pythagoras",
-      "variants": [
-        "pythagoras",
-        "ra"
-      ],
-      "ranks": [
-        36,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "immanuel kant",
-      "variants": [
-        "immanuel kant",
-        "anu"
-      ],
-      "ranks": [
-        49,
-        300
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "david hume",
-      "variants": [
-        "david hume",
-        "david"
-      ],
-      "ranks": [
-        50,
-        247
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jeremy bentham",
-      "variants": [
-        "jeremy bentham",
-        "ham"
-      ],
-      "ranks": [
-        56,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john stuart mill",
-      "variants": [
-        "john stuart mill",
-        "john"
-      ],
-      "ranks": [
-        57,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bertrand russell",
-      "variants": [
-        "bertrand russell",
-        "ra"
-      ],
-      "ranks": [
-        70,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "paul feyerabend",
-      "variants": [
-        "paul feyerabend",
-        "ra"
-      ],
-      "ranks": [
-        74,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "francis crick",
-      "variants": [
-        "francis crick",
-        "ra"
-      ],
-      "ranks": [
-        78,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rosalind franklin",
-      "variants": [
-        "rosalind franklin",
-        "ra"
-      ],
-      "ranks": [
-        79,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "paul dirac",
-      "variants": [
-        "paul dirac",
-        "ra"
-      ],
-      "ranks": [
-        90,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "alexander graham bell",
-      "variants": [
-        "alexander graham bell",
-        "ra",
-        "ham"
-      ],
-      "ranks": [
-        105,
-        282,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john bardeen",
-      "variants": [
-        "john bardeen",
-        "john"
-      ],
-      "ranks": [
-        108,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "walter brattain",
-      "variants": [
-        "walter brattain",
-        "ra"
-      ],
-      "ranks": [
-        109,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "david bengurion",
-      "variants": [
-        "david bengurion",
-        "david"
-      ],
-      "ranks": [
-        126,
-        247
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "yasser arafat",
-      "variants": [
-        "yasser arafat",
-        "ra"
-      ],
-      "ranks": [
-        130,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "indira gandhi",
-      "variants": [
-        "indira gandhi",
-        "ra"
-      ],
-      "ranks": [
-        131,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "subhas chandra bose",
-      "variants": [
-        "subhas chandra bose",
-        "ra"
-      ],
-      "ranks": [
-        133,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rabindranath tagore",
-      "variants": [
-        "rabindranath tagore",
-        "ra",
-        "anat"
-      ],
-      "ranks": [
-        136,
-        282,
-        294
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "betty friedan",
-      "variants": [
-        "betty friedan",
-        "dan"
-      ],
-      "ranks": [
-        157,
-        344
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "elizabeth cady stanton",
-      "variants": [
-        "elizabeth cady stanton",
-        "eli"
-      ],
-      "ranks": [
-        159,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "indira nooyi",
-      "variants": [
-        "indira nooyi",
-        "ra"
-      ],
-      "ranks": [
-        162,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "henry kissinger",
-      "variants": [
-        "henry kissinger",
-        "sin"
-      ],
-      "ranks": [
-        167,
-        305
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john f kennedy",
-      "variants": [
-        "john f kennedy",
-        "john"
-      ],
-      "ranks": [
-        169,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "lyndon b johnson",
-      "variants": [
-        "lyndon b johnson",
-        "john"
-      ],
-      "ranks": [
-        170,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "barack obama",
-      "variants": [
-        "barack obama",
-        "ra"
-      ],
-      "ranks": [
-        175,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pope francis",
-      "variants": [
-        "pope francis",
-        "ra"
-      ],
-      "ranks": [
-        178,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john paul ii",
-      "variants": [
-        "john paul ii",
-        "john"
-      ],
-      "ranks": [
-        179,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "billy graham",
-      "variants": [
-        "billy graham",
-        "ra",
-        "ham"
-      ],
-      "ranks": [
-        189,
-        282,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "peter the great",
-      "variants": [
-        "peter the great",
-        "peter"
-      ],
-      "ranks": [
-        194,
-        256
+        150,
+        188
       ]
     },
     {
@@ -1700,14 +1323,12 @@
       "name": "henry viii",
       "variants": [
         "henry viii",
-        "henry ii",
         "henry iii",
         "henry v",
         "henry vi"
       ],
       "ranks": [
         197,
-        511,
         518,
         531,
         532
@@ -1741,40 +1362,11 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "william iii",
-      "variants": [
-        "william iii",
-        "william iv"
-      ],
-      "ranks": [
-        207,
-        213
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anne",
-      "variants": [
-        "anne",
-        "anat",
-        "anu",
-        "abner"
-      ],
-      "ranks": [
-        209,
-        294,
-        300,
-        386
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "george i",
       "variants": [
         "george i",
         "george iii",
         "george iv",
-        "george v",
         "george vi",
         "king george iii"
       ],
@@ -1782,7 +1374,6 @@
         210,
         211,
         212,
-        215,
         217,
         590
       ]
@@ -1792,14 +1383,10 @@
       "name": "george iii",
       "variants": [
         "george iii",
-        "george iv",
-        "george vi",
         "king george iii"
       ],
       "ranks": [
         211,
-        212,
-        217,
         590
       ]
     },
@@ -1808,13 +1395,11 @@
       "name": "george iv",
       "variants": [
         "george iv",
-        "george v",
-        "george vi"
+        "george v"
       ],
       "ranks": [
         212,
-        215,
-        217
+        215
       ]
     },
     {
@@ -1822,13 +1407,11 @@
       "name": "edward vii",
       "variants": [
         "edward vii",
-        "edward viii",
-        "edward iv"
+        "edward viii"
       ],
       "ranks": [
         214,
-        216,
-        533
+        216
       ]
     },
     {
@@ -1845,90 +1428,6 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "elizabeth ii",
-      "variants": [
-        "elizabeth ii",
-        "eli"
-      ],
-      "ranks": [
-        218,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "franois mitterrand",
-      "variants": [
-        "franois mitterrand",
-        "ra"
-      ],
-      "ranks": [
-        222,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jacques chirac",
-      "variants": [
-        "jacques chirac",
-        "ra"
-      ],
-      "ranks": [
-        223,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "emmanuel macron",
-      "variants": [
-        "emmanuel macron",
-        "anu"
-      ],
-      "ranks": [
-        224,
-        300
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "willy brandt",
-      "variants": [
-        "willy brandt",
-        "ra"
-      ],
-      "ranks": [
-        230,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "boris yeltsin",
-      "variants": [
-        "boris yeltsin",
-        "sin"
-      ],
-      "ranks": [
-        233,
-        305
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "peter i",
-      "variants": [
-        "peter i",
-        "peter"
-      ],
-      "ranks": [
-        236,
-        256
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "alexander ii",
       "variants": [
         "alexander ii",
@@ -1937,940 +1436,6 @@
       "ranks": [
         238,
         239
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "selim i",
-      "variants": [
-        "selim i",
-        "seti i",
-        "eli"
-      ],
-      "ranks": [
-        243,
-        273,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abraham",
-      "variants": [
-        "abraham",
-        "ra",
-        "ham"
-      ],
-      "ranks": [
-        245,
-        282,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "elijah",
-      "variants": [
-        "elijah",
-        "delilah",
-        "eli",
-        "abijah",
-        "elah"
-      ],
-      "ranks": [
-        249,
-        380,
-        381,
-        395,
-        398
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john the baptist",
-      "variants": [
-        "john the baptist",
-        "john"
-      ],
-      "ranks": [
-        254,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "john the evangelist",
-      "variants": [
-        "john the evangelist",
-        "eli",
-        "john"
-      ],
-      "ranks": [
-        258,
-        381,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "mark",
-      "variants": [
-        "mark",
-        "maat",
-        "marduk",
-        "barak"
-      ],
-      "ranks": [
-        261,
-        289,
-        297,
-        370
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ramses ii",
-      "variants": [
-        "ramses ii",
-        "ra"
-      ],
-      "ranks": [
-        266,
-        282
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tutankhamun",
-      "variants": [
-        "tutankhamun",
-        "amun",
-        "ham"
-      ],
-      "ranks": [
-        267,
-        290,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "narmer",
-      "variants": [
-        "narmer",
-        "narses"
-      ],
-      "ranks": [
-        278,
-        487
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "isis",
-      "variants": [
-        "isis",
-        "sin"
-      ],
-      "ranks": [
-        281,
-        305
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ra",
-      "variants": [
-        "ra",
-        "asherah",
-        "naramsin",
-        "ziusudra",
-        "ham",
-        "reu",
-        "terah",
-        "dan",
-        "gad",
-        "rachel",
-        "pharaoh",
-        "deborah",
-        "barak",
-        "asa",
-        "ezra",
-        "trajan",
-        "caracalla",
-        "theodora",
-        "ragnar lothbrok",
-        "harald hardrada",
-        "philip ii of france",
-        "philip iv of france",
-        "pico della mirandola",
-        "erasmus",
-        "desiderius erasmus",
-        "francis xavier",
-        "tycho brahe",
-        "paracelsus",
-        "benjamin franklin",
-        "francis marion",
-        "horatio gates",
-        "jeanpaul marat",
-        "michael faraday",
-        "wernher von braun",
-        "richard branson"
-      ],
-      "ranks": [
-        282,
-        295,
-        310,
-        318,
-        323,
-        330,
-        333,
-        344,
-        346,
-        351,
-        357,
-        369,
-        370,
-        396,
-        431,
-        454,
-        460,
-        485,
-        501,
-        504,
-        515,
-        523,
-        537,
-        538,
-        541,
-        547,
-        558,
-        559,
-        576,
-        586,
-        587,
-        596,
-        606,
-        640,
-        644
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anubis",
-      "variants": [
-        "anubis",
-        "anu"
-      ],
-      "ranks": [
-        283,
-        300
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hathor",
-      "variants": [
-        "hathor",
-        "nahor"
-      ],
-      "ranks": [
-        284,
-        332
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ptah",
-      "variants": [
-        "ptah",
-        "noah",
-        "leah",
-        "elah",
-        "pekah"
-      ],
-      "ranks": [
-        287,
-        320,
-        352,
-        398,
-        411
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "maat",
-      "variants": [
-        "maat",
-        "anat",
-        "baal"
-      ],
-      "ranks": [
-        289,
-        294,
-        296
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "amun",
-      "variants": [
-        "amun",
-        "anu",
-        "amon"
-      ],
-      "ranks": [
-        290,
-        300,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "hapi",
-      "variants": [
-        "hapi",
-        "ham"
-      ],
-      "ranks": [
-        291,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anat",
-      "variants": [
-        "anat",
-        "anu",
-        "asa",
-        "ahab"
-      ],
-      "ranks": [
-        294,
-        300,
-        396,
-        401
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "asherah",
-      "variants": [
-        "asherah",
-        "asher"
-      ],
-      "ranks": [
-        295,
-        347
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "baal",
-      "variants": [
-        "baal",
-        "barak",
-        "saul"
-      ],
-      "ranks": [
-        296,
-        370,
-        384
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "enlil",
-      "variants": [
-        "enlil",
-        "enki",
-        "eli"
-      ],
-      "ranks": [
-        299,
-        303,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "anu",
-      "variants": [
-        "anu",
-        "reu",
-        "dan",
-        "asa",
-        "scipio africanus"
-      ],
-      "ranks": [
-        300,
-        330,
-        344,
-        396,
-        443
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "enki",
-      "variants": [
-        "enki",
-        "eli"
-      ],
-      "ranks": [
-        303,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shamash",
-      "variants": [
-        "shamash",
-        "ham"
-      ],
-      "ranks": [
-        304,
-        323
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "sin",
-      "variants": [
-        "sin",
-        "naramsin",
-        "cain",
-        "dan"
-      ],
-      "ranks": [
-        305,
-        310,
-        324,
-        344
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "tiamat",
-      "variants": [
-        "tiamat",
-        "tamar"
-      ],
-      "ranks": [
-        306,
-        355
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "noah",
-      "variants": [
-        "noah",
-        "enoch",
-        "leah",
-        "elah"
-      ],
-      "ranks": [
-        320,
-        327,
-        352,
-        398
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "shem",
-      "variants": [
-        "shem",
-        "ham",
-        "asher"
-      ],
-      "ranks": [
-        321,
-        323,
-        347
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ham",
-      "variants": [
-        "ham",
-        "dan",
-        "gad",
-        "shamgar",
-        "ahab",
-        "alexander hamilton",
-        "margaret hamilton"
-      ],
-      "ranks": [
-        323,
-        344,
-        346,
-        368,
-        401,
-        577,
-        639
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "cain",
-      "variants": [
-        "cain",
-        "dan",
-        "jair"
-      ],
-      "ranks": [
-        324,
-        344,
-        374
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abel",
-      "variants": [
-        "abel",
-        "abner",
-        "zerubbabel"
-      ],
-      "ranks": [
-        325,
-        386,
-        435
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "seth",
-      "variants": [
-        "seth",
-        "leah"
-      ],
-      "ranks": [
-        326,
-        352
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "methuselah",
-      "variants": [
-        "methuselah",
-        "elah"
-      ],
-      "ranks": [
-        328,
-        398
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "reu",
-      "variants": [
-        "reu",
-        "reuben",
-        "jehu"
-      ],
-      "ranks": [
-        330,
-        341,
-        403
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "terah",
-      "variants": [
-        "terah",
-        "leah",
-        "elah",
-        "pekah"
-      ],
-      "ranks": [
-        333,
-        352,
-        398,
-        411
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "lot",
-      "variants": [
-        "lot",
-        "elon",
-        "ragnar lothbrok"
-      ],
-      "ranks": [
-        334,
-        377,
-        501
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "esau",
-      "variants": [
-        "esau",
-        "saul",
-        "asa",
-        "elah"
-      ],
-      "ranks": [
-        338,
-        384,
-        396,
-        398
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "judah",
-      "variants": [
-        "judah",
-        "huldah"
-      ],
-      "ranks": [
-        340,
-        419
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "simeon",
-      "variants": [
-        "simeon",
-        "gideon",
-        "samson"
-      ],
-      "ranks": [
-        342,
-        371,
-        379
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "levi",
-      "variants": [
-        "levi",
-        "leah",
-        "eli"
-      ],
-      "ranks": [
-        343,
-        352,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "dan",
-      "variants": [
-        "dan",
-        "gad",
-        "georges danton"
-      ],
-      "ranks": [
-        344,
-        346,
-        595
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "asher",
-      "variants": [
-        "asher",
-        "abner",
-        "esther"
-      ],
-      "ranks": [
-        347,
-        386,
-        434
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "benjamin",
-      "variants": [
-        "benjamin",
-        "benjamin franklin"
-      ],
-      "ranks": [
-        350,
-        576
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "leah",
-      "variants": [
-        "leah",
-        "elah",
-        "pekah"
-      ],
-      "ranks": [
-        352,
-        398,
-        411
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "bilhah",
-      "variants": [
-        "bilhah",
-        "zilpah"
-      ],
-      "ranks": [
-        353,
-        354
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "aaron",
-      "variants": [
-        "aaron",
-        "abdon",
-        "amon"
-      ],
-      "ranks": [
-        360,
-        378,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "joshua",
-      "variants": [
-        "joshua",
-        "hoshea"
-      ],
-      "ranks": [
-        362,
-        412
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "ehud",
-      "variants": [
-        "ehud",
-        "jehu"
-      ],
-      "ranks": [
-        367,
-        403
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "elon",
-      "variants": [
-        "elon",
-        "eli",
-        "elah",
-        "amon"
-      ],
-      "ranks": [
-        377,
-        381,
-        398,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "abdon",
-      "variants": [
-        "abdon",
-        "amon"
-      ],
-      "ranks": [
-        378,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "samson",
-      "variants": [
-        "samson",
-        "amon"
-      ],
-      "ranks": [
-        379,
-        417
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "delilah",
-      "variants": [
-        "delilah",
-        "eli"
-      ],
-      "ranks": [
-        380,
-        381
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "eli",
-      "variants": [
-        "eli",
-        "elah",
-        "marcus aurelius",
-        "belisarius"
-      ],
-      "ranks": [
-        381,
-        398,
-        457,
-        486
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "samuel",
-      "variants": [
-        "samuel",
-        "saul",
-        "samuel adams"
-      ],
-      "ranks": [
-        383,
-        384,
-        581
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jonathan",
-      "variants": [
-        "jonathan",
-        "nathan"
-      ],
-      "ranks": [
-        385,
-        388
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "nathan",
-      "variants": [
-        "nathan",
-        "nathan hale"
-      ],
-      "ranks": [
-        388,
-        583
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "rehoboam",
-      "variants": [
-        "rehoboam",
-        "jeroboam"
-      ],
-      "ranks": [
-        393,
-        394
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jeroboam",
-      "variants": [
-        "jeroboam",
-        "jeroboam ii"
-      ],
-      "ranks": [
-        394,
-        406
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "asa",
-      "variants": [
-        "asa",
-        "ahab"
-      ],
-      "ranks": [
-        396,
-        401
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "elah",
-      "variants": [
-        "elah",
-        "pekah"
-      ],
-      "ranks": [
-        398,
-        411
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "zimri",
-      "variants": [
-        "zimri",
-        "omri"
-      ],
-      "ranks": [
-        399,
-        400
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "jehu",
-      "variants": [
-        "jehu",
-        "john"
-      ],
-      "ranks": [
-        403,
-        516
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "pekahiah",
-      "variants": [
-        "pekahiah",
-        "pekah"
-      ],
-      "ranks": [
-        410,
-        411
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "josiah",
-      "variants": [
-        "josiah",
-        "jovian"
-      ],
-      "ranks": [
-        418,
-        471
       ]
     },
     {
@@ -2887,32 +1452,16 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "nero",
-      "variants": [
-        "nero",
-        "nerva"
-      ],
-      "ranks": [
-        449,
-        453
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
       "name": "henry i",
       "variants": [
         "henry i",
         "henry ii",
-        "henry iii",
-        "henry v",
-        "henry vi"
+        "henry iii"
       ],
       "ranks": [
         508,
         511,
-        518,
-        531,
-        532
+        518
       ]
     },
     {
@@ -2920,15 +1469,11 @@
       "name": "henry ii",
       "variants": [
         "henry ii",
-        "henry iii",
-        "henry v",
-        "henry vi"
+        "henry iii"
       ],
       "ranks": [
         511,
-        518,
-        531,
-        532
+        518
       ]
     },
     {
@@ -2945,36 +1490,14 @@
     },
     {
       "type": "fuzzy_duplicate",
-      "name": "john",
+      "name": "philip ii of france",
       "variants": [
-        "john",
-        "john wycliffe",
-        "john of the cross",
-        "john adams",
-        "john dalton",
-        "john glenn",
-        "katherine johnson"
+        "philip ii of france",
+        "philip iv of france"
       ],
       "ranks": [
-        516,
-        528,
-        549,
-        579,
-        610,
-        634,
-        638
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "henry iii",
-      "variants": [
-        "henry iii",
-        "henry vi"
-      ],
-      "ranks": [
-        518,
-        532
+        515,
+        523
       ]
     },
     {
@@ -2987,18 +1510,6 @@
       "ranks": [
         531,
         532
-      ]
-    },
-    {
-      "type": "fuzzy_duplicate",
-      "name": "erasmus",
-      "variants": [
-        "erasmus",
-        "desiderius erasmus"
-      ],
-      "ranks": [
-        538,
-        541
       ]
     },
     {
@@ -3132,6 +1643,18 @@
         "654. Reed Hastings",
         "655. Steve Jobs"
       ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 394,
+      "endRank": 414,
+      "count": 21,
+      "examples": [
+        "394. Jeroboam",
+        "395. Abijah",
+        "396. Asa"
+      ]
     }
   ],
   "diversity": {
@@ -3161,5 +1684,20 @@
       "Other": 707
     }
   },
-  "summary": "Issues: 356 exact duplicates; pattern collapse (max 20)"
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.88
+  },
+  "summary": "Issues: 356 exact duplicates; pattern collapse (max 21)"
 }
