@@ -995,15 +995,13 @@ async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
     .where(sql`${rankings.source} != 'pantheon'`);
 
   const modelSources = new Set<string>();
-  const maxRankByModel = new Map<string, number>();
+  const maxRankBySource = new Map<string, number>();
   const figureRankings = new Map<string, { sourcesWithRanks: Map<string, { sum: number; count: number }> }>();
 
   for (const row of allRankings) {
-    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
-    const canonical = getCanonicalModelId(row.source.toLowerCase());
-    modelSources.add(canonical);
-    const currentMax = maxRankByModel.get(canonical) || 0;
-    if (row.rank > currentMax) maxRankByModel.set(canonical, row.rank);
+    modelSources.add(row.source);
+    const currentMax = maxRankBySource.get(row.source) || 0;
+    if (row.rank > currentMax) maxRankBySource.set(row.source, row.rank);
 
     const mergedId = mergeRemap.get(row.figureId) || row.figureId;
     if (GROUP_EXCLUDE.has(mergedId)) continue;
