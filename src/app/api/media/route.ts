@@ -428,14 +428,16 @@ export async function GET(request: Request) {
 
     // --- Semantic scoring ---
     const smart = searchParams.get('smart') !== 'false';
-    const embeddingsIndex = loadMediaEmbeddings();
     let semanticScores = new Map<string, number>();
-    if (smart && embeddingsIndex && process.env.OPENAI_API_KEY) {
+    if (smart && process.env.OPENAI_API_KEY) {
       try {
-        const queryEmbedding = normalizeVector(await embedQuery(query));
-        semanticScores = new Map(
-          embeddingsIndex.items.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
-        );
+        const embeddingsIndex = loadMediaEmbeddings();
+        if (embeddingsIndex) {
+          const queryEmbedding = normalizeVector(await embedQuery(query));
+          semanticScores = new Map(
+            embeddingsIndex.items.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
+          );
+        }
       } catch (error) {
         console.warn('[media-search] Semantic search failed, using lexical only', error);
       }
@@ -459,10 +461,10 @@ export async function GET(request: Request) {
 
     // If semantic only (no lexical hits), include all items with semantic scores
     if (hasSemanticScores && lexicalScores.size === 0) {
-      for (const entry of embeddingsIndex!.items) {
-        if (!combinedScores.has(entry.id)) {
-          const semNorm = (semanticScores.get(entry.id) ?? 0) / maxSemantic;
-          if (semNorm > 0.3) combinedScores.set(entry.id, semNorm * semanticWeight);
+      for (const [id, score] of semanticScores) {
+        if (!combinedScores.has(id)) {
+          const semNorm = score / maxSemantic;
+          if (semNorm > 0.3) combinedScores.set(id, semNorm * semanticWeight);
         }
       }
     }

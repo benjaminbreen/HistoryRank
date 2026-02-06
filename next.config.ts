@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     root: __dirname,
   },
   outputFileTracingIncludes: {
-    '/api/figures': ['historyrank.db', 'data/embeddings/figures.json'],
+    '/api/figures': ['historyrank.db'],
     '/api/figures/[id]': ['historyrank.db'],
     '/api/scatter': ['historyrank.db'],
     '/api/health': ['historyrank.db'],

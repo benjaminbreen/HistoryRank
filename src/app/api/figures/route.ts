@@ -1481,14 +1481,16 @@ export async function GET(request: NextRequest) {
       }
 
       const smartSearch = request.nextUrl.searchParams.get('smart') !== 'false';
-      const embeddingsIndex = loadFigureEmbeddings();
       let semanticScores = new Map<string, number>();
-      if (smartSearch && embeddingsIndex && process.env.OPENAI_API_KEY) {
+      if (smartSearch && process.env.OPENAI_API_KEY) {
         try {
-          const queryEmbedding = normalizeVector(await embedQuery(search));
-          semanticScores = new Map(
-            embeddingsIndex.figures.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
-          );
+          const embeddingsIndex = loadFigureEmbeddings();
+          if (embeddingsIndex) {
+            const queryEmbedding = normalizeVector(await embedQuery(search));
+            semanticScores = new Map(
+              embeddingsIndex.figures.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
+            );
+          }
         } catch (error) {
           console.warn('[search] Semantic search failed, using lexical only', error);
         }
