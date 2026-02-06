@@ -128,7 +128,7 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
       if (filters?.useV2) params.set('v2', 'true');
       if (filters?.useV3) params.set('v3', 'true');
 
-      const response = await fetch(`/api/export/figures?${params}`);
+      const response = await fetch(`/api/export?type=figures&${params}`);
       if (!response.ok) throw new Error('Export failed');
 
       const content = await response.text();
@@ -155,7 +155,7 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
       if (filters?.useV2) params.set('v2', 'true');
       if (filters?.useV3) params.set('v3', 'true');
 
-      const response = await fetch(`/api/export/figures?${params}`);
+      const response = await fetch(`/api/export?type=figures&${params}`);
       if (!response.ok) throw new Error('Export failed');
 
       const data = await response.json();

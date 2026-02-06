@@ -69,7 +69,7 @@ export default function FullListPage() {
   useEffect(() => {
     const fetchFigures = async () => {
       try {
-        const res = await fetch('/api/figures/all');
+        const res = await fetch('/api/figures?mode=all');
         if (!res.ok) return;
         const data = await res.json();
         setFigures(data.figures || []);

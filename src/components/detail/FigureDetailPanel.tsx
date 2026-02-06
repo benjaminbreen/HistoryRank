@@ -242,7 +242,7 @@ export function FigureDetailPanel({
     const fetchWikiData = async () => {
       setWikiLoading(true);
       try {
-        const res = await fetch(`/api/wikipedia/${encodeURIComponent(wikiSlug)}`);
+        const res = await fetch(`/api/wikipedia?slug=${encodeURIComponent(wikiSlug)}`);
         const data = await res.json();
         wikiCache.set(wikiSlug, data); // Cache it
         setWikiData(data);
@@ -266,7 +266,7 @@ export function FigureDetailPanel({
     const fetchLinks = async () => {
       setLinksLoading(true);
       try {
-        const res = await fetch(`/api/media-links?figureId=${encodeURIComponent(figureId)}`, { signal: controller.signal });
+        const res = await fetch(`/api/media?mode=links&figureId=${encodeURIComponent(figureId)}`, { signal: controller.signal });
         if (!res.ok) {
           setRelatedMedia([]);
           return;

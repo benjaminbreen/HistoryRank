@@ -45,7 +45,7 @@ export function PageviewsSparkline({ wikipediaSlug, figureName }: PageviewsSpark
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/wikipedia/pageviews-history/${encodeURIComponent(wikipediaSlug)}`);
+        const res = await fetch(`/api/wikipedia?slug=${encodeURIComponent(wikipediaSlug)}&pageviews=1`);
         if (!res.ok) {
           setData(null);
           return;

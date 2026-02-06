@@ -349,6 +349,11 @@ src/lib/
 
 ---
 
+# Future work ideas (not implemented)
+- **Embedding map visualization**: add a page that projects figure embeddings into 2D/3D (UMAP/t‑SNE/PCA) and renders each figure as a thumbnail node.
+- **Interpretable axes**: allow users to choose semantic “probe” axes (e.g., `scientist ↔ artist`, `war ↔ peace`, `religion ↔ secular`) by embedding anchor terms and projecting figures onto those axes.
+- **Cluster labeling**: optional post‑hoc cluster summaries (e.g., top nearest words or LLM summary of cluster members) with explicit “interpretive” labeling in UI.
+
 # Coding conventions
 
 ## Naming

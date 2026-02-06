@@ -43,7 +43,7 @@ function MediaPageContent() {
       setIsLoading(true);
       setErrorMessage(null);
       try {
-        const res = await fetch('/api/media', { signal: controller.signal });
+        const res = await fetch('/api/media?mode=list', { signal: controller.signal });
         if (!res.ok) {
           setErrorMessage(`Failed to load media list (${res.status}).`);
           setItems([]);
@@ -82,7 +82,7 @@ function MediaPageContent() {
     const fetchDetail = async () => {
       setDetailLoading(true);
       try {
-        const res = await fetch(`/api/media/${encodeURIComponent(selectedId)}`, { signal: controller.signal });
+        const res = await fetch(`/api/media?mode=detail&id=${encodeURIComponent(selectedId)}`, { signal: controller.signal });
         if (!res.ok) {
           setSelectedItem(null);
           return;

@@ -18,9 +18,9 @@ import { Tooltip } from '@/components/ui/tooltip';
 import { ListPreviewDialog } from '@/components/compare/ListPreviewDialog';
 import { InsightsPanel } from '@/components/compare/InsightsPanel';
 import { fetcher, comparisonDataConfig, figureDetailConfig, listDataConfig } from '@/lib/swr';
-import type { InsightsResponse } from '@/app/api/insights/route';
+import type { InsightsResponse } from '@/app/api/compare/route';
 import type { Figure, Ranking, FigureDetailResponse } from '@/types';
-import type { LLMComparisonResponse } from '@/app/api/llm-comparison/route';
+import type { LLMComparisonResponse } from '@/app/api/compare/route';
 
 // Dynamic imports for Recharts-heavy components (reduces initial bundle by ~100KB)
 const PairwiseScatter = dynamic(
@@ -84,7 +84,7 @@ function CompareContent() {
     error: comparisonError,
     isLoading
   } = useSWR<LLMComparisonResponse>(
-    '/api/llm-comparison',
+    '/api/compare?mode=llm',
     fetcher,
     comparisonDataConfig
   );
@@ -152,7 +152,7 @@ function CompareContent() {
     error: insightsError,
     isLoading: insightsLoading,
   } = useSWR<InsightsResponse>(
-    viewMode === 'insights' ? '/api/insights' : null,
+    viewMode === 'insights' ? '/api/compare?mode=insights' : null,
     fetcher,
     { revalidateOnFocus: false, dedupingInterval: 60000 }
   );
@@ -472,7 +472,7 @@ function CompareContent() {
 
             {viewMode === 'era' && (
               <DomainBreakdown
-                data={data.eraBreakdown}
+                data={data.eraBreakdown.map((entry) => ({ domain: entry.era, models: entry.models }))}
                 models={data.models}
                 title="Rankings by Era"
                 description="Average rank each model gives to figures from each era (lower = model ranks that era more highly)"

@@ -19,7 +19,32 @@ function parseLabel(file: string): string {
   return file.replace(/\.[^.]+$/, '');
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const file = searchParams.get('file');
+
+  if (file) {
+    const decoded = decodeURIComponent(file);
+    const safeName = path.basename(decoded);
+    if (!fs.existsSync(RAW_DIR)) {
+      return NextResponse.json({ error: 'File not found' }, { status: 404 });
+    }
+    const files = fs.readdirSync(RAW_DIR);
+    const matched = files.find((f) => f === safeName) || files.find((f) => f.toLowerCase() === safeName.toLowerCase());
+    if (!matched) {
+      return NextResponse.json({ error: 'File not found' }, { status: 404 });
+    }
+
+    const fullPath = path.join(RAW_DIR, matched);
+    const content = fs.readFileSync(fullPath);
+    return new NextResponse(content, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1200',
+      },
+    });
+  }
+
   if (!fs.existsSync(RAW_DIR)) {
     return NextResponse.json({ lists: [] });
   }
@@ -36,7 +61,7 @@ export async function GET() {
       file,
       label: parseLabel(file),
       size: stats.size,
-      downloadUrl: `/api/lists/${encodeURIComponent(file)}`,
+      downloadUrl: `/api/lists?file=${encodeURIComponent(file)}`,
     };
   });
 

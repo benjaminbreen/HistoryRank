@@ -80,7 +80,7 @@ export function AppFooter() {
                 <li>
                   <a
                     className="footer-link inline-flex items-center gap-1.5"
-                    href="/api/export/figures?format=csv"
+                    href="/api/export?type=figures&format=csv"
                     download
                   >
                     <Download className="h-3 w-3" />
@@ -90,7 +90,7 @@ export function AppFooter() {
                 <li>
                   <a
                     className="footer-link inline-flex items-center gap-1.5"
-                    href="/api/export/rankings?format=csv"
+                    href="/api/export?type=rankings&format=csv"
                     download
                   >
                     <Download className="h-3 w-3" />
@@ -100,7 +100,7 @@ export function AppFooter() {
                 <li>
                   <a
                     className="footer-link"
-                    href="/api/export/figures?format=json"
+                    href="/api/export?type=figures&format=json"
                     target="_blank"
                   >
                     JSON API

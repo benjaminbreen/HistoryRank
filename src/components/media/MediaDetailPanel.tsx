@@ -313,7 +313,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
     const fetchLinks = async () => {
       setLinksLoading(true);
       try {
-        const res = await fetch(`/api/media-links?mediaId=${encodeURIComponent(item.id)}`, { signal: controller.signal });
+        const res = await fetch(`/api/media?mode=links&mediaId=${encodeURIComponent(item.id)}`, { signal: controller.signal });
         if (!res.ok) {
           setRelatedFigures([]);
           return;
@@ -342,7 +342,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
     const fetchSources = async () => {
       setSourcesLoading(true);
       try {
-        const res = await fetch(`/api/media-sources?mediaId=${encodeURIComponent(item.id)}`, { signal: controller.signal });
+        const res = await fetch(`/api/media?mode=sources&mediaId=${encodeURIComponent(item.id)}`, { signal: controller.signal });
         if (!res.ok) {
           setSourceGroups([]);
           return;
@@ -372,7 +372,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
     const fetchProviders = async () => {
       setProvidersLoading(true);
       try {
-        const res = await fetch(`/api/media/providers?mediaId=${encodeURIComponent(item.id)}`, {
+        const res = await fetch(`/api/media?mode=providers&mediaId=${encodeURIComponent(item.id)}`, {
           signal: controller.signal,
         });
         if (!res.ok) {

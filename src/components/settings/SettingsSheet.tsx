@@ -236,7 +236,7 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
             <p className="text-xs text-stone-500 dark:text-slate-400">Download for research and analysis.</p>
             <div className="mt-3 space-y-2">
               <a
-                href="/api/export/figures?format=csv"
+                href="/api/export?type=figures&format=csv"
                 download
                 className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
               >
@@ -244,7 +244,7 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 Figures (CSV)
               </a>
               <a
-                href="/api/export/rankings?format=csv"
+                href="/api/export?type=rankings&format=csv"
                 download
                 className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
               >
@@ -252,7 +252,7 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 Raw Rankings (CSV)
               </a>
               <a
-                href="/api/export/figures?format=json"
+                href="/api/export?type=figures&format=json"
                 target="_blank"
                 className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-medium text-stone-700 transition-colors hover:border-stone-300 hover:bg-stone-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-700"
               >

@@ -1299,6 +1299,7 @@ async function getSourceRankLookup(source: string): Promise<Map<string, { avgRan
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
+  const mode = searchParams.get('mode');
 
   // Parse query params
   const domain = searchParams.get('domain');
@@ -1317,6 +1318,88 @@ export async function GET(request: NextRequest) {
   const offset = parseInt(searchParams.get('offset') || '0');
 
   try {
+    if (mode === 'all') {
+      const allFigures = await db
+        .select({
+          id: figures.id,
+          name: figures.canonicalName,
+          domain: figures.domain,
+          era: figures.era,
+          birthYear: figures.birthYear,
+          deathYear: figures.deathYear,
+          rank: figures.llmConsensusRank,
+        })
+        .from(figures)
+        .orderBy(asc(figures.canonicalName));
+
+      return NextResponse.json({
+        figures: allFigures,
+        total: allFigures.length,
+      });
+    }
+
+    if (mode === 'minimal') {
+      const id = searchParams.get('id');
+      if (!id) {
+        return NextResponse.json({ error: 'Missing id' }, { status: 400 });
+      }
+
+      const figure = await db.query.figures.findFirst({
+        where: eq(figures.id, id),
+        columns: {
+          id: true,
+          canonicalName: true,
+          birthYear: true,
+          deathYear: true,
+          occupation: true,
+          domain: true,
+          era: true,
+          regionSub: true,
+          birthPolity: true,
+          birthPlace: true,
+          birthLat: true,
+          birthLon: true,
+          wikipediaSlug: true,
+          wikipediaExtract: true,
+          hpiRank: true,
+          llmConsensusRank: true,
+          varianceScore: true,
+          pageviewsGlobal: true,
+          ngramPercentile: true,
+        },
+      });
+
+      if (!figure) {
+        return NextResponse.json({ error: 'Figure not found' }, { status: 404 });
+      }
+
+      const allRankings = await db.query.rankings.findMany({
+        where: eq(rankings.figureId, id),
+      });
+
+      const rankingsBySource = new Map<string, typeof allRankings[0]>();
+      for (const r of allRankings) {
+        if (!rankingsBySource.has(r.source)) {
+          rankingsBySource.set(r.source, r);
+        }
+      }
+
+      return NextResponse.json(
+        {
+          figure: {
+            ...figure,
+            _minimal: true,
+          },
+          rankings: Array.from(rankingsBySource.values()),
+        },
+        {
+          headers: {
+            'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+          },
+        }
+      );
+    }
+
     if (search) {
       const normalized = search.toLowerCase();
       const likeTerm = `%${normalized.replace(/%/g, '\\%').replace(/_/g, '\\_')}%`;

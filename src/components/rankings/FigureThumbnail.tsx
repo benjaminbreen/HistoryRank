@@ -44,7 +44,7 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
     const fetchThumbnail = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/wikipedia/${encodeURIComponent(wikipediaSlug)}`);
+        const res = await fetch(`/api/wikipedia?slug=${encodeURIComponent(wikipediaSlug)}`);
         const data = await res.json();
         if (data.thumbnail?.source) {
           setRemoteUrl(data.thumbnail.source);

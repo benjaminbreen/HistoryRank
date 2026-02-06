@@ -288,7 +288,7 @@ function HomeContent() {
   // Two-stage figure detail loading for faster initial render
   // Stage 1: Minimal data (fast, ~2-4KB) - shows immediately
   const { data: minimalDetail, isLoading: isMinimalLoading } = useSWR<FigureDetailResponse>(
-    selectedId ? `/api/figures/${selectedId}/minimal` : null,
+    selectedId ? `/api/figures?mode=minimal&id=${selectedId}` : null,
     fetcher,
     { ...figureDetailConfig, dedupingInterval: 60000 }
   );

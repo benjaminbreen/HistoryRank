@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { db, figures, rankings } from '@/lib/db';
-import { asc, desc, like, eq, sql, and, isNotNull } from 'drizzle-orm';
+import { asc, eq, and, isNotNull } from 'drizzle-orm';
 import { getVarianceLevel } from '@/types';
 import {
   toCSV,
@@ -10,7 +10,9 @@ import {
   generateMetadata,
   FIGURE_CSV_COLUMNS,
   VARIANCE_LEVEL_LABELS,
+  RANKING_CSV_COLUMNS,
   type FigureExportRow,
+  type RankingExportRow,
 } from '@/lib/export';
 
 export const runtime = 'nodejs';
@@ -85,8 +87,98 @@ function getV3RankLookup() {
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
+  const type = (searchParams.get('type') || 'figures').toLowerCase();
 
-  // Parse query params
+  if (type === 'rankings') {
+    const format = searchParams.get('format') || 'csv';
+    const model = searchParams.get('model');
+    const includeContribution = searchParams.get('include_contribution') === 'true';
+    const limitParam = searchParams.get('limit');
+    const limit = limitParam ? parseInt(limitParam, 10) : undefined;
+
+    try {
+      const conditions = [];
+      if (model) conditions.push(eq(rankings.source, model));
+
+      let query = db
+        .select({
+          figureId: rankings.figureId,
+          figureName: figures.canonicalName,
+          source: rankings.source,
+          rank: rankings.rank,
+          contribution: rankings.contribution,
+        })
+        .from(rankings)
+        .innerJoin(figures, eq(rankings.figureId, figures.id))
+        .where(conditions.length > 0 ? and(...conditions) : undefined)
+        .orderBy(asc(rankings.source), asc(rankings.rank));
+
+      const rows = limit ? await query.limit(limit) : await query;
+
+      const modelsInExport = [...new Set(rows.map(r => r.source))].sort();
+
+      const exportRows: RankingExportRow[] = rows.map(row => ({
+        figure_id: row.figureId,
+        figure_name: row.figureName,
+        model: row.source,
+        rank: row.rank,
+        contribution: includeContribution ? (row.contribution || '') : '',
+      }));
+
+      const metadata = generateMetadata(
+        exportRows.length,
+        { model, include_contribution: includeContribution ? 'true' : 'false' },
+        modelsInExport
+      );
+
+      if (format === 'json') {
+        return NextResponse.json({
+          meta: metadata,
+          rankings: exportRows,
+        });
+      }
+
+      const columns = includeContribution
+        ? RANKING_CSV_COLUMNS
+        : RANKING_CSV_COLUMNS.filter(c => c.key !== 'contribution');
+
+      const csv = toCSV(exportRows, columns);
+
+      const csvHeader = [
+        `# HistoryRank Export - Raw Rankings`,
+        `# Exported: ${metadata.exported_at}`,
+        `# Total Records: ${metadata.total_records}`,
+        `# Filters: ${JSON.stringify(metadata.filters_applied)}`,
+        `# Models: ${metadata.models_included.join(', ')}`,
+        `# Citation: ${metadata.citation}`,
+        `# Documentation: ${metadata.documentation_url}`,
+        `#`,
+        `# Note: Each row is one ranking from one model for one figure.`,
+        `# Use this data for inter-rater reliability analysis and model comparisons.`,
+        `#`,
+      ].join('\n');
+
+      const fullCsv = csvHeader + '\n' + csv;
+
+      const filename = model
+        ? `historyrank-rankings-${model.replace(/[^a-z0-9]/gi, '-')}-${new Date().toISOString().split('T')[0]}.csv`
+        : `historyrank-rankings-all-${new Date().toISOString().split('T')[0]}.csv`;
+
+      return new NextResponse(fullCsv, {
+        headers: {
+          'Content-Type': 'text/csv; charset=utf-8',
+          'Content-Disposition': `attachment; filename="${filename}"`,
+        },
+      });
+    } catch (error) {
+      console.error('Export error:', error);
+      return NextResponse.json(
+        { error: 'Failed to export data' },
+        { status: 500 }
+      );
+    }
+  }
+
   const format = searchParams.get('format') || 'csv';
   const domain = searchParams.get('domain');
   const era = searchParams.get('era');
@@ -96,13 +188,11 @@ export async function GET(request: NextRequest) {
   const useV2 = searchParams.get('v2') === 'true';
   const useV3 = searchParams.get('v3') === 'true';
 
-  // Build query conditions
   const conditions = [];
   if (domain) conditions.push(eq(figures.domain, domain));
   if (era) conditions.push(eq(figures.era, era));
   if (region) conditions.push(eq(figures.regionSub, region));
 
-  // Only include figures with LLM consensus rank for v1 exports
   if (!useV2 && !useV3) {
     conditions.push(isNotNull(figures.llmConsensusRank));
   }
@@ -117,7 +207,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Query figures
     let query = db
       .select({
         id: figures.id,
@@ -161,14 +250,12 @@ export async function GET(request: NextRequest) {
 
     const limitedRows = limit ? sortedRows.slice(0, limit) : sortedRows;
 
-    // Get list of unique models
     const models = useV3
       ? ['v3-consensus']
       : useV2
         ? ['v2-consensus']
-      : (await db.selectDistinct({ source: rankings.source }).from(rankings)).map(r => r.source).sort();
+        : (await db.selectDistinct({ source: rankings.source }).from(rankings)).map(r => r.source).sort();
 
-    // Transform to export format
     const exportRows: FigureExportRow[] = limitedRows.map((row, index) => {
       const varianceLevel = getVarianceLevel(row.varianceScore);
       const v2Rank = useV2 && v2Data ? v2Data.rankLookup.get(row.id) : null;
@@ -193,17 +280,23 @@ export async function GET(request: NextRequest) {
         variance_level: VARIANCE_LEVEL_LABELS[varianceLevel] || varianceLevel,
         pageviews_2025: row.pageviews2025?.toString() || '',
         pageviews_global: row.pageviewsGlobal?.toString() || '',
-        badges: '', // TODO: Could compute badges but would slow down export significantly
+        badges: '',
         wikipedia_url: row.wikipediaSlug
           ? `https://en.wikipedia.org/wiki/${row.wikipediaSlug}`
           : '',
       };
     });
 
-    // Generate metadata
     const metadata = generateMetadata(
       exportRows.length,
-      { domain, era, region },
+      {
+        domain,
+        era,
+        region,
+        limit: limit !== undefined ? String(limit) : null,
+        v2: useV2 ? 'true' : null,
+        v3: useV3 ? 'true' : null,
+      },
       models
     );
 
@@ -214,10 +307,7 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // Default: CSV
     const csv = toCSV(exportRows, FIGURE_CSV_COLUMNS);
-
-    // Add metadata as comments at the top
     const csvHeader = [
       `# HistoryRank Export - Figures`,
       `# Exported: ${metadata.exported_at}`,
@@ -230,7 +320,6 @@ export async function GET(request: NextRequest) {
     ].join('\n');
 
     const fullCsv = csvHeader + '\n' + csv;
-
     const filename = `historyrank-figures-${new Date().toISOString().split('T')[0]}.csv`;
 
     return new NextResponse(fullCsv, {
