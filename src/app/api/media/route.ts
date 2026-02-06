@@ -2,9 +2,10 @@ import { NextResponse } from 'next/server';
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadMediaItems } from '@/lib/media';
+import { loadMediaEmbeddings, embedQuery, normalizeVector, dot } from '@/lib/embeddings';
 
 export const runtime = 'nodejs';
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 type MediaDetail = ReturnType<typeof loadMediaItems>[number] & {
   wikipedia_extract?: string | null;
@@ -377,6 +378,111 @@ export async function GET(request: Request) {
       link: entry?.link ?? null,
       providers,
     });
+  }
+
+  if (mode === 'search') {
+    const query = (searchParams.get('q') || '').trim();
+    if (!query) {
+      return NextResponse.json({ items: [], scores: {} });
+    }
+
+    const items = loadMediaItems();
+
+    // --- Lexical scoring ---
+    const searchLower = query.toLowerCase();
+    const lexicalScores = new Map<string, number>();
+    for (const item of items) {
+      let score = 0;
+      const title = (item.title ?? '').toLowerCase();
+      const summary = (item.summary ?? '').toLowerCase();
+      const notes = (item.notes ?? '').toLowerCase();
+      const tags = (item.tags ?? []).join(' ').toLowerCase();
+      const type = (item.type ?? '').toLowerCase();
+      const era = (item.primary_era ?? '').toLowerCase();
+      const region = (item.primary_region ?? '').toLowerCase();
+      const domain = (item.domain ?? '').toLowerCase();
+      const subEra = (item.sub_era ?? '').toLowerCase();
+
+      if (title.includes(searchLower)) score += 4.0;
+      if (tags.includes(searchLower)) score += 2.5;
+      if (type.includes(searchLower)) score += 2.0;
+      if (domain.includes(searchLower)) score += 1.5;
+      if (era.includes(searchLower)) score += 1.5;
+      if (subEra.includes(searchLower)) score += 1.5;
+      if (region.includes(searchLower)) score += 1.0;
+      if (summary.includes(searchLower)) score += 1.0;
+      if (notes.includes(searchLower)) score += 0.5;
+
+      // Multi-word: check each word
+      const words = searchLower.split(/\s+/).filter((w) => w.length > 1);
+      if (words.length > 1) {
+        for (const word of words) {
+          if (title.includes(word)) score += 1.0;
+          if (tags.includes(word)) score += 0.8;
+          if (summary.includes(word)) score += 0.3;
+        }
+      }
+
+      if (score > 0) lexicalScores.set(item.id, score);
+    }
+
+    // --- Semantic scoring ---
+    const smart = searchParams.get('smart') !== 'false';
+    const embeddingsIndex = loadMediaEmbeddings();
+    let semanticScores = new Map<string, number>();
+    if (smart && embeddingsIndex && process.env.OPENAI_API_KEY) {
+      try {
+        const queryEmbedding = normalizeVector(await embedQuery(query));
+        semanticScores = new Map(
+          embeddingsIndex.items.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
+        );
+      } catch (error) {
+        console.warn('[media-search] Semantic search failed, using lexical only', error);
+      }
+    }
+
+    // --- Combine scores ---
+    const allIds = new Set([...lexicalScores.keys(), ...semanticScores.keys()]);
+    const maxLexical = Math.max(...Array.from(lexicalScores.values()), 0.001);
+    const maxSemantic = Math.max(...Array.from(semanticScores.values()), 0.001);
+
+    const hasSemanticScores = semanticScores.size > 0;
+    const semanticWeight = hasSemanticScores ? 0.7 : 0;
+    const lexicalWeight = hasSemanticScores ? 0.3 : 1.0;
+
+    const combinedScores = new Map<string, number>();
+    for (const id of allIds) {
+      const lexNorm = (lexicalScores.get(id) ?? 0) / maxLexical;
+      const semNorm = (semanticScores.get(id) ?? 0) / maxSemantic;
+      combinedScores.set(id, lexNorm * lexicalWeight + semNorm * semanticWeight);
+    }
+
+    // If semantic only (no lexical hits), include all items with semantic scores
+    if (hasSemanticScores && lexicalScores.size === 0) {
+      for (const entry of embeddingsIndex!.items) {
+        if (!combinedScores.has(entry.id)) {
+          const semNorm = (semanticScores.get(entry.id) ?? 0) / maxSemantic;
+          if (semNorm > 0.3) combinedScores.set(entry.id, semNorm * semanticWeight);
+        }
+      }
+    }
+
+    // Sort by combined score, return top results
+    const ranked = Array.from(combinedScores.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 100);
+
+    const itemMap = new Map(items.map((i) => [i.id, i]));
+    const resultItems = ranked
+      .map(([id]) => itemMap.get(id))
+      .filter((i): i is NonNullable<typeof i> => i != null);
+
+    const scores: Record<string, number> = {};
+    for (const [id, score] of ranked) {
+      scores[id] = Math.round(score * 1000) / 1000;
+    }
+
+    return NextResponse.json({ items: resultItems, scores });
   }
 
   const items = loadMediaItems();

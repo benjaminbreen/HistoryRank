@@ -1,8 +1,8 @@
 'use client';
 
+import { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
-import { Tooltip } from '@/components/ui/tooltip';
-import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2 } from 'lucide-react';
+import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2, Tag, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { BadgeType } from '@/types';
 import { BADGE_DEFINITIONS } from '@/types';
@@ -101,6 +101,8 @@ const MODEL_SOURCES = [
   { id: 'qwen3', label: 'Qwen 3' },
 ];
 
+const selectClass = "h-9 px-3 py-0 text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-400";
+
 export function RankingsFilters({
   search,
   onSearchChange,
@@ -125,163 +127,202 @@ export function RankingsFilters({
 }: RankingsFiltersProps) {
   const hasActiveFilters = search || domain || era || region || modelSource || badgeFilter;
   const showResultCount = hasActiveFilters && resultCount !== undefined && totalCount !== undefined;
+  const [isTagsOpen, setIsTagsOpen] = useState(false);
+  const tagsRef = useRef<HTMLDivElement>(null);
+
+  // Close tags popover on outside click
+  useEffect(() => {
+    if (!isTagsOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (tagsRef.current && !tagsRef.current.contains(e.target as Node)) {
+        setIsTagsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isTagsOpen]);
+
+  const activeBadgeLabel = badgeFilter ? BADGE_DEFINITIONS[badgeFilter]?.label : null;
 
   return (
-    <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
-      {/* Search */}
-      <div className="relative w-full sm:flex-1 sm:min-w-[160px] sm:max-w-[240px]">
-        {isLoading ? (
-          <Loader2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500 animate-spin" />
-        ) : (
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400 dark:text-slate-500" />
-        )}
-        <Input
-          placeholder="Search figures..."
-          value={search}
-          onChange={(e) => onSearchChange(e.target.value)}
-          onFocus={onSearchFocus}
-          onBlur={onSearchBlur}
-          className={cn(
-            "pl-9 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600",
-            isLoading && "border-amber-300 dark:border-amber-700"
+    <div className="space-y-3">
+      {/* Row 1: Search (prominent) + selects */}
+      <div className="flex flex-wrap gap-2 items-center">
+        {/* Search — wider, more prominent */}
+        <div className="relative w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[320px]">
+          {isLoading ? (
+            <Loader2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500 animate-spin" />
+          ) : (
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400 dark:text-slate-500" />
           )}
-        />
-        {search && !isLoading && (
+          <Input
+            placeholder="Search figures..."
+            value={search}
+            onChange={(e) => onSearchChange(e.target.value)}
+            onFocus={onSearchFocus}
+            onBlur={onSearchBlur}
+            className={cn(
+              "pl-9 h-9 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600 text-sm",
+              isLoading && "border-amber-300 dark:border-amber-700"
+            )}
+          />
+          {search && !isLoading && (
+            <button
+              onClick={() => onSearchChange('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 dark:text-slate-500 hover:text-stone-600 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+
+        {showSmartSearchToggle && (
+          <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none">
+            <input
+              type="checkbox"
+              checked={smartSearch}
+              onChange={(e) => onSmartSearchChange(e.target.checked)}
+              className="h-4 w-4 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+            />
+            Smart search
+          </label>
+        )}
+
+        {/* Result count indicator */}
+        {showResultCount && (
+          <div className="hidden sm:flex items-center text-xs text-stone-500 dark:text-slate-400 whitespace-nowrap">
+            <span className="font-medium text-stone-700 dark:text-slate-300">{resultCount}</span>
+            <span className="mx-1">of</span>
+            <span>{totalCount}</span>
+          </div>
+        )}
+
+        {/* Domain filter */}
+        <select
+          value={domain || ''}
+          onChange={(e) => onDomainChange(e.target.value || null)}
+          className={cn(selectClass, "flex-1 sm:flex-none")}
+        >
+          <option value="">Domain</option>
+          {DOMAINS.map((d) => (
+            <option key={d} value={d}>
+              {d}
+            </option>
+          ))}
+        </select>
+
+        {/* Era filter */}
+        <select
+          value={era || ''}
+          onChange={(e) => onEraChange(e.target.value || null)}
+          className={cn(selectClass, "flex-1 sm:flex-none")}
+        >
+          <option value="">Era</option>
+          {ERAS.map((e) => (
+            <option key={e} value={e}>
+              {e}
+            </option>
+          ))}
+        </select>
+
+        {/* Region filter */}
+        <select
+          value={region || ''}
+          onChange={(e) => onRegionChange(e.target.value || null)}
+          className={cn(selectClass, "flex-1 sm:flex-none")}
+        >
+          <option value="">Region</option>
+          {REGIONS.map((r) => (
+            <option key={r} value={r}>
+              {r}
+            </option>
+          ))}
+        </select>
+
+        {/* Model selector */}
+        <select
+          value={modelSource || ''}
+          onChange={(e) => onModelSourceChange(e.target.value || null)}
+          className={cn(selectClass, "w-full sm:w-auto")}
+        >
+          {MODEL_SOURCES.map((m) => (
+            <option key={m.label} value={m.id || ''}>
+              {m.label}
+            </option>
+          ))}
+        </select>
+
+        {/* Tags popover — replaces 9 inline badge buttons */}
+        <div ref={tagsRef} className="relative">
           <button
-            onClick={() => onSearchChange('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 dark:text-slate-500 hover:text-stone-600 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
+            onClick={() => setIsTagsOpen((o) => !o)}
+            className={cn(
+              "flex items-center gap-1.5 h-9 px-3 text-sm rounded-md border transition-colors",
+              badgeFilter
+                ? "border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200"
+                : "border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-300 hover:border-stone-300 dark:hover:border-slate-500"
+            )}
           >
-            <X className="h-4 w-4" />
+            <Tag className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">{activeBadgeLabel || 'Tags'}</span>
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isTagsOpen ? 'rotate-180' : ''}`} />
+          </button>
+          <div
+            className={`absolute right-0 sm:left-0 mt-2 w-64 rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg py-1 z-50 transition-all ${
+              isTagsOpen ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-1'
+            }`}
+          >
+            {badgeFilter && (
+              <button
+                onClick={() => { onBadgeFilterChange(null); setIsTagsOpen(false); }}
+                className="w-full flex items-center gap-2 px-3 py-2 text-sm text-stone-500 dark:text-slate-400 hover:bg-stone-50 dark:hover:bg-slate-700/50 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+                Clear filter
+              </button>
+            )}
+            {BADGE_FILTERS.map(({ type, icon: Icon, color }) => {
+              const badge = BADGE_DEFINITIONS[type];
+              const isActive = badgeFilter === type;
+              return (
+                <button
+                  key={type}
+                  onClick={() => {
+                    onBadgeFilterChange(isActive ? null : type);
+                    setIsTagsOpen(false);
+                  }}
+                  className={cn(
+                    'w-full flex items-center gap-2.5 px-3 py-2 text-sm transition-colors',
+                    isActive
+                      ? `${color} font-medium`
+                      : 'text-stone-600 dark:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700/50'
+                  )}
+                >
+                  <Icon className="h-4 w-4 flex-shrink-0" />
+                  <span className="truncate">{badge.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Clear filters */}
+        {(domain || era || region || modelSource || search || badgeFilter) && (
+          <button
+            onClick={() => {
+              onSearchChange('');
+              onDomainChange(null);
+              onEraChange(null);
+              onRegionChange(null);
+              onModelSourceChange(null);
+              onBadgeFilterChange(null);
+            }}
+            className="text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2 py-2"
+          >
+            Clear all
           </button>
         )}
       </div>
-
-      {showSmartSearchToggle && (
-        <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none">
-          <input
-            type="checkbox"
-            checked={smartSearch}
-            onChange={(e) => onSmartSearchChange(e.target.checked)}
-            className="h-4 w-4 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
-          />
-          Smart search
-        </label>
-      )}
-
-      {/* Result count indicator */}
-      {showResultCount && (
-        <div className="hidden sm:flex items-center text-xs text-stone-500 dark:text-slate-400 whitespace-nowrap">
-          <span className="font-medium text-stone-700 dark:text-slate-300">{resultCount}</span>
-          <span className="mx-1">of</span>
-          <span>{totalCount}</span>
-        </div>
-      )}
-
-      {/* Domain filter */}
-      <select
-        value={domain || ''}
-        onChange={(e) => onDomainChange(e.target.value || null)}
-        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
-      >
-        <option value="">Domain</option>
-        {DOMAINS.map((d) => (
-          <option key={d} value={d}>
-            {d}
-          </option>
-        ))}
-      </select>
-
-      {/* Era filter */}
-      <select
-        value={era || ''}
-        onChange={(e) => onEraChange(e.target.value || null)}
-        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
-      >
-        <option value="">Era</option>
-        {ERAS.map((e) => (
-          <option key={e} value={e}>
-            {e}
-          </option>
-        ))}
-      </select>
-
-      {/* Region filter */}
-      <select
-        value={region || ''}
-        onChange={(e) => onRegionChange(e.target.value || null)}
-        className="flex-1 sm:flex-none px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
-      >
-        <option value="">Region</option>
-        {REGIONS.map((r) => (
-          <option key={r} value={r}>
-            {r}
-          </option>
-        ))}
-      </select>
-
-      {/* Model selector */}
-      <select
-        value={modelSource || ''}
-        onChange={(e) => onModelSourceChange(e.target.value || null)}
-        className="w-full sm:w-auto px-2 sm:px-3 py-2 text-xs sm:text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 min-h-[44px]"
-      >
-        {MODEL_SOURCES.map((m) => (
-          <option key={m.label} value={m.id || ''}>
-            {m.label}
-          </option>
-        ))}
-      </select>
-
-      {/* Badge filter icons */}
-      <div className="flex items-center gap-1 w-full sm:w-auto sm:border-l border-stone-200 dark:border-slate-700 sm:pl-3 sm:ml-1 pt-2 sm:pt-0 border-t sm:border-t-0">
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-          {BADGE_FILTERS.map(({ type, icon: Icon, color }) => {
-            const badge = BADGE_DEFINITIONS[type];
-            const isActive = badgeFilter === type;
-            return (
-              <Tooltip
-                key={type}
-                content={
-                  <div className="max-w-xs">
-                    <p className="font-medium">{badge.label}</p>
-                    <p className="text-stone-500 dark:text-slate-400 text-xs mt-0.5">{badge.description}</p>
-                  </div>
-                }
-              >
-                <button
-                  onClick={() => onBadgeFilterChange(isActive ? null : type)}
-                  className={cn(
-                    'p-2 sm:p-1 rounded border transition-all min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center',
-                    isActive
-                      ? `${color} ring-2 ring-offset-1 ring-stone-400 dark:ring-slate-500`
-                      : 'text-stone-400 dark:text-slate-500 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600 hover:text-stone-600 dark:hover:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700'
-                  )}
-                  aria-label={`Filter by ${badge.label}`}
-                >
-                  <Icon className="h-4 w-4" />
-                </button>
-              </Tooltip>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Clear filters */}
-      {(domain || era || region || modelSource || search || badgeFilter) && (
-        <button
-          onClick={() => {
-            onSearchChange('');
-            onDomainChange(null);
-            onEraChange(null);
-            onRegionChange(null);
-            onModelSourceChange(null);
-            onBadgeFilterChange(null);
-          }}
-          className="text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline py-2"
-        >
-          Clear filters
-        </button>
-      )}
     </div>
   );
 }

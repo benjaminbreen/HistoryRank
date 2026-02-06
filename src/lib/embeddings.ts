@@ -13,16 +13,44 @@ export type EmbeddingsIndex = {
   figures: FigureEmbedding[];
 };
 
+export type MediaEmbedding = {
+  id: string;
+  vector: number[];
+};
+
+export type MediaEmbeddingsIndex = {
+  model: string;
+  dims: number;
+  createdAt: string;
+  items: MediaEmbedding[];
+};
+
 const DEFAULT_MODEL = 'text-embedding-3-small';
 
 let cachedIndex: EmbeddingsIndex | null = null;
 let cachedPath: string | null = null;
+
+let cachedMediaIndex: MediaEmbeddingsIndex | null = null;
 
 function resolveEmbeddingsPath(): string {
   const candidates = [
     path.join(process.cwd(), 'data', 'embeddings', 'figures.json'),
     path.join(__dirname, '../../data/embeddings/figures.json'),
     path.join(__dirname, '../../../data/embeddings/figures.json'),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+
+  return candidates[0];
+}
+
+function resolveMediaEmbeddingsPath(): string {
+  const candidates = [
+    path.join(process.cwd(), 'data', 'embeddings', 'media.json'),
+    path.join(__dirname, '../../data/embeddings/media.json'),
+    path.join(__dirname, '../../../data/embeddings/media.json'),
   ];
 
   for (const candidate of candidates) {
@@ -44,6 +72,19 @@ export function loadFigureEmbeddings(): EmbeddingsIndex | null {
   cachedIndex = JSON.parse(raw) as EmbeddingsIndex;
   cachedPath = embeddingsPath;
   return cachedIndex;
+}
+
+export function loadMediaEmbeddings(): MediaEmbeddingsIndex | null {
+  if (cachedMediaIndex) return cachedMediaIndex;
+
+  const embeddingsPath = resolveMediaEmbeddingsPath();
+  if (!fs.existsSync(embeddingsPath)) {
+    return null;
+  }
+
+  const raw = fs.readFileSync(embeddingsPath, 'utf8');
+  cachedMediaIndex = JSON.parse(raw) as MediaEmbeddingsIndex;
+  return cachedMediaIndex;
 }
 
 export function getEmbeddingsPath() {

@@ -337,8 +337,13 @@ function HomeContent() {
   }, []);
 
   useEffect(() => {
+    let wasVisible = false;
     const onScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
+      const shouldShow = window.scrollY > 400;
+      if (shouldShow !== wasVisible) {
+        wasVisible = shouldShow;
+        setShowBackToTop(shouldShow);
+      }
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -830,10 +835,10 @@ function HomeContent() {
             <summary className="cursor-pointer list-none px-4 py-3 sm:px-5 sm:py-4 text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-amber-200 transition-colors">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex flex-col gap-1.5">
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-amber-500/80">
+                  <span className="text-xs uppercase tracking-[0.2em] text-stone-400 dark:text-amber-500/80">
                     Methodology at a glance
                   </span>
-                  <span className="font-serif text-[17px] leading-relaxed text-stone-700 dark:text-slate-200">
+                  <span className="font-serif text-base leading-relaxed text-stone-700 dark:text-slate-200">
                     Combining academic rankings, Wikipedia metrics, and AI assessments to create both an educational resource
                     and a new approach to &quot;AI scrutability&quot; by revealing how language models assess and explain the
                     significance of human history.
@@ -914,6 +919,9 @@ function HomeContent() {
             }}
           />
         </div>
+
+        {/* Separator */}
+        <div className="border-t border-stone-200/70 dark:border-slate-700/50 mb-6" />
 
         {/* Table */}
         {(() => {

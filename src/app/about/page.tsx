@@ -48,7 +48,7 @@ export default function AboutPage() {
             </div>
           </aside>
 
-          <div className="space-y-10 text-[15.5px] leading-relaxed text-stone-700">
+          <div className="space-y-12 text-base leading-7 text-stone-700">
             <header>
               <h1 className="text-3xl font-serif font-semibold text-stone-900">About</h1>
               <p className="mt-3 text-base text-stone-600">

@@ -13,7 +13,7 @@ type MediaResponse = { items: MediaItem[] };
 
 function MediaLoading() {
   return (
-    <div className="min-h-screen bg-[#f8f5ef] text-stone-900">
+    <div className="min-h-screen bg-transparent text-stone-900 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
         <div className="space-y-4">
           <Skeleton className="h-8 w-64" />
@@ -103,7 +103,7 @@ function MediaPageContent() {
   }, [selectedId]);
 
   return (
-    <div className="min-h-screen bg-[#f8f5ef] text-stone-900">
+    <div className="min-h-screen bg-transparent text-stone-900 dark:text-slate-100">
       <AppHeader
         active="media"
         settings={settings}
@@ -111,22 +111,17 @@ function MediaPageContent() {
         onSettingsReset={resetSettings}
       />
       <main className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
-        <div className="mb-6 sm:mb-10 space-y-3 sm:space-y-4">
-          <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400">Historical Media Atlas</p>
-          <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 md:text-4xl">Historical Media Atlas</h1>
-          <p className="max-w-3xl text-sm text-stone-600 leading-relaxed">
-            A curated list of films, series, and podcasts that can deepen historical understanding.
-            These works are not substitutes for primary sources or scholarly reading, but they can
-            illuminate eras, places, and themes in ways that spark further inquiry.
-          </p>
-          <p className="max-w-3xl text-sm text-stone-500 leading-relaxed">
-            Recommendations are welcome at <a className="underline" href="mailto:bebreen@ucsc.edu">bebreen@ucsc.edu</a>.
-            Entries marked as recommended reflect personal favorites and standout teaching material.
+        <div className="mb-6 sm:mb-8 space-y-2">
+          <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 dark:text-amber-100">Historical Media Atlas</h1>
+          <p className="max-w-3xl text-sm text-stone-500 dark:text-slate-400 leading-relaxed">
+            Curated films, series, podcasts, and books that deepen historical understanding.
+            Entries marked <span className="text-amber-600 dark:text-amber-400">★</span> are personal favorites.
+            Recommendations welcome at <a className="underline hover:text-stone-700 dark:hover:text-slate-200" href="mailto:bebreen@ucsc.edu">bebreen@ucsc.edu</a>.
           </p>
         </div>
 
         {errorMessage && (
-          <div className="mb-6 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+          <div className="mb-6 rounded-xl border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-900/30 px-4 py-3 text-sm text-rose-700 dark:text-rose-300">
             {errorMessage}
           </div>
         )}

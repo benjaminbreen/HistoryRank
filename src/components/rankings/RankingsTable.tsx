@@ -98,13 +98,14 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
     <TableRow
       ref={rowRef}
       data-figure-id={figure.id}
+      data-row-even={rowIndex % 2 === 1 ? '' : undefined}
       onClick={() => onSelect(figure.id, rowIndex, 'click')}
       onMouseDown={(event) => {
         if (event.button !== 0) return;
         onSelect(figure.id, rowIndex, 'pointer');
       }}
       onMouseEnter={() => onHover?.(figure.id)}
-      className={`hr-table-row group cursor-pointer transition-colors ${
+      className={`hr-table-row group/row cursor-pointer transition-colors ${
         isSelected
           ? 'bg-amber-100/70 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 border-l-4 border-l-amber-500 dark:border-l-amber-400'
           : 'hover:bg-white dark:hover:bg-slate-800/80 border-l-4 border-l-transparent'
@@ -124,7 +125,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
             wikipediaSlug={figure.wikipediaSlug}
             name={figure.name}
             size={thumbnailSize}
-            className="group-hover:scale-105 flex-shrink-0"
+            className="group-hover/row:scale-110 group-hover/row:shadow-md flex-shrink-0"
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
@@ -156,11 +157,11 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
           )}
         </TableCell>
       )}
-      <TableCell className={`hidden md:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+      <TableCell className={`hidden md:table-cell text-sm text-stone-600 dark:text-slate-300 ${rowPadding}`}>
         {figure.domain || '—'}
       </TableCell>
       {showEra && (
-        <TableCell className={`hidden lg:table-cell text-[15px] text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+        <TableCell className={`hidden lg:table-cell text-sm text-stone-600 dark:text-slate-300 ${rowPadding}`}>
           {figure.era || '—'}
         </TableCell>
       )}
@@ -333,7 +334,7 @@ export function RankingsTable({
   // Memoized row component to prevent unnecessary re-renders
   const rowPadding = density === 'compact' ? 'py-2' : 'py-3';
   const secondaryText = density === 'compact' ? 'text-xs' : 'text-sm';
-  const nameText = density === 'compact' ? 'text-[14px]' : 'text-[15px]';
+  const nameText = density === 'compact' ? 'text-sm' : 'text-base';
 
   // Stable callback for row clicks/pointer down
   const handleRowSelect = useCallback((id: string, index: number, source: 'click' | 'pointer') => {
@@ -434,21 +435,21 @@ export function RankingsTable({
                 <SortHeader column="regionSub">Region</SortHeader>
               </TableHead>
             )}
-            <TableHead className="hidden md:table-cell w-[100px] text-stone-700 dark:text-slate-300 font-medium">
+            <TableHead className="hidden md:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="domain">Domain</SortHeader>
             </TableHead>
             {visibleColumns.era && (
-              <TableHead className="hidden lg:table-cell w-[100px] text-stone-700 dark:text-slate-300 font-medium">
+              <TableHead className="hidden lg:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
                 <SortHeader column="era">Era</SortHeader>
               </TableHead>
             )}
             {visibleColumns.variance && (
-              <TableHead className="hidden xl:table-cell w-[110px] text-stone-700 dark:text-slate-300 font-medium">
+              <TableHead className="hidden xl:table-cell w-[110px] text-stone-600 dark:text-slate-400 font-medium">
                 <SortHeader column="varianceScore" align="right">Variance</SortHeader>
               </TableHead>
             )}
             {visibleColumns.views && (
-              <TableHead className="w-[70px] sm:w-[90px] text-stone-700 dark:text-slate-300 font-medium text-right">
+              <TableHead className="w-[70px] sm:w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
                 <SortHeader column="pageviews" align="right">Views</SortHeader>
               </TableHead>
             )}

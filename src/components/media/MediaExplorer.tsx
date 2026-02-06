@@ -1,14 +1,15 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { ChevronDown, ChevronUp, Search, Star } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ChevronDown, ChevronUp, Loader2, Search, Star } from 'lucide-react';
 import type { MediaItem } from '@/lib/media';
 import { REGION_COLORS } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tooltip } from '@/components/ui/tooltip';
+
+const selectClass = "h-8 px-2.5 py-0 text-xs border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-400";
 
 type MediaExplorerProps = {
   items: MediaItem[];
@@ -150,6 +151,78 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   const [rankedByEra, setRankedByEra] = useState(true);
   const [sortBy, setSortBy] = useState<SortKey>('era_rank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [smartSearch, setSmartSearch] = useState(true);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [searchResults, setSearchResults] = useState<MediaItem[] | null>(null);
+  const [searchScores, setSearchScores] = useState<Record<string, number>>({});
+  const [searchLoading, setSearchLoading] = useState(false);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  const doSearch = useCallback(async (q: string, smart: boolean) => {
+    if (abortRef.current) abortRef.current.abort();
+    if (!q.trim()) {
+      setSearchResults(null);
+      setSearchScores({});
+      setSearchLoading(false);
+      return;
+    }
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setSearchLoading(true);
+    try {
+      const res = await fetch(
+        `/api/media?mode=search&q=${encodeURIComponent(q.trim())}&smart=${smart}`,
+        { signal: controller.signal }
+      );
+      if (!res.ok) throw new Error(`Search failed (${res.status})`);
+      const data = await res.json();
+      setSearchResults(Array.isArray(data?.items) ? data.items : []);
+      setSearchScores(data?.scores ?? {});
+    } catch (error) {
+      if ((error as Error).name === 'AbortError') return;
+      console.error('Media search failed:', error);
+      setSearchResults(null);
+      setSearchScores({});
+    } finally {
+      setSearchLoading(false);
+    }
+  }, []);
+
+  const handleQueryChange = useCallback((value: string) => {
+    setQuery(value);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    if (!value.trim()) {
+      setSearchResults(null);
+      setSearchScores({});
+      setSearchLoading(false);
+      return;
+    }
+    setSearchLoading(true);
+    debounceRef.current = setTimeout(() => {
+      doSearch(value, smartSearch);
+    }, 300);
+  }, [doSearch, smartSearch]);
+
+  // Re-search when smart toggle changes while query is active
+  useEffect(() => {
+    if (query.trim()) {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      doSearch(query, smartSearch);
+    }
+  }, [smartSearch]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const isSearchActive = Boolean(query.trim() && searchResults);
+
+  // Category counts for tab labels
+  const categoryCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const item of items) {
+      const cat = getCategory(item.type);
+      counts.set(cat, (counts.get(cat) ?? 0) + 1);
+    }
+    return counts;
+  }, [items]);
 
   const options = useMemo(() => {
     const eras = new Set<string>();
@@ -165,16 +238,16 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   }, [items]);
 
   const filteredData = useMemo(() => {
-    const search = normalize(query);
-    const filteredItems = items
+    // When semantic search is active, use server results
+    const sourceItems = isSearchActive ? searchResults! : items;
+
+    const filteredItems = sourceItems
       .filter((item) => {
         if (recommendedOnly && !item.recommended) return false;
         if (categoryFilter !== 'all' && getCategory(item.type) !== categoryFilter) return false;
         if (eraFilter !== 'all' && item.eras_depicted?.every((era) => era !== eraFilter)) return false;
         if (regionFilter !== 'all' && item.regions_depicted?.every((region) => region !== regionFilter)) return false;
-        if (!search) return true;
-        const haystack = `${item.title} ${item.summary ?? ''}`.toLowerCase();
-        return haystack.includes(search);
+        return true;
       });
 
     const compareNumber = (a?: number | null, b?: number | null) => {
@@ -266,6 +339,14 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
       return compareText(a.title, b.title);
     };
 
+    // When search is active, preserve relevance order from API
+    if (isSearchActive) {
+      filteredItems.forEach((item, index) => {
+        rankById.set(item.id, index + 1);
+      });
+      return { items: filteredItems, rankById, groups: [] };
+    }
+
     let groups: Array<{ era: string; items: MediaItem[] }> = [];
     if (rankedByEra) {
       const grouped = new Map<string, MediaItem[]>();
@@ -302,7 +383,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     const withSort = rankedByEra ? [] : [...filteredItems].sort(compareItems);
 
     return { items: withSort, rankById, groups };
-  }, [items, query, categoryFilter, eraFilter, regionFilter, recommendedOnly, sortBy, sortOrder, rankedByEra]);
+  }, [items, isSearchActive, searchResults, categoryFilter, eraFilter, regionFilter, recommendedOnly, sortBy, sortOrder, rankedByEra]);
 
   const formatScore = (value?: number | null) => {
     if (typeof value !== 'number' || !Number.isFinite(value)) return '—';
@@ -327,7 +408,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   const SortHeader = ({ column, children, align }: { column: SortKey; children: React.ReactNode; align?: 'left' | 'center' | 'right' }) => (
     <button
       onClick={() => handleSort(column)}
-      className={`flex items-center gap-1 transition-colors hover:text-stone-900 ${
+      className={`flex items-center gap-1 transition-colors hover:text-stone-900 dark:hover:text-slate-100 ${
         align === 'right' ? 'ml-auto justify-end' : align === 'center' ? 'mx-auto justify-center' : ''
       }`}
       type="button"
@@ -336,7 +417,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
       {sortBy === column ? (
         sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
       ) : (
-        <span className="flex flex-col leading-none text-stone-300">
+        <span className="flex flex-col leading-none text-stone-300 dark:text-slate-600">
           <ChevronUp className="h-2.5 w-2.5 -mb-1" />
           <ChevronDown className="h-2.5 w-2.5" />
         </span>
@@ -347,8 +428,8 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   const renderTable = (rows: MediaItem[]) => (
     <Table className="[&_[data-slot=table-cell]]:px-3 [&_[data-slot=table-head]]:px-1">
       <TableHeader>
-        <TableRow className="bg-stone-50/60">
-          <TableHead className="w-[42px] text-center bg-stone-100/70">
+        <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
+          <TableHead className="w-[42px] text-center bg-stone-100/70 dark:bg-slate-700/70">
             <SortHeader column="era_rank" align="center">
               <Tooltip
                 content={
@@ -378,7 +459,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           <TableHead>
             <SortHeader column="title">
               <Tooltip content="Title of the work.">
-                <span className="text-md pl-13 ">Title</span>
+                <span>Title</span>
               </Tooltip>
             </SortHeader>
           </TableHead>
@@ -394,7 +475,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           <TableHead>
             <SortHeader column="era">
               <Tooltip content="Primary historical era (with sub-era below).">
-                <span className=" pl-1 ">Era</span>
+                <span>Era</span>
               </Tooltip>
             </SortHeader>
           </TableHead>
@@ -429,10 +510,15 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
         </TableRow>
       </TableHeader>
       <TableBody>
-        {rows.map((item) => (
+        {rows.map((item, rowIndex) => (
           <TableRow
             key={item.id}
-            className={`hover:bg-stone-50/70 transition-colors ${item.id === selectedId ? 'bg-stone-50/80' : ''}`}
+            data-row-even={rowIndex % 2 === 1 ? '' : undefined}
+            className={`hr-table-row group/row cursor-pointer transition-colors ${
+              item.id === selectedId
+                ? 'bg-amber-100/70 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 border-l-4 border-l-amber-500 dark:border-l-amber-400'
+                : 'hover:bg-white dark:hover:bg-slate-800/80 border-l-4 border-l-transparent'
+            }`}
             onClick={() => onSelect?.(item.id)}
             role={onSelect ? 'button' : undefined}
             tabIndex={onSelect ? 0 : undefined}
@@ -444,18 +530,36 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               }
             }}
           >
-            <TableCell className="text-[11px] font-mono text-stone-700 text-center bg-stone-100/60">
+            <TableCell className="font-mono text-sm text-stone-900 dark:text-amber-100 font-medium text-center bg-stone-100/60 dark:bg-slate-700/40">
               {rankById.get(item.id) ? `#${rankById.get(item.id)}` : '—'}
             </TableCell>
-            <TableCell className="text-sm text-stone-500 hidden md:table-cell">
-              {formatScore(item.llm_accuracy_score ?? item.llm_accuracy_rank)}
+            <TableCell className="hidden md:table-cell">
+              {(() => {
+                const score = item.llm_accuracy_score ?? item.llm_accuracy_rank;
+                const display = formatScore(score);
+                if (display === '—') return <span className="text-sm text-stone-400 dark:text-slate-500">—</span>;
+                return (
+                  <span className="font-mono text-sm font-medium" style={{ color: ratingColor(score as number) }}>
+                    {display}
+                  </span>
+                );
+              })()}
             </TableCell>
-            <TableCell className="text-sm text-stone-500 hidden md:table-cell">
-              {formatScore(item.llm_quality_score ?? item.llm_quality_rank)}
+            <TableCell className="hidden md:table-cell">
+              {(() => {
+                const score = item.llm_quality_score ?? item.llm_quality_rank;
+                const display = formatScore(score);
+                if (display === '—') return <span className="text-sm text-stone-400 dark:text-slate-500">—</span>;
+                return (
+                  <span className="font-mono text-sm font-medium" style={{ color: ratingColor(score as number) }}>
+                    {display}
+                  </span>
+                );
+              })()}
             </TableCell>
             <TableCell>
               <div className="flex items-start gap-2 sm:gap-3">
-                <div className="hidden sm:block">
+                <div className="hidden sm:block transition-transform duration-150 group-hover/row:scale-110 group-hover/row:shadow-md rounded-full">
                   <MediaThumbnail
                     mediaId={item.id}
                     wikipediaSlug={item.wikipedia_slug}
@@ -465,32 +569,30 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    {item.recommended ? (
+                    {item.recommended && (
                       <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-500 fill-amber-400 flex-shrink-0" />
-                    ) : (
-                      <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-stone-300 flex-shrink-0" />
                     )}
-                    <div className="text-[13px] sm:text-sm font-medium text-stone-900 truncate" title={item.title}>
+                    <div className="text-[13px] sm:text-sm font-medium text-stone-900 dark:text-slate-100 truncate" title={item.title}>
                       {item.title}
                     </div>
                   </div>
-                  <div className="hr-media-notes mt-1 text-xs text-stone-500 hidden sm:block">
+                  <div className="hr-media-notes mt-1 text-xs text-stone-500 dark:text-slate-400 hidden sm:block">
                     {item.summary}
                   </div>
                 </div>
               </div>
             </TableCell>
             {showTypeColumn && (
-              <TableCell className="text-sm text-stone-600 capitalize">{item.type}</TableCell>
+              <TableCell className="text-sm text-stone-600 dark:text-slate-300 capitalize">{item.type}</TableCell>
             )}
-            <TableCell className="text-sm text-stone-600">
-              <div className="font-semibold text-stone-800">{item.primary_era}</div>
+            <TableCell className="text-sm text-stone-600 dark:text-slate-300">
+              <div className="font-semibold text-stone-800 dark:text-slate-200">{item.primary_era}</div>
               {item.sub_era && (
-                <div className="text-xs text-stone-500 leading-snug">
+                <div className="text-xs text-stone-500 dark:text-slate-400 leading-snug">
                   {item.sub_era.includes('(') ? (
                     <>
                       <span>{item.sub_era.split('(')[0].trim()}</span>
-                      <span className="block text-[11px] text-stone-400">
+                      <span className="block text-[11px] text-stone-400 dark:text-slate-500">
                         ({item.sub_era.split('(')[1]}
                       </span>
                     </>
@@ -500,22 +602,22 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 </div>
               )}
             </TableCell>
-            <TableCell className="text-sm text-stone-600 hidden lg:table-cell">
+            <TableCell className="text-sm text-stone-600 dark:text-slate-300 hidden lg:table-cell">
               {(() => {
                 const start = formatYearParts(item.depicted_start_year ?? null);
                 const end = formatYearParts(item.depicted_end_year ?? null);
                 if (!start && !end) return '—';
                 if (start && end) {
                   return (
-                    <div className="inline-grid grid-cols-[auto_auto_auto] items-start text-sm text-stone-700">
+                    <div className="inline-grid grid-cols-[auto_auto_auto] items-start text-sm text-stone-700 dark:text-slate-300">
                       <span>{start.value}</span>
                       <span className="px-1">–</span>
                       <span>{end.value}</span>
-                      <span className="text-[10px] text-stone-400 leading-none">
+                      <span className="text-[10px] text-stone-400 dark:text-slate-500 leading-none">
                         {start.era ?? ''}
                       </span>
                       <span />
-                      <span className="text-[10px] text-stone-400 leading-none">
+                      <span className="text-[10px] text-stone-400 dark:text-slate-500 leading-none">
                         {end.era ?? ''}
                       </span>
                     </div>
@@ -524,13 +626,13 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 const single = start || end;
                 return (
                   <div className="flex flex-col">
-                    <span className="text-sm text-stone-700">{single?.value}</span>
-                    {single?.era && <span className="text-[10px] text-stone-400">{single.era}</span>}
+                    <span className="text-sm text-stone-700 dark:text-slate-300">{single?.value}</span>
+                    {single?.era && <span className="text-[10px] text-stone-400 dark:text-slate-500">{single.era}</span>}
                   </div>
                 );
               })()}
             </TableCell>
-            <TableCell className="text-sm text-stone-600 hidden lg:table-cell">
+            <TableCell className="text-sm text-stone-600 dark:text-slate-300 hidden lg:table-cell">
               {item.primary_region ? (
                 <span
                   className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
@@ -542,10 +644,10 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                 '—'
               )}
             </TableCell>
-            <TableCell className="text-sm text-stone-600 text-right">
+            <TableCell className="text-sm text-stone-600 dark:text-slate-300 text-right">
               {item.release_year ?? '—'}
             </TableCell>
-            <TableCell className="text-sm text-stone-600 text-right">
+            <TableCell className="text-sm text-stone-600 dark:text-slate-300 text-right">
               {typeof item.rating_normalized === 'number' ? (
                 <Tooltip
                   content={
@@ -579,102 +681,183 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     </Table>
   );
 
+  const totalFiltered = isSearchActive
+    ? filtered.length
+    : rankedByEra
+      ? groupedByEra.reduce((sum, g) => sum + g.items.length, 0)
+      : filtered.length;
+
+  const hasActiveFilters = isSearchActive || eraFilter !== 'all' || regionFilter !== 'all' || recommendedOnly;
+
+  const categoryLabel = CATEGORY_LABELS.find((c) => c.id === categoryFilter)?.label?.toLowerCase() ?? 'items';
+
+  const buildSummary = () => {
+    const parts: string[] = [];
+    if (recommendedOnly) parts.push('recommended');
+    if (eraFilter !== 'all') parts.push(eraFilter);
+    if (regionFilter !== 'all') parts.push(regionFilter);
+    if (isSearchActive) parts.push(`matching "${query}"${smartSearch ? ' (smart)' : ''}`);
+    if (parts.length === 0) return null;
+    return parts.join(', ');
+  };
+
+  const filterSummary = buildSummary();
+
   return (
     <div className="space-y-3">
-      <div className="overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
-        <div className="flex items-center gap-2 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 p-2 shadow-sm min-w-max sm:min-w-0 sm:flex-wrap">
-          {CATEGORY_LABELS.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              onClick={() => setCategoryFilter(category.id)}
-              className={`rounded-full px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-medium uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all whitespace-nowrap ${
-                categoryFilter === category.id
-                  ? 'bg-stone-900 dark:bg-amber-600 text-white shadow-sm'
-                  : 'text-stone-500 dark:text-slate-400 hover:bg-stone-100 dark:hover:bg-slate-700'
-              }`}
-            >
-              {category.label}
-            </button>
-          ))}
+      {/* Sticky filter toolbar */}
+      <div className="sticky top-[52px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2 bg-[#f8f6f2]/95 dark:bg-[#0c1220]/95 backdrop-blur-sm border-b border-stone-200/40 dark:border-slate-700/40 space-y-2">
+        <div className="overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
+          <div className="flex items-stretch border-b border-stone-200/60 dark:border-slate-700/60 min-w-max sm:min-w-0">
+            {CATEGORY_LABELS.map((category) => {
+              const count = categoryCounts.get(category.id) ?? 0;
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  onClick={() => setCategoryFilter(category.id)}
+                  disabled={count === 0}
+                  className={`flex-1 sm:flex-none text-center px-4 sm:px-5 py-2 text-[11px] sm:text-xs font-medium uppercase tracking-[0.08em] transition-all whitespace-nowrap border-b-2 -mb-px ${
+                    categoryFilter === category.id
+                      ? 'border-stone-900 dark:border-amber-500 text-stone-900 dark:text-amber-100'
+                      : count === 0
+                        ? 'border-transparent text-stone-300 dark:text-slate-600 cursor-not-allowed'
+                        : 'border-transparent text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:border-stone-300 dark:hover:border-slate-500'
+                  }`}
+                >
+                  {category.label}
+                  <span className={`ml-1.5 tabular-nums ${
+                    categoryFilter === category.id
+                      ? 'text-stone-500 dark:text-amber-300/70'
+                      : 'text-stone-400 dark:text-slate-500'
+                  }`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-1.5 items-center">
+          <div className="relative w-full sm:flex-1 sm:min-w-[200px] sm:max-w-[300px]">
+            <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-stone-400 dark:text-slate-500" />
+            <Input
+              value={query}
+              onChange={(event) => handleQueryChange(event.target.value)}
+              onFocus={() => setSearchFocused(true)}
+              onBlur={() => setSearchFocused(false)}
+              placeholder={smartSearch ? 'Semantic search (e.g. "spy thriller")' : 'Search titles & summaries'}
+              className="pl-8 pr-7 h-8 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600 text-xs"
+            />
+            {searchLoading && (
+              <Loader2 className="absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-stone-400 dark:text-slate-500 animate-spin" />
+            )}
+          </div>
+          {(searchFocused || Boolean(query) || !smartSearch) && (
+            <label className="flex items-center gap-1.5 text-xs text-stone-600 dark:text-slate-400 select-none cursor-pointer">
+              <input
+                type="checkbox"
+                checked={smartSearch}
+                onChange={(e) => setSmartSearch(e.target.checked)}
+                className="h-3.5 w-3.5 rounded border-stone-300 dark:border-slate-600 text-amber-600 focus:ring-amber-500"
+              />
+              Smart search
+            </label>
+          )}
+          <select
+            value={eraFilter}
+            onChange={(event) => setEraFilter(event.target.value)}
+            className={`${selectClass} flex-1 sm:flex-none`}
+          >
+            <option value="all">All eras</option>
+            {options.eras.map((era) => (
+              <option key={era} value={era}>
+                {era}
+              </option>
+            ))}
+          </select>
+          <select
+            value={regionFilter}
+            onChange={(event) => setRegionFilter(event.target.value)}
+            className={`${selectClass} flex-1 sm:flex-none`}
+          >
+            <option value="all">All regions</option>
+            {options.regions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            onClick={() => setRecommendedOnly((prev) => !prev)}
+            className={`flex items-center justify-center gap-1 h-8 rounded-md border px-2.5 text-xs transition-all ${
+              recommendedOnly
+                ? 'border-amber-300 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
+                : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
+            }`}
+          >
+            <Star className={`h-3.5 w-3.5 ${recommendedOnly ? 'fill-amber-400 text-amber-500' : ''}`} />
+            <span className="hidden sm:inline">Picks</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setRankedByEra((prev) => !prev);
+              setSortBy('era_rank');
+              setSortOrder('asc');
+            }}
+            className={`flex items-center justify-center gap-1 h-8 rounded-md border px-2.5 text-xs transition-all ${
+              rankedByEra
+                ? 'border-stone-900 dark:border-amber-600 bg-stone-900 dark:bg-amber-600 text-white'
+                : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
+            }`}
+          >
+            {rankedByEra ? 'By era' : 'Combined'}
+          </button>
         </div>
       </div>
 
-      <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_auto_auto]">
-        <div className="relative col-span-2 sm:col-span-1">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
-          <Input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search titles or summaries"
-            className="pl-9"
-          />
+      {/* Filtered state summary */}
+      {hasActiveFilters && (
+        <div className="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400 px-1">
+          <div>
+            <span className="font-medium text-stone-700 dark:text-slate-300">{totalFiltered}</span>
+            {' '}{categoryLabel}
+            {filterSummary && (
+              <span className="text-stone-400 dark:text-slate-500"> — {filterSummary}</span>
+            )}
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              handleQueryChange('');
+              setEraFilter('all');
+              setRegionFilter('all');
+              setRecommendedOnly(false);
+            }}
+            className="text-stone-400 dark:text-slate-500 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2"
+          >
+            Clear filters
+          </button>
         </div>
-        <Select value={eraFilter} onValueChange={setEraFilter}>
-          <SelectTrigger>
-            <SelectValue placeholder="Era" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All eras</SelectItem>
-            {options.eras.map((era) => (
-              <SelectItem key={era} value={era}>
-                {era}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Select value={regionFilter} onValueChange={setRegionFilter}>
-          <SelectTrigger>
-            <SelectValue placeholder="Region" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All regions</SelectItem>
-            {options.regions.map((region) => (
-              <SelectItem key={region} value={region}>
-                {region}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <button
-          type="button"
-          onClick={() => setRecommendedOnly((prev) => !prev)}
-          className={`flex items-center justify-center gap-1 sm:gap-2 rounded-md border px-2 sm:px-3 py-2 text-xs sm:text-sm transition-all ${
-            recommendedOnly
-              ? 'border-amber-300 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
-              : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
-          }`}
-        >
-          <Star className={`h-3 w-3 sm:h-4 sm:w-4 ${recommendedOnly ? 'fill-amber-400 text-amber-500' : ''}`} />
-          <span className="hidden sm:inline">Recommended</span>
-          <span className="sm:hidden">Rec.</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setRankedByEra((prev) => !prev);
-            setSortBy('era_rank');
-            setSortOrder('asc');
-          }}
-          className={`flex items-center justify-center gap-1 sm:gap-2 rounded-md border px-2 sm:px-3 py-2 text-xs sm:text-sm transition-all col-span-2 sm:col-span-1 ${
-            rankedByEra
-              ? 'border-stone-900 dark:border-amber-600 bg-stone-900 dark:bg-amber-600 text-white'
-              : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
-          }`}
-        >
-          {rankedByEra ? 'Ranked by era' : 'Combined'}
-        </button>
-      </div>
+      )}
 
       <div className="w-full overflow-x-auto">
-        {rankedByEra ? (
-          <div className="space-y-6">
-            {groupedByEra.map((group) => (
-              <div key={`era-${group.era}`} className="space-y-2">
-                <div className="px-2 text-xs uppercase tracking-[0.25em] text-stone-400">
-                  {group.era} · {group.items.length}
+        {rankedByEra && !isSearchActive ? (
+          <div className="space-y-8">
+            {groupedByEra.map((group, groupIndex) => (
+              <div key={`era-${group.era}`}>
+                <div className={`flex items-baseline gap-3 mb-2 px-1 ${groupIndex > 0 ? 'pt-2 border-t border-stone-200/60 dark:border-slate-700/60' : ''}`}>
+                  <span className="text-sm font-medium text-stone-700 dark:text-slate-300 uppercase tracking-[0.15em]">
+                    {group.era}
+                  </span>
+                  <span className="text-xs text-stone-400 dark:text-slate-500">
+                    {group.items.length} {group.items.length === 1 ? 'entry' : 'entries'}
+                  </span>
                 </div>
-                <div className="rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 shadow-sm overflow-x-auto">
+                <div className="rounded-lg border border-stone-200 dark:border-amber-900/30 bg-white dark:bg-slate-800/90 overflow-x-auto">
                   {renderTable(group.items)}
                 </div>
               </div>
@@ -686,7 +869,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
             )}
           </div>
         ) : (
-          <div className="rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 shadow-sm overflow-x-auto">
+          <div className="rounded-lg border border-stone-200 dark:border-amber-900/30 bg-white dark:bg-slate-800/90 overflow-x-auto">
             {renderTable(filtered)}
             {filtered.length === 0 && (
               <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { ExternalLink, X, Link2, ChevronRight } from 'lucide-react';
+import { ExternalLink, X, Link2, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { MediaItem } from '@/lib/media';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 import { FigureThumbnail } from '@/components/rankings/FigureThumbnail';
@@ -409,8 +409,30 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
         }`}
       >
         <div className="flex h-full flex-col">
-          <div className="flex items-center justify-between border-b border-stone-200/80 dark:border-slate-700 px-6 py-4 bg-gradient-to-b from-white dark:from-slate-800 to-[#faf9f7] dark:to-slate-900">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-stone-400 dark:text-slate-500">Media detail</div>
+          <div className="flex items-center justify-between border-b border-stone-200/80 dark:border-slate-700 px-6 py-3 bg-gradient-to-b from-white dark:from-slate-800 to-[#faf9f7] dark:to-slate-900">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={onPrevious}
+                  className="rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 p-1.5 text-stone-400 dark:text-slate-500 transition-colors hover:text-stone-700 dark:hover:text-slate-200 hover:border-stone-300 dark:hover:border-slate-500"
+                  aria-label="Previous item"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={onNext}
+                  className="rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 p-1.5 text-stone-400 dark:text-slate-500 transition-colors hover:text-stone-700 dark:hover:text-slate-200 hover:border-stone-300 dark:hover:border-slate-500"
+                  aria-label="Next item"
+                >
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </button>
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-stone-400 dark:text-slate-500">
+                {item ? `${item.type}` : 'Media detail'}
+              </div>
+            </div>
             <button
               type="button"
               onClick={onClose}
@@ -424,7 +446,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
           <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
             {loading && (
               <div className="space-y-6">
-                <div className="rounded-2xl border border-stone-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 sm:p-5 shadow-sm">
+                <div className="rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5 shadow-sm">
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <Skeleton className="h-[140px] w-[100px] sm:h-[180px] sm:w-[120px] rounded-lg mx-auto sm:mx-0" />
                     <div className="flex-1 space-y-3">
@@ -439,8 +461,8 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                     </div>
                   </div>
                 </div>
-                <Skeleton className="h-32 w-full rounded-2xl" />
-                <Skeleton className="h-24 w-full rounded-2xl" />
+                <Skeleton className="h-32 w-full rounded-lg" />
+                <Skeleton className="h-24 w-full rounded-lg" />
               </div>
             )}
 
@@ -450,7 +472,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
 
             {!loading && item && (
               <>
-                <div className="rounded-2xl border border-stone-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 sm:p-5 shadow-sm">
+                <div className="rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5 shadow-sm">
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                     <div className="flex-shrink-0 mx-auto sm:mx-0">
                       <MediaThumbnail
@@ -465,7 +487,6 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                     </div>
                     <div className="space-y-3 text-center sm:text-left">
                       <div>
-                        <div className="text-[10px] uppercase tracking-[0.25em] text-stone-400 dark:text-slate-500">Media Atlas</div>
                         <h2 className="text-xl sm:text-2xl font-serif text-stone-900 dark:text-amber-100">{item.title}</h2>
                         <div className="text-sm text-stone-500 dark:text-slate-400">
                           {item.release_year ?? '—'} · {item.type}
@@ -473,6 +494,13 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                           {item.countries && item.countries.length > 0 ? ` · ${item.countries.join(', ')}` : ''}
                         </div>
                       </div>
+                      {(item.llm_accuracy_score != null || item.llm_quality_score != null || item.rating_normalized != null) && (
+                        <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+                          {item.llm_accuracy_score != null && <ScorePill label="ACC" value={item.llm_accuracy_score} />}
+                          {item.llm_quality_score != null && <ScorePill label="QUAL" value={item.llm_quality_score} />}
+                          {item.rating_normalized != null && <ScorePill label="RATING" value={item.rating_normalized} />}
+                        </div>
+                      )}
                       {isBookType(item.type) ? (
                         /* Book purchase links */
                         <div className="flex items-center gap-2 sm:gap-3 justify-center sm:justify-start flex-wrap">
@@ -595,7 +623,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                 </div>
 
                 {(linksLoading || relatedFigures.length > 0) && (
-                  <section className="rounded-2xl border border-stone-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 shadow-sm">
+                  <section className="rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 shadow-sm">
                     <div className="flex items-center justify-between">
                       <div className="text-xs uppercase tracking-[0.2em] text-stone-500 dark:text-slate-400">Related figures</div>
                       <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
@@ -640,7 +668,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                 )}
 
                 {(sourcesLoading || sourceGroups.length > 0) && (
-                  <section className="rounded-2xl border border-stone-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 shadow-sm">
+                  <section className="rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 shadow-sm">
                     <div className="flex items-center justify-between">
                       <div className="text-xs uppercase tracking-[0.2em] text-stone-500 dark:text-slate-400">Model ratings</div>
                       <span className="text-[10px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">LLM averages</span>
@@ -661,7 +689,7 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                   </section>
                 )}
 
-                <section className="space-y-3 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-5 shadow-sm">
+                <section className="space-y-3 rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm">
                   <h3 className="text-xs font-semibold uppercase tracking-[0.25em] text-stone-500 dark:text-slate-400">
                     Summary
                   </h3>
@@ -686,72 +714,97 @@ export function MediaDetailPanel({ item, open, loading, onClose, onNext, onPrevi
                   )}
                 </section>
 
-                <section className="grid gap-4 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-5 shadow-sm md:grid-cols-2">
+                <section className="grid gap-4 rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 shadow-sm md:grid-cols-2">
                   {isBookType(item.type) ? (
                     <>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Author</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.authors)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Publisher</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{item.publisher ?? '—'}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Genre</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.genres)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Language</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{item.language ?? '—'}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Pages</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{item.page_count ?? '—'}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Rating</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">
-                          {item.rating_normalized ? `${item.rating_normalized.toFixed(1)} / 10` : '—'}
-                          {item.rating_source ? ` · ${item.rating_source.toUpperCase()}` : ''}
+                      {item.authors && item.authors.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Author</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.authors)}</div>
                         </div>
-                      </div>
+                      )}
+                      {item.publisher && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Publisher</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{item.publisher}</div>
+                        </div>
+                      )}
+                      {item.genres && item.genres.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Genre</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.genres)}</div>
+                        </div>
+                      )}
+                      {item.language && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Language</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{item.language}</div>
+                        </div>
+                      )}
+                      {item.page_count != null && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Pages</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{item.page_count}</div>
+                        </div>
+                      )}
+                      {item.rating_normalized != null && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Rating</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">
+                            {item.rating_normalized.toFixed(1)} / 10
+                            {item.rating_source ? ` · ${item.rating_source.toUpperCase()}` : ''}
+                          </div>
+                        </div>
+                      )}
                     </>
                   ) : (
                     <>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Creators</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.creators)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Directors</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.directors)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Cast</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.cast)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Countries</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.countries)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Awards</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.awards)}</div>
-                      </div>
-                      <div>
-                        <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Ratings</div>
-                        <div className="text-sm text-stone-700 dark:text-slate-300">
-                          {item.rating_normalized ? `${item.rating_normalized.toFixed(1)} / 10` : '—'}
-                          {item.rating_source ? ` · ${item.rating_source.toUpperCase()}` : ''}
+                      {item.creators && item.creators.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Creators</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.creators)}</div>
                         </div>
-                      </div>
+                      )}
+                      {item.directors && item.directors.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Directors</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.directors)}</div>
+                        </div>
+                      )}
+                      {item.cast && item.cast.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Cast</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.cast)}</div>
+                        </div>
+                      )}
+                      {item.countries && item.countries.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Countries</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.countries)}</div>
+                        </div>
+                      )}
+                      {item.awards && item.awards.length > 0 && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Awards</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">{formatList(item.awards)}</div>
+                        </div>
+                      )}
+                      {item.rating_normalized != null && (
+                        <div>
+                          <div className="text-[11px] uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">Ratings</div>
+                          <div className="text-sm text-stone-700 dark:text-slate-300">
+                            {item.rating_normalized.toFixed(1)} / 10
+                            {item.rating_source ? ` · ${item.rating_source.toUpperCase()}` : ''}
+                          </div>
+                        </div>
+                      )}
                     </>
                   )}
                 </section>
 
                 {item.notes && (
-                  <section className="rounded-2xl border border-stone-200/80 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 p-4 text-sm text-stone-600 dark:text-slate-300 leading-relaxed">
+                  <section className="rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 text-sm text-stone-600 dark:text-slate-300 leading-relaxed border-l-4 border-l-amber-400/60 dark:border-l-amber-500/40">
+                    <div className="text-[10px] uppercase tracking-[0.25em] text-stone-400 dark:text-slate-500 mb-2">Editor&apos;s note</div>
                     {item.notes}
                   </section>
                 )}
