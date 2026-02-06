@@ -68,10 +68,20 @@ export function loadFigureEmbeddings(): EmbeddingsIndex | null {
     return null;
   }
 
-  const raw = fs.readFileSync(embeddingsPath, 'utf8');
-  cachedIndex = JSON.parse(raw) as EmbeddingsIndex;
-  cachedPath = embeddingsPath;
-  return cachedIndex;
+  try {
+    const raw = fs.readFileSync(embeddingsPath, 'utf8');
+    // Guard against LFS pointer files or corrupt data
+    if (!raw.startsWith('{')) {
+      console.warn('[embeddings] figures.json appears to be an LFS pointer or invalid, skipping');
+      return null;
+    }
+    cachedIndex = JSON.parse(raw) as EmbeddingsIndex;
+    cachedPath = embeddingsPath;
+    return cachedIndex;
+  } catch (error) {
+    console.warn('[embeddings] Failed to load figure embeddings:', error);
+    return null;
+  }
 }
 
 export function loadMediaEmbeddings(): MediaEmbeddingsIndex | null {
@@ -82,9 +92,18 @@ export function loadMediaEmbeddings(): MediaEmbeddingsIndex | null {
     return null;
   }
 
-  const raw = fs.readFileSync(embeddingsPath, 'utf8');
-  cachedMediaIndex = JSON.parse(raw) as MediaEmbeddingsIndex;
-  return cachedMediaIndex;
+  try {
+    const raw = fs.readFileSync(embeddingsPath, 'utf8');
+    if (!raw.startsWith('{')) {
+      console.warn('[embeddings] media.json appears to be an LFS pointer or invalid, skipping');
+      return null;
+    }
+    cachedMediaIndex = JSON.parse(raw) as MediaEmbeddingsIndex;
+    return cachedMediaIndex;
+  } catch (error) {
+    console.warn('[embeddings] Failed to load media embeddings:', error);
+    return null;
+  }
 }
 
 export function getEmbeddingsPath() {
