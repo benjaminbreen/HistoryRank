@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
     '/api/figures/[id]': ['historyrank.db'],
     '/api/scatter': ['historyrank.db'],
     '/api/health': ['historyrank.db'],
+    '/api/media': [
+      'data/raw/media/ucsc-history-media.jsonl',
+      'data/raw/media/*.json',
+      'data/media-figure-links.suggestions.json',
+      'data/cache/media-details.json',
+      'data/embeddings/media.json',
+    ],
   },
   outputFileTracingExcludes: {
     '/api/figures': [
@@ -100,7 +107,6 @@ const nextConfig: NextConfig = {
     '/api/media': [
       'public/thumbnails/**',
       'public/media-thumbnails/**',
-      'data/raw/media/**',
       '**/*.jpg',
       '**/*.png',
       '**/*.webp',
