@@ -111,15 +111,8 @@ export function middleware(request: NextRequest) {
 
   const [first, second, ...rest] = segments;
 
-  if (RESERVED_ROUTES.has(first) || first.startsWith('_')) {
+  if (RESERVED_ROUTES.has(first) || first === 'figure' || first.startsWith('_')) {
     return NextResponse.next();
-  }
-
-  if (first === 'figure' && second) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/';
-    url.searchParams.set('figure', second);
-    return NextResponse.rewrite(url);
   }
 
   const badge = BADGE_SLUGS[first];
