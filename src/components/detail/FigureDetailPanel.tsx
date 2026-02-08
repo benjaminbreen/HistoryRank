@@ -282,6 +282,7 @@ export function FigureDetailPanel({
               {figureId && (
                 <Link
                   href={`/figure/${figureId}`}
+                  onClick={onClose}
                   className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
                   aria-label="View full page"
                   title="View full page"
@@ -309,7 +310,7 @@ export function FigureDetailPanel({
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <Link href={figureId ? `/figure/${figureId}` : '#'} className="flex-shrink-0 group/portrait">
+                <Link href={figureId ? `/figure/${figureId}` : '#'} onClick={onClose} className="flex-shrink-0 group/portrait">
                   {localThumbUrl && !localThumbFailed ? (
                     <div className="relative">
                       <img
