@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
@@ -75,7 +74,6 @@ export function FigureDetailPanel({
   hasNext = false,
   onNavigate,
 }: FigureDetailPanelProps) {
-  const router = useRouter();
   const [wikiData, setWikiData] = useState<WikipediaData | null>(null);
   const [wikiLoading, setWikiLoading] = useState(false);
   const [localThumbExt, setLocalThumbExt] = useState<number>(0); // 0=jpg, 1=png, 2=webp, 3=failed
@@ -283,7 +281,7 @@ export function FigureDetailPanel({
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
               {figureId && (
                 <button
-                  onClick={() => router.push(`/figure/${figureId}`)}
+                  onClick={() => { window.location.href = `/figure/${figureId}`; }}
                   className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
                   aria-label="View full page"
                   title="View full page"
@@ -311,7 +309,7 @@ export function FigureDetailPanel({
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <div onClick={() => { if (figureId) router.push(`/figure/${figureId}`); }} className="flex-shrink-0 group/portrait cursor-pointer">
+                <div onClick={() => { if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
                   {localThumbUrl && !localThumbFailed ? (
                     <div className="relative">
                       <img
