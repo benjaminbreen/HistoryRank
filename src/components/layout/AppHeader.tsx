@@ -171,7 +171,7 @@ export function AppHeader({
               </button>
               <Link href="/" className="block min-w-0 group">
                 <h1
-                  className="font-serif font-semibold text-stone-900 dark:text-amber-100 truncate leading-none group-hover:text-stone-700 dark:group-hover:text-amber-200 transition-colors duration-200"
+                  className="font-serif font-semibold text-stone-900 dark:text-amber-100 truncate leading-snug group-hover:text-stone-700 dark:group-hover:text-amber-200 transition-colors duration-200"
                   style={{
                     fontSize: isCompactHeader ? '17px' : '20px',
                     letterSpacing: '-0.015em',
@@ -223,10 +223,18 @@ export function AppHeader({
                 </DropdownPanel>
               </div>
 
-              {/* Media — the only top-level link with an icon */}
-              <NavLink href="/media" isActive={active === 'media'} icon={<Clapperboard className="h-3.5 w-3.5" />}>
-                Media
-              </NavLink>
+              {/* Media Atlas — standalone sub-app, visually distinct */}
+              <Link
+                href="/media"
+                className={`relative flex items-center gap-1.5 px-3 py-1 text-[13px] font-medium rounded-full border transition-all duration-150 ${
+                  active === 'media'
+                    ? 'text-stone-900 dark:text-amber-100 bg-amber-50 dark:bg-amber-900/20 border-amber-300/60 dark:border-amber-700/50'
+                    : 'text-stone-500 dark:text-slate-400 border-stone-200/70 dark:border-slate-600/50 hover:text-stone-900 dark:hover:text-amber-200 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-white/[0.06]'
+                }`}
+              >
+                <Clapperboard className="h-3.5 w-3.5" />
+                Media Atlas
+              </Link>
 
               <div className="w-px h-[18px] bg-stone-300/40 dark:bg-slate-600/40 mx-1.5" />
 

@@ -112,10 +112,10 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
       }`}
       aria-selected={isSelected}
     >
-      <TableCell className={`font-mono text-sm sm:text-base text-stone-900 dark:text-amber-100 font-medium ${rowPadding}`}>
+      <TableCell className={`font-mono text-sm sm:text-base text-stone-900 dark:text-amber-100 font-medium whitespace-nowrap ${rowPadding}`}>
         {figure.llmRank ? `#${figure.llmRank}` : '—'}
       </TableCell>
-      <TableCell className={`hidden sm:table-cell font-mono text-base text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+      <TableCell className={`hidden sm:table-cell font-mono text-base text-stone-500 dark:text-slate-400 whitespace-nowrap ${rowPadding}`}>
         {formatRank(figure.hpiRank)}
       </TableCell>
       <TableCell className={rowPadding}>
@@ -129,7 +129,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
-              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 truncate sm:whitespace-normal`}>{figure.name}</span>
+              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 line-clamp-1 sm:line-clamp-none`}>{figure.name}</span>
               {figure.badges && figure.badges.length > 0 && (
                 <span className="hidden md:inline-flex">
                   <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
@@ -146,7 +146,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
         </div>
       </TableCell>
       {showRegion && (
-        <TableCell className={`hidden lg:table-cell ${secondaryText} text-stone-600 dark:text-slate-400 ${rowPadding}`}>
+        <TableCell className={`hidden lg:table-cell ${secondaryText} text-stone-600 dark:text-slate-400 whitespace-nowrap ${rowPadding}`}>
           {figure.regionSub ? (
             <span
               className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white"
@@ -159,21 +159,21 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
           )}
         </TableCell>
       )}
-      <TableCell className={`hidden md:table-cell text-sm text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+      <TableCell className={`hidden md:table-cell text-sm text-stone-600 dark:text-slate-300 whitespace-nowrap ${rowPadding}`}>
         {figure.domain || '—'}
       </TableCell>
       {showEra && (
-        <TableCell className={`hidden lg:table-cell text-sm text-stone-600 dark:text-slate-300 ${rowPadding}`}>
+        <TableCell className={`hidden lg:table-cell text-sm text-stone-600 dark:text-slate-300 whitespace-nowrap ${rowPadding}`}>
           {figure.era || '—'}
         </TableCell>
       )}
       {showVariance && (
-        <TableCell className={`hidden xl:table-cell ${rowPadding}`}>
+        <TableCell className={`hidden xl:table-cell whitespace-nowrap ${rowPadding}`}>
           <VarianceBadge level={getVarianceLevel(figure.varianceScore)} score={figure.varianceScore} />
         </TableCell>
       )}
       {showViews && (
-        <TableCell className={`font-mono text-xs sm:text-sm text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+        <TableCell className={`font-mono text-xs sm:text-sm text-right text-stone-500 dark:text-slate-400 whitespace-nowrap ${rowPadding}`}>
           {formatNumber(figure.pageviews)}
         </TableCell>
       )}
@@ -334,7 +334,7 @@ export function RankingsTable({
   );
 
   // Memoized row component to prevent unnecessary re-renders
-  const rowPadding = density === 'compact' ? 'py-2' : 'py-3';
+  const rowPadding = density === 'compact' ? 'py-1.5 sm:py-2' : 'py-2 sm:py-3';
   const secondaryText = density === 'compact' ? 'text-xs' : 'text-sm';
   const nameText = density === 'compact' ? 'text-sm' : 'text-base';
 
@@ -420,7 +420,7 @@ export function RankingsTable({
         className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
         style={{ fontSize: `${fontScale}em` }}
       >
-      <Table className="table-fixed sm:table-auto">
+      <Table>
         <TableHeader className="border-t border-stone-200/70 dark:border-amber-900/40">
           <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
             <TableHead className="w-[46px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
