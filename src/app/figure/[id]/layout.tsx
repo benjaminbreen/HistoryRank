@@ -1,5 +1,5 @@
-import { db, figures } from '@/lib/db';
-import { eq } from 'drizzle-orm';
+import Database from 'better-sqlite3';
+import path from 'path';
 import type { Metadata } from 'next';
 
 type Props = {
@@ -10,40 +10,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
   try {
-    const figure = await db.query.figures.findFirst({
-      where: eq(figures.id, id),
-      columns: {
-        canonicalName: true,
-        occupation: true,
-        birthYear: true,
-      },
-    });
+    const dbPath = path.join(process.cwd(), 'historyrank.db');
+    const db = new Database(dbPath, { readonly: true });
 
-    if (!figure) {
+    const row = db.prepare(
+      'SELECT canonical_name, occupation, birth_year FROM figures WHERE id = ?'
+    ).get(id) as { canonical_name: string; occupation: string | null; birth_year: number | null } | undefined;
+
+    db.close();
+
+    if (!row) {
       return {
         title: 'Figure Not Found | HistoryRank',
       };
     }
 
-    const birthLabel = figure.birthYear
-      ? figure.birthYear < 0
-        ? `${Math.abs(figure.birthYear)} BCE`
-        : `b. ${figure.birthYear}`
+    const birthLabel = row.birth_year
+      ? row.birth_year < 0
+        ? `${Math.abs(row.birth_year)} BCE`
+        : `b. ${row.birth_year}`
       : '';
 
     const parts = [
-      figure.canonicalName,
-      figure.occupation,
+      row.canonical_name,
+      row.occupation,
       birthLabel ? `(${birthLabel})` : '',
     ].filter(Boolean);
 
     const description = `${parts.join(', ')} — Rankings, timeline, and research on HistoryRank`;
 
     return {
-      title: `${figure.canonicalName} | HistoryRank`,
+      title: `${row.canonical_name} | HistoryRank`,
       description,
       openGraph: {
-        title: `${figure.canonicalName} | HistoryRank`,
+        title: `${row.canonical_name} | HistoryRank`,
         description,
         images: [`/thumbnails/${id}.jpg`],
       },
