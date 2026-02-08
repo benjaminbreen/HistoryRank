@@ -90,6 +90,7 @@ export function FigureDetailPanel({
   // Use previewRow or figure for display data
   const displayData = figure || previewRow;
   const figureId = figure?.id || previewRow?.id;
+  console.log('[FigureDetailPanel] render', { figureId, figureIdType: typeof figureId, hasPreviewRow: !!previewRow, hasFigure: !!figure, previewRowId: previewRow?.id, figureObjId: figure?.id });
   const wikiSlug = figure?.wikipediaSlug || previewRow?.wikipediaSlug;
 
   useEffect(() => {
@@ -281,10 +282,20 @@ export function FigureDetailPanel({
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
               {figureId && (
                 <button
-                  onClick={() => { window.location.href = `/figure/${figureId}`; }}
+                  onClick={(e) => {
+                    const url = `/figure/${figureId}`;
+                    console.log('[ViewFullPage] clicked!', { figureId, url, eventTarget: e.target, currentTarget: e.currentTarget, defaultPrevented: e.defaultPrevented });
+                    try {
+                      window.location.href = url;
+                      console.log('[ViewFullPage] window.location.href set to:', url);
+                    } catch (err) {
+                      console.error('[ViewFullPage] ERROR setting location:', err);
+                    }
+                  }}
                   className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
                   aria-label="View full page"
                   title="View full page"
+                  style={{ border: '2px solid red' }}
                 >
                   <Maximize2 className="w-4 h-4 text-stone-500 dark:text-slate-400" />
                 </button>
@@ -309,7 +320,7 @@ export function FigureDetailPanel({
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <div onClick={() => { if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
+                <div onClick={() => { console.log('[Portrait] clicked, figureId:', figureId); if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
                   {localThumbUrl && !localThumbFailed ? (
                     <div className="relative">
                       <img
