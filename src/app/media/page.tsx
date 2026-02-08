@@ -13,7 +13,7 @@ type MediaResponse = { items: MediaItem[] };
 
 function MediaLoading() {
   return (
-    <div className="min-h-screen bg-transparent text-stone-900 dark:text-slate-100">
+    <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
         <div className="space-y-4">
           <Skeleton className="h-8 w-64" />
@@ -103,14 +103,14 @@ function MediaPageContent() {
   }, [selectedId]);
 
   return (
-    <div className="min-h-screen bg-transparent text-stone-900 dark:text-slate-100">
+    <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">
       <AppHeader
         active="media"
         settings={settings}
         onSettingsChange={updateSettings}
         onSettingsReset={resetSettings}
       />
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
+      <main className="mx-auto max-w-7xl overflow-x-clip px-4 py-8 sm:px-6 sm:py-12">
         <div className="mb-6 sm:mb-8 space-y-2">
           <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 dark:text-amber-100">Historical Media Atlas</h1>
           <p className="max-w-3xl text-sm text-stone-500 dark:text-slate-400 leading-relaxed">

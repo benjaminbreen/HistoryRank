@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — A2: Icon-Forward with Tooltip Labels</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  .top-ribbon {
+    height: 2px;
+    background: linear-gradient(90deg, #c9a55c 0%, #d4a574 40%, #a8bed2 75%, #7a8fa8 100%);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.86);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  /* ── LOGO ── */
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #44403c 0%, #292524 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #d4a574;
+    letter-spacing: 0.04em;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+
+  .logo-group:hover .logo-mark {
+    transform: scale(1.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 0 2px rgba(201,165,92,0.15);
+  }
+
+  .logo-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #292524;
+    letter-spacing: -0.005em;
+  }
+
+  /* ── ICON NAV ── */
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav-icon-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: #78716c;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  .nav-icon-link:hover {
+    color: #292524;
+    background: rgba(0,0,0,0.04);
+  }
+
+  .nav-icon-link.active {
+    color: #292524;
+    background: rgba(201,165,92,0.1);
+  }
+
+  .nav-icon-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    right: 8px;
+    height: 2px;
+    background: #c9a55c;
+    border-radius: 1px;
+  }
+
+  .nav-icon-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Tooltip on hover */
+  .nav-icon-link .tooltip {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    padding: 4px 10px;
+    background: #292524;
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .nav-icon-link .tooltip::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: #292524;
+    border-radius: 1px;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .nav-icon-link:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Label that shows next to icon for active state */
+  .nav-icon-link .active-label {
+    display: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 2px;
+  }
+
+  .nav-icon-link.active {
+    width: auto;
+    padding: 0 12px;
+    gap: 5px;
+  }
+
+  .nav-icon-link.active .active-label {
+    display: inline;
+  }
+
+  .nav-icon-link.active .tooltip {
+    display: none;
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(0,0,0,0.07);
+    margin: 0 4px;
+  }
+
+  /* ── RIGHT SIDE ── */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-meta {
+    font-size: 11px;
+    font-weight: 500;
+    color: #a8a29e;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.15s;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-meta:hover {
+    color: #57534e;
+  }
+
+  .settings-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #b8b4ac;
+    margin-left: 4px;
+  }
+
+  .settings-btn:hover {
+    border-color: rgba(0,0,0,0.12);
+    color: #57534e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* ── DEMO ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(201,165,92,0.1);
+    border: 1px solid rgba(201,165,92,0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8b7030;
+  }
+
+  ul.changes { margin-top: 14px; padding-left: 20px; }
+  ul.changes li { font-size: 14px; color: #78716c; line-height: 1.7; margin-bottom: 4px; }
+  ul.changes li strong { color: #57534e; }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo-group">
+      <div class="logo-mark">HR</div>
+      <span class="logo-text">HistoryRank</span>
+    </a>
+
+    <nav class="nav-icons">
+      <!-- Rankings — active, shows label -->
+      <a href="#" class="nav-icon-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <span class="active-label">Rankings</span>
+      </a>
+
+      <!-- Maps -->
+      <a href="#" class="nav-icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+        <span class="tooltip">Maps</span>
+      </a>
+
+      <!-- Scatter -->
+      <a href="#" class="nav-icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/><circle cx="16.5" cy="7.5" r="1.5"/></svg>
+        <span class="tooltip">Scatter</span>
+      </a>
+
+      <!-- Media -->
+      <a href="#" class="nav-icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="m7 2v20"/><path d="M2 12h20"/></svg>
+        <span class="tooltip">Media Atlas</span>
+      </a>
+
+      <div class="nav-sep"></div>
+
+      <!-- Compare -->
+      <a href="#" class="nav-icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="m21 3-8.5 8.5"/><path d="m3 3 8.5 8.5"/></svg>
+        <span class="tooltip">Compare</span>
+      </a>
+
+      <!-- Benchmarks -->
+      <a href="#" class="nav-icon-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        <span class="tooltip">Benchmarks</span>
+      </a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="#" class="nav-meta">About</a>
+      <a href="#" class="nav-meta">Method</a>
+      <a href="#" class="nav-meta">Caveats</a>
+      <button class="settings-btn" title="Settings">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">A2 — Icon-Forward with Tooltip Labels</div>
+    <h2>Design Approach</h2>
+    <p>
+      Primary navigation is icon-only buttons with hover tooltips, dramatically reducing
+      the horizontal footprint. The <strong>active page</strong> expands to show its label
+      (icon + text), making it clear where you are while keeping inactive items compact.
+    </p>
+    <ul class="changes">
+      <li><strong>Icons-only:</strong> All six nav items are 36&times;36px icon buttons. Hover reveals a dark tooltip with the page name. Extremely compact.</li>
+      <li><strong>Active expansion:</strong> The current page's button widens to show its label alongside the icon, providing clear orientation without cluttering the bar.</li>
+      <li><strong>Dark logo mark:</strong> The &ldquo;HR&rdquo; badge uses a dark charcoal circle with warm copper lettering &mdash; inverted from Option A's light parchment, more modern and higher contrast.</li>
+      <li><strong>Vertical separators:</strong> A thin divider separates the data-view icons (Rankings, Maps, Scatter, Media) from the analysis tools (Compare, Benchmarks).</li>
+      <li><strong>Right-aligned meta:</strong> About, Method, and Caveats are small text links on the right, clearly secondary.</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

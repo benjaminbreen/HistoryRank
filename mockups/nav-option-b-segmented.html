@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — Option B: Centered Segmented</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.82);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+
+  /* Logo */
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #44403c 0%, #292524 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #d4a574;
+    letter-spacing: 0.06em;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
+  .logo-group:hover .logo-mark {
+    transform: scale(1.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2), 0 0 0 2px rgba(201,165,92,0.2);
+  }
+
+  .logo-name {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #292524;
+  }
+
+  /* Center — Segmented pill navigation */
+  .nav-center {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 10px;
+    padding: 3px;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .nav-segment {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .nav-segment:hover {
+    color: #292524;
+    background: rgba(255,255,255,0.5);
+  }
+
+  .nav-segment.active {
+    color: #292524;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+    font-weight: 600;
+  }
+
+  .nav-segment .seg-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .nav-segment.active .seg-icon {
+    opacity: 0.8;
+  }
+
+  .seg-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(0,0,0,0.08);
+    margin: 0 1px;
+  }
+
+  /* Right — secondary actions */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .nav-secondary {
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #a8a29e;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .nav-secondary:hover {
+    color: #57534e;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #a8a29e;
+  }
+
+  .icon-btn:hover {
+    border-color: rgba(0,0,0,0.12);
+    color: #57534e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* Bottom accent line */
+  .header-accent {
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(201,165,92,0.3) 15%,
+      rgba(201,165,92,0.15) 50%,
+      rgba(122,143,168,0.15) 85%,
+      transparent 100%
+    );
+  }
+
+  /* ── DEMO CONTENT ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(41,37,36,0.06);
+    border: 1px solid rgba(41,37,36,0.1);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #57534e;
+  }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <!-- Left: Logo -->
+    <a href="#" class="logo-group">
+      <div class="logo-mark">HR</div>
+      <span class="logo-name">HistoryRank</span>
+    </a>
+
+    <!-- Center: Segmented pill navigation -->
+    <nav class="nav-center">
+      <a href="#" class="nav-segment active">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        Rankings
+      </a>
+      <a href="#" class="nav-segment">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+        Maps
+      </a>
+      <a href="#" class="nav-segment">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/></svg>
+        Scatter
+      </a>
+      <a href="#" class="nav-segment">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="m7 2v20"/><path d="M2 12h20"/></svg>
+        Media
+      </a>
+
+      <div class="seg-divider"></div>
+
+      <a href="#" class="nav-segment">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="m21 3-8.5 8.5"/><path d="m3 3 8.5 8.5"/></svg>
+        Compare
+      </a>
+      <a href="#" class="nav-segment">
+        <svg class="seg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"/><path d="M4 22h16"/><path d="M10 22V9"/><path d="M14 22V9"/><path d="M8 9h8"/></svg>
+        Benchmarks
+      </a>
+    </nav>
+
+    <!-- Right: Secondary links + settings -->
+    <div class="nav-right">
+      <a href="#" class="nav-secondary">About</a>
+      <a href="#" class="nav-secondary">Method</a>
+
+      <button class="icon-btn" title="Settings">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="header-accent"></div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="8" cy="12" r="3"/></svg>
+      Option B — Centered Segmented Pill
+    </div>
+    <h2>Design Approach</h2>
+    <p>
+      <strong>Key idea:</strong> All primary navigation lives in a single centered segmented control (pill shape),
+      inspired by Apple's design language and modern SaaS tools. The logo anchors the left edge, secondary meta-links
+      (About, Method) are demoted to the right side in a lighter weight.
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>Improvements over current:</strong> Removes the "Explore" dropdown entirely — every page is one click away.
+      The centered position draws the eye naturally. The active state is a clean white raised segment against the
+      light gray trough. The dark square logo mark feels more modern than the current circle. The bottom accent line
+      is a subtle nod to the gold/blue warm-cool palette.
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>Trade-off:</strong> Uses more horizontal space, so on smaller desktop screens (<1100px) you'd need
+      to either abbreviate labels or switch to icons-only. But for a data-dense tool like HistoryRank, full-width
+      usage is expected.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

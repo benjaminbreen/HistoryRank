@@ -100,6 +100,116 @@ export const llmCandidates = sqliteTable('llm_candidates', {
   createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
 });
 
+// Research sources and evidence for enhanced detail panel
+export const figureResearchSources = sqliteTable('figure_research_sources', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  figureId: text('figure_id').notNull().references(() => figures.id),
+  sourceRole: text('source_role').notNull(), // 'primary' | 'secondary' | 'reference'
+  sourceCorpus: text('source_corpus').notNull(), // 'wikisource' | 'project_gutenberg' | 'internet_archive' | ...
+  sourceKind: text('source_kind').notNull().default('text'), // 'text' | 'speech' | 'letter' | 'book' | ...
+  title: text('title').notNull(),
+  author: text('author'),
+  publicationYear: integer('publication_year'),
+  sourceUrl: text('source_url').notNull(),
+  accessUrl: text('access_url'),
+  snippet: text('snippet'),
+  isPublicDomain: integer('is_public_domain', { mode: 'boolean' }).notNull().default(true),
+  confidence: real('confidence').notNull().default(0.5),
+  curationStatus: text('curation_status').notNull().default('auto'), // 'auto' | 'reviewed' | 'approved' | 'rejected'
+  metadata: text('metadata').notNull().default('{}'), // JSON string
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+  index('frs_figure_idx').on(table.figureId),
+  index('frs_role_idx').on(table.sourceRole),
+  index('frs_status_idx').on(table.curationStatus),
+  index('frs_figure_url_idx').on(table.figureId, table.sourceUrl),
+]);
+
+export const figureQuotes = sqliteTable('figure_quotes', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  figureId: text('figure_id').notNull().references(() => figures.id),
+  sourceId: integer('source_id').references(() => figureResearchSources.id),
+  quoteText: text('quote_text').notNull(),
+  attributedTo: text('attributed_to'),
+  quoteYear: integer('quote_year'),
+  sourceUrl: text('source_url'),
+  verificationStatus: text('verification_status').notNull().default('unverified'), // 'verified' | 'unverified' | 'disputed'
+  warningShort: text('warning_short'),
+  confidence: real('confidence'),
+  curationStatus: text('curation_status').notNull().default('auto'),
+  metadata: text('metadata').notNull().default('{}'),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+  index('fq_figure_idx').on(table.figureId),
+  index('fq_verification_idx').on(table.verificationStatus),
+  index('fq_status_idx').on(table.curationStatus),
+]);
+
+export const figureHistoricalSnippets = sqliteTable('figure_historical_snippets', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  figureId: text('figure_id').notNull().references(() => figures.id),
+  corpus: text('corpus').notNull(), // 'britannica_1911' | 'project_gutenberg' | ...
+  editionYear: integer('edition_year'),
+  sourceTitle: text('source_title'),
+  sourceUrl: text('source_url'),
+  snippet: text('snippet').notNull(),
+  matchScore: real('match_score'),
+  curationStatus: text('curation_status').notNull().default('auto'),
+  metadata: text('metadata').notNull().default('{}'),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+  index('fhs_figure_idx').on(table.figureId),
+  index('fhs_corpus_idx').on(table.corpus),
+  index('fhs_status_idx').on(table.curationStatus),
+]);
+
+export const figureAssessments = sqliteTable('figure_assessments', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  figureId: text('figure_id').notNull().references(() => figures.id),
+  assessmentKind: text('assessment_kind').notNull(), // 'importance_summary' | 'timeline_events'
+  model: text('model').notNull(),
+  promptVersion: text('prompt_version').notNull(),
+  triggerMode: text('trigger_mode').notNull().default('on_demand'), // 'on_demand' | 'manual'
+  inputHash: text('input_hash'),
+  assessmentText: text('assessment_text'),
+  assessmentJson: text('assessment_json').notNull().default('{}'), // JSON string
+  citations: text('citations').notNull().default('[]'), // JSON string of source IDs
+  status: text('status').notNull().default('draft'), // 'draft' | 'published' | 'stale'
+  generatedAt: integer('generated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+  index('fa_figure_idx').on(table.figureId),
+  index('fa_kind_idx').on(table.assessmentKind),
+  index('fa_status_idx').on(table.status),
+]);
+
+export const figureTimelineEvents = sqliteTable('figure_timeline_events', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  figureId: text('figure_id').notNull().references(() => figures.id),
+  assessmentId: integer('assessment_id').references(() => figureAssessments.id),
+  eventLabel: text('event_label').notNull(),
+  eventDescription: text('event_description'),
+  eventStartYear: integer('event_start_year'),
+  eventEndYear: integer('event_end_year'),
+  placeLabel: text('place_label'),
+  placeLat: real('place_lat'),
+  placeLon: real('place_lon'),
+  confidence: real('confidence'),
+  sourceIds: text('source_ids').notNull().default('[]'), // JSON string of source IDs
+  sortIndex: integer('sort_index').notNull().default(0),
+  metadata: text('metadata').notNull().default('{}'),
+  createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+  updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+  index('fte_figure_idx').on(table.figureId),
+  index('fte_assessment_idx').on(table.assessmentId),
+  index('fte_year_idx').on(table.eventStartYear, table.eventEndYear),
+]);
+
 // Type exports
 export type Figure = typeof figures.$inferSelect;
 export type NewFigure = typeof figures.$inferInsert;
@@ -107,3 +217,13 @@ export type Ranking = typeof rankings.$inferSelect;
 export type NewRanking = typeof rankings.$inferInsert;
 export type NameAlias = typeof nameAliases.$inferSelect;
 export type LlmCandidate = typeof llmCandidates.$inferSelect;
+export type FigureResearchSource = typeof figureResearchSources.$inferSelect;
+export type NewFigureResearchSource = typeof figureResearchSources.$inferInsert;
+export type FigureQuote = typeof figureQuotes.$inferSelect;
+export type NewFigureQuote = typeof figureQuotes.$inferInsert;
+export type FigureHistoricalSnippet = typeof figureHistoricalSnippets.$inferSelect;
+export type NewFigureHistoricalSnippet = typeof figureHistoricalSnippets.$inferInsert;
+export type FigureAssessment = typeof figureAssessments.$inferSelect;
+export type NewFigureAssessment = typeof figureAssessments.$inferInsert;
+export type FigureTimelineEvent = typeof figureTimelineEvents.$inferSelect;
+export type NewFigureTimelineEvent = typeof figureTimelineEvents.$inferInsert;

@@ -1,5 +1,11 @@
 # HistoryRank
 
+## Ongoing Work (2026-02-06)
+- Figure detail enhancement initiative is in progress.
+- Tracking doc: `figuredetailenhancement.md`
+- Current focus: SQLite schema migration + manual ingestion pipeline scaffold + tabbed detail panel rollout.
+- New progress: `/api/figures/[id]/evidence` endpoint, detail tabs wired, and pilot primary-source ingestion for Henry James + Abraham Lincoln.
+
 ## Project overview
 HistoryRank builds a public, data-driven ranking of historical figures. It combines:
 - LLM-generated rankings (multiple models, multiple samples)

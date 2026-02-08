@@ -1,0 +1,276 @@
+{
+  "generatedAt": "2026-02-08T03:30:56.965Z",
+  "figureId": "isaac-newton",
+  "figureName": "Isaac Newton",
+  "constraints": {
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary",
+      "reference"
+    ],
+    "corpora": [
+      "internet_archive",
+      "wikisource",
+      "openalex",
+      "crossref",
+      "openlibrary",
+      "loc"
+    ],
+    "queryNames": [
+      "Isaac Newton",
+      "Newton"
+    ],
+    "seedFallbackUsed": false
+  },
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "letter",
+      "title": "Correspondence respecting the Prince Edward Island Railway and report of Messrs. Isaac Newton & John Meehan, civil egineers, &c., &c. 1872 [microform]",
+      "author": "Newton, Isaac,Meehan, John",
+      "publication_year": 1873,
+      "source_url": "https://archive.org/details/cihm_12079",
+      "access_url": "https://archive.org/details/cihm_12079",
+      "confidence": 0.93,
+      "why": "Archive text record likely authored by figure.",
+      "metadata": {
+        "source_api": "internet_archive_primary"
+      }
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Memoirs of Sir Isaac Newton's life/Allegorical portrait of Isaac Newton",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life%2FAllegorical_portrait_of_Isaac_Newton",
+      "access_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life%2FAllegorical_portrait_of_Isaac_Newton",
+      "confidence": 0.85,
+      "why": "Title strongly matches figure; likely authored text."
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Memoirs of Sir Isaac Newton's life",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life",
+      "access_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life",
+      "confidence": 0.85,
+      "why": "Title strongly matches figure; likely authored text."
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Memoirs of Sir Isaac Newton's life/Genealogy of Newton",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life%2FGenealogy_of_Newton",
+      "access_url": "https://en.wikisource.org/wiki/Memoirs_of_Sir_Isaac_Newton's_life%2FGenealogy_of_Newton",
+      "confidence": 0.85,
+      "why": "Title strongly matches figure; likely authored text."
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Crockett v. Steamboat Isaac Newton",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://en.wikisource.org/wiki/Crockett_v._Steamboat_Isaac_Newton",
+      "access_url": "https://en.wikisource.org/wiki/Crockett_v._Steamboat_Isaac_Newton",
+      "confidence": 0.85,
+      "why": "Title strongly matches figure; likely authored text."
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Medium-resolution Isaac Newton Telescope library of empirical spectra",
+      "author": "P. Sánchez–Blázquez",
+      "publication_year": 2006,
+      "source_url": "https://doi.org/10.1111/j.1365-2966.2006.10699.x",
+      "access_url": "https://doi.org/10.1111/j.1365-2966.2006.10699.x",
+      "snippet": "Monthly Notices of the Royal Astronomical Society",
+      "confidence": 0.85,
+      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
+      "metadata": {
+        "provider": "openalex",
+        "cited_by_count": 1501,
+        "openalex_id": "https://openalex.org/W2163117531",
+        "work_type": "article",
+        "venue": "Monthly Notices of the Royal Astronomical Society"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Isaac Newton: Philosophical Writings",
+      "author": "Isaac Newton",
+      "publication_year": 2004,
+      "source_url": "https://doi.org/10.1017/cbo9780511809293",
+      "access_url": "https://doi.org/10.1017/cbo9780511809293",
+      "snippet": null,
+      "confidence": 0.842,
+      "why": "High-confidence secondary source lead from Crossref.",
+      "metadata": {
+        "provider": "crossref",
+        "doi": "10.1017/cbo9780511809293",
+        "referenced_by_count": 78,
+        "container_title": null,
+        "work_type": "edited-book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Life records of Isaac Newton",
+      "author": "A Rupert Hall",
+      "publication_year": 1998,
+      "source_url": "https://doi.org/10.1093/oso/9780198503644.003.0003",
+      "access_url": "https://doi.org/10.1093/oso/9780198503644.003.0003",
+      "snippet": "Isaac Newton",
+      "confidence": 0.794,
+      "why": "High-confidence secondary source lead from Crossref.",
+      "metadata": {
+        "provider": "crossref",
+        "doi": "10.1093/oso/9780198503644.003.0003",
+        "referenced_by_count": 0,
+        "container_title": "Isaac Newton",
+        "work_type": "book-chapter"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Isaac Newton",
+      "author": "Stephen D. Snobelen",
+      "publication_year": 2021,
+      "source_url": "https://doi.org/10.1093/obo/9780195399301-0462",
+      "access_url": "https://doi.org/10.1093/obo/9780195399301-0462",
+      "snippet": "Renaissance and Reformation",
+      "confidence": 0.714,
+      "why": "High-confidence secondary source lead from Crossref.",
+      "metadata": {
+        "provider": "crossref",
+        "doi": "10.1093/obo/9780195399301-0462",
+        "referenced_by_count": 0,
+        "container_title": "Renaissance and Reformation",
+        "work_type": "reference-entry"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Isaac Newton on Prophecies and Idolatry",
+      "author": "Jed Z. Buchwald",
+      "publication_year": 2012,
+      "source_url": "https://doi.org/10.23943/princeton/9780691154787.003.0004",
+      "access_url": "https://doi.org/10.23943/princeton/9780691154787.003.0004",
+      "snippet": "Newton and the Origin of Civilization",
+      "confidence": 0.714,
+      "why": "High-confidence secondary source lead from Crossref.",
+      "metadata": {
+        "provider": "crossref",
+        "doi": "10.23943/princeton/9780691154787.003.0004",
+        "referenced_by_count": 0,
+        "container_title": "Newton and the Origin of Civilization",
+        "work_type": "book-chapter"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "reference",
+      "source_kind": "book",
+      "title": "Isaac Newton, a Biography",
+      "author": "Louis Trenchard More",
+      "publication_year": 1934,
+      "source_url": "https://openlibrary.org/works/OL31268417W",
+      "access_url": "https://openlibrary.org/works/OL31268417W",
+      "confidence": 0.75,
+      "why": "Reference catalog lead from Open Library with strong figure-title match.",
+      "metadata": {
+        "provider": "openlibrary",
+        "edition_count": 2,
+        "subjects": []
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "reference",
+      "source_kind": "book",
+      "title": "Who Was Isaac Newton?",
+      "author": "Ruth Richards",
+      "publication_year": 2018,
+      "source_url": "https://openlibrary.org/works/OL40623829W",
+      "access_url": "https://openlibrary.org/works/OL40623829W",
+      "confidence": 0.67,
+      "why": "Open Library catalog lead for review.",
+      "metadata": {
+        "provider": "openlibrary",
+        "edition_count": 1,
+        "subjects": []
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "reference",
+      "source_kind": "book",
+      "title": "Isaac Newton",
+      "author": "Brantley O. Peterson",
+      "publication_year": 2022,
+      "source_url": "https://openlibrary.org/works/OL34095889W",
+      "access_url": "https://openlibrary.org/works/OL34095889W",
+      "confidence": 0.67,
+      "why": "Open Library catalog lead for review.",
+      "metadata": {
+        "provider": "openlibrary",
+        "edition_count": 1,
+        "subjects": []
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "reference",
+      "source_kind": "book",
+      "title": "Isaac Newton,",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://openlibrary.org/works/OL31239620W",
+      "access_url": "https://openlibrary.org/works/OL31239620W",
+      "confidence": 0.67,
+      "why": "Open Library catalog lead for review.",
+      "metadata": {
+        "provider": "openlibrary",
+        "edition_count": 1,
+        "subjects": []
+      }
+    },
+    {
+      "source_corpus": "loc",
+      "source_role": "reference",
+      "source_kind": "archive_record",
+      "title": "Who was Isaac Newton?",
+      "author": "pascal, janet b.",
+      "publication_year": 2014,
+      "source_url": "//lccn.loc.gov/2014952920",
+      "access_url": "//lccn.loc.gov/2014952920",
+      "snippet": "Highlights the life and career of the genius physicist, discussing his childhood years, his time at Cambridge, and his landmark book, known as the \"Principia.\"-- Source other than the Library of Congress.",
+      "confidence": 0.67,
+      "why": "Library of Congress catalog lead with strong title match.",
+      "metadata": {
+        "provider": "loc",
+        "loc_item_id": null
+      }
+    }
+  ]
+}

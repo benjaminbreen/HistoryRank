@@ -132,6 +132,99 @@ export interface FigureDetailResponse {
   aliases?: string[];
 }
 
+export interface FigureEvidenceSource {
+  id: number;
+  sourceRole: string;
+  sourceCorpus: string;
+  sourceKind: string;
+  title: string;
+  author: string | null;
+  publicationYear: number | null;
+  sourceUrl: string;
+  accessUrl: string | null;
+  snippet: string | null;
+  isPublicDomain: boolean;
+  confidence: number;
+  curationStatus: string;
+  metadata: Record<string, unknown>;
+}
+
+export interface FigureEvidenceQuote {
+  id: number;
+  sourceId: number | null;
+  quoteText: string;
+  attributedTo: string | null;
+  quoteYear: number | null;
+  sourceUrl: string | null;
+  verificationStatus: string;
+  warningShort: string | null;
+  confidence: number | null;
+  curationStatus: string;
+  metadata: Record<string, unknown>;
+}
+
+export interface FigureEvidenceSnippet {
+  id: number;
+  corpus: string;
+  editionYear: number | null;
+  sourceTitle: string | null;
+  sourceUrl: string | null;
+  snippet: string;
+  matchScore: number | null;
+  curationStatus: string;
+  metadata: Record<string, unknown>;
+}
+
+export interface FigureEvidenceAssessment {
+  id: number;
+  assessmentKind: string;
+  model: string;
+  promptVersion: string;
+  triggerMode: string;
+  assessmentText: string | null;
+  assessmentJson: Record<string, unknown>;
+  citations: number[];
+  status: string;
+  generatedAt: string | null;
+}
+
+export interface FigureEvidenceTimelineEvent {
+  id: number;
+  assessmentId: number | null;
+  eventLabel: string;
+  eventDescription: string | null;
+  eventStartYear: number | null;
+  eventEndYear: number | null;
+  placeLabel: string | null;
+  placeLat: number | null;
+  placeLon: number | null;
+  confidence: number | null;
+  sourceIds: number[];
+  sortIndex: number;
+  metadata: Record<string, unknown>;
+}
+
+export interface FigureEvidenceResponse {
+  figureId: string;
+  figureName: string;
+  research: {
+    sources: FigureEvidenceSource[];
+    quotes: FigureEvidenceQuote[];
+    historicalSnippets: FigureEvidenceSnippet[];
+  };
+  timeline: {
+    assessment: FigureEvidenceAssessment | null;
+    events: FigureEvidenceTimelineEvent[];
+  };
+  meta: {
+    sourceCount: number;
+    quoteCount: number;
+    snippetCount: number;
+    eventCount: number;
+    hasAnyEvidence: boolean;
+  };
+}
+
 // Filter options
 export interface FilterState {
   domain: string | null;
@@ -353,6 +446,34 @@ export const ERA_COLORS: Record<string, string> = {
   'Modern': '#0891b2',         // cyan
   'Contemporary': '#7c3aed',   // violet
 };
+
+// Wikipedia data for figure detail display
+export interface WikipediaData {
+  thumbnail: {
+    source: string;
+    width: number;
+    height: number;
+  } | null;
+  extract: string | null;
+  title: string | null;
+}
+
+// Related media item from media API
+export interface RelatedMediaItem {
+  id: string;
+  title: string;
+  type: string;
+  release_year: number | null;
+  wikipedia_slug: string | null;
+  primary_era: string | null;
+  sub_era: string | null;
+  primary_region: string | null;
+  domain: string | null;
+  relation: string;
+}
+
+// Detail tab type
+export type DetailTab = 'overview' | 'research' | 'timeline';
 
 // Scatter plot types
 export type AxisOption =

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — Option A: Two-Tier Ribbon</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  /* ── TOP RIBBON: gold accent bar ── */
+  .top-ribbon {
+    height: 3px;
+    background: linear-gradient(90deg,
+      #c9a55c 0%,
+      #d4a574 30%,
+      #a8bed2 70%,
+      #7a8fa8 100%
+    );
+  }
+
+  /* ── MAIN HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.82);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Primary row — logo + main nav */
+  .header-primary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #c4b99a;
+    background: linear-gradient(135deg, #faf5eb 0%, #f0e8d8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6f5e3a;
+    letter-spacing: 0.04em;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 4px rgba(201,165,92,0.15);
+  }
+
+  .logo-group:hover .logo-icon {
+    border-color: #b89745;
+    box-shadow: 0 0 0 3px rgba(201,165,92,0.12), 0 2px 8px rgba(201,165,92,0.2);
+    transform: scale(1.04);
+  }
+
+  .logo-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #292524;
+    letter-spacing: -0.01em;
+  }
+
+  /* Primary nav links */
+  .nav-primary {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #292524;
+    background: rgba(0,0,0,0.04);
+  }
+
+  .nav-link.active {
+    color: #292524;
+    background: rgba(201,165,92,0.1);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: #c9a55c;
+    border-radius: 2px;
+  }
+
+  .nav-icon {
+    width: 15px;
+    height: 15px;
+    opacity: 0.55;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(0,0,0,0.08);
+    margin: 0 6px;
+  }
+
+  .nav-badge {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 5px;
+    background: linear-gradient(135deg, #c9a55c, #b8942e);
+    color: white;
+    border-radius: 4px;
+    line-height: 1;
+  }
+
+  /* Settings button */
+  .settings-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #a8a29e;
+  }
+
+  .settings-btn:hover {
+    border-color: rgba(0,0,0,0.15);
+    color: #57534e;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  /* ── SECONDARY ROW: contextual breadcrumb/scope ── */
+  .header-secondary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 0 10px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+
+  .header-secondary a {
+    color: #a8a29e;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .header-secondary a:hover {
+    color: #57534e;
+  }
+
+  .header-secondary .crumb-sep {
+    color: #d6d3d1;
+  }
+
+  .header-secondary .crumb-current {
+    color: #78716c;
+    font-weight: 600;
+  }
+
+  .header-secondary .figure-count {
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Inter', monospace;
+    color: #a8a29e;
+    font-size: 11px;
+  }
+
+  /* ── DEMO CONTENT ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(201,165,92,0.1);
+    border: 1px solid rgba(201,165,92,0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8b7030;
+  }
+
+  /* SVG icons (inline) */
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- Gold accent ribbon -->
+<div class="top-ribbon"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <!-- Primary row -->
+    <div class="header-primary">
+      <a href="#" class="logo-group">
+        <div class="logo-icon">HR</div>
+        <span class="logo-text">HistoryRank</span>
+      </a>
+
+      <nav class="nav-primary">
+        <a href="#" class="nav-link active">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Rankings
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Maps
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/><circle cx="16.5" cy="7.5" r="1.5"/><circle cx="7.5" cy="16.5" r="1.5"/></svg>
+          Scatter
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="m7 2v20"/><path d="M2 12h20"/><path d="m2 7h5"/><path d="m2 17h5"/></svg>
+          Media
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"/><path d="m15 9 6-6"/></svg>
+          Compare
+        </a>
+        <a href="#" class="nav-link">
+          Benchmarks
+          <span class="nav-badge">New</span>
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-link" style="color: #a8a29e; font-size: 12px;">About</a>
+        <a href="#" class="nav-link" style="color: #a8a29e; font-size: 12px;">Method</a>
+
+        <div class="nav-divider"></div>
+
+        <button class="settings-btn" title="Settings">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Secondary contextual row -->
+    <div class="header-secondary">
+      <a href="#">Home</a>
+      <span class="crumb-sep">/</span>
+      <span class="crumb-current">Rankings</span>
+      <span class="figure-count">1,847 figures</span>
+    </div>
+  </div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      Option A — Two-Tier Ribbon
+    </div>
+    <h2>Design Approach</h2>
+    <p>
+      <strong>Key idea:</strong> A thin gold accent ribbon at the very top anchors the brand, followed by a two-row header.
+      The primary row has the logo and all navigation flattened out (no dropdown), with icons for visual grouping.
+      A secondary contextual row shows breadcrumb-style wayfinding and a figure count.
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>Improvements over current:</strong> Eliminates the "Explore" dropdown &mdash; all links are visible at a glance.
+      The secondary row provides context without cluttering the main nav. The gold accent stripe gives a distinctive brand touch
+      that echoes the warm parchment tones. About/Methodology are demoted to smaller text since they're less-used.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

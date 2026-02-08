@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-02-06T20:48:59.747Z",
+  "figureId": "abraham-lincoln",
+  "figureName": "Abraham Lincoln",
+  "constraints": {
+    "language": "en",
+    "sourceRole": "primary",
+    "corpora": [
+      "wikisource",
+      "internet_archive",
+      "project_gutenberg"
+    ],
+    "queryNames": [
+      "Abraham Lincoln",
+      "Lincoln"
+    ],
+    "seedFallbackUsed": true
+  },
+  "candidates": [
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "speech",
+      "title": "Gettysburg Address",
+      "author": "Abraham Lincoln",
+      "publication_year": 1863,
+      "source_url": "https://en.wikisource.org/wiki/Gettysburg_Address",
+      "confidence": 0.99,
+      "why": "Landmark Lincoln speech."
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Emancipation Proclamation",
+      "author": "Abraham Lincoln",
+      "publication_year": 1863,
+      "source_url": "https://en.wikisource.org/wiki/Emancipation_Proclamation",
+      "confidence": 0.99,
+      "why": "Core state document issued by Lincoln."
+    },
+    {
+      "source_corpus": "wikisource",
+      "source_role": "primary",
+      "source_kind": "speech",
+      "title": "Abraham Lincoln's First Inaugural Address",
+      "author": "Abraham Lincoln",
+      "publication_year": 1861,
+      "source_url": "https://en.wikisource.org/wiki/Abraham_Lincoln%27s_First_Inaugural_Address",
+      "confidence": 0.98,
+      "why": "Foundational presidential address."
+    }
+  ]
+}

@@ -108,6 +108,7 @@ export interface EnrichmentData {
 // Rate limiting
 let lastRequestTime = 0;
 const MIN_REQUEST_INTERVAL = 100; // ms between requests
+const FETCH_TIMEOUT_MS = Number(process.env.WIKIDATA_FETCH_TIMEOUT_MS || 15000);
 
 async function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -121,9 +122,17 @@ async function rateLimitedFetch(url: string): Promise<Response> {
   }
   lastRequestTime = Date.now();
 
-  return fetch(url, {
-    headers: { 'User-Agent': 'HistoryRank/1.0 (educational project; contact: historyrank@example.com)' }
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+  try {
+    return await fetch(url, {
+      headers: { 'User-Agent': 'HistoryRank/1.0 (educational project; contact: historyrank@example.com)' },
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 async function fetchJson<T>(url: string, attempt = 1): Promise<T | null> {

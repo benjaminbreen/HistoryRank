@@ -33,20 +33,6 @@ function normalize(value: string) {
   return value.toLowerCase().trim();
 }
 
-function formatYear(value?: number | null) {
-  if (value === null || value === undefined) return '—';
-  if (value < 0) return `${Math.abs(value)} BCE`;
-  return `${value}`;
-}
-
-function formatSpan(start?: number | null, end?: number | null) {
-  if (start === null && end === null) return '—';
-  if (start === null && end !== null) return formatYear(end);
-  if (start !== null && end === null) return formatYear(start);
-  if (start === end) return formatYear(start);
-  return `${formatYear(start)}–${formatYear(end)}`;
-}
-
 function formatYearParts(value?: number | null) {
   if (value === null || value === undefined) return null;
   if (value < 0) {
@@ -117,6 +103,18 @@ function ratingSourceName(source?: string | null) {
   if (source === 'googlebooks') return 'Google Books';
   if (source === 'openlibrary') return 'Open Library';
   return 'Rating';
+}
+
+function formatTypeLabel(type?: string | null) {
+  const value = normalize(type || '');
+  if (value === 'tv' || value === 'series' || value === 'miniseries') return 'TV';
+  if (value === 'documentary') return 'Documentary';
+  if (value === 'podcast') return 'Podcast';
+  if (value === 'fiction') return 'Fiction';
+  if (value === 'book' || value === 'novel') return 'Book';
+  if (value === 'film') return 'Film';
+  if (value === 'game') return 'Game';
+  return type || 'Other';
 }
 
 const CATEGORY_LABELS = [
@@ -681,6 +679,97 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     </Table>
   );
 
+  const renderMobileCards = (rows: MediaItem[]) => (
+    <div className="space-y-2">
+      {rows.map((item, rowIndex) => {
+        const rank = rankById.get(item.id);
+        const relevanceScore = isSearchActive ? searchScores[item.id] : undefined;
+
+        return (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => onSelect?.(item.id)}
+            className={`w-full rounded-xl border p-3 text-left transition-colors ${
+              item.id === selectedId
+                ? 'border-amber-400 bg-amber-50/80 dark:border-amber-600 dark:bg-amber-900/20'
+                : rowIndex % 2 === 1
+                  ? 'border-stone-200 bg-stone-50/75 dark:border-slate-700 dark:bg-slate-800/60'
+                  : 'border-stone-200 bg-white dark:border-slate-700 dark:bg-slate-800/80'
+            }`}
+          >
+            <div className="flex items-start gap-3">
+              <div className="shrink-0">
+                <MediaThumbnail
+                  mediaId={item.id}
+                  wikipediaSlug={item.wikipedia_slug}
+                  title={item.title}
+                  size={52}
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      {item.recommended && (
+                        <Star className="h-3.5 w-3.5 text-amber-500 fill-amber-400 flex-shrink-0" />
+                      )}
+                      <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100 leading-tight break-words">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <div className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
+                      <span className="inline-flex items-center rounded-full bg-stone-200/80 px-2 py-0.5 text-stone-700 dark:bg-slate-700 dark:text-slate-200">
+                        {formatTypeLabel(item.type)}
+                      </span>
+                      <span className="inline-flex items-center rounded-full bg-stone-200/80 px-2 py-0.5 text-stone-700 dark:bg-slate-700 dark:text-slate-200">
+                        {item.primary_era || 'Unknown'}
+                      </span>
+                      {item.primary_region && (
+                        <span
+                          className="inline-flex items-center rounded-full px-2 py-0.5 text-white"
+                          style={{ backgroundColor: REGION_COLORS[item.primary_region] || '#9ca3af' }}
+                        >
+                          {item.primary_region}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="shrink-0 rounded-md bg-stone-100 px-2 py-1 text-[11px] font-mono font-medium text-stone-700 dark:bg-slate-700 dark:text-slate-200">
+                    {rank ? `#${rank}` : '—'}
+                  </div>
+                </div>
+
+                <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-stone-600 dark:text-slate-300">
+                  <span><span className="text-stone-500 dark:text-slate-400">Release</span> {item.release_year ?? '—'}</span>
+                  <span>
+                    <span className="text-stone-500 dark:text-slate-400">Rating</span>{' '}
+                    {typeof item.rating_normalized === 'number' ? (
+                      <span className="font-mono font-semibold" style={{ color: ratingColor(item.rating_normalized) }}>
+                        {item.rating_normalized.toFixed(1)}
+                      </span>
+                    ) : (
+                      '—'
+                    )}
+                  </span>
+                  {typeof relevanceScore === 'number' && (
+                    <span><span className="text-stone-500 dark:text-slate-400">Rel</span> {relevanceScore.toFixed(2)}</span>
+                  )}
+                </div>
+
+                {item.summary && (
+                  <p className="hr-media-notes mt-1.5 text-xs text-stone-500 dark:text-slate-400 leading-relaxed break-words">
+                    {item.summary}
+                  </p>
+                )}
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+
   const totalFiltered = isSearchActive
     ? filtered.length
     : rankedByEra
@@ -706,31 +795,36 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   return (
     <div className="space-y-3">
       {/* Sticky filter toolbar */}
-      <div className="sticky top-[52px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2 bg-[#f8f6f2]/95 dark:bg-[#0c1220]/95 backdrop-blur-sm border-b border-stone-200/40 dark:border-slate-700/40 space-y-2">
-        <div className="overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
-          <div className="flex items-stretch border-b border-stone-200/60 dark:border-slate-700/60 min-w-max sm:min-w-0">
+      <div
+        className="sticky z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2 bg-[#f8f6f2]/95 dark:bg-[#0c1220]/95 backdrop-blur-sm border-b border-stone-200/40 dark:border-slate-700/40 space-y-2"
+        style={{ top: 'var(--app-header-height, 56px)' }}
+      >
+        <div className="sm:hidden">
+          <div className="grid grid-cols-2 gap-1.5">
             {CATEGORY_LABELS.map((category) => {
               const count = categoryCounts.get(category.id) ?? 0;
               return (
                 <button
-                  key={category.id}
+                  key={`mobile-${category.id}`}
                   type="button"
                   onClick={() => setCategoryFilter(category.id)}
                   disabled={count === 0}
-                  className={`flex-1 sm:flex-none text-center px-4 sm:px-5 py-2 text-[11px] sm:text-xs font-medium uppercase tracking-[0.08em] transition-all whitespace-nowrap border-b-2 -mb-px ${
+                  className={`flex min-h-9 items-center justify-between rounded-md border px-2.5 text-[11px] font-medium uppercase tracking-[0.08em] transition-colors ${
                     categoryFilter === category.id
-                      ? 'border-stone-900 dark:border-amber-500 text-stone-900 dark:text-amber-100'
+                      ? 'border-stone-900 bg-stone-900 text-white dark:border-amber-600 dark:bg-amber-600 dark:text-slate-950'
                       : count === 0
-                        ? 'border-transparent text-stone-300 dark:text-slate-600 cursor-not-allowed'
-                        : 'border-transparent text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:border-stone-300 dark:hover:border-slate-500'
+                        ? 'border-stone-200 bg-stone-100/60 text-stone-300 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-600'
+                        : 'border-stone-200 bg-white text-stone-600 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300'
                   }`}
                 >
-                  {category.label}
-                  <span className={`ml-1.5 tabular-nums ${
-                    categoryFilter === category.id
-                      ? 'text-stone-500 dark:text-amber-300/70'
-                      : 'text-stone-400 dark:text-slate-500'
-                  }`}>
+                  <span className="truncate">{category.label}</span>
+                  <span
+                    className={`ml-2 rounded-sm px-1.5 py-0.5 text-[10px] leading-none ${
+                      categoryFilter === category.id
+                        ? 'bg-white/20 text-white dark:bg-slate-900/15 dark:text-slate-950'
+                        : 'bg-stone-100 text-stone-500 dark:bg-slate-700 dark:text-slate-400'
+                    }`}
+                  >
                     {count}
                   </span>
                 </button>
@@ -739,8 +833,42 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5 items-center">
-          <div className="relative w-full sm:flex-1 sm:min-w-[200px] sm:max-w-[300px]">
+        <div className="hidden sm:block">
+          <div className="overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
+            <div className="flex items-stretch border-b border-stone-200/60 dark:border-slate-700/60 min-w-max sm:min-w-0">
+              {CATEGORY_LABELS.map((category) => {
+                const count = categoryCounts.get(category.id) ?? 0;
+                return (
+                  <button
+                    key={category.id}
+                    type="button"
+                    onClick={() => setCategoryFilter(category.id)}
+                    disabled={count === 0}
+                    className={`flex-1 sm:flex-none text-center px-4 sm:px-5 py-2 text-[11px] sm:text-xs font-medium uppercase tracking-[0.08em] transition-all whitespace-nowrap border-b-2 -mb-px ${
+                      categoryFilter === category.id
+                        ? 'border-stone-900 dark:border-amber-500 text-stone-900 dark:text-amber-100'
+                        : count === 0
+                          ? 'border-transparent text-stone-300 dark:text-slate-600 cursor-not-allowed'
+                          : 'border-transparent text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:border-stone-300 dark:hover:border-slate-500'
+                    }`}
+                  >
+                    {category.label}
+                    <span className={`ml-1.5 tabular-nums ${
+                      categoryFilter === category.id
+                        ? 'text-stone-500 dark:text-amber-300/70'
+                        : 'text-stone-400 dark:text-slate-500'
+                    }`}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 items-center gap-1.5 sm:flex sm:flex-wrap">
+          <div className="relative col-span-2 w-full sm:col-span-1 sm:flex-1 sm:min-w-[200px] sm:max-w-[300px]">
             <Search className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-stone-400 dark:text-slate-500" />
             <Input
               value={query}
@@ -755,7 +883,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
             )}
           </div>
           {(searchFocused || Boolean(query) || !smartSearch) && (
-            <label className="flex items-center gap-1.5 text-xs text-stone-600 dark:text-slate-400 select-none cursor-pointer">
+            <label className="col-span-2 flex items-center gap-1.5 text-xs text-stone-600 dark:text-slate-400 select-none cursor-pointer">
               <input
                 type="checkbox"
                 checked={smartSearch}
@@ -768,7 +896,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           <select
             value={eraFilter}
             onChange={(event) => setEraFilter(event.target.value)}
-            className={`${selectClass} flex-1 sm:flex-none`}
+            className={`${selectClass} w-full sm:w-auto`}
           >
             <option value="all">All eras</option>
             {options.eras.map((era) => (
@@ -780,7 +908,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           <select
             value={regionFilter}
             onChange={(event) => setRegionFilter(event.target.value)}
-            className={`${selectClass} flex-1 sm:flex-none`}
+            className={`${selectClass} w-full sm:w-auto`}
           >
             <option value="all">All regions</option>
             {options.regions.map((region) => (
@@ -792,14 +920,14 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           <button
             type="button"
             onClick={() => setRecommendedOnly((prev) => !prev)}
-            className={`flex items-center justify-center gap-1 h-8 rounded-md border px-2.5 text-xs transition-all ${
+            className={`flex h-8 w-full items-center justify-center gap-1 rounded-md border px-2.5 text-xs transition-all sm:w-auto ${
               recommendedOnly
                 ? 'border-amber-300 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
                 : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
             }`}
           >
             <Star className={`h-3.5 w-3.5 ${recommendedOnly ? 'fill-amber-400 text-amber-500' : ''}`} />
-            <span className="hidden sm:inline">Picks</span>
+            <span>Picks</span>
           </button>
           <button
             type="button"
@@ -808,7 +936,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               setSortBy('era_rank');
               setSortOrder('asc');
             }}
-            className={`flex items-center justify-center gap-1 h-8 rounded-md border px-2.5 text-xs transition-all ${
+            className={`flex h-8 w-full items-center justify-center gap-1 rounded-md border px-2.5 text-xs transition-all sm:w-auto ${
               rankedByEra
                 ? 'border-stone-900 dark:border-amber-600 bg-stone-900 dark:bg-amber-600 text-white'
                 : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
@@ -821,8 +949,8 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
 
       {/* Filtered state summary */}
       {hasActiveFilters && (
-        <div className="flex items-center justify-between text-xs text-stone-500 dark:text-slate-400 px-1">
-          <div>
+        <div className="flex flex-col gap-1 px-1 text-xs text-stone-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0 break-words">
             <span className="font-medium text-stone-700 dark:text-slate-300">{totalFiltered}</span>
             {' '}{categoryLabel}
             {filterSummary && (
@@ -837,46 +965,80 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               setRegionFilter('all');
               setRecommendedOnly(false);
             }}
-            className="text-stone-400 dark:text-slate-500 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2"
+            className="self-start text-stone-400 underline underline-offset-2 hover:text-stone-700 dark:text-slate-500 dark:hover:text-slate-200"
           >
             Clear filters
           </button>
         </div>
       )}
 
-      <div className="w-full overflow-x-auto">
+      <div className="w-full">
         {rankedByEra && !isSearchActive ? (
-          <div className="space-y-8">
-            {groupedByEra.map((group, groupIndex) => (
-              <div key={`era-${group.era}`}>
-                <div className={`flex items-baseline gap-3 mb-2 px-1 ${groupIndex > 0 ? 'pt-2 border-t border-stone-200/60 dark:border-slate-700/60' : ''}`}>
-                  <span className="text-sm font-medium text-stone-700 dark:text-slate-300 uppercase tracking-[0.15em]">
-                    {group.era}
-                  </span>
-                  <span className="text-xs text-stone-400 dark:text-slate-500">
-                    {group.items.length} {group.items.length === 1 ? 'entry' : 'entries'}
-                  </span>
+          <>
+            <div className="space-y-5 md:hidden">
+              {groupedByEra.map((group, groupIndex) => (
+                <div key={`mobile-era-${group.era}`} className={groupIndex > 0 ? 'border-t border-stone-200/70 pt-4 dark:border-slate-700/70' : ''}>
+                  <div className="mb-2 flex items-baseline gap-2 px-1">
+                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-stone-600 dark:text-slate-300">
+                      {group.era}
+                    </span>
+                    <span className="text-[11px] text-stone-400 dark:text-slate-500">
+                      {group.items.length} {group.items.length === 1 ? 'entry' : 'entries'}
+                    </span>
+                  </div>
+                  {renderMobileCards(group.items)}
                 </div>
-                <div className="rounded-lg border border-stone-200 dark:border-amber-900/30 bg-white dark:bg-slate-800/90 overflow-x-auto">
-                  {renderTable(group.items)}
+              ))}
+              {groupedByEra.length === 0 && (
+                <div className="rounded-xl border border-stone-200 bg-white px-4 py-8 text-center text-sm text-stone-500 dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-400">
+                  No results yet. Try clearing filters.
                 </div>
-              </div>
-            ))}
-            {groupedByEra.length === 0 && (
-              <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
-                No results yet. Try clearing filters.
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+
+            <div className="hidden space-y-8 md:block">
+              {groupedByEra.map((group, groupIndex) => (
+                <div key={`era-${group.era}`}>
+                  <div className={`mb-2 flex items-baseline gap-3 px-1 ${groupIndex > 0 ? 'border-t border-stone-200/60 pt-2 dark:border-slate-700/60' : ''}`}>
+                    <span className="text-sm font-medium uppercase tracking-[0.15em] text-stone-700 dark:text-slate-300">
+                      {group.era}
+                    </span>
+                    <span className="text-xs text-stone-400 dark:text-slate-500">
+                      {group.items.length} {group.items.length === 1 ? 'entry' : 'entries'}
+                    </span>
+                  </div>
+                  <div className="overflow-x-auto rounded-lg border border-stone-200 bg-white dark:border-amber-900/30 dark:bg-slate-800/90">
+                    {renderTable(group.items)}
+                  </div>
+                </div>
+              ))}
+              {groupedByEra.length === 0 && (
+                <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
+                  No results yet. Try clearing filters.
+                </div>
+              )}
+            </div>
+          </>
         ) : (
-          <div className="rounded-lg border border-stone-200 dark:border-amber-900/30 bg-white dark:bg-slate-800/90 overflow-x-auto">
-            {renderTable(filtered)}
-            {filtered.length === 0 && (
-              <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
-                No results yet. Try clearing filters.
-              </div>
-            )}
-          </div>
+          <>
+            <div className="md:hidden">
+              {filtered.length === 0 ? (
+                <div className="rounded-xl border border-stone-200 bg-white px-4 py-8 text-center text-sm text-stone-500 dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-400">
+                  No results yet. Try clearing filters.
+                </div>
+              ) : (
+                renderMobileCards(filtered)
+              )}
+            </div>
+            <div className="hidden overflow-x-auto rounded-lg border border-stone-200 bg-white dark:border-amber-900/30 dark:bg-slate-800/90 md:block">
+              {renderTable(filtered)}
+              {filtered.length === 0 && (
+                <div className="px-6 py-8 text-center text-sm text-stone-500 dark:text-slate-400">
+                  No results yet. Try clearing filters.
+                </div>
+              )}
+            </div>
+          </>
         )}
       </div>
     </div>

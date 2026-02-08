@@ -131,7 +131,9 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
               <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 truncate sm:whitespace-normal`}>{figure.name}</span>
               {figure.badges && figure.badges.length > 0 && (
-                <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
+                <span className="hidden md:inline-flex">
+                  <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
+                </span>
               )}
             </div>
             {figure.birthYear && (
@@ -171,7 +173,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
         </TableCell>
       )}
       {showViews && (
-        <TableCell className={`font-mono text-sm sm:text-base text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
+        <TableCell className={`font-mono text-xs sm:text-sm text-right text-stone-500 dark:text-slate-400 ${rowPadding}`}>
           {formatNumber(figure.pageviews)}
         </TableCell>
       )}
@@ -418,10 +420,10 @@ export function RankingsTable({
         className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
         style={{ fontSize: `${fontScale}em` }}
       >
-      <Table className="min-w-[600px]">
+      <Table className="table-fixed sm:table-auto">
         <TableHeader className="border-t border-stone-200/70 dark:border-amber-900/40">
           <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
-            <TableHead className="w-[50px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
+            <TableHead className="w-[46px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="llmRank">LLM</SortHeader>
             </TableHead>
             <TableHead className="hidden sm:table-cell w-[60px] text-stone-600 dark:text-slate-400 font-medium">
@@ -449,7 +451,7 @@ export function RankingsTable({
               </TableHead>
             )}
             {visibleColumns.views && (
-              <TableHead className="w-[70px] sm:w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
+              <TableHead className="w-[58px] sm:w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
                 <SortHeader column="pageviews" align="right">Views</SortHeader>
               </TableHead>
             )}

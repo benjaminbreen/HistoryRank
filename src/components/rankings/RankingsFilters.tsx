@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
-import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2, Tag, ChevronDown } from 'lucide-react';
+import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2, Tag, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { BadgeType } from '@/types';
 import { BADGE_DEFINITIONS } from '@/types';
@@ -101,7 +101,7 @@ const MODEL_SOURCES = [
   { id: 'qwen3', label: 'Qwen 3' },
 ];
 
-const selectClass = "h-9 px-3 py-0 text-sm border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-400";
+const selectClass = "h-8 px-2.5 py-0 text-xs border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-400";
 
 export function RankingsFilters({
   search,
@@ -128,6 +128,7 @@ export function RankingsFilters({
   const hasActiveFilters = search || domain || era || region || modelSource || badgeFilter;
   const showResultCount = hasActiveFilters && resultCount !== undefined && totalCount !== undefined;
   const [isTagsOpen, setIsTagsOpen] = useState(false);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const tagsRef = useRef<HTMLDivElement>(null);
 
   // Close tags popover on outside click
@@ -143,13 +144,23 @@ export function RankingsFilters({
   }, [isTagsOpen]);
 
   const activeBadgeLabel = badgeFilter ? BADGE_DEFINITIONS[badgeFilter]?.label : null;
+  const clearAllFilters = () => {
+    onSearchChange('');
+    onDomainChange(null);
+    onEraChange(null);
+    onRegionChange(null);
+    onModelSourceChange(null);
+    onBadgeFilterChange(null);
+  };
 
   return (
-    <div className="space-y-3">
-      {/* Row 1: Search (prominent) + selects */}
-      <div className="flex flex-wrap gap-2 items-center">
-        {/* Search — wider, more prominent */}
-        <div className="relative w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[320px]">
+    <div className="space-y-2">
+      <div
+        className="sticky z-30 rounded-xl border border-stone-200/70 bg-[#f8f6f2]/95 px-2.5 py-2 shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-[#0c1220]/95"
+        style={{ top: 'var(--app-header-height, 56px)' }}
+      >
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="relative w-full sm:flex-1 sm:min-w-[220px] sm:max-w-[340px]">
           {isLoading ? (
             <Loader2 className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-amber-500 animate-spin" />
           ) : (
@@ -162,7 +173,7 @@ export function RankingsFilters({
             onFocus={onSearchFocus}
             onBlur={onSearchBlur}
             className={cn(
-              "pl-9 h-9 bg-white dark:bg-slate-800 border-stone-200 dark:border-slate-600 text-sm",
+              "h-8 bg-white pl-9 text-sm dark:bg-slate-800 border-stone-200 dark:border-slate-600",
               isLoading && "border-amber-300 dark:border-amber-700"
             )}
           />
@@ -177,7 +188,7 @@ export function RankingsFilters({
         </div>
 
         {showSmartSearchToggle && (
-          <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none">
+          <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none whitespace-nowrap">
             <input
               type="checkbox"
               checked={smartSearch}
@@ -188,20 +199,37 @@ export function RankingsFilters({
           </label>
         )}
 
-        {/* Result count indicator */}
         {showResultCount && (
-          <div className="hidden sm:flex items-center text-xs text-stone-500 dark:text-slate-400 whitespace-nowrap">
+          <div className="hidden md:flex items-center text-xs text-stone-500 dark:text-slate-400 whitespace-nowrap">
             <span className="font-medium text-stone-700 dark:text-slate-300">{resultCount}</span>
             <span className="mx-1">of</span>
             <span>{totalCount}</span>
           </div>
         )}
 
-        {/* Domain filter */}
+          <button
+            type="button"
+            onClick={() => setIsMobileFiltersOpen((open) => !open)}
+            className="sm:hidden ml-auto inline-flex items-center gap-1.5 h-8 px-2.5 text-xs rounded-md border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-300"
+          >
+            <SlidersHorizontal className="h-3.5 w-3.5" />
+            {isMobileFiltersOpen ? 'Hide filters' : 'More filters'}
+            <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isMobileFiltersOpen ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "rounded-xl border border-stone-200/70 dark:border-slate-700/70 bg-white/90 dark:bg-slate-800/70 p-2.5",
+          isMobileFiltersOpen ? "block" : "hidden sm:block"
+        )}
+      >
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
         <select
           value={domain || ''}
           onChange={(e) => onDomainChange(e.target.value || null)}
-          className={cn(selectClass, "flex-1 sm:flex-none")}
+            className={cn(selectClass, "w-full sm:w-auto")}
         >
           <option value="">Domain</option>
           {DOMAINS.map((d) => (
@@ -215,7 +243,7 @@ export function RankingsFilters({
         <select
           value={era || ''}
           onChange={(e) => onEraChange(e.target.value || null)}
-          className={cn(selectClass, "flex-1 sm:flex-none")}
+            className={cn(selectClass, "w-full sm:w-auto")}
         >
           <option value="">Era</option>
           {ERAS.map((e) => (
@@ -229,7 +257,7 @@ export function RankingsFilters({
         <select
           value={region || ''}
           onChange={(e) => onRegionChange(e.target.value || null)}
-          className={cn(selectClass, "flex-1 sm:flex-none")}
+            className={cn(selectClass, "w-full sm:w-auto")}
         >
           <option value="">Region</option>
           {REGIONS.map((r) => (
@@ -243,7 +271,7 @@ export function RankingsFilters({
         <select
           value={modelSource || ''}
           onChange={(e) => onModelSourceChange(e.target.value || null)}
-          className={cn(selectClass, "w-full sm:w-auto")}
+            className={cn(selectClass, "col-span-2 w-full sm:col-span-1 sm:w-auto")}
         >
           {MODEL_SOURCES.map((m) => (
             <option key={m.label} value={m.id || ''}>
@@ -252,19 +280,18 @@ export function RankingsFilters({
           ))}
         </select>
 
-        {/* Tags popover — replaces 9 inline badge buttons */}
-        <div ref={tagsRef} className="relative">
+          <div ref={tagsRef} className="relative col-span-2 sm:col-span-1">
           <button
             onClick={() => setIsTagsOpen((o) => !o)}
             className={cn(
-              "flex items-center gap-1.5 h-9 px-3 text-sm rounded-md border transition-colors",
+              "inline-flex w-full sm:w-auto items-center gap-1.5 h-8 px-2.5 text-xs rounded-md border transition-colors",
               badgeFilter
                 ? "border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-200"
                 : "border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-300 hover:border-stone-300 dark:hover:border-slate-500"
             )}
           >
             <Tag className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">{activeBadgeLabel || 'Tags'}</span>
+              <span className="truncate">{activeBadgeLabel || 'Tags'}</span>
             <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isTagsOpen ? 'rotate-180' : ''}`} />
           </button>
           <div
@@ -306,22 +333,15 @@ export function RankingsFilters({
           </div>
         </div>
 
-        {/* Clear filters */}
         {(domain || era || region || modelSource || search || badgeFilter) && (
           <button
-            onClick={() => {
-              onSearchChange('');
-              onDomainChange(null);
-              onEraChange(null);
-              onRegionChange(null);
-              onModelSourceChange(null);
-              onBadgeFilterChange(null);
-            }}
-            className="text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2 py-2"
+              onClick={clearAllFilters}
+              className="col-span-2 sm:col-span-1 justify-self-start text-xs sm:text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2 py-1.5"
           >
             Clear all
           </button>
         )}
+        </div>
       </div>
     </div>
   );

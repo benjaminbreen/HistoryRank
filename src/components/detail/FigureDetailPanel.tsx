@@ -1,165 +1,46 @@
 'use client';
 
-import { useState, useEffect, lazy, Suspense, useCallback, useMemo } from 'react';
+import { useState, useEffect, lazy, Suspense, useMemo } from 'react';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
 import { getVarianceLevel, SOURCE_LABELS, MODEL_ICONS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '@/types';
-import type { BadgeType } from '@/types';
-import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, ChevronLeft, Share2, Link2 } from 'lucide-react';
+import type { FigureEvidenceResponse } from '@/types';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, ChevronLeft, Share2, Link2, LayoutGrid, BookOpen, Clock3, AlertTriangle, Maximize2 } from 'lucide-react';
+import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
-import type { Figure, Ranking, FigureRow } from '@/types';
+import type { Figure, Ranking, FigureRow, WikipediaData, RelatedMediaItem, DetailTab } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
+import { FigureLifeTimeline } from './FigureLifeTimeline';
+import { FigureTimelineMap } from './FigureTimelineMap';
+import { SourceRankingCard } from './SourceRankingCard';
+import {
+  formatYear,
+  formatViews,
+  formatAlias,
+  formatCorpusLabel,
+  formatEvidenceYear,
+  formatEventYears,
+  getExtractParagraphs,
+  groupRankingsBySource,
+  getAttentionGap,
+} from '@/lib/utils/figureFormatters';
 
 // Lazy load heavy components
 const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
 const NgramSparkline = lazy(() => import('./NgramSparkline').then(m => ({ default: m.NgramSparkline })));
 const PageviewsSparkline = lazy(() => import('./PageviewsSparkline').then(m => ({ default: m.PageviewsSparkline })));
 
-// Component for individual source ranking with cycling contributions
-interface SourceRankingCardProps {
-  source: string;
-  avgRank: number;
-  sampleCount: number;
-  contributions: string[];
-  ranks: number[];
-}
-
-function SourceRankingCard({ source, avgRank, sampleCount, contributions, ranks }: SourceRankingCardProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
-
-  const hasMultiple = contributions.length > 1;
-
-  const cycleNext = useCallback(() => {
-    if (!hasMultiple || isAnimating) return;
-    setSlideDirection('left');
-    setIsAnimating(true);
-    setTimeout(() => {
-      setActiveIndex((prev) => (prev + 1) % contributions.length);
-      setIsAnimating(false);
-    }, 150);
-  }, [contributions.length, hasMultiple, isAnimating]);
-
-  // Reset index when source changes
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [source]);
-
-  const currentContribution = contributions[activeIndex] || null;
-  const currentRank = ranks[activeIndex] ?? avgRank;
-
-  return (
-    <div
-      className={`p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700 ${
-        hasMultiple ? 'cursor-pointer hover:ring-stone-300 dark:hover:ring-slate-600 transition-all' : ''
-      }`}
-      onClick={hasMultiple ? cycleNext : undefined}
-    >
-      <div className="flex items-center justify-between">
-        <span className="flex items-center gap-2 text-sm font-medium text-stone-700 dark:text-slate-200">
-          {MODEL_ICONS[source] && (
-            <img
-              src={MODEL_ICONS[source]}
-              alt=""
-              className="w-4 h-4 opacity-70 dark:invert dark:opacity-60"
-            />
-          )}
-          {SOURCE_LABELS[source] || source}
-        </span>
-        <div className="text-right">
-          <span className="font-mono text-stone-900 dark:text-slate-100 font-medium">
-            #{avgRank}
-          </span>
-          {sampleCount > 1 && (
-            <span className="text-[10px] text-stone-400 dark:text-slate-500 ml-1">
-              avg of {sampleCount}
-            </span>
-          )}
-        </div>
-      </div>
-
-      {/* Contribution text with slide animation */}
-      {currentContribution && (
-        <div className="relative overflow-hidden mt-2">
-          <p
-            className={`text-xs text-stone-500 dark:text-slate-400 leading-relaxed transition-all duration-150 ease-out ${
-              isAnimating
-                ? 'opacity-0 translate-x-4'
-                : 'opacity-100 translate-x-0'
-            }`}
-          >
-            {currentContribution}
-          </p>
-        </div>
-      )}
-
-      {/* Navigation dots and indicator */}
-      {hasMultiple && (
-        <div className="flex items-center justify-between mt-2.5 pt-2 border-t border-stone-100 dark:border-slate-700">
-          <div className="flex items-center gap-1.5">
-            {contributions.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (idx !== activeIndex && !isAnimating) {
-                    setSlideDirection(idx > activeIndex ? 'left' : 'right');
-                    setIsAnimating(true);
-                    setTimeout(() => {
-                      setActiveIndex(idx);
-                      setIsAnimating(false);
-                    }, 150);
-                  }
-                }}
-                className={`transition-all ${
-                  idx === activeIndex
-                    ? 'w-4 h-1.5 bg-stone-400 dark:bg-slate-400 rounded-full'
-                    : 'w-1.5 h-1.5 bg-stone-200 dark:bg-slate-600 rounded-full hover:bg-stone-300 dark:hover:bg-slate-500'
-                }`}
-                aria-label={`View quote ${idx + 1}`}
-              />
-            ))}
-          </div>
-          <div className="flex items-center gap-1 text-[10px] text-stone-400 dark:text-slate-500">
-            <span className="tabular-nums">{activeIndex + 1}/{contributions.length}</span>
-            <ChevronRight className="w-3 h-3" />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
 // Simple client-side cache for Wikipedia data
 const wikiCache = new Map<string, WikipediaData>();
 
-interface WikipediaData {
-  thumbnail: {
-    source: string;
-    width: number;
-    height: number;
-  } | null;
-  extract: string | null;
-  title: string | null;
-}
-
-interface RelatedMediaItem {
-  id: string;
-  title: string;
-  type: string;
-  release_year: number | null;
-  wikipedia_slug: string | null;
-  primary_era: string | null;
-  sub_era: string | null;
-  primary_region: string | null;
-  domain: string | null;
-  relation: string;
-}
-
+const TAB_LABELS: Array<{ id: DetailTab; label: string; icon: typeof LayoutGrid }> = [
+  { id: 'overview', label: 'Overview', icon: LayoutGrid },
+  { id: 'research', label: 'Research', icon: BookOpen },
+  { id: 'timeline', label: 'Timeline', icon: Clock3 },
+];
 
 interface FigureDetailPanelProps {
   figure: Figure | null;
@@ -185,7 +66,6 @@ export function FigureDetailPanel({
   aliases,
   isOpen,
   onClose,
-  isLoading,
   isFullDataLoading = false,
   llmRank,
   onPrevious,
@@ -202,6 +82,10 @@ export function FigureDetailPanel({
   const [shareOpen, setShareOpen] = useState(false);
   const [relatedMedia, setRelatedMedia] = useState<RelatedMediaItem[]>([]);
   const [linksLoading, setLinksLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState<DetailTab>('overview');
+  const [evidenceData, setEvidenceData] = useState<FigureEvidenceResponse | null>(null);
+  const [evidenceLoading, setEvidenceLoading] = useState(false);
+  const [evidenceError, setEvidenceError] = useState<string | null>(null);
 
   // Use previewRow or figure for display data
   const displayData = figure || previewRow;
@@ -286,98 +170,94 @@ export function FigureDetailPanel({
     return () => controller.abort();
   }, [figureId]);
 
+  useEffect(() => {
+    setActiveTab('overview');
+  }, [figureId]);
+
+  useEffect(() => {
+    if (!isOpen || !figureId) {
+      setEvidenceData(null);
+      setEvidenceError(null);
+      setEvidenceLoading(false);
+      return;
+    }
+
+    const controller = new AbortController();
+
+    const fetchEvidence = async () => {
+      setEvidenceLoading(true);
+      setEvidenceError(null);
+      try {
+        const res = await fetch(`/api/figures/${encodeURIComponent(figureId)}/evidence`, {
+          cache: 'no-store',
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const payload = await res.json().catch(() => null);
+          const message =
+            (payload && typeof payload.error === 'string' && payload.error) || 'Failed to load evidence';
+          setEvidenceError(message);
+          setEvidenceData(null);
+          return;
+        }
+
+        const data = (await res.json()) as FigureEvidenceResponse;
+        setEvidenceData(data);
+      } catch (error) {
+        if ((error as Error).name === 'AbortError') return;
+        setEvidenceError('Failed to load evidence');
+        setEvidenceData(null);
+      } finally {
+        setEvidenceLoading(false);
+      }
+    };
+
+    fetchEvidence();
+
+    return () => controller.abort();
+  }, [figureId, isOpen]);
+
   const shareUrl = useMemo(() => {
     if (!figureId || !shareOrigin) return '';
     return `${shareOrigin}/figure/${figureId}`;
   }, [figureId, shareOrigin]);
 
-  // Group rankings by source
-  const rankingsBySource = rankings.reduce((acc, r) => {
-    if (!acc[r.source]) {
-      acc[r.source] = { ranks: [], contributions: [] };
-    }
-    acc[r.source].ranks.push(r.rank);
-    if (r.contribution) {
-      acc[r.source].contributions.push(r.contribution);
-    }
-    return acc;
-  }, {} as Record<string, { ranks: number[]; contributions: string[] }>);
+  const sourceRankings = groupRankingsBySource(rankings);
 
-  const sourceRankings = Object.entries(rankingsBySource)
-    .map(([source, data]) => ({
-      source,
-      avgRank: Math.round(data.ranks.reduce((a, b) => a + b, 0) / data.ranks.length),
-      sampleCount: data.ranks.length,
-      contributions: data.contributions,
-      ranks: data.ranks,
-    }))
-    .sort((a, b) => a.avgRank - b.avgRank);
-
-  const formatYear = (year: number | null) => {
-    if (year === null) return null;
-    return year < 0 ? `${Math.abs(year)} BCE` : `${year} CE`;
-  };
-
-  const formatViews = (n: number | null) => {
-    if (n === null) return '—';
-    if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
-    if (n >= 1000) return `${Math.round(n / 1000)}K`;
-    return n.toLocaleString();
-  };
-
-  const formatAlias = (alias: string) => {
-    const lowerWords = new Set(['of', 'the', 'and', 'al', 'ibn', 'von', 'de', 'da', 'di']);
-    const roman = new Set(['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x']);
-    return alias
-      .split(' ')
-      .map((word) => {
-        if (roman.has(word)) return word.toUpperCase();
-        if (word === 'st') return 'St.';
-        if (lowerWords.has(word)) return word;
-        return word.charAt(0).toUpperCase() + word.slice(1);
-      })
-      .join(' ');
-  };
-
-  // Calculate attention gap (ratio of HPI rank to LLM rank)
-  const getAttentionGap = () => {
-    const hpiRank = figure?.hpiRank || previewRow?.hpiRank;
-    if (!hpiRank || !llmRank) return null;
-    const ratio = hpiRank / llmRank;
-    return {
-      ratio,
-      direction: ratio > 1.15 ? 'up' : ratio < 0.85 ? 'down' : 'neutral',
-      label: ratio > 1.15
-        ? 'AI ranks higher than academics'
-        : ratio < 0.85
-        ? 'Academics rank higher than AI'
-        : 'Similar rankings across sources'
-    };
-  };
-
-  const attentionGap = getAttentionGap();
-
-  // Get first few sentences of extract for summary
-  const getExtractParagraphs = (text: string | null, maxLength: number = 700) => {
-    if (!text) return null;
-    const sentences = text.match(/[^.!?]+[.!?]+/g);
-    if (!sentences) return [text.slice(0, maxLength) + '...'];
-
-    let para = '';
-    const result: string[] = [];
-    let total = 0;
-    for (const sentence of sentences) {
-      if (total + sentence.length > maxLength) break;
-      if (result.length === 0 && para.length + sentence.length > maxLength / 2) {
-        result.push(para.trim());
-        para = '';
-      }
-      para += sentence;
-      total += sentence.length;
-    }
-    if (para.trim()) result.push(para.trim());
-    return result.slice(0, 2);
-  };
+  const attentionGap = getAttentionGap(figure?.hpiRank || previewRow?.hpiRank, llmRank);
+  const researchSources = evidenceData?.research.sources || [];
+  const researchQuotes = evidenceData?.research.quotes || [];
+  const historicalSnippets = evidenceData?.research.historicalSnippets || [];
+  const primaryResearchSources = researchSources.filter((source) => source.sourceRole === 'primary');
+  const secondaryResearchSources = researchSources.filter((source) => source.sourceRole === 'secondary');
+  const referenceResearchSources = researchSources.filter((source) => source.sourceRole === 'reference');
+  const groupedResearchSources: Array<{
+    key: 'primary' | 'secondary' | 'reference';
+    title: string;
+    subtitle: string;
+    rows: typeof researchSources;
+  }> = [
+    {
+      key: 'primary',
+      title: 'Primary works',
+      subtitle: 'Texts or speeches authored by the figure',
+      rows: primaryResearchSources,
+    },
+    {
+      key: 'secondary',
+      title: 'Secondary scholarship',
+      subtitle: 'Articles and books analyzing the figure',
+      rows: secondaryResearchSources,
+    },
+    {
+      key: 'reference',
+      title: 'Reference leads',
+      subtitle: 'Catalog and bibliographic records',
+      rows: referenceResearchSources,
+    },
+  ];
+  const timelineAssessment = evidenceData?.timeline.assessment || null;
+  const timelineEvents = evidenceData?.timeline.events || [];
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -397,8 +277,18 @@ export function FigureDetailPanel({
         {/* Show content immediately if we have any data (previewRow or figure) */}
         {displayData ? (
           <div className="flex flex-col min-h-full">
-            {/* Close button */}
+            {/* Action buttons */}
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
+              {figureId && (
+                <Link
+                  href={`/figure/${figureId}`}
+                  className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
+                  aria-label="View full page"
+                  title="View full page"
+                >
+                  <Maximize2 className="w-4 h-4 text-stone-500 dark:text-slate-400" />
+                </Link>
+              )}
               <button
                 onClick={() => setShareOpen(true)}
                 className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
@@ -419,14 +309,14 @@ export function FigureDetailPanel({
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <div className="flex-shrink-0">
+                <Link href={figureId ? `/figure/${figureId}` : '#'} className="flex-shrink-0 group/portrait">
                   {localThumbUrl && !localThumbFailed ? (
                     <div className="relative">
                       <img
                         src={localThumbUrl}
                         alt={figure?.canonicalName || previewRow?.name || ''}
                         loading="lazy"
-                        className="w-28 h-36 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
+                        className="w-28 h-36 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
                         onError={() => {
                           if (localThumbExt < 2) {
                             setLocalThumbExt(localThumbExt + 1);
@@ -442,7 +332,7 @@ export function FigureDetailPanel({
                         src={wikiData.thumbnail.source}
                         alt={figure?.canonicalName || previewRow?.name || ''}
                         loading="lazy"
-                        className="w-28 h-36 sm:w-32 sm:h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50"
+                        className="w-28 h-36 sm:w-32 sm:h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
                       />
                     </div>
                   ) : wikiLoading ? (
@@ -454,7 +344,7 @@ export function FigureDetailPanel({
                       </span>
                     </div>
                   )}
-                </div>
+                </Link>
 
                 {/* Name and metadata */}
                 <div className="flex-1 min-w-0 pt-1">
@@ -520,6 +410,31 @@ export function FigureDetailPanel({
                   </div>
                 </div>
 
+              </div>
+            </div>
+
+            <div className="mx-6 mt-4">
+              <div className="grid grid-cols-3 gap-1 rounded-xl border border-stone-200/80 bg-white/90 p-1 shadow-sm dark:border-slate-700 dark:bg-slate-800/80">
+                {TAB_LABELS.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`flex items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors ${
+                        isActive
+                          ? 'bg-stone-900 text-white dark:bg-amber-500 dark:text-stone-900'
+                          : 'text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700'
+                      }`}
+                      aria-pressed={isActive}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
+                      <span>{tab.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -599,7 +514,9 @@ export function FigureDetailPanel({
             )}
 
             {/* Content */}
-            <div className="p-6 space-y-5 flex-1">
+            <div className="p-6 flex-1">
+              {activeTab === 'overview' && (
+                <div className="space-y-5">
               {(linksLoading || relatedMedia.length > 0) && (
                 <div className="rounded-xl border border-stone-200/70 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 shadow-sm">
                   <div className="flex items-center justify-between">
@@ -802,7 +719,6 @@ export function FigureDetailPanel({
                         avgRank={sr.avgRank}
                         sampleCount={sr.sampleCount}
                         contributions={sr.contributions}
-                        ranks={sr.ranks}
                       />
                     ))}
                   </div>
@@ -1139,7 +1055,266 @@ export function FigureDetailPanel({
                   />
                 </Suspense>
               )}
+                </div>
+              )}
 
+              {activeTab === 'research' && (
+                <div className="space-y-5">
+                  {evidenceLoading && (
+                    <div className="space-y-3">
+                      <Skeleton className="h-24 w-full rounded-xl" />
+                      <Skeleton className="h-24 w-full rounded-xl" />
+                      <Skeleton className="h-24 w-full rounded-xl" />
+                    </div>
+                  )}
+
+                  {!evidenceLoading && evidenceError && (
+                    <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-300">
+                      {evidenceError}
+                    </div>
+                  )}
+
+                  {!evidenceLoading && !evidenceError && (
+                    <>
+                      {researchSources.length > 0 && (
+                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+                          <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+                            Source leads
+                          </div>
+                          <div className="space-y-4">
+                            {groupedResearchSources.map((group) => (
+                              <div key={group.key} className="space-y-2.5">
+                                <div className="border-b border-stone-200/80 pb-2 dark:border-slate-700">
+                                  <div className="text-[11px] font-medium uppercase tracking-[0.12em] text-stone-600 dark:text-slate-300">
+                                    {group.title}
+                                  </div>
+                                  <div className="mt-0.5 text-[11px] text-stone-500 dark:text-slate-400">
+                                    {group.subtitle}
+                                  </div>
+                                </div>
+                                {group.rows.length === 0 && (
+                                  <div className="rounded-lg border border-dashed border-stone-200 bg-stone-50/60 p-3 text-xs text-stone-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-400">
+                                    No {group.key} source leads ingested yet.
+                                  </div>
+                                )}
+                                {group.rows.slice(0, 6).map((source) => (
+                                  <a
+                                    key={source.id}
+                                    href={source.accessUrl || source.sourceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block rounded-lg border border-stone-200 bg-stone-50/70 p-3 transition-colors hover:border-stone-300 hover:bg-stone-100/70 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600 dark:hover:bg-slate-700"
+                                  >
+                                    <div className="flex items-start justify-between gap-3">
+                                      <div className="min-w-0">
+                                        <div className="truncate text-sm font-medium text-stone-800 dark:text-slate-100">
+                                          {source.title}
+                                        </div>
+                                        <div className="mt-1 text-xs text-stone-500 dark:text-slate-400">
+                                          {[source.author, formatEvidenceYear(source.publicationYear)]
+                                            .filter(Boolean)
+                                            .join(' · ') || 'Author/date unknown'}
+                                        </div>
+                                      </div>
+                                      <div className="flex flex-col items-end gap-1">
+                                        <span className="rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-stone-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300">
+                                          {formatCorpusLabel(source.sourceCorpus, source.metadata)}
+                                        </span>
+                                        <span className="rounded-full bg-stone-900 px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-white dark:bg-amber-500 dark:text-stone-900">
+                                          {source.sourceRole}
+                                        </span>
+                                      </div>
+                                    </div>
+                                    {source.snippet && (
+                                      <p className="mt-2 text-xs leading-relaxed text-stone-600 dark:text-slate-300">
+                                        {source.snippet}
+                                      </p>
+                                    )}
+                                  </a>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {researchQuotes.length > 0 && (
+                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+                          <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+                            Quotes
+                          </div>
+                          <div className="space-y-3">
+                            {researchQuotes.slice(0, 6).map((quote) => (
+                              <div
+                                key={quote.id}
+                                className="rounded-lg border border-stone-200 bg-stone-50/70 p-3 dark:border-slate-700 dark:bg-slate-800"
+                              >
+                                <p className="text-sm leading-relaxed text-stone-700 dark:text-slate-200">
+                                  &ldquo;{quote.quoteText}&rdquo;
+                                </p>
+                                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-slate-400">
+                                  <span>{quote.attributedTo || figure?.canonicalName || previewRow?.name || 'Unknown attribution'}</span>
+                                  {quote.quoteYear !== null && <span>· {formatEvidenceYear(quote.quoteYear)}</span>}
+                                  {(quote.verificationStatus !== 'verified' || quote.warningShort) && (
+                                    <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-800 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-300">
+                                      <AlertTriangle className="h-3 w-3" />
+                                      {quote.warningShort || 'Quote not fully verified'}
+                                    </span>
+                                  )}
+                                  {quote.sourceUrl && (
+                                    <a
+                                      href={quote.sourceUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center gap-1 text-amber-700 hover:text-amber-800 dark:text-amber-500 dark:hover:text-amber-400"
+                                    >
+                                      Source <ExternalLink className="h-3 w-3" />
+                                    </a>
+                                  )}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {historicalSnippets.length > 0 && (
+                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+                          <div className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+                            <span>Historical encyclopedia snippets</span>
+                            <Tooltip
+                              content="Auto-extracted from the 1911 Encyclopaedia Britannica and shown as a historical reference point for how this figure was described over a century ago."
+                              align="left"
+                            >
+                              <HelpCircle className="h-3.5 w-3.5 cursor-help text-stone-300 transition-colors hover:text-stone-500 dark:text-slate-600 dark:hover:text-slate-400" />
+                            </Tooltip>
+                          </div>
+                          <div className="space-y-3">
+                            {historicalSnippets.slice(0, 4).map((snippet) => (
+                              <div
+                                key={snippet.id}
+                                className="rounded-xl border border-stone-200 bg-stone-50/80 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/80"
+                              >
+                                <div className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-500 dark:text-slate-400">
+                                  {formatCorpusLabel(snippet.corpus)}
+                                  {snippet.editionYear !== null && ` · ${snippet.editionYear}`}
+                                  {snippet.sourceTitle ? ` · ${snippet.sourceTitle}` : ''}
+                                </div>
+                                <blockquote className="rounded-lg border-l-2 border-amber-300 bg-white/75 px-4 py-3 text-base italic leading-relaxed text-stone-800 dark:border-amber-500/60 dark:bg-slate-900/40 dark:text-slate-100">
+                                  <span className="mr-1 text-lg leading-none text-amber-700/70 dark:text-amber-400/80">&ldquo;</span>
+                                  {snippet.snippet}
+                                  <span className="ml-1 text-lg leading-none text-amber-700/70 dark:text-amber-400/80">&rdquo;</span>
+                                </blockquote>
+                                {snippet.sourceUrl && (
+                                  <a
+                                    href={snippet.sourceUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-amber-700 hover:text-amber-800 dark:text-amber-500 dark:hover:text-amber-400"
+                                  >
+                                    Open source <ExternalLink className="h-3 w-3" />
+                                  </a>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {researchSources.length === 0 && researchQuotes.length === 0 && historicalSnippets.length === 0 && (
+                        <div className="rounded-xl border border-stone-200/70 bg-white/90 p-5 text-sm text-stone-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300">
+                          No research evidence has been ingested for this figure yet.
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+              )}
+
+              {activeTab === 'timeline' && (
+                <div className="space-y-5">
+                  {evidenceLoading && (
+                    <div className="space-y-3">
+                      <Skeleton className="h-20 w-full rounded-xl" />
+                      <Skeleton className="h-28 w-full rounded-xl" />
+                    </div>
+                  )}
+
+                  {!evidenceLoading && evidenceError && (
+                    <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-300">
+                      {evidenceError}
+                    </div>
+                  )}
+
+                  {!evidenceLoading && !evidenceError && (
+                    <>
+                      <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+                        <div className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+                          Biographical overview
+                        </div>
+                        {timelineAssessment?.assessmentText ? (
+                          <p className="text-sm leading-relaxed text-stone-700 dark:text-slate-200">
+                            {timelineAssessment.assessmentText}
+                          </p>
+                        ) : (
+                          <p className="text-sm text-stone-600 dark:text-slate-300">
+                            No timeline assessment generated yet.
+                          </p>
+                        )}
+                      </div>
+
+                      <FigureLifeTimeline
+                        birthYear={displayData?.birthYear ?? null}
+                        deathYear={figure?.deathYear ?? null}
+                        events={timelineEvents}
+                      />
+
+                      <FigureTimelineMap events={timelineEvents} />
+
+                      <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+                        <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+                          Key events
+                        </div>
+                        {timelineEvents.length > 0 ? (
+                          <div className="space-y-3">
+                            {timelineEvents.slice(0, 16).map((event) => (
+                              <div
+                                key={event.id}
+                                className="rounded-lg border border-stone-200 bg-stone-50/70 p-3 dark:border-slate-700 dark:bg-slate-800"
+                              >
+                                <div className="flex items-start justify-between gap-3">
+                                  <div className="min-w-0">
+                                    <div className="text-sm font-medium text-stone-800 dark:text-slate-100">
+                                      {event.eventLabel}
+                                    </div>
+                                    {event.eventDescription && (
+                                      <p className="mt-1 text-xs leading-relaxed text-stone-600 dark:text-slate-300">
+                                        {event.eventDescription}
+                                      </p>
+                                    )}
+                                  </div>
+                                  <span className="shrink-0 rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-stone-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300">
+                                    {formatEventYears(event.eventStartYear, event.eventEndYear, event.metadata)}
+                                  </span>
+                                </div>
+                                {event.placeLabel && (
+                                  <div className="mt-2 text-xs text-stone-500 dark:text-slate-400">
+                                    {event.placeLabel}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-sm text-stone-600 dark:text-slate-300">
+                            No timeline events generated yet.
+                          </p>
+                        )}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Mobile Navigation Bar - sticky bottom on small screens */}

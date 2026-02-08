@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — Option C: Editorial Underline</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.88);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  }
+
+  .header-top {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 24px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  /* Logo — more editorial, serif-heavy */
+  .logo-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 12px;
+  }
+
+  .logo-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1c1917;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .logo-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c9a55c;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    vertical-align: baseline;
+  }
+
+  .logo-sub {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #a8a29e;
+    margin-left: 10px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .logo-sub { display: inline; }
+  }
+
+  .logo-group:hover .logo-text {
+    color: #44403c;
+  }
+
+  .logo-group:hover .logo-dot {
+    background: #b8942e;
+    box-shadow: 0 0 6px rgba(201,165,92,0.4);
+  }
+
+  /* Right — meta links + settings */
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+
+  .meta-link {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #a8a29e;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .meta-link:hover {
+    color: #57534e;
+  }
+
+  .meta-divider {
+    width: 1px;
+    height: 12px;
+    background: #e7e5e4;
+  }
+
+  .settings-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #a8a29e;
+  }
+
+  .settings-btn:hover {
+    color: #57534e;
+    border-color: rgba(0,0,0,0.12);
+  }
+
+  /* ── NAV BAR — underline tabs ── */
+  .nav-bar {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-bar::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .nav-tab:hover {
+    color: #292524;
+    border-bottom-color: #d6d3d1;
+  }
+
+  .nav-tab.active {
+    color: #292524;
+    font-weight: 600;
+    border-bottom-color: #c9a55c;
+  }
+
+  .nav-tab .tab-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.45;
+  }
+
+  .nav-tab.active .tab-icon {
+    opacity: 0.75;
+  }
+
+  .nav-tab .count-badge {
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'Inter', monospace;
+    font-variant-numeric: tabular-nums;
+    color: #a8a29e;
+    background: rgba(0,0,0,0.04);
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 2px;
+  }
+
+  .nav-tab.active .count-badge {
+    background: rgba(201,165,92,0.12);
+    color: #8b7030;
+  }
+
+  .tab-spacer {
+    flex: 1;
+  }
+
+  .tab-group-label {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px 10px 16px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #d6d3d1;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* Bottom shadow line */
+  .header-shadow {
+    height: 4px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, transparent 100%);
+  }
+
+  /* ── DEMO CONTENT ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(201,165,92,0.08);
+    border: 1px solid rgba(201,165,92,0.15);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8b7030;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .comparison-cell {
+    padding: 16px;
+    border-radius: 8px;
+    background: #faf9f7;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .comparison-cell h3 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a8a29e;
+    margin-bottom: 8px;
+  }
+
+  .comparison-cell p {
+    font-size: 13px;
+    color: #57534e;
+    line-height: 1.6;
+  }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <!-- Top row: Logo + meta links -->
+  <div class="header-top">
+    <a href="#" class="logo-group">
+      <span class="logo-text">HistoryRank</span><span class="logo-dot"></span>
+      <span class="logo-sub">Comparing historical importance</span>
+    </a>
+    <div class="header-meta">
+      <a href="#" class="meta-link">About</a>
+      <a href="#" class="meta-link">Methodology</a>
+      <a href="#" class="meta-link">Caveats</a>
+      <div class="meta-divider"></div>
+      <button class="settings-btn" title="Settings">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation tabs with underline active state -->
+  <nav class="nav-bar">
+    <a href="#" class="nav-tab active">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      Rankings
+      <span class="count-badge">1,847</span>
+    </a>
+    <a href="#" class="nav-tab">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+      Maps
+    </a>
+    <a href="#" class="nav-tab">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/></svg>
+      Scatter
+    </a>
+    <a href="#" class="nav-tab">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="m7 2v20"/><path d="M2 12h20"/></svg>
+      Media
+    </a>
+    <a href="#" class="nav-tab">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="m21 3-8.5 8.5"/><path d="m3 3 8.5 8.5"/></svg>
+      Compare
+    </a>
+    <a href="#" class="nav-tab">
+      <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+      Benchmarks
+    </a>
+  </nav>
+  <div class="header-shadow"></div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+      Option C — Editorial Underline
+    </div>
+    <h2>Design Approach</h2>
+    <p>
+      <strong>Key idea:</strong> Borrows from newspaper/journal mastheads. The title is large, serif, and typographically
+      confident with a gold period accent. A thin rule separates the masthead from the underline tab bar, which scrolls
+      horizontally on narrow screens. The active tab gets a gold underline &mdash; simple and unmistakable.
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>Improvements over current:</strong> The two-row split creates a clear hierarchy: brand identity above,
+      navigation below. The "HR" icon is gone in favor of the wordmark+dot, which is more distinctive and editorial.
+      About/Methodology/Caveats are promoted to small caps in the upper right, which actually makes them <em>more</em>
+      discoverable than the current layout where they're mixed in with primary nav.
+      The count badge on "Rankings" provides a live data signal.
+    </p>
+
+    <div class="comparison-grid">
+      <div class="comparison-cell">
+        <h3>Strengths</h3>
+        <p>
+          Most visually distinctive of the three. The editorial feel matches a project about historical scholarship.
+          Horizontal scroll on the tab bar means it scales to any number of tabs.
+          Feels authoritative and considered.
+        </p>
+      </div>
+      <div class="comparison-cell">
+        <h3>Trade-offs</h3>
+        <p>
+          Takes more vertical space (two rows). The wordmark without the "HR" icon loses some brand recognition
+          at small sizes. The underline style is common enough that it won't feel novel.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

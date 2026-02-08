@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — A3: Serif Split-Level</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  .top-ribbon {
+    height: 2px;
+    background: linear-gradient(90deg, #c9a55c 0%, #d4a574 40%, #a8bed2 75%, #7a8fa8 100%);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.88);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── PRIMARY ROW ── */
+  .header-primary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+
+  /* Logo — serif wordmark with gold dot */
+  .logo-group {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #292524;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .logo-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #c9a55c;
+    margin-left: 1px;
+    margin-bottom: 1px;
+    vertical-align: baseline;
+    transition: all 0.2s ease;
+  }
+
+  .logo-group:hover .logo-dot {
+    background: #b8942e;
+    box-shadow: 0 0 6px rgba(201,165,92,0.5);
+  }
+
+  /* Primary nav — serif links */
+  .nav-primary {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 6px 14px;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #292524;
+  }
+
+  .nav-link.active {
+    color: #292524;
+    font-weight: 600;
+  }
+
+  /* Right-side actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .action-link {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #a8a29e;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .action-link:hover {
+    color: #57534e;
+  }
+
+  .action-sep {
+    width: 1px;
+    height: 12px;
+    background: #e7e5e4;
+  }
+
+  .settings-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #b8b4ac;
+  }
+
+  .settings-btn:hover {
+    border-color: rgba(0,0,0,0.12);
+    color: #57534e;
+  }
+
+  /* ── SECONDARY ROW — pill groups ── */
+  .header-secondary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 0 8px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .pill-group {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  .pill-group-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #c4b99a;
+    padding: 0 8px 0 4px;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .pill-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .pill-item:hover {
+    color: #292524;
+    background: rgba(255,255,255,0.6);
+  }
+
+  .pill-item.active {
+    color: #292524;
+    background: white;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03);
+  }
+
+  .pill-item .p-icon {
+    width: 13px;
+    height: 13px;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .pill-item.active .p-icon {
+    opacity: 0.8;
+  }
+
+  .pill-item .count-badge {
+    font-size: 9px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    background: rgba(0,0,0,0.05);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #a8a29e;
+    margin-left: 1px;
+  }
+
+  .pill-item.active .count-badge {
+    background: rgba(201,165,92,0.12);
+    color: #8b7030;
+  }
+
+  .sec-spacer {
+    flex: 1;
+  }
+
+  .breadcrumb {
+    font-size: 11px;
+    color: #a8a29e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .breadcrumb a {
+    color: #a8a29e;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .breadcrumb a:hover {
+    color: #57534e;
+  }
+
+  .breadcrumb .crumb-current {
+    color: #78716c;
+    font-weight: 600;
+  }
+
+  .breadcrumb .crumb-sep {
+    color: #d6d3d1;
+  }
+
+  /* Bottom shadow */
+  .header-shadow {
+    height: 3px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.03) 0%, transparent 100%);
+  }
+
+  /* ── DEMO ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(201,165,92,0.1);
+    border: 1px solid rgba(201,165,92,0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8b7030;
+  }
+
+  ul.changes { margin-top: 14px; padding-left: 20px; }
+  ul.changes li { font-size: 14px; color: #78716c; line-height: 1.7; margin-bottom: 4px; }
+  ul.changes li strong { color: #57534e; }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <!-- Primary row: wordmark + serif text links + actions -->
+    <div class="header-primary">
+      <a href="#" class="logo-group">
+        <span class="logo-text">HistoryRank</span><span class="logo-dot"></span>
+      </a>
+
+      <nav class="nav-primary">
+        <a href="#" class="nav-link active">Rankings</a>
+        <a href="#" class="nav-link">Compare</a>
+        <a href="#" class="nav-link">Benchmarks</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#" class="action-link">About</a>
+        <a href="#" class="action-link">Method</a>
+        <a href="#" class="action-link">Caveats</a>
+        <div class="action-sep"></div>
+        <button class="settings-btn" title="Settings">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Secondary row: pill-grouped visualization tools + breadcrumb -->
+    <div class="header-secondary">
+      <span class="pill-group-label">View</span>
+      <div class="pill-group">
+        <a href="#" class="pill-item active">
+          <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          Table
+          <span class="count-badge">1,847</span>
+        </a>
+        <a href="#" class="pill-item">
+          <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+          Map
+        </a>
+        <a href="#" class="pill-item">
+          <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/></svg>
+          Scatter
+        </a>
+        <a href="#" class="pill-item">
+          <svg class="p-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="m7 2v20"/><path d="M2 12h20"/></svg>
+          Media
+        </a>
+      </div>
+
+      <div class="sec-spacer"></div>
+
+      <div class="breadcrumb">
+        <a href="#">Home</a>
+        <span class="crumb-sep">/</span>
+        <span class="crumb-current">Rankings</span>
+      </div>
+    </div>
+  </div>
+  <div class="header-shadow"></div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">A3 — Serif Split-Level with Pill Groups</div>
+    <h2>Design Approach</h2>
+    <p>
+      Combines the editorial warmth of Option C's serif wordmark with Option A's two-tier structure,
+      but reorganizes the hierarchy: <strong>page-level navigation</strong> (Rankings, Compare, Benchmarks)
+      lives in the top row as serif text links, while <strong>view-mode switching</strong> (Table, Map,
+      Scatter, Media) is a segmented pill group in the secondary row.
+    </p>
+    <ul class="changes">
+      <li><strong>Serif nav links:</strong> The primary navigation uses Source Serif 4 instead of Inter, matching the logo and giving the bar a distinctly editorial, scholarly quality. No icons &mdash; the serif typography is the visual identity.</li>
+      <li><strong>Wordmark + gold dot:</strong> No icon badge at all. The name &ldquo;HistoryRank.&rdquo; with a gold period is the logo, clean and typographic like a journal masthead.</li>
+      <li><strong>Pill group in secondary row:</strong> Maps, Scatter, and Media are reframed as &ldquo;view modes&rdquo; of the Rankings data, grouped in a segmented pill with a &ldquo;View&rdquo; label. This makes their role as alternative lenses on the same data much clearer.</li>
+      <li><strong>Breadcrumb right-aligned:</strong> A minimal breadcrumb sits at the right of the secondary row for wayfinding context.</li>
+      <li><strong>Count badge:</strong> The active view shows the figure count (1,847) in a warm-tinted badge, providing live data context.</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

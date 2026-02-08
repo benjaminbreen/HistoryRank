@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { ScatterChart, GitCompareArrows, Map, Menu, Clapperboard, Award, ChevronDown } from 'lucide-react';
+import { Clapperboard, Map, ScatterChart, Menu, X, GitCompareArrows, Award, ChevronDown, BookOpen, FileText, AlertTriangle } from 'lucide-react';
 import { SettingsSheet } from '@/components/settings/SettingsSheet';
 import { AboutDialog } from '@/components/about/AboutDialog';
 import { useDarkMode } from '@/hooks/useDarkMode';
@@ -13,28 +13,40 @@ type AppHeaderProps = {
   settings: Settings;
   onSettingsChange: (patch: Partial<Settings>) => void;
   onSettingsReset: () => void;
+  figureCount?: number;
 };
 
-const navLinkClass = (isActive: boolean) =>
-  `text-sm px-2 py-1 transition-colors ${
-    isActive
-      ? 'text-stone-900 dark:text-amber-100 font-medium'
-      : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200'
-  }`;
+const PAGE_LABELS: Record<string, string> = {
+  table: 'Rankings',
+  maps: 'Maps',
+  scatter: 'Scatter',
+  media: 'Media Atlas',
+  compare: 'Compare',
+  benchmarks: 'Benchmarks',
+  about: 'About',
+  methodology: 'Methodology',
+  caveats: 'Caveats',
+};
 
 export function AppHeader({
   active,
   settings,
   onSettingsChange,
   onSettingsReset,
+  figureCount,
 }: AppHeaderProps) {
   const { isDarkMode, mounted } = useDarkMode();
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isCompactHeader, setIsCompactHeader] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isExploreOpen, setIsExploreOpen] = useState(false);
-  const exploreRef = useRef<HTMLDivElement>(null);
+  const [openDropdown, setOpenDropdown] = useState<'visualize' | 'analyze' | 'about' | null>(null);
+  const visualizeRef = useRef<HTMLDivElement>(null);
+  const analyzeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const dropdownTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const headerRef = useRef<HTMLElement>(null);
 
+  // Compact on scroll
   useEffect(() => {
     const onScroll = () => setIsCompactHeader(window.scrollY > 48);
     onScroll();
@@ -42,221 +54,511 @@ export function AppHeader({
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close explore dropdown when clicking outside
+  // Set CSS variable for header height
   useEffect(() => {
-    if (!isExploreOpen) return;
+    const setHeaderHeightVar = () => {
+      const height = headerRef.current?.offsetHeight;
+      if (!height) return;
+      document.documentElement.style.setProperty('--app-header-height', `${height}px`);
+    };
+    setHeaderHeightVar();
+    const observer = new ResizeObserver(() => setHeaderHeightVar());
+    if (headerRef.current) observer.observe(headerRef.current);
+    window.addEventListener('resize', setHeaderHeightVar, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', setHeaderHeightVar);
+    };
+  }, [isCompactHeader]);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    if (!openDropdown) return;
     const handleClick = (e: MouseEvent) => {
-      if (exploreRef.current && !exploreRef.current.contains(e.target as Node)) {
-        setIsExploreOpen(false);
-      }
+      const target = e.target as Node;
+      if (
+        (visualizeRef.current && visualizeRef.current.contains(target)) ||
+        (analyzeRef.current && analyzeRef.current.contains(target)) ||
+        (aboutRef.current && aboutRef.current.contains(target))
+      ) return;
+      setOpenDropdown(null);
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, [isExploreOpen]);
+  }, [openDropdown]);
 
-  const isExploreActive = active === 'maps' || active === 'scatter' || active === 'media';
+  // Close mobile menu on outside click
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('[data-mobile-menu]') || target.closest('[data-menu-trigger]')) return;
+      setIsMenuOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isMenuOpen]);
+
+  // Cleanup timer
+  useEffect(() => {
+    return () => {
+      if (dropdownTimerRef.current) clearTimeout(dropdownTimerRef.current);
+    };
+  }, []);
+
+  const openDropdownMenu = useCallback((name: 'visualize' | 'analyze' | 'about') => {
+    clearTimeout(dropdownTimerRef.current);
+    setOpenDropdown(name);
+  }, []);
+
+  const closeDropdownMenu = useCallback(() => {
+    dropdownTimerRef.current = setTimeout(() => setOpenDropdown(null), 150);
+  }, []);
+
+  const isVisualizeActive = active === 'maps' || active === 'scatter';
+  const isAnalyzeActive = active === 'compare' || active === 'benchmarks';
+  const isAboutActive = active === 'about' || active === 'methodology' || active === 'caveats';
+  const pageLabel = active ? PAGE_LABELS[active] || null : null;
 
   return (
     <>
+      {/* Gold accent ribbon */}
+      <div
+        className="h-[2.5px]"
+        style={{ background: 'linear-gradient(90deg, #c9a55c 0%, #d4a574 40%, #a8bed2 75%, #7a8fa8 100%)' }}
+      />
+
       <header
-        className="sticky top-0 z-50 border-b border-stone-200/60 dark:border-amber-900/30 shadow-sm transition-all duration-300 ease-out"
+        ref={headerRef}
+        className="sticky top-0 z-50 transition-all duration-300 ease-out"
         style={{
-          padding: isCompactHeader ? '10px 0' : '16px 0',
-          backgroundColor: mounted && isDarkMode ? 'rgba(15, 23, 42, 0.9)' : 'rgba(250, 250, 247, 0.7)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
+          backgroundColor: mounted && isDarkMode ? 'rgba(15, 23, 42, 0.88)' : 'rgba(250, 250, 247, 0.84)',
+          backdropFilter: 'blur(24px) saturate(1.6)',
+          WebkitBackdropFilter: 'blur(24px) saturate(1.6)',
+          borderBottom: '1px solid',
+          borderColor: mounted && isDarkMode ? 'rgba(217,119,6,0.15)' : 'rgba(0,0,0,0.05)',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between gap-2 sm:gap-4">
+          {/* ── Primary row ── */}
+          <div
+            className="flex items-center justify-between"
+            style={{
+              height: isCompactHeader ? '52px' : '56px',
+              transition: 'height 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
             {/* Logo */}
-            <div className="hr-logo group flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
               <button
                 onClick={() => setIsAboutOpen(true)}
-                className="hr-logo-icon flex-shrink-0 rounded-full border border-stone-300 dark:border-amber-800/50 bg-stone-50 dark:bg-slate-800 text-stone-800 dark:text-amber-200 flex items-center justify-center font-serif text-xs tracking-wide transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:border-stone-400/70 dark:hover:border-amber-600/60"
+                className="flex-shrink-0 rounded-[7px] border flex items-center justify-center font-serif font-bold tracking-wide transition-all duration-200 hover:scale-[1.04]"
                 style={{
-                  width: isCompactHeader ? '32px' : '36px',
-                  height: isCompactHeader ? '32px' : '36px',
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                  width: isCompactHeader ? '26px' : '30px',
+                  height: isCompactHeader ? '26px' : '30px',
+                  fontSize: isCompactHeader ? '9px' : '11px',
+                  borderColor: mounted && isDarkMode ? 'rgba(217,119,6,0.3)' : '#c4b99a',
+                  background: mounted && isDarkMode
+                    ? 'linear-gradient(145deg, rgba(30,41,59,1), rgba(15,23,42,1))'
+                    : 'linear-gradient(145deg, #faf5eb, #f0e8d8)',
+                  color: mounted && isDarkMode ? '#d4a574' : '#7a6630',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
                 aria-label="Open About"
               >
                 HR
               </button>
-              <Link href="/" className="block text-left min-w-0">
-                <div className="overflow-hidden">
-                  <h1
-                    className={`hr-logo-text font-serif font-semibold text-stone-900 dark:text-amber-100 transition-all duration-300 group-hover:text-stone-700 dark:group-hover:text-amber-200 truncate leading-tight ${
-                      isCompactHeader ? 'text-lg' : 'text-xl'
-                    }`}
-                  >
-                    HistoryRank
-                  </h1>
-                  <p
-                    className="hr-logo-tagline hidden sm:block text-stone-500/80 dark:text-slate-400/80 text-xs overflow-hidden transition-opacity duration-300 group-hover:text-stone-600 dark:group-hover:text-slate-300 truncate"
-                    style={{
-                      maxHeight: isCompactHeader ? '0px' : '24px',
-                      opacity: isCompactHeader ? 0 : 1,
-                      marginTop: isCompactHeader ? '0px' : '2px',
-                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
-                  >
-                    Comparing historical importance
-                  </p>
-                </div>
+              <Link href="/" className="block min-w-0 group">
+                <h1
+                  className="font-serif font-semibold text-stone-900 dark:text-amber-100 truncate leading-none group-hover:text-stone-700 dark:group-hover:text-amber-200 transition-colors duration-200"
+                  style={{
+                    fontSize: isCompactHeader ? '17px' : '20px',
+                    letterSpacing: '-0.015em',
+                    transition: 'font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s',
+                  }}
+                >
+                  History<span className="font-bold">Rank</span>
+                </h1>
               </Link>
             </div>
 
-            {/* Desktop navigation */}
-            <div className="hidden md:flex items-center gap-1">
-              {/* Secondary links — lighter weight */}
-              <Link href="/about" className={navLinkClass(active === 'about')}>
-                About
-              </Link>
-              <Link href="/methodology" className={navLinkClass(active === 'methodology')}>
-                Methodology
-              </Link>
-              <Link href="/caveats" className={navLinkClass(active === 'caveats')}>
-                Caveats
-              </Link>
+            {/* ── Desktop navigation ── */}
+            <nav className="hidden md:flex items-center gap-[2px]">
+              {/* Rankings */}
+              <NavLink href="/" isActive={active === 'table'}>Rankings</NavLink>
 
-              {/* Divider */}
-              <div className="w-px h-4 bg-stone-300/60 dark:bg-slate-600/60 mx-1.5" />
-
-              {/* Explore dropdown — groups Maps, Scatter, Media */}
-              <div ref={exploreRef} className="relative">
+              {/* Visualize dropdown (Maps + Scatter) */}
+              <div
+                ref={visualizeRef}
+                className="relative"
+                onMouseEnter={() => openDropdownMenu('visualize')}
+                onMouseLeave={closeDropdownMenu}
+              >
                 <button
-                  onClick={() => setIsExploreOpen((o) => !o)}
-                  className={`flex items-center gap-1 text-sm px-2 py-1 rounded-md transition-colors ${
-                    isExploreActive
-                      ? 'text-stone-900 dark:text-amber-100 font-medium bg-stone-100/60 dark:bg-amber-900/20'
-                      : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-stone-100/40 dark:hover:bg-slate-800/40'
+                  onClick={() => setOpenDropdown(o => o === 'visualize' ? null : 'visualize')}
+                  className={`flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 relative ${
+                    isVisualizeActive
+                      ? 'text-stone-900 dark:text-amber-100 bg-[rgba(201,165,92,0.08)]'
+                      : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-black/[0.035] dark:hover:bg-white/[0.06]'
                   }`}
                 >
-                  Explore
-                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isExploreOpen ? 'rotate-180' : ''}`} />
+                  Visualize
+                  <ChevronDown className={`h-3 w-3 opacity-50 transition-transform duration-200 ${openDropdown === 'visualize' ? 'rotate-180' : ''}`} />
+                  {isVisualizeActive && (
+                    <span className="absolute -bottom-[1px] left-2.5 right-2.5 h-[2px] bg-[#c9a55c] rounded-[1px]" />
+                  )}
                 </button>
-                <div
-                  className={`absolute right-0 mt-2 w-44 rounded-lg border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-lg py-1 transition-all ${
-                    isExploreOpen ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-1'
-                  }`}
-                >
-                  <Link
-                    href="/maps"
-                    onClick={() => setIsExploreOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2 text-sm transition-colors ${
-                      active === 'maps'
-                        ? 'text-stone-900 dark:text-amber-100 bg-stone-50 dark:bg-slate-700/50'
-                        : 'text-stone-600 dark:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700/50'
-                    }`}
-                  >
-                    <Map className="h-4 w-4 text-stone-400 dark:text-slate-500" />
+
+                <DropdownPanel isOpen={openDropdown === 'visualize'} isDarkMode={mounted && isDarkMode}>
+                  <div className="px-3 pt-1.5 pb-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-stone-400 dark:text-slate-500">
+                    Data views
+                  </div>
+                  <DropdownItem href="/maps" icon={<Map />} desc="Geographic" isActive={active === 'maps'} onClick={() => setOpenDropdown(null)}>
                     Maps
-                  </Link>
-                  <Link
-                    href="/scatter"
-                    onClick={() => setIsExploreOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2 text-sm transition-colors ${
-                      active === 'scatter'
-                        ? 'text-stone-900 dark:text-amber-100 bg-stone-50 dark:bg-slate-700/50'
-                        : 'text-stone-600 dark:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700/50'
-                    }`}
-                  >
-                    <ScatterChart className="h-4 w-4 text-stone-400 dark:text-slate-500" />
+                  </DropdownItem>
+                  <DropdownItem href="/scatter" icon={<ScatterChart />} desc="Correlations" isActive={active === 'scatter'} onClick={() => setOpenDropdown(null)}>
                     Scatter
-                  </Link>
-                  <Link
-                    href="/media"
-                    onClick={() => setIsExploreOpen(false)}
-                    className={`flex items-center gap-2.5 px-3 py-2 text-sm transition-colors ${
-                      active === 'media'
-                        ? 'text-stone-900 dark:text-amber-100 bg-stone-50 dark:bg-slate-700/50'
-                        : 'text-stone-600 dark:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700/50'
-                    }`}
-                  >
-                    <Clapperboard className="h-4 w-4 text-stone-400 dark:text-slate-500" />
-                    Media
-                  </Link>
-                </div>
+                  </DropdownItem>
+                </DropdownPanel>
               </div>
 
-              {/* Primary actions — Compare & Benchmarks */}
-              <Link href="/compare" className={navLinkClass(active === 'compare')}>
-                Compare
-              </Link>
-              <Link href="/benchmarks" className={navLinkClass(active === 'benchmarks')}>
-                Benchmarks
-              </Link>
+              {/* Media — the only top-level link with an icon */}
+              <NavLink href="/media" isActive={active === 'media'} icon={<Clapperboard className="h-3.5 w-3.5" />}>
+                Media
+              </NavLink>
 
-              <div className="w-px h-4 bg-stone-300/60 dark:bg-slate-600/60 mx-1.5" />
+              <div className="w-px h-[18px] bg-stone-300/40 dark:bg-slate-600/40 mx-1.5" />
+
+              {/* Analyze dropdown (Compare, Benchmarks) */}
+              <div
+                ref={analyzeRef}
+                className="relative"
+                onMouseEnter={() => openDropdownMenu('analyze')}
+                onMouseLeave={closeDropdownMenu}
+              >
+                <button
+                  onClick={() => setOpenDropdown(o => o === 'analyze' ? null : 'analyze')}
+                  className={`flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 relative ${
+                    isAnalyzeActive
+                      ? 'text-stone-900 dark:text-amber-100 bg-[rgba(201,165,92,0.08)]'
+                      : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-black/[0.035] dark:hover:bg-white/[0.06]'
+                  }`}
+                >
+                  Analyze
+                  <ChevronDown className={`h-3 w-3 opacity-50 transition-transform duration-200 ${openDropdown === 'analyze' ? 'rotate-180' : ''}`} />
+                  {isAnalyzeActive && (
+                    <span className="absolute -bottom-[1px] left-2.5 right-2.5 h-[2px] bg-[#c9a55c] rounded-[1px]" />
+                  )}
+                </button>
+
+                <DropdownPanel isOpen={openDropdown === 'analyze'} isDarkMode={mounted && isDarkMode}>
+                  <DropdownItem href="/compare" icon={<GitCompareArrows />} desc="Side by side" isActive={active === 'compare'} onClick={() => setOpenDropdown(null)}>
+                    Compare
+                  </DropdownItem>
+                  <DropdownItem href="/benchmarks" icon={<Award />} desc="LLM accuracy" isActive={active === 'benchmarks'} onClick={() => setOpenDropdown(null)}>
+                    Benchmarks
+                  </DropdownItem>
+                </DropdownPanel>
+              </div>
+
+              {/* About dropdown (Overview, Methodology, Caveats) */}
+              <div
+                ref={aboutRef}
+                className="relative"
+                onMouseEnter={() => openDropdownMenu('about')}
+                onMouseLeave={closeDropdownMenu}
+              >
+                <button
+                  onClick={() => setOpenDropdown(o => o === 'about' ? null : 'about')}
+                  className={`flex items-center gap-1 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 relative ${
+                    isAboutActive
+                      ? 'text-stone-900 dark:text-amber-100 bg-[rgba(201,165,92,0.08)]'
+                      : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-black/[0.035] dark:hover:bg-white/[0.06]'
+                  }`}
+                >
+                  About
+                  <ChevronDown className={`h-3 w-3 opacity-50 transition-transform duration-200 ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
+                  {isAboutActive && (
+                    <span className="absolute -bottom-[1px] left-2.5 right-2.5 h-[2px] bg-[#c9a55c] rounded-[1px]" />
+                  )}
+                </button>
+
+                <DropdownPanel isOpen={openDropdown === 'about'} isDarkMode={mounted && isDarkMode} align="right">
+                  <DropdownItem href="/about" icon={<BookOpen />} desc="The project" isActive={active === 'about'} onClick={() => setOpenDropdown(null)}>
+                    Overview
+                  </DropdownItem>
+                  <DropdownItem href="/methodology" icon={<FileText />} desc="How it works" isActive={active === 'methodology'} onClick={() => setOpenDropdown(null)}>
+                    Methodology
+                  </DropdownItem>
+                  <DropdownItem href="/caveats" icon={<AlertTriangle />} desc="Limitations" isActive={active === 'caveats'} onClick={() => setOpenDropdown(null)}>
+                    Caveats
+                  </DropdownItem>
+                </DropdownPanel>
+              </div>
+
+              <div className="w-px h-[18px] bg-stone-300/40 dark:bg-slate-600/40 mx-1.5" />
 
               <SettingsSheet
                 settings={settings}
                 onChange={onSettingsChange}
                 onReset={onSettingsReset}
               />
-            </div>
+            </nav>
 
-            {/* Mobile navigation */}
-            <div className="flex items-center gap-2 md:hidden">
-              <Link href="/about" className={navLinkClass(active === 'about')}>
-                About
+            {/* ── Mobile navigation ── */}
+            <div className="flex items-center gap-1.5 md:hidden">
+              {/* Current page indicator on mobile */}
+              {pageLabel && active !== 'table' && (
+                <span className="text-xs font-medium text-stone-500 dark:text-slate-400 truncate max-w-[80px]">
+                  {pageLabel}
+                </span>
+              )}
+              <button
+                type="button"
+                data-menu-trigger
+                onClick={() => setIsMenuOpen(o => !o)}
+                className="inline-flex items-center justify-center rounded-lg border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-300 shadow-sm transition-all hover:text-stone-900 dark:hover:text-slate-100 hover:border-stone-300 dark:hover:border-slate-500 w-10 h-10"
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              >
+                {isMenuOpen ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
+              </button>
+            </div>
+          </div>
+
+          {/* ── Secondary row — breadcrumb (collapses on scroll, hidden on mobile) ── */}
+          {pageLabel && (
+            <div
+              className="hidden sm:flex items-center gap-4 text-[11px] tracking-[0.04em] uppercase overflow-hidden transition-all duration-300"
+              style={{
+                maxHeight: isCompactHeader ? '0px' : '28px',
+                paddingBottom: isCompactHeader ? '0px' : '8px',
+                opacity: isCompactHeader ? 0 : 1,
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+            >
+              <Link href="/" className="text-stone-400 dark:text-slate-500 hover:text-stone-600 dark:hover:text-slate-300 transition-colors">
+                Home
               </Link>
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => setIsMenuOpen((open) => !open)}
-                  className="inline-flex items-center justify-center rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 p-2 text-stone-600 dark:text-slate-300 shadow-sm transition-colors hover:text-stone-900 dark:hover:text-slate-100 min-w-[44px] min-h-[44px]"
-                  aria-label="Open menu"
+              <span className="text-stone-300 dark:text-slate-600">/</span>
+              <span className="text-stone-600 dark:text-slate-300 font-semibold">{pageLabel}</span>
+              {figureCount != null && figureCount > 0 && (
+                <span
+                  className="ml-auto font-mono text-stone-400 dark:text-slate-500 tabular-nums normal-case"
+                  style={{ letterSpacing: '0', fontVariantNumeric: 'tabular-nums' }}
                 >
-                  <Menu className="h-5 w-5" />
-                </button>
-                <div
-                  className={`absolute right-0 mt-3 w-[calc(100vw-2rem)] max-w-[14rem] rounded-xl border border-stone-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-xl transition-all ${
-                    isMenuOpen ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 -translate-y-2'
-                  }`}
-                >
-                  <div className="flex flex-col gap-1 p-3 text-sm text-stone-700 dark:text-slate-200">
-                    <div className="px-3 py-1 text-xs uppercase tracking-[0.15em] text-stone-400 dark:text-slate-500">Project</div>
-                    <Link href="/methodology" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
-                      Methodology
-                    </Link>
-                    <Link href="/caveats" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center">
-                      Caveats
-                    </Link>
-                    <div className="border-t border-stone-100 dark:border-slate-700 my-1" />
-                    <div className="px-3 py-1 text-xs uppercase tracking-[0.15em] text-stone-400 dark:text-slate-500">Explore</div>
-                    <Link href="/maps" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center gap-2">
-                      <Map className="h-4 w-4 text-stone-400" /> Maps
-                    </Link>
-                    <Link href="/scatter" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center gap-2">
-                      <ScatterChart className="h-4 w-4 text-stone-400" /> Scatter
-                    </Link>
-                    <Link href="/media" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center gap-2">
-                      <Clapperboard className="h-4 w-4 text-stone-400" /> Media
-                    </Link>
-                    <div className="border-t border-stone-100 dark:border-slate-700 my-1" />
-                    <Link href="/compare" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center gap-2">
-                      <GitCompareArrows className="h-4 w-4 text-stone-400" /> Compare
-                    </Link>
-                    <Link href="/benchmarks" onClick={() => setIsMenuOpen(false)} className="rounded-lg px-3 py-3 hover:bg-stone-100 dark:hover:bg-slate-700 min-h-[44px] flex items-center gap-2">
-                      <Award className="h-4 w-4 text-stone-400" /> Benchmarks
-                    </Link>
-                    <div className="px-3 py-2 border-t border-stone-100 dark:border-slate-700 mt-1 pt-2">
-                      <SettingsSheet
-                        settings={settings}
-                        onChange={onSettingsChange}
-                        onReset={onSettingsReset}
-                      />
-                    </div>
-                  </div>
-                </div>
+                  {figureCount.toLocaleString()} figures
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* ── Mobile menu ── */}
+        <div
+          data-mobile-menu
+          className={`md:hidden border-t border-stone-200/60 dark:border-slate-700/60 overflow-hidden transition-all duration-300 ease-out ${
+            isMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+            <div className="flex flex-col gap-0.5">
+              {/* Main pages */}
+              <MobileNavLink href="/" icon={<span className="text-base">📊</span>} isActive={active === 'table'} onClick={() => setIsMenuOpen(false)}>
+                Rankings
+              </MobileNavLink>
+              <MobileNavLink href="/media" icon={<Clapperboard className="h-4 w-4" />} isActive={active === 'media'} onClick={() => setIsMenuOpen(false)}>
+                Media Atlas
+              </MobileNavLink>
+
+              <div className="my-1.5 mx-1">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-slate-500 px-3 pb-1">Visualize</div>
+              </div>
+              <MobileNavLink href="/maps" icon={<Map className="h-4 w-4" />} isActive={active === 'maps'} onClick={() => setIsMenuOpen(false)}>
+                Maps
+              </MobileNavLink>
+              <MobileNavLink href="/scatter" icon={<ScatterChart className="h-4 w-4" />} isActive={active === 'scatter'} onClick={() => setIsMenuOpen(false)}>
+                Scatter
+              </MobileNavLink>
+
+              <div className="my-1.5 mx-1">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-slate-500 px-3 pb-1">Analyze</div>
+              </div>
+              <MobileNavLink href="/compare" icon={<GitCompareArrows className="h-4 w-4" />} isActive={active === 'compare'} onClick={() => setIsMenuOpen(false)}>
+                Compare
+              </MobileNavLink>
+              <MobileNavLink href="/benchmarks" icon={<Award className="h-4 w-4" />} isActive={active === 'benchmarks'} onClick={() => setIsMenuOpen(false)}>
+                Benchmarks
+              </MobileNavLink>
+
+              <div className="my-1.5 mx-1">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-slate-500 px-3 pb-1">About</div>
+              </div>
+              <MobileNavLink href="/about" icon={<BookOpen className="h-4 w-4" />} isActive={active === 'about'} onClick={() => setIsMenuOpen(false)}>
+                Overview
+              </MobileNavLink>
+              <MobileNavLink href="/methodology" icon={<FileText className="h-4 w-4" />} isActive={active === 'methodology'} onClick={() => setIsMenuOpen(false)}>
+                Methodology
+              </MobileNavLink>
+              <MobileNavLink href="/caveats" icon={<AlertTriangle className="h-4 w-4" />} isActive={active === 'caveats'} onClick={() => setIsMenuOpen(false)}>
+                Caveats
+              </MobileNavLink>
+
+              <div className="h-px bg-stone-200/60 dark:bg-slate-700/60 mx-1 my-2" />
+
+              <div className="px-3 py-1">
+                <SettingsSheet
+                  settings={settings}
+                  onChange={onSettingsChange}
+                  onReset={onSettingsReset}
+                />
               </div>
             </div>
           </div>
         </div>
       </header>
+
       <AboutDialog open={isAboutOpen} onOpenChange={setIsAboutOpen} />
     </>
+  );
+}
+
+/* ── Dropdown panel (shared between Visualize and More) ── */
+function DropdownPanel({
+  isOpen,
+  isDarkMode,
+  align = 'center',
+  children,
+}: {
+  isOpen: boolean;
+  isDarkMode: boolean | undefined;
+  align?: 'center' | 'right';
+  children: React.ReactNode;
+}) {
+  const positionClass = align === 'right'
+    ? 'right-0'
+    : 'left-1/2 -translate-x-1/2';
+
+  return (
+    <div
+      className={`absolute top-[calc(100%+6px)] ${positionClass} min-w-[210px] bg-white dark:bg-slate-800 border rounded-[10px] p-1 transition-all duration-[180ms] ease-out ${
+        isOpen
+          ? `opacity-100 pointer-events-auto translate-y-0 ${align === 'center' ? '-translate-x-1/2' : ''}`
+          : `opacity-0 pointer-events-none -translate-y-1 ${align === 'center' ? '-translate-x-1/2' : ''}`
+      }`}
+      style={{
+        borderColor: isDarkMode ? 'rgba(51,65,85,0.8)' : 'rgba(0,0,0,0.08)',
+        boxShadow: '0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04)',
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ── Dropdown item ── */
+function DropdownItem({
+  href,
+  icon,
+  desc,
+  isActive,
+  onClick,
+  secondary,
+  children,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  desc?: string;
+  isActive: boolean;
+  onClick: () => void;
+  secondary?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium rounded-[7px] transition-colors ${
+        isActive
+          ? 'text-stone-900 dark:text-amber-100 bg-stone-50 dark:bg-slate-700/50'
+          : secondary
+            ? 'text-stone-400 dark:text-slate-400 hover:bg-stone-50 dark:hover:bg-slate-700/50 hover:text-stone-700 dark:hover:text-slate-200'
+            : 'text-stone-500 dark:text-slate-300 hover:bg-stone-50 dark:hover:bg-slate-700/50 hover:text-stone-900 dark:hover:text-amber-100'
+      }`}
+    >
+      <span className={`h-4 w-4 flex-shrink-0 [&>svg]:h-4 [&>svg]:w-4 ${isActive ? 'text-stone-500 dark:text-slate-400' : 'text-stone-400 dark:text-slate-500'}`}>
+        {icon}
+      </span>
+      <span>{children}</span>
+      {desc && (
+        <span className="text-[11px] text-stone-400 dark:text-slate-500 font-normal ml-auto whitespace-nowrap">{desc}</span>
+      )}
+    </Link>
+  );
+}
+
+/* ── Nav link (primary, desktop) ── */
+function NavLink({
+  href,
+  isActive,
+  icon,
+  children,
+}: {
+  href: string;
+  isActive: boolean;
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 ${
+        isActive
+          ? 'text-stone-900 dark:text-amber-100'
+          : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-black/[0.035] dark:hover:bg-white/[0.06]'
+      }`}
+    >
+      {icon && <span className={isActive ? 'opacity-70' : 'opacity-50'}>{icon}</span>}
+      {children}
+      {isActive && (
+        <span className="absolute -bottom-[1px] left-2.5 right-2.5 h-[2px] bg-[#c9a55c] rounded-[1px]" />
+      )}
+    </Link>
+  );
+}
+
+/* ── Mobile nav link ── */
+function MobileNavLink({
+  href,
+  icon,
+  isActive,
+  onClick,
+  secondary,
+  children,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  isActive: boolean;
+  onClick: () => void;
+  secondary?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`rounded-lg px-3 py-2.5 min-h-[44px] flex items-center gap-3 transition-colors text-sm ${
+        isActive
+          ? 'bg-amber-50/60 dark:bg-amber-900/15 text-stone-900 dark:text-amber-100 font-medium border-l-2 border-[#c9a55c] ml-0 pl-[10px]'
+          : secondary
+            ? 'text-stone-500 dark:text-slate-400 hover:bg-stone-100/60 dark:hover:bg-slate-700/40 hover:text-stone-700 dark:hover:text-slate-200'
+            : 'text-stone-700 dark:text-slate-200 hover:bg-stone-100/60 dark:hover:bg-slate-700/40'
+      }`}
+    >
+      <span className={`flex-shrink-0 ${isActive ? 'text-[#c9a55c]' : secondary ? 'text-stone-400 dark:text-slate-500' : 'text-stone-400 dark:text-slate-500'}`}>
+        {icon}
+      </span>
+      {children}
+    </Link>
   );
 }

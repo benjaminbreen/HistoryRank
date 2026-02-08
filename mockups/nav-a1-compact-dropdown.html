@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HistoryRank Nav — A1: Compact with Visualize Dropdown</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #f8f6f2;
+    background-image: linear-gradient(180deg, rgba(248,246,242,0) 0%, rgba(248,246,242,0.7) 60%, rgba(255,255,255,0.95) 100%);
+    color: #1c1917;
+  }
+
+  .top-ribbon {
+    height: 2.5px;
+    background: linear-gradient(90deg, #c9a55c 0%, #d4a574 40%, #a8bed2 75%, #7a8fa8 100%);
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 247, 0.84);
+    backdrop-filter: blur(24px) saturate(1.6);
+    -webkit-backdrop-filter: blur(24px) saturate(1.6);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+
+  /* ── LOGO ── */
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid #c4b99a;
+    background: linear-gradient(145deg, #faf5eb, #f0e8d8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #7a6630;
+    letter-spacing: 0.04em;
+    transition: all 0.25s ease;
+  }
+
+  .logo-group:hover .logo-icon {
+    border-color: #b89745;
+    box-shadow: 0 0 0 2px rgba(201,165,92,0.15), 0 2px 6px rgba(201,165,92,0.18);
+    transform: scale(1.04);
+  }
+
+  .logo-text {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #292524;
+    letter-spacing: -0.005em;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav-primary {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+  }
+
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716c;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #292524;
+    background: rgba(0,0,0,0.035);
+  }
+
+  .nav-link.active {
+    color: #292524;
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10px;
+    right: 10px;
+    height: 2px;
+    background: #c9a55c;
+    border-radius: 1px;
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(0,0,0,0.07);
+    margin: 0 4px;
+  }
+
+  /* ── DROPDOWN ── */
+  .dropdown-wrapper {
+    position: relative;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 11px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716c;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .dropdown-trigger:hover {
+    color: #292524;
+    background: rgba(0,0,0,0.035);
+  }
+
+  .dropdown-trigger.has-active {
+    color: #292524;
+    background: rgba(201,165,92,0.08);
+  }
+
+  .dropdown-trigger .chevron {
+    width: 12px;
+    height: 12px;
+    opacity: 0.5;
+    transition: transform 0.2s ease;
+  }
+
+  .dropdown-wrapper:hover .chevron,
+  .dropdown-wrapper:focus-within .chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04);
+    padding: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(-4px);
+    transition: all 0.18s ease;
+  }
+
+  .dropdown-wrapper:hover .dropdown-menu,
+  .dropdown-wrapper:focus-within .dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown-label {
+    padding: 6px 12px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #57534e;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: all 0.12s ease;
+  }
+
+  .dropdown-item:hover {
+    background: #faf9f7;
+    color: #292524;
+  }
+
+  .dropdown-item .d-icon {
+    width: 16px;
+    height: 16px;
+    color: #a8a29e;
+    flex-shrink: 0;
+  }
+
+  .dropdown-item:hover .d-icon {
+    color: #78716c;
+  }
+
+  .dropdown-item .d-desc {
+    font-size: 11px;
+    color: #a8a29e;
+    font-weight: 400;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .dropdown-sep {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    margin: 3px 8px;
+  }
+
+  /* ── META LINKS (About, etc.) ── */
+  .nav-meta {
+    font-size: 12px;
+    color: #b8b4ac;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: color 0.15s;
+  }
+
+  .nav-meta:hover {
+    color: #78716c;
+  }
+
+  /* ── SETTINGS ── */
+  .settings-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.07);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #b8b4ac;
+  }
+
+  .settings-btn:hover {
+    border-color: rgba(0,0,0,0.12);
+    color: #57534e;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* ── DEMO ── */
+  .demo-content {
+    max-width: 1280px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .demo-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .demo-card h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #292524;
+    margin-bottom: 12px;
+  }
+
+  .demo-card p {
+    font-size: 14px;
+    color: #78716c;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  .approach-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+    padding: 5px 12px;
+    background: rgba(201,165,92,0.1);
+    border: 1px solid rgba(201,165,92,0.2);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8b7030;
+  }
+
+  ul.changes { margin-top: 14px; padding-left: 20px; }
+  ul.changes li { font-size: 14px; color: #78716c; line-height: 1.7; margin-bottom: 4px; }
+  ul.changes li strong { color: #57534e; }
+
+  svg { display: inline-block; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo-group">
+      <div class="logo-icon">HR</div>
+      <span class="logo-text">HistoryRank</span>
+    </a>
+
+    <nav class="nav-primary">
+      <a href="#" class="nav-link active">Rankings</a>
+
+      <!-- "Visualize" dropdown groups Maps, Scatter, Media -->
+      <div class="dropdown-wrapper">
+        <button class="dropdown-trigger" tabindex="0">
+          Visualize
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown-menu">
+          <div class="dropdown-label">Data views</div>
+          <a href="#" class="dropdown-item">
+            <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/></svg>
+            Maps
+            <span class="d-desc">Geographic</span>
+          </a>
+          <a href="#" class="dropdown-item">
+            <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7.5" cy="7.5" r="3"/><circle cx="16.5" cy="16.5" r="3"/><circle cx="16.5" cy="7.5" r="1.5"/></svg>
+            Scatter
+            <span class="d-desc">Correlations</span>
+          </a>
+          <div class="dropdown-sep"></div>
+          <a href="#" class="dropdown-item">
+            <svg class="d-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="m7 2v20"/><path d="M2 12h20"/></svg>
+            Media Atlas
+            <span class="d-desc">Film &amp; TV</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#" class="nav-link">Compare</a>
+      <a href="#" class="nav-link">Benchmarks</a>
+
+      <div class="nav-divider"></div>
+
+      <a href="#" class="nav-meta">About</a>
+      <a href="#" class="nav-meta">Method</a>
+      <a href="#" class="nav-meta">Caveats</a>
+
+      <div class="nav-divider"></div>
+
+      <button class="settings-btn" title="Settings">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="demo-content">
+  <div class="demo-card">
+    <div class="approach-label">A1 — Compact Single-Row + "Visualize" Dropdown</div>
+    <h2>Design Approach</h2>
+    <p>
+      Keeps the ribbon accent and logo from Option A but removes the secondary breadcrumb row entirely, making it a
+      tight single-row bar at just 52px. No icons on top-level links &mdash; text only for a cleaner look. Icons
+      appear only inside the dropdown to help differentiate Maps/Scatter/Media.
+    </p>
+    <ul class="changes">
+      <li><strong>Dropdown:</strong> Maps, Scatter, and Media are grouped under <em>"Visualize"</em> with a hover-reveal dropdown that includes brief descriptors (Geographic, Correlations, Film &amp; TV).</li>
+      <li><strong>No icons on primary links:</strong> Rankings, Compare, and Benchmarks stand as plain text. Cleaner and more typographic.</li>
+      <li><strong>Rounded-square logo:</strong> The HR badge uses a 7px radius square instead of a circle, giving it a more modern app-icon feel while still fitting the warm palette.</li>
+      <li><strong>Single row:</strong> No breadcrumb row. The figure count and contextual info can live in the page body instead of the nav.</li>
+      <li><strong>Caveats restored:</strong> About, Method, and Caveats are all visible as small meta links rather than hiding Caveats.</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

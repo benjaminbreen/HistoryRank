@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-02-06T20:48:59.747Z",
+  "figureId": "henry-james",
+  "figureName": "Henry James",
+  "constraints": {
+    "language": "en",
+    "sourceRole": "primary",
+    "corpora": [
+      "wikisource",
+      "internet_archive",
+      "project_gutenberg"
+    ],
+    "queryNames": [
+      "Henry James",
+      "James"
+    ],
+    "seedFallbackUsed": true
+  },
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Ambassadors",
+      "author": "Henry James",
+      "publication_year": 1903,
+      "source_url": "https://www.gutenberg.org/ebooks/432",
+      "confidence": 0.99,
+      "why": "Canonical late novel by Henry James."
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Turn of the Screw",
+      "author": "Henry James",
+      "publication_year": 1898,
+      "source_url": "https://www.gutenberg.org/ebooks/209",
+      "confidence": 0.98,
+      "why": "Widely studied novella by Henry James."
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Bostonians",
+      "author": "Henry James",
+      "publication_year": 1886,
+      "source_url": "https://www.gutenberg.org/ebooks/19717",
+      "confidence": 0.97,
+      "why": "Major novel and frequent critical reference point."
+    }
+  ]
+}

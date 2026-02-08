@@ -895,7 +895,7 @@ function HomeContent() {
             totalCount={total}
           />
         </div>
-        <div className="sticky top-[60px] z-40 mb-6">
+        <div className="mb-6 sm:sticky sm:top-[calc(var(--app-header-height,56px)+56px)] sm:z-40">
           <ActiveFiltersBar
             search={search}
             domain={domain}
