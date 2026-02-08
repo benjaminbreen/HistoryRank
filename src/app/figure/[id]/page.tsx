@@ -21,7 +21,6 @@ export default function FigurePage() {
   const params = useParams();
   const router = useRouter();
   const id = typeof params.id === 'string' ? params.id : null;
-  console.log('[FigurePage] MOUNTED', { paramsId: params.id, id });
   const { settings, updateSettings, resetSettings } = useSettings();
   const [activeTab, setActiveTab] = useState<DetailTab>('overview');
 

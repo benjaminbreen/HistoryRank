@@ -1058,6 +1058,7 @@ function HomeContent() {
       <FigureDetailPanel
         figure={selectedFigure}
         previewRow={selectedRow}
+        figureSlug={selectedId}
         rankings={selectedRankings}
         aliases={selectedAliases}
         isOpen={selectedId !== null}

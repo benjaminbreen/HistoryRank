@@ -45,6 +45,7 @@ const TAB_LABELS: Array<{ id: DetailTab; label: string; icon: typeof LayoutGrid 
 interface FigureDetailPanelProps {
   figure: Figure | null;
   previewRow?: FigureRow | null;
+  figureSlug?: string | null; // Direct ID, available immediately on click (before API fetch)
   rankings: Ranking[];
   aliases?: string[];
   isOpen: boolean;
@@ -62,6 +63,7 @@ interface FigureDetailPanelProps {
 export function FigureDetailPanel({
   figure,
   previewRow,
+  figureSlug,
   rankings,
   aliases,
   isOpen,
@@ -89,8 +91,7 @@ export function FigureDetailPanel({
 
   // Use previewRow or figure for display data
   const displayData = figure || previewRow;
-  const figureId = figure?.id || previewRow?.id;
-  console.log('[FigureDetailPanel] render', { figureId, figureIdType: typeof figureId, hasPreviewRow: !!previewRow, hasFigure: !!figure, previewRowId: previewRow?.id, figureObjId: figure?.id });
+  const figureId = figureSlug || figure?.id || previewRow?.id;
   const wikiSlug = figure?.wikipediaSlug || previewRow?.wikipediaSlug;
 
   useEffect(() => {
@@ -280,26 +281,6 @@ export function FigureDetailPanel({
           <div className="flex flex-col min-h-full">
             {/* Action buttons */}
             <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
-              {figureId && (
-                <button
-                  onClick={(e) => {
-                    const url = `/figure/${figureId}`;
-                    console.log('[ViewFullPage] clicked!', { figureId, url, eventTarget: e.target, currentTarget: e.currentTarget, defaultPrevented: e.defaultPrevented });
-                    try {
-                      window.location.href = url;
-                      console.log('[ViewFullPage] window.location.href set to:', url);
-                    } catch (err) {
-                      console.error('[ViewFullPage] ERROR setting location:', err);
-                    }
-                  }}
-                  className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
-                  aria-label="View full page"
-                  title="View full page"
-                  style={{ border: '2px solid red' }}
-                >
-                  <Maximize2 className="w-4 h-4 text-stone-500 dark:text-slate-400" />
-                </button>
-              )}
               <button
                 onClick={() => setShareOpen(true)}
                 className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
@@ -320,7 +301,7 @@ export function FigureDetailPanel({
             <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
               <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <div onClick={() => { console.log('[Portrait] clicked, figureId:', figureId); if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
+                <div onClick={() => { if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
                   {localThumbUrl && !localThumbFailed ? (
                     <div className="relative">
                       <img
@@ -422,6 +403,20 @@ export function FigureDetailPanel({
                 </div>
 
               </div>
+
+              {/* See full profile button */}
+              {figureId && (
+                <div className="mt-4">
+                  <a
+                    href={`/figure/${figureId}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-stone-800 hover:bg-stone-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white text-sm font-medium transition-colors shadow-sm"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    See full profile
+                    <ChevronRight className="w-3.5 h-3.5 opacity-60" />
+                  </a>
+                </div>
+              )}
             </div>
 
             <div className="mx-6 mt-4">
