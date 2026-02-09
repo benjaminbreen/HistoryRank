@@ -280,6 +280,9 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
 
     const eraOrder = new Map(ERA_ORDER.map((era, index) => [era, index]));
     const rankById = new Map<string, number>();
+    // Columns where "asc" should mean highest-first (descending numerically)
+    const highestFirst = new Set<SortKey>(['accuracy', 'quality', 'era_rank', 'rating']);
+
     const compareItems = (a: MediaItem, b: MediaItem) => {
       let result = 0;
       switch (sortBy) {
@@ -290,7 +293,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           result = compareNumber(getQuality(a), getQuality(b));
           break;
         case 'era_rank': {
-          result = compareNumber(getComposite(b), getComposite(a));
+          result = compareNumber(getComposite(a), getComposite(b));
           break;
         }
         case 'title':
@@ -328,7 +331,9 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
       if (result === 0) {
         result = compareText(a.title, b.title);
       }
-      return sortOrder === 'asc' ? result : -result;
+      // For score columns, flip so "asc" means best-first
+      const flip = highestFirst.has(sortBy) ? -1 : 1;
+      return sortOrder === 'asc' ? result * flip : -result * flip;
     };
 
     const scoreSort = (a: MediaItem, b: MediaItem) => {
@@ -364,12 +369,11 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
 
       groups = orderedEras.map((era) => {
         const group = grouped.get(era) ?? [];
-        const ranked = [...group].sort(scoreSort);
-        ranked.forEach((item, index) => {
+        const sorted = [...group].sort(sortBy === 'era_rank' ? scoreSort : compareItems);
+        sorted.forEach((item, index) => {
           rankById.set(item.id, index + 1);
         });
-        const displayItems = sortBy === 'era_rank' ? ranked : [...group].sort(compareItems);
-        return { era, items: displayItems };
+        return { era, items: sorted };
       });
     } else {
       const ranked = [...filteredItems].sort(scoreSort);
