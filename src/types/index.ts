@@ -361,6 +361,7 @@ export const BADGE_DEFINITIONS: Record<BadgeType, Omit<Badge, 'type'>> = {
 
 // Source display names
 export const SOURCE_LABELS: Record<string, string> = {
+  // Figure ranking sources (slugified keys from DB)
   'pantheon': 'MIT Pantheon',
   'claude-sonnet-4.5': 'Claude Sonnet 4.5',
   'claude-opus-4.5': 'Claude Opus 4.5',
@@ -375,10 +376,16 @@ export const SOURCE_LABELS: Record<string, string> = {
   'grok-4': 'Grok 4',
   'mistral-large-3': 'Mistral Large 3',
   'qwen3-235b-a22b': 'Qwen3 235B',
+  // Media source keys (raw strings from LIST filenames)
+  'Claude Sonnet 4.5': 'Claude Sonnet 4.5',
+  'Claude Opus 4.6': 'Claude Opus 4.6',
+  'GPT 5.2': 'GPT 5.2',
+  'Gpt 5.2': 'GPT 5.2',
 };
 
 // Model icons for source ranking cards
 export const MODEL_ICONS: Record<string, string> = {
+  // Figure ranking sources (slugified keys from DB)
   'claude-sonnet-4.5': '/icons/models/claude.svg',
   'claude-opus-4.5': '/icons/models/claude.svg',
   'deepseek-v3.2': '/icons/models/deepseek.svg',
@@ -392,6 +399,11 @@ export const MODEL_ICONS: Record<string, string> = {
   'grok-4': '/icons/models/grok.svg',
   'mistral-large-3': '/icons/models/mistral.svg',
   'qwen3-235b-a22b': '/icons/models/qwen.svg',
+  // Media source keys (raw strings from LIST filenames)
+  'Claude Sonnet 4.5': '/icons/models/claude.svg',
+  'Claude Opus 4.6': '/icons/models/claude.svg',
+  'GPT 5.2': '/icons/models/openai.svg',
+  'Gpt 5.2': '/icons/models/openai.svg',
 };
 
 // Domain colors for visualization
