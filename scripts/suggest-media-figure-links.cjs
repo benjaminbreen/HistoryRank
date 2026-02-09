@@ -23,6 +23,7 @@ loadEnvFile('.env.local');
 
 const MEDIA_PATH = path.join(process.cwd(), 'data', 'raw', 'media', 'ucsc-history-media.jsonl');
 const MANUAL_PATH = path.join(process.cwd(), 'data', 'media-figure-links.manual.json');
+const GEMINI_PATH = path.join(process.cwd(), 'data', 'media-figure-links.gemini.json');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'media-figure-links.suggestions.json');
 
 const SHAKESPEARE_KEYWORDS = [
@@ -37,6 +38,16 @@ const SHAKESPEARE_KEYWORDS = [
   'henry v',
   'julius caesar',
 ];
+
+// Common first names / titles that cause false positives when matching
+// single-word figure names in summary text (e.g., "David Lean" → King David)
+const SUMMARY_BLOCKLIST = new Set([
+  'david', 'prince', 'aaron', 'jacob', 'elizabeth', 'solomon',
+  'moses', 'ruth', 'samuel', 'benjamin', 'adam', 'eve',
+  'madonna', 'cher', 'drake', 'adele', 'bella', 'moby',
+  'beyoncé', 'rihanna', 'shakira', 'bjork', 'eminem',
+  'muhammad', // too common as modern first name; use multi-word aliases instead
+]);
 
 function normalize(value) {
   return value.toLowerCase();
@@ -133,28 +144,32 @@ function buildDirectMatches(media, figures, aliasByFigure) {
     // Strategy 2: Individual tag → figure matching
     // Tags like "Henry VIII" should match figure "Henry VIII of England"
     // Tags like "Thomas Cromwell" should match figure "Thomas Cromwell"
+    // Single-word tags like "Homer" should match figure "Homer"
     for (const tag of tagList) {
       const normTag = normalizeTitle(tag);
-      // Skip short/generic tags
-      if (normTag.length < 5 || normTag.split(/\s+/).length < 2) continue;
+      if (normTag.length < 5) continue;
+      const isSingleWord = normTag.split(/\s+/).length < 2;
 
-      // Direct tag lookup
+      // Direct tag lookup (works for both single and multi-word tags)
       const directMatch = figureByShortName.get(normTag);
       if (directMatch && !hitIds.has(directMatch.id)) {
-        hits.push({ figure_id: directMatch.id, figure_name: directMatch.canonical_name, relation: 'depicts', confidence: 0.85, source: 'tag-match' });
+        hits.push({ figure_id: directMatch.id, figure_name: directMatch.canonical_name, relation: 'depicts', confidence: isSingleWord ? 0.75 : 0.85, source: 'tag-match' });
         hitIds.add(directMatch.id);
         continue;
       }
 
-      // Check if any figure's canonical name starts with this tag
-      // e.g., tag "Henry VIII" → figure "Henry VIII of England"
-      for (const fig of multiWord) {
-        if (hitIds.has(fig.id)) continue;
-        const normCanonical = normalizeTitle(fig.canonical_name);
-        if (normCanonical.startsWith(normTag + ' ') && normTag.length >= 8) {
-          hits.push({ figure_id: fig.id, figure_name: fig.canonical_name, relation: 'depicts', confidence: 0.75, source: 'tag-prefix' });
-          hitIds.add(fig.id);
-          break;
+      // Prefix matching only for multi-word tags (too noisy for single-word)
+      if (!isSingleWord) {
+        // Check if any figure's canonical name starts with this tag
+        // e.g., tag "Henry VIII" → figure "Henry VIII of England"
+        for (const fig of multiWord) {
+          if (hitIds.has(fig.id)) continue;
+          const normCanonical = normalizeTitle(fig.canonical_name);
+          if (normCanonical.startsWith(normTag + ' ') && normTag.length >= 8) {
+            hits.push({ figure_id: fig.id, figure_name: fig.canonical_name, relation: 'depicts', confidence: 0.75, source: 'tag-prefix' });
+            hitIds.add(fig.id);
+            break;
+          }
         }
       }
     }
@@ -167,6 +182,41 @@ function buildDirectMatches(media, figures, aliasByFigure) {
       if (normalize(title) === normalize(canonical)) {
         hits.push({ figure_id: fig.id, figure_name: canonical, relation: 'about', confidence: 0.9, source: 'title-exact' });
         hitIds.add(fig.id);
+      }
+    }
+
+    // Strategy 4: Single-word figures' multi-word aliases in haystack
+    // e.g., "Jesus of Nazareth" in summary → Jesus, "Napoleon Bonaparte" → Napoleon
+    for (const fig of singleWord) {
+      if (hitIds.has(fig.id)) continue;
+      const aliasList = aliasByFigure.get(fig.id) || [];
+      for (const alias of aliasList) {
+        if (alias.trim().split(/\s+/).length < 2) continue;
+        if (alias.length < 8) continue;
+        const aliasRegex = makeBoundaryRegex(alias);
+        if (aliasRegex.test(haystack)) {
+          hits.push({ figure_id: fig.id, figure_name: fig.canonical_name, relation: 'about', confidence: 0.7, source: `alias:${alias}` });
+          hitIds.add(fig.id);
+          break;
+        }
+      }
+    }
+
+    // Strategy 5: Single-word figure names in summary text (word-boundary match)
+    // e.g., Ben-Hur summary mentions "the life of Jesus"
+    // Blocklist: common first names that cause false positives (e.g., "David Lean" → King David)
+    const summaryText = normalize(summary);
+    if (summaryText.length > 0) {
+      for (const fig of singleWord) {
+        const canonical = fig.canonical_name;
+        if (canonical.length < 5) continue;
+        if (hitIds.has(fig.id)) continue;
+        if (SUMMARY_BLOCKLIST.has(normalize(canonical))) continue;
+        const regex = makeBoundaryRegex(normalize(canonical));
+        if (regex.test(summaryText)) {
+          hits.push({ figure_id: fig.id, figure_name: canonical, relation: 'about', confidence: 0.65, source: 'summary-match' });
+          hitIds.add(fig.id);
+        }
       }
     }
 
@@ -229,6 +279,26 @@ function loadManualLinks(media, figuresByName, aliasToId) {
   return matchesByMediaId;
 }
 
+function loadGeminiLinks() {
+  if (!fs.existsSync(GEMINI_PATH)) return new Map();
+  const data = JSON.parse(fs.readFileSync(GEMINI_PATH, 'utf8'));
+  const matchesByMediaId = new Map();
+  for (const entry of data.items || []) {
+    const links = (entry.links || []).map((link) => ({
+      figure_id: link.figure_id,
+      figure_name: link.figure_name,
+      relation: link.relation || 'about',
+      confidence: link.confidence || 0.85,
+      source: 'gemini-flash-lite',
+    }));
+    if (links.length) {
+      matchesByMediaId.set(entry.media_id, links);
+    }
+  }
+  console.log(`Loaded ${matchesByMediaId.size} Gemini links from ${GEMINI_PATH}`);
+  return matchesByMediaId;
+}
+
 function parseArgs() {
   const args = process.argv.slice(2);
   const options = {
@@ -267,6 +337,7 @@ async function main() {
   const media = loadMedia();
   const directMatches = buildDirectMatches(media, figures, aliasByFigure);
   const manualMatches = loadManualLinks(media, figuresByName, aliasToId);
+  const geminiMatches = loadGeminiLinks();
 
   const shakespeareId = mapNameToFigure('William Shakespeare', figuresByName, aliasToId);
   const adaptationMatches = new Map();
@@ -292,11 +363,12 @@ async function main() {
   const combined = [];
   for (const item of media) {
     const links = [];
-    // Manual links have highest priority
+    // Manual links have highest priority, then direct matches, then Gemini, then adaptation rules
     const manual = manualMatches.get(item.id) || [];
     const direct = directMatches.get(item.id) || [];
+    const gemini = geminiMatches.get(item.id) || [];
     const adaptation = adaptationMatches.get(item.id) || [];
-    const merged = [...manual, ...direct, ...adaptation];
+    const merged = [...manual, ...direct, ...gemini, ...adaptation];
     const seen = new Set();
     for (const link of merged) {
       if (seen.has(link.figure_id)) continue;

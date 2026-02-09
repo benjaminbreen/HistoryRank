@@ -1,9 +1,33 @@
 {
-  "generated_at": "2026-02-09T03:31:39.623Z",
+  "generated_at": "2026-02-09T06:48:30.937Z",
   "model": "local-rules+manual",
   "total_media": 560,
-  "total_with_links": 179,
+  "total_with_links": 259,
   "items": [
+    {
+      "media_id": "les-mis-rables",
+      "title": "Les Misérables",
+      "type": "book",
+      "release_year": 1900,
+      "links": [
+        {
+          "figure_id": "victor-hugo",
+          "figure_name": "Victor Hugo",
+          "relation": "created_by",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 371.1
+        },
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 25.3
+        }
+      ]
+    },
     {
       "media_id": "the-protestant-ethic-and-the-spirit-of-capitalism",
       "title": "The Protestant Ethic and the Spirit of Capitalism",
@@ -53,6 +77,22 @@
       ]
     },
     {
+      "media_id": "the-histories-of-polybius",
+      "title": "The Histories of Polybius",
+      "type": "book",
+      "release_year": 1922,
+      "links": [
+        {
+          "figure_id": "polybius",
+          "figure_name": "Polybius",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 674.9
+        }
+      ]
+    },
+    {
       "media_id": "battleship-potemkin",
       "title": "Battleship Potemkin",
       "type": "film",
@@ -65,6 +105,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 738
+        }
+      ]
+    },
+    {
+      "media_id": "napol-on",
+      "title": "Napoléon",
+      "type": "film",
+      "release_year": 1927,
+      "links": [
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 25.3
         }
       ]
     },
@@ -165,6 +221,30 @@
       ]
     },
     {
+      "media_id": "triumph-of-the-will",
+      "title": "Triumph of the Will",
+      "type": "documentary",
+      "release_year": 1935,
+      "links": [
+        {
+          "figure_id": "leni-riefenstahl",
+          "figure_name": "Leni Riefenstahl",
+          "relation": "created_by",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 900
+        },
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
       "media_id": "alexander-nevsky",
       "title": "Alexander Nevsky",
       "type": "film",
@@ -225,6 +305,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 484.5
+        }
+      ]
+    },
+    {
+      "media_id": "to-be-or-not-to-be",
+      "title": "To Be or Not to Be",
+      "type": "film",
+      "release_year": 1942,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
         }
       ]
     },
@@ -369,6 +465,30 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 946
+        },
+        {
+          "figure_id": "hadrian",
+          "figure_name": "Hadrian",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 520.9
+        }
+      ]
+    },
+    {
+      "media_id": "quo-vadis",
+      "title": "Quo Vadis",
+      "type": "film",
+      "release_year": 1951,
+      "links": [
+        {
+          "figure_id": "nero",
+          "figure_name": "Nero",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 797.5
         }
       ]
     },
@@ -389,6 +509,22 @@
       ]
     },
     {
+      "media_id": "the-peloponnesian-war",
+      "title": "The Peloponnesian War",
+      "type": "book",
+      "release_year": 1954,
+      "links": [
+        {
+          "figure_id": "thucydides",
+          "figure_name": "Thucydides",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 321.4
+        }
+      ]
+    },
+    {
       "media_id": "seven-samurai",
       "title": "Seven Samurai",
       "type": "film",
@@ -401,6 +537,30 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 515.8
+        }
+      ]
+    },
+    {
+      "media_id": "the-annals-of-imperial-rome",
+      "title": "The Annals of Imperial Rome",
+      "type": "book",
+      "release_year": 1956,
+      "links": [
+        {
+          "figure_id": "tacitus",
+          "figure_name": "Tacitus",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 463.5
+        },
+        {
+          "figure_id": "tiberius",
+          "figure_name": "Tiberius",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 946.6
         }
       ]
     },
@@ -465,6 +625,54 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 827.6
+        }
+      ]
+    },
+    {
+      "media_id": "ben-hur",
+      "title": "Ben-Hur",
+      "type": "film",
+      "release_year": 1959,
+      "links": [
+        {
+          "figure_id": "jesus",
+          "figure_name": "Jesus",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 1.9
+        }
+      ]
+    },
+    {
+      "media_id": "the-rise-and-fall-of-the-third-reich",
+      "title": "The Rise and Fall of the Third Reich",
+      "type": "book",
+      "release_year": 1960,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "the-alamo",
+      "title": "The Alamo",
+      "type": "film",
+      "release_year": 1960,
+      "links": [
+        {
+          "figure_id": "davy-crockett",
+          "figure_name": "Davy Crockett",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 931
         }
       ]
     },
@@ -619,12 +827,52 @@
       "release_year": 1963,
       "links": [
         {
+          "figure_id": "giuseppe-garibaldi",
+          "figure_name": "Giuseppe Garibaldi",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 388.2
+        },
+        {
           "figure_id": "luchino-visconti",
           "figure_name": "Luchino Visconti",
           "relation": "about",
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 951.1
+        }
+      ]
+    },
+    {
+      "media_id": "dr-strangelove",
+      "title": "Dr. Strangelove",
+      "type": "film",
+      "release_year": 1964,
+      "links": [
+        {
+          "figure_id": "stanley-kubrick",
+          "figure_name": "Stanley Kubrick",
+          "relation": "created_by",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 679.3
+        }
+      ]
+    },
+    {
+      "media_id": "the-histories-of-tacitus",
+      "title": "The Histories of Tacitus",
+      "type": "book",
+      "release_year": 1964,
+      "links": [
+        {
+          "figure_id": "tacitus",
+          "figure_name": "Tacitus",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 463.5
         }
       ]
     },
@@ -733,6 +981,22 @@
       ]
     },
     {
+      "media_id": "war-and-peace",
+      "title": "War and Peace",
+      "type": "film",
+      "release_year": 1966,
+      "links": [
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 25.3
+        }
+      ]
+    },
+    {
       "media_id": "one-hundred-years-of-solitude",
       "title": "One Hundred Years of Solitude",
       "type": "fiction",
@@ -773,6 +1037,38 @@
       ]
     },
     {
+      "media_id": "the-sorrow-and-the-pity",
+      "title": "The Sorrow and the Pity",
+      "type": "documentary",
+      "release_year": 1969,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "master-and-commander",
+      "title": "Master and Commander",
+      "type": "book",
+      "release_year": 1969,
+      "links": [
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 25.3
+        }
+      ]
+    },
+    {
       "media_id": "patton",
       "title": "Patton",
       "type": "film",
@@ -801,6 +1097,22 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 25.3
+        }
+      ]
+    },
+    {
+      "media_id": "bury-my-heart-at-wounded-knee",
+      "title": "Bury My Heart at Wounded Knee",
+      "type": "fiction",
+      "release_year": 1970,
+      "links": [
+        {
+          "figure_id": "sitting-bull",
+          "figure_name": "Sitting Bull",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 368.5
         }
       ]
     },
@@ -853,6 +1165,62 @@
       ]
     },
     {
+      "media_id": "aguirre-the-wrath-of-god",
+      "title": "Aguirre, the Wrath of God",
+      "type": "film",
+      "release_year": 1972,
+      "links": [
+        {
+          "figure_id": "francisco-pizarro",
+          "figure_name": "Francisco Pizarro",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 290.3
+        }
+      ]
+    },
+    {
+      "media_id": "1776",
+      "title": "1776",
+      "type": "film",
+      "release_year": 1972,
+      "links": [
+        {
+          "figure_id": "thomas-jefferson",
+          "figure_name": "Thomas Jefferson",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 85.8
+        },
+        {
+          "figure_id": "john-adams",
+          "figure_name": "John Adams",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 552.3
+        },
+        {
+          "figure_id": "benjamin-franklin",
+          "figure_name": "Benjamin Franklin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 305.5
+        },
+        {
+          "figure_id": "george-washington",
+          "figure_name": "George Washington",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 46.3
+        }
+      ]
+    },
+    {
       "media_id": "augustus",
       "title": "Augustus",
       "type": "fiction",
@@ -865,6 +1233,22 @@
           "confidence": 0.9,
           "source": "title-exact",
           "figure_rank": 36.8
+        }
+      ]
+    },
+    {
+      "media_id": "the-world-at-war",
+      "title": "The World at War",
+      "type": "documentary",
+      "release_year": 1973,
+      "links": [
+        {
+          "figure_id": "winston-churchill",
+          "figure_name": "Winston Churchill",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 67.3
         }
       ]
     },
@@ -885,6 +1269,62 @@
       ]
     },
     {
+      "media_id": "gulag-archipelago",
+      "title": "Gulag Archipelago",
+      "type": "book",
+      "release_year": 1973,
+      "links": [
+        {
+          "figure_id": "joseph-stalin",
+          "figure_name": "Joseph Stalin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 65
+        }
+      ]
+    },
+    {
+      "media_id": "the-killer-angels",
+      "title": "The Killer Angels",
+      "type": "book",
+      "release_year": 1974,
+      "links": [
+        {
+          "figure_id": "abraham-lincoln",
+          "figure_name": "Abraham Lincoln",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 82.2
+        },
+        {
+          "figure_id": "robert-e-lee",
+          "figure_name": "Robert E. Lee",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 646.8
+        }
+      ]
+    },
+    {
+      "media_id": "barry-lyndon",
+      "title": "Barry Lyndon",
+      "type": "film",
+      "release_year": 1975,
+      "links": [
+        {
+          "figure_id": "stanley-kubrick",
+          "figure_name": "Stanley Kubrick",
+          "relation": "created_by",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 679.3
+        }
+      ]
+    },
+    {
       "media_id": "the-battle-of-chile",
       "title": "The Battle of Chile",
       "type": "documentary",
@@ -897,6 +1337,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 607.3
+        }
+      ]
+    },
+    {
+      "media_id": "sh-gun",
+      "title": "Shōgun",
+      "type": "book",
+      "release_year": 1975,
+      "links": [
+        {
+          "figure_id": "tokugawa-ieyasu",
+          "figure_name": "Tokugawa Ieyasu",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 297.6
         }
       ]
     },
@@ -981,6 +1437,54 @@
       ]
     },
     {
+      "media_id": "a-bridge-too-far",
+      "title": "A Bridge Too Far",
+      "type": "film",
+      "release_year": 1977,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "holocaust-miniseries",
+      "title": "Holocaust (miniseries)",
+      "type": "series",
+      "release_year": 1978,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "holocaust",
+      "title": "Holocaust",
+      "type": "series",
+      "release_year": 1978,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
       "media_id": "apocalypse-now",
       "title": "Apocalypse Now",
       "type": "film",
@@ -1061,6 +1565,22 @@
       ]
     },
     {
+      "media_id": "sh-gun-2",
+      "title": "Shōgun",
+      "type": "series",
+      "release_year": 1980,
+      "links": [
+        {
+          "figure_id": "tokugawa-ieyasu",
+          "figure_name": "Tokugawa Ieyasu",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 297.6
+        }
+      ]
+    },
+    {
       "media_id": "the-day-after-trinity",
       "title": "The Day After Trinity",
       "type": "documentary",
@@ -1077,6 +1597,30 @@
       ]
     },
     {
+      "media_id": "reds",
+      "title": "Reds",
+      "type": "film",
+      "release_year": 1981,
+      "links": [
+        {
+          "figure_id": "vladimir-lenin",
+          "figure_name": "Vladimir Lenin",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 70.1
+        },
+        {
+          "figure_id": "karl-marx",
+          "figure_name": "Karl Marx",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 14.5
+        }
+      ]
+    },
+    {
       "media_id": "midnight-s-children",
       "title": "Midnight's Children",
       "type": "fiction",
@@ -1089,6 +1633,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 727.6
+        }
+      ]
+    },
+    {
+      "media_id": "creation",
+      "title": "Creation",
+      "type": "book",
+      "release_year": 1981,
+      "links": [
+        {
+          "figure_id": "cyrus-the-great",
+          "figure_name": "Cyrus the Great",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 207.9
         }
       ]
     },
@@ -1125,6 +1685,22 @@
       ]
     },
     {
+      "media_id": "the-year-of-living-dangerously",
+      "title": "The Year of Living Dangerously",
+      "type": "film",
+      "release_year": 1982,
+      "links": [
+        {
+          "figure_id": "sukarno",
+          "figure_name": "Sukarno",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 499.1
+        }
+      ]
+    },
+    {
       "media_id": "the-house-of-the-spirits",
       "title": "The House of the Spirits",
       "type": "fiction",
@@ -1137,6 +1713,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 757.9
+        }
+      ]
+    },
+    {
+      "media_id": "the-winds-of-war-2",
+      "title": "The Winds of War",
+      "type": "series",
+      "release_year": 1983,
+      "links": [
+        {
+          "figure_id": "winston-churchill",
+          "figure_name": "Winston Churchill",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 67.3
         }
       ]
     },
@@ -1221,6 +1813,38 @@
       ]
     },
     {
+      "media_id": "the-day-the-universe-changed",
+      "title": "The Day the Universe Changed",
+      "type": "series",
+      "release_year": 1985,
+      "links": [
+        {
+          "figure_id": "isaac-newton",
+          "figure_name": "Isaac Newton",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 4.4
+        },
+        {
+          "figure_id": "charles-darwin",
+          "figure_name": "Charles Darwin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 12.2
+        },
+        {
+          "figure_id": "albert-einstein",
+          "figure_name": "Albert Einstein",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 10.4
+        }
+      ]
+    },
+    {
       "media_id": "the-name-of-the-rose",
       "title": "The Name of the Rose",
       "type": "film",
@@ -1249,6 +1873,46 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 957.7
+        }
+      ]
+    },
+    {
+      "media_id": "the-making-of-the-atomic-bomb",
+      "title": "The Making of the Atomic Bomb",
+      "type": "book",
+      "release_year": 1986,
+      "links": [
+        {
+          "figure_id": "j-robert-oppenheimer",
+          "figure_name": "J. Robert Oppenheimer",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 259
+        }
+      ]
+    },
+    {
+      "media_id": "eyes-on-the-prize",
+      "title": "Eyes on the Prize",
+      "type": "documentary",
+      "release_year": 1987,
+      "links": [
+        {
+          "figure_id": "martin-luther-king-jr",
+          "figure_name": "Martin Luther King Jr.",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 168.3
+        },
+        {
+          "figure_id": "rosa-parks",
+          "figure_name": "Rosa Parks",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 309.6
         }
       ]
     },
@@ -1309,6 +1973,62 @@
       ]
     },
     {
+      "media_id": "mississippi-burning",
+      "title": "Mississippi Burning",
+      "type": "film",
+      "release_year": 1988,
+      "links": [
+        {
+          "figure_id": "martin-luther-king-jr",
+          "figure_name": "Martin Luther King Jr.",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 168.3
+        }
+      ]
+    },
+    {
+      "media_id": "glory",
+      "title": "Glory",
+      "type": "film",
+      "release_year": 1989,
+      "links": [
+        {
+          "figure_id": "abraham-lincoln",
+          "figure_name": "Abraham Lincoln",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 82.2
+        },
+        {
+          "figure_id": "frederick-douglass",
+          "figure_name": "Frederick Douglass",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 298.5
+        }
+      ]
+    },
+    {
+      "media_id": "la-r-volution-fran-aise",
+      "title": "La Révolution française",
+      "type": "film",
+      "release_year": 1989,
+      "links": [
+        {
+          "figure_id": "robespierre",
+          "figure_name": "Robespierre",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 472.9
+        }
+      ]
+    },
+    {
       "media_id": "the-remains-of-the-day",
       "title": "The Remains of the Day",
       "type": "fiction",
@@ -1345,6 +2065,86 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 769.6
+        }
+      ]
+    },
+    {
+      "media_id": "do-the-right-thing",
+      "title": "Do the Right Thing",
+      "type": "film",
+      "release_year": 1989,
+      "links": [
+        {
+          "figure_id": "martin-luther-king-jr",
+          "figure_name": "Martin Luther King Jr.",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 168.3
+        },
+        {
+          "figure_id": "malcolm-x",
+          "figure_name": "Malcolm X",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 376.5
+        }
+      ]
+    },
+    {
+      "media_id": "the-civil-war",
+      "title": "The Civil War",
+      "type": "documentary",
+      "release_year": 1990,
+      "links": [
+        {
+          "figure_id": "abraham-lincoln",
+          "figure_name": "Abraham Lincoln",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 82.2
+        },
+        {
+          "figure_id": "robert-e-lee",
+          "figure_name": "Robert E. Lee",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 646.8
+        },
+        {
+          "figure_id": "ulysses-s-grant",
+          "figure_name": "Ulysses S. Grant",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 477.5
+        }
+      ]
+    },
+    {
+      "media_id": "the-civil-war-tv-series",
+      "title": "The Civil War (TV series)",
+      "type": "documentary",
+      "release_year": 1990,
+      "links": [
+        {
+          "figure_id": "abraham-lincoln",
+          "figure_name": "Abraham Lincoln",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 82.2
+        },
+        {
+          "figure_id": "robert-e-lee",
+          "figure_name": "Robert E. Lee",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 646.8
         }
       ]
     },
@@ -1491,20 +2291,44 @@
       "release_year": 1993,
       "links": [
         {
+          "figure_id": "oskar-schindler",
+          "figure_name": "Oskar Schindler",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 745
+        },
+        {
           "figure_id": "steven-spielberg",
           "figure_name": "Steven Spielberg",
           "relation": "about",
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 492.7
+        }
+      ]
+    },
+    {
+      "media_id": "gettysburg",
+      "title": "Gettysburg",
+      "type": "film",
+      "release_year": 1993,
+      "links": [
+        {
+          "figure_id": "abraham-lincoln",
+          "figure_name": "Abraham Lincoln",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 82.2
         },
         {
-          "figure_id": "oskar-schindler",
-          "figure_name": "Oskar Schindler",
-          "relation": "about",
-          "confidence": 0.8,
-          "source": "text-match",
-          "figure_rank": 745
+          "figure_id": "robert-e-lee",
+          "figure_name": "Robert E. Lee",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 646.8
         }
       ]
     },
@@ -1521,6 +2345,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 977
+        }
+      ]
+    },
+    {
+      "media_id": "sharpe",
+      "title": "Sharpe",
+      "type": "series",
+      "release_year": 1993,
+      "links": [
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 25.3
         }
       ]
     },
@@ -1545,6 +2385,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 789.7
+        }
+      ]
+    },
+    {
+      "media_id": "burnt-by-the-sun",
+      "title": "Burnt by the Sun",
+      "type": "film",
+      "release_year": 1994,
+      "links": [
+        {
+          "figure_id": "joseph-stalin",
+          "figure_name": "Joseph Stalin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 65
         }
       ]
     },
@@ -1574,8 +2430,8 @@
           "figure_id": "william-wallace",
           "figure_name": "William Wallace",
           "relation": "about",
-          "confidence": 0.8,
-          "source": "text-match",
+          "confidence": 1,
+          "source": "manual",
           "figure_rank": 845.5
         }
       ]
@@ -1685,6 +2541,22 @@
       ]
     },
     {
+      "media_id": "the-nazis-a-warning-from-history",
+      "title": "The Nazis: A Warning from History",
+      "type": "documentary",
+      "release_year": 1997,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
       "media_id": "saving-private-ryan",
       "title": "Saving Private Ryan",
       "type": "film",
@@ -1741,6 +2613,38 @@
       ]
     },
     {
+      "media_id": "from-the-earth-to-the-moon",
+      "title": "From the Earth to the Moon",
+      "type": "series",
+      "release_year": 1998,
+      "links": [
+        {
+          "figure_id": "neil-armstrong",
+          "figure_name": "Neil Armstrong",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 347
+        },
+        {
+          "figure_id": "buzz-aldrin",
+          "figure_name": "Buzz Aldrin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 581.2
+        },
+        {
+          "figure_id": "michael-collins",
+          "figure_name": "Michael Collins",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 755
+        }
+      ]
+    },
+    {
       "media_id": "the-insider",
       "title": "The Insider",
       "type": "film",
@@ -1753,6 +2657,46 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 927.4
+        }
+      ]
+    },
+    {
+      "media_id": "age-of-empires-ii-the-age-of-kings",
+      "title": "Age of Empires II: The Age of Kings",
+      "type": "game",
+      "release_year": 1999,
+      "links": [
+        {
+          "figure_id": "charlemagne",
+          "figure_name": "Charlemagne",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 72.5
+        },
+        {
+          "figure_id": "genghis-khan",
+          "figure_name": "Genghis Khan",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 18.2
+        },
+        {
+          "figure_id": "qin-shi-huang",
+          "figure_name": "Qin Shi Huang",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 35
+        },
+        {
+          "figure_id": "alexander-the-great",
+          "figure_name": "Alexander the Great",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 17.4
         }
       ]
     },
@@ -1793,6 +2737,46 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 925.2
+        },
+        {
+          "figure_id": "commodus",
+          "figure_name": "Commodus",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 951.6
+        }
+      ]
+    },
+    {
+      "media_id": "the-patriot",
+      "title": "The Patriot",
+      "type": "film",
+      "release_year": 2000,
+      "links": [
+        {
+          "figure_id": "george-washington",
+          "figure_name": "George Washington",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 46.3
+        }
+      ]
+    },
+    {
+      "media_id": "band-of-brothers",
+      "title": "Band of Brothers",
+      "type": "series",
+      "release_year": 2001,
+      "links": [
+        {
+          "figure_id": "steven-spielberg",
+          "figure_name": "Steven Spielberg",
+          "relation": "created_by",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 492.7
         }
       ]
     },
@@ -1869,6 +2853,38 @@
       ]
     },
     {
+      "media_id": "the-century-of-the-self",
+      "title": "The Century of the Self",
+      "type": "documentary",
+      "release_year": 2002,
+      "links": [
+        {
+          "figure_id": "sigmund-freud",
+          "figure_name": "Sigmund Freud",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 50
+        }
+      ]
+    },
+    {
+      "media_id": "master-and-commander-the-far-side-of-the-world",
+      "title": "Master and Commander: The Far Side of the World",
+      "type": "film",
+      "release_year": 2003,
+      "links": [
+        {
+          "figure_id": "napoleon",
+          "figure_name": "Napoleon",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 25.3
+        }
+      ]
+    },
+    {
       "media_id": "the-fog-of-war",
       "title": "The Fog of War",
       "type": "documentary",
@@ -1885,6 +2901,22 @@
       ]
     },
     {
+      "media_id": "the-last-samurai",
+      "title": "The Last Samurai",
+      "type": "film",
+      "release_year": 2003,
+      "links": [
+        {
+          "figure_id": "emperor-meiji",
+          "figure_name": "Emperor Meiji",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 259.2
+        }
+      ]
+    },
+    {
       "media_id": "the-kite-runner",
       "title": "The Kite Runner",
       "type": "fiction",
@@ -1897,6 +2929,70 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 998.5
+        }
+      ]
+    },
+    {
+      "media_id": "the-crown-an-imperial-story-empire",
+      "title": "The Crown: An Imperial Story (Empire)",
+      "type": "series",
+      "release_year": 2003,
+      "links": [
+        {
+          "figure_id": "queen-victoria",
+          "figure_name": "Queen Victoria",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 232.4
+        },
+        {
+          "figure_id": "elizabeth-i-of-england",
+          "figure_name": "Elizabeth I of England",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 119.8
+        }
+      ]
+    },
+    {
+      "media_id": "the-fog-of-war-eleven-lessons-from-the-life-of-robert-s-mcnamara",
+      "title": "The Fog of War: Eleven Lessons from the Life of Robert S. McNamara",
+      "type": "documentary",
+      "release_year": 2003,
+      "links": [
+        {
+          "figure_id": "john-f-kennedy",
+          "figure_name": "John F. Kennedy",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 227.2
+        },
+        {
+          "figure_id": "lyndon-b-johnson",
+          "figure_name": "Lyndon B. Johnson",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 479.5
+        }
+      ]
+    },
+    {
+      "media_id": "troy",
+      "title": "Troy",
+      "type": "film",
+      "release_year": 2004,
+      "links": [
+        {
+          "figure_id": "homer",
+          "figure_name": "Homer",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 109.5
         }
       ]
     },
@@ -1929,6 +3025,46 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 250.6
+        }
+      ]
+    },
+    {
+      "media_id": "rome-total-war",
+      "title": "Rome: Total War",
+      "type": "game",
+      "release_year": 2004,
+      "links": [
+        {
+          "figure_id": "julius-caesar",
+          "figure_name": "Julius Caesar",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 60.4
+        },
+        {
+          "figure_id": "augustus",
+          "figure_name": "Augustus",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 36.8
+        }
+      ]
+    },
+    {
+      "media_id": "fahrenheit-9-11",
+      "title": "Fahrenheit 9/11",
+      "type": "documentary",
+      "release_year": 2004,
+      "links": [
+        {
+          "figure_id": "george-w-bush",
+          "figure_name": "George W. Bush",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 646.4
         }
       ]
     },
@@ -1985,6 +3121,14 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 925.2
+        },
+        {
+          "figure_id": "saladin",
+          "figure_name": "Saladin",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 136.6
         }
       ]
     },
@@ -2009,6 +3153,14 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 994.4
+        },
+        {
+          "figure_id": "pocahontas",
+          "figure_name": "Pocahontas",
+          "relation": "depicts",
+          "confidence": 0.75,
+          "source": "tag-match",
+          "figure_rank": 699.7
         }
       ]
     },
@@ -2085,6 +3237,30 @@
       ]
     },
     {
+      "media_id": "hbo-s-rome-the-making-of-an-empire",
+      "title": "HBO's Rome: The Making of an Empire",
+      "type": "documentary",
+      "release_year": 2006,
+      "links": [
+        {
+          "figure_id": "augustus",
+          "figure_name": "Augustus",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 36.8
+        },
+        {
+          "figure_id": "julius-caesar",
+          "figure_name": "Julius Caesar",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 60.4
+        }
+      ]
+    },
+    {
       "media_id": "half-of-a-yellow-sun",
       "title": "Half of a Yellow Sun",
       "type": "book",
@@ -2113,6 +3289,38 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 958.4
+        }
+      ]
+    },
+    {
+      "media_id": "the-kindly-ones",
+      "title": "The Kindly Ones",
+      "type": "book",
+      "release_year": 2006,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "pan-s-labyrinth",
+      "title": "Pan's Labyrinth",
+      "type": "film",
+      "release_year": 2006,
+      "links": [
+        {
+          "figure_id": "francisco-franco",
+          "figure_name": "Francisco Franco",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 552.6
         }
       ]
     },
@@ -2149,6 +3357,30 @@
       ]
     },
     {
+      "media_id": "the-history-of-rome",
+      "title": "The History of Rome",
+      "type": "podcast",
+      "release_year": 2007,
+      "links": [
+        {
+          "figure_id": "augustus",
+          "figure_name": "Augustus",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 36.8
+        },
+        {
+          "figure_id": "julius-caesar",
+          "figure_name": "Julius Caesar",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 60.4
+        }
+      ]
+    },
+    {
       "media_id": "mongol",
       "title": "Mongol",
       "type": "film",
@@ -2161,6 +3393,38 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 18.2
+        }
+      ]
+    },
+    {
+      "media_id": "the-counterfeiters",
+      "title": "The Counterfeiters",
+      "type": "film",
+      "release_year": 2007,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "katyn",
+      "title": "Katyn",
+      "type": "film",
+      "release_year": 2007,
+      "links": [
+        {
+          "figure_id": "joseph-stalin",
+          "figure_name": "Joseph Stalin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 65
         }
       ]
     },
@@ -2269,6 +3533,30 @@
       ]
     },
     {
+      "media_id": "red-cliff",
+      "title": "Red Cliff",
+      "type": "film",
+      "release_year": 2008,
+      "links": [
+        {
+          "figure_id": "cao-cao",
+          "figure_name": "Cao Cao",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 674.8
+        },
+        {
+          "figure_id": "zhuge-liang",
+          "figure_name": "Zhuge Liang",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 640.8
+        }
+      ]
+    },
+    {
       "media_id": "milk",
       "title": "Milk",
       "type": "film",
@@ -2337,6 +3625,38 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 512.3
+        }
+      ]
+    },
+    {
+      "media_id": "assassin-s-creed-ii",
+      "title": "Assassin's Creed II",
+      "type": "game",
+      "release_year": 2009,
+      "links": [
+        {
+          "figure_id": "leonardo-da-vinci",
+          "figure_name": "Leonardo da Vinci",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 60.8
+        }
+      ]
+    },
+    {
+      "media_id": "even-the-rain",
+      "title": "Even the Rain",
+      "type": "film",
+      "release_year": 2010,
+      "links": [
+        {
+          "figure_id": "christopher-columbus",
+          "figure_name": "Christopher Columbus",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 32.5
         }
       ]
     },
@@ -2461,6 +3781,30 @@
       ]
     },
     {
+      "media_id": "crusader-kings-ii",
+      "title": "Crusader Kings II",
+      "type": "game",
+      "release_year": 2012,
+      "links": [
+        {
+          "figure_id": "charlemagne",
+          "figure_name": "Charlemagne",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 72.5
+        },
+        {
+          "figure_id": "genghis-khan",
+          "figure_name": "Genghis Khan",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 18.2
+        }
+      ]
+    },
+    {
       "media_id": "12-years-a-slave",
       "title": "12 Years a Slave",
       "type": "film",
@@ -2505,6 +3849,30 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 87.5
+        }
+      ]
+    },
+    {
+      "media_id": "europa-universalis-iv",
+      "title": "Europa Universalis IV",
+      "type": "game",
+      "release_year": 2013,
+      "links": [
+        {
+          "figure_id": "christopher-columbus",
+          "figure_name": "Christopher Columbus",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 32.5
+        },
+        {
+          "figure_id": "vasco-da-gama",
+          "figure_name": "Vasco da Gama",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 246.3
         }
       ]
     },
@@ -2782,9 +4150,41 @@
           "figure_id": "ray-kroc",
           "figure_name": "Ray Kroc",
           "relation": "about",
-          "confidence": 0.8,
-          "source": "text-match",
+          "confidence": 1,
+          "source": "manual",
           "figure_rank": 706.1
+        }
+      ]
+    },
+    {
+      "media_id": "hidden-figures",
+      "title": "Hidden Figures",
+      "type": "film",
+      "release_year": 2016,
+      "links": [
+        {
+          "figure_id": "katherine-johnson",
+          "figure_name": "Katherine Johnson",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 519.2
+        },
+        {
+          "figure_id": "dorothy-vaughan",
+          "figure_name": "Dorothy Vaughan",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 709.1
+        },
+        {
+          "figure_id": "mary-jackson",
+          "figure_name": "Mary Jackson",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 767.1
         }
       ]
     },
@@ -2821,6 +4221,46 @@
       ]
     },
     {
+      "media_id": "civilization-vi",
+      "title": "Civilization VI",
+      "type": "game",
+      "release_year": 2016,
+      "links": [
+        {
+          "figure_id": "qin-shi-huang",
+          "figure_name": "Qin Shi Huang",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 35
+        },
+        {
+          "figure_id": "augustus",
+          "figure_name": "Augustus",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 36.8
+        },
+        {
+          "figure_id": "genghis-khan",
+          "figure_name": "Genghis Khan",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 18.2
+        },
+        {
+          "figure_id": "mao-zedong",
+          "figure_name": "Mao Zedong",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 47.1
+        }
+      ]
+    },
+    {
       "media_id": "sid-meier-s-civilization-vi",
       "title": "Sid Meier's Civilization VI",
       "type": "game",
@@ -2849,6 +4289,22 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 65
+        }
+      ]
+    },
+    {
+      "media_id": "the-vietnam-war",
+      "title": "The Vietnam War",
+      "type": "documentary",
+      "release_year": 2017,
+      "links": [
+        {
+          "figure_id": "ho-chi-minh",
+          "figure_name": "Ho Chi Minh",
+          "relation": "about",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 257.5
         }
       ]
     },
@@ -2917,6 +4373,22 @@
       ]
     },
     {
+      "media_id": "call-of-duty-wwii",
+      "title": "Call of Duty: WWII",
+      "type": "game",
+      "release_year": 2017,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
       "media_id": "attentat-1942",
       "title": "Attentat 1942",
       "type": "game",
@@ -2981,6 +4453,94 @@
       ]
     },
     {
+      "media_id": "jojo-rabbit",
+      "title": "Jojo Rabbit",
+      "type": "film",
+      "release_year": 2019,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
+      "media_id": "apollo-11",
+      "title": "Apollo 11",
+      "type": "documentary",
+      "release_year": 2019,
+      "links": [
+        {
+          "figure_id": "neil-armstrong",
+          "figure_name": "Neil Armstrong",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 347
+        },
+        {
+          "figure_id": "buzz-aldrin",
+          "figure_name": "Buzz Aldrin",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 581.2
+        },
+        {
+          "figure_id": "michael-collins",
+          "figure_name": "Michael Collins",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 755
+        }
+      ]
+    },
+    {
+      "media_id": "the-great-war-peter-jackson-exhibition-tie-in",
+      "title": "The Great War (Peter Jackson exhibition tie-in)",
+      "type": "other",
+      "release_year": 2019,
+      "links": [
+        {
+          "figure_id": "winston-churchill",
+          "figure_name": "Winston Churchill",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 67.3
+        },
+        {
+          "figure_id": "woodrow-wilson",
+          "figure_name": "Woodrow Wilson",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 349.1
+        },
+        {
+          "figure_id": "georges-clemenceau",
+          "figure_name": "Georges Clemenceau",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 933.2
+        },
+        {
+          "figure_id": "david-lloyd-george",
+          "figure_name": "David Lloyd George",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 683.9
+        }
+      ]
+    },
+    {
       "media_id": "the-great",
       "title": "The Great",
       "type": "series",
@@ -3029,6 +4589,38 @@
       ]
     },
     {
+      "media_id": "crusader-kings-iii",
+      "title": "Crusader Kings III",
+      "type": "game",
+      "release_year": 2020,
+      "links": [
+        {
+          "figure_id": "charlemagne",
+          "figure_name": "Charlemagne",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 72.5
+        },
+        {
+          "figure_id": "genghis-khan",
+          "figure_name": "Genghis Khan",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 18.2
+        },
+        {
+          "figure_id": "alexander-the-great",
+          "figure_name": "Alexander the Great",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 17.4
+        }
+      ]
+    },
+    {
       "media_id": "the-last-dance",
       "title": "The Last Dance",
       "type": "documentary",
@@ -3045,6 +4637,38 @@
       ]
     },
     {
+      "media_id": "ghost-of-tsushima",
+      "title": "Ghost of Tsushima",
+      "type": "game",
+      "release_year": 2020,
+      "links": [
+        {
+          "figure_id": "kublai-khan",
+          "figure_name": "Kublai Khan",
+          "relation": "depicts",
+          "confidence": 1,
+          "source": "manual",
+          "figure_rank": 247.4
+        }
+      ]
+    },
+    {
+      "media_id": "through-the-darkest-of-times",
+      "title": "Through the Darkest of Times",
+      "type": "game",
+      "release_year": 2020,
+      "links": [
+        {
+          "figure_id": "adolf-hitler",
+          "figure_name": "Adolf Hitler",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 55.9
+        }
+      ]
+    },
+    {
       "media_id": "the-last-duel",
       "title": "The Last Duel",
       "type": "film",
@@ -3057,6 +4681,22 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 925.2
+        }
+      ]
+    },
+    {
+      "media_id": "all-quiet-on-the-western-front-2",
+      "title": "All Quiet on the Western Front",
+      "type": "film",
+      "release_year": 2022,
+      "links": [
+        {
+          "figure_id": "erich-maria-remarque",
+          "figure_name": "Erich Maria Remarque",
+          "relation": "created_by",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": null
         }
       ]
     },
@@ -3105,6 +4745,22 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 407.3
+        }
+      ]
+    },
+    {
+      "media_id": "pentiment",
+      "title": "Pentiment",
+      "type": "game",
+      "release_year": 2022,
+      "links": [
+        {
+          "figure_id": "martin-luther",
+          "figure_name": "Martin Luther",
+          "relation": "about",
+          "confidence": 0.85,
+          "source": "gemini-flash-lite",
+          "figure_rank": 24.9
         }
       ]
     },
