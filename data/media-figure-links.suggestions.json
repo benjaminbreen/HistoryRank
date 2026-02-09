@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-02-09T06:48:30.937Z",
+  "generated_at": "2026-02-09T07:07:21.498Z",
   "model": "local-rules+manual",
-  "total_media": 560,
-  "total_with_links": 259,
+  "total_media": 557,
+  "total_with_links": 262,
   "items": [
     {
       "media_id": "les-mis-rables",
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "media_id": "all-quiet-on-the-western-front-3",
+      "media_id": "all-quiet-on-the-western-front-2",
       "title": "All Quiet on the Western Front",
       "type": "book",
       "release_year": 1929,
@@ -207,15 +207,15 @@
     {
       "media_id": "i-claudius",
       "title": "I, Claudius",
-      "type": "series",
+      "type": "fiction",
       "release_year": 1934,
       "links": [
         {
           "figure_id": "claudius",
           "figure_name": "Claudius",
           "relation": "about",
-          "confidence": 1,
-          "source": "manual",
+          "confidence": 0.65,
+          "source": "summary-match",
           "figure_rank": 905.6
         }
       ]
@@ -793,6 +793,22 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 238.3
+        },
+        {
+          "figure_id": "julius-caesar",
+          "figure_name": "Julius Caesar",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 60.4
+        },
+        {
+          "figure_id": "mark-antony",
+          "figure_name": "Mark Antony",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 863.1
         },
         {
           "figure_id": "elizabeth-taylor",
@@ -3705,6 +3721,14 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 127.3
+        },
+        {
+          "figure_id": "h-rrem-sultan",
+          "figure_name": "Hürrem Sultan",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 848.4
         }
       ]
     },
@@ -3761,6 +3785,30 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 492.7
+        }
+      ]
+    },
+    {
+      "media_id": "the-master",
+      "title": "The Master",
+      "type": "film",
+      "release_year": 2012,
+      "links": [
+        {
+          "figure_id": "l-ron-hubbard",
+          "figure_name": "L. Ron Hubbard",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 594.2
+        },
+        {
+          "figure_id": "paul-thomas-anderson",
+          "figure_name": "Paul Thomas Anderson",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 994.5
         }
       ]
     },
@@ -3889,6 +3937,14 @@
           "confidence": 1,
           "source": "manual",
           "figure_rank": 274.5
+        },
+        {
+          "figure_id": "kublai-khan",
+          "figure_name": "Kublai Khan",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 247.4
         }
       ]
     },
@@ -4421,6 +4477,22 @@
       ]
     },
     {
+      "media_id": "roma",
+      "title": "Roma",
+      "type": "film",
+      "release_year": 2018,
+      "links": [
+        {
+          "figure_id": "alfonso-cuar-n",
+          "figure_name": "Alfonso Cuarón",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 894
+        }
+      ]
+    },
+    {
       "media_id": "first-man",
       "title": "First Man",
       "type": "film",
@@ -4557,11 +4629,51 @@
       ]
     },
     {
+      "media_id": "bridgerton",
+      "title": "Bridgerton",
+      "type": "series",
+      "release_year": 2020,
+      "links": [
+        {
+          "figure_id": "shonda-rhimes",
+          "figure_name": "Shonda Rhimes",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 999
+        }
+      ]
+    },
+    {
+      "media_id": "the-english-game",
+      "title": "The English Game",
+      "type": "series",
+      "release_year": 2020,
+      "links": [
+        {
+          "figure_id": "julian",
+          "figure_name": "Julian",
+          "relation": "about",
+          "confidence": 0.65,
+          "source": "summary-match",
+          "figure_rank": 886.4
+        }
+      ]
+    },
+    {
       "media_id": "the-plot-against-america",
       "title": "The Plot Against America",
       "type": "series",
       "release_year": 2020,
       "links": [
+        {
+          "figure_id": "charles-lindbergh",
+          "figure_name": "Charles Lindbergh",
+          "relation": "about",
+          "confidence": 0.8,
+          "source": "text-match",
+          "figure_rank": 722.3
+        },
         {
           "figure_id": "philip-roth",
           "figure_name": "Philip Roth",
@@ -4681,22 +4793,6 @@
           "confidence": 0.8,
           "source": "text-match",
           "figure_rank": 925.2
-        }
-      ]
-    },
-    {
-      "media_id": "all-quiet-on-the-western-front-2",
-      "title": "All Quiet on the Western Front",
-      "type": "film",
-      "release_year": 2022,
-      "links": [
-        {
-          "figure_id": "erich-maria-remarque",
-          "figure_name": "Erich Maria Remarque",
-          "relation": "created_by",
-          "confidence": 0.85,
-          "source": "gemini-flash-lite",
-          "figure_rank": null
         }
       ]
     },
