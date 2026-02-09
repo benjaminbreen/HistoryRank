@@ -811,16 +811,19 @@ export function FigureDetailPanel({
                 const modelColors: Record<string, string> = {
                   'claude-sonnet-4.5': '#da7756',  // Anthropic terra cotta
                   'claude-opus-4.5': '#da7756',    // Anthropic terra cotta
+                  'claude-opus-4.6': '#da7756',    // Anthropic terra cotta
                   'deepseek-v3.2': '#4D6BFE',      // DeepSeek blue
                   'gemini-flash-3': '#078EFA',     // Gemini blue
                   'gemini-flash-3-preview': '#078EFA', // Gemini blue
                   'gemini-pro-3': '#4285F4',       // Google blue
                   'gpt-4o': '#10A37F',             // OpenAI teal
                   'gpt-5.2-thinking': '#10A37F',   // OpenAI teal
+                  'gpt-5.3-thinking': '#10A37F',   // OpenAI teal
                   'grok-4': '#1a1a1a',             // xAI black
                   'grok-4.1-fast': '#1a1a1a',      // xAI black
                   'mistral-large-3': '#FF8205',    // Mistral orange
-                  'qwen3': '#615EFF',              // Qwen violet
+                  'qwen3': '#615EFF',              // Qwen violet (legacy key)
+                  'qwen3-235b-a22b': '#615EFF',    // Qwen violet
                 };
 
                 return (

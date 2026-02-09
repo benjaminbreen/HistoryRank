@@ -91,14 +91,16 @@ const REGIONS = [
 const MODEL_SOURCES = [
   { id: null, label: 'All LLMs (average)' },
   { id: 'claude-opus-4.5', label: 'Claude Opus 4.5' },
+  { id: 'claude-opus-4.6', label: 'Claude Opus 4.6' },
   { id: 'claude-sonnet-4.5', label: 'Claude Sonnet 4.5' },
   { id: 'deepseek-v3.2', label: 'DeepSeek v3.2' },
   { id: 'gemini-flash-3-preview', label: 'Gemini Flash 3 Preview' },
   { id: 'gemini-pro-3', label: 'Gemini Pro 3' },
   { id: 'gpt-5.2-thinking', label: 'GPT 5.2 Thinking' },
+  { id: 'gpt-5.3-thinking', label: 'GPT 5.3 Thinking' },
   { id: 'grok-4.1-fast', label: 'Grok 4.1 Fast' },
   { id: 'mistral-large-3', label: 'Mistral Large 3' },
-  { id: 'qwen3', label: 'Qwen 3' },
+  { id: 'qwen3-235b-a22b', label: 'Qwen 3 235B A22B' },
 ];
 
 const selectClass = "h-8 px-2.5 py-0 text-xs border border-stone-200 dark:border-slate-600 rounded-md bg-white dark:bg-slate-800 text-stone-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-400";

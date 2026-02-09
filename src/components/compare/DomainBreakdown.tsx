@@ -24,11 +24,13 @@ interface DomainBreakdownProps {
 // Model-specific colors (official brand colors)
 const MODEL_COLORS: Record<string, string> = {
   'claude-opus-4.5': 'bg-[#da7756]',      // Anthropic terra cotta
+  'claude-opus-4.6': 'bg-[#da7756]',      // Anthropic terra cotta
   'claude-sonnet-4.5': 'bg-[#da7756]',    // Anthropic terra cotta
   'deepseek-v3.2': 'bg-[#4D6BFE]',        // DeepSeek blue
   'gemini-flash-3-preview': 'bg-[#078EFA]', // Gemini blue
   'gemini-pro-3': 'bg-[#4285F4]',         // Google blue
   'gpt-5.2-thinking': 'bg-[#10A37F]',     // OpenAI teal
+  'gpt-5.3-thinking': 'bg-[#10A37F]',     // OpenAI teal
   'grok-4': 'bg-[#1a1a1a]',               // xAI black
   'grok-4.1-fast': 'bg-[#1a1a1a]',        // xAI black
   'mistral-large-3': 'bg-[#FF8205]',      // Mistral orange
@@ -38,11 +40,13 @@ const MODEL_COLORS: Record<string, string> = {
 
 const MODEL_TEXT_COLORS: Record<string, string> = {
   'claude-opus-4.5': 'text-[#da7756] dark:text-[#e89a7d]',
+  'claude-opus-4.6': 'text-[#da7756] dark:text-[#e89a7d]',
   'claude-sonnet-4.5': 'text-[#da7756] dark:text-[#e89a7d]',
   'deepseek-v3.2': 'text-[#4D6BFE] dark:text-[#7b93fa]',
   'gemini-flash-3-preview': 'text-[#078EFA] dark:text-[#8ab4f8]',
   'gemini-pro-3': 'text-[#4285F4] dark:text-[#8ab4f8]',
   'gpt-5.2-thinking': 'text-[#10A37F] dark:text-[#19c37d]',
+  'gpt-5.3-thinking': 'text-[#10A37F] dark:text-[#19c37d]',
   'grok-4': 'text-[#1a1a1a] dark:text-[#e5e5e5]',
   'grok-4.1-fast': 'text-[#1a1a1a] dark:text-[#e5e5e5]',
   'mistral-large-3': 'text-[#FF8205] dark:text-[#ffab4d]',

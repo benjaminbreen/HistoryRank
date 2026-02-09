@@ -628,7 +628,7 @@ export default function MethodologyPage() {
               </p>
               <ul className="mt-4 space-y-2 text-sm text-stone-600 dark:text-slate-400">
                 <li>Weighted v3 aggregates lists from `data/raw`, `data/raw_v2`, and `data/raw_v3`.</li>
-                <li>Model IDs are canonicalized (e.g., `gpt-5.2` and `gpt-5.2-thinking` are merged).</li>
+                <li>Model IDs are canonicalized (e.g., `gpt-5.2`/`gpt-5.2-thinking` and `gpt-5.3`/`gpt-5.3-thinking` are merged).</li>
                 <li>Canonical model weights are derived from cross-model reliability analysis.</li>
                 <li>Weights are coverage-aware: shorter lists contribute less via a √(coverage) penalty.</li>
                 <li>Missing ranks are imputed as (list length + 1), so shorter lists do not inflate impact.</li>

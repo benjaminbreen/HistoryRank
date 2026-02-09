@@ -44,7 +44,9 @@ let v3MetaCache: { listCount: number; modelCount: number; orderedIds: string[] }
 const MODEL_WEIGHTS: Record<string, number> = {
   // Tier S - Excellent (weight 1.0)
   'claude-opus-4.5': 1.0,
+  'claude-opus-4.6': 1.0,
   'gpt-5.2-thinking': 0.79,
+  'gpt-5.3-thinking': 0.79,
 
   // Tier A - Strong (weight 0.8-0.85)
   'claude-sonnet-4.5': 0.54,
@@ -67,11 +69,13 @@ const MODEL_WEIGHTS: Record<string, number> = {
 // Canonical model weights for Weighted v3 (merge variants like gpt-5.2-thinking)
 const V3_MODEL_WEIGHTS: Record<string, number> = {
   'claude-opus-4.5': 0.806,
+  'claude-opus-4.6': 0.806,
   'gemini-flash-3-preview': 0.805,
   'claude-sonnet-4.5': 0.803,
   'grok-4.1-fast': 0.760,
   'deepseek-v3.2': 0.753,
   'gpt-5.2': 0.752,
+  'gpt-5.3': 0.752,
   'glm-4.7': 0.748,
   'gemini-pro-3': 0.738,
   'qwen3-235b-a22b': 0.721,
@@ -803,7 +807,9 @@ function getModelWeight(source: string): number {
 
 function getCanonicalModelId(sourceLower: string): string {
   if (sourceLower.includes('gpt-5.2')) return 'gpt-5.2';
+  if (sourceLower.includes('gpt-5.3')) return 'gpt-5.3';
   if (sourceLower.includes('claude-opus-4.5')) return 'claude-opus-4.5';
+  if (sourceLower.includes('claude-opus-4.6')) return 'claude-opus-4.6';
   if (sourceLower.includes('claude-sonnet-4.5')) return 'claude-sonnet-4.5';
   if (sourceLower.includes('grok-4.1-fast')) return 'grok-4.1-fast';
   if (sourceLower.includes('grok-4')) return 'grok-4';

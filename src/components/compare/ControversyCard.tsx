@@ -21,15 +21,18 @@ interface ControversyCardProps {
 // Model-specific colors for markers (official brand colors)
 const MODEL_MARKER_COLORS: Record<string, string> = {
   'claude-opus-4.5': 'bg-[#da7756]',      // Anthropic terra cotta
+  'claude-opus-4.6': 'bg-[#da7756]',      // Anthropic terra cotta
   'claude-sonnet-4.5': 'bg-[#da7756]',    // Anthropic terra cotta
   'deepseek-v3.2': 'bg-[#4D6BFE]',        // DeepSeek blue
   'gemini-flash-3-preview': 'bg-[#078EFA]', // Gemini blue
   'gemini-pro-3': 'bg-[#4285F4]',         // Google blue
   'gpt-5.2-thinking': 'bg-[#10A37F]',     // OpenAI teal
+  'gpt-5.3-thinking': 'bg-[#10A37F]',     // OpenAI teal
   'grok-4': 'bg-[#1a1a1a]',               // xAI black
   'grok-4.1-fast': 'bg-[#1a1a1a]',        // xAI black
   'mistral-large-3': 'bg-[#FF8205]',      // Mistral orange
-  'qwen3': 'bg-[#615EFF]',                // Qwen violet
+  'qwen3': 'bg-[#615EFF]',                // Qwen violet (legacy key)
+  'qwen3-235b-a22b': 'bg-[#615EFF]',      // Qwen violet
 };
 
 export function ControversyCard({ figure, rank, onClick }: ControversyCardProps) {

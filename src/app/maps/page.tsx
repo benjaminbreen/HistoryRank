@@ -12,15 +12,18 @@ import type { Figure, Ranking, FigureDetailResponse, MapPoint, MapResponse } fro
 
 const MODEL_LABELS: Record<string, string> = {
   'claude-opus-4.5': 'Claude Opus 4.5',
+  'claude-opus-4.6': 'Claude Opus 4.6',
   'claude-sonnet-4.5': 'Claude Sonnet 4.5',
   'deepseek-v3.2': 'DeepSeek v3.2',
   'gemini-flash-3-preview': 'Gemini Flash 3 Preview',
   'gemini-pro-3': 'Gemini Pro 3',
   'gpt-5.2-thinking': 'GPT 5.2 Thinking',
+  'gpt-5.3-thinking': 'GPT 5.3 Thinking',
   'grok-4': 'Grok 4',
   'grok-4.1-fast': 'Grok 4.1 Fast',
   'mistral-large-3': 'Mistral Large 3',
   'qwen3': 'Qwen 3',
+  'qwen3-235b-a22b': 'Qwen 3 235B A22B',
 };
 
 function formatModelLabel(source: string) {

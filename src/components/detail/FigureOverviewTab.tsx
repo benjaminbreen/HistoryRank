@@ -31,16 +31,19 @@ const PageviewsSparkline = lazy(() => import('./PageviewsSparkline').then(m => (
 const modelColors: Record<string, string> = {
   'claude-sonnet-4.5': '#da7756',
   'claude-opus-4.5': '#da7756',
+  'claude-opus-4.6': '#da7756',
   'deepseek-v3.2': '#4D6BFE',
   'gemini-flash-3': '#078EFA',
   'gemini-flash-3-preview': '#078EFA',
   'gemini-pro-3': '#4285F4',
   'gpt-4o': '#10A37F',
   'gpt-5.2-thinking': '#10A37F',
+  'gpt-5.3-thinking': '#10A37F',
   'grok-4': '#1a1a1a',
   'grok-4.1-fast': '#1a1a1a',
   'mistral-large-3': '#FF8205',
   'qwen3': '#615EFF',
+  'qwen3-235b-a22b': '#615EFF',
 };
 
 interface FigureOverviewTabProps {

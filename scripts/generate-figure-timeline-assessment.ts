@@ -52,6 +52,17 @@ type TimelineOutput = {
   events: TimelineEvent[];
 };
 
+type TimelineEventResolved = TimelineEvent & {
+  source_ids: number[];
+  evidence_links: Array<{
+    ref_id: number;
+    kind: EvidenceRef['kind'];
+    table_id: number;
+    label: string;
+    url: string | null;
+  }>;
+};
+
 type AgeBandRequirement = {
   key: 'age_1_20' | 'age_20_40' | 'age_40_60';
   minAge: number;
@@ -649,6 +660,10 @@ function hashInput(value: unknown): string {
   return crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 }
 
+function uniqueNumbers(values: number[]): number[] {
+  return Array.from(new Set(values.filter((value) => Number.isFinite(value)))).sort((a, b) => a - b);
+}
+
 async function main() {
   loadEnvFile('.env.local');
 
@@ -920,9 +935,39 @@ async function main() {
     throw new Error(finalValidationError || 'Timeline generation failed validation after retries.');
   }
 
-  const citations = Array.from(
-    new Set(output.events.flatMap((event) => event.source_refs).filter((ref) => Number.isFinite(ref)))
-  ).sort((a, b) => a - b);
+  const evidenceRefsByRefId = new Map<number, EvidenceRef>();
+  for (const evidenceRef of evidenceRefs) {
+    evidenceRefsByRefId.set(evidenceRef.refId, evidenceRef);
+  }
+
+  const resolvedEvents: TimelineEventResolved[] = output.events.map((event) => {
+    const evidenceLinks = event.source_refs
+      .map((refId) => evidenceRefsByRefId.get(refId))
+      .filter((ref): ref is EvidenceRef => Boolean(ref))
+      .map((ref) => ({
+        ref_id: ref.refId,
+        kind: ref.kind,
+        table_id: ref.tableId,
+        label: ref.label,
+        url: ref.url,
+      }));
+
+    const sourceIds = uniqueNumbers(
+      evidenceLinks
+        .filter((ref) => ref.kind === 'source')
+        .map((ref) => ref.table_id)
+    );
+
+    return {
+      ...event,
+      source_ids: sourceIds,
+      evidence_links: evidenceLinks,
+    };
+  });
+
+  const citations = uniqueNumbers(
+    resolvedEvents.flatMap((event) => event.source_ids)
+  );
 
   const status = args.publish ? 'published' : 'draft';
   const now = Math.floor(Date.now() / 1000);
@@ -972,8 +1017,6 @@ async function main() {
 
     const assessmentId = Number(result.lastInsertRowid);
 
-    db.prepare('DELETE FROM figure_timeline_events WHERE figure_id = ?').run(args.figureId);
-
     const insertEvent = db.prepare(
       `
       INSERT INTO figure_timeline_events (
@@ -983,7 +1026,7 @@ async function main() {
       `
     );
 
-    output.events.forEach((event, index) => {
+    resolvedEvents.forEach((event, index) => {
       const eventMetadata = {
         event_year: event.event_start_year,
         event_month: event.event_month,
@@ -994,6 +1037,8 @@ async function main() {
         geographic_scope: event.geographic_scope,
         public_visibility: event.public_visibility,
         controversy: event.controversy,
+        source_ref_ids: uniqueNumbers(event.source_refs),
+        evidence_links: event.evidence_links,
       };
       insertEvent.run(
         args.figureId,
@@ -1006,7 +1051,7 @@ async function main() {
         event.place_lat,
         event.place_lon,
         event.confidence,
-        JSON.stringify(event.source_refs),
+        JSON.stringify(event.source_ids),
         index,
         JSON.stringify(eventMetadata),
         now,

@@ -116,6 +116,16 @@ const MODEL_BRANDS: Record<string, {
     icon: '/icons/models/claude.svg',
     iconColor: '/icons/models/claude-color.svg',
   },
+  'claude-opus-4.6': {
+    border: 'border-[#da7756]/30',
+    hoverBorder: 'hover:border-[#da7756]',
+    text: 'text-[#da7756]',
+    bar: 'bg-[#da7756]',
+    fontClass: 'font-claude',
+    darkText: 'dark:text-[#e89a7d]',
+    icon: '/icons/models/claude.svg',
+    iconColor: '/icons/models/claude-color.svg',
+  },
   'claude-sonnet-4.5': {
     border: 'border-[#da7756]/30',
     hoverBorder: 'hover:border-[#da7756]',
@@ -153,6 +163,15 @@ const MODEL_BRANDS: Record<string, {
     text: 'text-[#10A37F]',
     bar: 'bg-[#10A37F]',
     fontClass: 'font-openai', // Inter (similar to Söhne)
+    darkText: 'dark:text-[#19c37d]',
+    icon: '/icons/models/openai.svg',
+  },
+  'gpt-5.3-thinking': {
+    border: 'border-[#10A37F]/30',
+    hoverBorder: 'hover:border-[#10A37F]',
+    text: 'text-[#10A37F]',
+    bar: 'bg-[#10A37F]',
+    fontClass: 'font-openai',
     darkText: 'dark:text-[#19c37d]',
     icon: '/icons/models/openai.svg',
   },

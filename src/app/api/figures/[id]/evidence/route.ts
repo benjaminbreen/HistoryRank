@@ -30,6 +30,10 @@ function toIso(value: Date | null): string | null {
   return value ? value.toISOString() : null;
 }
 
+function dedupeNumbers(values: number[]): number[] {
+  return Array.from(new Set(values.filter((value) => Number.isFinite(value)))).sort((a, b) => a - b);
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -105,10 +109,25 @@ export async function GET(
       assessments.find((row) => row.assessmentKind === 'importance_summary' && row.status === 'published') ||
       assessments.find((row) => row.assessmentKind === 'importance_summary') ||
       null;
+    const timelineAssessmentJson = timelineAssessment
+      ? parseJsonSafe<Record<string, unknown>>(timelineAssessment.assessmentJson, {})
+      : null;
+    const timelineEvidenceIndex = Array.isArray(timelineAssessmentJson?.evidence_index)
+      ? (timelineAssessmentJson.evidence_index as Array<Record<string, unknown>>)
+      : [];
+    const legacyRefToSourceId = new Map<number, number>();
+    for (const item of timelineEvidenceIndex) {
+      const refId = typeof item.refId === 'number' ? item.refId : null;
+      const tableId = typeof item.tableId === 'number' ? item.tableId : null;
+      if (refId === null || tableId === null) continue;
+      if (item.kind === 'source') {
+        legacyRefToSourceId.set(refId, tableId);
+      }
+    }
 
     const events = timelineAssessment
-      ? allEvents.filter((row) => row.assessmentId === timelineAssessment.id || row.assessmentId === null)
-      : allEvents;
+      ? allEvents.filter((row) => row.assessmentId === timelineAssessment.id)
+      : allEvents.filter((row) => row.assessmentId === null);
 
     const response: FigureEvidenceResponse = {
       figureId: figure.id,
@@ -164,7 +183,7 @@ export async function GET(
               promptVersion: timelineAssessment.promptVersion,
               triggerMode: timelineAssessment.triggerMode,
               assessmentText: timelineAssessment.assessmentText,
-              assessmentJson: parseJsonSafe<Record<string, unknown>>(timelineAssessment.assessmentJson, {}),
+              assessmentJson: timelineAssessmentJson || {},
               citations: parseJsonSafe<number[]>(timelineAssessment.citations, []),
               status: timelineAssessment.status,
               generatedAt: toIso(timelineAssessment.generatedAt),
@@ -181,7 +200,9 @@ export async function GET(
           placeLat: row.placeLat,
           placeLon: row.placeLon,
           confidence: row.confidence,
-          sourceIds: parseJsonSafe<number[]>(row.sourceIds, []),
+          sourceIds: dedupeNumbers(
+            parseJsonSafe<number[]>(row.sourceIds, []).map((id) => legacyRefToSourceId.get(id) ?? id)
+          ),
           sortIndex: row.sortIndex,
           metadata: parseJsonSafe<Record<string, unknown>>(row.metadata, {}),
         })),

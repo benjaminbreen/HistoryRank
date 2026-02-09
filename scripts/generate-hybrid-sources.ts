@@ -131,6 +131,16 @@ const SECONDARY_LIKE_TERMS = [
   'studies',
   'analysis',
 ];
+const PRIMARY_DIVERSITY_ORDER: SourceCorpus[] = [
+  'project_gutenberg',
+  'wikisource',
+  'internet_archive',
+];
+const SECONDARY_DIVERSITY_ORDER: SourceCorpus[] = [
+  'openalex',
+  'crossref',
+  'openlibrary',
+];
 
 function parseArgs(argv: string[]): CliArgs {
   const get = (flag: string) => {
@@ -272,6 +282,18 @@ function inferSourceKind(title: string, defaultKind: SourceKind = 'text'): Sourc
 
 function clamp01(value: number): number {
   return Math.max(0, Math.min(1, Number(value.toFixed(3))));
+}
+
+function clipSnippet(value: string | null | undefined, maxLength = 280): string | null {
+  if (!value) return null;
+  const normalized = value.replace(/\s+/g, ' ').trim();
+  if (!normalized) return null;
+  if (normalized.length <= maxLength) return normalized;
+
+  const clipped = normalized.slice(0, maxLength).trim();
+  const sentenceBreak = Math.max(clipped.lastIndexOf('. '), clipped.lastIndexOf('; '), clipped.lastIndexOf(': '));
+  if (sentenceBreak > 120) return clipped.slice(0, sentenceBreak + 1).trim();
+  return `${clipped}...`;
 }
 
 function getFigureNameParts(figureName: string): { full: string; surname: string | null; tokens: string[] } {
@@ -616,6 +638,9 @@ async function searchGutenberg(title: string, limit = 8): Promise<SearchCandidat
       id: number;
       title?: string;
       authors?: Array<{ name?: string }>;
+      summaries?: string[];
+      languages?: string[];
+      download_count?: number;
     }>;
   }>(url);
   const rows = (data?.results || []).slice(0, limit);
@@ -632,8 +657,12 @@ async function searchGutenberg(title: string, limit = 8): Promise<SearchCandidat
         publication_year: null,
         source_url: pageUrl,
         access_url: pageUrl,
-        snippet: null,
-        metadata: { gutenberg_id: row.id },
+        snippet: clipSnippet(row.summaries?.[0] || null),
+        metadata: {
+          gutenberg_id: row.id,
+          languages: row.languages || [],
+          download_count: typeof row.download_count === 'number' ? row.download_count : null,
+        },
       };
     });
 }
@@ -884,6 +913,71 @@ function dedupeByUrl(candidates: ResolvedSource[]): ResolvedSource[] {
   return Array.from(bestByUrl.values());
 }
 
+function selectBalancedByCorpus(
+  rows: ResolvedSource[],
+  limit: number,
+  preferredCorpora: SourceCorpus[]
+): ResolvedSource[] {
+  if (limit <= 0 || rows.length === 0) return [];
+
+  const sorted = [...rows].sort((a, b) => b.confidence - a.confidence);
+  if (limit === 1) return sorted.slice(0, 1);
+
+  const selected: ResolvedSource[] = [];
+  const usedUrls = new Set<string>();
+
+  const add = (row: ResolvedSource | undefined) => {
+    if (!row) return;
+    if (selected.length >= limit) return;
+    if (usedUrls.has(row.source_url)) return;
+    selected.push(row);
+    usedUrls.add(row.source_url);
+  };
+
+  for (const corpus of preferredCorpora) {
+    add(sorted.find((row) => row.source_corpus === corpus && !usedUrls.has(row.source_url)));
+  }
+
+  for (const row of sorted) {
+    add(row);
+    if (selected.length >= limit) break;
+  }
+
+  return selected;
+}
+
+function buildCoverageSummary(candidates: ResolvedSource[]): Record<string, unknown> {
+  const byRole: Record<string, number> = {};
+  const byCorpus: Record<string, number> = {};
+  const years = candidates.map((row) => row.publication_year).filter((year): year is number => year !== null);
+
+  let nonEnglishCount = 0;
+  for (const row of candidates) {
+    byRole[row.source_role] = (byRole[row.source_role] || 0) + 1;
+    byCorpus[row.source_corpus] = (byCorpus[row.source_corpus] || 0) + 1;
+
+    const langs = row.metadata?.languages;
+    if (Array.isArray(langs)) {
+      const hasNonEnglish = langs.some((lang) => typeof lang === 'string' && lang.toLowerCase() !== 'en');
+      if (hasNonEnglish) nonEnglishCount += 1;
+    }
+  }
+
+  return {
+    total: candidates.length,
+    byRole,
+    byCorpus,
+    yearSpan:
+      years.length > 0
+        ? {
+            min: Math.min(...years),
+            max: Math.max(...years),
+          }
+        : null,
+    nonEnglishCandidates: nonEnglishCount,
+  };
+}
+
 async function resolveSuggestionsForFigure(
   figure: FigureTarget,
   suggestions: SuggestionPayload,
@@ -1039,15 +1133,18 @@ async function resolveSuggestionsForFigure(
   }
 
   const deduped = dedupeByUrl(resolved);
-  const roleFiltered: ResolvedSource[] = [];
-  for (const role of ['primary', 'secondary'] as const) {
-    roleFiltered.push(
-      ...deduped
-        .filter((row) => row.source_role === role)
-        .sort((a, b) => b.confidence - a.confidence)
-        .slice(0, args.limitPerRole)
-    );
-  }
+  const primaryBalanced = selectBalancedByCorpus(
+    deduped.filter((row) => row.source_role === 'primary'),
+    args.limitPerRole,
+    PRIMARY_DIVERSITY_ORDER
+  );
+  const secondaryBalanced = selectBalancedByCorpus(
+    deduped.filter((row) => row.source_role === 'secondary'),
+    args.limitPerRole,
+    SECONDARY_DIVERSITY_ORDER
+  );
+  const roleFiltered: ResolvedSource[] = [...primaryBalanced, ...secondaryBalanced];
+  const coverage = buildCoverageSummary(roleFiltered);
 
   return {
     generatedAt: new Date().toISOString(),
@@ -1055,6 +1152,7 @@ async function resolveSuggestionsForFigure(
     figureName: figure.canonicalName,
     constraints: {
       strategy: 'llm_hybrid_resolver_v1',
+      selection: 'balanced_role_and_corpus_v1',
       model: normalizeGeminiModel(args.model),
       language: 'en',
       sourceRoles: ['primary', 'secondary'],
@@ -1064,6 +1162,9 @@ async function resolveSuggestionsForFigure(
       maxPrimarySuggestions: args.maxPrimary,
       maxSecondarySuggestions: args.maxSecondary,
       limitPerRole: args.limitPerRole,
+      preferredPrimaryCorpora: PRIMARY_DIVERSITY_ORDER,
+      preferredSecondaryCorpora: SECONDARY_DIVERSITY_ORDER,
+      coverage,
     },
     suggestions: {
       primary: primarySuggestions,

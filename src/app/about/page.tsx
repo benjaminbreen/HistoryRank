@@ -32,7 +32,7 @@ export default function AboutPage() {
                   ['overview', 'Overview'],
                   ['aims', 'Aims'],
                   ['how', 'How to read the list'],
-                  ['prompts', 'Prompt variants'],
+                  ['prompts', 'Prompt'],
                   ['team', 'Project team'],
                   ['future', 'Future work'],
                 ].map(([id, label]) => (
@@ -93,59 +93,32 @@ export default function AboutPage() {
             </section>
 
             <section id="prompts" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Prompt variants</h2>
+              <h2 className="text-xl font-semibold text-stone-900">Prompt</h2>
               <p className="mt-3">
-                The baseline prompt is intentionally strict to keep outputs comparable. Experimental variants
-                remove or adjust certain instructions to probe how models change their lists and reasoning.
+                Each model receives the same prompt. It is intentionally minimal — no numeric scoring rubric,
+                no sub-metrics to optimize — so models must rely on their own internalized sense of historical weight.
               </p>
-              <div className="mt-6 space-y-6">
+              <div className="mt-6">
                 <div className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-sm">
-                  <h3 className="text-lg font-semibold text-stone-900">Current prompt (baseline)</h3>
-                  <pre className="mt-3 whitespace-pre-wrap text-sm text-stone-700">{`Role: You are a senior historian and data scientist specializing in "Historiometry"-the statistical analysis of historical data.
-Task: Generate a ranked list of the 1,000 most influential figures in world history.
-Ranking Criteria: "Importance" must be calculated based on the following three metrics:
-Breadth: The geographic extent of their influence (Global vs. Regional).
-Depth: The degree to which they fundamentally altered human behavior, thought, or the state of the world.
-Longevity: The duration of their impact across centuries.
-Strict Constraints to Prevent Clustering:
-No Categorical Grouping: Do not group figures by profession, era, or nationality. This is a singular, linear competition of impact. For example, if rank #450 is a scientist and #451 is a poet, it must be because the scientist's total score marginally exceeds the poet's, not because you are listing "famous scientists" and then "famous poets."
-Linear Degradation: The list must represent a true descending order of influence. Rank #1 must be demonstrably more influential than #100, and #500 more than #1000.
-Global Balance: Ensure the list reflects major figures based on what you determine to be their objective historical weight, not just fame in one culture or region.
-Output Format: Provide the data in a raw JSON array of objects. Each object must contain: {"rank": integer, "name": "string", "primary_contribution": "string"}
-Technical Instruction: Do not include introductory or concluding conversational text-output the JSON block only. output the FULL list with no duplicates.`}
-                  </pre>
-                </div>
+                  <h3 className="text-lg font-semibold text-stone-900">Current prompt</h3>
+                  <pre className="mt-3 whitespace-pre-wrap text-sm text-stone-700">{`Role: You are a senior historian and data scientist specializing in historiometry.
+Task: Generate a ranked list of the 500 most influential historical individuals in world history.
 
-                <div className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-sm">
-                  <h3 className="text-lg font-semibold text-stone-900">Variant A (no global balance)</h3>
-                  <pre className="mt-3 whitespace-pre-wrap text-sm text-stone-700">{`Role: You are a senior historian and data scientist specializing in "Historiometry"-the statistical analysis of historical data.
-Task: Generate a ranked list of the 1,000 most influential figures in world history.
-Ranking Criteria: "Importance" must be calculated based on the following three metrics:
-Breadth: The geographic extent of their influence (Global vs. Regional).
-Depth: The degree to which they fundamentally altered human behavior, thought, or the state of the world.
-Longevity: The duration of their impact across centuries.
-Strict Constraints to Prevent Clustering:
-No Categorical Grouping: Do not group figures by profession, era, or nationality. This is a singular, linear competition of impact. For example, if rank #450 is a scientist and #451 is a poet, it must be because the scientist's total score marginally exceeds the poet's, not because you are listing "famous scientists" and then "famous poets."
-Linear Degradation: The list must represent a true descending order of influence. Rank #1 must be demonstrably more influential than #100, and #500 more than #1000.
-Output Format: Provide the data in a raw JSON array of objects. Each object must contain: {"rank": integer, "name": "string", "primary_contribution": "string"}
-Technical Instruction: Do not include introductory or concluding conversational text-output the JSON block only. output the FULL list with no duplicates.`}
-                  </pre>
-                </div>
+Judgment criteria (open-ended, no numeric scoring):
+- Breadth: scope of influence (local → global)
+- Depth: degree of structural change to institutions, knowledge systems, or mass behavior
+- Longevity: persistence or projected endurance of impact
 
-                <div className="rounded-2xl border border-stone-200/70 bg-white p-5 shadow-sm">
-                  <h3 className="text-lg font-semibold text-stone-900">Variant B (add per-entry reasoning)</h3>
-                  <pre className="mt-3 whitespace-pre-wrap text-sm text-stone-700">{`Role: You are a senior historian and data scientist specializing in "Historiometry"-the statistical analysis of historical data.
-Task: Generate a ranked list of the 1,000 most influential figures in world history.
-Ranking Criteria: "Importance" must be calculated based on the following three metrics:
-Breadth: The geographic extent of their influence (Global vs. Regional).
-Depth: The degree to which they fundamentally altered human behavior, thought, or the state of the world.
-Longevity: The duration of their impact across centuries.
-Strict Constraints to Prevent Clustering:
-No Categorical Grouping: Do not group figures by profession, era, or nationality. This is a singular, linear competition of impact. For example, if rank #450 is a scientist and #451 is a poet, it must be because the scientist's total score marginally exceeds the poet's, not because you are listing "famous scientists" and then "famous poets."
-Linear Degradation: The list must represent a true descending order of influence. Rank #1 must be demonstrably more influential than #100, and #500 more than #1000.
-Global Balance: Ensure the list reflects major figures based on what you determine to be their objective historical weight, not just fame in one culture or region.
-Output Format: Provide the data in a raw JSON array of objects. Each object must contain: {"rank": integer, "name": "string", "primary_contribution": "string", "historical_reasoning": "string"}
-Technical Instruction: Do not include introductory or concluding conversational text-output the JSON block only. output the FULL list with no duplicates.`}
+Admissibility rules (strict):
+- Individuals only (no groups, movements, dynasties, corporations, bands, collectives).
+- Historically attested persons only; exclude purely legendary/uncertain figures.
+- Use standard, widely recognized name forms.
+- No duplicates.
+
+Clustering guidance: Avoid long consecutive runs of the same profession/domain/role (6+ in a row).
+
+Output format (JSON only):
+{"rank": integer, "name": "string", "primary_contribution": "string"}`}
                   </pre>
                 </div>
               </div>

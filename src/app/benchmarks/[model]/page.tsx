@@ -31,10 +31,12 @@ import { MODEL_ICONS } from '@/types';
 // Model brand colors
 const MODEL_COLORS: Record<string, string> = {
   'claude-opus-4.5': '#da7756',
+  'claude-opus-4.6': '#da7756',
   'claude-sonnet-4.5': '#da7756',
   'gemini-flash-3-preview': '#078EFA',
   'gemini-pro-3': '#4285F4',
   'gpt-5.2-thinking': '#10A37F',
+  'gpt-5.3-thinking': '#10A37F',
   'deepseek-v3.2': '#4D6BFE',
   'qwen3-235b-a22b': '#615EFF',
   'glm-4.7': '#2563eb',

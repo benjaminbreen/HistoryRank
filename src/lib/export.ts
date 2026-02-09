@@ -149,14 +149,17 @@ export const RANKING_CSV_COLUMNS: { key: keyof RankingExportRow; header: string 
  */
 export const MODEL_LABELS: Record<string, string> = {
   'claude-opus-4.5': 'Claude Opus 4.5',
+  'claude-opus-4.6': 'Claude Opus 4.6',
   'claude-sonnet-4.5': 'Claude Sonnet 4.5',
   'gpt-5.2-thinking': 'GPT 5.2 Thinking',
+  'gpt-5.3-thinking': 'GPT 5.3 Thinking',
   'gemini-pro-3': 'Gemini Pro 3',
   'gemini-flash-3-preview': 'Gemini Flash 3 Preview',
   'grok-4': 'Grok 4',
   'grok-4.1-fast': 'Grok 4.1 Fast',
   'deepseek-v3.2': 'DeepSeek V3.2',
   'qwen3': 'Qwen 3',
+  'qwen3-235b-a22b': 'Qwen 3 235B A22B',
   'glm-4.7': 'GLM 4.7',
   'mistral-large-3': 'Mistral Large 3',
 };
