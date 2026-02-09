@@ -39,6 +39,7 @@
     "report:missing-fields": "npx tsx scripts/report-missing-fields.ts",
     "research:migrate": "node --import tsx scripts/migrate-figure-detail-evidence.ts",
     "research:sources": "node --import tsx scripts/collect-primary-sources.ts",
+    "research:sources:hybrid": "node --import tsx scripts/generate-hybrid-sources.ts",
     "research:import": "node --import tsx scripts/import-primary-sources.ts",
     "research:snippets:index": "node --import tsx scripts/build-britannica-1911-index.ts",
     "research:snippets": "node --import tsx scripts/collect-historical-snippets.ts",

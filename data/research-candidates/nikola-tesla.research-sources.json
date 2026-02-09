@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-02-08T07:41:26.949Z",
+  "figureId": "nikola-tesla",
+  "figureName": "Nikola Tesla",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 550,
+      "totalTokenCount": 838,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "My Life and Work",
+        "author": "Nikola Tesla",
+        "year": 1919,
+        "rationale": "Autobiographical account of Tesla's life and inventions, offering direct insight into his thoughts and experiences.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Future of the Wireless Art",
+        "author": "Nikola Tesla",
+        "year": 1900,
+        "rationale": "A significant essay outlining Tesla's vision for wireless communication and its potential applications.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Experiments with Alternate Currents of High Potential and High Frequency",
+        "author": "Nikola Tesla",
+        "year": 1892,
+        "rationale": "A lecture detailing his groundbreaking experiments and discoveries in the field of high-frequency electricity.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Tesla: Inventor of the Electrical Age",
+        "author": "Richard Munson",
+        "year": 2015,
+        "rationale": "A comprehensive and well-regarded biography that analyzes Tesla's life, work, and impact on the electrical age.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Nikola Tesla: The Man Who Harnessed Niagara",
+        "author": "David Kent",
+        "year": 2017,
+        "rationale": "A scholarly biography focusing on Tesla's major achievements and his role in harnessing natural power sources.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Essential Tesla: Selected Writings of Nikola Tesla",
+        "author": "Nikola Tesla",
+        "year": 2000,
+        "rationale": "While primarily a collection of primary sources, this edited volume often includes scholarly introductions and annotations that provide secondary analysis.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Many of Tesla's patents and technical papers are also valuable primary sources, often available through patent archives and scientific journals."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "My Life and Work",
+      "reason": "Title similarity too low (0.25); baseScore=0.26"
+    },
+    {
+      "role": "primary",
+      "title": "The Future of the Wireless Art",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Nikola Tesla: The Man Who Harnessed Niagara",
+      "reason": "Best score below threshold (0.41 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Essential Tesla: Selected Writings of Nikola Tesla",
+      "reason": "Best score below threshold (0.34 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Experiments with Alternate Currents of High Potential and High Frequency",
+      "author": "Nikola Tesla",
+      "publication_year": 1892,
+      "source_url": "https://archive.org/details/experimentswith00teslgoog",
+      "access_url": "https://archive.org/details/experimentswith00teslgoog",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Experiments with Alternate Currents of High Potential and High Frequency\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Experiments with Alternate Currents of High Potential and High Frequency",
+        "suggestion_author": "Nikola Tesla",
+        "suggestion_year": 1892,
+        "suggestion_rationale": "A lecture detailing his groundbreaking experiments and discoveries in the field of high-frequency electricity.",
+        "ia_identifier": "experimentswith00teslgoog"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Tesla: Inventor of the Electrical Age",
+      "author": "Stanko Popović",
+      "publication_year": 2019,
+      "source_url": "https://doi.org/10.5840/jcroatstud2019516",
+      "access_url": "https://doi.org/10.5840/jcroatstud2019516",
+      "snippet": "Journal of Croatian Studies",
+      "confidence": 0.857,
+      "why": "Secondary source resolved from suggestion \"Tesla: Inventor of the Electrical Age\". Matched secondary suggestion by title=1.00, author=0.00, year=0.87; Very high title match with surname/aboutness support",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Tesla: Inventor of the Electrical Age",
+        "suggestion_author": "Richard Munson",
+        "suggestion_year": 2015,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that analyzes Tesla's life, work, and impact on the electrical age.",
+        "openalex_id": "https://openalex.org/W3109119139",
+        "work_type": "article"
+      }
+    }
+  ]
+}

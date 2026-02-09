@@ -1,269 +1,176 @@
 {
-  "generatedAt": "2026-02-08T03:31:19.929Z",
+  "generatedAt": "2026-02-08T07:28:46.643Z",
   "figureId": "aristotle",
   "figureName": "Aristotle",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "wikisource",
-      "openalex",
-      "crossref",
-      "openlibrary"
-    ],
-    "queryNames": [
-      "Aristotle"
-    ],
-    "seedFallbackUsed": false
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 595,
+      "totalTokenCount": 882,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
   },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Nicomachean Ethics",
+        "author": "Aristotle",
+        "year": -350,
+        "rationale": "Aristotle's seminal work on ethics, virtue, and the good life. It is a foundational text in Western philosophy.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Politics",
+        "author": "Aristotle",
+        "year": -350,
+        "rationale": "Aristotle's examination of political science, governance, and the ideal state. It is a key text for understanding ancient political thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Metaphysics",
+        "author": "Aristotle",
+        "year": -350,
+        "rationale": "Aristotle's exploration of fundamental questions about reality, existence, and first principles. It is a cornerstone of philosophical inquiry.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Aristotle",
+        "author": "Jonathan Barnes",
+        "year": 1984,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Aristotle's philosophy and works.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Aristotle's Nicomachean Ethics: A Commentary",
+        "author": "Terence Irwin",
+        "year": 1985,
+        "rationale": "A detailed and influential scholarly commentary on Aristotle's most famous ethical work, providing in-depth analysis and interpretation.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Aristotle's Political Theory: An Introduction",
+        "author": "Christopher Bobonich",
+        "year": 2002,
+        "rationale": "An accessible yet rigorous introduction to Aristotle's political philosophy, examining his key concepts and arguments.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Aristotle's works are foundational to Western thought, and many of his major treatises are widely available in translation in digital archives. The secondary sources listed are standard scholarly introductions and commentaries."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Politics",
+      "reason": "Title similarity too low (0.45); baseScore=0.38"
+    },
+    {
+      "role": "primary",
+      "title": "Metaphysics",
+      "reason": "Title similarity too low (0.33); baseScore=0.38"
+    },
+    {
+      "role": "secondary",
+      "title": "Aristotle's Political Theory: An Introduction",
+      "reason": "Best score below threshold (0.63 < 0.72)"
+    }
+  ],
   "candidates": [
     {
-      "source_corpus": "wikisource",
+      "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Aristotle",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Aristotle",
-      "access_url": "https://en.wikisource.org/wiki/Aristotle",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Works of Aristotle",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Works_of_Aristotle",
-      "access_url": "https://en.wikisource.org/wiki/The_Works_of_Aristotle",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Politics (Aristotle)",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Politics_(Aristotle)",
-      "access_url": "https://en.wikisource.org/wiki/Politics_(Aristotle)",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "Popular Science Monthly/Volume 26/April 1885/Aristotle as a Zoologist",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Popular_Science_Monthly%2FVolume_26%2FApril_1885%2FAristotle_as_a_Zoologist",
-      "access_url": "https://en.wikisource.org/wiki/Popular_Science_Monthly%2FVolume_26%2FApril_1885%2FAristotle_as_a_Zoologist",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Physics (Aristotle)",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Physics_(Aristotle)",
-      "access_url": "https://en.wikisource.org/wiki/Physics_(Aristotle)",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "The complete works of Aristotle",
-      "author": "Aristotle ",
-      "publication_year": 1954,
-      "source_url": "https://openalex.org/W2798650415",
-      "access_url": "https://www.amazon.com/Complete-Works-Aristotle-Vol-1/dp/069101650X",
+      "title": "nicomachean ethics",
+      "author": "aristotle",
+      "publication_year": 1999,
+      "source_url": "https://archive.org/details/nicomachean-ethics-aristotle",
+      "access_url": "https://archive.org/details/nicomachean-ethics-aristotle",
       "snippet": null,
-      "confidence": 0.93,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Nicomachean Ethics\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 4147,
-        "openalex_id": "https://openalex.org/W2798650415",
-        "work_type": "book",
-        "venue": null
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Aristotle: Poetics",
-      "author": "Aristotle",
-      "publication_year": 1968,
-      "source_url": "https://doi.org/10.1093/actrade/9780198140245.book.1",
-      "access_url": "https://doi.org/10.1093/actrade/9780198140245.book.1",
-      "snippet": null,
-      "confidence": 0.85,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1093/actrade/9780198140245.book.1",
-        "referenced_by_count": 216,
-        "container_title": null,
-        "work_type": "edited-book"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Aristotle: De Anima",
-      "author": "Aristotle",
-      "publication_year": 1961,
-      "source_url": "https://doi.org/10.1093/actrade/9780198141556.book.1",
-      "access_url": "https://doi.org/10.1093/actrade/9780198141556.book.1",
-      "snippet": null,
-      "confidence": 0.85,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1093/actrade/9780198141556.book.1",
-        "referenced_by_count": 106,
-        "container_title": null,
-        "work_type": "edited-book"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Aristotle: Nicomachean Ethics",
-      "author": "Aristotle",
-      "publication_year": 2002,
-      "source_url": "https://doi.org/10.1093/actrade/9780198752714.book.1",
-      "access_url": "https://doi.org/10.1093/actrade/9780198752714.book.1",
-      "snippet": null,
-      "confidence": 0.85,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1093/actrade/9780198752714.book.1",
-        "referenced_by_count": 104,
-        "container_title": null,
-        "work_type": "edited-book"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Aristotle: Parva Naturalia",
-      "author": "Aristotle",
-      "publication_year": 1955,
-      "source_url": "https://doi.org/10.1093/actrade/9780198141082.book.1",
-      "access_url": "https://doi.org/10.1093/actrade/9780198141082.book.1",
-      "snippet": null,
-      "confidence": 0.845,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1093/actrade/9780198141082.book.1",
-        "referenced_by_count": 85,
-        "container_title": null,
-        "work_type": "edited-book"
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Nicomachean Ethics",
+        "suggestion_author": "Aristotle",
+        "suggestion_year": -350,
+        "suggestion_rationale": "Aristotle's seminal work on ethics, virtue, and the good life. It is a foundational text in Western philosophy.",
+        "ia_identifier": "nicomachean-ethics-aristotle"
       }
     },
     {
       "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Aristotle (Biography from Ancient Civilizations) (Biography from Ancient Civilizations)",
-      "author": "Jim Whiting",
-      "publication_year": 2006,
-      "source_url": "https://openlibrary.org/works/OL8736298W",
-      "access_url": "https://openlibrary.org/works/OL8736298W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Brief Biography and Popular Quotes from Aristotle",
-      "author": "Mazimum C. Jerri",
-      "publication_year": 2020,
-      "source_url": "https://openlibrary.org/works/OL30619753W",
-      "access_url": "https://openlibrary.org/works/OL30619753W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
+      "source_role": "secondary",
       "source_kind": "book",
       "title": "The Cambridge companion to Aristotle",
       "author": "Jonathan Barnes",
       "publication_year": 1995,
       "source_url": "https://openlibrary.org/works/OL38583621W",
       "access_url": "https://openlibrary.org/works/OL38583621W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
+      "snippet": null,
+      "confidence": 0.968,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Aristotle\". Matched secondary suggestion by title=1.00, author=1.00, year=0.63; Figure full name present in title",
       "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Aristotle",
+        "suggestion_author": "Jonathan Barnes",
+        "suggestion_year": 1984,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Aristotle's philosophy and works.",
+        "edition_count": 1
       }
     },
     {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Aristotle",
-      "author": "Mazimum C. Jerri",
-      "publication_year": 2021,
-      "source_url": "https://openlibrary.org/works/OL35869189W",
-      "access_url": "https://openlibrary.org/works/OL35869189W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Aristotle: Nicomachean Ethics",
+      "author": "Joseph Owens",
+      "publication_year": 1987,
+      "source_url": "https://doi.org/10.2307/4350061",
+      "access_url": "https://doi.org/10.2307/4350061",
+      "snippet": "The Classical World",
+      "confidence": 0.721,
+      "why": "Secondary source resolved from suggestion \"Aristotle's Nicomachean Ethics: A Commentary\". Matched secondary suggestion by title=0.75, author=0.00, year=0.93; Figure full name present in title",
       "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Aristotle (Historical Biographies)",
-      "author": "Brian Williams",
-      "publication_year": 2002,
-      "source_url": "https://openlibrary.org/works/OL2190572W",
-      "access_url": "https://openlibrary.org/works/OL2190572W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 2,
-        "subjects": []
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Aristotle's Nicomachean Ethics: A Commentary",
+        "suggestion_author": "Terence Irwin",
+        "suggestion_year": 1985,
+        "suggestion_rationale": "A detailed and influential scholarly commentary on Aristotle's most famous ethical work, providing in-depth analysis and interpretation.",
+        "doi": "10.2307/4350061",
+        "crossref_type": "journal-article"
       }
     }
   ]

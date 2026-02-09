@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-02-08T07:38:50.410Z",
+  "figureId": "james-watt",
+  "figureName": "James Watt",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 531,
+      "totalTokenCount": 819,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Origin and Progress of the Mechanical Inventions of James Watt",
+        "author": "James Watt",
+        "year": 1854,
+        "rationale": "This collection of Watt's writings and patents offers direct insight into his inventive process and technological developments. It is likely to contain letters, notebooks, and patent specifications.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Correspondence of James Watt",
+        "author": "James Watt",
+        "year": 1900,
+        "rationale": "A collection of letters written by James Watt, providing personal and professional insights into his life, work, and collaborations. Such correspondence is often digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "James Watt: The Birth of the Modern World",
+        "author": "Richard L. Hills",
+        "year": 2016,
+        "rationale": "A comprehensive scholarly biography of James Watt, published by a reputable academic press, offering in-depth analysis of his life and contributions to the Industrial Revolution.",
+        "sourceType": "book"
+      },
+      {
+        "title": "James Watt: His Life and Inventions",
+        "author": "Andrew Carnegie",
+        "year": 1901,
+        "rationale": "While older, Carnegie's work is a significant early biographical account and often considered a foundational text for Watt scholarship. It may be available in digital archives.",
+        "sourceType": "book"
+      },
+      {
+        "title": "James Watt and the Steam Revolution",
+        "author": "Robert E. Schofield",
+        "year": 1989,
+        "rationale": "Scholarly work focusing on Watt's impact on the steam engine and the broader industrial revolution, likely drawing on extensive archival research.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source materials for James Watt are primarily found in collected works, patents, and correspondence, often digitized by archives. Secondary sources are abundant, with recent scholarly biographies offering the most up-to-date analysis."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Origin and Progress of the Mechanical Inventions of James Watt",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Correspondence of James Watt",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "James Watt: The Birth of the Modern World",
+      "reason": "Best score below threshold (0.40 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "James Watt: His Life and Inventions",
+      "reason": "Best score below threshold (0.30 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "James Watt and the Steam Revolution",
+      "reason": "Best score below threshold (0.54 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

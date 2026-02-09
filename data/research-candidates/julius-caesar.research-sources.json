@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-02-08T07:38:38.107Z",
+  "figureId": "julius-caesar",
+  "figureName": "Julius Caesar",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 577,
+      "totalTokenCount": 865,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Commentarii de Bello Gallico",
+        "author": "Julius Caesar",
+        "year": -51,
+        "rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military and political career.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Commentarii de Bello Civili",
+        "author": "Julius Caesar",
+        "year": -45,
+        "rationale": "Caesar's narrative of the civil war against Pompey and the Senate, offering his perspective on the conflict.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Gallic Wars",
+        "author": "Julius Caesar",
+        "year": -51,
+        "rationale": "An English translation of Caesar's account of the Gallic Wars, widely available in digital formats.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Caesar: A Life",
+        "author": "Adrian Goldsworthy",
+        "year": 2006,
+        "rationale": "A comprehensive and highly regarded modern biography of Caesar, drawing on extensive research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Roman Revolution",
+        "author": "Ronald Syme",
+        "year": 1939,
+        "rationale": "While pre-1976, this is a seminal work on the transition from Republic to Empire, with significant analysis of Caesar's role and impact. Its influence warrants inclusion.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Julius Caesar: The Making of an Autocrat",
+        "author": "Pat Southern",
+        "year": 1998,
+        "rationale": "A scholarly examination of Caesar's rise to power and his consolidation of authority.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are Caesar's own writings. Secondary sources include a major biography and a foundational work on the period, plus another scholarly biography."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Gallic Wars",
+      "reason": "Title similarity too low (0.80); baseScore=0.83"
+    },
+    {
+      "role": "secondary",
+      "title": "The Roman Revolution",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.83"
+    },
+    {
+      "role": "secondary",
+      "title": "Julius Caesar: The Making of an Autocrat",
+      "reason": "Best score below threshold (0.54 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Commentarii de bello civili",
+      "author": "Julius Caesar",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/commentariidebe01caesgoog",
+      "access_url": "https://archive.org/details/commentariidebe01caesgoog",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"Commentarii de Bello Civili\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Commentarii de Bello Civili",
+        "suggestion_author": "Julius Caesar",
+        "suggestion_year": -45,
+        "suggestion_rationale": "Caesar's narrative of the civil war against Pompey and the Senate, offering his perspective on the conflict.",
+        "ia_identifier": "commentariidebe01caesgoog"
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Commentarii de Bello Gallico, Libri V-VIII",
+      "author": "Caesar, Julius",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/18837",
+      "access_url": "https://www.gutenberg.org/ebooks/18837",
+      "snippet": null,
+      "confidence": 0.89,
+      "why": "Primary source resolved from suggestion \"Commentarii de Bello Gallico\". Matched primary suggestion by title=0.87, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Commentarii de Bello Gallico",
+        "suggestion_author": "Julius Caesar",
+        "suggestion_year": -51,
+        "suggestion_rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military and political career.",
+        "gutenberg_id": 18837
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Julius Caesar: A Life",
+      "author": "Antony Kamm",
+      "publication_year": 2006,
+      "source_url": "http://www.loc.gov/catdir/toc/ecip065/2005036603.html",
+      "access_url": "http://www.loc.gov/catdir/toc/ecip065/2005036603.html",
+      "snippet": null,
+      "confidence": 0.796,
+      "why": "Secondary source resolved from suggestion \"Caesar: A Life\". Matched secondary suggestion by title=0.87, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Caesar: A Life",
+        "suggestion_author": "Adrian Goldsworthy",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "A comprehensive and highly regarded modern biography of Caesar, drawing on extensive research.",
+        "openalex_id": "https://openalex.org/W655152391",
+        "work_type": "book"
+      }
+    }
+  ]
+}

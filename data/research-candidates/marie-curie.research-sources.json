@@ -1,0 +1,188 @@
+{
+  "generatedAt": "2026-02-08T07:39:49.335Z",
+  "figureId": "marie-curie",
+  "figureName": "Marie Curie",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 580,
+      "totalTokenCount": 868,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Pierre Curie",
+        "author": "Marie Curie",
+        "year": 1923,
+        "rationale": "A biographical memoir of her husband, Pierre Curie, offering personal insights into their scientific collaboration and life.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Radioactive Substances: Their Properties and Their Applications in Medicine and the Industries",
+        "author": "Marie Curie",
+        "year": 1904,
+        "rationale": "A foundational text by Curie detailing her groundbreaking research on radioactivity, likely available in digitized academic collections.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Discovery of Radium",
+        "author": "Marie Curie",
+        "year": 1904,
+        "rationale": "A Nobel lecture delivered by Marie Curie, providing a direct account of the discovery of radium and its significance.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Marie Curie: A Life",
+        "author": "Susan Quinn",
+        "year": 1995,
+        "rationale": "A comprehensive and well-regarded biography that explores Curie's scientific achievements, personal life, and the challenges she faced.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Madame Curie: A Biography",
+        "author": "Eve Curie",
+        "year": 1937,
+        "rationale": "While older than the specified date, this biography by her daughter is a seminal work and often considered a primary source by some, but it provides significant biographical detail and context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Marie Curie and the Science of Radioactivity",
+        "author": "Robert William Reid",
+        "year": 1976,
+        "rationale": "A detailed account of Curie's scientific work and its impact, published in the specified year range.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The biography by Eve Curie, while published before 1976, is a highly influential and often-cited secondary source due to its intimate perspective. The primary sources are selected for their direct contribution to understanding Curie's work and life from her own perspective."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Radioactive Substances: Their Properties and Their Applications in Medicine and the Industries",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Madame Curie: A Biography",
+      "reason": "Best score below threshold (0.64 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "pierre curie",
+      "author": "marie curie",
+      "publication_year": 1923,
+      "source_url": "https://archive.org/details/pierrecurie0000mari",
+      "access_url": "https://archive.org/details/pierrecurie0000mari",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Pierre Curie\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Pierre Curie",
+        "suggestion_author": "Marie Curie",
+        "suggestion_year": 1923,
+        "suggestion_rationale": "A biographical memoir of her husband, Pierre Curie, offering personal insights into their scientific collaboration and life.",
+        "ia_identifier": "pierrecurie0000mari"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Discovery of Radium",
+      "author": "Marie Curie",
+      "publication_year": 1921,
+      "source_url": "https://archive.org/details/ost-chemistry-discoveryofradiu00curi",
+      "access_url": "https://archive.org/details/ost-chemistry-discoveryofradiu00curi",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Discovery of Radium\". Matched primary suggestion by title=1.00, author=1.00, year=0.66; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Discovery of Radium",
+        "suggestion_author": "Marie Curie",
+        "suggestion_year": 1904,
+        "suggestion_rationale": "A Nobel lecture delivered by Marie Curie, providing a direct account of the discovery of radium and its significance.",
+        "ia_identifier": "ost-chemistry-discoveryofradiu00curi"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "<i>Marie Curie: A Life</i>",
+      "author": "Susan Quinn",
+      "publication_year": 1995,
+      "source_url": "https://doi.org/10.1063/1.2808130",
+      "access_url": "https://doi.org/10.1063/1.2808130",
+      "snippet": "Physics Today",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Marie Curie: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Marie Curie: A Life",
+        "suggestion_author": "Susan Quinn",
+        "suggestion_year": 1995,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that explores Curie's scientific achievements, personal life, and the challenges she faced.",
+        "doi": "10.1063/1.2808130",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Marie Curie and the science of radioactivity",
+      "author": "Naomi Pasachoff",
+      "publication_year": 1996,
+      "source_url": "http://www.loc.gov/catdir/enhancements/fy0603/95013639-d.html",
+      "access_url": "http://www.loc.gov/catdir/enhancements/fy0603/95013639-d.html",
+      "snippet": null,
+      "confidence": 0.767,
+      "why": "Secondary source resolved from suggestion \"Marie Curie and the Science of Radioactivity\". Matched secondary suggestion by title=1.00, author=0.00, year=0.33; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Marie Curie and the Science of Radioactivity",
+        "suggestion_author": "Robert William Reid",
+        "suggestion_year": 1976,
+        "suggestion_rationale": "A detailed account of Curie's scientific work and its impact, published in the specified year range.",
+        "openalex_id": "https://openalex.org/W623877920",
+        "work_type": "book"
+      }
+    }
+  ]
+}

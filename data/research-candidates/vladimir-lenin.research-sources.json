@@ -1,0 +1,174 @@
+{
+  "generatedAt": "2026-02-08T07:39:24.979Z",
+  "figureId": "vladimir-lenin",
+  "figureName": "Vladimir Lenin",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 563,
+      "totalTokenCount": 851,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "What Is to Be Done?",
+        "author": "Vladimir Lenin",
+        "year": 1902,
+        "rationale": "A foundational text outlining Lenin's vision for the Bolshevik party and revolutionary strategy. Widely available.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The State and Revolution",
+        "author": "Vladimir Lenin",
+        "year": 1917,
+        "rationale": "Lenin's theoretical work on the nature of the state and the necessity of proletarian revolution. A key Marxist text.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "April Theses",
+        "author": "Vladimir Lenin",
+        "year": 1917,
+        "rationale": "A series of directives issued by Lenin upon his return to Russia, outlining the Bolsheviks' immediate political goals. Often published in collections of his speeches and writings.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Lenin: A Biography",
+        "author": "Robert Service",
+        "year": 2000,
+        "rationale": "A comprehensive and widely respected scholarly biography of Lenin by a prominent historian.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Lenin's Tomb: The Last Days of the Soviet Empire",
+        "author": "David Remnick",
+        "year": 1993,
+        "rationale": "While focusing on the end of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Lenin",
+        "author": "Tamás Krausz",
+        "year": 2018,
+        "rationale": "A collection of essays by leading scholars offering diverse perspectives on Lenin's life, thought, and historical significance.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are often found in collections of Lenin's works or speeches. Secondary sources are selected for their scholarly reputation and recency."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The State and Revolution",
+      "reason": "Author match too low (0.00); baseScore=0.73"
+    },
+    {
+      "role": "primary",
+      "title": "April Theses",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Lenin",
+      "reason": "Best score below threshold (0.57 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "What is to be Done?",
+      "author": "Vladimir Lenin",
+      "publication_year": 1902,
+      "source_url": "https://archive.org/details/what-is-to-be-done",
+      "access_url": "https://archive.org/details/what-is-to-be-done",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"What Is to Be Done?\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "What Is to Be Done?",
+        "suggestion_author": "Vladimir Lenin",
+        "suggestion_year": 1902,
+        "suggestion_rationale": "A foundational text outlining Lenin's vision for the Bolshevik party and revolutionary strategy. Widely available.",
+        "ia_identifier": "what-is-to-be-done"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Lenin: A Biography",
+      "author": "Robert Legvold",
+      "publication_year": 2000,
+      "source_url": "https://doi.org/10.2307/20050014",
+      "access_url": "https://doi.org/10.2307/20050014",
+      "snippet": "Foreign Affairs",
+      "confidence": 0.957,
+      "why": "Secondary source resolved from suggestion \"Lenin: A Biography\". Matched secondary suggestion by title=1.00, author=0.33, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Lenin: A Biography",
+        "suggestion_author": "Robert Service",
+        "suggestion_year": 2000,
+        "suggestion_rationale": "A comprehensive and widely respected scholarly biography of Lenin by a prominent historian.",
+        "doi": "10.2307/20050014",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Lenin's Tomb: The Last Days of the Soviet Empire",
+      "author": "Robert Legvold",
+      "publication_year": 1993,
+      "source_url": "https://doi.org/10.2307/20045761",
+      "access_url": "https://doi.org/10.2307/20045761",
+      "snippet": "Foreign Affairs",
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"Lenin's Tomb: The Last Days of the Soviet Empire\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Lenin's Tomb: The Last Days of the Soviet Empire",
+        "suggestion_author": "David Remnick",
+        "suggestion_year": 1993,
+        "suggestion_rationale": "While focusing on the end of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
+        "doi": "10.2307/20045761",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

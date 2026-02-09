@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-02-08T07:38:56.364Z",
+  "figureId": "joseph-stalin",
+  "figureName": "Joseph Stalin",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 586,
+      "totalTokenCount": 874,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Foundations of Leninism",
+        "author": "Joseph Stalin",
+        "year": 1924,
+        "rationale": "A foundational text outlining Stalin's interpretation of Marxist-Leninist theory, widely disseminated and influential.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Problems of Leninism",
+        "author": "Joseph Stalin",
+        "year": 1926,
+        "rationale": "An expanded work building upon 'The Foundations of Leninism,' further articulating Stalin's political and ideological positions.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Great Patriotic War of the Soviet Union",
+        "author": "Joseph Stalin",
+        "year": 1946,
+        "rationale": "A collection of speeches and orders during World War II, offering direct insight into his wartime leadership and propaganda.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Stalin: Paradoxes of Power, 1878-1953",
+        "author": "Stephen Kotkin",
+        "year": 2017,
+        "rationale": "A highly acclaimed and comprehensive biography that offers deep analysis of Stalin's life, rule, and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Stalin: The Court of the Red Tsar",
+        "author": "Simon Sebag Montefiore",
+        "year": 2003,
+        "rationale": "Focuses on Stalin's inner circle and personal life, providing a detailed and often intimate portrait of his regime.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge History of Russia: Volume 3, The Soviet Union, 1917-1991",
+        "author": "Ronald Grigor Suny (editor)",
+        "year": 2006,
+        "rationale": "Contains scholarly chapters by leading historians that analyze the Stalinist period within the broader context of Soviet history.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source availability on Wikisource and Project Gutenberg for Stalin's works is limited, with Internet Archive being the most likely repository for his major writings and speeches."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Foundations of Leninism",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Great Patriotic War of the Soviet Union",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Stalin: Paradoxes of Power, 1878-1953",
+      "reason": "Best score below threshold (0.46 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge History of Russia: Volume 3, The Soviet Union, 1917-1991",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Problems of Leninism",
+      "author": "Joseph Stalin",
+      "publication_year": 1945,
+      "source_url": "https://archive.org/details/problemsofleninism",
+      "access_url": "https://archive.org/details/problemsofleninism",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Problems of Leninism\". Matched primary suggestion by title=1.00, author=1.00, year=0.62; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Problems of Leninism",
+        "suggestion_author": "Joseph Stalin",
+        "suggestion_year": 1926,
+        "suggestion_rationale": "An expanded work building upon 'The Foundations of Leninism,' further articulating Stalin's political and ideological positions.",
+        "ia_identifier": "problemsofleninism"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Stalin: The Court of the Red Tsar",
+      "author": "Robert Legvold",
+      "publication_year": 2004,
+      "source_url": "https://doi.org/10.2307/20034014",
+      "access_url": "https://doi.org/10.2307/20034014",
+      "snippet": "Foreign Affairs",
+      "confidence": 0.884,
+      "why": "Secondary source resolved from suggestion \"Stalin: The Court of the Red Tsar\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Very high title match with surname/aboutness support",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Stalin: The Court of the Red Tsar",
+        "suggestion_author": "Simon Sebag Montefiore",
+        "suggestion_year": 2003,
+        "suggestion_rationale": "Focuses on Stalin's inner circle and personal life, providing a detailed and often intimate portrait of his regime.",
+        "doi": "10.2307/20034014",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-02-08T07:29:32.913Z",
+  "figureId": "galileo-galilei",
+  "figureName": "Galileo Galilei",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 656,
+      "totalTokenCount": 945,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Sidereus Nuncius",
+        "author": "Galileo Galilei",
+        "year": 1610,
+        "rationale": "Galileo's groundbreaking report on his telescopic observations of the Moon, Jupiter's moons, and the Milky Way. It is a foundational text in the Scientific Revolution.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Dialogo sopra i due massimi sistemi del mondo",
+        "author": "Galileo Galilei",
+        "year": 1632,
+        "rationale": "Galileo's famous dialogue comparing the Copernican and Ptolemaic systems, which led to his trial by the Inquisition. It is a key document in the history of science and religion.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Discorsi e dimostrazioni matematiche intorno a due nuove scienze",
+        "author": "Galileo Galilei",
+        "year": 1638,
+        "rationale": "Galileo's final major work, published in exile, which laid the foundations for modern physics, particularly in kinematics and the strength of materials.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Galileo's Daughter: A Historical Memoir of Science, Faith, and Love",
+        "author": "Dava Sobel",
+        "year": 1999,
+        "rationale": "A highly acclaimed and accessible biography that uses Galileo's letters to his daughter to explore his life, work, and conflicts.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Galileo: A Very Short Introduction",
+        "author": "John L. Heilbron",
+        "year": 2010,
+        "rationale": "A concise yet comprehensive overview of Galileo's life, scientific contributions, and historical context by a leading historian of science.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Galileo",
+        "author": "Nick Wilding",
+        "year": 2019,
+        "rationale": "A collection of essays by prominent scholars covering various aspects of Galileo's life, work, and legacy, offering in-depth scholarly analysis.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are widely available in English translation on Wikisource and Project Gutenberg, and in original Italian on Internet Archive. Secondary sources are major academic works providing scholarly context and analysis."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Dialogo sopra i due massimi sistemi del mondo",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "primary",
+      "title": "Discorsi e dimostrazioni matematiche intorno a due nuove scienze",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "secondary",
+      "title": "Galileo's Daughter: A Historical Memoir of Science, Faith, and Love",
+      "reason": "Best score below threshold (0.32 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Galileo: A Very Short Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.22"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Galileo",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.72"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Sidereus Nuncius",
+      "author": "Galileo Galilei",
+      "publication_year": 2010,
+      "source_url": "https://archive.org/details/sidereus_nuncius_202004",
+      "access_url": "https://archive.org/details/sidereus_nuncius_202004",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Sidereus Nuncius\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Sidereus Nuncius",
+        "suggestion_author": "Galileo Galilei",
+        "suggestion_year": 1610,
+        "suggestion_rationale": "Galileo's groundbreaking report on his telescopic observations of the Moon, Jupiter's moons, and the Milky Way. It is a foundational text in the Scientific Revolution.",
+        "ia_identifier": "sidereus_nuncius_202004"
+      }
+    }
+  ]
+}

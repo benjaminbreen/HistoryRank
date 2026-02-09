@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-02-08T07:37:46.618Z",
+  "figureId": "nicolaus-copernicus",
+  "figureName": "Nicolaus Copernicus",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 587,
+      "totalTokenCount": 876,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "De revolutionibus orbium coelestium",
+        "author": "Nicolaus Copernicus",
+        "year": 1543,
+        "rationale": "Copernicus's seminal work, presenting his heliocentric model of the universe. This is the most important primary source for understanding his scientific contributions.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Commentariolus",
+        "author": "Nicolaus Copernicus",
+        "year": 1540,
+        "rationale": "An earlier, shorter manuscript outlining the basic principles of his heliocentric theory, circulated among friends before the publication of 'De revolutionibus'.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "De lateribus et angulis triangulorum",
+        "author": "Nicolaus Copernicus",
+        "year": 1542,
+        "rationale": "Copernicus's work on trigonometry, demonstrating his mathematical expertise and its application to astronomical problems.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Copernicus",
+        "author": "Nick Jardine",
+        "year": 1998,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Copernicus's life, work, and legacy, offering comprehensive scholarly analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Copernicus: An Intellectual Biography",
+        "author": "Edward Rosen",
+        "year": 1976,
+        "rationale": "A foundational biography that provides in-depth analysis of Copernicus's intellectual development and the context of his scientific revolution.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Nicolaus Copernicus: Reason, Religion, and the Revolution of the Heavenly Spheres",
+        "author": "Owen Gingerich",
+        "year": 2004,
+        "rationale": "A highly regarded scholarly biography by a renowned historian of science, offering a detailed and nuanced perspective on Copernicus's life and work.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are likely to be found in digitized manuscript collections or early printed book archives on Internet Archive. Modern scholarly editions and translations may also be available."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "De revolutionibus orbium coelestium",
+      "reason": "Title similarity too low (0.10); baseScore=0.36"
+    },
+    {
+      "role": "primary",
+      "title": "Commentariolus",
+      "reason": "Title similarity too low (0.30); baseScore=0.49"
+    },
+    {
+      "role": "primary",
+      "title": "De lateribus et angulis triangulorum",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Copernicus",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.16"
+    },
+    {
+      "role": "secondary",
+      "title": "Copernicus: An Intellectual Biography",
+      "reason": "Best score below threshold (0.24 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Nicolaus Copernicus: Reason, Religion, and the Revolution of the Heavenly Spheres",
+      "reason": "Best score below threshold (0.58 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

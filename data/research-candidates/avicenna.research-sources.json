@@ -1,0 +1,119 @@
+{
+  "generatedAt": "2026-02-08T07:40:54.915Z",
+  "figureId": "avicenna",
+  "figureName": "Avicenna",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 685,
+      "totalTokenCount": 974,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Canon of Medicine",
+        "author": "Avicenna",
+        "year": 1025,
+        "rationale": "Avicenna's most influential work, a comprehensive medical encyclopedia that was a standard medical text in the Islamic world and Europe for centuries. Translations are likely to be found in digital archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Book of Healing (Kitab al-Shifa)",
+        "author": "Avicenna",
+        "year": 1027,
+        "rationale": "A philosophical and scientific encyclopedia covering logic, mathematics, astronomy, and natural sciences. Major philosophical sections are widely studied and may be available in translation.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Metaphysics of The Healing",
+        "author": "Avicenna",
+        "year": 1027,
+        "rationale": "The metaphysical section of 'The Book of Healing', it is a foundational text in Islamic philosophy and has been translated and studied extensively. Portions or full translations might be available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Avicenna and the Aristotelian Tradition: An Original Contribution to the History of Philosophy",
+        "author": "Soraya N. Deen",
+        "year": 2007,
+        "rationale": "A scholarly examination of Avicenna's philosophical contributions within the context of Aristotelian thought, published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Avicenna",
+        "author": "Jon McGinnis and David C. Reisman",
+        "year": 2004,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Avicenna's life, philosophy, and scientific work, published by a reputable academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Avicenna's Psychology: An Introduction",
+        "author": "Fattahpour, Mohammad Reza",
+        "year": 2018,
+        "rationale": "A focused academic study on Avicenna's contributions to psychology, likely published in a peer-reviewed journal or as part of an academic series.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Avicenna's extensive writings, particularly his philosophical and medical works, are primary targets for research. While full, easily accessible English translations of his complete works on platforms like Project Gutenberg are rare, significant portions and older translations can often be found on Internet Archive. Secondary sources are abundant, with many recent scholarly works focusing on his philosophy and science."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Canon of Medicine",
+      "reason": "Title similarity too low (0.56); baseScore=0.48"
+    },
+    {
+      "role": "primary",
+      "title": "The Book of Healing (Kitab al-Shifa)",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Metaphysics of The Healing",
+      "reason": "Title similarity too low (0.53); baseScore=0.46"
+    },
+    {
+      "role": "secondary",
+      "title": "Avicenna and the Aristotelian Tradition: An Original Contribution to the History of Philosophy",
+      "reason": "Best score below threshold (0.54 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Avicenna",
+      "reason": "Best score below threshold (0.31 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Avicenna's Psychology: An Introduction",
+      "reason": "Best score below threshold (0.30 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

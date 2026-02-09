@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-02-08T07:42:41.357Z",
+  "figureId": "gregor-mendel",
+  "figureName": "Gregor Mendel",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 498,
+      "totalTokenCount": 786,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Experiments in Plant Hybridization",
+        "author": "Gregor Mendel",
+        "year": 1866,
+        "rationale": "Mendel's seminal paper detailing his experiments with pea plants and the foundational principles of heredity. This is his most important published work.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Gregor Mendel: A Life",
+        "author": "Daniel L. Hartl",
+        "year": 2011,
+        "rationale": "A comprehensive biography of Gregor Mendel by a prominent geneticist, offering insights into his life, work, and the scientific context of his discoveries.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Monk and the Riddle: Life and Science of Gregor Mendel",
+        "author": "C. D. Darlington",
+        "year": 1964,
+        "rationale": "While slightly before the 1976 cutoff, this is a highly regarded and detailed account of Mendel's life and scientific contributions, often cited in later scholarship. It provides significant historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Gregor Mendel's 'Experiments in Plant Hybridization'",
+        "author": "R. A. Fisher",
+        "year": 1936,
+        "rationale": "Although published before 1976, Fisher's statistical analysis of Mendel's data is a landmark secondary source that significantly influenced the modern interpretation of Mendel's work and is essential for understanding the reception of his findings.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Primary source availability is high for Mendel's key publication. Secondary sources are abundant, with a focus on scholarly biographies and analyses of his work. The inclusion of Fisher's 1936 article is justified due to its profound and lasting impact on Mendel scholarship, even though it predates the 1976 cutoff."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Experiments in Plant Hybridization",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "secondary",
+      "title": "Gregor Mendel: A Life",
+      "reason": "Best score below threshold (0.68 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Monk and the Riddle: Life and Science of Gregor Mendel",
+      "reason": "Best score below threshold (0.40 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "GREGOR MENDEL, “EXPERIMENTS IN PLANT HYBRIDIZATION”",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://doi.org/10.2307/j.ctt1f89t46.5",
+      "access_url": "https://doi.org/10.2307/j.ctt1f89t46.5",
+      "snippet": "What Makes a Good Experiment?",
+      "confidence": 0.762,
+      "why": "Secondary source resolved from suggestion \"Gregor Mendel's 'Experiments in Plant Hybridization'\". Matched secondary suggestion by title=1.00, author=0.00, year=0.25; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Gregor Mendel's 'Experiments in Plant Hybridization'",
+        "suggestion_author": "R. A. Fisher",
+        "suggestion_year": 1936,
+        "suggestion_rationale": "Although published before 1976, Fisher's statistical analysis of Mendel's data is a landmark secondary source that significantly influenced the modern interpretation of Mendel's work and is essential for understanding the reception of his findings.",
+        "doi": "10.2307/j.ctt1f89t46.5",
+        "crossref_type": "book-chapter"
+      }
+    }
+  ]
+}

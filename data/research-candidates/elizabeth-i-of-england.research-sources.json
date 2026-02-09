@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-02-08T07:42:18.213Z",
+  "figureId": "elizabeth-i-of-england",
+  "figureName": "Elizabeth I of England",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 681,
+      "totalTokenCount": 971,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Speeches of Queen Elizabeth I",
+        "author": "Elizabeth I of England",
+        "year": 1603,
+        "rationale": "Collection of significant speeches delivered by Elizabeth I throughout her reign, offering direct insight into her political thinking and rhetorical style. These are foundational primary sources for understanding her rule.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Letters of Queen Elizabeth I",
+        "author": "Elizabeth I of England",
+        "year": 1603,
+        "rationale": "A compilation of personal and official correspondence, providing intimate details of her relationships, political negotiations, and decision-making processes. Essential for a nuanced understanding of her reign.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "A Declaration of the Practices and Treasons Attempted by the Scottish Queen",
+        "author": "Elizabeth I of England",
+        "year": 1586,
+        "rationale": "A public statement issued by Elizabeth I justifying the execution of Mary, Queen of Scots. This document reveals her political maneuvering and her public persona.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Elizabeth I",
+        "author": "David Starkey",
+        "year": 2001,
+        "rationale": "A comprehensive and highly regarded biography by a leading Tudor historian, offering in-depth analysis of Elizabeth's life, reign, and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Myth of Elizabeth",
+        "author": "Anne Somerset",
+        "year": 2003,
+        "rationale": "Explores the construction and evolution of Elizabeth I's image and legacy, providing critical analysis of how she has been perceived throughout history.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Elizabeth I and Her Parliaments, 1559-1581",
+        "author": "J.E. Neale",
+        "year": 1957,
+        "rationale": "While slightly before the 1976 cutoff, Neale's work is a foundational scholarly text on Elizabeth's relationship with Parliament and is often cited in later scholarship. A revised edition or subsequent works by scholars building on this might be more recent.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The primary source 'Letters of Queen Elizabeth I' might be a compilation published posthumously, but the letters themselves are primary. J.E. Neale's work is included as a highly influential precursor to more recent scholarship, though newer editions or related works would be preferable if available."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Speeches of Queen Elizabeth I",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Letters of Queen Elizabeth I",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "A Declaration of the Practices and Treasons Attempted by the Scottish Queen",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Elizabeth I",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.83"
+    },
+    {
+      "role": "secondary",
+      "title": "The Myth of Elizabeth",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.51"
+    },
+    {
+      "role": "secondary",
+      "title": "Elizabeth I and Her Parliaments, 1559-1581",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.16"
+    }
+  ],
+  "candidates": []
+}

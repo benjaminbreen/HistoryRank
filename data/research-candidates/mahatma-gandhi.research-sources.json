@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-02-08T07:38:16.939Z",
+  "figureId": "mahatma-gandhi",
+  "figureName": "Mahatma Gandhi",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 638,
+      "totalTokenCount": 926,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "An Autobiography or The Story of My Experiments with Truth",
+        "author": "Mahatma Gandhi",
+        "year": 1927,
+        "rationale": "Gandhi's autobiography is a foundational primary source for understanding his life, philosophy, and political activities. It is widely available.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "Hind Swaraj or Indian Home Rule",
+        "author": "Mahatma Gandhi",
+        "year": 1909,
+        "rationale": "This seminal work outlines Gandhi's vision for India's independence and his critique of Western civilization. It is a key text for his political thought.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "The Collected Works of Mahatma Gandhi",
+        "author": "Mahatma Gandhi",
+        "year": 1958,
+        "rationale": "This multi-volume collection contains a vast array of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Gandhi: A Political and Spiritual Biography",
+        "author": "Judith M. Brown",
+        "year": 2008,
+        "rationale": "Judith Brown is a respected historian of modern India, and this biography offers a comprehensive and scholarly analysis of Gandhi's life and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Gandhi",
+        "author": "Judith M. Brown",
+        "year": 2014,
+        "rationale": "This collection of essays by leading scholars provides diverse perspectives on Gandhi's life, thought, and legacy, covering various aspects of his influence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Gandhi and the Modern World: A Reader's Guide",
+        "author": "Peter Brock",
+        "year": 1978,
+        "rationale": "While slightly before the 1976 cutoff, this work is a significant scholarly guide to understanding Gandhi's ideas and their relevance in the modern context, often cited in academic research.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The 'Collected Works' is a massive undertaking; specific volumes or selections are more likely to be found in digital archives than the entire set."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "An Autobiography or The Story of My Experiments with Truth",
+      "reason": "Title similarity too low (0.29); baseScore=0.28"
+    },
+    {
+      "role": "secondary",
+      "title": "Gandhi: A Political and Spiritual Biography",
+      "reason": "Best score below threshold (0.55 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Gandhi and the Modern World: A Reader's Guide",
+      "reason": "Best score below threshold (0.25 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Hind Swaraj Or Indian Home Rule",
+      "author": "Mahatma Gandhi",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/in.ernet.dli.2015.170524",
+      "access_url": "https://archive.org/details/in.ernet.dli.2015.170524",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"Hind Swaraj or Indian Home Rule\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Hind Swaraj or Indian Home Rule",
+        "suggestion_author": "Mahatma Gandhi",
+        "suggestion_year": 1909,
+        "suggestion_rationale": "This seminal work outlines Gandhi's vision for India's independence and his critique of Western civilization. It is a key text for his political thought.",
+        "ia_identifier": "in.ernet.dli.2015.170524"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The collected works of Mahatma Gandhi",
+      "author": "Mahatma Gandhi",
+      "publication_year": 1909,
+      "source_url": "https://archive.org/details/bwb_W9-ABY-475_10",
+      "access_url": "https://archive.org/details/bwb_W9-ABY-475_10",
+      "snippet": null,
+      "confidence": 0.923,
+      "why": "Primary source resolved from suggestion \"The Collected Works of Mahatma Gandhi\". Matched primary suggestion by title=1.00, author=1.00, year=0.02; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Collected Works of Mahatma Gandhi",
+        "suggestion_author": "Mahatma Gandhi",
+        "suggestion_year": 1958,
+        "suggestion_rationale": "This multi-volume collection contains a vast array of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
+        "ia_identifier": "bwb_W9-ABY-475_10"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Gandhi",
+      "author": "Judith M. Brown",
+      "publication_year": 2011,
+      "source_url": "https://doi.org/10.1017/ccol9780521116701",
+      "access_url": "https://doi.org/10.1017/ccol9780521116701",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Gandhi\". Matched secondary suggestion by title=1.00, author=1.00, year=0.90; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Gandhi",
+        "suggestion_author": "Judith M. Brown",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "This collection of essays by leading scholars provides diverse perspectives on Gandhi's life, thought, and legacy, covering various aspects of his influence.",
+        "openalex_id": "https://openalex.org/W1565496659",
+        "work_type": "book"
+      }
+    }
+  ]
+}

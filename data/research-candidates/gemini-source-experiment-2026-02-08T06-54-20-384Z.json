@@ -1,0 +1,557 @@
+{
+  "generatedAt": "2026-02-08T06:54:20.382Z",
+  "model": "gemini-2.5-flash-lite",
+  "sample": {
+    "no_grounding": [
+      {
+        "id": "wolfgang-amadeus-mozart",
+        "canonical_name": "Wolfgang Amadeus Mozart"
+      },
+      {
+        "id": "w-e-b-du-bois",
+        "canonical_name": "W.E.B. Du Bois"
+      },
+      {
+        "id": "thucydides",
+        "canonical_name": "Thucydides"
+      },
+      {
+        "id": "clovis-i",
+        "canonical_name": "Clovis I"
+      },
+      {
+        "id": "erwin-schr-dinger",
+        "canonical_name": "Erwin Schrödinger"
+      }
+    ],
+    "with_grounding": [
+      {
+        "id": "patrice-lumumba",
+        "canonical_name": "Patrice Lumumba"
+      },
+      {
+        "id": "frederick-the-great",
+        "canonical_name": "Frederick the Great"
+      },
+      {
+        "id": "kim-il-sung",
+        "canonical_name": "Kim Il-sung"
+      },
+      {
+        "id": "ferdinand-de-saussure",
+        "canonical_name": "Ferdinand de Saussure"
+      },
+      {
+        "id": "ramanuja",
+        "canonical_name": "Ramanuja"
+      }
+    ]
+  },
+  "results": [
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "wolfgang-amadeus-mozart",
+        "canonical_name": "Wolfgang Amadeus Mozart"
+      },
+      "parsed": {
+        "figure": "Wolfgang Amadeus Mozart",
+        "primary_sources": [
+          {
+            "title": "Mozart's Letters",
+            "url": "https://www.gutenberg.org/files/19741/19741-h/19741-h.htm",
+            "why_relevant": "Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence."
+          },
+          {
+            "title": "Mozart's Musical Scores",
+            "url": "https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus",
+            "why_relevant": "Original musical compositions provide direct evidence of his compositional style and evolution."
+          },
+          {
+            "title": "Contemporary Accounts of Mozart",
+            "url": "https://www.mozart.org/en/biography/",
+            "why_relevant": "Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "The New Grove Dictionary of Music and Musicians",
+            "url": "https://www.oxfordmusiconline.com/grovemusic",
+            "why_relevant": "Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart."
+          },
+          {
+            "title": "Mozart: A Life by Maynard Solomon",
+            "url": "https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240",
+            "why_relevant": "A highly regarded scholarly biography that delves deeply into Mozart's life and context."
+          },
+          {
+            "title": "Mozart's Music of the Great Masters Series",
+            "url": "https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series",
+            "why_relevant": "Expert analysis and discussion of Mozart's key works and their significance."
+          }
+        ],
+        "notes": "Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases."
+      },
+      "text": "{\n  \"figure\": \"Wolfgang Amadeus Mozart\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Mozart's Letters\",\n      \"url\": \"https://www.gutenberg.org/files/19741/19741-h/19741-h.htm\",\n      \"why_relevant\": \"Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence.\"\n    },\n    {\n      \"title\": \"Mozart's Musical Scores\",\n      \"url\": \"https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus\",\n      \"why_relevant\": \"Original musical compositions provide direct evidence of his compositional style and evolution.\"\n    },\n    {\n      \"title\": \"Contemporary Accounts of Mozart\",\n      \"url\": \"https://www.mozart.org/en/biography/\",\n      \"why_relevant\": \"Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The New Grove Dictionary of Music and Musicians\",\n      \"url\": \"https://www.oxfordmusiconline.com/grovemusic\",\n      \"why_relevant\": \"Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart.\"\n    },\n    {\n      \"title\": \"Mozart: A Life by Maynard Solomon\",\n      \"url\": \"https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240\",\n      \"why_relevant\": \"A highly regarded scholarly biography that delves deeply into Mozart's life and context.\"\n    },\n    {\n      \"title\": \"Mozart's Music of the Great Masters Series\",\n      \"url\": \"https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series\",\n      \"why_relevant\": \"Expert analysis and discussion of Mozart's key works and their significance.\"\n    }\n  ],\n  \"notes\": \"Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 128,
+        "candidatesTokenCount": 516,
+        "totalTokenCount": 644,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Wolfgang Amadeus Mozart\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Mozart's Letters\",\n      \"url\": \"https://www.gutenberg.org/files/19741/19741-h/19741-h.htm\",\n      \"why_relevant\": \"Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence.\"\n    },\n    {\n      \"title\": \"Mozart's Musical Scores\",\n      \"url\": \"https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus\",\n      \"why_relevant\": \"Original musical compositions provide direct evidence of his compositional style and evolution.\"\n    },\n    {\n      \"title\": \"Contemporary Accounts of Mozart\",\n      \"url\": \"https://www.mozart.org/en/biography/\",\n      \"why_relevant\": \"Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The New Grove Dictionary of Music and Musicians\",\n      \"url\": \"https://www.oxfordmusiconline.com/grovemusic\",\n      \"why_relevant\": \"Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart.\"\n    },\n    {\n      \"title\": \"Mozart: A Life by Maynard Solomon\",\n      \"url\": \"https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240\",\n      \"why_relevant\": \"A highly regarded scholarly biography that delves deeply into Mozart's life and context.\"\n    },\n    {\n      \"title\": \"Mozart's Music of the Great Masters Series\",\n      \"url\": \"https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series\",\n      \"why_relevant\": \"Expert analysis and discussion of Mozart's key works and their significance.\"\n    }\n  ],\n  \"notes\": \"Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 128,
+          "candidatesTokenCount": 516,
+          "totalTokenCount": 644,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 128
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "EjOIaaagNfnm_uMPr4Sv4Ak"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "w-e-b-du-bois",
+        "canonical_name": "W.E.B. Du Bois"
+      },
+      "parsed": {
+        "figure": "W.E.B. Du Bois",
+        "primary_sources": [
+          {
+            "title": "The Souls of Black Folk",
+            "url": "https://www.gutenberg.org/files/408/408-h/408-h.htm",
+            "why_relevant": "Du Bois's seminal work, offering profound insights into the Black experience in America."
+          },
+          {
+            "title": "The Crisis Magazine Archives",
+            "url": "https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1",
+            "why_relevant": "Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues."
+          },
+          {
+            "title": "W.E.B. Du Bois Papers, University of Massachusetts Amherst",
+            "url": "https://credo.library.umass.edu/collections/index.php/dubois",
+            "why_relevant": "Extensive collection of his personal writings, correspondence, and research materials."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "W.E.B. Du Bois: A Biography by David Levering Lewis",
+            "url": "https://www.hup.harvard.edu/catalog.php?isbn=9780805068122",
+            "why_relevant": "A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work."
+          },
+          {
+            "title": "The W.E.B. Du Bois Center at Harvard University",
+            "url": "https://duboiscenter.fas.harvard.edu/",
+            "why_relevant": "Provides resources, scholarship, and context for understanding Du Bois's legacy and impact."
+          },
+          {
+            "title": "Stanford Encyclopedia of Philosophy: W.E.B. Du Bois",
+            "url": "https://plato.stanford.edu/entries/dubois/",
+            "why_relevant": "Scholarly overview of his philosophical contributions and intellectual development."
+          }
+        ],
+        "notes": "Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights."
+      },
+      "text": "{\n  \"figure\": \"W.E.B. Du Bois\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Souls of Black Folk\",\n      \"url\": \"https://www.gutenberg.org/files/408/408-h/408-h.htm\",\n      \"why_relevant\": \"Du Bois's seminal work, offering profound insights into the Black experience in America.\"\n    },\n    {\n      \"title\": \"The Crisis Magazine Archives\",\n      \"url\": \"https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1\",\n      \"why_relevant\": \"Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues.\"\n    },\n    {\n      \"title\": \"W.E.B. Du Bois Papers, University of Massachusetts Amherst\",\n      \"url\": \"https://credo.library.umass.edu/collections/index.php/dubois\",\n      \"why_relevant\": \"Extensive collection of his personal writings, correspondence, and research materials.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"W.E.B. Du Bois: A Biography by David Levering Lewis\",\n      \"url\": \"https://www.hup.harvard.edu/catalog.php?isbn=9780805068122\",\n      \"why_relevant\": \"A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work.\"\n    },\n    {\n      \"title\": \"The W.E.B. Du Bois Center at Harvard University\",\n      \"url\": \"https://duboiscenter.fas.harvard.edu/\",\n      \"why_relevant\": \"Provides resources, scholarship, and context for understanding Du Bois's legacy and impact.\"\n    },\n    {\n      \"title\": \"Stanford Encyclopedia of Philosophy: W.E.B. Du Bois\",\n      \"url\": \"https://plato.stanford.edu/entries/dubois/\",\n      \"why_relevant\": \"Scholarly overview of his philosophical contributions and intellectual development.\"\n    }\n  ],\n  \"notes\": \"Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 132,
+        "candidatesTokenCount": 542,
+        "totalTokenCount": 674,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 132
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"W.E.B. Du Bois\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Souls of Black Folk\",\n      \"url\": \"https://www.gutenberg.org/files/408/408-h/408-h.htm\",\n      \"why_relevant\": \"Du Bois's seminal work, offering profound insights into the Black experience in America.\"\n    },\n    {\n      \"title\": \"The Crisis Magazine Archives\",\n      \"url\": \"https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1\",\n      \"why_relevant\": \"Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues.\"\n    },\n    {\n      \"title\": \"W.E.B. Du Bois Papers, University of Massachusetts Amherst\",\n      \"url\": \"https://credo.library.umass.edu/collections/index.php/dubois\",\n      \"why_relevant\": \"Extensive collection of his personal writings, correspondence, and research materials.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"W.E.B. Du Bois: A Biography by David Levering Lewis\",\n      \"url\": \"https://www.hup.harvard.edu/catalog.php?isbn=9780805068122\",\n      \"why_relevant\": \"A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work.\"\n    },\n    {\n      \"title\": \"The W.E.B. Du Bois Center at Harvard University\",\n      \"url\": \"https://duboiscenter.fas.harvard.edu/\",\n      \"why_relevant\": \"Provides resources, scholarship, and context for understanding Du Bois's legacy and impact.\"\n    },\n    {\n      \"title\": \"Stanford Encyclopedia of Philosophy: W.E.B. Du Bois\",\n      \"url\": \"https://plato.stanford.edu/entries/dubois/\",\n      \"why_relevant\": \"Scholarly overview of his philosophical contributions and intellectual development.\"\n    }\n  ],\n  \"notes\": \"Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 132,
+          "candidatesTokenCount": 542,
+          "totalTokenCount": 674,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 132
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "FTOIaZ3xCcaV_uMPyvSwsQU"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "thucydides",
+        "canonical_name": "Thucydides"
+      },
+      "parsed": {
+        "figure": "Thucydides",
+        "primary_sources": [
+          {
+            "title": "History of the Peloponnesian War",
+            "url": "https://www.gutenberg.org/files/1979/1979-h/1979-h.htm",
+            "why_relevant": "Thucydides' own account of the Peloponnesian War, the central event of his historical work."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Thucydides",
+            "url": "https://plato.stanford.edu/entries/thucydides/",
+            "why_relevant": "Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work."
+          },
+          {
+            "title": "The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War",
+            "url": "https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225",
+            "why_relevant": "A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text."
+          },
+          {
+            "title": "Thucydides and the World War",
+            "url": "https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032",
+            "why_relevant": "Analyzes Thucydides' relevance and influence on later historical thought and conflicts."
+          }
+        ],
+        "notes": "Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context."
+      },
+      "text": "{\n  \"figure\": \"Thucydides\",\n  \"primary_sources\": [\n    {\n      \"title\": \"History of the Peloponnesian War\",\n      \"url\": \"https://www.gutenberg.org/files/1979/1979-h/1979-h.htm\",\n      \"why_relevant\": \"Thucydides' own account of the Peloponnesian War, the central event of his historical work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Thucydides\",\n      \"url\": \"https://plato.stanford.edu/entries/thucydides/\",\n      \"why_relevant\": \"Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work.\"\n    },\n    {\n      \"title\": \"The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War\",\n      \"url\": \"https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225\",\n      \"why_relevant\": \"A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text.\"\n    },\n    {\n      \"title\": \"Thucydides and the World War\",\n      \"url\": \"https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032\",\n      \"why_relevant\": \"Analyzes Thucydides' relevance and influence on later historical thought and conflicts.\"\n    }\n  ],\n  \"notes\": \"Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 128,
+        "candidatesTokenCount": 434,
+        "totalTokenCount": 562,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Thucydides\",\n  \"primary_sources\": [\n    {\n      \"title\": \"History of the Peloponnesian War\",\n      \"url\": \"https://www.gutenberg.org/files/1979/1979-h/1979-h.htm\",\n      \"why_relevant\": \"Thucydides' own account of the Peloponnesian War, the central event of his historical work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Thucydides\",\n      \"url\": \"https://plato.stanford.edu/entries/thucydides/\",\n      \"why_relevant\": \"Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work.\"\n    },\n    {\n      \"title\": \"The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War\",\n      \"url\": \"https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225\",\n      \"why_relevant\": \"A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text.\"\n    },\n    {\n      \"title\": \"Thucydides and the World War\",\n      \"url\": \"https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032\",\n      \"why_relevant\": \"Analyzes Thucydides' relevance and influence on later historical thought and conflicts.\"\n    }\n  ],\n  \"notes\": \"Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 128,
+          "candidatesTokenCount": 434,
+          "totalTokenCount": 562,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 128
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "FzOIaZXZAtfi_uMPvL-s8Ag"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "clovis-i",
+        "canonical_name": "Clovis I"
+      },
+      "parsed": {
+        "figure": "Clovis I",
+        "primary_sources": [
+          {
+            "title": "Gregory of Tours, History of the Franks",
+            "url": "https://www.fordham.edu/halsall/basis/gregory-frankish.asp",
+            "why_relevant": "Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop."
+          },
+          {
+            "title": "The Book of Pontiffs (Liber Pontificalis)",
+            "url": "https://www.fordham.edu/halsall/source/liber-pont.asp",
+            "why_relevant": "Contains information on papal interactions and political context relevant to Clovis's conversion and reign."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "The Merovingian Age: A Guide to the Sources",
+            "url": "https://www.jstor.org/stable/2630021",
+            "why_relevant": "Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis."
+          },
+          {
+            "title": "The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire",
+            "url": "https://archive.org/details/cambridgemedieval02cambrich",
+            "why_relevant": "Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact."
+          },
+          {
+            "title": "The Frankish Kingdoms under the Merovingians: A Political History",
+            "url": "https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ",
+            "why_relevant": "Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy."
+          }
+        ],
+        "notes": "Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context."
+      },
+      "text": "{\n  \"figure\": \"Clovis I\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Gregory of Tours, History of the Franks\",\n      \"url\": \"https://www.fordham.edu/halsall/basis/gregory-frankish.asp\",\n      \"why_relevant\": \"Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop.\"\n    },\n    {\n      \"title\": \"The Book of Pontiffs (Liber Pontificalis)\",\n      \"url\": \"https://www.fordham.edu/halsall/source/liber-pont.asp\",\n      \"why_relevant\": \"Contains information on papal interactions and political context relevant to Clovis's conversion and reign.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The Merovingian Age: A Guide to the Sources\",\n      \"url\": \"https://www.jstor.org/stable/2630021\",\n      \"why_relevant\": \"Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis.\"\n    },\n    {\n      \"title\": \"The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire\",\n      \"url\": \"https://archive.org/details/cambridgemedieval02cambrich\",\n      \"why_relevant\": \"Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact.\"\n    },\n    {\n      \"title\": \"The Frankish Kingdoms under the Merovingians: A Political History\",\n      \"url\": \"https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ\",\n      \"why_relevant\": \"Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy.\"\n    }\n  ],\n  \"notes\": \"Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 127,
+        "candidatesTokenCount": 500,
+        "totalTokenCount": 627,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 127
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Clovis I\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Gregory of Tours, History of the Franks\",\n      \"url\": \"https://www.fordham.edu/halsall/basis/gregory-frankish.asp\",\n      \"why_relevant\": \"Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop.\"\n    },\n    {\n      \"title\": \"The Book of Pontiffs (Liber Pontificalis)\",\n      \"url\": \"https://www.fordham.edu/halsall/source/liber-pont.asp\",\n      \"why_relevant\": \"Contains information on papal interactions and political context relevant to Clovis's conversion and reign.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The Merovingian Age: A Guide to the Sources\",\n      \"url\": \"https://www.jstor.org/stable/2630021\",\n      \"why_relevant\": \"Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis.\"\n    },\n    {\n      \"title\": \"The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire\",\n      \"url\": \"https://archive.org/details/cambridgemedieval02cambrich\",\n      \"why_relevant\": \"Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact.\"\n    },\n    {\n      \"title\": \"The Frankish Kingdoms under the Merovingians: A Political History\",\n      \"url\": \"https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ\",\n      \"why_relevant\": \"Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy.\"\n    }\n  ],\n  \"notes\": \"Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 127,
+          "candidatesTokenCount": 500,
+          "totalTokenCount": 627,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 127
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "GTOIaeWKEpDf_uMPiue5sQw"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "erwin-schr-dinger",
+        "canonical_name": "Erwin Schrödinger"
+      },
+      "parsed": {
+        "figure": "Erwin Schrödinger",
+        "primary_sources": [
+          {
+            "title": "Schrödinger's Papers",
+            "url": "https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/",
+            "why_relevant": "Contains biographical information and details about his scientific work, directly from the Nobel Prize organization."
+          },
+          {
+            "title": "What is Life? by Erwin Schrödinger",
+            "url": "https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093",
+            "why_relevant": "A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology."
+          },
+          {
+            "title": "My Life and My Views",
+            "url": "https://www.goodreads.com/book/show/107550.My_Life_and_My_Views",
+            "why_relevant": "A collection of his writings and lectures, providing personal reflections and philosophical views."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Erwin Schrödinger - Biographical",
+            "url": "https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/",
+            "why_relevant": "Official Nobel Prize biography, offering a comprehensive overview of his life and achievements."
+          },
+          {
+            "title": "Schrödinger: A Life of Science",
+            "url": "https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X",
+            "why_relevant": "A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life."
+          },
+          {
+            "title": "The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist",
+            "url": "https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X",
+            "why_relevant": "While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions."
+          }
+        ],
+        "notes": "Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics."
+      },
+      "text": "{\n  \"figure\": \"Erwin Schrödinger\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Schrödinger's Papers\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Contains biographical information and details about his scientific work, directly from the Nobel Prize organization.\"\n    },\n    {\n      \"title\": \"What is Life? by Erwin Schrödinger\",\n      \"url\": \"https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093\",\n      \"why_relevant\": \"A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology.\"\n    },\n    {\n      \"title\": \"My Life and My Views\",\n      \"url\": \"https://www.goodreads.com/book/show/107550.My_Life_and_My_Views\",\n      \"why_relevant\": \"A collection of his writings and lectures, providing personal reflections and philosophical views.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Erwin Schrödinger - Biographical\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Official Nobel Prize biography, offering a comprehensive overview of his life and achievements.\"\n    },\n    {\n      \"title\": \"Schrödinger: A Life of Science\",\n      \"url\": \"https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X\",\n      \"why_relevant\": \"A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life.\"\n    },\n    {\n      \"title\": \"The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist\",\n      \"url\": \"https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X\",\n      \"why_relevant\": \"While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions.\"\n    }\n  ],\n  \"notes\": \"Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 126,
+        "candidatesTokenCount": 555,
+        "totalTokenCount": 681,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 126
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Erwin Schrödinger\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Schrödinger's Papers\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Contains biographical information and details about his scientific work, directly from the Nobel Prize organization.\"\n    },\n    {\n      \"title\": \"What is Life? by Erwin Schrödinger\",\n      \"url\": \"https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093\",\n      \"why_relevant\": \"A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology.\"\n    },\n    {\n      \"title\": \"My Life and My Views\",\n      \"url\": \"https://www.goodreads.com/book/show/107550.My_Life_and_My_Views\",\n      \"why_relevant\": \"A collection of his writings and lectures, providing personal reflections and philosophical views.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Erwin Schrödinger - Biographical\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Official Nobel Prize biography, offering a comprehensive overview of his life and achievements.\"\n    },\n    {\n      \"title\": \"Schrödinger: A Life of Science\",\n      \"url\": \"https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X\",\n      \"why_relevant\": \"A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life.\"\n    },\n    {\n      \"title\": \"The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist\",\n      \"url\": \"https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X\",\n      \"why_relevant\": \"While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions.\"\n    }\n  ],\n  \"notes\": \"Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 126,
+          "candidatesTokenCount": 555,
+          "totalTokenCount": 681,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 126
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "GzOIacHMKaG9_uMP2fKBsAo"
+      }
+    },
+    {
+      "ok": false,
+      "error": "Tool use with a response mime type: 'application/json' is unsupported",
+      "raw": {
+        "error": {
+          "code": 400,
+          "message": "Tool use with a response mime type: 'application/json' is unsupported",
+          "status": "INVALID_ARGUMENT"
+        }
+      },
+      "grounded": true,
+      "figure": {
+        "id": "patrice-lumumba",
+        "canonical_name": "Patrice Lumumba"
+      }
+    },
+    {
+      "ok": false,
+      "error": "Tool use with a response mime type: 'application/json' is unsupported",
+      "raw": {
+        "error": {
+          "code": 400,
+          "message": "Tool use with a response mime type: 'application/json' is unsupported",
+          "status": "INVALID_ARGUMENT"
+        }
+      },
+      "grounded": true,
+      "figure": {
+        "id": "frederick-the-great",
+        "canonical_name": "Frederick the Great"
+      }
+    },
+    {
+      "ok": false,
+      "error": "Tool use with a response mime type: 'application/json' is unsupported",
+      "raw": {
+        "error": {
+          "code": 400,
+          "message": "Tool use with a response mime type: 'application/json' is unsupported",
+          "status": "INVALID_ARGUMENT"
+        }
+      },
+      "grounded": true,
+      "figure": {
+        "id": "kim-il-sung",
+        "canonical_name": "Kim Il-sung"
+      }
+    },
+    {
+      "ok": false,
+      "error": "Tool use with a response mime type: 'application/json' is unsupported",
+      "raw": {
+        "error": {
+          "code": 400,
+          "message": "Tool use with a response mime type: 'application/json' is unsupported",
+          "status": "INVALID_ARGUMENT"
+        }
+      },
+      "grounded": true,
+      "figure": {
+        "id": "ferdinand-de-saussure",
+        "canonical_name": "Ferdinand de Saussure"
+      }
+    },
+    {
+      "ok": false,
+      "error": "Tool use with a response mime type: 'application/json' is unsupported",
+      "raw": {
+        "error": {
+          "code": 400,
+          "message": "Tool use with a response mime type: 'application/json' is unsupported",
+          "status": "INVALID_ARGUMENT"
+        }
+      },
+      "grounded": true,
+      "figure": {
+        "id": "ramanuja",
+        "canonical_name": "Ramanuja"
+      }
+    }
+  ]
+}

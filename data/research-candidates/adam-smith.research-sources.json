@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-02-08T07:36:53.798Z",
+  "figureId": "adam-smith",
+  "figureName": "Adam Smith",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 619,
+      "totalTokenCount": 907,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+        "author": "Adam Smith",
+        "year": 1776,
+        "rationale": "Smith's most famous and influential work, laying the foundation for classical economics. It is widely available in digital formats.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Theory of Moral Sentiments",
+        "author": "Adam Smith",
+        "year": 1759,
+        "rationale": "Smith's earlier major work, exploring ethics and human sympathy. It is also a foundational text and available digitally.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Essays on Philosophical Subjects",
+        "author": "Adam Smith",
+        "year": 1795,
+        "rationale": "A posthumously published collection of essays covering various philosophical topics, offering insights into Smith's broader intellectual interests.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Adam Smith's Political Economy: Foundations for a Free Society",
+        "author": "Michael D. Bordo",
+        "year": 2019,
+        "rationale": "A recent scholarly book examining Smith's economic thought and its relevance to contemporary issues, published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Adam Smith",
+        "author": "Roderick Long and Jennifer Welchman",
+        "year": 2006,
+        "rationale": "An edited collection of essays by leading scholars providing a comprehensive overview of Smith's life, work, and influence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Adam Smith and the Wealth of Nations: A Reader's Guide",
+        "author": "James R. Otteson",
+        "year": 2019,
+        "rationale": "A scholarly guide designed to help readers understand Smith's magnum opus, offering critical analysis and historical context.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Adam Smith's major works are foundational to economics and moral philosophy and are readily available in digital archives. The secondary sources focus on recent academic interpretations and comprehensive companions to his work."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Adam Smith's Political Economy: Foundations for a Free Society",
+      "reason": "Best score below threshold (0.54 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Adam Smith and the Wealth of Nations: A Reader's Guide",
+      "reason": "Best score below threshold (0.53 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Theory of Moral Sentiments",
+      "author": "Adam Smith",
+      "publication_year": 1761,
+      "source_url": "https://archive.org/details/theorymoralsent08smitgoog",
+      "access_url": "https://archive.org/details/theorymoralsent08smitgoog",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Theory of Moral Sentiments\". Matched primary suggestion by title=1.00, author=1.00, year=0.96; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Theory of Moral Sentiments",
+        "suggestion_author": "Adam Smith",
+        "suggestion_year": 1759,
+        "suggestion_rationale": "Smith's earlier major work, exploring ethics and human sympathy. It is also a foundational text and available digitally.",
+        "ia_identifier": "theorymoralsent08smitgoog"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "An Inquiry Into the Nature and Causes of the Wealth of Nations",
+      "author": "Adam Smith",
+      "publication_year": 1801,
+      "source_url": "https://archive.org/details/aninquiryintona15smitgoog",
+      "access_url": "https://archive.org/details/aninquiryintona15smitgoog",
+      "snippet": null,
+      "confidence": 0.985,
+      "why": "Primary source resolved from suggestion \"An Inquiry into the Nature and Causes of the Wealth of Nations\". Matched primary suggestion by title=1.00, author=1.00, year=0.50; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "An Inquiry into the Nature and Causes of the Wealth of Nations",
+        "suggestion_author": "Adam Smith",
+        "suggestion_year": 1776,
+        "suggestion_rationale": "Smith's most famous and influential work, laying the foundation for classical economics. It is widely available in digital formats.",
+        "ia_identifier": "aninquiryintona15smitgoog"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Essays on Philosophical Subjects",
+      "author": "Adam Smith, Dugald Stewart",
+      "publication_year": 1795,
+      "source_url": "https://archive.org/details/essaysonphiloso00stewgoog",
+      "access_url": "https://archive.org/details/essaysonphiloso00stewgoog",
+      "snippet": null,
+      "confidence": 0.925,
+      "why": "Primary source resolved from suggestion \"Essays on Philosophical Subjects\". Matched primary suggestion by title=1.00, author=0.50, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Essays on Philosophical Subjects",
+        "suggestion_author": "Adam Smith",
+        "suggestion_year": 1795,
+        "suggestion_rationale": "A posthumously published collection of essays covering various philosophical topics, offering insights into Smith's broader intellectual interests.",
+        "ia_identifier": "essaysonphiloso00stewgoog"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Adam Smith",
+      "author": null,
+      "publication_year": 2006,
+      "source_url": "https://doi.org/10.1017/ccol0521770599",
+      "access_url": "https://doi.org/10.1017/ccol0521770599",
+      "snippet": null,
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Adam Smith\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Adam Smith",
+        "suggestion_author": "Roderick Long and Jennifer Welchman",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "An edited collection of essays by leading scholars providing a comprehensive overview of Smith's life, work, and influence.",
+        "doi": "10.1017/ccol0521770599",
+        "crossref_type": "edited-book"
+      }
+    }
+  ]
+}

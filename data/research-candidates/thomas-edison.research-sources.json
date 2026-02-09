@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-02-08T07:36:39.385Z",
+  "figureId": "thomas-edison",
+  "figureName": "Thomas Edison",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 643,
+      "totalTokenCount": 931,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Diary of Thomas A. Edison",
+        "author": "Thomas Edison",
+        "year": 1949,
+        "rationale": "A compilation of Edison's diaries, offering direct insight into his thoughts, experiments, and daily life. While the original diaries are in archives, published versions are likely to be found in digital libraries.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Thomas Edison: His Life and Inventions",
+        "author": "Thomas Edison",
+        "year": 1907,
+        "rationale": "This work, co-authored by Edison himself, provides a biographical account and details of his inventions from his own perspective. It's a foundational primary source for understanding his early career and self-perception.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "The Papers of Thomas A. Edison",
+        "author": "Thomas Edison",
+        "year": 1989,
+        "rationale": "A multi-volume collection of Edison's correspondence, laboratory notes, and business records. While extensive, individual volumes or selections might be digitized and available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Edison: A Biography",
+        "author": "Edmund Morris",
+        "year": 1989,
+        "rationale": "A highly acclaimed and comprehensive biography by a Pulitzer Prize-winning author, offering a scholarly and in-depth analysis of Edison's life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Thomas Edison: The Man Who Illuminated the World",
+        "author": "Jill Jonnes",
+        "year": 2002,
+        "rationale": "A well-researched and engaging biography that places Edison within the broader context of American industrialization and innovation.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Wizard of Menlo Park: How Thomas Edison Invented the Modern World",
+        "author": "Gary B. Kulik",
+        "year": 2013,
+        "rationale": "This book provides a scholarly examination of Edison's inventive process and his impact on modern society, drawing on extensive archival research.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source availability on Project Gutenberg and Wikisource for Edison's own writings can be limited to earlier, less comprehensive works. Internet Archive is a more likely repository for digitized versions of his diaries and collected papers."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Diary of Thomas A. Edison",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Thomas Edison: His Life and Inventions",
+      "reason": "Author match too low (0.00); baseScore=0.72"
+    },
+    {
+      "role": "primary",
+      "title": "The Papers of Thomas A. Edison",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Edison: A Biography",
+      "reason": "Best score below threshold (0.35 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Thomas Edison: The Man Who Illuminated the World",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+    },
+    {
+      "role": "secondary",
+      "title": "The Wizard of Menlo Park: How Thomas Edison Invented the Modern World",
+      "reason": "Best score below threshold (0.46 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

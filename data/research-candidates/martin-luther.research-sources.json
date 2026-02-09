@@ -1,0 +1,162 @@
+{
+  "generatedAt": "2026-02-08T07:29:41.024Z",
+  "figureId": "martin-luther",
+  "figureName": "Martin Luther",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 565,
+      "totalTokenCount": 853,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Ninety-five Theses",
+        "author": "Martin Luther",
+        "year": 1517,
+        "rationale": "The foundational document of the Protestant Reformation, widely available in translation.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "On the Freedom of a Christian",
+        "author": "Martin Luther",
+        "year": 1520,
+        "rationale": "A key theological treatise outlining Luther's core beliefs on faith and Christian liberty.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Table Talk",
+        "author": "Martin Luther",
+        "year": 1569,
+        "rationale": "A collection of Luther's reported conversations and sayings, offering insights into his personal views and daily life. Published posthumously.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Martin Luther: A Life",
+        "author": "James M. Kittelson",
+        "year": 2003,
+        "rationale": "A comprehensive and well-regarded scholarly biography of Martin Luther.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Martin Luther",
+        "author": "Donald K. McKim",
+        "year": 2003,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Luther's life, theology, and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Luther's Last Battle: The Struggle for the German Reformation",
+        "author": "Mark U. Edwards Jr.",
+        "year": 2017,
+        "rationale": "Focuses on the later years of Luther's life and his role in shaping the Reformation's trajectory.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source texts are often available in collected works or specific translations. Secondary sources are chosen for their scholarly reputation and recency."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Ninety-five Theses",
+      "reason": "Title similarity too low (0.43); baseScore=0.39"
+    },
+    {
+      "role": "primary",
+      "title": "On the Freedom of a Christian",
+      "reason": "Title similarity too low (0.29); baseScore=0.28"
+    },
+    {
+      "role": "primary",
+      "title": "Table Talk",
+      "reason": "Title similarity too low (0.33); baseScore=0.51"
+    },
+    {
+      "role": "secondary",
+      "title": "Luther's Last Battle: The Struggle for the German Reformation",
+      "reason": "Best score below threshold (0.51 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Martin Luther",
+      "author": "Donald K. McKim",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.1017/ccol0521816483",
+      "access_url": "https://doi.org/10.1017/ccol0521816483",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Martin Luther\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Martin Luther",
+        "suggestion_author": "Donald K. McKim",
+        "suggestion_year": 2003,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Luther's life, theology, and impact.",
+        "openalex_id": "https://openalex.org/W561079719",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Martin Luther: A Life",
+      "author": "James Arne Nestingen",
+      "publication_year": 2003,
+      "source_url": "https://openlibrary.org/books/OL3708535M/Martin_Luther",
+      "access_url": "https://openlibrary.org/books/OL3708535M/Martin_Luther",
+      "snippet": null,
+      "confidence": 0.93,
+      "why": "Secondary source resolved from suggestion \"Martin Luther: A Life\". Matched secondary suggestion by title=1.00, author=0.25, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Martin Luther: A Life",
+        "suggestion_author": "James M. Kittelson",
+        "suggestion_year": 2003,
+        "suggestion_rationale": "A comprehensive and well-regarded scholarly biography of Martin Luther.",
+        "openalex_id": "https://openalex.org/W2971166503",
+        "work_type": "book"
+      }
+    }
+  ]
+}

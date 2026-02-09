@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-02-08T07:37:20.973Z",
+  "figureId": "john-locke",
+  "figureName": "John Locke",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 579,
+      "totalTokenCount": 867,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "An Essay Concerning Human Understanding",
+        "author": "John Locke",
+        "year": 1689,
+        "rationale": "Locke's most famous work, a foundational text in empiricism and epistemology. Widely available in digital archives.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Two Treatises of Government",
+        "author": "John Locke",
+        "year": 1689,
+        "rationale": "A seminal work of political philosophy, arguing for natural rights and government by consent. Essential for understanding his political thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "A Letter Concerning Toleration",
+        "author": "John Locke",
+        "year": 1689,
+        "rationale": "An influential argument for religious tolerance, a key concept in liberal thought. Frequently published and digitized.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Locke",
+        "author": "Vere Chappell",
+        "year": 1992,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Locke's philosophy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Locke: A Very Short Introduction",
+        "author": "John Dunn",
+        "year": 2003,
+        "rationale": "A concise and accessible overview of Locke's life and major contributions by a prominent Locke scholar.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Locke's 'Essay Concerning Human Understanding'",
+        "author": "William Uzgalis",
+        "year": 2012,
+        "rationale": "A detailed examination of Locke's magnum opus, offering in-depth analysis and scholarly interpretation.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "All primary sources are foundational texts by Locke and are widely available in digital formats. Secondary sources are from reputable academic companions and by established scholars in the field."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Locke: A Very Short Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.19"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "An Essay Concerning Human Understanding",
+      "author": "John Locke",
+      "publication_year": 1689,
+      "source_url": "https://archive.org/details/Humanund1",
+      "access_url": "https://archive.org/details/Humanund1",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"An Essay Concerning Human Understanding\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "An Essay Concerning Human Understanding",
+        "suggestion_author": "John Locke",
+        "suggestion_year": 1689,
+        "suggestion_rationale": "Locke's most famous work, a foundational text in empiricism and epistemology. Widely available in digital archives.",
+        "ia_identifier": "Humanund1"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Two Treatises of Government",
+      "author": "John Locke",
+      "publication_year": 1689,
+      "source_url": "https://archive.org/details/twotreatisesofgo-0000lock-z-7g-8-1",
+      "access_url": "https://archive.org/details/twotreatisesofgo-0000lock-z-7g-8-1",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Two Treatises of Government\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Two Treatises of Government",
+        "suggestion_author": "John Locke",
+        "suggestion_year": 1689,
+        "suggestion_rationale": "A seminal work of political philosophy, arguing for natural rights and government by consent. Essential for understanding his political thought.",
+        "ia_identifier": "twotreatisesofgo-0000lock-z-7g-8-1"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "letter",
+      "title": "A letter concerning toleration,",
+      "author": "John Locke",
+      "publication_year": 1955,
+      "source_url": "https://archive.org/details/letterconcerning0000john",
+      "access_url": "https://archive.org/details/letterconcerning0000john",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"A Letter Concerning Toleration\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "A Letter Concerning Toleration",
+        "suggestion_author": "John Locke",
+        "suggestion_year": 1689,
+        "suggestion_rationale": "An influential argument for religious tolerance, a key concept in liberal thought. Frequently published and digitized.",
+        "ia_identifier": "letterconcerning0000john"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Locke",
+      "author": "Vere Chappell",
+      "publication_year": 1994,
+      "source_url": "https://doi.org/10.1017/ccol0521383714",
+      "access_url": "https://doi.org/10.1017/ccol0521383714",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Locke\". Matched secondary suggestion by title=1.00, author=1.00, year=0.93; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Locke",
+        "suggestion_author": "Vere Chappell",
+        "suggestion_year": 1992,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Locke's philosophy.",
+        "openalex_id": "https://openalex.org/W4256048385",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": ":<i>The Cambridge Companion to Locke's \"Essay concerning Human Understanding.\"</i>",
+      "author": "Bradford McCall",
+      "publication_year": 2009,
+      "source_url": "https://doi.org/10.1086/scj40540688",
+      "access_url": "https://doi.org/10.1086/scj40540688",
+      "snippet": "Sixteenth Century Journal",
+      "confidence": 0.863,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Locke's 'Essay Concerning Human Understanding'\". Matched secondary suggestion by title=1.00, author=0.00, year=0.90; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Locke's 'Essay Concerning Human Understanding'",
+        "suggestion_author": "William Uzgalis",
+        "suggestion_year": 2012,
+        "suggestion_rationale": "A detailed examination of Locke's magnum opus, offering in-depth analysis and scholarly interpretation.",
+        "openalex_id": "https://openalex.org/W4388783162",
+        "work_type": "article"
+      }
+    }
+  ]
+}

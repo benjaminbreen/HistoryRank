@@ -111,6 +111,7 @@ Core tables should support:
 6. [x] Extend `research:sources` to collect `primary,secondary,reference` roles (`--roles` flag).
 7. [x] Extend `research:import` to ingest `.research-sources.json` and preserve provider metadata.
 8. [x] Group Research tab source leads by role with provider-aware labels.
+9. [x] Add hybrid source pipeline (`research:sources:hybrid`): Gemini 2.5 Flash-Lite title suggestions + deterministic URL resolver + optional `--publish`.
 
 ## Risks to Watch
 

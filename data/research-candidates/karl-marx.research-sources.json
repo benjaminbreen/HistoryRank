@@ -1,270 +1,173 @@
 {
-  "generatedAt": "2026-02-08T03:32:05.852Z",
+  "generatedAt": "2026-02-08T07:29:11.716Z",
   "figureId": "karl-marx",
   "figureName": "Karl Marx",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "wikisource",
-      "crossref",
-      "openlibrary",
-      "loc"
-    ],
-    "queryNames": [
-      "Karl Marx",
-      "Marx"
-    ],
-    "seedFallbackUsed": false
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 543,
+      "totalTokenCount": 831,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
   },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Das Kapital",
+        "author": "Karl Marx",
+        "year": 1867,
+        "rationale": "Marx's magnum opus, a foundational text of communist theory and critique of political economy. Its historical significance is immense.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Communist Manifesto",
+        "author": "Karl Marx",
+        "year": 1848,
+        "rationale": "A seminal political pamphlet outlining the principles of communism, widely studied and influential.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Eighteenth Brumaire of Louis Bonaparte",
+        "author": "Karl Marx",
+        "year": 1852,
+        "rationale": "An important historical analysis of a specific political event, demonstrating Marx's application of historical materialism.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Marx: A Very Short Introduction",
+        "author": "Peter Singer",
+        "year": 2000,
+        "rationale": "A concise and accessible overview of Marx's life, thought, and influence by a prominent philosopher.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Karl Marx: A Nineteenth-Century Life",
+        "author": "Jonathan Sperber",
+        "year": 2013,
+        "rationale": "A comprehensive and well-regarded biography that places Marx within his historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Marx's Capital",
+        "author": "Terry Eagleton",
+        "year": 1991,
+        "rationale": "A collection of essays by leading scholars providing in-depth analysis of Marx's most important work.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are widely available in multiple digital archives. Secondary sources are major academic works providing context and analysis."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Das Kapital",
+      "reason": "Title similarity too low (0.53); baseScore=0.65"
+    },
+    {
+      "role": "secondary",
+      "title": "Marx: A Very Short Introduction",
+      "reason": "Best score below threshold (0.29 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Marx's Capital",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.14"
+    }
+  ],
   "candidates": [
     {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "speech",
-      "title": "Friedrich Engels' Speech at the Grave of Karl Marx",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Friedrich_Engels'_Speech_at_the_Grave_of_Karl_Marx",
-      "access_url": "https://en.wikisource.org/wiki/Friedrich_Engels'_Speech_at_the_Grave_of_Karl_Marx",
-      "confidence": 0.93,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Karl Marx",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Karl_Marx",
-      "access_url": "https://en.wikisource.org/wiki/Karl_Marx",
-      "confidence": 0.85,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Theoretical System of Karl Marx",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Theoretical_System_of_Karl_Marx",
-      "access_url": "https://en.wikisource.org/wiki/The_Theoretical_System_of_Karl_Marx",
-      "confidence": 0.85,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Karl Marx: The Man and His Work",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Karl_Marx%3A_The_Man_and_His_Work",
-      "access_url": "https://en.wikisource.org/wiki/Karl_Marx%3A_The_Man_and_His_Work",
-      "confidence": 0.85,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
-      "source_corpus": "wikisource",
+      "source_corpus": "project_gutenberg",
       "source_role": "primary",
       "source_kind": "book",
-      "title": "Selected Essays by Karl Marx/Preface",
-      "author": null,
+      "title": "The Communist Manifesto",
+      "author": "Marx, Karl",
       "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Selected_Essays_by_Karl_Marx%2FPreface",
-      "access_url": "https://en.wikisource.org/wiki/Selected_Essays_by_Karl_Marx%2FPreface",
-      "confidence": 0.85,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Karl Marx / Friedrich Engels Gesamtausgabe (MEGA) BAND 1 Karl Marx Ökonomische Manuskripte 1857/58",
-      "author": null,
-      "publication_year": 2006,
-      "source_url": "https://doi.org/10.1515/9783050063430",
-      "access_url": "https://doi.org/10.1515/9783050063430",
+      "source_url": "https://www.gutenberg.org/ebooks/61",
+      "access_url": "https://www.gutenberg.org/ebooks/61",
       "snippet": null,
-      "confidence": 0.782,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Communist Manifesto\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.1515/9783050063430",
-        "referenced_by_count": 13,
-        "container_title": null,
-        "work_type": "book"
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Communist Manifesto",
+        "suggestion_author": "Karl Marx",
+        "suggestion_year": 1848,
+        "suggestion_rationale": "A seminal political pamphlet outlining the principles of communism, widely studied and influential.",
+        "gutenberg_id": 61
       }
     },
     {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
       "source_kind": "book",
-      "title": "Karl Marx. Friedrich Engels. Gesamtausgabe. (Mega)",
-      "author": null,
-      "publication_year": 2008,
-      "source_url": "https://doi.org/10.1515/9783050063614-025",
-      "access_url": "https://doi.org/10.1515/9783050063614-025",
-      "snippet": "Karl Marx / Friedrich Engels Gesamtausgabe (MEGA) BAND 13 Karl Marx Das Kapital Kritik der politischen Ökonomie Zweiter Band Hamburg 1885",
-      "confidence": 0.728,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "title": "The Eighteenth Brumaire of Louis Bonaparte",
+      "author": "Marx, Karl",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1346",
+      "access_url": "https://www.gutenberg.org/ebooks/1346",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Eighteenth Brumaire of Louis Bonaparte\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.1515/9783050063614-025",
-        "referenced_by_count": 2,
-        "container_title": "Karl Marx / Friedrich Engels Gesamtausgabe (MEGA) BAND 13 Karl Marx Das Kapital Kritik der politischen Ökonomie Zweiter Band Hamburg 1885",
-        "work_type": "book-chapter"
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Eighteenth Brumaire of Louis Bonaparte",
+        "suggestion_author": "Karl Marx",
+        "suggestion_year": 1852,
+        "suggestion_rationale": "An important historical analysis of a specific political event, demonstrating Marx's application of historical materialism.",
+        "gutenberg_id": 1346
       }
     },
     {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Karl Marx",
-      "author": "David Leopold",
-      "publication_year": 2015,
-      "source_url": "https://doi.org/10.1093/obo/9780195396577-0265",
-      "access_url": "https://doi.org/10.1093/obo/9780195396577-0265",
-      "snippet": "Philosophy",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1093/obo/9780195396577-0265",
-        "referenced_by_count": 0,
-        "container_title": "Philosophy",
-        "work_type": "reference-entry"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Conclusion – Impasse Karl Marx",
-      "author": null,
-      "publication_year": 2024,
-      "source_url": "https://doi.org/10.1515/9782766305247-008",
-      "access_url": "https://doi.org/10.1515/9782766305247-008",
-      "snippet": "Karl Marx",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1515/9782766305247-008",
-        "referenced_by_count": 0,
-        "container_title": "Karl Marx",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "crossref",
+      "source_corpus": "openalex",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "MARX AND LENIN AT MARX HOUSE",
-      "author": null,
-      "publication_year": 1941,
-      "source_url": "https://doi.org/10.3828/mhb.1941.6.5",
-      "access_url": "https://doi.org/10.3828/mhb.1941.6.5",
-      "snippet": "Marx House Bulletin",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "title": "Karl Marx: a nineteenth-century life",
+      "author": "Jonathan Sperber",
+      "publication_year": 2013,
+      "source_url": "https://doi.org/10.5860/choice.50-6977",
+      "access_url": "https://doi.org/10.5860/choice.50-6977",
+      "snippet": "Choice Reviews Online",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Karl Marx: A Nineteenth-Century Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.3828/mhb.1941.6.5",
-        "referenced_by_count": 0,
-        "container_title": "Marx House Bulletin",
-        "work_type": "journal-article"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Karl Marx Biographie",
-      "author": "Kommunisticheskaya Partiya Sovetskogo Soyuza. Institut Marksizma-Leninizma.",
-      "publication_year": 1973,
-      "source_url": "https://openlibrary.org/works/OL10757875W",
-      "access_url": "https://openlibrary.org/works/OL10757875W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Karl Marx",
-      "author": null,
-      "publication_year": 1975,
-      "source_url": "https://openlibrary.org/works/OL22680814W",
-      "access_url": "https://openlibrary.org/works/OL22680814W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Karl Marx, Biographie",
-      "author": null,
-      "publication_year": 1977,
-      "source_url": "https://openlibrary.org/works/OL16831133M",
-      "access_url": "https://openlibrary.org/works/OL16831133M",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "La vie de Karl Marx",
-      "author": "Jacques Delperrié de Bayac",
-      "publication_year": 1979,
-      "source_url": "https://openlibrary.org/works/OL9943442W",
-      "access_url": "https://openlibrary.org/works/OL9943442W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 2,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Karl Marx",
-      "author": "loria, achille",
-      "publication_year": 1920,
-      "source_url": "https://www.loc.gov/item/20014209/",
-      "access_url": "https://www.loc.gov/item/20014209/",
-      "snippet": "Also available in digital form.",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Karl Marx: A Nineteenth-Century Life",
+        "suggestion_author": "Jonathan Sperber",
+        "suggestion_year": 2013,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that places Marx within his historical context.",
+        "openalex_id": "https://openalex.org/W1507973995",
+        "work_type": "article"
       }
     }
   ]

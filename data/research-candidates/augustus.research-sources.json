@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-02-08T07:36:31.925Z",
+  "figureId": "augustus",
+  "figureName": "Augustus",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 484,
+      "totalTokenCount": 771,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Res Gestae Divi Augusti",
+        "author": "Augustus",
+        "year": 14,
+        "rationale": "Augustus's own account of his achievements, a foundational primary source for his reign. Available in multiple translations.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Deeds of the Divine Augustus",
+        "author": "Augustus",
+        "year": 14,
+        "rationale": "English translation of the Res Gestae, often found alongside scholarly commentary.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Augustus: The Life of Rome's First Emperor",
+        "author": "Adrian Goldsworthy",
+        "year": 2014,
+        "rationale": "A comprehensive and well-regarded biography of Augustus by a leading historian of the ancient world.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to the Age of Augustus",
+        "author": "John F. Drinkwater and Bill Leadbetter",
+        "year": 2014,
+        "rationale": "A collection of scholarly essays covering various aspects of Augustus's life, reign, and legacy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Augustan Rome",
+        "author": "Andrew Wallace-Hadrill",
+        "year": 1989,
+        "rationale": "An influential study that examines Roman society and culture during the Augustan period, offering insights into the context of Augustus's rule.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are limited to Augustus's own writings, with the Res Gestae being the most significant. Secondary sources focus on modern scholarly interpretations of his life and times."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Res Gestae Divi Augusti",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "The Deeds of the Divine Augustus",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "secondary",
+      "title": "Augustan Rome",
+      "reason": "Best score below threshold (0.42 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Augustus: the life of Rome's first emperor",
+      "author": null,
+      "publication_year": 2008,
+      "source_url": "https://doi.org/10.5860/choice.45-2762",
+      "access_url": "https://doi.org/10.5860/choice.45-2762",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.846,
+      "why": "Secondary source resolved from suggestion \"Augustus: The Life of Rome's First Emperor\". Matched secondary suggestion by title=1.00, author=0.00, year=0.80; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Augustus: The Life of Rome's First Emperor",
+        "suggestion_author": "Adrian Goldsworthy",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A comprehensive and well-regarded biography of Augustus by a leading historian of the ancient world.",
+        "openalex_id": "https://openalex.org/W4206817716",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to the Age of Augustus",
+      "author": null,
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.1017/ccol0521807964",
+      "access_url": "https://doi.org/10.1017/ccol0521807964",
+      "snippet": null,
+      "confidence": 0.839,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to the Age of Augustus\". Matched secondary suggestion by title=1.00, author=0.00, year=0.70; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to the Age of Augustus",
+        "suggestion_author": "John F. Drinkwater and Bill Leadbetter",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A collection of scholarly essays covering various aspects of Augustus's life, reign, and legacy.",
+        "doi": "10.1017/ccol0521807964",
+        "crossref_type": "edited-book"
+      }
+    }
+  ]
+}

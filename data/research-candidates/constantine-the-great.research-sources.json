@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-02-08T07:40:47.641Z",
+  "figureId": "constantine-the-great",
+  "figureName": "Constantine the Great",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 655,
+      "totalTokenCount": 944,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Edict of Milan",
+        "author": "Constantine the Great and Licinius",
+        "year": 313,
+        "rationale": "This is a foundational document for religious tolerance in the Roman Empire, issued by Constantine and Licinius. While not a direct speech or letter solely by Constantine, it is directly attributed to his reign and policy.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Letter of Constantine to the Church of Nicomedia",
+        "author": "Constantine the Great",
+        "year": 327,
+        "rationale": "This letter, preserved by Eusebius, discusses the construction of churches and Constantine's religious views, offering insight into his policies and personal beliefs.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Address to the Saints",
+        "author": "Constantine the Great",
+        "year": 325,
+        "rationale": "A speech attributed to Constantine, delivered at the Council of Nicaea, though its authenticity and exact wording are debated by scholars. It reflects his engagement with Christian doctrine.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Constantine the Great: Emperor, Christian, Revolutionary",
+        "author": "Paul Stephenson",
+        "year": 2010,
+        "rationale": "A comprehensive and well-regarded scholarly biography of Constantine, published by a major academic press, offering modern analysis of his reign and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to the Age of Constantine",
+        "author": "Noel Lenski",
+        "year": 2006,
+        "rationale": "An edited volume featuring essays by leading scholars on various aspects of Constantine's era, providing diverse scholarly perspectives on his rule and its consequences.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Constantine's Conversion: Historical, Literary, and Theological Reinterpretations",
+        "author": "Paul J. Fedwick",
+        "year": 1981,
+        "rationale": "This collection of essays critically examines the complex and debated topic of Constantine's conversion, offering scholarly analysis from multiple viewpoints.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources attributed to Constantine are often preserved through the writings of others, such as Eusebius of Caesarea. Direct, independently preserved texts are rare. Availability on digital archives like Internet Archive is more likely than on Project Gutenberg or Wikisource for these specific historical documents."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Edict of Milan",
+      "reason": "Title similarity too low (0.13); baseScore=0.19"
+    },
+    {
+      "role": "primary",
+      "title": "Letter of Constantine to the Church of Nicomedia",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Address to the Saints",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Constantine the Great: Emperor, Christian, Revolutionary",
+      "reason": "Best score below threshold (0.00 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to the Age of Constantine",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.84"
+    },
+    {
+      "role": "secondary",
+      "title": "Constantine's Conversion: Historical, Literary, and Theological Reinterpretations",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.11"
+    }
+  ],
+  "candidates": []
+}

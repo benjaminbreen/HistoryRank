@@ -1,287 +1,76 @@
 {
-  "generatedAt": "2026-02-08T03:31:54.470Z",
+  "generatedAt": "2026-02-08T07:29:04.231Z",
   "figureId": "johannes-gutenberg",
   "figureName": "Johannes Gutenberg",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "internet_archive",
-      "openalex",
-      "crossref",
-      "openlibrary",
-      "loc"
-    ],
-    "queryNames": [
-      "Johannes Gutenberg",
-      "Gutenberg"
-    ],
-    "seedFallbackUsed": false
-  },
-  "candidates": [
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "JOHANNES GUTENBERG - COMIC - KANNADA",
-      "author": "KANNADA : P. K. NANAVATI",
-      "publication_year": null,
-      "source_url": "https://archive.org/details/johannes-gutenberg-kannada",
-      "access_url": "https://archive.org/details/johannes-gutenberg-kannada",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Dissertation at the Johannes Gutenberg",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://archive.org/details/manualzilla-id-6794426",
-      "access_url": "https://archive.org/details/manualzilla-id-6794426",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Johannes Gutenberg : the printer who gave words to the world",
-      "author": "Feinstein, Stephen",
-      "publication_year": 2008,
-      "source_url": "https://archive.org/details/johannesgutenber0000fein",
-      "access_url": "https://archive.org/details/johannesgutenber0000fein",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Johannes Gutenberg kulturhistorischer Roman",
-      "author": "Albertine Röslin Henrich",
-      "publication_year": 1861,
-      "source_url": "https://archive.org/details/bub_gb_3GtBAQAAMAAJ",
-      "access_url": "https://archive.org/details/bub_gb_3GtBAQAAMAAJ",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Johannes Gutenberg and the printing press",
-      "author": "Spilsbury, Louise, author",
-      "publication_year": 2016,
-      "source_url": "https://archive.org/details/johannesgutenber0000spil",
-      "access_url": "https://archive.org/details/johannesgutenber0000spil",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "The Gutenberg Galaxy: The Making of Typographic Man",
-      "author": "G. N. Leech",
-      "publication_year": 1963,
-      "source_url": "https://doi.org/10.2307/3719923",
-      "access_url": "https://doi.org/10.2307/3719923",
-      "snippet": "The Modern Language Review",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 3350,
-        "openalex_id": "https://openalex.org/W2046139000",
-        "work_type": "article",
-        "venue": "The Modern Language Review"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Der Pausenexpress an der Johannes Gutenberg-Universität",
-      "author": null,
-      "publication_year": 2020,
-      "source_url": "https://doi.org/10.17147/asu-2011-8859",
-      "access_url": "https://doi.org/10.17147/asu-2011-8859",
-      "snippet": "ASU Arbeitsmedizin Sozialmedizin Umweltmedizin",
-      "confidence": 0.784,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.17147/asu-2011-8859",
-        "referenced_by_count": 14,
-        "container_title": "ASU Arbeitsmedizin Sozialmedizin Umweltmedizin",
-        "work_type": "journal-article"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Die Anfänge des Frauenstudiums an der Johannes Gutenberg-Universität Mainz",
-      "author": "Christian George",
-      "publication_year": 2023,
-      "source_url": "https://doi.org/10.14220/9783737015653.27",
-      "access_url": "https://doi.org/10.14220/9783737015653.27",
-      "snippet": "Frauen an der Johannes Gutenberg-Universität Mainz (1946–2022)",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.14220/9783737015653.27",
-        "referenced_by_count": 0,
-        "container_title": "Frauen an der Johannes Gutenberg-Universität Mainz (1946–2022)",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Johannes Gutenberg-Universität, Institutsbibliothek and Jahn-Bibliothek",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://doi.org/10.1163/1872-9037_afco_asc_1228",
-      "access_url": "https://doi.org/10.1163/1872-9037_afco_asc_1228",
-      "snippet": "African Studies Companion Online",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1163/1872-9037_afco_asc_1228",
-        "referenced_by_count": 0,
-        "container_title": "African Studies Companion Online",
-        "work_type": "dataset"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Gutenberg",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://doi.org/10.52056/gutenberg",
-      "access_url": "https://doi.org/10.52056/gutenberg",
-      "snippet": null,
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.52056/gutenberg",
-        "referenced_by_count": 0,
-        "container_title": null,
-        "work_type": "journal"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "If You Love Reading, Thank Johannes Gutenberg! Biography 3rd Grade Children's Biography Books",
-      "author": "Baby Professor",
-      "publication_year": 2017,
-      "source_url": "https://openlibrary.org/works/OL38110716W",
-      "access_url": "https://openlibrary.org/works/OL38110716W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Johannes Gutenberg",
-      "author": "Eric Marshall White",
-      "publication_year": 2025,
-      "source_url": "https://openlibrary.org/works/OL42426291W",
-      "access_url": "https://openlibrary.org/works/OL42426291W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 2,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Gutenberg Bible.",
-      "author": "gutenberg, johann",
-      "publication_year": 1454,
-      "source_url": "https://www.loc.gov/item/2021666734/",
-      "access_url": "https://www.loc.gov/item/2021666734/",
-      "snippet": "Johann Gutenberg was born in Mainz, Germany, around 1400, the son of an aristocratic family with ties to the local metalworking industry. He lived in Strasbourg (in present-day France) for a time, where he carried out experiments with moveable metallic type made from a mold. By the mid-1450s, he had perfected a system of printing with moveable type that he used to create what became the world's most famous book, the Latin translation of the Bible (Vulgate), generally known as the Gutenberg Bible. Scholars have thoroughly researched all aspects of Gutenberg's work: the elaborate typeface with its 290 different characters derived from a Gothic missal script, the way he divided the text in the typesetting process, and the paper he used in the printing. Yet certain fundamental matters about the Gutenberg Bible are unknown or remain matters of dispute. The date on which the printing was completed is based solely on the notation \"1455\" on the binding of the Paris paper copy. It is believed that 180 copies of the Bible were printed, but this information is based on a single letter of Enea Silvio Piccolomini (the future Pope Pius II), who viewed samples of Gutenberg's work in Frankfurt in 1455. Gutenberg originally intended to print in red the headings of the books of the Bible, but he abandoned this approach, using instead a separately printed table as a pattern for entering these lines by hand. Of the 49 extant, more-or-less complete copies of the Gutenberg Bible (12 on vellum, 37 on paper), this copy from the Bavarian State Library is one of only two (along with one copy in the Austrian National Library) in which this table is found as a vestige of the production process.",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Gutenberg, and the art of printing",
-      "author": "h.o. houghton & company",
-      "publication_year": 1871,
-      "source_url": "https://www.loc.gov/item/06011209/",
-      "access_url": "https://www.loc.gov/item/06011209/",
-      "snippet": "\"Riverside, Cambridge: Stereotyped and printed by H.O. Houghton and Company.\"--Title page verso. Also available in digital form. LAC knj 2019-04-30 no edits (1 card)",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Project Gutenberg fine literature digitally re-published.",
-      "author": "project gutenberg",
-      "publication_year": 2002,
-      "source_url": "//lccn.loc.gov/2002567422",
-      "access_url": "//lccn.loc.gov/2002567422",
-      "snippet": "Compilation of public domain ASCII electronic texts. Presents classic literature, historical documents, religious works, and reference tools. \"Project Gutenberg was created by Michael Hart in 1971 at the University of Illinois with the ambitious vision of providing access to books in electronic text format a short time after they entered the public domain. Now, more than thirty years later, over 6,000 titles have been posted to the site. Texts available in Project Gutenberg include light literature (Sir Arthur Conan Doyle, Edgar Rice Burroughs), heavy literature (such as the works of Shakespeare); and reference sources such as almanacs, encyclopedias, and dictionaries. The works may be searched or browsed by author or title and are stored in zip files. From perennial classics to more obscure works, Project Gutenberg's e-text archive is an amazing resource, reflecting the work of countless volunteers who select and digitize the resources included.\" --Reviewed March, 2003. \"Best Free Reference Web Sites 2003,\" RUSA Quarterly, Fall 2003. Comp. by the MARS Best Free Websites Committee, RUSA, ALA.",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
-      }
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 343,
+      "totalTokenCount": 631,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
     }
-  ]
+  },
+  "suggestions": {
+    "primary": [],
+    "secondary": [
+      {
+        "title": "The Gutenberg Revolution",
+        "author": "John Man",
+        "year": 2009,
+        "rationale": "A comprehensive and accessible account of Gutenberg's life and the impact of his invention, drawing on extensive research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Gutenberg and the Printing Press",
+        "author": "Rebecca Stefoff",
+        "year": 1990,
+        "rationale": "Part of the 'Inventions That Changed the World' series, this book provides a good overview of Gutenberg's work and its historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Gutenberg Bible: Landmark of the West",
+        "author": "David McKitterick",
+        "year": 1991,
+        "rationale": "Focuses specifically on the most famous product of Gutenberg's press, offering detailed historical and bibliographical analysis.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources directly authored by Johannes Gutenberg are extremely rare or non-existent in accessible digital archives. His work is primarily known through the artifacts he produced, such as the Gutenberg Bible, and contemporary or near-contemporary accounts of his life and business dealings, which are not typically available as standalone texts by him."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "The Gutenberg Revolution",
+      "reason": "Best score below threshold (0.34 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Gutenberg and the Printing Press",
+      "reason": "Best score below threshold (0.25 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Gutenberg Bible: Landmark of the West",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.25"
+    }
+  ],
+  "candidates": []
 }

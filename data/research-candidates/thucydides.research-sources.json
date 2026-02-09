@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-02-08T07:15:40.738Z",
+  "figureId": "thucydides",
+  "figureName": "Thucydides",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "maxPrimarySuggestions": 2,
+    "maxSecondarySuggestions": 2,
+    "limitPerRole": 2,
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 368,
+      "totalTokenCount": 658,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "History of the Peloponnesian War",
+        "author": "Thucydides",
+        "year": -400,
+        "rationale": "The seminal work by Thucydides, detailing the conflict between Athens and Sparta. It is a foundational text for understanding ancient Greek history and political thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "A New Companion to Greek Tragedy",
+        "author": "Justina Gregory",
+        "year": 2019,
+        "rationale": "While not exclusively about Thucydides, this companion offers scholarly essays on various aspects of Greek literature and history, likely including analyses of Thucydides' work within its broader cultural and intellectual context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Thucydides",
+        "author": "Robert B. Strassler",
+        "year": 2009,
+        "rationale": "A comprehensive collection of essays by leading scholars specifically dedicated to Thucydides, covering his life, work, historical context, and influence.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Thucydides' primary work is his 'History of the Peloponnesian War'. Secondary sources are chosen for their scholarly depth and recency."
+  },
+  "unresolved": [],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The History of the Peloponnesian War",
+      "author": "Thucydides",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/7142",
+      "access_url": "https://www.gutenberg.org/ebooks/7142",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"History of the Peloponnesian War\". Matched primary suggestion by title=1.00, author=1.00, year=0.25",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "History of the Peloponnesian War",
+        "suggestion_author": "Thucydides",
+        "suggestion_year": -400,
+        "suggestion_rationale": "The seminal work by Thucydides, detailing the conflict between Athens and Sparta. It is a foundational text for understanding ancient Greek history and political thought.",
+        "gutenberg_id": 7142
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "A New Companion to Greek Tragedy (Routledge Revivals)",
+      "author": "Andrew Brown",
+      "publication_year": 2014,
+      "source_url": "https://doi.org/10.4324/9781315815640",
+      "access_url": "https://doi.org/10.4324/9781315815640",
+      "snippet": null,
+      "confidence": 0.808,
+      "why": "Secondary source resolved from suggestion \"A New Companion to Greek Tragedy\". Matched secondary suggestion by title=0.91, author=0.00, year=0.83",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "A New Companion to Greek Tragedy",
+        "suggestion_author": "Justina Gregory",
+        "suggestion_year": 2019,
+        "suggestion_rationale": "While not exclusively about Thucydides, this companion offers scholarly essays on various aspects of Greek literature and history, likely including analyses of Thucydides' work within its broader cultural and intellectual context.",
+        "doi": "10.4324/9781315815640",
+        "crossref_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Thucydides",
+      "author": "Polly Low",
+      "publication_year": 2023,
+      "source_url": "https://doi.org/10.1017/9781316227442",
+      "access_url": "https://doi.org/10.1017/9781316227442",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.801,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Thucydides\". Matched secondary suggestion by title=1.00, author=0.00, year=0.53",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Thucydides",
+        "suggestion_author": "Robert B. Strassler",
+        "suggestion_year": 2009,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars specifically dedicated to Thucydides, covering his life, work, historical context, and influence.",
+        "openalex_id": "https://openalex.org/W4322722297",
+        "work_type": "book"
+      }
+    }
+  ]
+}

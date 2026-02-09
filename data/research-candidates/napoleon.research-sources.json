@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-02-08T07:29:49.398Z",
+  "figureId": "napoleon",
+  "figureName": "Napoleon",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 685,
+      "totalTokenCount": 972,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Correspondance de Napoléon Ier",
+        "author": "Napoleon I",
+        "year": 1858,
+        "rationale": "The official collection of Napoleon's letters and orders, offering direct insight into his thoughts, strategies, and administration. A significant portion is digitized and available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Mémorial de Sainte-Hélène",
+        "author": "Las Cases, Emmanuel-Auguste-Dieudonné de",
+        "year": 1823,
+        "rationale": "A detailed account of Napoleon's conversations and reflections during his exile on St. Helena, dictated by Napoleon himself. Widely available in digital formats.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "Maximes et conseils de Napoléon",
+        "author": "Napoleon I",
+        "year": 1821,
+        "rationale": "A compilation of Napoleon's aphorisms, maxims, and advice, reflecting his political and military philosophy. Often found in digitized collections.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Napoleon: A Life",
+        "author": "Andrew Roberts",
+        "year": 2014,
+        "rationale": "A comprehensive and highly acclaimed modern biography by a leading historian, based on extensive archival research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Campaigns of Napoleon",
+        "author": "David G. Chandler",
+        "year": 1966,
+        "rationale": "While slightly before the 1976 cutoff, this remains a seminal and indispensable work on Napoleon's military genius, often cited in later scholarship. A revised edition might exist.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It",
+        "author": "Andrew Roberts",
+        "year": 2022,
+        "rationale": "A recent scholarly work by a prominent historian focusing on a key aspect of Napoleon's career and his principal adversary.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The 'Mémorial de Sainte-Hélène' is technically by Las Cases, but it is based on direct dictation and conversations with Napoleon, making it a primary source for Napoleon's own perspective. Chandler's 'The Campaigns of Napoleon' is a foundational text, and while published in 1966, its continued relevance and frequent citation justify its inclusion, with the caveat that newer editions or scholarship might be preferred for the strictest adherence to the date range."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Correspondance de Napoléon Ier",
+      "reason": "Title similarity too low (0.64); baseScore=0.61"
+    },
+    {
+      "role": "primary",
+      "title": "Mémorial de Sainte-Hélène",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Maximes et conseils de Napoléon",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Campaigns of Napoleon",
+      "reason": "Best score below threshold (0.70 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Napoleon: A Life",
+      "author": "Andrew Roberts",
+      "publication_year": 2014,
+      "source_url": "https://ci.nii.ac.jp/ncid/BB17924479",
+      "access_url": "https://ci.nii.ac.jp/ncid/BB17924479",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Napoleon: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Napoleon: A Life",
+        "suggestion_author": "Andrew Roberts",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A comprehensive and highly acclaimed modern biography by a leading historian, based on extensive archival research.",
+        "openalex_id": "https://openalex.org/W641072369",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It (review)",
+      "author": "John Kenneth Severn",
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.1353/jmh.2005.0125",
+      "access_url": "https://doi.org/10.1353/jmh.2005.0125",
+      "snippet": "The Journal of Military History",
+      "confidence": 0.794,
+      "why": "Secondary source resolved from suggestion \"Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It\". Matched secondary suggestion by title=1.00, author=0.00, year=0.43; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It",
+        "suggestion_author": "Andrew Roberts",
+        "suggestion_year": 2022,
+        "suggestion_rationale": "A recent scholarly work by a prominent historian focusing on a key aspect of Napoleon's career and his principal adversary.",
+        "doi": "10.1353/jmh.2005.0125",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

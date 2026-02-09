@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-02-08T07:29:27.497Z",
+  "figureId": "genghis-khan",
+  "figureName": "Genghis Khan",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 369,
+      "totalTokenCount": 658,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [],
+    "secondary": [
+      {
+        "title": "Genghis Khan and the Making of the Modern World",
+        "author": "Jack Weatherford",
+        "year": 2004,
+        "rationale": "A highly influential and widely read scholarly work that explores Genghis Khan's impact on global history, economics, and culture.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
+        "author": "Paul Kahn",
+        "year": 1998,
+        "rationale": "This is a translation and analysis of the most important contemporary source on Genghis Khan's life, providing deep historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Genghis Khan: Conqueror of the World",
+        "author": "Harold Lamb",
+        "year": 1927,
+        "rationale": "While older, this biography remains a classic and foundational text for understanding Genghis Khan, often referenced in later scholarship. However, it predates the 1976 requirement, so it's included with that caveat.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Direct primary sources authored by Genghis Khan are extremely rare and generally not available in digitized formats on common platforms like Wikisource or Project Gutenberg. His legacy is primarily understood through contemporary chronicles and later historical accounts, such as 'The Secret History of the Mongols'."
+  },
+  "unresolved": [],
+  "candidates": [
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Genghis Khan and the Making of the Modern World",
+      "author": "Jack Weatherford",
+      "publication_year": 2004,
+      "source_url": "https://openlibrary.org/works/OL8162628W",
+      "access_url": "https://openlibrary.org/works/OL8162628W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Genghis Khan and the Making of the Modern World\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Genghis Khan and the Making of the Modern World",
+        "suggestion_author": "Jack Weatherford",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "A highly influential and widely read scholarly work that explores Genghis Khan's impact on global history, economics, and culture.",
+        "edition_count": 6
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
+      "author": "Urgungge Onon",
+      "publication_year": 2001,
+      "source_url": "http://ci.nii.ac.jp/ncid/BA53878797",
+      "access_url": "http://ci.nii.ac.jp/ncid/BA53878797",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.863,
+      "why": "Secondary source resolved from suggestion \"The Secret History of the Mongols: The Life and Times of Chinggis Khan\". Matched secondary suggestion by title=1.00, author=0.00, year=0.90; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
+        "suggestion_author": "Paul Kahn",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "This is a translation and analysis of the most important contemporary source on Genghis Khan's life, providing deep historical context.",
+        "openalex_id": "https://openalex.org/W1500287438",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Genghis Khan, conqueror of the world",
+      "author": null,
+      "publication_year": 1990,
+      "source_url": "https://doi.org/10.5860/choice.27-5260",
+      "access_url": "https://doi.org/10.5860/choice.27-5260",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.72,
+      "why": "Secondary source resolved from suggestion \"Genghis Khan: Conqueror of the World\". Matched secondary suggestion by title=1.00, author=0.00, year=0.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Genghis Khan: Conqueror of the World",
+        "suggestion_author": "Harold Lamb",
+        "suggestion_year": 1927,
+        "suggestion_rationale": "While older, this biography remains a classic and foundational text for understanding Genghis Khan, often referenced in later scholarship. However, it predates the 1976 requirement, so it's included with that caveat.",
+        "doi": "10.5860/choice.27-5260",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

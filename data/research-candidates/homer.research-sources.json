@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-02-08T07:41:58.020Z",
+  "figureId": "homer",
+  "figureName": "Homer",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 520,
+      "totalTokenCount": 807,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Iliad",
+        "author": "Homer",
+        "year": -800,
+        "rationale": "One of the foundational epics of ancient Greek literature, attributed to Homer. It describes the final weeks of the Trojan War and the personal conflicts of its heroes.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Odyssey",
+        "author": "Homer",
+        "year": -800,
+        "rationale": "Another epic poem attributed to Homer, detailing the ten-year journey of the Greek hero Odysseus as he attempts to return home after the Trojan War.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Homer",
+        "author": "Robert Fowler",
+        "year": 2004,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including the poems, their historical context, and their reception.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Homer: The Odyssey",
+        "author": "Jasper Griffin",
+        "year": 1980,
+        "rationale": "A seminal critical study of Homer's Odyssey, analyzing its structure, themes, and characters.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Homeric Question",
+        "author": "J.B. Hainsworth",
+        "year": 1976,
+        "rationale": "While published in 1976, this work is a foundational text in the modern scholarly debate about the authorship and composition of the Homeric epics.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The exact historical existence and authorship of Homer are subjects of the 'Homeric Question,' a long-standing debate in classical scholarship. The primary sources listed are the epic poems traditionally attributed to him."
+  },
+  "unresolved": [],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Iliad",
+      "author": "Homer",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/6130",
+      "access_url": "https://www.gutenberg.org/ebooks/6130",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Iliad\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Iliad",
+        "suggestion_author": "Homer",
+        "suggestion_year": -800,
+        "suggestion_rationale": "One of the foundational epics of ancient Greek literature, attributed to Homer. It describes the final weeks of the Trojan War and the personal conflicts of its heroes.",
+        "gutenberg_id": 6130
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Odyssey",
+      "author": "Homer",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/3160",
+      "access_url": "https://www.gutenberg.org/ebooks/3160",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Odyssey\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Odyssey",
+        "suggestion_author": "Homer",
+        "suggestion_year": -800,
+        "suggestion_rationale": "Another epic poem attributed to Homer, detailing the ten-year journey of the Greek hero Odysseus as he attempts to return home after the Trojan War.",
+        "gutenberg_id": 3160
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Homer",
+      "author": "Robert L. Fowler",
+      "publication_year": 2004,
+      "source_url": "https://doi.org/10.1017/ccol0521813026",
+      "access_url": "https://doi.org/10.1017/ccol0521813026",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Homer\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Homer",
+        "suggestion_author": "Robert Fowler",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including the poems, their historical context, and their reception.",
+        "openalex_id": "https://openalex.org/W1557327656",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Homer, The Odyssey",
+      "author": "Jasper Griffin",
+      "publication_year": 1987,
+      "source_url": "https://ci.nii.ac.jp/ncid/BA66970205",
+      "access_url": "https://ci.nii.ac.jp/ncid/BA66970205",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Homer: The Odyssey\". Matched secondary suggestion by title=1.00, author=1.00, year=0.77; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Homer: The Odyssey",
+        "suggestion_author": "Jasper Griffin",
+        "suggestion_year": 1980,
+        "suggestion_rationale": "A seminal critical study of Homer's Odyssey, analyzing its structure, themes, and characters.",
+        "openalex_id": "https://openalex.org/W2071892894",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Homeric Question",
+      "author": "Frank M. Turner",
+      "publication_year": 1997,
+      "source_url": "https://doi.org/10.1163/9789004217607_006",
+      "access_url": "https://doi.org/10.1163/9789004217607_006",
+      "snippet": null,
+      "confidence": 0.761,
+      "why": "Secondary source resolved from suggestion \"The Homeric Question\". Matched secondary suggestion by title=1.00, author=0.00, year=0.30; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Homeric Question",
+        "suggestion_author": "J.B. Hainsworth",
+        "suggestion_year": 1976,
+        "suggestion_rationale": "While published in 1976, this work is a foundational text in the modern scholarly debate about the authorship and composition of the Homeric epics.",
+        "openalex_id": "https://openalex.org/W754758433",
+        "work_type": "book-chapter"
+      }
+    }
+  ]
+}

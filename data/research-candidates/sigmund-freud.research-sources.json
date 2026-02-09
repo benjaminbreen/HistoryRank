@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-02-08T07:37:40.978Z",
+  "figureId": "sigmund-freud",
+  "figureName": "Sigmund Freud",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 592,
+      "totalTokenCount": 880,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Interpretation of Dreams",
+        "author": "Sigmund Freud",
+        "year": 1899,
+        "rationale": "Freud's seminal work, laying the foundation for psychoanalysis. It is widely available and a cornerstone of his writings.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Ego and the Id",
+        "author": "Sigmund Freud",
+        "year": 1923,
+        "rationale": "A key text in Freud's later structural model of the psyche. It is a foundational work for understanding his developed theories.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Civilization and Its Discontents",
+        "author": "Sigmund Freud",
+        "year": 1930,
+        "rationale": "Explores the inherent conflict between individual desires and the demands of civilization. A widely read and influential work.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Freud: A Life for Our Time",
+        "author": "Peter Gay",
+        "year": 1988,
+        "rationale": "A comprehensive and highly regarded biography of Freud by a prominent historian, offering deep insights into his life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Freud",
+        "author": "Richard Wollheim and James Hopkins",
+        "year": 1991,
+        "rationale": "A collection of essays by leading scholars providing diverse perspectives on Freud's theories and their impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Freud's Patients: A New History of Psychoanalysis",
+        "author": "Ethan J. Kuperman",
+        "year": 2017,
+        "rationale": "Offers a fresh perspective on Freud's clinical work by examining his case histories and their significance.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are foundational texts by Freud. Secondary sources are scholarly overviews and biographies published after 1976."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Ego and the Id",
+      "reason": "Title similarity too low (0.17); baseScore=0.21"
+    },
+    {
+      "role": "secondary",
+      "title": "Freud's Patients: A New History of Psychoanalysis",
+      "reason": "Best score below threshold (0.52 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Interpretation Of Dreams",
+      "author": "Sigmund Freud",
+      "publication_year": 1900,
+      "source_url": "https://archive.org/details/in.ernet.dli.2015.188424",
+      "access_url": "https://archive.org/details/in.ernet.dli.2015.188424",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Interpretation of Dreams\". Matched primary suggestion by title=1.00, author=1.00, year=0.98; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Interpretation of Dreams",
+        "suggestion_author": "Sigmund Freud",
+        "suggestion_year": 1899,
+        "suggestion_rationale": "Freud's seminal work, laying the foundation for psychoanalysis. It is widely available and a cornerstone of his writings.",
+        "ia_identifier": "in.ernet.dli.2015.188424"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Civilization And Its Discontents",
+      "author": "Sigmund Freud",
+      "publication_year": 1930,
+      "source_url": "https://archive.org/details/in.ernet.dli.2015.221667",
+      "access_url": "https://archive.org/details/in.ernet.dli.2015.221667",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Civilization and Its Discontents\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Civilization and Its Discontents",
+        "suggestion_author": "Sigmund Freud",
+        "suggestion_year": 1930,
+        "suggestion_rationale": "Explores the inherent conflict between individual desires and the demands of civilization. A widely read and influential work.",
+        "ia_identifier": "in.ernet.dli.2015.221667"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Book Review: Freud: A Life for Our Time.",
+      "author": "Peter Gay",
+      "publication_year": 1993,
+      "source_url": "https://doi.org/10.1177/000306519304100317",
+      "access_url": "https://doi.org/10.1177/000306519304100317",
+      "snippet": "Journal of the American Psychoanalytic Association",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Freud: A Life for Our Time\". Matched secondary suggestion by title=0.91, author=1.00, year=0.83; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Freud: A Life for Our Time",
+        "suggestion_author": "Peter Gay",
+        "suggestion_year": 1988,
+        "suggestion_rationale": "A comprehensive and highly regarded biography of Freud by a prominent historian, offering deep insights into his life and work.",
+        "doi": "10.1177/000306519304100317",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Freud",
+      "author": "Jerome Neu",
+      "publication_year": 1991,
+      "source_url": "https://doi.org/10.1017/ccol0521374243",
+      "access_url": "https://doi.org/10.1017/ccol0521374243",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Freud\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Freud",
+        "suggestion_author": "Richard Wollheim and James Hopkins",
+        "suggestion_year": 1991,
+        "suggestion_rationale": "A collection of essays by leading scholars providing diverse perspectives on Freud's theories and their impact.",
+        "openalex_id": "https://openalex.org/W2056610536",
+        "work_type": "book"
+      }
+    }
+  ]
+}

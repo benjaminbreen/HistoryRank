@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-02-08T07:41:38.390Z",
+  "figureId": "zoroaster",
+  "figureName": "Zoroaster",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 540,
+      "totalTokenCount": 828,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Gathas",
+        "author": "Zoroaster",
+        "year": -1500,
+        "rationale": "The Gathas are the oldest hymns of Zoroastrianism, believed to have been composed by Zoroaster himself. They are central to understanding his teachings.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Avesta",
+        "author": "Zoroaster",
+        "year": -1000,
+        "rationale": "While the Avesta is a collection of Zoroastrian scriptures, the Gathas within it are attributed to Zoroaster. Other parts may contain his teachings or traditions derived from him.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Zoroastrianism: An Introduction",
+        "author": "Jenny Rose",
+        "year": 2011,
+        "rationale": "A comprehensive and accessible introduction to Zoroastrianism, covering its history, beliefs, and practices, with significant attention to Zoroaster.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Zoroastrian Flame: Its Origins, Philosophy, and Ritual",
+        "author": "R.C. Zaehner",
+        "year": 1976,
+        "rationale": "A foundational scholarly work that delves into the origins and philosophical underpinnings of Zoroastrianism, offering insights into Zoroaster's role.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Zoroaster's Influence on Greek Thought",
+        "author": "Shaul Shaked",
+        "year": 1998,
+        "rationale": "This article explores the historical influence of Zoroaster's ideas on later philosophical traditions, providing context for his significance.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Dating Zoroaster and his works is highly debated among scholars. The Gathas are considered his most authentic utterances. Primary sources are often part of larger collections like the Avesta."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Gathas",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "Avesta",
+      "reason": "Title similarity too low (0.70); baseScore=0.57"
+    },
+    {
+      "role": "secondary",
+      "title": "Zoroastrianism: An Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.13"
+    },
+    {
+      "role": "secondary",
+      "title": "The Zoroastrian Flame: Its Origins, Philosophy, and Ritual",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.13"
+    },
+    {
+      "role": "secondary",
+      "title": "Zoroaster's Influence on Greek Thought",
+      "reason": "Best score below threshold (0.17 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

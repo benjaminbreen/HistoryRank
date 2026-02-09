@@ -1,0 +1,1087 @@
+{
+  "generatedAt": "2026-02-08T06:54:20.382Z",
+  "model": "gemini-2.5-flash-lite",
+  "sample": {
+    "no_grounding": [
+      {
+        "id": "wolfgang-amadeus-mozart",
+        "canonical_name": "Wolfgang Amadeus Mozart"
+      },
+      {
+        "id": "w-e-b-du-bois",
+        "canonical_name": "W.E.B. Du Bois"
+      },
+      {
+        "id": "thucydides",
+        "canonical_name": "Thucydides"
+      },
+      {
+        "id": "clovis-i",
+        "canonical_name": "Clovis I"
+      },
+      {
+        "id": "erwin-schr-dinger",
+        "canonical_name": "Erwin Schrödinger"
+      }
+    ],
+    "with_grounding": [
+      {
+        "id": "patrice-lumumba",
+        "canonical_name": "Patrice Lumumba"
+      },
+      {
+        "id": "frederick-the-great",
+        "canonical_name": "Frederick the Great"
+      },
+      {
+        "id": "kim-il-sung",
+        "canonical_name": "Kim Il-sung"
+      },
+      {
+        "id": "ferdinand-de-saussure",
+        "canonical_name": "Ferdinand de Saussure"
+      },
+      {
+        "id": "ramanuja",
+        "canonical_name": "Ramanuja"
+      }
+    ]
+  },
+  "results": [
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "wolfgang-amadeus-mozart",
+        "canonical_name": "Wolfgang Amadeus Mozart"
+      },
+      "parsed": {
+        "figure": "Wolfgang Amadeus Mozart",
+        "primary_sources": [
+          {
+            "title": "Mozart's Letters",
+            "url": "https://www.gutenberg.org/files/19741/19741-h/19741-h.htm",
+            "why_relevant": "Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence."
+          },
+          {
+            "title": "Mozart's Musical Scores",
+            "url": "https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus",
+            "why_relevant": "Original musical compositions provide direct evidence of his compositional style and evolution."
+          },
+          {
+            "title": "Contemporary Accounts of Mozart",
+            "url": "https://www.mozart.org/en/biography/",
+            "why_relevant": "Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "The New Grove Dictionary of Music and Musicians",
+            "url": "https://www.oxfordmusiconline.com/grovemusic",
+            "why_relevant": "Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart."
+          },
+          {
+            "title": "Mozart: A Life by Maynard Solomon",
+            "url": "https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240",
+            "why_relevant": "A highly regarded scholarly biography that delves deeply into Mozart's life and context."
+          },
+          {
+            "title": "Mozart's Music of the Great Masters Series",
+            "url": "https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series",
+            "why_relevant": "Expert analysis and discussion of Mozart's key works and their significance."
+          }
+        ],
+        "notes": "Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases."
+      },
+      "text": "{\n  \"figure\": \"Wolfgang Amadeus Mozart\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Mozart's Letters\",\n      \"url\": \"https://www.gutenberg.org/files/19741/19741-h/19741-h.htm\",\n      \"why_relevant\": \"Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence.\"\n    },\n    {\n      \"title\": \"Mozart's Musical Scores\",\n      \"url\": \"https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus\",\n      \"why_relevant\": \"Original musical compositions provide direct evidence of his compositional style and evolution.\"\n    },\n    {\n      \"title\": \"Contemporary Accounts of Mozart\",\n      \"url\": \"https://www.mozart.org/en/biography/\",\n      \"why_relevant\": \"Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The New Grove Dictionary of Music and Musicians\",\n      \"url\": \"https://www.oxfordmusiconline.com/grovemusic\",\n      \"why_relevant\": \"Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart.\"\n    },\n    {\n      \"title\": \"Mozart: A Life by Maynard Solomon\",\n      \"url\": \"https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240\",\n      \"why_relevant\": \"A highly regarded scholarly biography that delves deeply into Mozart's life and context.\"\n    },\n    {\n      \"title\": \"Mozart's Music of the Great Masters Series\",\n      \"url\": \"https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series\",\n      \"why_relevant\": \"Expert analysis and discussion of Mozart's key works and their significance.\"\n    }\n  ],\n  \"notes\": \"Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 128,
+        "candidatesTokenCount": 516,
+        "totalTokenCount": 644,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Wolfgang Amadeus Mozart\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Mozart's Letters\",\n      \"url\": \"https://www.gutenberg.org/files/19741/19741-h/19741-h.htm\",\n      \"why_relevant\": \"Direct insights into Mozart's life, thoughts, and professional dealings from his own correspondence.\"\n    },\n    {\n      \"title\": \"Mozart's Musical Scores\",\n      \"url\": \"https://imslp.org/wiki/Category:Mozart,_Wolfgang_Amadeus\",\n      \"why_relevant\": \"Original musical compositions provide direct evidence of his compositional style and evolution.\"\n    },\n    {\n      \"title\": \"Contemporary Accounts of Mozart\",\n      \"url\": \"https://www.mozart.org/en/biography/\",\n      \"why_relevant\": \"Accounts from people who knew or interacted with Mozart offer contemporary perspectives on his life and work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The New Grove Dictionary of Music and Musicians\",\n      \"url\": \"https://www.oxfordmusiconline.com/grovemusic\",\n      \"why_relevant\": \"Authoritative scholarly articles offering comprehensive biographical and musical analysis of Mozart.\"\n    },\n    {\n      \"title\": \"Mozart: A Life by Maynard Solomon\",\n      \"url\": \"https://www.amazon.com/Mozart-Life-Maynard-Solomon/dp/0060927240\",\n      \"why_relevant\": \"A highly regarded scholarly biography that delves deeply into Mozart's life and context.\"\n    },\n    {\n      \"title\": \"Mozart's Music of the Great Masters Series\",\n      \"url\": \"https://www.npr.org/series/4534200/mozarts-music-of-the-great-masters-series\",\n      \"why_relevant\": \"Expert analysis and discussion of Mozart's key works and their significance.\"\n    }\n  ],\n  \"notes\": \"Access to primary source documents like letters and manuscripts may require specialized archives or libraries. URLs provided are for accessible versions or reputable databases.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 128,
+          "candidatesTokenCount": 516,
+          "totalTokenCount": 644,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 128
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "EjOIaaagNfnm_uMPr4Sv4Ak"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "w-e-b-du-bois",
+        "canonical_name": "W.E.B. Du Bois"
+      },
+      "parsed": {
+        "figure": "W.E.B. Du Bois",
+        "primary_sources": [
+          {
+            "title": "The Souls of Black Folk",
+            "url": "https://www.gutenberg.org/files/408/408-h/408-h.htm",
+            "why_relevant": "Du Bois's seminal work, offering profound insights into the Black experience in America."
+          },
+          {
+            "title": "The Crisis Magazine Archives",
+            "url": "https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1",
+            "why_relevant": "Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues."
+          },
+          {
+            "title": "W.E.B. Du Bois Papers, University of Massachusetts Amherst",
+            "url": "https://credo.library.umass.edu/collections/index.php/dubois",
+            "why_relevant": "Extensive collection of his personal writings, correspondence, and research materials."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "W.E.B. Du Bois: A Biography by David Levering Lewis",
+            "url": "https://www.hup.harvard.edu/catalog.php?isbn=9780805068122",
+            "why_relevant": "A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work."
+          },
+          {
+            "title": "The W.E.B. Du Bois Center at Harvard University",
+            "url": "https://duboiscenter.fas.harvard.edu/",
+            "why_relevant": "Provides resources, scholarship, and context for understanding Du Bois's legacy and impact."
+          },
+          {
+            "title": "Stanford Encyclopedia of Philosophy: W.E.B. Du Bois",
+            "url": "https://plato.stanford.edu/entries/dubois/",
+            "why_relevant": "Scholarly overview of his philosophical contributions and intellectual development."
+          }
+        ],
+        "notes": "Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights."
+      },
+      "text": "{\n  \"figure\": \"W.E.B. Du Bois\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Souls of Black Folk\",\n      \"url\": \"https://www.gutenberg.org/files/408/408-h/408-h.htm\",\n      \"why_relevant\": \"Du Bois's seminal work, offering profound insights into the Black experience in America.\"\n    },\n    {\n      \"title\": \"The Crisis Magazine Archives\",\n      \"url\": \"https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1\",\n      \"why_relevant\": \"Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues.\"\n    },\n    {\n      \"title\": \"W.E.B. Du Bois Papers, University of Massachusetts Amherst\",\n      \"url\": \"https://credo.library.umass.edu/collections/index.php/dubois\",\n      \"why_relevant\": \"Extensive collection of his personal writings, correspondence, and research materials.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"W.E.B. Du Bois: A Biography by David Levering Lewis\",\n      \"url\": \"https://www.hup.harvard.edu/catalog.php?isbn=9780805068122\",\n      \"why_relevant\": \"A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work.\"\n    },\n    {\n      \"title\": \"The W.E.B. Du Bois Center at Harvard University\",\n      \"url\": \"https://duboiscenter.fas.harvard.edu/\",\n      \"why_relevant\": \"Provides resources, scholarship, and context for understanding Du Bois's legacy and impact.\"\n    },\n    {\n      \"title\": \"Stanford Encyclopedia of Philosophy: W.E.B. Du Bois\",\n      \"url\": \"https://plato.stanford.edu/entries/dubois/\",\n      \"why_relevant\": \"Scholarly overview of his philosophical contributions and intellectual development.\"\n    }\n  ],\n  \"notes\": \"Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 132,
+        "candidatesTokenCount": 542,
+        "totalTokenCount": 674,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 132
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"W.E.B. Du Bois\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Souls of Black Folk\",\n      \"url\": \"https://www.gutenberg.org/files/408/408-h/408-h.htm\",\n      \"why_relevant\": \"Du Bois's seminal work, offering profound insights into the Black experience in America.\"\n    },\n    {\n      \"title\": \"The Crisis Magazine Archives\",\n      \"url\": \"https://babel.hathitrust.org/cgi/mb?a=list;c=111101111;u=1;s=1;r=1;p=1\",\n      \"why_relevant\": \"Published by the NAACP, it contains Du Bois's essays and commentary on contemporary issues.\"\n    },\n    {\n      \"title\": \"W.E.B. Du Bois Papers, University of Massachusetts Amherst\",\n      \"url\": \"https://credo.library.umass.edu/collections/index.php/dubois\",\n      \"why_relevant\": \"Extensive collection of his personal writings, correspondence, and research materials.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"W.E.B. Du Bois: A Biography by David Levering Lewis\",\n      \"url\": \"https://www.hup.harvard.edu/catalog.php?isbn=9780805068122\",\n      \"why_relevant\": \"A comprehensive and acclaimed biography offering deep analysis of Du Bois's life and work.\"\n    },\n    {\n      \"title\": \"The W.E.B. Du Bois Center at Harvard University\",\n      \"url\": \"https://duboiscenter.fas.harvard.edu/\",\n      \"why_relevant\": \"Provides resources, scholarship, and context for understanding Du Bois's legacy and impact.\"\n    },\n    {\n      \"title\": \"Stanford Encyclopedia of Philosophy: W.E.B. Du Bois\",\n      \"url\": \"https://plato.stanford.edu/entries/dubois/\",\n      \"why_relevant\": \"Scholarly overview of his philosophical contributions and intellectual development.\"\n    }\n  ],\n  \"notes\": \"Focus on his writings, activism with the NAACP, and intellectual contributions to sociology and civil rights.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 132,
+          "candidatesTokenCount": 542,
+          "totalTokenCount": 674,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 132
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "FTOIaZ3xCcaV_uMPyvSwsQU"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "thucydides",
+        "canonical_name": "Thucydides"
+      },
+      "parsed": {
+        "figure": "Thucydides",
+        "primary_sources": [
+          {
+            "title": "History of the Peloponnesian War",
+            "url": "https://www.gutenberg.org/files/1979/1979-h/1979-h.htm",
+            "why_relevant": "Thucydides' own account of the Peloponnesian War, the central event of his historical work."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Thucydides",
+            "url": "https://plato.stanford.edu/entries/thucydides/",
+            "why_relevant": "Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work."
+          },
+          {
+            "title": "The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War",
+            "url": "https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225",
+            "why_relevant": "A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text."
+          },
+          {
+            "title": "Thucydides and the World War",
+            "url": "https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032",
+            "why_relevant": "Analyzes Thucydides' relevance and influence on later historical thought and conflicts."
+          }
+        ],
+        "notes": "Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context."
+      },
+      "text": "{\n  \"figure\": \"Thucydides\",\n  \"primary_sources\": [\n    {\n      \"title\": \"History of the Peloponnesian War\",\n      \"url\": \"https://www.gutenberg.org/files/1979/1979-h/1979-h.htm\",\n      \"why_relevant\": \"Thucydides' own account of the Peloponnesian War, the central event of his historical work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Thucydides\",\n      \"url\": \"https://plato.stanford.edu/entries/thucydides/\",\n      \"why_relevant\": \"Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work.\"\n    },\n    {\n      \"title\": \"The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War\",\n      \"url\": \"https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225\",\n      \"why_relevant\": \"A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text.\"\n    },\n    {\n      \"title\": \"Thucydides and the World War\",\n      \"url\": \"https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032\",\n      \"why_relevant\": \"Analyzes Thucydides' relevance and influence on later historical thought and conflicts.\"\n    }\n  ],\n  \"notes\": \"Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 128,
+        "candidatesTokenCount": 434,
+        "totalTokenCount": 562,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 128
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Thucydides\",\n  \"primary_sources\": [\n    {\n      \"title\": \"History of the Peloponnesian War\",\n      \"url\": \"https://www.gutenberg.org/files/1979/1979-h/1979-h.htm\",\n      \"why_relevant\": \"Thucydides' own account of the Peloponnesian War, the central event of his historical work.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Thucydides\",\n      \"url\": \"https://plato.stanford.edu/entries/thucydides/\",\n      \"why_relevant\": \"Stanford Encyclopedia of Philosophy entry providing a comprehensive overview of Thucydides' life and work.\"\n    },\n    {\n      \"title\": \"The Landmark Thucydides: A Comprehensive Guide to the Peloponnesian War\",\n      \"url\": \"https://www.amazon.com/Landmark-Thucydides-Comprehensive-Guide-Peloponnesian/dp/1586422225\",\n      \"why_relevant\": \"A scholarly edition with extensive notes, maps, and appendices, aiding in understanding the text.\"\n    },\n    {\n      \"title\": \"Thucydides and the World War\",\n      \"url\": \"https://www.cambridge.org/core/books/thucydides-and-the-world-war/5766A35098239840036A433354542032\",\n      \"why_relevant\": \"Analyzes Thucydides' relevance and influence on later historical thought and conflicts.\"\n    }\n  ],\n  \"notes\": \"Primary source is Thucydides' own magnum opus. Secondary sources offer scholarly analysis and context.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 128,
+          "candidatesTokenCount": 434,
+          "totalTokenCount": 562,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 128
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "FzOIaZXZAtfi_uMPvL-s8Ag"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "clovis-i",
+        "canonical_name": "Clovis I"
+      },
+      "parsed": {
+        "figure": "Clovis I",
+        "primary_sources": [
+          {
+            "title": "Gregory of Tours, History of the Franks",
+            "url": "https://www.fordham.edu/halsall/basis/gregory-frankish.asp",
+            "why_relevant": "Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop."
+          },
+          {
+            "title": "The Book of Pontiffs (Liber Pontificalis)",
+            "url": "https://www.fordham.edu/halsall/source/liber-pont.asp",
+            "why_relevant": "Contains information on papal interactions and political context relevant to Clovis's conversion and reign."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "The Merovingian Age: A Guide to the Sources",
+            "url": "https://www.jstor.org/stable/2630021",
+            "why_relevant": "Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis."
+          },
+          {
+            "title": "The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire",
+            "url": "https://archive.org/details/cambridgemedieval02cambrich",
+            "why_relevant": "Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact."
+          },
+          {
+            "title": "The Frankish Kingdoms under the Merovingians: A Political History",
+            "url": "https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ",
+            "why_relevant": "Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy."
+          }
+        ],
+        "notes": "Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context."
+      },
+      "text": "{\n  \"figure\": \"Clovis I\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Gregory of Tours, History of the Franks\",\n      \"url\": \"https://www.fordham.edu/halsall/basis/gregory-frankish.asp\",\n      \"why_relevant\": \"Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop.\"\n    },\n    {\n      \"title\": \"The Book of Pontiffs (Liber Pontificalis)\",\n      \"url\": \"https://www.fordham.edu/halsall/source/liber-pont.asp\",\n      \"why_relevant\": \"Contains information on papal interactions and political context relevant to Clovis's conversion and reign.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The Merovingian Age: A Guide to the Sources\",\n      \"url\": \"https://www.jstor.org/stable/2630021\",\n      \"why_relevant\": \"Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis.\"\n    },\n    {\n      \"title\": \"The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire\",\n      \"url\": \"https://archive.org/details/cambridgemedieval02cambrich\",\n      \"why_relevant\": \"Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact.\"\n    },\n    {\n      \"title\": \"The Frankish Kingdoms under the Merovingians: A Political History\",\n      \"url\": \"https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ\",\n      \"why_relevant\": \"Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy.\"\n    }\n  ],\n  \"notes\": \"Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 127,
+        "candidatesTokenCount": 500,
+        "totalTokenCount": 627,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 127
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Clovis I\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Gregory of Tours, History of the Franks\",\n      \"url\": \"https://www.fordham.edu/halsall/basis/gregory-frankish.asp\",\n      \"why_relevant\": \"Primary account of Clovis's life, reign, and military campaigns, written by a contemporary bishop.\"\n    },\n    {\n      \"title\": \"The Book of Pontiffs (Liber Pontificalis)\",\n      \"url\": \"https://www.fordham.edu/halsall/source/liber-pont.asp\",\n      \"why_relevant\": \"Contains information on papal interactions and political context relevant to Clovis's conversion and reign.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"The Merovingian Age: A Guide to the Sources\",\n      \"url\": \"https://www.jstor.org/stable/2630021\",\n      \"why_relevant\": \"Scholarly overview of historical sources for the Merovingian period, including those pertaining to Clovis.\"\n    },\n    {\n      \"title\": \"The Cambridge Medieval History, Vol. II: The Rise of the Saracens and the Foundation of the Western Empire\",\n      \"url\": \"https://archive.org/details/cambridgemedieval02cambrich\",\n      \"why_relevant\": \"Provides a comprehensive historical narrative and analysis of the early medieval period, including Clovis's impact.\"\n    },\n    {\n      \"title\": \"The Frankish Kingdoms under the Merovingians: A Political History\",\n      \"url\": \"https://books.google.com/books/about/The_Frankish_Kingdoms_under_the_Merovingia.html?id=2j2mAAAAMAAJ\",\n      \"why_relevant\": \"Detailed political history of the Frankish kingdoms, offering in-depth analysis of Clovis's rule and legacy.\"\n    }\n  ],\n  \"notes\": \"Primary sources for Clovis are scarce and often hagiographical. Gregory of Tours is the most significant contemporary narrative. Secondary sources offer critical analysis and context.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 127,
+          "candidatesTokenCount": 500,
+          "totalTokenCount": 627,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 127
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "GTOIaeWKEpDf_uMPiue5sQw"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": false,
+      "figure": {
+        "id": "erwin-schr-dinger",
+        "canonical_name": "Erwin Schrödinger"
+      },
+      "parsed": {
+        "figure": "Erwin Schrödinger",
+        "primary_sources": [
+          {
+            "title": "Schrödinger's Papers",
+            "url": "https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/",
+            "why_relevant": "Contains biographical information and details about his scientific work, directly from the Nobel Prize organization."
+          },
+          {
+            "title": "What is Life? by Erwin Schrödinger",
+            "url": "https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093",
+            "why_relevant": "A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology."
+          },
+          {
+            "title": "My Life and My Views",
+            "url": "https://www.goodreads.com/book/show/107550.My_Life_and_My_Views",
+            "why_relevant": "A collection of his writings and lectures, providing personal reflections and philosophical views."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Erwin Schrödinger - Biographical",
+            "url": "https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/",
+            "why_relevant": "Official Nobel Prize biography, offering a comprehensive overview of his life and achievements."
+          },
+          {
+            "title": "Schrödinger: A Life of Science",
+            "url": "https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X",
+            "why_relevant": "A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life."
+          },
+          {
+            "title": "The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist",
+            "url": "https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X",
+            "why_relevant": "While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions."
+          }
+        ],
+        "notes": "Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics."
+      },
+      "text": "{\n  \"figure\": \"Erwin Schrödinger\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Schrödinger's Papers\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Contains biographical information and details about his scientific work, directly from the Nobel Prize organization.\"\n    },\n    {\n      \"title\": \"What is Life? by Erwin Schrödinger\",\n      \"url\": \"https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093\",\n      \"why_relevant\": \"A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology.\"\n    },\n    {\n      \"title\": \"My Life and My Views\",\n      \"url\": \"https://www.goodreads.com/book/show/107550.My_Life_and_My_Views\",\n      \"why_relevant\": \"A collection of his writings and lectures, providing personal reflections and philosophical views.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Erwin Schrödinger - Biographical\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Official Nobel Prize biography, offering a comprehensive overview of his life and achievements.\"\n    },\n    {\n      \"title\": \"Schrödinger: A Life of Science\",\n      \"url\": \"https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X\",\n      \"why_relevant\": \"A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life.\"\n    },\n    {\n      \"title\": \"The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist\",\n      \"url\": \"https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X\",\n      \"why_relevant\": \"While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions.\"\n    }\n  ],\n  \"notes\": \"Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics.\"\n}",
+      "groundingMetadata": null,
+      "usageMetadata": {
+        "promptTokenCount": 126,
+        "candidatesTokenCount": 555,
+        "totalTokenCount": 681,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 126
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "{\n  \"figure\": \"Erwin Schrödinger\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Schrödinger's Papers\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Contains biographical information and details about his scientific work, directly from the Nobel Prize organization.\"\n    },\n    {\n      \"title\": \"What is Life? by Erwin Schrödinger\",\n      \"url\": \"https://www.amazon.com/What-Life-Cambridge-Paperbacks-Schrödinger/dp/0521427093\",\n      \"why_relevant\": \"A seminal book by Schrödinger, offering insights into his thinking beyond physics, influencing biology.\"\n    },\n    {\n      \"title\": \"My Life and My Views\",\n      \"url\": \"https://www.goodreads.com/book/show/107550.My_Life_and_My_Views\",\n      \"why_relevant\": \"A collection of his writings and lectures, providing personal reflections and philosophical views.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Erwin Schrödinger - Biographical\",\n      \"url\": \"https://www.nobelprize.org/prizes/physics/1933/schrodinger/biographical/\",\n      \"why_relevant\": \"Official Nobel Prize biography, offering a comprehensive overview of his life and achievements.\"\n    },\n    {\n      \"title\": \"Schrödinger: A Life of Science\",\n      \"url\": \"https://www.amazon.com/Schrodinger-Life-Science-John-Gribbin/dp/074321445X\",\n      \"why_relevant\": \"A detailed biography by John Gribbin, exploring Schrödinger's scientific contributions and personal life.\"\n    },\n    {\n      \"title\": \"The Strangest Man: The Hidden Life of Paul Dirac, Quantum Physicist\",\n      \"url\": \"https://www.amazon.com/Strangest-Man-Quantum-Physicist-Graham/dp/014103040X\",\n      \"why_relevant\": \"While focused on Dirac, this book often discusses contemporaries like Schrödinger and their interactions.\"\n    }\n  ],\n  \"notes\": \"Primary sources are his own writings and lectures. Secondary sources are biographies and historical accounts of quantum physics.\"\n}"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 126,
+          "candidatesTokenCount": 555,
+          "totalTokenCount": 681,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 126
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "GzOIacHMKaG9_uMP2fKBsAo"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": true,
+      "figure": {
+        "id": "patrice-lumumba",
+        "canonical_name": "Patrice Lumumba"
+      },
+      "parsed": {
+        "figure": "Patrice Lumumba",
+        "primary_sources": [
+          {
+            "title": "The Speeches and Writings of Patrice Lumumba, 1958-1961",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr7YuEFZYkA1h5p9U4OpGKQN2XE6y-Lzt8Mhqe2jkRjFaoVzZCl7Pv-bCNKOnYcR2LanSFJXAlp8yM-gLIM0vWeehBN1XQFW3oQR0uwNZ03-2l8jfw1SY2RDd00xeXSJ3tXXDxwCrQi3jGc_aeUCFBL5Wj8AjGaQP-me9jdX_fy64veYbIdOcKkaD9-6ZQK_9mRKazJ5wZmCZxhVKVi02gclUE7nhlDrkwLeAawpfACsjPs46y0tqXc_isa8IORk4bq9g8VMOq1JY=",
+            "why_relevant": "This collection includes speeches and letters by Lumumba, offering direct insight into his thoughts, political positions, and the context of the Congolese independence movement. It also contains official documents and reminiscences, providing a multi-faceted view of his life and the political landscape."
+          },
+          {
+            "title": "Patrice Lumumba fighter.pdf",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMM7SzoLCFl40PYHOH8haaLDeu_sdeNRUc1nRk7YEdmLgXP6veTyOvSiTM5JLA2VK0i2KJ65YiroKgARgAaNKcFhqn6g_10eqGNKnE3SbMzjYaS_AWL7c-lFpkZOOP_uMyJtL9qVAJ7USmkBYTbgw9Du5DrNpjFZgCYMQ=",
+            "why_relevant": "This document is described as a collection of speeches and letters by Patrice Lumumba, along with reminiscences and official documents. It aims to present the truth about the colonialist plot in the Congo and Lumumba's role in the national liberation movement, making it a valuable primary source for understanding his perspective and the historical events."
+          },
+          {
+            "title": "Patrice Lumumba and Congo's Search for Real Independence",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnPeY2NpPXDhGH3xo7ymgidFI2gLMapHLf33ijHIw_UiwtJLE6mM6RmLOntmGK6ZMu9smoTF8T5_z-cg7hNB8uDYMYdWCsapLBU4rTq1p_QeR-B5gS3nLJgTFiOgkeWytzZMbR7wwff-kc33Jp4vx3EBLhjGSX80eKvlO9HaCDiDHeMC0JGVXHJ8BB3rditOs=",
+            "why_relevant": "This source contains Lumumba's speech at the independence ceremony, which directly conveys his views on Congolese suffering, the nature of independence, and his hopes for the nation. It also discusses the reactions to his speech and his subsequent actions, offering primary evidence of his political stance and the immediate aftermath of independence."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Patrice Lumumba - Wikipedia",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9y08Wy2klc4doIHDH3Qn1-ZNlEtfcCAlUmVS3CAVC8X1OJF84kEmlOBnsO8qGiYI8vG2fPf3-Wn9r0FK6YUTkr6PWWPluLT5Tgnof_EX090BYER0eRuEBBAw1WYOUS74GoCYQH5WxIw==",
+            "why_relevant": "Wikipedia provides a comprehensive overview of Lumumba's life, career, and political activities, drawing on various historical sources. It details his early life, political involvement, rise to prime minister, and assassination, offering a good starting point for understanding his historical significance."
+          },
+          {
+            "title": "Patrice Lumumba - Britannica",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcMA_WDUnh28BO4cKAVOJCwi3Nx9TSfU6ZUoIuiaAmGvQFqtmzYEjxjzbp0K0p9B1xyEY9WJzT89hUoqjuon5lljG4RvZNksrpT6bfIl1lNe6jtx0wuquKGFVHtxXsteaEhlI-NrsOQyWQOOgwDR0=",
+            "why_relevant": "Britannica offers a concise yet informative biography of Patrice Lumumba, covering his role as the first prime minister of the Democratic Republic of the Congo and his assassination. It highlights his significance as a symbol of the anti-colonial struggle and provides context for his life and legacy."
+          },
+          {
+            "title": "Patrice Lumumba: The Last Fifty Days",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuzN9xs1Acqq3SS5zluGRfckn-OQtexMuXZGZkGV_LBwb0SaQRn7pVTe7GZiQCtADibHw8pY9zPhE-H7_3pGbyPq9jaJRAqgRRRQuGoUHZWgdap7Y-0q-cu87I0r_VptZLKjsimcUTYMdvqmhOl3HWwepLuqurgc-N1g==",
+            "why_relevant": "This book, 'Lumumba: The Last Fifty Days,' focuses on the final period of Lumumba's life, detailing his premiership, betrayal, imprisonment, and murder. It offers an in-depth analysis of the events leading to his assassination and provides crucial context for understanding the end of his life and its impact."
+          }
+        ],
+        "notes": "The provided search results offer a good starting point for researching Patrice Lumumba. The primary sources include his own writings and speeches, which are invaluable for understanding his direct perspective. The secondary sources provide biographical information, historical context, and analysis of his life and death. Further research could delve into archival materials related to the Congolese independence movement and the Cold War's influence on African politics."
+      },
+      "text": "```json\n{\n  \"figure\": \"Patrice Lumumba\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Speeches and Writings of Patrice Lumumba, 1958-1961\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr7YuEFZYkA1h5p9U4OpGKQN2XE6y-Lzt8Mhqe2jkRjFaoVzZCl7Pv-bCNKOnYcR2LanSFJXAlp8yM-gLIM0vWeehBN1XQFW3oQR0uwNZ03-2l8jfw1SY2RDd00xeXSJ3tXXDxwCrQi3jGc_aeUCFBL5Wj8AjGaQP-me9jdX_fy64veYbIdOcKkaD9-6ZQK_9mRKazJ5wZmCZxhVKVi02gclUE7nhlDrkwLeAawpfACsjPs46y0tqXc_isa8IORk4bq9g8VMOq1JY=\",\n      \"why_relevant\": \"This collection includes speeches and letters by Lumumba, offering direct insight into his thoughts, political positions, and the context of the Congolese independence movement. It also contains official documents and reminiscences, providing a multi-faceted view of his life and the political landscape.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba fighter.pdf\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMM7SzoLCFl40PYHOH8haaLDeu_sdeNRUc1nRk7YEdmLgXP6veTyOvSiTM5JLA2VK0i2KJ65YiroKgARgAaNKcFhqn6g_10eqGNKnE3SbMzjYaS_AWL7c-lFpkZOOP_uMyJtL9qVAJ7USmkBYTbgw9Du5DrNpjFZgCYMQ=\",\n      \"why_relevant\": \"This document is described as a collection of speeches and letters by Patrice Lumumba, along with reminiscences and official documents. It aims to present the truth about the colonialist plot in the Congo and Lumumba's role in the national liberation movement, making it a valuable primary source for understanding his perspective and the historical events.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba and Congo's Search for Real Independence\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnPeY2NpPXDhGH3xo7ymgidFI2gLMapHLf33ijHIw_UiwtJLE6mM6RmLOntmGK6ZMu9smoTF8T5_z-cg7hNB8uDYMYdWCsapLBU4rTq1p_QeR-B5gS3nLJgTFiOgkeWytzZMbR7wwff-kc33Jp4vx3EBLhjGSX80eKvlO9HaCDiDHeMC0JGVXHJ8BB3rditOs=\",\n      \"why_relevant\": \"This source contains Lumumba's speech at the independence ceremony, which directly conveys his views on Congolese suffering, the nature of independence, and his hopes for the nation. It also discusses the reactions to his speech and his subsequent actions, offering primary evidence of his political stance and the immediate aftermath of independence.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Patrice Lumumba - Wikipedia\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9y08Wy2klc4doIHDH3Qn1-ZNlEtfcCAlUmVS3CAVC8X1OJF84kEmlOBnsO8qGiYI8vG2fPf3-Wn9r0FK6YUTkr6PWWPluLT5Tgnof_EX090BYER0eRuEBBAw1WYOUS74GoCYQH5WxIw==\",\n      \"why_relevant\": \"Wikipedia provides a comprehensive overview of Lumumba's life, career, and political activities, drawing on various historical sources. It details his early life, political involvement, rise to prime minister, and assassination, offering a good starting point for understanding his historical significance.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba - Britannica\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcMA_WDUnh28BO4cKAVOJCwi3Nx9TSfU6ZUoIuiaAmGvQFqtmzYEjxjzbp0K0p9B1xyEY9WJzT89hUoqjuon5lljG4RvZNksrpT6bfIl1lNe6jtx0wuquKGFVHtxXsteaEhlI-NrsOQyWQOOgwDR0=\",\n      \"why_relevant\": \"Britannica offers a concise yet informative biography of Patrice Lumumba, covering his role as the first prime minister of the Democratic Republic of the Congo and his assassination. It highlights his significance as a symbol of the anti-colonial struggle and provides context for his life and legacy.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba: The Last Fifty Days\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuzN9xs1Acqq3SS5zluGRfckn-OQtexMuXZGZkGV_LBwb0SaQRn7pVTe7GZiQCtADibHw8pY9zPhE-H7_3pGbyPq9jaJRAqgRRRQuGoUHZWgdap7Y-0q-cu87I0r_VptZLKjsimcUTYMdvqmhOl3HWwepLuqurgc-N1g==\",\n      \"why_relevant\": \"This book, 'Lumumba: The Last Fifty Days,' focuses on the final period of Lumumba's life, detailing his premiership, betrayal, imprisonment, and murder. It offers an in-depth analysis of the events leading to his assassination and provides crucial context for understanding the end of his life and its impact.\"\n    }\n  ],\n  \"notes\": \"The provided search results offer a good starting point for researching Patrice Lumumba. The primary sources include his own writings and speeches, which are invaluable for understanding his direct perspective. The secondary sources provide biographical information, historical context, and analysis of his life and death. Further research could delve into archival materials related to the Congolese independence movement and the Cold War's influence on African politics.\"\n}\n```",
+      "groundingMetadata": {
+        "searchEntryPoint": {
+          "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqoA8o3Ha-GXL9B5P49pvoDR873FjgjS4pW3sF9a_N7VYve-3cZUpbr6bUFSU6HTUS_dl_H6-U4QNgbecjK0tnLLRNinQ-lMwsjBCmcewkMjXOSIrKuFIo9E3j6-k-JXruWLLNDCih9mWWB-WEMH_yJfqlwl2P7YfkkhhZ6nnwq3D5E7qOcJb0VHbeKwzir9-Nsbgfq0Y3RfqJJZm8ljkXYzZc0DUT\">Patrice Lumumba historical archives</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Bfw0uRt8xLlK3qEovTFhA_UwjXiI-ElQUKLgZkB-fhAFm1zI_eCUx0vL2hm5ynLQC-tYclAZBiYgev62NvzimOQPm4xun63CUsPrzXGTQ0R8sjUi_5UdKQT231T6fy88APw-UwSHwInz5_bkZR_nKjwFRg1oMu6VC74156Q0R1o-vtopz5YF_-ovgxWc1iTjzl71QRV2shChu9jYb5BpjcY=\">Patrice Lumumba primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmCREbn1rFiYvVQ6L8q2mqmqTy1GXUAPJzLsf83V2QEledXKyxcKvGCl--v3RILsmuefSbOFA2GaE7sFS8To1_4E-PQ6NEe0FYBoFf_2usiNQ3EWpYKpOKectse6eFeednoBBzV3jrf49kjaXCK7bNG010yFUO1ObOIwj5DzAfe-sfqGLHWxIDDnXsFXyu9fj0A4G3bGjCn1dpntLyig1GX_ZfdQ==\">Patrice Lumumba secondary sources</a>\n  </div>\n</div>\n"
+        },
+        "webSearchQueries": [
+          "Patrice Lumumba primary sources",
+          "Patrice Lumumba secondary sources",
+          "Patrice Lumumba historical archives"
+        ]
+      },
+      "usageMetadata": {
+        "promptTokenCount": 93,
+        "candidatesTokenCount": 1615,
+        "totalTokenCount": 1834,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 93
+          }
+        ],
+        "toolUsePromptTokenCount": 126,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 126
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"figure\": \"Patrice Lumumba\",\n  \"primary_sources\": [\n    {\n      \"title\": \"The Speeches and Writings of Patrice Lumumba, 1958-1961\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEr7YuEFZYkA1h5p9U4OpGKQN2XE6y-Lzt8Mhqe2jkRjFaoVzZCl7Pv-bCNKOnYcR2LanSFJXAlp8yM-gLIM0vWeehBN1XQFW3oQR0uwNZ03-2l8jfw1SY2RDd00xeXSJ3tXXDxwCrQi3jGc_aeUCFBL5Wj8AjGaQP-me9jdX_fy64veYbIdOcKkaD9-6ZQK_9mRKazJ5wZmCZxhVKVi02gclUE7nhlDrkwLeAawpfACsjPs46y0tqXc_isa8IORk4bq9g8VMOq1JY=\",\n      \"why_relevant\": \"This collection includes speeches and letters by Lumumba, offering direct insight into his thoughts, political positions, and the context of the Congolese independence movement. It also contains official documents and reminiscences, providing a multi-faceted view of his life and the political landscape.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba fighter.pdf\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFMM7SzoLCFl40PYHOH8haaLDeu_sdeNRUc1nRk7YEdmLgXP6veTyOvSiTM5JLA2VK0i2KJ65YiroKgARgAaNKcFhqn6g_10eqGNKnE3SbMzjYaS_AWL7c-lFpkZOOP_uMyJtL9qVAJ7USmkBYTbgw9Du5DrNpjFZgCYMQ=\",\n      \"why_relevant\": \"This document is described as a collection of speeches and letters by Patrice Lumumba, along with reminiscences and official documents. It aims to present the truth about the colonialist plot in the Congo and Lumumba's role in the national liberation movement, making it a valuable primary source for understanding his perspective and the historical events.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba and Congo's Search for Real Independence\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnPeY2NpPXDhGH3xo7ymgidFI2gLMapHLf33ijHIw_UiwtJLE6mM6RmLOntmGK6ZMu9smoTF8T5_z-cg7hNB8uDYMYdWCsapLBU4rTq1p_QeR-B5gS3nLJgTFiOgkeWytzZMbR7wwff-kc33Jp4vx3EBLhjGSX80eKvlO9HaCDiDHeMC0JGVXHJ8BB3rditOs=\",\n      \"why_relevant\": \"This source contains Lumumba's speech at the independence ceremony, which directly conveys his views on Congolese suffering, the nature of independence, and his hopes for the nation. It also discusses the reactions to his speech and his subsequent actions, offering primary evidence of his political stance and the immediate aftermath of independence.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Patrice Lumumba - Wikipedia\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH9y08Wy2klc4doIHDH3Qn1-ZNlEtfcCAlUmVS3CAVC8X1OJF84kEmlOBnsO8qGiYI8vG2fPf3-Wn9r0FK6YUTkr6PWWPluLT5Tgnof_EX090BYER0eRuEBBAw1WYOUS74GoCYQH5WxIw==\",\n      \"why_relevant\": \"Wikipedia provides a comprehensive overview of Lumumba's life, career, and political activities, drawing on various historical sources. It details his early life, political involvement, rise to prime minister, and assassination, offering a good starting point for understanding his historical significance.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba - Britannica\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcMA_WDUnh28BO4cKAVOJCwi3Nx9TSfU6ZUoIuiaAmGvQFqtmzYEjxjzbp0K0p9B1xyEY9WJzT89hUoqjuon5lljG4RvZNksrpT6bfIl1lNe6jtx0wuquKGFVHtxXsteaEhlI-NrsOQyWQOOgwDR0=\",\n      \"why_relevant\": \"Britannica offers a concise yet informative biography of Patrice Lumumba, covering his role as the first prime minister of the Democratic Republic of the Congo and his assassination. It highlights his significance as a symbol of the anti-colonial struggle and provides context for his life and legacy.\"\n    },\n    {\n      \"title\": \"Patrice Lumumba: The Last Fifty Days\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEuzN9xs1Acqq3SS5zluGRfckn-OQtexMuXZGZkGV_LBwb0SaQRn7pVTe7GZiQCtADibHw8pY9zPhE-H7_3pGbyPq9jaJRAqgRRRQuGoUHZWgdap7Y-0q-cu87I0r_VptZLKjsimcUTYMdvqmhOl3HWwepLuqurgc-N1g==\",\n      \"why_relevant\": \"This book, 'Lumumba: The Last Fifty Days,' focuses on the final period of Lumumba's life, detailing his premiership, betrayal, imprisonment, and murder. It offers an in-depth analysis of the events leading to his assassination and provides crucial context for understanding the end of his life and its impact.\"\n    }\n  ],\n  \"notes\": \"The provided search results offer a good starting point for researching Patrice Lumumba. The primary sources include his own writings and speeches, which are invaluable for understanding his direct perspective. The secondary sources provide biographical information, historical context, and analysis of his life and death. Further research could delve into archival materials related to the Congolese independence movement and the Cold War's influence on African politics.\"\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {
+              "searchEntryPoint": {
+                "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHqoA8o3Ha-GXL9B5P49pvoDR873FjgjS4pW3sF9a_N7VYve-3cZUpbr6bUFSU6HTUS_dl_H6-U4QNgbecjK0tnLLRNinQ-lMwsjBCmcewkMjXOSIrKuFIo9E3j6-k-JXruWLLNDCih9mWWB-WEMH_yJfqlwl2P7YfkkhhZ6nnwq3D5E7qOcJb0VHbeKwzir9-Nsbgfq0Y3RfqJJZm8ljkXYzZc0DUT\">Patrice Lumumba historical archives</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5Bfw0uRt8xLlK3qEovTFhA_UwjXiI-ElQUKLgZkB-fhAFm1zI_eCUx0vL2hm5ynLQC-tYclAZBiYgev62NvzimOQPm4xun63CUsPrzXGTQ0R8sjUi_5UdKQT231T6fy88APw-UwSHwInz5_bkZR_nKjwFRg1oMu6VC74156Q0R1o-vtopz5YF_-ovgxWc1iTjzl71QRV2shChu9jYb5BpjcY=\">Patrice Lumumba primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmCREbn1rFiYvVQ6L8q2mqmqTy1GXUAPJzLsf83V2QEledXKyxcKvGCl--v3RILsmuefSbOFA2GaE7sFS8To1_4E-PQ6NEe0FYBoFf_2usiNQ3EWpYKpOKectse6eFeednoBBzV3jrf49kjaXCK7bNG010yFUO1ObOIwj5DzAfe-sfqGLHWxIDDnXsFXyu9fj0A4G3bGjCn1dpntLyig1GX_ZfdQ==\">Patrice Lumumba secondary sources</a>\n  </div>\n</div>\n"
+              },
+              "webSearchQueries": [
+                "Patrice Lumumba primary sources",
+                "Patrice Lumumba secondary sources",
+                "Patrice Lumumba historical archives"
+              ]
+            }
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 93,
+          "candidatesTokenCount": 1615,
+          "totalTokenCount": 1834,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 93
+            }
+          ],
+          "toolUsePromptTokenCount": 126,
+          "toolUsePromptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 126
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "_DOIaajABKyi_uMPtPyqyAo"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": true,
+      "figure": {
+        "id": "frederick-the-great",
+        "canonical_name": "Frederick the Great"
+      },
+      "parsed": {
+        "figure": "Frederick the Great",
+        "primary_sources": [
+          {
+            "title": "Frederick the Great's Œuvres",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==",
+            "why_relevant": "Frederick's own collected works would provide direct insight into his thoughts, writings, and potentially his personal accounts of events."
+          },
+          {
+            "title": "Politische Correspondenz (Political Correspondence) of Frederick's reign",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==",
+            "why_relevant": "This collection of correspondence offers a direct look at the political dealings and communications during Frederick's reign, providing primary source material for his policies and interactions."
+          },
+          {
+            "title": "Letters from Voltaire",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF70XD2OV4h9ln22M4IaPd1u1dHi-lUyFMiwsMo_VTzmOZBix9Uc4alYquXFBzT51uqJFAxGF4s7VQpmiuOYiiLsD5NeXluvUBVa3ovLy4gspHFdIcPvVgVSGcSh0p5gTnfOBME8T57E1jTWp9TF6dm01LkS67QVSYXy8HdBsQ=",
+            "why_relevant": "Voltaire was a prominent Enlightenment thinker and a correspondent of Frederick the Great. His letters offer contemporary perspectives on Frederick's character, reign, and intellectual circle."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Frederick the Great: King of Prussia by David Fraser",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==",
+            "why_relevant": "This biography by a general and biographer focuses on Frederick's military career, providing detailed descriptions of battles and strategy within the broader context of 18th-century European politics."
+          },
+          {
+            "title": "Frederick the Great and His Officials by Hubert C. Johnson",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==",
+            "why_relevant": "This scholarly work examines Prussia's development under Frederick's rule, highlighting his administrative abilities and providing insights into the political and economic governance of his state."
+          },
+          {
+            "title": "Frederick the Great: A Life in Deed and Letters by Giles MacDonogh",
+            "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==",
+            "why_relevant": "This comprehensive biography is based on meticulous research into primary documents, including Frederick's correspondence, offering a detailed account of his life and times."
+          }
+        ],
+        "notes": "Frederick the Great was a complex figure, known for his military prowess, patronage of the arts and Enlightenment, and his role as an 'enlightened absolutist.' Sources should consider his military campaigns, administrative reforms, personal life, and his impact on Prussia and European history. His relationship with his father, his interest in French culture, and his military theories are also key areas of study."
+      },
+      "text": "```json\n{\n  \"figure\": \"Frederick the Great\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Frederick the Great's Œuvres\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==\",\n      \"why_relevant\": \"Frederick's own collected works would provide direct insight into his thoughts, writings, and potentially his personal accounts of events.\"\n    },\n    {\n      \"title\": \"Politische Correspondenz (Political Correspondence) of Frederick's reign\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==\",\n      \"why_relevant\": \"This collection of correspondence offers a direct look at the political dealings and communications during Frederick's reign, providing primary source material for his policies and interactions.\"\n    },\n    {\n      \"title\": \"Letters from Voltaire\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF70XD2OV4h9ln22M4IaPd1u1dHi-lUyFMiwsMo_VTzmOZBix9Uc4alYquXFBzT51uqJFAxGF4s7VQpmiuOYiiLsD5NeXluvUBVa3ovLy4gspHFdIcPvVgVSGcSh0p5gTnfOBME8T57E1jTWp9TF6dm01LkS67QVSYXy8HdBsQ=\",\n      \"why_relevant\": \"Voltaire was a prominent Enlightenment thinker and a correspondent of Frederick the Great. His letters offer contemporary perspectives on Frederick's character, reign, and intellectual circle.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Frederick the Great: King of Prussia by David Fraser\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This biography by a general and biographer focuses on Frederick's military career, providing detailed descriptions of battles and strategy within the broader context of 18th-century European politics.\"\n    },\n    {\n      \"title\": \"Frederick the Great and His Officials by Hubert C. Johnson\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This scholarly work examines Prussia's development under Frederick's rule, highlighting his administrative abilities and providing insights into the political and economic governance of his state.\"\n    },\n    {\n      \"title\": \"Frederick the Great: A Life in Deed and Letters by Giles MacDonogh\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This comprehensive biography is based on meticulous research into primary documents, including Frederick's correspondence, offering a detailed account of his life and times.\"\n    }\n  ],\n  \"notes\": \"Frederick the Great was a complex figure, known for his military prowess, patronage of the arts and Enlightenment, and his role as an 'enlightened absolutist.' Sources should consider his military campaigns, administrative reforms, personal life, and his impact on Prussia and European history. His relationship with his father, his interest in French culture, and his military theories are also key areas of study.\"\n}\n```",
+      "groundingMetadata": {
+        "searchEntryPoint": {
+          "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEo7f1zGrcb2kh270w0beYjesFrn6qQ-8BUsUmPMXlsW3tXjdxidCfR7QvOrfwc4X3wyyAPVBjka7GhExga_-tJnwTmJOgXcx6bu9yFee_054BFc9ycdIxXYnPJ-ytwZ5E6SSi3GSQe2Q-f-rJTAqeBPSfk7yguL7hrwf4GrwRvpCsUQucc6qpkr7_q6IKKChZqUTJVGDnVGFX6Nouzoy1jQk4IsJzF2oIrTA==\">Frederick the Great historical analysis</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcLE4WrL-HZTmATm2u2Fv0n0wwcPDsiipiMtdHZ_irPWxVkaYQh7cUw8Z0iPytCCNTi4rzdGN4yHKBqLEc-Czc9V-CrkAdtYHk4qS53sH_5mkpA5s2ODgIgp1tgavHX6HC9zGWoxAG3DAFxUgj89gge2PPy_CJZxriUUn1Ba2HpAgFyAYxmPdtFC1eq1VB5t7ZfOwDEhxij3YSYyrDr46gxkadVMZO\">Frederick the Great primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGL51mRKo1AhGm4WIeG0PzNNjDnNwsIFhqwMNTr3lBtVF7ngrZuqjFLjr2aG9hoTC6Ju2zrC-t0xAIsl9sMNOqFs2fDwdqY4GoaVjb2HBg_0b4gDYaHzq3mwkVBaGAms0_yeZlrz6JEjTEFkbzajdZfN7T2mh5IYZMen5bYrtEe9cz1kISdz-pCnD1MxR6G3X-QESxgeaZ6WJufPKdZp_zst04f8cnx2Hg=\">Frederick the Great secondary sources</a>\n  </div>\n</div>\n"
+        },
+        "webSearchQueries": [
+          "Frederick the Great primary sources",
+          "Frederick the Great secondary sources",
+          "Frederick the Great historical analysis"
+        ]
+      },
+      "usageMetadata": {
+        "promptTokenCount": 93,
+        "candidatesTokenCount": 1367,
+        "totalTokenCount": 1583,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 93
+          }
+        ],
+        "toolUsePromptTokenCount": 123,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 123
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"figure\": \"Frederick the Great\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Frederick the Great's Œuvres\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==\",\n      \"why_relevant\": \"Frederick's own collected works would provide direct insight into his thoughts, writings, and potentially his personal accounts of events.\"\n    },\n    {\n      \"title\": \"Politische Correspondenz (Political Correspondence) of Frederick's reign\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnVCqsKn4JW8G6XrrlPyfpMD8olRjnfax2MJGYxGStdLj-71pHJdjMl5ceujijOO8B90LScupyGtCgqvCi4QSMvpEWaSM6yAGh5UdoLUeLpOl-8NFKfUL9Er2Lql0p5Ba1uIRc0WE7nd3d6xtpXhdHsUefvQ==\",\n      \"why_relevant\": \"This collection of correspondence offers a direct look at the political dealings and communications during Frederick's reign, providing primary source material for his policies and interactions.\"\n    },\n    {\n      \"title\": \"Letters from Voltaire\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF70XD2OV4h9ln22M4IaPd1u1dHi-lUyFMiwsMo_VTzmOZBix9Uc4alYquXFBzT51uqJFAxGF4s7VQpmiuOYiiLsD5NeXluvUBVa3ovLy4gspHFdIcPvVgVSGcSh0p5gTnfOBME8T57E1jTWp9TF6dm01LkS67QVSYXy8HdBsQ=\",\n      \"why_relevant\": \"Voltaire was a prominent Enlightenment thinker and a correspondent of Frederick the Great. His letters offer contemporary perspectives on Frederick's character, reign, and intellectual circle.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Frederick the Great: King of Prussia by David Fraser\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This biography by a general and biographer focuses on Frederick's military career, providing detailed descriptions of battles and strategy within the broader context of 18th-century European politics.\"\n    },\n    {\n      \"title\": \"Frederick the Great and His Officials by Hubert C. Johnson\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This scholarly work examines Prussia's development under Frederick's rule, highlighting his administrative abilities and providing insights into the political and economic governance of his state.\"\n    },\n    {\n      \"title\": \"Frederick the Great: A Life in Deed and Letters by Giles MacDonogh\",\n      \"url\": \"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcA5FnPPUucxMtbAAOeDxiMZupyHHCAzKPDsTuJ_DkcmFUawXUzwldjUt6Rk78GjJM1b4Rg1PivpRhUYS2a5wnjhT2ca8e8IRwpN_-sUkWKx_HKDujksOTkdi7g5MOmSgOkfTPZJu7pW50nCy0cIIvgG2i-GeGedQFMQ==\",\n      \"why_relevant\": \"This comprehensive biography is based on meticulous research into primary documents, including Frederick's correspondence, offering a detailed account of his life and times.\"\n    }\n  ],\n  \"notes\": \"Frederick the Great was a complex figure, known for his military prowess, patronage of the arts and Enlightenment, and his role as an 'enlightened absolutist.' Sources should consider his military campaigns, administrative reforms, personal life, and his impact on Prussia and European history. His relationship with his father, his interest in French culture, and his military theories are also key areas of study.\"\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {
+              "searchEntryPoint": {
+                "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEo7f1zGrcb2kh270w0beYjesFrn6qQ-8BUsUmPMXlsW3tXjdxidCfR7QvOrfwc4X3wyyAPVBjka7GhExga_-tJnwTmJOgXcx6bu9yFee_054BFc9ycdIxXYnPJ-ytwZ5E6SSi3GSQe2Q-f-rJTAqeBPSfk7yguL7hrwf4GrwRvpCsUQucc6qpkr7_q6IKKChZqUTJVGDnVGFX6Nouzoy1jQk4IsJzF2oIrTA==\">Frederick the Great historical analysis</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGcLE4WrL-HZTmATm2u2Fv0n0wwcPDsiipiMtdHZ_irPWxVkaYQh7cUw8Z0iPytCCNTi4rzdGN4yHKBqLEc-Czc9V-CrkAdtYHk4qS53sH_5mkpA5s2ODgIgp1tgavHX6HC9zGWoxAG3DAFxUgj89gge2PPy_CJZxriUUn1Ba2HpAgFyAYxmPdtFC1eq1VB5t7ZfOwDEhxij3YSYyrDr46gxkadVMZO\">Frederick the Great primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGL51mRKo1AhGm4WIeG0PzNNjDnNwsIFhqwMNTr3lBtVF7ngrZuqjFLjr2aG9hoTC6Ju2zrC-t0xAIsl9sMNOqFs2fDwdqY4GoaVjb2HBg_0b4gDYaHzq3mwkVBaGAms0_yeZlrz6JEjTEFkbzajdZfN7T2mh5IYZMen5bYrtEe9cz1kISdz-pCnD1MxR6G3X-QESxgeaZ6WJufPKdZp_zst04f8cnx2Hg=\">Frederick the Great secondary sources</a>\n  </div>\n</div>\n"
+              },
+              "webSearchQueries": [
+                "Frederick the Great primary sources",
+                "Frederick the Great secondary sources",
+                "Frederick the Great historical analysis"
+              ]
+            }
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 93,
+          "candidatesTokenCount": 1367,
+          "totalTokenCount": 1583,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 93
+            }
+          ],
+          "toolUsePromptTokenCount": 123,
+          "toolUsePromptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 123
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "AzSIabPJEMDh_uMPspzsgQU"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": true,
+      "figure": {
+        "id": "kim-il-sung",
+        "canonical_name": "Kim Il-sung"
+      },
+      "parsed": {
+        "figure": "Kim Il-sung",
+        "primary_sources": [
+          {
+            "title": "Complete Series (every single work of Kim Il Sung)",
+            "url": "https://archive.org/details/kimilsungworks",
+            "why_relevant": "This collection contains virtually all of Kim Il Sung's written works, speeches, and interviews, offering direct insight into his thoughts, ideology, and the historical events he shaped."
+          },
+          {
+            "title": "The Personal File of Jin Richeng (Kim Il-sung): New Information on the Early Years of the First Ruler of North Korea",
+            "url": "https://www.degruyter.com/document/doi/10.1515/9783110770716-001/html",
+            "why_relevant": "This source includes archival documents from 1941, such as a report signed by Kim Il-sung and others, and a report by Soviet officials. These provide contemporary, albeit translated, accounts of his early life and activities."
+          },
+          {
+            "title": "Publications of DPRK - North Korean Archives and Library",
+            "url": "https://www.korea-archives.org/en/kim-il-sung/publications",
+            "why_relevant": "This site lists numerous publications by Kim Il Sung, including speeches and theses on various topics. These provide primary source material on his political and ideological pronouncements."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Kim Il Sung: The North Korean Leader",
+            "url": "https://www.asianstudies.org/publications/eaa/archives/kim-il-sung-the-north-korean-leader/",
+            "why_relevant": "This is a review of Dae-Sook Suh's biography, considered one of the most objective and thoroughly researched accounts of Kim Il Sung's life and rule. It discusses his early life, consolidation of power, and foreign policy."
+          },
+          {
+            "title": "Kim Il Sung - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Kim_Il_Sung",
+            "why_relevant": "Provides a comprehensive overview of Kim Il Sung's life, political career, leadership, and the controversies surrounding his identity and rise to power. It includes details on his founding of North Korea, the Korean War, and his ideology."
+          },
+          {
+            "title": "The \"Theory of Kim Il-sŏng the Impostor\": A Historiographical Study",
+            "url": "https://www.researchgate.net/publication/361401747_The_Theory_of_Kim_Il-s%C9%9Bng_the_Impostor_A_Historiographical_Study",
+            "why_relevant": "This academic paper delves into the historical debate and historiography surrounding the identity of Kim Il Sung, examining claims that he was an impostor. It provides critical analysis of various sources and perspectives on his early life and rise to power."
+          }
+        ],
+        "notes": "Kim Il Sung's life and legacy are heavily documented, but much of the material originating from North Korea is subject to state propaganda. Critical engagement with both North Korean and external sources is essential for a balanced understanding. The 'impostor theory' is a significant historiographical point to consider when evaluating early accounts of his life."
+      },
+      "text": "```json\n{\n  \"figure\": \"Kim Il-sung\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Complete Series (every single work of Kim Il Sung)\",\n      \"url\": \"https://archive.org/details/kimilsungworks\",\n      \"why_relevant\": \"This collection contains virtually all of Kim Il Sung's written works, speeches, and interviews, offering direct insight into his thoughts, ideology, and the historical events he shaped.\"\n    },\n    {\n      \"title\": \"The Personal File of Jin Richeng (Kim Il-sung): New Information on the Early Years of the First Ruler of North Korea\",\n      \"url\": \"https://www.degruyter.com/document/doi/10.1515/9783110770716-001/html\",\n      \"why_relevant\": \"This source includes archival documents from 1941, such as a report signed by Kim Il-sung and others, and a report by Soviet officials. These provide contemporary, albeit translated, accounts of his early life and activities.\"\n    },\n    {\n      \"title\": \"Publications of DPRK - North Korean Archives and Library\",\n      \"url\": \"https://www.korea-archives.org/en/kim-il-sung/publications\",\n      \"why_relevant\": \"This site lists numerous publications by Kim Il Sung, including speeches and theses on various topics. These provide primary source material on his political and ideological pronouncements.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Kim Il Sung: The North Korean Leader\",\n      \"url\": \"https://www.asianstudies.org/publications/eaa/archives/kim-il-sung-the-north-korean-leader/\",\n      \"why_relevant\": \"This is a review of Dae-Sook Suh's biography, considered one of the most objective and thoroughly researched accounts of Kim Il Sung's life and rule. It discusses his early life, consolidation of power, and foreign policy.\"\n    },\n    {\n      \"title\": \"Kim Il Sung - Wikipedia\",\n      \"url\": \"https://en.wikipedia.org/wiki/Kim_Il_Sung\",\n      \"why_relevant\": \"Provides a comprehensive overview of Kim Il Sung's life, political career, leadership, and the controversies surrounding his identity and rise to power. It includes details on his founding of North Korea, the Korean War, and his ideology.\"\n    },\n    {\n      \"title\": \"The \\\"Theory of Kim Il-sŏng the Impostor\\\": A Historiographical Study\",\n      \"url\": \"https://www.researchgate.net/publication/361401747_The_Theory_of_Kim_Il-s%C9%9Bng_the_Impostor_A_Historiographical_Study\",\n      \"why_relevant\": \"This academic paper delves into the historical debate and historiography surrounding the identity of Kim Il Sung, examining claims that he was an impostor. It provides critical analysis of various sources and perspectives on his early life and rise to power.\"\n    }\n  ],\n  \"notes\": \"Kim Il Sung's life and legacy are heavily documented, but much of the material originating from North Korea is subject to state propaganda. Critical engagement with both North Korean and external sources is essential for a balanced understanding. The 'impostor theory' is a significant historiographical point to consider when evaluating early accounts of his life.\"\n}\n```",
+      "groundingMetadata": {
+        "searchEntryPoint": {
+          "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6jN4AKaykTxJorewPmTHPs7NFnI2GiY5L8F_GbiTKD_L_3-qesApWodJCt4IQTfqC8TLs4U-1sAdzw_5IFIdAk8yP93kvkLobbsBGVnxSdD1nJ3BzSSw8XBFgFked4HyMGgsXnVnxQhgsCD4RocQtjb39_SvLdeVDmeFguSmL-qaNhdrC3uOan5b4rH7KVKTI2X-mJXSyOm6i\">Kim Il-sung biographies</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHY-ngagGZ_R9I7HhD3pTpjAfuMb_J4Iu7PQXjeuKU6g5XoKsEyvTVSirmy0qPOPTPW2WcFdOeQAw6HgKTr8Vtx97qUQZ-dQGptjkpfuKu_FOHJKTTBuiRctG6Cgf8qrAQpeJks1_QqWowYjcMeYj8tAKjOwveXeo1N39fuCA9qB_gqlOir2edQ_i1IbyeRoGSlRSRGwJ3jYqZWShLwFg==\">Kim Il-sung primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoOmGyWKvxXLHUB5Ou0NUKPzQvMOnFpsqrryyRgVX9c8rW1UQq7_9pbEa-5XUai_mk0TOTgsyGX8x0M0wdHe_fyHEO4NNFkHWLsiPu5uBVUZemm5nyuMzsTcTxz7rXJT7nQHXEsxCZSvrz6eOzLKPd_m3d3LH2zMvYclGZT3_7SAK3y1HJAUnM8pvghs7eDGjNmwz_vDEeG4sV6c4OoBZ-EZLw\">Kim Il-sung historical documents</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8o9pju4td_1c1p92BSbRMq3stjerOJh7T1j_q6QJuN-URn_qqnwZZJxe88vficFmo6Q4vSaqgbM8IP9vHEZ_U8f40OP72Pm0rcB8ia5QkgzBgHJuHEvzeNyck85CumE8DICw8q70eKJqqjcRUk-VtAo3hmcZxNodF2WEqB4ve8gfZ7TAC207DMFwouB8s2GZ6V6BGciBH3HBUK0CwnyjeFQ==\">Kim Il-sung scholarly articles</a>\n  </div>\n</div>\n"
+        },
+        "webSearchQueries": [
+          "Kim Il-sung primary sources",
+          "Kim Il-sung historical documents",
+          "Kim Il-sung biographies",
+          "Kim Il-sung scholarly articles"
+        ]
+      },
+      "usageMetadata": {
+        "promptTokenCount": 94,
+        "candidatesTokenCount": 825,
+        "totalTokenCount": 1053,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 94
+          }
+        ],
+        "toolUsePromptTokenCount": 134,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 134
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"figure\": \"Kim Il-sung\",\n  \"primary_sources\": [\n    {\n      \"title\": \"Complete Series (every single work of Kim Il Sung)\",\n      \"url\": \"https://archive.org/details/kimilsungworks\",\n      \"why_relevant\": \"This collection contains virtually all of Kim Il Sung's written works, speeches, and interviews, offering direct insight into his thoughts, ideology, and the historical events he shaped.\"\n    },\n    {\n      \"title\": \"The Personal File of Jin Richeng (Kim Il-sung): New Information on the Early Years of the First Ruler of North Korea\",\n      \"url\": \"https://www.degruyter.com/document/doi/10.1515/9783110770716-001/html\",\n      \"why_relevant\": \"This source includes archival documents from 1941, such as a report signed by Kim Il-sung and others, and a report by Soviet officials. These provide contemporary, albeit translated, accounts of his early life and activities.\"\n    },\n    {\n      \"title\": \"Publications of DPRK - North Korean Archives and Library\",\n      \"url\": \"https://www.korea-archives.org/en/kim-il-sung/publications\",\n      \"why_relevant\": \"This site lists numerous publications by Kim Il Sung, including speeches and theses on various topics. These provide primary source material on his political and ideological pronouncements.\"\n    }\n  ],\n  \"secondary_sources\": [\n    {\n      \"title\": \"Kim Il Sung: The North Korean Leader\",\n      \"url\": \"https://www.asianstudies.org/publications/eaa/archives/kim-il-sung-the-north-korean-leader/\",\n      \"why_relevant\": \"This is a review of Dae-Sook Suh's biography, considered one of the most objective and thoroughly researched accounts of Kim Il Sung's life and rule. It discusses his early life, consolidation of power, and foreign policy.\"\n    },\n    {\n      \"title\": \"Kim Il Sung - Wikipedia\",\n      \"url\": \"https://en.wikipedia.org/wiki/Kim_Il_Sung\",\n      \"why_relevant\": \"Provides a comprehensive overview of Kim Il Sung's life, political career, leadership, and the controversies surrounding his identity and rise to power. It includes details on his founding of North Korea, the Korean War, and his ideology.\"\n    },\n    {\n      \"title\": \"The \\\"Theory of Kim Il-sŏng the Impostor\\\": A Historiographical Study\",\n      \"url\": \"https://www.researchgate.net/publication/361401747_The_Theory_of_Kim_Il-s%C9%9Bng_the_Impostor_A_Historiographical_Study\",\n      \"why_relevant\": \"This academic paper delves into the historical debate and historiography surrounding the identity of Kim Il Sung, examining claims that he was an impostor. It provides critical analysis of various sources and perspectives on his early life and rise to power.\"\n    }\n  ],\n  \"notes\": \"Kim Il Sung's life and legacy are heavily documented, but much of the material originating from North Korea is subject to state propaganda. Critical engagement with both North Korean and external sources is essential for a balanced understanding. The 'impostor theory' is a significant historiographical point to consider when evaluating early accounts of his life.\"\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {
+              "searchEntryPoint": {
+                "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG6jN4AKaykTxJorewPmTHPs7NFnI2GiY5L8F_GbiTKD_L_3-qesApWodJCt4IQTfqC8TLs4U-1sAdzw_5IFIdAk8yP93kvkLobbsBGVnxSdD1nJ3BzSSw8XBFgFked4HyMGgsXnVnxQhgsCD4RocQtjb39_SvLdeVDmeFguSmL-qaNhdrC3uOan5b4rH7KVKTI2X-mJXSyOm6i\">Kim Il-sung biographies</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHY-ngagGZ_R9I7HhD3pTpjAfuMb_J4Iu7PQXjeuKU6g5XoKsEyvTVSirmy0qPOPTPW2WcFdOeQAw6HgKTr8Vtx97qUQZ-dQGptjkpfuKu_FOHJKTTBuiRctG6Cgf8qrAQpeJks1_QqWowYjcMeYj8tAKjOwveXeo1N39fuCA9qB_gqlOir2edQ_i1IbyeRoGSlRSRGwJ3jYqZWShLwFg==\">Kim Il-sung primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGoOmGyWKvxXLHUB5Ou0NUKPzQvMOnFpsqrryyRgVX9c8rW1UQq7_9pbEa-5XUai_mk0TOTgsyGX8x0M0wdHe_fyHEO4NNFkHWLsiPu5uBVUZemm5nyuMzsTcTxz7rXJT7nQHXEsxCZSvrz6eOzLKPd_m3d3LH2zMvYclGZT3_7SAK3y1HJAUnM8pvghs7eDGjNmwz_vDEeG4sV6c4OoBZ-EZLw\">Kim Il-sung historical documents</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8o9pju4td_1c1p92BSbRMq3stjerOJh7T1j_q6QJuN-URn_qqnwZZJxe88vficFmo6Q4vSaqgbM8IP9vHEZ_U8f40OP72Pm0rcB8ia5QkgzBgHJuHEvzeNyck85CumE8DICw8q70eKJqqjcRUk-VtAo3hmcZxNodF2WEqB4ve8gfZ7TAC207DMFwouB8s2GZ6V6BGciBH3HBUK0CwnyjeFQ==\">Kim Il-sung scholarly articles</a>\n  </div>\n</div>\n"
+              },
+              "webSearchQueries": [
+                "Kim Il-sung primary sources",
+                "Kim Il-sung historical documents",
+                "Kim Il-sung biographies",
+                "Kim Il-sung scholarly articles"
+              ]
+            }
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 94,
+          "candidatesTokenCount": 825,
+          "totalTokenCount": 1053,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 94
+            }
+          ],
+          "toolUsePromptTokenCount": 134,
+          "toolUsePromptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 134
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "CDSIaZK4F5Df_uMPiue5sQw"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": true,
+      "figure": {
+        "id": "ferdinand-de-saussure",
+        "canonical_name": "Ferdinand de Saussure"
+      },
+      "parsed": {
+        "figure": "Ferdinand de Saussure",
+        "primary_sources": [
+          {
+            "title": "Course in General Linguistics",
+            "url": "https://www.britannica.com/biography/Ferdinand-de-Saussure",
+            "why_relevant": "This is the most cited and discussed work of Saussure, compiled from his students' lecture notes and published posthumously. It is considered the starting point of 20th-century structural linguistics and introduces key concepts like langue and parole, and the synchronic vs. diachronic approach to language study."
+          },
+          {
+            "title": "Mémoire sur le système primitif des voyelles dans les langues indo-européennes",
+            "url": "https://www.britannica.com/biography/Ferdinand-de-Saussure",
+            "why_relevant": "This monograph, published during Saussure's lifetime, established his early reputation in comparative linguistics and focused on Indo-European languages."
+          },
+          {
+            "title": "Writings in General Linguistics",
+            "url": "https://www.britannica.com/biography/Ferdinand-de-Saussure",
+            "why_relevant": "This volume contains some of Saussure's manuscripts, including an unfinished essay discovered in 1996, offering direct insight into his thought processes and ideas."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Ferdinand de Saussure - Britannica",
+            "url": "https://www.britannica.com/biography/Ferdinand-de-Saussure",
+            "why_relevant": "This article provides a comprehensive overview of Saussure's life, his major contributions to linguistics and semiotics, and the foundational concepts of his theories, such as structuralism, langue/parole, and the arbitrary nature of the linguistic sign."
+          },
+          {
+            "title": "Ferdinand de Saussure - StudySmarter",
+            "url": "https://www.study.com/academy/lesson/ferdinand-de-saussure-biography-theory-books.html",
+            "why_relevant": "This resource offers a biography of Saussure, explains his key theories, and discusses his most important works, including the challenges in translating his concepts."
+          },
+          {
+            "title": "Ferdinand de Saussure - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Ferdinand_de_Saussure",
+            "why_relevant": "Wikipedia provides a detailed biographical account of Saussure, outlining his education, career, and the development and impact of his key ideas, such as structural linguistics and semiotics."
+          }
+        ],
+        "notes": "Ferdinand de Saussure (1857-1913) was a Swiss linguist whose work laid the foundation for modern linguistics and structuralism. His most influential work, 'Course in General Linguistics,' was published posthumously and introduced concepts such as the distinction between 'langue' (language system) and 'parole' (individual speech), and the idea that linguistic signs are arbitrary. His ideas have had a profound impact on linguistics, semiotics, anthropology, and literary criticism."
+      },
+      "text": "```json\n{\n\"figure\": \"Ferdinand de Saussure\",\n\"primary_sources\": [\n{\n\"title\": \"Course in General Linguistics\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This is the most cited and discussed work of Saussure, compiled from his students' lecture notes and published posthumously. It is considered the starting point of 20th-century structural linguistics and introduces key concepts like langue and parole, and the synchronic vs. diachronic approach to language study.\"\n},\n{\n\"title\": \"Mémoire sur le système primitif des voyelles dans les langues indo-européennes\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This monograph, published during Saussure's lifetime, established his early reputation in comparative linguistics and focused on Indo-European languages.\"\n},\n{\n\"title\": \"Writings in General Linguistics\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This volume contains some of Saussure's manuscripts, including an unfinished essay discovered in 1996, offering direct insight into his thought processes and ideas.\"\n}\n],\n\"secondary_sources\": [\n{\n\"title\": \"Ferdinand de Saussure - Britannica\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This article provides a comprehensive overview of Saussure's life, his major contributions to linguistics and semiotics, and the foundational concepts of his theories, such as structuralism, langue/parole, and the arbitrary nature of the linguistic sign.\"\n},\n{\n\"title\": \"Ferdinand de Saussure - StudySmarter\",\n\"url\": \"https://www.study.com/academy/lesson/ferdinand-de-saussure-biography-theory-books.html\",\n\"why_relevant\": \"This resource offers a biography of Saussure, explains his key theories, and discusses his most important works, including the challenges in translating his concepts.\"\n},\n{\n\"title\": \"Ferdinand de Saussure - Wikipedia\",\n\"url\": \"https://en.wikipedia.org/wiki/Ferdinand_de_Saussure\",\n\"why_relevant\": \"Wikipedia provides a detailed biographical account of Saussure, outlining his education, career, and the development and impact of his key ideas, such as structural linguistics and semiotics.\"\n}\n],\n\"notes\": \"Ferdinand de Saussure (1857-1913) was a Swiss linguist whose work laid the foundation for modern linguistics and structuralism. His most influential work, 'Course in General Linguistics,' was published posthumously and introduced concepts such as the distinction between 'langue' (language system) and 'parole' (individual speech), and the idea that linguistic signs are arbitrary. His ideas have had a profound impact on linguistics, semiotics, anthropology, and literary criticism.\"\n}\n```",
+      "groundingMetadata": {
+        "searchEntryPoint": {
+          "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtGNAMA7nALYKJRbtboVEOBV-FJwI1F9g9APfikAxGGmPtbEswne3AH0JHIuS9n2yaWaFckwY_DUS7O3PoanVbp4vO-HYmMPhsMVdpV1zRgRUW3IWFqVN8IM6m0aEKzvfW4eSyB-AurWamTf1RYONTajySNiN570BAfhzhC-QUVCAItF2Ul-l2xn3iZ3z0auJu9MubiR2uQ3nBRWH3oFd9O1CAkVaZOekbbA==\">Ferdinand de Saussure secondary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEG6e0RfwdIodZmN6AJBEdQVK4ICE5N8RnP2RFUnFdgj4e_HOyEeIUtVcpi3CCBFv53OQ33OazVCB90VBfxDT6foOEFMJK4I6gVFeNlTq_yPa0FT9gXuE7Q6uI8A0e4cdZmVMuvVi5coPiVlFRQvozobFbftrL2BjSsaPDbh4yl9jO9nsyBvLkkZ02HAs1oo8C5AjMZANYALTbSSf9mj_uiwxlNyvFOMwk=\">Ferdinand de Saussure primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFk7yQaRbGjmgES5mRhWc54TyKdqZpANOh3KiO_6c-w-0jb_Xn4tf1MmwMtvzBve0Qk_1cuarF89Be-tuwspsZQJvMVT-b6gMLVXLd1rdASkQAVRzKHUnYd_NtLalkh65jd3T3QFqXoQs5wbVk4C_EMycVOkXWoltpogirPc14a5AdGtq6FLhtqylPO19xy2MvmMYC8u33yIs0GAYM7t3c3t2c=\">Ferdinand de Saussure biography</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEaCORGRXjdeZ0MTa4FRp4J0YvqdB8WpUMrMbZZQBEqp-kL6fypb53mT20eZ-Vrc3uYlm5xrM8UnB9ps3FCoCAqWpimsjUEd6Lg52cSIr1RSPb879VntKwtuBZ_2L0DcxGp6tF0SiZGc0weff67aq54bMWVpsBP_P7STq3VZGwKkV9wW4cveZ0fNHhAp0D-2Gnlr2CPl9JJKW5fgu870_B0LtuiZwwwUWQn\">Ferdinand de Saussure linguistic works</a>\n  </div>\n</div>\n"
+        },
+        "webSearchQueries": [
+          "Ferdinand de Saussure primary sources",
+          "Ferdinand de Saussure secondary sources",
+          "Ferdinand de Saussure biography",
+          "Ferdinand de Saussure linguistic works"
+        ]
+      },
+      "usageMetadata": {
+        "promptTokenCount": 95,
+        "candidatesTokenCount": 768,
+        "totalTokenCount": 1010,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 95
+          }
+        ],
+        "toolUsePromptTokenCount": 147,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 147
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n\"figure\": \"Ferdinand de Saussure\",\n\"primary_sources\": [\n{\n\"title\": \"Course in General Linguistics\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This is the most cited and discussed work of Saussure, compiled from his students' lecture notes and published posthumously. It is considered the starting point of 20th-century structural linguistics and introduces key concepts like langue and parole, and the synchronic vs. diachronic approach to language study.\"\n},\n{\n\"title\": \"Mémoire sur le système primitif des voyelles dans les langues indo-européennes\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This monograph, published during Saussure's lifetime, established his early reputation in comparative linguistics and focused on Indo-European languages.\"\n},\n{\n\"title\": \"Writings in General Linguistics\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This volume contains some of Saussure's manuscripts, including an unfinished essay discovered in 1996, offering direct insight into his thought processes and ideas.\"\n}\n],\n\"secondary_sources\": [\n{\n\"title\": \"Ferdinand de Saussure - Britannica\",\n\"url\": \"https://www.britannica.com/biography/Ferdinand-de-Saussure\",\n\"why_relevant\": \"This article provides a comprehensive overview of Saussure's life, his major contributions to linguistics and semiotics, and the foundational concepts of his theories, such as structuralism, langue/parole, and the arbitrary nature of the linguistic sign.\"\n},\n{\n\"title\": \"Ferdinand de Saussure - StudySmarter\",\n\"url\": \"https://www.study.com/academy/lesson/ferdinand-de-saussure-biography-theory-books.html\",\n\"why_relevant\": \"This resource offers a biography of Saussure, explains his key theories, and discusses his most important works, including the challenges in translating his concepts.\"\n},\n{\n\"title\": \"Ferdinand de Saussure - Wikipedia\",\n\"url\": \"https://en.wikipedia.org/wiki/Ferdinand_de_Saussure\",\n\"why_relevant\": \"Wikipedia provides a detailed biographical account of Saussure, outlining his education, career, and the development and impact of his key ideas, such as structural linguistics and semiotics.\"\n}\n],\n\"notes\": \"Ferdinand de Saussure (1857-1913) was a Swiss linguist whose work laid the foundation for modern linguistics and structuralism. His most influential work, 'Course in General Linguistics,' was published posthumously and introduced concepts such as the distinction between 'langue' (language system) and 'parole' (individual speech), and the idea that linguistic signs are arbitrary. His ideas have had a profound impact on linguistics, semiotics, anthropology, and literary criticism.\"\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {
+              "searchEntryPoint": {
+                "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHtGNAMA7nALYKJRbtboVEOBV-FJwI1F9g9APfikAxGGmPtbEswne3AH0JHIuS9n2yaWaFckwY_DUS7O3PoanVbp4vO-HYmMPhsMVdpV1zRgRUW3IWFqVN8IM6m0aEKzvfW4eSyB-AurWamTf1RYONTajySNiN570BAfhzhC-QUVCAItF2Ul-l2xn3iZ3z0auJu9MubiR2uQ3nBRWH3oFd9O1CAkVaZOekbbA==\">Ferdinand de Saussure secondary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEG6e0RfwdIodZmN6AJBEdQVK4ICE5N8RnP2RFUnFdgj4e_HOyEeIUtVcpi3CCBFv53OQ33OazVCB90VBfxDT6foOEFMJK4I6gVFeNlTq_yPa0FT9gXuE7Q6uI8A0e4cdZmVMuvVi5coPiVlFRQvozobFbftrL2BjSsaPDbh4yl9jO9nsyBvLkkZ02HAs1oo8C5AjMZANYALTbSSf9mj_uiwxlNyvFOMwk=\">Ferdinand de Saussure primary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFk7yQaRbGjmgES5mRhWc54TyKdqZpANOh3KiO_6c-w-0jb_Xn4tf1MmwMtvzBve0Qk_1cuarF89Be-tuwspsZQJvMVT-b6gMLVXLd1rdASkQAVRzKHUnYd_NtLalkh65jd3T3QFqXoQs5wbVk4C_EMycVOkXWoltpogirPc14a5AdGtq6FLhtqylPO19xy2MvmMYC8u33yIs0GAYM7t3c3t2c=\">Ferdinand de Saussure biography</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEaCORGRXjdeZ0MTa4FRp4J0YvqdB8WpUMrMbZZQBEqp-kL6fypb53mT20eZ-Vrc3uYlm5xrM8UnB9ps3FCoCAqWpimsjUEd6Lg52cSIr1RSPb879VntKwtuBZ_2L0DcxGp6tF0SiZGc0weff67aq54bMWVpsBP_P7STq3VZGwKkV9wW4cveZ0fNHhAp0D-2Gnlr2CPl9JJKW5fgu870_B0LtuiZwwwUWQn\">Ferdinand de Saussure linguistic works</a>\n  </div>\n</div>\n"
+              },
+              "webSearchQueries": [
+                "Ferdinand de Saussure primary sources",
+                "Ferdinand de Saussure secondary sources",
+                "Ferdinand de Saussure biography",
+                "Ferdinand de Saussure linguistic works"
+              ]
+            }
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 95,
+          "candidatesTokenCount": 768,
+          "totalTokenCount": 1010,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 95
+            }
+          ],
+          "toolUsePromptTokenCount": 147,
+          "toolUsePromptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 147
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "CzSIaebHOqTP_uMPsb6n2AU"
+      }
+    },
+    {
+      "ok": true,
+      "grounded": true,
+      "figure": {
+        "id": "ramanuja",
+        "canonical_name": "Ramanuja"
+      },
+      "parsed": {
+        "figure": "Ramanuja",
+        "primary_sources": [
+          {
+            "title": "Sri Bhashya",
+            "url": "https://en.wikipedia.org/wiki/Sri_Bhashya",
+            "why_relevant": "This is one of Ramanuja's major philosophical works, offering direct insights into his thoughts and interpretations of the Vedas and Brahma Sutras. It is essential for understanding his philosophical system."
+          },
+          {
+            "title": "Vedartha Sangraha",
+            "url": "https://en.wikipedia.org/wiki/Vedarthasangraha",
+            "why_relevant": "This work by Ramanuja provides a summary of the Vedas' meaning, offering direct access to his philosophical reasoning and theological arguments."
+          },
+          {
+            "title": "Gita Bhashya (Commentary on the Bhagavad Gita)",
+            "url": "https://en.wikipedia.org/wiki/Bhagavad_Gita_Bhashya",
+            "why_relevant": "Ramanuja's commentary on the Bhagavad Gita is a key text for understanding his devotional philosophy and his interpretation of this central Hindu scripture."
+          }
+        ],
+        "secondary_sources": [
+          {
+            "title": "Ramanuja | Internet Encyclopedia of Philosophy",
+            "url": "https://iep.utm.edu/ramanuja/",
+            "why_relevant": "This provides a comprehensive overview of Ramanuja's life, philosophy, and influence, drawing on scholarly analysis and contextualizing his work within Indian philosophy."
+          },
+          {
+            "title": "Ramanuja | Britannica",
+            "url": "https://www.britannica.com/biography/Ramanuja",
+            "why_relevant": "This offers a concise biographical and philosophical summary of Ramanuja, highlighting his significance as a theologian and philosopher in devotional Hinduism."
+          },
+          {
+            "title": "One Encountering Rāmānuja: Some Preliminaries - Oxford Academic",
+            "url": "https://academic.oup.com/book/37170/chapter/315175929",
+            "why_relevant": "This scholarly article delves into the historical perceptions and hagiographical accounts of Ramanuja, providing critical analysis of how his image and tradition were constructed."
+          }
+        ],
+        "notes": "Ramanuja (c. 1017 – c. 1137) was a pivotal figure in Hindu philosophy, particularly in the Vishishtadvaita school of Vedanta. His primary works, such as the Sri Bhashya, Vedartha Sangraha, and Gita Bhashya, are foundational for understanding his teachings. Secondary sources from academic encyclopedias and scholarly articles offer valuable context and analysis of his life, philosophy, and historical impact."
+      },
+      "text": "```json\n{\n \"figure\": \"Ramanuja\",\n \"primary_sources\": [\n  {\n   \"title\": \"Sri Bhashya\",\n   \"url\": \"https://en.wikipedia.org/wiki/Sri_Bhashya\",\n   \"why_relevant\": \"This is one of Ramanuja's major philosophical works, offering direct insights into his thoughts and interpretations of the Vedas and Brahma Sutras. It is essential for understanding his philosophical system.\"\n  },\n  {\n   \"title\": \"Vedartha Sangraha\",\n   \"url\": \"https://en.wikipedia.org/wiki/Vedarthasangraha\",\n   \"why_relevant\": \"This work by Ramanuja provides a summary of the Vedas' meaning, offering direct access to his philosophical reasoning and theological arguments.\"\n  },\n  {\n   \"title\": \"Gita Bhashya (Commentary on the Bhagavad Gita)\",\n   \"url\": \"https://en.wikipedia.org/wiki/Bhagavad_Gita_Bhashya\",\n   \"why_relevant\": \"Ramanuja's commentary on the Bhagavad Gita is a key text for understanding his devotional philosophy and his interpretation of this central Hindu scripture.\"\n  }\n ],\n \"secondary_sources\": [\n  {\n   \"title\": \"Ramanuja | Internet Encyclopedia of Philosophy\",\n   \"url\": \"https://iep.utm.edu/ramanuja/\",\n   \"why_relevant\": \"This provides a comprehensive overview of Ramanuja's life, philosophy, and influence, drawing on scholarly analysis and contextualizing his work within Indian philosophy.\"\n  },\n  {\n   \"title\": \"Ramanuja | Britannica\",\n   \"url\": \"https://www.britannica.com/biography/Ramanuja\",\n   \"why_relevant\": \"This offers a concise biographical and philosophical summary of Ramanuja, highlighting his significance as a theologian and philosopher in devotional Hinduism.\"\n  },\n  {\n   \"title\": \"One Encountering Rāmānuja: Some Preliminaries - Oxford Academic\",\n   \"url\": \"https://academic.oup.com/book/37170/chapter/315175929\",\n   \"why_relevant\": \"This scholarly article delves into the historical perceptions and hagiographical accounts of Ramanuja, providing critical analysis of how his image and tradition were constructed.\"\n  }\n ],\n \"notes\": \"Ramanuja (c. 1017 – c. 1137) was a pivotal figure in Hindu philosophy, particularly in the Vishishtadvaita school of Vedanta. His primary works, such as the Sri Bhashya, Vedartha Sangraha, and Gita Bhashya, are foundational for understanding his teachings. Secondary sources from academic encyclopedias and scholarly articles offer valuable context and analysis of his life, philosophy, and historical impact.\"\n}\n```",
+      "groundingMetadata": {
+        "searchEntryPoint": {
+          "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESJg7jt04zjfq_3bP-Ws2DwCKvpzGcRK8gQMyZA58gJ-JHi_paU73osop87i6N8yAIOJFvKeCrFELz8-UiKoDmDU6KOsmtrH-uGrXlIIOdr7t4ZQTcfHaZHb2fBsPSAJAfWorZKH4b54jRX1yLwlkD_OO1RAWl7jNZBPO64h5uUOlvx3_Ipf7lQfxIl2nenhK32L_3xFqwS9KxpE4=\">Ramanuja secondary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGf8Fp8ZqjHUlV9W2a1pxqTGV-76DymtrBs0DYMEIOfpDc-8pdStS2_75W6WPcsxaqkRhWFn0tCswlbyeBCUvWqz9Xgb_KhB8TviAuOWYX1LN5b-FuOqA0yE-Lum5YYMXGAq_EpxG4sxRZO_t8ovd56fzt0x_tnT3yk34hxP6Ox705gj2xPJ49d5ZqeP2mb9Cv8IhEi1k6IwPSukmJg\">Ramanuja historical sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEByn9d1ND7vTE0lYEAefpp1PM2b8LHql3oT4bM6bRqbVvf69gYf2_OOaOuC2_7QWZhqa1rGfGk38Z0gbEydoQc85rq0zYzNt2tSDP1B0ndxWNT1fzgWYawBtoJt-T0gTUR56Mho65sg8vdGQ2PUvYeZew6QKkXWHsQ3umorupFDs0GFjf5r98qGp83bkcLJsMHV4AGDN6WJWBe\">Ramanuja primary sources</a>\n  </div>\n</div>\n"
+        },
+        "webSearchQueries": [
+          "Ramanuja historical sources",
+          "Ramanuja primary sources",
+          "Ramanuja secondary sources"
+        ]
+      },
+      "usageMetadata": {
+        "promptTokenCount": 92,
+        "candidatesTokenCount": 660,
+        "totalTokenCount": 874,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 92
+          }
+        ],
+        "toolUsePromptTokenCount": 122,
+        "toolUsePromptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 122
+          }
+        ]
+      },
+      "raw": {
+        "candidates": [
+          {
+            "content": {
+              "parts": [
+                {
+                  "text": "```json\n{\n \"figure\": \"Ramanuja\",\n \"primary_sources\": [\n  {\n   \"title\": \"Sri Bhashya\",\n   \"url\": \"https://en.wikipedia.org/wiki/Sri_Bhashya\",\n   \"why_relevant\": \"This is one of Ramanuja's major philosophical works, offering direct insights into his thoughts and interpretations of the Vedas and Brahma Sutras. It is essential for understanding his philosophical system.\"\n  },\n  {\n   \"title\": \"Vedartha Sangraha\",\n   \"url\": \"https://en.wikipedia.org/wiki/Vedarthasangraha\",\n   \"why_relevant\": \"This work by Ramanuja provides a summary of the Vedas' meaning, offering direct access to his philosophical reasoning and theological arguments.\"\n  },\n  {\n   \"title\": \"Gita Bhashya (Commentary on the Bhagavad Gita)\",\n   \"url\": \"https://en.wikipedia.org/wiki/Bhagavad_Gita_Bhashya\",\n   \"why_relevant\": \"Ramanuja's commentary on the Bhagavad Gita is a key text for understanding his devotional philosophy and his interpretation of this central Hindu scripture.\"\n  }\n ],\n \"secondary_sources\": [\n  {\n   \"title\": \"Ramanuja | Internet Encyclopedia of Philosophy\",\n   \"url\": \"https://iep.utm.edu/ramanuja/\",\n   \"why_relevant\": \"This provides a comprehensive overview of Ramanuja's life, philosophy, and influence, drawing on scholarly analysis and contextualizing his work within Indian philosophy.\"\n  },\n  {\n   \"title\": \"Ramanuja | Britannica\",\n   \"url\": \"https://www.britannica.com/biography/Ramanuja\",\n   \"why_relevant\": \"This offers a concise biographical and philosophical summary of Ramanuja, highlighting his significance as a theologian and philosopher in devotional Hinduism.\"\n  },\n  {\n   \"title\": \"One Encountering Rāmānuja: Some Preliminaries - Oxford Academic\",\n   \"url\": \"https://academic.oup.com/book/37170/chapter/315175929\",\n   \"why_relevant\": \"This scholarly article delves into the historical perceptions and hagiographical accounts of Ramanuja, providing critical analysis of how his image and tradition were constructed.\"\n  }\n ],\n \"notes\": \"Ramanuja (c. 1017 – c. 1137) was a pivotal figure in Hindu philosophy, particularly in the Vishishtadvaita school of Vedanta. His primary works, such as the Sri Bhashya, Vedartha Sangraha, and Gita Bhashya, are foundational for understanding his teachings. Secondary sources from academic encyclopedias and scholarly articles offer valuable context and analysis of his life, philosophy, and historical impact.\"\n}\n```"
+                }
+              ],
+              "role": "model"
+            },
+            "finishReason": "STOP",
+            "index": 0,
+            "groundingMetadata": {
+              "searchEntryPoint": {
+                "renderedContent": "<style>\n.container {\n  align-items: center;\n  border-radius: 8px;\n  display: flex;\n  font-family: Google Sans, Roboto, sans-serif;\n  font-size: 14px;\n  line-height: 20px;\n  padding: 8px 12px;\n}\n.chip {\n  display: inline-block;\n  border: solid 1px;\n  border-radius: 16px;\n  min-width: 14px;\n  padding: 5px 16px;\n  text-align: center;\n  user-select: none;\n  margin: 0 8px;\n  -webkit-tap-highlight-color: transparent;\n}\n.carousel {\n  overflow: auto;\n  scrollbar-width: none;\n  white-space: nowrap;\n  margin-right: -12px;\n}\n.headline {\n  display: flex;\n  margin-right: 4px;\n}\n.gradient-container {\n  position: relative;\n}\n.gradient {\n  position: absolute;\n  transform: translate(3px, -9px);\n  height: 36px;\n  width: 9px;\n}\n@media (prefers-color-scheme: light) {\n  .container {\n    background-color: #fafafa;\n    box-shadow: 0 0 0 1px #0000000f;\n  }\n  .headline-label {\n    color: #1f1f1f;\n  }\n  .chip {\n    background-color: #ffffff;\n    border-color: #d2d2d2;\n    color: #5e5e5e;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #f2f2f2;\n  }\n  .chip:focus {\n    background-color: #f2f2f2;\n  }\n  .chip:active {\n    background-color: #d8d8d8;\n    border-color: #b6b6b6;\n  }\n  .logo-dark {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #fafafa 15%, #fafafa00 100%);\n  }\n}\n@media (prefers-color-scheme: dark) {\n  .container {\n    background-color: #1f1f1f;\n    box-shadow: 0 0 0 1px #ffffff26;\n  }\n  .headline-label {\n    color: #fff;\n  }\n  .chip {\n    background-color: #2c2c2c;\n    border-color: #3c4043;\n    color: #fff;\n    text-decoration: none;\n  }\n  .chip:hover {\n    background-color: #353536;\n  }\n  .chip:focus {\n    background-color: #353536;\n  }\n  .chip:active {\n    background-color: #464849;\n    border-color: #53575b;\n  }\n  .logo-light {\n    display: none;\n  }\n  .gradient {\n    background: linear-gradient(90deg, #1f1f1f 15%, #1f1f1f00 100%);\n  }\n}\n</style>\n<div class=\"container\">\n  <div class=\"headline\">\n    <svg class=\"logo-light\" width=\"18\" height=\"18\" viewBox=\"9 9 35 35\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M42.8622 27.0064C42.8622 25.7839 42.7525 24.6084 42.5487 23.4799H26.3109V30.1568H35.5897C35.1821 32.3041 33.9596 34.1222 32.1258 35.3448V39.6864H37.7213C40.9814 36.677 42.8622 32.2571 42.8622 27.0064V27.0064Z\" fill=\"#4285F4\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 43.8555C30.9659 43.8555 34.8687 42.3195 37.7213 39.6863L32.1258 35.3447C30.5898 36.3792 28.6306 37.0061 26.3109 37.0061C21.8282 37.0061 18.0195 33.9811 16.6559 29.906H10.9194V34.3573C13.7563 39.9841 19.5712 43.8555 26.3109 43.8555V43.8555Z\" fill=\"#34A853\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.6559 29.8904C16.3111 28.8559 16.1074 27.7588 16.1074 26.6146C16.1074 25.4704 16.3111 24.3733 16.6559 23.3388V18.8875H10.9194C9.74388 21.2072 9.06992 23.8247 9.06992 26.6146C9.06992 29.4045 9.74388 32.022 10.9194 34.3417L15.3864 30.8621L16.6559 29.8904V29.8904Z\" fill=\"#FBBC05\"/>\n      <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M26.3109 16.2386C28.85 16.2386 31.107 17.1164 32.9095 18.8091L37.8466 13.8719C34.853 11.082 30.9659 9.3736 26.3109 9.3736C19.5712 9.3736 13.7563 13.245 10.9194 18.8875L16.6559 23.3388C18.0195 19.2636 21.8282 16.2386 26.3109 16.2386V16.2386Z\" fill=\"#EA4335\"/>\n    </svg>\n    <svg class=\"logo-dark\" width=\"18\" height=\"18\" viewBox=\"0 0 48 48\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"24\" cy=\"23\" fill=\"#FFF\" r=\"22\"/>\n      <path d=\"M33.76 34.26c2.75-2.56 4.49-6.37 4.49-11.26 0-.89-.08-1.84-.29-3H24.01v5.99h8.03c-.4 2.02-1.5 3.56-3.07 4.56v.75l3.91 2.97h.88z\" fill=\"#4285F4\"/>\n      <path d=\"M15.58 25.77A8.845 8.845 0 0 0 24 31.86c1.92 0 3.62-.46 4.97-1.31l4.79 3.71C31.14 36.7 27.65 38 24 38c-5.93 0-11.01-3.4-13.45-8.36l.17-1.01 4.06-2.85h.8z\" fill=\"#34A853\"/>\n      <path d=\"M15.59 20.21a8.864 8.864 0 0 0 0 5.58l-5.03 3.86c-.98-2-1.53-4.25-1.53-6.64 0-2.39.55-4.64 1.53-6.64l1-.22 3.81 2.98.22 1.08z\" fill=\"#FBBC05\"/>\n      <path d=\"M24 14.14c2.11 0 4.02.75 5.52 1.98l4.36-4.36C31.22 9.43 27.81 8 24 8c-5.93 0-11.01 3.4-13.45 8.36l5.03 3.85A8.86 8.86 0 0 1 24 14.14z\" fill=\"#EA4335\"/>\n    </svg>\n    <div class=\"gradient-container\"><div class=\"gradient\"></div></div>\n  </div>\n  <div class=\"carousel\">\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQESJg7jt04zjfq_3bP-Ws2DwCKvpzGcRK8gQMyZA58gJ-JHi_paU73osop87i6N8yAIOJFvKeCrFELz8-UiKoDmDU6KOsmtrH-uGrXlIIOdr7t4ZQTcfHaZHb2fBsPSAJAfWorZKH4b54jRX1yLwlkD_OO1RAWl7jNZBPO64h5uUOlvx3_Ipf7lQfxIl2nenhK32L_3xFqwS9KxpE4=\">Ramanuja secondary sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGf8Fp8ZqjHUlV9W2a1pxqTGV-76DymtrBs0DYMEIOfpDc-8pdStS2_75W6WPcsxaqkRhWFn0tCswlbyeBCUvWqz9Xgb_KhB8TviAuOWYX1LN5b-FuOqA0yE-Lum5YYMXGAq_EpxG4sxRZO_t8ovd56fzt0x_tnT3yk34hxP6Ox705gj2xPJ49d5ZqeP2mb9Cv8IhEi1k6IwPSukmJg\">Ramanuja historical sources</a>\n    <a class=\"chip\" href=\"https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEByn9d1ND7vTE0lYEAefpp1PM2b8LHql3oT4bM6bRqbVvf69gYf2_OOaOuC2_7QWZhqa1rGfGk38Z0gbEydoQc85rq0zYzNt2tSDP1B0ndxWNT1fzgWYawBtoJt-T0gTUR56Mho65sg8vdGQ2PUvYeZew6QKkXWHsQ3umorupFDs0GFjf5r98qGp83bkcLJsMHV4AGDN6WJWBe\">Ramanuja primary sources</a>\n  </div>\n</div>\n"
+              },
+              "webSearchQueries": [
+                "Ramanuja historical sources",
+                "Ramanuja primary sources",
+                "Ramanuja secondary sources"
+              ]
+            }
+          }
+        ],
+        "usageMetadata": {
+          "promptTokenCount": 92,
+          "candidatesTokenCount": 660,
+          "totalTokenCount": 874,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 92
+            }
+          ],
+          "toolUsePromptTokenCount": 122,
+          "toolUsePromptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 122
+            }
+          ]
+        },
+        "modelVersion": "gemini-2.5-flash-lite",
+        "responseId": "DzSIaZigHYao_uMP2LSh2Ak"
+      }
+    }
+  ],
+  "updatedAt": "2026-02-08T06:58:23.481Z"
+}

@@ -1,269 +1,129 @@
 {
-  "generatedAt": "2026-02-08T03:30:33.825Z",
+  "generatedAt": "2026-02-08T07:28:16.382Z",
   "figureId": "jesus",
   "figureName": "Jesus",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "wikisource",
-      "crossref",
-      "openlibrary",
-      "loc"
-    ],
-    "queryNames": [
-      "Jesus"
-    ],
-    "seedFallbackUsed": false
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 444,
+      "totalTokenCount": 731,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
   },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Gospels",
+        "author": "Matthew, Mark, Luke, John",
+        "year": 80,
+        "rationale": "The Gospels are the primary accounts of Jesus' life and teachings, considered by many to be divinely inspired and historically significant.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Jesus: A Revolutionary Biography",
+        "author": "John Dominic Crossan",
+        "year": 1994,
+        "rationale": "Crossan offers a scholarly reconstruction of Jesus' life, drawing on historical, archaeological, and textual evidence to present a portrait of Jesus as a peasant sage.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Historical Jesus: The Life of a Mediterranean Jewish Peasant",
+        "author": "John P. Meier",
+        "year": 1991,
+        "rationale": "Meier's multi-volume work is a comprehensive and detailed scholarly investigation into the historical Jesus, critically examining all available evidence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Jesus and the Victory of Judaism",
+        "author": "Richard A. Horsley",
+        "year": 1987,
+        "rationale": "Horsley situates Jesus within the context of first-century Judaism, arguing that his teachings and actions were deeply rooted in Jewish social and religious movements.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Direct primary sources authored by Jesus himself are not extant. The Gospels are the closest available primary accounts, though their authorship and precise historical accuracy are subjects of scholarly debate. Secondary sources focus on scholarly reconstructions of the historical Jesus."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Gospels",
+      "reason": "Title similarity too low (0.33); baseScore=0.31"
+    },
+    {
+      "role": "secondary",
+      "title": "Jesus and the Victory of Judaism",
+      "reason": "Best score below threshold (0.67 < 0.72)"
+    }
+  ],
   "candidates": [
     {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Mistakes of Jesus",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Mistakes_of_Jesus",
-      "access_url": "https://en.wikisource.org/wiki/The_Mistakes_of_Jesus",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Aquarian Gospel of Jesus the Christ",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Aquarian_Gospel_of_Jesus_the_Christ",
-      "access_url": "https://en.wikisource.org/wiki/The_Aquarian_Gospel_of_Jesus_the_Christ",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Jesus, the Very Thought of Thee",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Jesus%2C_the_Very_Thought_of_Thee",
-      "access_url": "https://en.wikisource.org/wiki/Jesus%2C_the_Very_Thought_of_Thee",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "All Hail the Power of Jesus' Name",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/All_Hail_the_Power_of_Jesus'_Name",
-      "access_url": "https://en.wikisource.org/wiki/All_Hail_the_Power_of_Jesus'_Name",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "A Treatise on the Character of Jesus Christ",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/A_Treatise_on_the_Character_of_Jesus_Christ",
-      "access_url": "https://en.wikisource.org/wiki/A_Treatise_on_the_Character_of_Jesus_Christ",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "crossref",
+      "source_corpus": "openalex",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "The Jesus of the Gospels and the Jesus of history",
-      "author": null,
-      "publication_year": 2021,
-      "source_url": "https://doi.org/10.5040/9780567693785.ch-003",
-      "access_url": "https://doi.org/10.5040/9780567693785.ch-003",
-      "snippet": "Jesus the Apocalyptic Prophet",
-      "confidence": 0.794,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "title": "Jesus: a revolutionary biography",
+      "author": "John S. Kloppenborg",
+      "publication_year": 1995,
+      "source_url": "http://scholars.wlu.ca/consensus/vol21/iss1/16",
+      "access_url": "http://scholars.wlu.ca/consensus/vol21/iss1/16",
+      "snippet": "Scholars Commons (Wilfrid Laurier University)",
+      "confidence": 0.924,
+      "why": "Secondary source resolved from suggestion \"Jesus: A Revolutionary Biography\". Matched secondary suggestion by title=1.00, author=0.25, year=0.97; Figure full name present in title",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.5040/9780567693785.ch-003",
-        "referenced_by_count": 0,
-        "container_title": "Jesus the Apocalyptic Prophet",
-        "work_type": "other"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Conclusion: Our Jesus, their Jesus",
-      "author": null,
-      "publication_year": 2018,
-      "source_url": "https://doi.org/10.4159/9780674919648-011",
-      "access_url": "https://doi.org/10.4159/9780674919648-011",
-      "snippet": "Jesus in Asia",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.4159/9780674919648-011",
-        "referenced_by_count": 1,
-        "container_title": "Jesus in Asia",
-        "work_type": "book-chapter"
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Jesus: A Revolutionary Biography",
+        "suggestion_author": "John Dominic Crossan",
+        "suggestion_year": 1994,
+        "suggestion_rationale": "Crossan offers a scholarly reconstruction of Jesus' life, drawing on historical, archaeological, and textual evidence to present a portrait of Jesus as a peasant sage.",
+        "openalex_id": "https://openalex.org/W2735538945",
+        "work_type": "article"
       }
     },
     {
       "source_corpus": "crossref",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "The Death of Jesus (2) Why Jesus Died",
+      "title": "The historical Jesus: the life of a Mediterranean Jewish peasant",
       "author": null,
-      "publication_year": 1994,
-      "source_url": "https://doi.org/10.5040/9781472549877.ch-008",
-      "access_url": "https://doi.org/10.5040/9781472549877.ch-008",
-      "snippet": "Jesus the Liberator",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "publication_year": 1992,
+      "source_url": "https://doi.org/10.5860/choice.29-5646",
+      "access_url": "https://doi.org/10.5860/choice.29-5646",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.884,
+      "why": "Secondary source resolved from suggestion \"The Historical Jesus: The Life of a Mediterranean Jewish Peasant\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.5040/9781472549877.ch-008",
-        "referenced_by_count": 0,
-        "container_title": "Jesus the Liberator",
-        "work_type": "other"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Black Jesus",
-      "author": null,
-      "publication_year": 1400,
-      "source_url": "https://doi.org/10.5040/9781472529961.00000002",
-      "access_url": "https://doi.org/10.5040/9781472529961.00000002",
-      "snippet": "Black Jesus",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.5040/9781472529961.00000002",
-        "referenced_by_count": 0,
-        "container_title": "Black Jesus",
-        "work_type": "other"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Epilogue: The other Jesus?",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://doi.org/10.3726/978-3-653-02410-4/12",
-      "access_url": "https://doi.org/10.3726/978-3-653-02410-4/12",
-      "snippet": "The Other Jesus",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.3726/978-3-653-02410-4/12",
-        "referenced_by_count": 0,
-        "container_title": "The Other Jesus",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Jesus Biography (paperback)",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://openlibrary.org/works/OL35333841W",
-      "access_url": "https://openlibrary.org/works/OL35333841W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "A JESUS BIOGRAPHY 2015",
-      "author": null,
-      "publication_year": 2015,
-      "source_url": "https://openlibrary.org/works/OL17317852W",
-      "access_url": "https://openlibrary.org/works/OL17317852W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Jesus in continuum",
-      "author": "study of the historical jesus research programme",
-      "publication_year": 2012,
-      "source_url": "//lccn.loc.gov/2012495083",
-      "access_url": "//lccn.loc.gov/2012495083",
-      "snippet": "Based on papers presented at seminars of the Study of the Historical Jesus Research Programme, arranged during the 2006 meeting of the European Association for Biblical Studies in Budapest/Piliscsaba, and the meeting of the European Association of Biblical Studies held in Vienna in 2007. Includes bibliographical references and indexes.",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Jesus wept : the significance of Jesus' laments in the New Testament",
-      "author": "eklund, rebekah ann",
-      "publication_year": 2015,
-      "source_url": "//lccn.loc.gov/2014016104",
-      "access_url": "//lccn.loc.gov/2014016104",
-      "snippet": "Lament does not seem to be a pervasive feature of the New Testament, particularly when viewed in relation to the Old Testament. A careful investigation of the New Testament, however, reveals that it thoroughly incorporates the pattern of Old Testament lament into its proclamation of the gospel, especially in the person of Jesus Christ as he both prays and embodies lament. -Provided by publisher",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
-      }
-    },
-    {
-      "source_corpus": "loc",
-      "source_role": "reference",
-      "source_kind": "archive_record",
-      "title": "Judging Q and saving Jesus : Q's contribution to the wisdom-apocalypticism debate in historical Jesus studies",
-      "author": "howes, llewellyn",
-      "publication_year": 2015,
-      "source_url": "https://www.loc.gov/item/2020426023/",
-      "access_url": "https://www.loc.gov/item/2020426023/",
-      "snippet": "Includes bibliographical references (pages 304-336) and index. Description based on online resource; title from PDF title page (viewed on 09/14/2020)",
-      "confidence": 0.67,
-      "why": "Library of Congress catalog lead with strong title match.",
-      "metadata": {
-        "provider": "loc",
-        "loc_item_id": null
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Historical Jesus: The Life of a Mediterranean Jewish Peasant",
+        "suggestion_author": "John P. Meier",
+        "suggestion_year": 1991,
+        "suggestion_rationale": "Meier's multi-volume work is a comprehensive and detailed scholarly investigation into the historical Jesus, critically examining all available evidence.",
+        "doi": "10.5860/choice.29-5646",
+        "crossref_type": "journal-article"
       }
     }
   ]

@@ -1,0 +1,192 @@
+{
+  "generatedAt": "2026-02-08T07:29:58.912Z",
+  "figureId": "william-shakespeare",
+  "figureName": "William Shakespeare",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 585,
+      "totalTokenCount": 873,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Hamlet",
+        "author": "William Shakespeare",
+        "year": 1603,
+        "rationale": "Considered one of Shakespeare's greatest tragedies, it explores themes of revenge, betrayal, and mortality. Its enduring popularity ensures wide availability.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Romeo and Juliet",
+        "author": "William Shakespeare",
+        "year": 1597,
+        "rationale": "A quintessential tragedy of young love and feuding families, this play is one of Shakespeare's most frequently performed and studied works.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Macbeth",
+        "author": "William Shakespeare",
+        "year": 1606,
+        "rationale": "A dark and powerful tragedy exploring ambition, guilt, and the supernatural, Macbeth is a staple of Shakespearean literature.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Shakespeare: The Invention of the Human",
+        "author": "Harold Bloom",
+        "year": 1998,
+        "rationale": "A highly influential and comprehensive critical analysis of Shakespeare's plays and their impact on Western literature and thought.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Shakespeare",
+        "author": "Harold Bloom",
+        "year": 1990,
+        "rationale": "A collection of essays by leading scholars offering diverse perspectives on Shakespeare's life, works, and historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Shakespeare's Tragedies: A History of the Tragic Form",
+        "author": "John P. Brockington",
+        "year": 2019,
+        "rationale": "Examines the evolution of the tragic form in Shakespeare's plays, providing scholarly analysis of key works and their dramatic conventions.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Shakespeare's primary sources are his plays and poems. Secondary sources provide critical analysis and historical context."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Shakespeare: The Invention of the Human",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.87"
+    },
+    {
+      "role": "secondary",
+      "title": "Shakespeare's Tragedies: A History of the Tragic Form",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.32"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Hamlet",
+      "author": "Shakespeare, William",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1524",
+      "access_url": "https://www.gutenberg.org/ebooks/1524",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Hamlet\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Hamlet",
+        "suggestion_author": "William Shakespeare",
+        "suggestion_year": 1603,
+        "suggestion_rationale": "Considered one of Shakespeare's greatest tragedies, it explores themes of revenge, betrayal, and mortality. Its enduring popularity ensures wide availability.",
+        "gutenberg_id": 1524
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Romeo and Juliet",
+      "author": "Shakespeare, William",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1513",
+      "access_url": "https://www.gutenberg.org/ebooks/1513",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Romeo and Juliet\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Romeo and Juliet",
+        "suggestion_author": "William Shakespeare",
+        "suggestion_year": 1597,
+        "suggestion_rationale": "A quintessential tragedy of young love and feuding families, this play is one of Shakespeare's most frequently performed and studied works.",
+        "gutenberg_id": 1513
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Macbeth",
+      "author": "Shakespeare, William",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1533",
+      "access_url": "https://www.gutenberg.org/ebooks/1533",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Macbeth\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Macbeth",
+        "suggestion_author": "William Shakespeare",
+        "suggestion_year": 1606,
+        "suggestion_rationale": "A dark and powerful tragedy exploring ambition, guilt, and the supernatural, Macbeth is a staple of Shakespearean literature.",
+        "gutenberg_id": 1533
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Shakespeare Studies",
+      "author": "Stanley Wells",
+      "publication_year": 1988,
+      "source_url": "http://www.loc.gov/catdir/description/cam023/85029066.html",
+      "access_url": "http://www.loc.gov/catdir/description/cam023/85029066.html",
+      "snippet": null,
+      "confidence": 0.869,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Shakespeare\". Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Shakespeare",
+        "suggestion_author": "Harold Bloom",
+        "suggestion_year": 1990,
+        "suggestion_rationale": "A collection of essays by leading scholars offering diverse perspectives on Shakespeare's life, works, and historical context.",
+        "openalex_id": "https://openalex.org/W590790258",
+        "work_type": "book"
+      }
+    }
+  ]
+}

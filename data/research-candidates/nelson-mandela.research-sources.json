@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-02-08T07:40:20.305Z",
+  "figureId": "nelson-mandela",
+  "figureName": "Nelson Mandela",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 633,
+      "totalTokenCount": 921,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Long Walk to Freedom",
+        "author": "Nelson Mandela",
+        "year": 1994,
+        "rationale": "Mandela's autobiography, providing a comprehensive account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his personal journey and motivations.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "No Easy Walk to Freedom: Speeches, Articles and Broadcasts on the African Struggle",
+        "author": "Nelson Mandela",
+        "year": 1965,
+        "rationale": "A collection of Mandela's writings and speeches from the period of his active political leadership and prior to his long imprisonment. This offers direct insight into his political thought and strategy.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Struggle Is My Life",
+        "author": "Nelson Mandela",
+        "year": 1978,
+        "rationale": "Another collection of Mandela's writings and speeches, offering further primary evidence of his views and the anti-apartheid movement's objectives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Mandela: An Autobiography",
+        "author": "Nelson Mandela",
+        "year": 1994,
+        "rationale": "While the autobiography itself is a primary source, scholarly analyses and critical editions of it are invaluable secondary sources. This entry refers to scholarly works that analyze the autobiography.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Nelson Mandela: The Authorized Biography",
+        "author": "Anthony Sampson",
+        "year": 1999,
+        "rationale": "Written by a journalist who knew Mandela for decades, this biography is considered a highly authoritative secondary source, drawing on extensive interviews and research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Madiba: The Life and Times of Nelson Mandela",
+        "author": "Martin Meredith",
+        "year": 2010,
+        "rationale": "A comprehensive and well-regarded biography that synthesizes a vast amount of information about Mandela's life and the political context in which he operated.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are generally autobiographical works or collections of speeches and writings. Secondary sources are scholarly biographies that provide historical context and analysis. Availability on Wikisource and Project Gutenberg for these specific primary source collections might be limited, with Internet Archive being the most probable repository."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "No Easy Walk to Freedom: Speeches, Articles and Broadcasts on the African Struggle",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Struggle Is My Life",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Mandela: An Autobiography",
+      "reason": "Best score below threshold (0.55 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Nelson Mandela: The Authorized Biography",
+      "reason": "Best score below threshold (0.59 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Long Walk To Freedom (English)",
+      "author": "Nelson Mandela",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/long-walk-to-freedom-english",
+      "access_url": "https://archive.org/details/long-walk-to-freedom-english",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"Long Walk to Freedom\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Long Walk to Freedom",
+        "suggestion_author": "Nelson Mandela",
+        "suggestion_year": 1994,
+        "suggestion_rationale": "Mandela's autobiography, providing a comprehensive account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his personal journey and motivations.",
+        "ia_identifier": "long-walk-to-freedom-english"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Life and times of Nelson Mandela",
+      "author": "Lynn Sear",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.12968/ftoe.2003.3.4.xxiii",
+      "access_url": "https://doi.org/10.12968/ftoe.2003.3.4.xxiii",
+      "snippet": "Five to Eleven",
+      "confidence": 0.819,
+      "why": "Secondary source resolved from suggestion \"Madiba: The Life and Times of Nelson Mandela\". Matched secondary suggestion by title=0.95, author=0.00, year=0.77; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Madiba: The Life and Times of Nelson Mandela",
+        "suggestion_author": "Martin Meredith",
+        "suggestion_year": 2010,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that synthesizes a vast amount of information about Mandela's life and the political context in which he operated.",
+        "doi": "10.12968/ftoe.2003.3.4.xxiii",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

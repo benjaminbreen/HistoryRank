@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-02-08T07:42:05.290Z",
+  "figureId": "otto-von-bismarck",
+  "figureName": "Otto von Bismarck",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 631,
+      "totalTokenCount": 920,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Reflections and Reminiscences",
+        "author": "Otto von Bismarck",
+        "year": 1898,
+        "rationale": "Bismarck's autobiography, offering direct insights into his political career and personal views. Likely available in digitized form.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Bismarck Dynasty",
+        "author": "Otto von Bismarck",
+        "year": 1898,
+        "rationale": "A collection of Bismarck's writings and speeches, providing primary material for understanding his political thought and actions. Likely available in digitized form.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Grosse Politik der europäischen Kabinette 1871-1914",
+        "author": "Otto von Bismarck",
+        "year": 1922,
+        "rationale": "While a compilation of diplomatic documents, Bismarck's extensive involvement and influence make its contents highly relevant as primary source material for his foreign policy. Digitized versions are likely available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Bismarck",
+        "author": "Jonathan Steinberg",
+        "year": 2011,
+        "rationale": "A comprehensive and well-regarded biography by a prominent historian, offering scholarly analysis of Bismarck's life and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Bismarck: A Life",
+        "author": "Edgar Feuchtwanger",
+        "year": 2014,
+        "rationale": "A modern scholarly biography that synthesizes recent research and provides a balanced perspective on Bismarck's complex legacy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Modern History, Vol. XI: The Growth of Nationalities",
+        "author": "Various",
+        "year": 1909,
+        "rationale": "While older, this volume contains significant scholarly chapters on the period of Bismarck's dominance and his role in nation-building, often written by contemporaries or early historians. Digitized versions are likely available and provide foundational secondary analysis.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The primary sources listed are autobiographical works and collections of his writings/speeches, which are generally available in digitized formats. The secondary sources are major biographies and historical works that offer scholarly analysis of Bismarck's life and impact."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Reflections and Reminiscences",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Bismarck Dynasty",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Grosse Politik der europäischen Kabinette 1871-1914",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Modern History, Vol. XI: The Growth of Nationalities",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Bismarck: a life",
+      "author": null,
+      "publication_year": 2012,
+      "source_url": "https://doi.org/10.5860/choice.49-2915",
+      "access_url": "https://doi.org/10.5860/choice.49-2915",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.869,
+      "why": "Secondary source resolved from suggestion \"Bismarck: A Life\". Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Bismarck: A Life",
+        "suggestion_author": "Edgar Feuchtwanger",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A modern scholarly biography that synthesizes recent research and provides a balanced perspective on Bismarck's complex legacy.",
+        "openalex_id": "https://openalex.org/W1531857622",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Bismarck: A Life",
+      "author": "Jonathan Steinberg",
+      "publication_year": 2011,
+      "source_url": "https://openlibrary.org/works/OL18203978W",
+      "access_url": "https://openlibrary.org/works/OL18203978W",
+      "snippet": null,
+      "confidence": 0.841,
+      "why": "Secondary source resolved from suggestion \"Bismarck\". Matched secondary suggestion by title=0.70, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Bismarck",
+        "suggestion_author": "Jonathan Steinberg",
+        "suggestion_year": 2011,
+        "suggestion_rationale": "A comprehensive and well-regarded biography by a prominent historian, offering scholarly analysis of Bismarck's life and impact.",
+        "edition_count": 1
+      }
+    }
+  ]
+}

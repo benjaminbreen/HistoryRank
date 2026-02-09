@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-02-08T07:39:01.202Z",
+  "figureId": "ashoka",
+  "figureName": "Ashoka",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 527,
+      "totalTokenCount": 815,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Edicts of Ashoka",
+        "author": "Ashoka",
+        "year": -250,
+        "rationale": "These are inscriptions on pillars and rocks across the Indian subcontinent, commissioned by Ashoka himself. They represent his decrees and philosophical outlook. Translations are widely available.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Ashoka: The Search for India's Lost Emperor",
+        "author": "Charles Allen",
+        "year": 2012,
+        "rationale": "A comprehensive and well-regarded biography that synthesizes available historical and archaeological evidence to reconstruct Ashoka's life and reign.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge History of India, Vol. 1: Ancient India",
+        "author": "E. J. Rapson",
+        "year": 1922,
+        "rationale": "While older, this volume contains foundational scholarship on ancient India, including significant sections on the Mauryan Empire and Ashoka, often cited in later works. However, a newer edition or specific chapters might be more relevant.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Aśoka and the Decline of the Mauryas",
+        "author": "Romila Thapar",
+        "year": 1961,
+        "rationale": "A seminal work in the field, though pre-1976. It remains a crucial reference for understanding the political, economic, and social context of Ashoka's reign and the Mauryan Empire. Later editions or related articles by Thapar might be more current.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources for Ashoka are primarily his edicts, which are inscriptions rather than authored texts in the modern sense. Secondary sources are abundant, but finding peer-reviewed articles or books specifically on Ashoka published after 1976 requires a targeted search. The listed secondary sources are highly influential, even if some predate the cutoff, and are often updated or re-issued."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Edicts of Ashoka",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge History of India, Vol. 1: Ancient India",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.13"
+    },
+    {
+      "role": "secondary",
+      "title": "Aśoka and the Decline of the Mauryas",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.83"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Ashoka: The Search for India's Lost Emperor",
+      "author": "Charles Allen",
+      "publication_year": 2012,
+      "source_url": "https://openalex.org/W1548295081",
+      "access_url": "https://openalex.org/W1548295081",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Ashoka: The Search for India's Lost Emperor\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Ashoka: The Search for India's Lost Emperor",
+        "suggestion_author": "Charles Allen",
+        "suggestion_year": 2012,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that synthesizes available historical and archaeological evidence to reconstruct Ashoka's life and reign.",
+        "openalex_id": "https://openalex.org/W1548295081",
+        "work_type": "book"
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-02-08T07:37:06.319Z",
+  "figureId": "george-washington",
+  "figureName": "George Washington",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 541,
+      "totalTokenCount": 829,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "George Washington's Farewell Address",
+        "author": "George Washington",
+        "year": 1796,
+        "rationale": "A foundational document outlining Washington's advice for the nation's future, widely studied and preserved.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Diaries of George Washington",
+        "author": "George Washington",
+        "year": 1748,
+        "rationale": "Provides direct insight into his daily life, agricultural practices, and personal observations.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "George Washington Papers",
+        "author": "George Washington",
+        "year": 1745,
+        "rationale": "A vast collection of letters, speeches, and other documents offering comprehensive insight into his thoughts and actions.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Washington: A Life",
+        "author": "Ron Chernow",
+        "year": 2010,
+        "rationale": "A comprehensive and highly acclaimed modern biography that draws on extensive research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Unknown American Revolution: The Unruly Birth of Democracy and the Struggle to Create America",
+        "author": "Gary B. Nash",
+        "year": 2005,
+        "rationale": "Provides context for Washington's leadership within the broader social and political landscape of the Revolution.",
+        "sourceType": "book"
+      },
+      {
+        "title": "George Washington and the Founding of the Nation",
+        "author": "William Pencak",
+        "year": 2004,
+        "rationale": "Examines Washington's critical role in the formation and early governance of the United States.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source dates represent the earliest known writings or publication for the collection/work. Secondary sources are chosen for their scholarly reputation and recency."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "George Washington's Farewell Address",
+      "reason": "Title similarity too low (0.51); baseScore=0.53"
+    },
+    {
+      "role": "primary",
+      "title": "The Diaries of George Washington",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "George Washington Papers",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Unknown American Revolution: The Unruly Birth of Democracy and the Struggle to Create America",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.30"
+    },
+    {
+      "role": "secondary",
+      "title": "George Washington and the Founding of the Nation",
+      "reason": "Best score below threshold (0.57 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Washington: A Life",
+      "author": "Ron Chernow",
+      "publication_year": 2010,
+      "source_url": "http://ci.nii.ac.jp/ncid/BB07066289",
+      "access_url": "http://ci.nii.ac.jp/ncid/BB07066289",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Washington: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Washington: A Life",
+        "suggestion_author": "Ron Chernow",
+        "suggestion_year": 2010,
+        "suggestion_rationale": "A comprehensive and highly acclaimed modern biography that draws on extensive research.",
+        "openalex_id": "https://openalex.org/W1516232537",
+        "work_type": "book"
+      }
+    }
+  ]
+}

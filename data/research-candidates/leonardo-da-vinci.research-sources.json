@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-02-08T07:38:45.278Z",
+  "figureId": "leonardo-da-vinci",
+  "figureName": "Leonardo da Vinci",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 510,
+      "totalTokenCount": 799,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Notebooks",
+        "author": "Leonardo da Vinci",
+        "year": 1519,
+        "rationale": "Leonardo's extensive notebooks contain his observations, scientific studies, and artistic theories. They are a foundational primary source for understanding his mind and work.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Treatise on Painting",
+        "author": "Leonardo da Vinci",
+        "year": 1651,
+        "rationale": "A compilation of Leonardo's writings on painting, perspective, and art theory, assembled posthumously. It offers direct insight into his artistic philosophy.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Leonardo da Vinci: The Flights of the Mind",
+        "author": "Charles Nicholl",
+        "year": 2004,
+        "rationale": "A highly regarded biography that delves deeply into Leonardo's life, work, and intellectual development, drawing extensively on his notebooks.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Leonardo da Vinci",
+        "author": "Walter Isaacson",
+        "year": 2017,
+        "rationale": "A comprehensive and accessible biography that explores Leonardo's multifaceted genius, connecting his art, science, and personal life.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Leonardo da Vinci: Anatomist",
+        "author": "Martin Clayton and Ron Philo",
+        "year": 2019,
+        "rationale": "This scholarly work focuses specifically on Leonardo's anatomical studies, analyzing his drawings and notes to reveal his scientific rigor and understanding.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "While Leonardo's notebooks are vast, they were not published in his lifetime and exist in fragmented forms. The 'Treatise on Painting' is a later compilation. Availability of specific editions on digital platforms can vary."
+  },
+  "unresolved": [],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "A Treatise on Painting",
+      "author": "Leonardo, da Vinci",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/46915",
+      "access_url": "https://www.gutenberg.org/ebooks/46915",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Treatise on Painting\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Treatise on Painting",
+        "suggestion_author": "Leonardo da Vinci",
+        "suggestion_year": 1651,
+        "suggestion_rationale": "A compilation of Leonardo's writings on painting, perspective, and art theory, assembled posthumously. It offers direct insight into his artistic philosophy.",
+        "gutenberg_id": 46915
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Notebooks",
+      "author": "Leonardo, da Vinci, 1452-1519",
+      "publication_year": 2008,
+      "source_url": "https://archive.org/details/notebooks0000leon",
+      "access_url": "https://archive.org/details/notebooks0000leon",
+      "snippet": null,
+      "confidence": 0.82,
+      "why": "Primary source resolved from suggestion \"Notebooks\". Matched primary suggestion by title=1.00, author=0.60, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Notebooks",
+        "suggestion_author": "Leonardo da Vinci",
+        "suggestion_year": 1519,
+        "suggestion_rationale": "Leonardo's extensive notebooks contain his observations, scientific studies, and artistic theories. They are a foundational primary source for understanding his mind and work.",
+        "ia_identifier": "notebooks0000leon"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Leonardo da Vinci: The Flights of the Mind",
+      "author": "Charles Nicholl",
+      "publication_year": 2004,
+      "source_url": "https://ci.nii.ac.jp/ncid/BA71879419",
+      "access_url": "https://ci.nii.ac.jp/ncid/BA71879419",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci: The Flights of the Mind\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Leonardo da Vinci: The Flights of the Mind",
+        "suggestion_author": "Charles Nicholl",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "A highly regarded biography that delves deeply into Leonardo's life, work, and intellectual development, drawing extensively on his notebooks.",
+        "openalex_id": "https://openalex.org/W600184691",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Leonardo da Vinci",
+      "author": "Walter Isaacson",
+      "publication_year": 2017,
+      "source_url": "https://openlibrary.org/works/OL17802920W",
+      "access_url": "https://openlibrary.org/works/OL17802920W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Leonardo da Vinci",
+        "suggestion_author": "Walter Isaacson",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A comprehensive and accessible biography that explores Leonardo's multifaceted genius, connecting his art, science, and personal life.",
+        "edition_count": 21
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Leonardo da Vinci: Anatomist",
+      "author": "Martin Clayton",
+      "publication_year": 2012,
+      "source_url": "https://ci.nii.ac.jp/ncid/BB17218317",
+      "access_url": "https://ci.nii.ac.jp/ncid/BB17218317",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.92,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci: Anatomist\". Matched secondary suggestion by title=1.00, author=0.40, year=0.77; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Leonardo da Vinci: Anatomist",
+        "suggestion_author": "Martin Clayton and Ron Philo",
+        "suggestion_year": 2019,
+        "suggestion_rationale": "This scholarly work focuses specifically on Leonardo's anatomical studies, analyzing his drawings and notes to reveal his scientific rigor and understanding.",
+        "openalex_id": "https://openalex.org/W616231336",
+        "work_type": "book"
+      }
+    }
+  ]
+}

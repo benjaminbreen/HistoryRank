@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-02-08T07:37:29.086Z",
+  "figureId": "ren-descartes",
+  "figureName": "René Descartes",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 539,
+      "totalTokenCount": 827,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Discourse on the Method",
+        "author": "René Descartes",
+        "year": 1637,
+        "rationale": "Descartes' seminal work outlining his philosophical method and foundational ideas. Widely translated and studied.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Meditations on First Philosophy",
+        "author": "René Descartes",
+        "year": 1641,
+        "rationale": "A cornerstone of Western philosophy, presenting his arguments for the existence of God and the distinction between mind and body.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Principles of Philosophy",
+        "author": "René Descartes",
+        "year": 1644,
+        "rationale": "A systematic exposition of his physics and metaphysics, intended as a textbook.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Descartes",
+        "author": "John Cottingham",
+        "year": 1992,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Descartes' philosophy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Descartes: A Biography",
+        "author": "John J. O'Neill",
+        "year": 1997,
+        "rationale": "A scholarly biography providing context for Descartes' life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Descartes's Method of Doubt",
+        "author": "Jonathan Rée",
+        "year": 2004,
+        "rationale": "An in-depth analysis of Descartes' famous method of doubt and its implications.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are foundational texts. Secondary sources are scholarly overviews and analyses published after 1976."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Discourse on the Method",
+      "reason": "Title similarity too low (0.49); baseScore=0.60"
+    },
+    {
+      "role": "primary",
+      "title": "Principles of Philosophy",
+      "reason": "Title similarity too low (0.08); baseScore=0.16"
+    },
+    {
+      "role": "secondary",
+      "title": "Descartes's Method of Doubt",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.79"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Meditations on First Philosophy",
+      "author": "Rene Descartes",
+      "publication_year": 2017,
+      "source_url": "https://archive.org/details/meditationsonfir0000rene_w1s6",
+      "access_url": "https://archive.org/details/meditationsonfir0000rene_w1s6",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Meditations on First Philosophy\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Meditations on First Philosophy",
+        "suggestion_author": "René Descartes",
+        "suggestion_year": 1641,
+        "suggestion_rationale": "A cornerstone of Western philosophy, presenting his arguments for the existence of God and the distinction between mind and body.",
+        "ia_identifier": "meditationsonfir0000rene_w1s6"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Descartes",
+      "author": "John Cottingham",
+      "publication_year": 1992,
+      "source_url": "https://doi.org/10.1017/ccol0521366232",
+      "access_url": "https://doi.org/10.1017/ccol0521366232",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Descartes\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Descartes",
+        "suggestion_author": "John Cottingham",
+        "suggestion_year": 1992,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Descartes' philosophy.",
+        "openalex_id": "https://openalex.org/W4293282513",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Descartes: A Biography",
+      "author": "Desmond M. Clarke",
+      "publication_year": 2006,
+      "source_url": "https://doi.org/10.1017/cbo9780511498077",
+      "access_url": "https://doi.org/10.1017/cbo9780511498077",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.829,
+      "why": "Secondary source resolved from suggestion \"Descartes: A Biography\". Matched secondary suggestion by title=1.00, author=0.00, year=0.70; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Descartes: A Biography",
+        "suggestion_author": "John J. O'Neill",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A scholarly biography providing context for Descartes' life and work.",
+        "openalex_id": "https://openalex.org/W1498503827",
+        "work_type": "book"
+      }
+    }
+  ]
+}

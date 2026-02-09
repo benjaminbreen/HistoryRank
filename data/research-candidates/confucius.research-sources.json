@@ -1,269 +1,141 @@
 {
-  "generatedAt": "2026-02-08T03:31:08.141Z",
+  "generatedAt": "2026-02-08T07:28:36.621Z",
   "figureId": "confucius",
   "figureName": "Confucius",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "wikisource",
-      "openalex",
-      "crossref",
-      "openlibrary"
-    ],
-    "queryNames": [
-      "Confucius"
-    ],
-    "seedFallbackUsed": false
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 644,
+      "totalTokenCount": 932,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
   },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Analects",
+        "author": "Confucius",
+        "year": -475,
+        "rationale": "The Analects is a collection of sayings and ideas attributed to the Chinese philosopher Confucius and his contemporaries, traditionally believed to have been compiled by Confucius's followers. It is the most famous and influential of the Four Books.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Great Learning",
+        "author": "Confucius",
+        "year": -475,
+        "rationale": "The Great Learning is one of the Four Books in Confucian philosophy. It is a short, introductory text that outlines the path to self-cultivation and good governance.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Doctrine of the Mean",
+        "author": "Confucius",
+        "year": -475,
+        "rationale": "The Doctrine of the Mean is another of the Four Books, focusing on the importance of balance, moderation, and harmony in personal conduct and governance.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Confucius: A Life of Thought",
+        "author": "Benjamin I. Schwartz",
+        "year": 1985,
+        "rationale": "A highly regarded scholarly biography and intellectual history of Confucius by a prominent sinologist.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Analects: An Introduction",
+        "author": "D.C. Lau",
+        "year": 1979,
+        "rationale": "A foundational scholarly introduction and translation of the Analects, providing context and analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Confucianism: A Very Short Introduction",
+        "author": "Daniel A. Bell",
+        "year": 2013,
+        "rationale": "A concise and accessible overview of Confucianism, its history, and its relevance, written by a leading scholar in the field.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The primary sources listed are foundational texts of Confucianism, attributed to Confucius and compiled by his disciples. Their exact authorship and dating are subject to scholarly debate, but they are universally considered primary in the study of Confucius. Secondary sources are chosen for their scholarly reputation and recency."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Great Learning",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "The Doctrine of the Mean",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "secondary",
+      "title": "Confucius: A Life of Thought",
+      "reason": "Best score below threshold (0.67 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Analects: An Introduction",
+      "reason": "Best score below threshold (0.45 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Confucianism: A Very Short Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
+    }
+  ],
   "candidates": [
     {
-      "source_corpus": "wikisource",
+      "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "1911 Encyclopædia Britannica/Confucius",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FConfucius",
-      "access_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FConfucius",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "The Great Events by Famous Historians/Volume 1/Rise of Confucius, the Chinese Sage",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Great_Events_by_Famous_Historians%2FVolume_1%2FRise_of_Confucius%2C_the_Chinese_Sage",
-      "access_url": "https://en.wikisource.org/wiki/The_Great_Events_by_Famous_Historians%2FVolume_1%2FRise_of_Confucius%2C_the_Chinese_Sage",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Encyclopædia Britannica, Ninth Edition/Confucius",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Encyclop%C3%A6dia_Britannica%2C_Ninth_Edition%2FConfucius",
-      "access_url": "https://en.wikisource.org/wiki/Encyclop%C3%A6dia_Britannica%2C_Ninth_Edition%2FConfucius",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The New Student's Reference Work/Confucius",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_New_Student's_Reference_Work%2FConfucius",
-      "access_url": "https://en.wikisource.org/wiki/The_New_Student's_Reference_Work%2FConfucius",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Life, Labours and Doctrines of Confucius",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/The_Life%2C_Labours_and_Doctrines_of_Confucius",
-      "access_url": "https://en.wikisource.org/wiki/The_Life%2C_Labours_and_Doctrines_of_Confucius",
-      "confidence": 0.65,
-      "why": "Potential authored text; requires review."
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "The Confucius connection: From cultural roots to economic growth",
-      "author": "Geert Hofstede",
-      "publication_year": 1988,
-      "source_url": "https://doi.org/10.1016/0090-2616(88)90009-5",
-      "access_url": "https://doi.org/10.1016/0090-2616(88)90009-5",
-      "snippet": "Organizational Dynamics",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
+      "title": "Confucius : the analects",
+      "author": "Confucius",
+      "publication_year": 1992,
+      "source_url": "https://archive.org/details/confuciusanalect0000conf",
+      "access_url": "https://archive.org/details/confuciusanalect0000conf",
+      "snippet": null,
+      "confidence": 0.837,
+      "why": "Primary source resolved from suggestion \"The Analects\". Matched primary suggestion by title=0.87, author=1.00, year=0.00; Primary gate passed",
       "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 4329,
-        "openalex_id": "https://openalex.org/W2093611241",
-        "work_type": "article",
-        "venue": "Organizational Dynamics"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Confucius--The Secular as Sacred",
-      "author": "Henry Rosemont",
-      "publication_year": 1976,
-      "source_url": "https://doi.org/10.2307/1398287",
-      "access_url": "https://doi.org/10.2307/1398287",
-      "snippet": "Philosophy East and West",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 795,
-        "openalex_id": "https://openalex.org/W2087172639",
-        "work_type": "article",
-        "venue": "Philosophy East and West"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "The analects of Confucius: a philosophical translation",
-      "author": null,
-      "publication_year": 1999,
-      "source_url": "https://doi.org/10.5860/choice.36-3846",
-      "access_url": "https://doi.org/10.5860/choice.36-3846",
-      "snippet": "Choice Reviews Online",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 726,
-        "openalex_id": "https://openalex.org/W1538433502",
-        "work_type": "article",
-        "venue": "Choice Reviews Online"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Confucius’ Life, Personality and Influence",
-      "author": null,
-      "publication_year": 2013,
-      "source_url": "https://doi.org/10.5040/9781472590503.ch-001",
-      "access_url": "https://doi.org/10.5040/9781472590503.ch-001",
-      "snippet": "Confucius",
-      "confidence": 0.794,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.5040/9781472590503.ch-001",
-        "referenced_by_count": 0,
-        "container_title": "Confucius",
-        "work_type": "other"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Introduction : Confucius and the Analects",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://doi.org/10.5040/9781472541079.0004",
-      "access_url": "https://doi.org/10.5040/9781472541079.0004",
-      "snippet": "Confucius, the Analects and Western Education",
-      "confidence": 0.758,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.5040/9781472541079.0004",
-        "referenced_by_count": 6,
-        "container_title": "Confucius, the Analects and Western Education",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Confucius Biography",
-      "author": "Qing Qing Jiang",
-      "publication_year": 2022,
-      "source_url": "https://openlibrary.org/works/OL34197124W",
-      "access_url": "https://openlibrary.org/works/OL34197124W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "A Critical Biography of Confucius",
-      "author": "Kuang Yaming ",
-      "publication_year": 1985,
-      "source_url": "https://openlibrary.org/works/OL43084629W",
-      "access_url": "https://openlibrary.org/works/OL43084629W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Biography of Confucius' Poetry and Painting",
-      "author": "Fujin Li",
-      "publication_year": 2024,
-      "source_url": "https://openlibrary.org/works/OL38685119W",
-      "access_url": "https://openlibrary.org/works/OL38685119W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Confucius",
-      "author": "Mazimum C. Jerri",
-      "publication_year": 2021,
-      "source_url": "https://openlibrary.org/works/OL30833971W",
-      "access_url": "https://openlibrary.org/works/OL30833971W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Entretiens de Confucius",
-      "author": "Séraphin COUVREUR",
-      "publication_year": 2018,
-      "source_url": "https://openlibrary.org/works/OL29670921W",
-      "access_url": "https://openlibrary.org/works/OL29670921W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Analects",
+        "suggestion_author": "Confucius",
+        "suggestion_year": -475,
+        "suggestion_rationale": "The Analects is a collection of sayings and ideas attributed to the Chinese philosopher Confucius and his contemporaries, traditionally believed to have been compiled by Confucius's followers. It is the most famous and influential of the Four Books.",
+        "ia_identifier": "confuciusanalect0000conf"
       }
     }
   ]

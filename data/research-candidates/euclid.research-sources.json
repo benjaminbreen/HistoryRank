@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-02-08T07:40:39.951Z",
+  "figureId": "euclid",
+  "figureName": "Euclid",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 410,
+      "totalTokenCount": 697,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Elements",
+        "author": "Euclid",
+        "year": -300,
+        "rationale": "Euclid's seminal work on geometry, foundational to mathematics. It exists in numerous translations and editions.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Euclid's Elements",
+        "author": "Euclid",
+        "year": 1926,
+        "rationale": "A comprehensive translation and commentary on Euclid's Elements by Thomas L. Heath, considered a standard scholarly edition.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Crest of the Peacock: Non-European Roots of Mathematics",
+        "author": "George Gheverghese Joseph",
+        "year": 2011,
+        "rationale": "This book discusses the historical development of mathematics, including Euclid's contributions within a broader global context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
+        "author": "Leonard Mlodinow",
+        "year": 2001,
+        "rationale": "A popular science book that explores the history and concepts of geometry, with significant focus on Euclid and his work.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Euclid's primary work, 'Elements', is the most significant primary source. Secondary sources focus on scholarly analysis and historical context of his work."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Elements",
+      "reason": "Title similarity too low (0.23); baseScore=0.44"
+    },
+    {
+      "role": "secondary",
+      "title": "The Crest of the Peacock: Non-European Roots of Mathematics",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.66"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
+      "author": "Leonard Mlodinow",
+      "publication_year": 2001,
+      "source_url": "http://cds.cern.ch/record/1545791",
+      "access_url": "http://cds.cern.ch/record/1545791",
+      "snippet": "CERN Bulletin",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
+        "suggestion_author": "Leonard Mlodinow",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A popular science book that explores the history and concepts of geometry, with significant focus on Euclid and his work.",
+        "openalex_id": "https://openalex.org/W1531520337",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Euclid's Elements",
+      "author": "Euclid",
+      "publication_year": 2007,
+      "source_url": "https://openlibrary.org/books/OL14044675M/Euclids_elements_of_geometry",
+      "access_url": "https://openlibrary.org/books/OL14044675M/Euclids_elements_of_geometry",
+      "snippet": null,
+      "confidence": 0.91,
+      "why": "Secondary source resolved from suggestion \"Euclid's Elements\". Matched secondary suggestion by title=1.00, author=1.00, year=0.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Euclid's Elements",
+        "suggestion_author": "Euclid",
+        "suggestion_year": 1926,
+        "suggestion_rationale": "A comprehensive translation and commentary on Euclid's Elements by Thomas L. Heath, considered a standard scholarly edition.",
+        "openalex_id": "https://openalex.org/W2953402087",
+        "work_type": "book"
+      }
+    }
+  ]
+}

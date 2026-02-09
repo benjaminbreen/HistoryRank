@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-02-08T07:39:19.631Z",
+  "figureId": "socrates",
+  "figureName": "Socrates",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 617,
+      "totalTokenCount": 904,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Apology",
+        "author": "Plato",
+        "year": -399,
+        "rationale": "Plato's account of Socrates' defense at his trial. Considered a foundational text for understanding Socrates' philosophy and character.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Crito",
+        "author": "Plato",
+        "year": -399,
+        "rationale": "A dialogue between Socrates and Crito discussing justice and the citizen's duty to the state, set during Socrates' imprisonment.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Phaedo",
+        "author": "Plato",
+        "year": -399,
+        "rationale": "Recounts Socrates' final hours and his philosophical discussions on the immortality of the soul.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Socrates: A Very Short Introduction",
+        "author": "C.C.W. Taylor",
+        "year": 2000,
+        "rationale": "A concise and accessible scholarly introduction to Socrates' life, thought, and the Socratic problem, by a leading scholar.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Socrates",
+        "author": "Donald R. Morrison",
+        "year": 2011,
+        "rationale": "A collection of essays by prominent scholars covering various aspects of Socrates' philosophy, historical context, and influence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Socrates and the Jews: Test Cases",
+        "author": "Leo Strauss",
+        "year": 1976,
+        "rationale": "While published in 1976, this work by a highly influential political philosopher offers a unique perspective on Socrates' philosophical method and its implications.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Socrates himself wrote nothing. Our knowledge of him comes primarily through the writings of his students, most notably Plato and Xenophon. The 'primary sources' listed are therefore Plato's dialogues, which are widely considered the most reliable, though still filtered through Plato's own philosophical agenda."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Socrates and the Jews: Test Cases",
+      "reason": "Best score below threshold (0.26 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Apology",
+      "author": "Plato",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1656",
+      "access_url": "https://www.gutenberg.org/ebooks/1656",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Apology\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Apology",
+        "suggestion_author": "Plato",
+        "suggestion_year": -399,
+        "suggestion_rationale": "Plato's account of Socrates' defense at his trial. Considered a foundational text for understanding Socrates' philosophy and character.",
+        "gutenberg_id": 1656
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Crito",
+      "author": "Plato",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1657",
+      "access_url": "https://www.gutenberg.org/ebooks/1657",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Crito\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Crito",
+        "suggestion_author": "Plato",
+        "suggestion_year": -399,
+        "suggestion_rationale": "A dialogue between Socrates and Crito discussing justice and the citizen's duty to the state, set during Socrates' imprisonment.",
+        "gutenberg_id": 1657
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Phaedo",
+      "author": "Plato",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/1658",
+      "access_url": "https://www.gutenberg.org/ebooks/1658",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Phaedo\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Phaedo",
+        "suggestion_author": "Plato",
+        "suggestion_year": -399,
+        "suggestion_rationale": "Recounts Socrates' final hours and his philosophical discussions on the immortality of the soul.",
+        "gutenberg_id": 1658
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Cambridge Companion to Socrates",
+      "author": "Donald R. Morrison",
+      "publication_year": 2010,
+      "source_url": "https://doi.org/10.1017/ccol9780521833424",
+      "access_url": "https://doi.org/10.1017/ccol9780521833424",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Socrates\". Matched secondary suggestion by title=1.00, author=1.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Socrates",
+        "suggestion_author": "Donald R. Morrison",
+        "suggestion_year": 2011,
+        "suggestion_rationale": "A collection of essays by prominent scholars covering various aspects of Socrates' philosophy, historical context, and influence.",
+        "doi": "10.1017/ccol9780521833424",
+        "crossref_type": "monograph"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Socrates: A Very Short Introduction",
+      "author": "C. C. W. Taylor",
+      "publication_year": 2019,
+      "source_url": "https://doi.org/10.1093/actrade/9780198835981.001.0001",
+      "access_url": "https://doi.org/10.1093/actrade/9780198835981.001.0001",
+      "snippet": null,
+      "confidence": 0.982,
+      "why": "Secondary source resolved from suggestion \"Socrates: A Very Short Introduction\". Matched secondary suggestion by title=1.00, author=1.00, year=0.37; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Socrates: A Very Short Introduction",
+        "suggestion_author": "C.C.W. Taylor",
+        "suggestion_year": 2000,
+        "suggestion_rationale": "A concise and accessible scholarly introduction to Socrates' life, thought, and the Socratic problem, by a leading scholar.",
+        "doi": "10.1093/actrade/9780198835981.001.0001",
+        "crossref_type": "edited-book"
+      }
+    }
+  ]
+}

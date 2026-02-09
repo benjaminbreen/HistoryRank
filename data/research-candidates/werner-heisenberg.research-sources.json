@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-02-08T07:42:11.843Z",
+  "figureId": "werner-heisenberg",
+  "figureName": "Werner Heisenberg",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 607,
+      "totalTokenCount": 895,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Physics and Philosophy: The Revolution in Modern Science",
+        "author": "Werner Heisenberg",
+        "year": 1958,
+        "rationale": "A seminal work by Heisenberg himself, reflecting on the philosophical implications of quantum mechanics. Likely to be found in digital archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Der Teil und das Ganze: Gespräche im Umkreis der Atomphysik",
+        "author": "Werner Heisenberg",
+        "year": 1971,
+        "rationale": "A collection of conversations and reflections by Heisenberg, offering personal insights into his scientific journey and the development of quantum theory. German original and translations are likely available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Physical Principles of the Quantum Theory",
+        "author": "Werner Heisenberg",
+        "year": 1930,
+        "rationale": "An early and foundational exposition of quantum theory by Heisenberg, crucial for understanding his contributions. Likely to be digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Heisenberg's Uncertainties: A Scientific Biography",
+        "author": "David C. Cassidy",
+        "year": 1992,
+        "rationale": "A comprehensive and well-regarded biography of Heisenberg, offering deep insights into his life and work from a scholarly perspective.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Quantum Generations: A History of Nuclear Physics",
+        "author": "Helge Kragh",
+        "year": 2002,
+        "rationale": "This book provides historical context for Heisenberg's work within the broader field of nuclear physics, written by a prominent historian of science.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Road to Reality: A Complete Guide to Physics",
+        "author": "Roger Penrose",
+        "year": 2004,
+        "rationale": "While not solely focused on Heisenberg, Penrose's work often discusses the foundational contributions of figures like Heisenberg to modern physics, offering a contemporary scholarly analysis.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are selected based on their significance and likelihood of being digitized. Secondary sources are chosen for their scholarly reputation and relevance to Heisenberg's scientific and historical context."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Der Teil und das Ganze: Gespräche im Umkreis der Atomphysik",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Heisenberg's Uncertainties: A Scientific Biography",
+      "reason": "Best score below threshold (0.46 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Quantum Generations: A History of Nuclear Physics",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    },
+    {
+      "role": "secondary",
+      "title": "The Road to Reality: A Complete Guide to Physics",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.24"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Physics and philosophy: the revolution in modern science",
+      "author": "Werner Heisenberg",
+      "publication_year": 1958,
+      "source_url": "https://archive.org/details/physicsphilosoph0000wern",
+      "access_url": "https://archive.org/details/physicsphilosoph0000wern",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Physics and Philosophy: The Revolution in Modern Science\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Physics and Philosophy: The Revolution in Modern Science",
+        "suggestion_author": "Werner Heisenberg",
+        "suggestion_year": 1958,
+        "suggestion_rationale": "A seminal work by Heisenberg himself, reflecting on the philosophical implications of quantum mechanics. Likely to be found in digital archives.",
+        "ia_identifier": "physicsphilosoph0000wern"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Physical Principles Of The Quantum Theory",
+      "author": "Werner Heisenberg",
+      "publication_year": 1930,
+      "source_url": "https://archive.org/details/physicalprincipl0000unse_o6a9",
+      "access_url": "https://archive.org/details/physicalprincipl0000unse_o6a9",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Physical Principles of the Quantum Theory\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Physical Principles of the Quantum Theory",
+        "suggestion_author": "Werner Heisenberg",
+        "suggestion_year": 1930,
+        "suggestion_rationale": "An early and foundational exposition of quantum theory by Heisenberg, crucial for understanding his contributions. Likely to be digitized.",
+        "ia_identifier": "physicalprincipl0000unse_o6a9"
+      }
+    }
+  ]
+}

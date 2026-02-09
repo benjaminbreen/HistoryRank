@@ -1,283 +1,203 @@
 {
-  "generatedAt": "2026-02-08T03:31:31.177Z",
+  "generatedAt": "2026-02-08T07:28:51.325Z",
   "figureId": "albert-einstein",
   "figureName": "Albert Einstein",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "wikisource",
-      "internet_archive",
-      "openalex",
-      "crossref",
-      "openlibrary"
-    ],
-    "queryNames": [
-      "Albert Einstein",
-      "Einstein"
-    ],
-    "seedFallbackUsed": false
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 548,
+      "totalTokenCount": 836,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
   },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Relativity: The Special and the General Theory",
+        "author": "Albert Einstein",
+        "year": 1920,
+        "rationale": "Einstein's own explanation of his theories for a general audience. Likely to be available in digitized form.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Meaning of Relativity",
+        "author": "Albert Einstein",
+        "year": 1922,
+        "rationale": "A more technical exposition of his theories, based on lectures. A foundational text by the author.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Ideas and Opinions",
+        "author": "Albert Einstein",
+        "year": 1954,
+        "rationale": "A collection of his essays and speeches covering a wide range of topics, offering insight into his thought process and public statements.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Einstein: His Life and Universe",
+        "author": "Walter Isaacson",
+        "year": 2007,
+        "rationale": "A comprehensive and widely acclaimed biography by a respected author, offering deep insights into Einstein's life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Einstein",
+        "author": "Don Howard",
+        "year": 2002,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Einstein's scientific and philosophical contributions.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Einstein and the Quantum: The Quest of the Magnetic Boy",
+        "author": "A. Douglas Stone",
+        "year": 2013,
+        "rationale": "Focuses on Einstein's crucial contributions to quantum theory, providing a scholarly analysis of a key area of his work.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are selected based on their likelihood of being digitized and available in public domain repositories. Secondary sources are recent, scholarly works from major publishers."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Einstein and the Quantum: The Quest of the Magnetic Boy",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+    }
+  ],
   "candidates": [
     {
-      "source_corpus": "wikisource",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Albert Einstein to Franklin D. Roosevelt - August 2, 1939",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://en.wikisource.org/wiki/Albert_Einstein_to_Franklin_D._Roosevelt_-_August_2%2C_1939",
-      "access_url": "https://en.wikisource.org/wiki/Albert_Einstein_to_Franklin_D._Roosevelt_-_August_2%2C_1939",
-      "confidence": 0.85,
-      "why": "Title strongly matches figure; likely authored text."
-    },
-    {
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Albert Einstein: An intimate portrait",
-      "author": "Solomon Quasha",
-      "publication_year": 1980,
-      "source_url": "https://archive.org/details/alberteinsteinin0000solo",
-      "access_url": "https://archive.org/details/alberteinsteinin0000solo",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "HAMILTON v. ALBERT EINSTEIN HEALTHCARE NETWORK",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://archive.org/details/gov.uscourts.paed.587939",
-      "access_url": "https://archive.org/details/gov.uscourts.paed.587939",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "albert einstein volume 6",
-      "author": null,
-      "publication_year": 1997,
-      "source_url": "https://archive.org/details/alberteinsteinvo0000unse_x1v2",
-      "access_url": "https://archive.org/details/alberteinsteinvo0000unse_x1v2",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Ai yin shi tan de zhi hui = Wisdom of Albert Einstein",
-      "author": "(mei) Ai, yin shi tan",
-      "publication_year": 2002,
-      "source_url": "https://archive.org/details/aiyinshitandezhi0000meia",
-      "access_url": "https://archive.org/details/aiyinshitandezhi0000meia",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels",
-      "author": "Charles H. Bennett",
-      "publication_year": 1993,
-      "source_url": "https://doi.org/10.1103/physrevlett.70.1895",
-      "access_url": "https://doi.org/10.1103/physrevlett.70.1895",
-      "snippet": "Physical Review Letters",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 13316,
-        "openalex_id": "https://openalex.org/W1978553093",
-        "work_type": "article",
-        "venue": "Physical Review Letters"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "On the Einstein Podolsky Rosen paradox",
-      "author": "J. S. Bell",
-      "publication_year": 1964,
-      "source_url": "https://doi.org/10.1103/physicsphysiquefizika.1.195",
-      "access_url": "https://doi.org/10.1103/physicsphysiquefizika.1.195",
-      "snippet": "Physics Physique Fizika",
-      "confidence": 0.85,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 11788,
-        "openalex_id": "https://openalex.org/W2135830616",
-        "work_type": "article",
-        "venue": "Physics Physique Fizika"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "The Ultimate Quotable Einstein",
-      "author": "AlbertHG Einstein",
-      "publication_year": 2011,
-      "source_url": "https://doi.org/10.1515/9781400835966",
-      "access_url": "https://doi.org/10.1515/9781400835966",
+      "title": "Relativity The Special And The General Theory",
+      "author": "Albert Einstein",
+      "publication_year": 1920,
+      "source_url": "https://archive.org/details/in.ernet.dli.2015.162673",
+      "access_url": "https://archive.org/details/in.ernet.dli.2015.162673",
       "snippet": null,
-      "confidence": 0.802,
-      "why": "High-confidence secondary source lead from Crossref.",
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Relativity: The Special and the General Theory\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
-        "provider": "crossref",
-        "doi": "10.1515/9781400835966",
-        "referenced_by_count": 24,
-        "container_title": null,
-        "work_type": "monograph"
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Relativity: The Special and the General Theory",
+        "suggestion_author": "Albert Einstein",
+        "suggestion_year": 1920,
+        "suggestion_rationale": "Einstein's own explanation of his theories for a general audience. Likely to be available in digitized form.",
+        "ia_identifier": "in.ernet.dli.2015.162673"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Meaning of Relativity",
+      "author": "Albert Einstein",
+      "publication_year": 1922,
+      "source_url": "https://archive.org/details/ost-physics-36276-pdf",
+      "access_url": "https://archive.org/details/ost-physics-36276-pdf",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Meaning of Relativity\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Meaning of Relativity",
+        "suggestion_author": "Albert Einstein",
+        "suggestion_year": 1922,
+        "suggestion_rationale": "A more technical exposition of his theories, based on lectures. A foundational text by the author.",
+        "ia_identifier": "ost-physics-36276-pdf"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Ideas and Opinions",
+      "author": "Albert Einstein",
+      "publication_year": 1954,
+      "source_url": "https://archive.org/details/ideasopinions0000albe_h5w6",
+      "access_url": "https://archive.org/details/ideasopinions0000albe_h5w6",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Ideas and Opinions\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Ideas and Opinions",
+        "suggestion_author": "Albert Einstein",
+        "suggestion_year": 1954,
+        "suggestion_rationale": "A collection of his essays and speeches covering a wide range of topics, offering insight into his thought process and public statements.",
+        "ia_identifier": "ideasopinions0000albe_h5w6"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "<i>Einstein: His Life and Universe</i>",
+      "author": "Engelbert L. Schucking",
+      "publication_year": 2007,
+      "source_url": "https://doi.org/10.1063/1.2812127",
+      "access_url": "https://doi.org/10.1063/1.2812127",
+      "snippet": "Physics Today",
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"Einstein: His Life and Universe\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Einstein: His Life and Universe",
+        "suggestion_author": "Walter Isaacson",
+        "suggestion_year": 2007,
+        "suggestion_rationale": "A comprehensive and widely acclaimed biography by a respected author, offering deep insights into Einstein's life and work.",
+        "doi": "10.1063/1.2812127",
+        "crossref_type": "journal-article"
       }
     },
     {
       "source_corpus": "crossref",
       "source_role": "secondary",
       "source_kind": "book",
-      "title": "Albert Einstein: Von Ulm nach Princeton",
-      "author": "Frank Steiner",
-      "publication_year": null,
-      "source_url": "https://doi.org/10.1007/3-540-30595-5_1",
-      "access_url": "https://doi.org/10.1007/3-540-30595-5_1",
-      "snippet": "Albert Einstein",
-      "confidence": 0.762,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1007/3-540-30595-5_1",
-        "referenced_by_count": 7,
-        "container_title": "Albert Einstein",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Reminiscences of Albert Einstein from 1908 to 1930",
-      "author": "Walther Gerlach",
-      "publication_year": 1979,
-      "source_url": "https://doi.org/10.1007/978-3-322-91080-6_14",
-      "access_url": "https://doi.org/10.1007/978-3-322-91080-6_14",
-      "snippet": "Albert Einstein",
-      "confidence": 0.728,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1007/978-3-322-91080-6_14",
-        "referenced_by_count": 2,
-        "container_title": "Albert Einstein",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Albert Einstein Biography Book",
-      "author": "David Right",
-      "publication_year": 2017,
-      "source_url": "https://openlibrary.org/works/OL29432872W",
-      "access_url": "https://openlibrary.org/works/OL29432872W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Albert Einstein : Albert Einstein Biography",
-      "author": "History Academy",
-      "publication_year": 2020,
-      "source_url": "https://openlibrary.org/works/OL27134498W",
-      "access_url": "https://openlibrary.org/works/OL27134498W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "People get a glimpse of the secrets of God - Einstein Biography(Chinese Edition)",
+      "title": "The Cambridge Companion to Einstein",
       "author": null,
-      "publication_year": null,
-      "source_url": "https://openlibrary.org/works/OL36773080W",
-      "access_url": "https://openlibrary.org/works/OL36773080W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
+      "publication_year": 2014,
+      "source_url": "https://doi.org/10.1017/cco9781139024525",
+      "access_url": "https://doi.org/10.1017/cco9781139024525",
+      "snippet": null,
+      "confidence": 0.822,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Einstein\". Matched secondary suggestion by title=1.00, author=0.00, year=0.60; Surname + aboutness term present in title",
       "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Albert Einstein",
-      "author": "Rushikesh Suresh Dudhkawade",
-      "publication_year": 2020,
-      "source_url": "https://openlibrary.org/works/OL27863187W",
-      "access_url": "https://openlibrary.org/works/OL27863187W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Genius of ALBERT EINSTEIN",
-      "author": "Michael Woodford",
-      "publication_year": 2017,
-      "source_url": "https://openlibrary.org/works/OL29619669W",
-      "access_url": "https://openlibrary.org/works/OL29619669W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Einstein",
+        "suggestion_author": "Don Howard",
+        "suggestion_year": 2002,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Einstein's scientific and philosophical contributions.",
+        "doi": "10.1017/cco9781139024525",
+        "crossref_type": "edited-book"
       }
     }
   ]

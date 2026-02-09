@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-02-08T07:30:09.187Z",
+  "figureId": "moses",
+  "figureName": "Moses",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 453,
+      "totalTokenCount": 740,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Torah (also known as the Pentateuch or the Five Books of Moses)",
+        "author": "Moses",
+        "year": -1300,
+        "rationale": "The foundational religious text of Judaism, traditionally attributed to Moses. It contains narratives, laws, and teachings.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Hebrew Bible: A Critical Companion",
+        "author": "John Barton",
+        "year": 2016,
+        "rationale": "A comprehensive scholarly overview of the Hebrew Bible, including extensive analysis of the Pentateuch and its historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Who Wrote the Bible?",
+        "author": "Richard Elliott Friedman",
+        "year": 1987,
+        "rationale": "Examines the documentary hypothesis and scholarly debates surrounding the authorship and composition of the Pentateuch.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to the Pentateuch",
+        "author": "Joel S. Baden and Ryan P. Byrne",
+        "year": 2022,
+        "rationale": "A collection of essays by leading scholars offering diverse perspectives on the Pentateuch's formation, content, and reception.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Moses is a central figure in the Hebrew Bible and is traditionally credited with authorship of the Torah. Direct primary sources authored by Moses himself, outside of the Torah, are not extant. The Torah itself is the primary source for understanding the figure of Moses and his attributed teachings and laws. Secondary sources focus on the scholarly analysis of the Torah's composition, historicity, and theological significance."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Torah (also known as the Pentateuch or the Five Books of Moses)",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Hebrew Bible: A Critical Companion",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.72"
+    },
+    {
+      "role": "secondary",
+      "title": "Who Wrote the Bible?",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=1.00"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to the Pentateuch",
+      "reason": "Best score below threshold (0.23 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

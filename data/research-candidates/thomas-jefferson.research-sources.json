@@ -1,0 +1,193 @@
+{
+  "generatedAt": "2026-02-08T07:40:12.603Z",
+  "figureId": "thomas-jefferson",
+  "figureName": "Thomas Jefferson",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 582,
+      "totalTokenCount": 870,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Notes on the State of Virginia",
+        "author": "Thomas Jefferson",
+        "year": 1785,
+        "rationale": "Jefferson's most famous and comprehensive work, detailing the geography, history, and society of Virginia. It is a foundational text for understanding his thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Declaration of Independence",
+        "author": "Thomas Jefferson",
+        "year": 1776,
+        "rationale": "The foundational document of American independence, primarily authored by Jefferson. Its historical significance is immense.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Papers of Thomas Jefferson",
+        "author": "Thomas Jefferson",
+        "year": 1760,
+        "rationale": "A comprehensive collection of Jefferson's writings, including letters, drafts, and official documents, spanning his entire life. Essential for in-depth research.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Thomas Jefferson: The Art of Power",
+        "author": "Jon Meacham",
+        "year": 2012,
+        "rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual life.",
+        "sourceType": "book"
+      },
+      {
+        "title": "American Sphinx: The Character of Thomas Jefferson",
+        "author": "Joseph J. Ellis",
+        "year": 1997,
+        "rationale": "A Pulitzer Prize-winning biography that delves into the complexities and contradictions of Jefferson's character and legacy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Thomas Jefferson",
+        "author": "Mark J. Rozell",
+        "year": 2017,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Jefferson's life, thought, and impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The 'Papers of Thomas Jefferson' are extensive and often published in multi-volume sets. Availability on Internet Archive is highly probable for digitized versions."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Declaration of Independence",
+      "reason": "Title similarity too low (0.77); baseScore=0.78"
+    },
+    {
+      "role": "primary",
+      "title": "The Papers of Thomas Jefferson",
+      "reason": "Title similarity too low (0.70); baseScore=0.73"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Notes on the State of Virginia",
+      "author": "Thomas Jefferson",
+      "publication_year": 2013,
+      "source_url": "https://archive.org/details/notesonstateofvi0000thom",
+      "access_url": "https://archive.org/details/notesonstateofvi0000thom",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Notes on the State of Virginia\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Notes on the State of Virginia",
+        "suggestion_author": "Thomas Jefferson",
+        "suggestion_year": 1785,
+        "suggestion_rationale": "Jefferson's most famous and comprehensive work, detailing the geography, history, and society of Virginia. It is a foundational text for understanding his thought.",
+        "ia_identifier": "notesonstateofvi0000thom"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Thomas Jefferson: The Art of Power",
+      "author": "Jon Meacham",
+      "publication_year": 2017,
+      "source_url": "https://doi.org/10.1163/2468-1733_shafr_sim070070036",
+      "access_url": "https://doi.org/10.1163/2468-1733_shafr_sim070070036",
+      "snippet": "The SHAFR Guide Online",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Thomas Jefferson: The Art of Power\". Matched secondary suggestion by title=1.00, author=1.00, year=0.83; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Thomas Jefferson: The Art of Power",
+        "suggestion_author": "Jon Meacham",
+        "suggestion_year": 2012,
+        "suggestion_rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual life.",
+        "openalex_id": "https://openalex.org/W1600968201",
+        "work_type": "dataset"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "American Sphinx : The Character of Thomas Jefferson",
+      "author": "Joseph J. Ellis",
+      "publication_year": 1997,
+      "source_url": "https://openlibrary.org/works/OL18397522W",
+      "access_url": "https://openlibrary.org/works/OL18397522W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"American Sphinx: The Character of Thomas Jefferson\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "American Sphinx: The Character of Thomas Jefferson",
+        "suggestion_author": "Joseph J. Ellis",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A Pulitzer Prize-winning biography that delves into the complexities and contradictions of Jefferson's character and legacy.",
+        "edition_count": 1
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Thomas Jefferson",
+      "author": null,
+      "publication_year": 2009,
+      "source_url": "https://doi.org/10.1017/ccol9780521867313",
+      "access_url": "https://doi.org/10.1017/ccol9780521867313",
+      "snippet": null,
+      "confidence": 0.845,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Thomas Jefferson\". Matched secondary suggestion by title=1.00, author=0.00, year=0.73; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Thomas Jefferson",
+        "suggestion_author": "Mark J. Rozell",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Jefferson's life, thought, and impact.",
+        "doi": "10.1017/ccol9780521867313",
+        "crossref_type": "edited-book"
+      }
+    }
+  ]
+}

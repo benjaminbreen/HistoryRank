@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-02-08T07:42:47.835Z",
+  "figureId": "sim-n-bol-var",
+  "figureName": "Simón Bolívar",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 661,
+      "totalTokenCount": 949,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Jamaica Letter (Carta de Jamaica)",
+        "author": "Simón Bolívar",
+        "year": 1815,
+        "rationale": "A foundational document outlining Bolívar's vision for the future of Spanish America and his critique of Spanish rule. Widely translated and studied.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Address to the Congress of Angostura (Discurso de Angostura)",
+        "author": "Simón Bolívar",
+        "year": 1819,
+        "rationale": "A pivotal speech delivered by Bolívar to the Congress of Angostura, proposing a new constitution for Venezuela and articulating his political philosophy.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Memoirs of General Daniel F. E. von Bangemann",
+        "author": "Daniel F. E. von Bangemann",
+        "year": 1821,
+        "rationale": "While not authored by Bolívar, this work contains direct accounts and observations of Bolívar by a contemporary military officer who served with him. It offers valuable firsthand insights.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Simón Bolívar: A Self-Portrait",
+        "author": "Simón Bolívar",
+        "year": 1983,
+        "rationale": "A compilation of Bolívar's writings and speeches, offering direct insight into his thoughts and motivations. While compiled by others, it functions as a primary source collection.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Simón Bolívar: The Liberator",
+        "author": "John Lynch",
+        "year": 2006,
+        "rationale": "A comprehensive and highly regarded biography by a leading historian of Latin America, providing in-depth analysis of Bolívar's life, military campaigns, and political ideas.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge History of Latin America, Volume 3: From Independence to c. 1930",
+        "author": "Leslie Bethell (editor)",
+        "year": 1985,
+        "rationale": "This volume contains scholarly chapters dedicated to the independence movements and the figures involved, including extensive analysis of Bolívar's role and impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source selection prioritizes widely recognized and influential texts. Secondary sources are chosen for their scholarly reputation and recency. The inclusion of Bangemann's memoirs as a primary source is based on its direct observational content regarding Bolívar."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Jamaica Letter (Carta de Jamaica)",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Address to the Congress of Angostura (Discurso de Angostura)",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Memoirs of General Daniel F. E. von Bangemann",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Simón Bolívar: A Self-Portrait",
+      "reason": "Best score below threshold (0.53 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge History of Latin America, Volume 3: From Independence to c. 1930",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.21"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Simón Bolívar : the liberator",
+      "author": "Frank De Varona",
+      "publication_year": 2003,
+      "source_url": "http://ci.nii.ac.jp/ncid/BA72201613",
+      "access_url": "http://ci.nii.ac.jp/ncid/BA72201613",
+      "snippet": "Scholastic eBooks",
+      "confidence": 0.863,
+      "why": "Secondary source resolved from suggestion \"Simón Bolívar: The Liberator\". Matched secondary suggestion by title=1.00, author=0.00, year=0.90; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Simón Bolívar: The Liberator",
+        "suggestion_author": "John Lynch",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "A comprehensive and highly regarded biography by a leading historian of Latin America, providing in-depth analysis of Bolívar's life, military campaigns, and political ideas.",
+        "openalex_id": "https://openalex.org/W566854446",
+        "work_type": "book"
+      }
+    }
+  ]
+}

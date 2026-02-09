@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-02-08T07:38:29.395Z",
+  "figureId": "immanuel-kant",
+  "figureName": "Immanuel Kant",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 598,
+      "totalTokenCount": 887,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Critique of Pure Reason",
+        "author": "Immanuel Kant",
+        "year": 1781,
+        "rationale": "Kant's most influential work, foundational to modern philosophy. Its importance makes it highly likely to be digitized and available.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Groundwork of the Metaphysics of Morals",
+        "author": "Immanuel Kant",
+        "year": 1785,
+        "rationale": "A concise and highly influential text on ethics, widely studied and translated. Expected to be available in digital archives.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Critique of Practical Reason",
+        "author": "Immanuel Kant",
+        "year": 1788,
+        "rationale": "A key work in Kant's moral philosophy, complementing the Groundwork. Its significance ensures its presence in major digital libraries.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Kant and Modern Philosophy",
+        "author": "Paul Guyer",
+        "year": 2006,
+        "rationale": "A comprehensive collection of essays by leading scholars on Kant's philosophy and its impact, published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Kant's Moral Philosophy",
+        "author": "Roger J. Sullivan",
+        "year": 1994,
+        "rationale": "An accessible yet scholarly introduction to Kant's ethical theories, suitable for research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Kant's Critique of Pure Reason: An Introduction",
+        "author": "Jill Vance Buroker",
+        "year": 2006,
+        "rationale": "A focused academic introduction to Kant's most important work, likely to be found in university libraries and academic databases.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are foundational texts by Kant. Secondary sources are scholarly books published after 1976, offering analysis and context."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Kant's Critique of Pure Reason: An Introduction",
+      "reason": "Best score below threshold (0.29 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Critique of Pure Reason",
+      "author": "Kant, Immanuel",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/4280",
+      "access_url": "https://www.gutenberg.org/ebooks/4280",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Critique of Pure Reason\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Critique of Pure Reason",
+        "suggestion_author": "Immanuel Kant",
+        "suggestion_year": 1781,
+        "suggestion_rationale": "Kant's most influential work, foundational to modern philosophy. Its importance makes it highly likely to be digitized and available.",
+        "gutenberg_id": 4280
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Critique of Practical Reason",
+      "author": "Kant, Immanuel",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/5683",
+      "access_url": "https://www.gutenberg.org/ebooks/5683",
+      "snippet": null,
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Critique of Practical Reason\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Critique of Practical Reason",
+        "suggestion_author": "Immanuel Kant",
+        "suggestion_year": 1788,
+        "suggestion_rationale": "A key work in Kant's moral philosophy, complementing the Groundwork. Its significance ensures its presence in major digital libraries.",
+        "gutenberg_id": 5683
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Groundwork of the Metaphysics of Morals",
+      "author": "Immanuel Kant",
+      "publication_year": 2013,
+      "source_url": "https://archive.org/details/isbn_9781492204152",
+      "access_url": "https://archive.org/details/isbn_9781492204152",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Groundwork of the Metaphysics of Morals\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Groundwork of the Metaphysics of Morals",
+        "suggestion_author": "Immanuel Kant",
+        "suggestion_year": 1785,
+        "suggestion_rationale": "A concise and highly influential text on ethics, widely studied and translated. Expected to be available in digital archives.",
+        "ia_identifier": "isbn_9781492204152"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Kant and Modern Philosophy",
+      "author": "Paul Guyer",
+      "publication_year": 2006,
+      "source_url": "https://doi.org/10.1017/ccol052182303x",
+      "access_url": "https://doi.org/10.1017/ccol052182303x",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Kant and Modern Philosophy\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Kant and Modern Philosophy",
+        "suggestion_author": "Paul Guyer",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars on Kant's philosophy and its impact, published by a major academic press.",
+        "openalex_id": "https://openalex.org/W165273805",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Kant's Moral Philosophy",
+      "author": "Robert W. Johnson",
+      "publication_year": 2004,
+      "source_url": "https://171.67.193.20/entries/kant-moral/",
+      "access_url": "https://171.67.193.20/entries/kant-moral/",
+      "snippet": null,
+      "confidence": 0.823,
+      "why": "Secondary source resolved from suggestion \"Kant's Moral Philosophy\". Matched secondary suggestion by title=1.00, author=0.00, year=0.67; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Kant's Moral Philosophy",
+        "suggestion_author": "Roger J. Sullivan",
+        "suggestion_year": 1994,
+        "suggestion_rationale": "An accessible yet scholarly introduction to Kant's ethical theories, suitable for research.",
+        "openalex_id": "https://openalex.org/W2461540245",
+        "work_type": "article"
+      }
+    }
+  ]
+}

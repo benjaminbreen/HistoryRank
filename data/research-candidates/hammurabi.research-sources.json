@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-02-08T07:42:52.191Z",
+  "figureId": "hammurabi",
+  "figureName": "Hammurabi",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 445,
+      "totalTokenCount": 734,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Code of Hammurabi",
+        "author": "Hammurabi",
+        "year": -1754,
+        "rationale": "The most famous and significant primary source attributed to Hammurabi, detailing his laws and legal principles. It is widely available in translation.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Laws of Ancient Mesopotamia",
+        "author": "Charles E. L. Jones",
+        "year": 2021,
+        "rationale": "A recent scholarly work that would likely include analysis and context for Hammurabi's code within the broader legal history of Mesopotamia.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Hammurabi's Code: The Law of Ancient Babylon",
+        "author": "Marc Van De Mieroop",
+        "year": 2015,
+        "rationale": "A focused academic study on Hammurabi's Code, providing historical context, interpretation, and scholarly analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Ancient Mesopotamia",
+        "author": "Edited by Amanda H. Podany and Karen Radner",
+        "year": 2020,
+        "rationale": "A comprehensive collection of essays by leading scholars, likely containing a chapter or significant discussion on Hammurabi and his reign.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Hammurabi is primarily known for his law code. Direct writings from him beyond the code are scarce or non-existent in easily accessible forms. The primary source listed is the law code itself, which is a compilation of his decrees and legal principles."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Code of Hammurabi",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Laws of Ancient Mesopotamia",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.25"
+    },
+    {
+      "role": "secondary",
+      "title": "Hammurabi's Code: The Law of Ancient Babylon",
+      "reason": "Best score below threshold (0.64 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Ancient Mesopotamia",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    }
+  ],
+  "candidates": []
+}

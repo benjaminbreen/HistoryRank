@@ -1,0 +1,110 @@
+{
+  "generatedAt": "2026-02-08T07:44:32.332Z",
+  "figureId": "saladin",
+  "figureName": "Saladin",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 462,
+      "totalTokenCount": 750,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Life of Saladin",
+        "author": "Baha al-Din ibn Shaddad",
+        "year": 1249,
+        "rationale": "This is a contemporary biography of Saladin, written by his chief judge and companion. While not authored by Saladin himself, it is considered a primary source due to its direct access to Saladin and his court.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Saladin: The Sultan Who Forged an Empire",
+        "author": "John Man",
+        "year": 2015,
+        "rationale": "A comprehensive and well-regarded biography of Saladin, drawing on extensive research and providing modern scholarly analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Crusades: The Authoritative History of the War for the Holy Land",
+        "author": "Thomas Asbridge",
+        "year": 2010,
+        "rationale": "While covering the broader Crusades, this book offers significant and scholarly analysis of Saladin's role and impact within the context of the period.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Saladin and the Fall of Jerusalem",
+        "author": "Charles Frazee",
+        "year": 1987,
+        "rationale": "A scholarly examination of Saladin's life and military campaigns, focusing on his pivotal role in the recapture of Jerusalem.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Direct primary sources authored by Saladin are scarce and often exist only in fragmented collections or translations within larger historical works. The biography by Baha al-Din ibn Shaddad is the closest contemporary account that functions as a primary source for understanding Saladin's life and actions."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Life of Saladin",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Saladin: The Sultan Who Forged an Empire",
+      "reason": "Best score below threshold (0.39 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Crusades: The Authoritative History of the War for the Holy Land",
+      "reason": "Best score below threshold (0.49 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Saladin and the fall of Jerusalem",
+      "author": "Geoffrey Regan",
+      "publication_year": 1987,
+      "source_url": "https://openalex.org/W633120606",
+      "access_url": "https://openalex.org/W633120606",
+      "snippet": null,
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"Saladin and the Fall of Jerusalem\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Saladin and the Fall of Jerusalem",
+        "suggestion_author": "Charles Frazee",
+        "suggestion_year": 1987,
+        "suggestion_rationale": "A scholarly examination of Saladin's life and military campaigns, focusing on his pivotal role in the recapture of Jerusalem.",
+        "openalex_id": "https://openalex.org/W633120606",
+        "work_type": "book"
+      }
+    }
+  ]
+}

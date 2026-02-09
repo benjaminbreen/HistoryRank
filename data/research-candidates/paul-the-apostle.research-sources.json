@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-02-08T07:37:56.959Z",
+  "figureId": "paul-the-apostle",
+  "figureName": "Paul the Apostle",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 599,
+      "totalTokenCount": 888,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Epistles of Paul",
+        "author": "Paul the Apostle",
+        "year": 50,
+        "rationale": "A collection of letters attributed to Paul, forming a significant portion of the New Testament. These are foundational texts for understanding his theology and ministry.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Epistle to the Romans",
+        "author": "Paul the Apostle",
+        "year": 57,
+        "rationale": "Considered one of Paul's most important epistles, offering a systematic exposition of his theological views.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "First Epistle to the Corinthians",
+        "author": "Paul the Apostle",
+        "year": 55,
+        "rationale": "This epistle addresses various issues within the Corinthian church, providing insights into early Christian community life and Paul's pastoral concerns.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Paul: A Very Short Introduction",
+        "author": "E. P. Sanders",
+        "year": 2011,
+        "rationale": "A concise and accessible overview of Paul's life, letters, and theology by a leading scholar in the field.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to St. Paul",
+        "author": "Harold W. Attridge",
+        "year": 2009,
+        "rationale": "A comprehensive collection of essays by various scholars covering different aspects of Paul's life, thought, and influence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Paul the Apostle: His Life and Theology",
+        "author": "Stephen J. Patterson",
+        "year": 2017,
+        "rationale": "A scholarly examination of Paul's historical context, his missionary activities, and the development of his theological ideas.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The dates for the epistles are approximate and based on scholarly consensus. The 'Epistles of Paul' is a general category encompassing multiple individual letters."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Epistles of Paul",
+      "reason": "Title similarity too low (0.29); baseScore=0.28"
+    },
+    {
+      "role": "primary",
+      "title": "Epistle to the Romans",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "First Epistle to the Corinthians",
+      "reason": "Best score below threshold (0.67 < 0.75)"
+    },
+    {
+      "role": "secondary",
+      "title": "Paul: A Very Short Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.15"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to St. Paul",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Apostle Paul: His Life and Theology",
+      "author": "Udo Schnelle",
+      "publication_year": 2005,
+      "source_url": "https://www.amazon.com/Apostle-Paul-His-Life-Theology/dp/0801048923",
+      "access_url": "https://www.amazon.com/Apostle-Paul-His-Life-Theology/dp/0801048923",
+      "snippet": null,
+      "confidence": 0.722,
+      "why": "Secondary source resolved from suggestion \"Paul the Apostle: His Life and Theology\". Matched secondary suggestion by title=0.86, author=0.00, year=0.60; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Paul the Apostle: His Life and Theology",
+        "suggestion_author": "Stephen J. Patterson",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A scholarly examination of Paul's historical context, his missionary activities, and the development of his theological ideas.",
+        "openalex_id": "https://openalex.org/W2889516473",
+        "work_type": "book"
+      }
+    }
+  ]
+}

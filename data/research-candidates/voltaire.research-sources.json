@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-02-08T07:39:32.069Z",
+  "figureId": "voltaire",
+  "figureName": "Voltaire",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 581,
+      "totalTokenCount": 868,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Candide, or Optimism",
+        "author": "Voltaire",
+        "year": 1759,
+        "rationale": "Voltaire's most famous satirical novella, widely available and a cornerstone of his literary output.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Letters concerning the English Nation",
+        "author": "Voltaire",
+        "year": 1733,
+        "rationale": "A key work where Voltaire discusses English society, philosophy, and government, influencing Enlightenment thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Philosophical Dictionary",
+        "author": "Voltaire",
+        "year": 1764,
+        "rationale": "A collection of articles on religion, philosophy, and history, reflecting Voltaire's critical and skeptical views.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Voltaire: A Life",
+        "author": "Ian Davidson",
+        "year": 2010,
+        "rationale": "A comprehensive and well-regarded biography of Voltaire, offering scholarly analysis of his life and works.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Voltaire's Bastille: The Prison and the Poet",
+        "author": "Christopher Whyte",
+        "year": 2021,
+        "rationale": "A recent scholarly work focusing on a specific aspect of Voltaire's life and his relationship with authority, published by a university press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Voltaire",
+        "author": "Nicholas Cronk",
+        "year": 2006,
+        "rationale": "An edited collection of essays by leading scholars providing a broad overview of Voltaire's thought, writings, and impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Voltaire's extensive correspondence is also a rich primary source, though less likely to be found in consolidated digital formats on the specified platforms compared to his published works."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Voltaire's Bastille: The Prison and the Poet",
+      "reason": "Best score below threshold (0.43 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "letter",
+      "title": "Letters Concerning the English Nation",
+      "author": "Voltaire",
+      "publication_year": 1733,
+      "source_url": "https://archive.org/details/nby_758806",
+      "access_url": "https://archive.org/details/nby_758806",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Letters concerning the English Nation\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Letters concerning the English Nation",
+        "suggestion_author": "Voltaire",
+        "suggestion_year": 1733,
+        "suggestion_rationale": "A key work where Voltaire discusses English society, philosophy, and government, influencing Enlightenment thought.",
+        "ia_identifier": "nby_758806"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Philosophical Dictionary",
+      "author": "Voltaire",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/philosophicaldi01unkngoog",
+      "access_url": "https://archive.org/details/philosophicaldi01unkngoog",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"The Philosophical Dictionary\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Philosophical Dictionary",
+        "suggestion_author": "Voltaire",
+        "suggestion_year": 1764,
+        "suggestion_rationale": "A collection of articles on religion, philosophy, and history, reflecting Voltaire's critical and skeptical views.",
+        "ia_identifier": "philosophicaldi01unkngoog"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Candide, or, Optimism",
+      "author": "Voltaire",
+      "publication_year": 2003,
+      "source_url": "https://archive.org/details/candideoroptimis00volt_0",
+      "access_url": "https://archive.org/details/candideoroptimis00volt_0",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Candide, or Optimism\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Candide, or Optimism",
+        "suggestion_author": "Voltaire",
+        "suggestion_year": 1759,
+        "suggestion_rationale": "Voltaire's most famous satirical novella, widely available and a cornerstone of his literary output.",
+        "ia_identifier": "candideoroptimis00volt_0"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Voltaire: A Life",
+      "author": "Ian Davidson",
+      "publication_year": 2010,
+      "source_url": "http://ci.nii.ac.jp/ncid/BB07125060",
+      "access_url": "http://ci.nii.ac.jp/ncid/BB07125060",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Voltaire: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Voltaire: A Life",
+        "suggestion_author": "Ian Davidson",
+        "suggestion_year": 2010,
+        "suggestion_rationale": "A comprehensive and well-regarded biography of Voltaire, offering scholarly analysis of his life and works.",
+        "openalex_id": "https://openalex.org/W590529596",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Voltaire",
+      "author": "Nicholas Cronk",
+      "publication_year": 2009,
+      "source_url": "https://doi.org/10.1017/ccol9780521849739",
+      "access_url": "https://doi.org/10.1017/ccol9780521849739",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Voltaire\". Matched secondary suggestion by title=1.00, author=1.00, year=0.90; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Voltaire",
+        "suggestion_author": "Nicholas Cronk",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "An edited collection of essays by leading scholars providing a broad overview of Voltaire's thought, writings, and impact.",
+        "openalex_id": "https://openalex.org/W566804935",
+        "work_type": "book"
+      }
+    }
+  ]
+}

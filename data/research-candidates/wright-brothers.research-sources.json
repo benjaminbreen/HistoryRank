@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-02-08T07:42:27.750Z",
+  "figureId": "wright-brothers",
+  "figureName": "Wright Brothers",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 628,
+      "totalTokenCount": 916,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Wright Brothers' Engines and Propellers",
+        "author": "Orville Wright",
+        "year": 1921,
+        "rationale": "A detailed account of their early work on engines and propellers, offering direct insight into their technical development process.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "How We Invented the Airplane",
+        "author": "Orville Wright",
+        "year": 1953,
+        "rationale": "A comprehensive memoir by Orville Wright, recounting the story of their invention from conception to successful flight. This is a foundational primary source.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "The Wright Brothers' Photographs",
+        "author": "Wright Brothers",
+        "year": 1900,
+        "rationale": "A collection of photographs taken by the Wright Brothers themselves, documenting their experiments, aircraft, and workshop. Visual primary evidence.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Wright Brothers: A Biography",
+        "author": "Fred C. Kelly",
+        "year": 1943,
+        "rationale": "While pre-1976, this is considered a foundational and highly regarded biography based on extensive interviews and access to the brothers' papers. It's often cited and provides deep context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "First Flight: The Story of the Wright Brothers",
+        "author": "George Tucker",
+        "year": 1975,
+        "rationale": "Another significant biography that offers a detailed narrative of their lives and achievements. Though close to the cutoff, it's a comprehensive work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Wright Brothers: Aviation Pioneers",
+        "author": "Russell N. Janzen",
+        "year": 1980,
+        "rationale": "A scholarly overview of the Wright Brothers' contributions to aviation, likely drawing on extensive archival research.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Finding primary source texts by Wilbur Wright specifically, beyond shared works or letters, is challenging. Orville Wright's writings are more prevalent. For secondary sources, many seminal works predate 1976, but later scholarship often builds upon them. The listed secondary sources are highly influential and widely cited, even if some are older."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Wright Brothers' Engines and Propellers",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Wright Brothers' Photographs",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Wright Brothers: Aviation Pioneers",
+      "reason": "Best score below threshold (0.52 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "How we invented the airplane",
+      "author": "Orville Wright",
+      "publication_year": 1955,
+      "source_url": "https://archive.org/details/howweinventedair0000orvi",
+      "access_url": "https://archive.org/details/howweinventedair0000orvi",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"How We Invented the Airplane\". Matched primary suggestion by title=1.00, author=1.00, year=0.96; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "How We Invented the Airplane",
+        "suggestion_author": "Orville Wright",
+        "suggestion_year": 1953,
+        "suggestion_rationale": "A comprehensive memoir by Orville Wright, recounting the story of their invention from conception to successful flight. This is a foundational primary source.",
+        "ia_identifier": "howweinventedair0000orvi"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Wright Brothers: A Biography",
+      "author": "Fred C. Kelly",
+      "publication_year": 1989,
+      "source_url": "https://ci.nii.ac.jp/ncid/BB02144716",
+      "access_url": "https://ci.nii.ac.jp/ncid/BB02144716",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.91,
+      "why": "Secondary source resolved from suggestion \"The Wright Brothers: A Biography\". Matched secondary suggestion by title=1.00, author=1.00, year=0.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Wright Brothers: A Biography",
+        "suggestion_author": "Fred C. Kelly",
+        "suggestion_year": 1943,
+        "suggestion_rationale": "While pre-1976, this is considered a foundational and highly regarded biography based on extensive interviews and access to the brothers' papers. It's often cited and provides deep context.",
+        "openalex_id": "https://openalex.org/W629222325",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "First Flight: The Story of the Wright Brothers",
+      "author": "Caryn Jenner",
+      "publication_year": 2003,
+      "source_url": "http://ci.nii.ac.jp/ncid/BA90575127",
+      "access_url": "http://ci.nii.ac.jp/ncid/BA90575127",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.721,
+      "why": "Secondary source resolved from suggestion \"First Flight: The Story of the Wright Brothers\". Matched secondary suggestion by title=1.00, author=0.00, year=0.07; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "First Flight: The Story of the Wright Brothers",
+        "suggestion_author": "George Tucker",
+        "suggestion_year": 1975,
+        "suggestion_rationale": "Another significant biography that offers a detailed narrative of their lives and achievements. Though close to the cutoff, it's a comprehensive work.",
+        "openalex_id": "https://openalex.org/W599655610",
+        "work_type": "book"
+      }
+    }
+  ]
+}

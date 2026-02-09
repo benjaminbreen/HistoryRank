@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-02-08T07:42:59.797Z",
+  "figureId": "catherine-the-great",
+  "figureName": "Catherine the Great",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 648,
+      "totalTokenCount": 937,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Memoirs of Catherine the Great",
+        "author": "Catherine II of Russia",
+        "year": 1796,
+        "rationale": "Catherine's personal memoirs offer direct insight into her thoughts, experiences, and perspective on her rise to power and reign. These are widely considered a foundational primary source for her biography.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Correspondence of Catherine the Great",
+        "author": "Catherine II of Russia",
+        "year": 1750,
+        "rationale": "Her extensive correspondence with prominent figures of her time (e.g., Voltaire, Diderot, Frederick the Great) reveals her intellectual engagement, political strategies, and personal opinions on a wide range of topics.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Nakaz (Instruction) of Catherine the Great",
+        "author": "Catherine II of Russia",
+        "year": 1767,
+        "rationale": "This document outlines Catherine's legislative program and her vision for the reform of Russian law, drawing heavily on Enlightenment ideas. It is a key primary source for understanding her political and philosophical aims.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Catherine the Great: Portrait of a Woman",
+        "author": "Robert K. Massie",
+        "year": 2011,
+        "rationale": "A highly acclaimed and comprehensive biography by a Pulitzer Prize-winning historian, offering a detailed and nuanced portrait of Catherine's life, reign, and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Catherine the Great: A Short Biography",
+        "author": "Isabel de Madariaga",
+        "year": 1993,
+        "rationale": "A concise yet authoritative scholarly overview of Catherine's reign by a leading historian of Russia, focusing on her political achievements and the complexities of her rule.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to the Age of Catherine the Great",
+        "author": "David Griffiths",
+        "year": 2007,
+        "rationale": "This edited volume brings together essays by various scholars on different aspects of Catherine's era, providing diverse scholarly perspectives on her reign, policies, and cultural impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source dates reflect the period of writing or publication, not necessarily the earliest available editions. Secondary sources are chosen for their scholarly reputation and recency."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Memoirs of Catherine the Great",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Correspondence of Catherine the Great",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Nakaz (Instruction) of Catherine the Great",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to the Age of Catherine the Great",
+      "reason": "Best score below threshold (0.29 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Catherine the Great: Portrait of a Woman",
+      "author": "Robert K. Massie",
+      "publication_year": 1994,
+      "source_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=024582321&amp;sequence=000002&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+      "access_url": "http://bvbr.bib-bvb.de:8991/F?func=service&amp;doc_library=BVB01&amp;local_base=BVB01&amp;doc_number=024582321&amp;sequence=000002&amp;line_number=0001&amp;func_code=DB_RECORDS&amp;service_type=MEDIA",
+      "snippet": null,
+      "confidence": 0.984,
+      "why": "Secondary source resolved from suggestion \"Catherine the Great: Portrait of a Woman\". Matched secondary suggestion by title=1.00, author=1.00, year=0.43; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Catherine the Great: Portrait of a Woman",
+        "suggestion_author": "Robert K. Massie",
+        "suggestion_year": 2011,
+        "suggestion_rationale": "A highly acclaimed and comprehensive biography by a Pulitzer Prize-winning historian, offering a detailed and nuanced portrait of Catherine's life, reign, and impact.",
+        "openalex_id": "https://openalex.org/W564847937",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Catherine the Great",
+      "author": "Isabel De Madariaga",
+      "publication_year": 1990,
+      "source_url": "https://doi.org/10.1007/978-1-349-20592-9_12",
+      "access_url": "https://doi.org/10.1007/978-1-349-20592-9_12",
+      "snippet": "Enlightened Absolutism",
+      "confidence": 0.947,
+      "why": "Secondary source resolved from suggestion \"Catherine the Great: A Short Biography\". Matched secondary suggestion by title=0.80, author=1.00, year=0.90; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Catherine the Great: A Short Biography",
+        "suggestion_author": "Isabel de Madariaga",
+        "suggestion_year": 1993,
+        "suggestion_rationale": "A concise yet authoritative scholarly overview of Catherine's reign by a leading historian of Russia, focusing on her political achievements and the complexities of her rule.",
+        "doi": "10.1007/978-1-349-20592-9_12",
+        "crossref_type": "book-chapter"
+      }
+    }
+  ]
+}

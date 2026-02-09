@@ -1,286 +1,122 @@
 {
-  "generatedAt": "2026-02-08T03:30:45.247Z",
+  "generatedAt": "2026-02-08T07:28:21.475Z",
   "figureId": "gautama-buddha",
   "figureName": "Gautama Buddha",
   "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary",
-      "reference"
+      "secondary"
     ],
-    "corpora": [
-      "internet_archive",
-      "crossref",
-      "openalex",
-      "openlibrary"
-    ],
-    "queryNames": [
-      "Gautama Buddha",
-      "Buddha"
-    ],
-    "seedFallbackUsed": false
-  },
-  "candidates": [
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Memoir on the History of the Tooth-Relic of Ceylon; with preliminary essay on the Life and System of Gautama Buddha",
-      "author": "J.Gerson Da Cunha",
-      "publication_year": 1875,
-      "source_url": "https://archive.org/details/pli.kerala.rare.5283",
-      "access_url": "https://archive.org/details/pli.kerala.rare.5283",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Statues and pictures of Gautama Buddha",
-      "author": null,
-      "publication_year": 1956,
-      "source_url": "https://archive.org/details/dli.ministry.27117",
-      "access_url": "https://archive.org/details/dli.ministry.27117",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "A History Of Religious Ideas From Gautama Buddha To The Triumph Of Christianity ( PDFDrive )",
-      "author": null,
-      "publication_year": null,
-      "source_url": "https://archive.org/details/a-history-of-religious-ideas-from-gautama-buddha-to-the-triumph-of-christianity-pdfdrive",
-      "access_url": "https://archive.org/details/a-history-of-religious-ideas-from-gautama-buddha-to-the-triumph-of-christianity-pdfdrive",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Dhammapada Gautama Buddha John Richards",
-      "author": "Shridevi Bath",
-      "publication_year": null,
-      "source_url": "https://archive.org/details/thedhammapadagautamabuddhajohnrichards_763_B",
-      "access_url": "https://archive.org/details/thedhammapadagautamabuddhajohnrichards_763_B",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Gautama Buddha",
-      "author": "Iqbal Singh",
-      "publication_year": 1937,
-      "source_url": "https://archive.org/details/dli.csl.3888",
-      "access_url": "https://archive.org/details/dli.csl.3888",
-      "confidence": 0.85,
-      "why": "Archive text record likely authored by figure.",
-      "metadata": {
-        "source_api": "internet_archive_primary"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "LIFE OF THE BUDDHA",
-      "author": null,
-      "publication_year": 2025,
-      "source_url": "https://doi.org/10.3138/9781487519070-007",
-      "access_url": "https://doi.org/10.3138/9781487519070-007",
-      "snippet": "Life of the Buddha",
-      "confidence": 0.794,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.3138/9781487519070-007",
-        "referenced_by_count": 0,
-        "container_title": "Life of the Buddha",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Gautama Buddha",
-      "author": "Zane M. Diamond",
-      "publication_year": 2021,
-      "source_url": "https://doi.org/10.1007/978-981-16-1765-2",
-      "access_url": "https://doi.org/10.1007/978-981-16-1765-2",
-      "snippet": null,
-      "confidence": 0.758,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1007/978-981-16-1765-2",
-        "referenced_by_count": 6,
-        "container_title": null,
-        "work_type": "book"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "What the Buddha Taught",
-      "author": "Walpola Rāhula",
-      "publication_year": 1974,
-      "source_url": "https://doi.org/10.5281/zenodo.5638972",
-      "access_url": "https://bibliotecavirtual.defensa.gob.es/BVMDefensa/es/consulta/registro.do?id=753070",
-      "snippet": "Virtual Defense Library (Ministerio de Defensa)",
-      "confidence": 0.75,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 487,
-        "openalex_id": "https://openalex.org/W1481607484",
-        "work_type": "book",
-        "venue": "Virtual Defense Library (Ministerio de Defensa)"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "The Buddha and His Dhamma: A Critical Edition",
-      "author": "Ajay Verma",
-      "publication_year": 2011,
-      "source_url": "https://openalex.org/W644921433",
-      "access_url": "http://ci.nii.ac.jp/ncid/BB11766433",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 0.74,
-      "why": "High-confidence scholarly lead from OpenAlex with strong title/name match.",
-      "metadata": {
-        "provider": "openalex",
-        "cited_by_count": 74,
-        "openalex_id": "https://openalex.org/W644921433",
-        "work_type": "book",
-        "venue": "Medical Entomology and Zoology"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Introduction—Gautama Buddha in Historical Context",
-      "author": "Zane M. Diamond",
-      "publication_year": 2021,
-      "source_url": "https://doi.org/10.1007/978-981-16-1765-2_1",
-      "access_url": "https://doi.org/10.1007/978-981-16-1765-2_1",
-      "snippet": "Gautama Buddha",
-      "confidence": 0.714,
-      "why": "High-confidence secondary source lead from Crossref.",
-      "metadata": {
-        "provider": "crossref",
-        "doi": "10.1007/978-981-16-1765-2_1",
-        "referenced_by_count": 0,
-        "container_title": "Gautama Buddha",
-        "work_type": "book-chapter"
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "The biography of Buddha",
-      "author": "K. D. P. Wickremesinghe",
-      "publication_year": 1972,
-      "source_url": "https://openlibrary.org/works/OL13452348W",
-      "access_url": "https://openlibrary.org/works/OL13452348W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Gotama Buddha a Biography",
-      "author": "Kenneth J. Saunders",
-      "publication_year": 2022,
-      "source_url": "https://openlibrary.org/works/OL29195899W",
-      "access_url": "https://openlibrary.org/works/OL29195899W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Biography of Buddha",
-      "author": "Oliver Kupstas",
-      "publication_year": 2017,
-      "source_url": "https://openlibrary.org/works/OL41006538W",
-      "access_url": "https://openlibrary.org/works/OL41006538W",
-      "confidence": 0.75,
-      "why": "Reference catalog lead from Open Library with strong figure-title match.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Gautama Buddha",
-      "author": "Rohini Chowdhury",
-      "publication_year": 2011,
-      "source_url": "https://openlibrary.org/works/OL24266685W",
-      "access_url": "https://openlibrary.org/works/OL24266685W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
-    },
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "reference",
-      "source_kind": "book",
-      "title": "Siddhārtha se Gautama Buddha",
-      "author": "Kusuma Goyala",
-      "publication_year": 2013,
-      "source_url": "https://openlibrary.org/works/OL28167903W",
-      "access_url": "https://openlibrary.org/works/OL28167903W",
-      "confidence": 0.67,
-      "why": "Open Library catalog lead for review.",
-      "metadata": {
-        "provider": "openlibrary",
-        "edition_count": 1,
-        "subjects": []
-      }
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 638,
+      "totalTokenCount": 927,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
     }
-  ]
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Dhammapada",
+        "author": "Gautama Buddha",
+        "year": -500,
+        "rationale": "A collection of sayings and teachings attributed to Gautama Buddha, considered a foundational text in Buddhism. It is widely available in translation.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Sutta Nipata",
+        "author": "Gautama Buddha",
+        "year": -500,
+        "rationale": "An early collection of Buddhist scriptures, containing verses attributed to the Buddha. It is a significant source for understanding early Buddhist thought.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Majjhima Nikaya",
+        "author": "Gautama Buddha",
+        "year": -500,
+        "rationale": "A collection of the Buddha's middle-length discourses, offering insights into his teachings on various philosophical and ethical topics. It is a key text in the Pali Canon.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Buddha and His Dhamma",
+        "author": "B. R. Ambedkar",
+        "year": 1970,
+        "rationale": "While published slightly before 1976, this work by a prominent scholar and social reformer offers a critical and modern interpretation of the Buddha's teachings and their social implications. It is highly influential.",
+        "sourceType": "book"
+      },
+      {
+        "title": "What the Buddha Taught",
+        "author": "Walpola Rahula",
+        "year": 1974,
+        "rationale": "Another foundational text for understanding Buddhism, providing a clear and accessible explanation of the Buddha's core teachings. It is widely considered a standard introduction.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Life of the Buddha: As Told by an English Follower",
+        "author": "Arthur L. Herman",
+        "year": 2008,
+        "rationale": "A scholarly biography that synthesizes historical and textual evidence to present a comprehensive account of the Buddha's life and teachings.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources attributed to Gautama Buddha are generally collections of his discourses and sayings, compiled by his disciples. Exact dating is approximate. Secondary sources are chosen for their scholarly merit and accessibility in understanding the figure and his teachings."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Dhammapada",
+      "reason": "Best score below threshold (0.73 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "Sutta Nipata",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "primary",
+      "title": "Majjhima Nikaya",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "secondary",
+      "title": "The Buddha and His Dhamma",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.13"
+    },
+    {
+      "role": "secondary",
+      "title": "What the Buddha Taught",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.13"
+    },
+    {
+      "role": "secondary",
+      "title": "The Life of the Buddha: As Told by an English Follower",
+      "reason": "Best score below threshold (0.54 < 0.72)"
+    }
+  ],
+  "candidates": []
 }
