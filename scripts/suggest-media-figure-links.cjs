@@ -22,6 +22,7 @@ function loadEnvFile(fileName) {
 loadEnvFile('.env.local');
 
 const MEDIA_PATH = path.join(process.cwd(), 'data', 'raw', 'media', 'ucsc-history-media.jsonl');
+const MANUAL_PATH = path.join(process.cwd(), 'data', 'media-figure-links.manual.json');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'media-figure-links.suggestions.json');
 
 const SHAKESPEARE_KEYWORDS = [
@@ -70,55 +71,107 @@ function loadMedia() {
 }
 
 function makeBoundaryRegex(name) {
-  const escaped = name.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-  return new RegExp(`\\\\b${escaped}\\\\b`, 'i');
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`\\b${escaped}\\b`, 'i');
 }
 
 function buildDirectMatches(media, figures, aliasByFigure) {
   const matchesByMediaId = new Map();
-  const multiWord = figures.filter((f) => f.canonical_name && f.canonical_name.trim().split(/\\s+/).length >= 2);
-  const singleWord = figures.filter((f) => f.canonical_name && f.canonical_name.trim().split(/\\s+/).length === 1);
+  const multiWord = figures.filter((f) => f.canonical_name && f.canonical_name.trim().split(/\s+/).length >= 2);
+  const singleWord = figures.filter((f) => f.canonical_name && f.canonical_name.trim().split(/\s+/).length === 1);
+
+  // Build a lookup for tag-based matching: normalized short name → figure
+  // e.g. "henry viii" → { id: "henry-viii-of-england", canonical_name: "Henry VIII of England" }
+  const figureByShortName = new Map();
+  for (const fig of figures) {
+    if (!fig.canonical_name) continue;
+    const norm = normalizeTitle(fig.canonical_name);
+    figureByShortName.set(norm, fig);
+    // Also index aliases
+    const aliases = aliasByFigure.get(fig.id) || [];
+    for (const alias of aliases) {
+      const normAlias = normalizeTitle(alias);
+      if (!figureByShortName.has(normAlias)) {
+        figureByShortName.set(normAlias, fig);
+      }
+    }
+  }
 
   for (const item of media) {
     const title = item.title || '';
     const notes = item.notes || '';
-    const tags = Array.isArray(item.tags) ? item.tags.join(' ') : '';
-    const haystack = normalize(`${title} ${notes} ${tags}`);
+    const summary = item.summary || '';
+    const tagList = Array.isArray(item.tags) ? item.tags : [];
+    const tags = tagList.join(' ');
+    const haystack = normalize(`${title} ${notes} ${summary} ${tags}`);
 
     const hits = [];
+    const hitIds = new Set();
 
+    // Strategy 1: Full canonical name match in haystack (title + notes + summary + tags)
     for (const fig of multiWord) {
       const canonical = fig.canonical_name;
       const regex = makeBoundaryRegex(normalize(canonical));
       if (regex.test(haystack)) {
         hits.push({ figure_id: fig.id, figure_name: canonical, relation: 'about', confidence: 0.8, source: 'text-match' });
+        hitIds.add(fig.id);
         continue;
       }
+      // Try aliases
       const aliasList = aliasByFigure.get(fig.id) || [];
       for (const alias of aliasList) {
         if (alias.length < 8) continue;
         const aliasRegex = makeBoundaryRegex(alias);
         if (aliasRegex.test(haystack)) {
           hits.push({ figure_id: fig.id, figure_name: canonical, relation: 'about', confidence: 0.7, source: `alias:${alias}` });
+          hitIds.add(fig.id);
           break;
         }
       }
     }
 
+    // Strategy 2: Individual tag → figure matching
+    // Tags like "Henry VIII" should match figure "Henry VIII of England"
+    // Tags like "Thomas Cromwell" should match figure "Thomas Cromwell"
+    for (const tag of tagList) {
+      const normTag = normalizeTitle(tag);
+      // Skip short/generic tags
+      if (normTag.length < 5 || normTag.split(/\s+/).length < 2) continue;
+
+      // Direct tag lookup
+      const directMatch = figureByShortName.get(normTag);
+      if (directMatch && !hitIds.has(directMatch.id)) {
+        hits.push({ figure_id: directMatch.id, figure_name: directMatch.canonical_name, relation: 'depicts', confidence: 0.85, source: 'tag-match' });
+        hitIds.add(directMatch.id);
+        continue;
+      }
+
+      // Check if any figure's canonical name starts with this tag
+      // e.g., tag "Henry VIII" → figure "Henry VIII of England"
+      for (const fig of multiWord) {
+        if (hitIds.has(fig.id)) continue;
+        const normCanonical = normalizeTitle(fig.canonical_name);
+        if (normCanonical.startsWith(normTag + ' ') && normTag.length >= 8) {
+          hits.push({ figure_id: fig.id, figure_name: fig.canonical_name, relation: 'depicts', confidence: 0.75, source: 'tag-prefix' });
+          hitIds.add(fig.id);
+          break;
+        }
+      }
+    }
+
+    // Strategy 3: Single-word figure name exact title match
     for (const fig of singleWord) {
       const canonical = fig.canonical_name;
       if (canonical.length < 5) continue;
+      if (hitIds.has(fig.id)) continue;
       if (normalize(title) === normalize(canonical)) {
         hits.push({ figure_id: fig.id, figure_name: canonical, relation: 'about', confidence: 0.9, source: 'title-exact' });
+        hitIds.add(fig.id);
       }
     }
 
     if (hits.length) {
-      const dedup = new Map();
-      for (const hit of hits) {
-        if (!dedup.has(hit.figure_id)) dedup.set(hit.figure_id, hit);
-      }
-      matchesByMediaId.set(item.id, Array.from(dedup.values()));
+      matchesByMediaId.set(item.id, hits);
     }
   }
 
@@ -132,6 +185,48 @@ function mapNameToFigure(name, figuresByName, aliasToId) {
   const aliasMatch = aliasToId.get(normalized);
   if (aliasMatch) return aliasMatch;
   return null;
+}
+
+function loadManualLinks(media, figuresByName, aliasToId) {
+  if (!fs.existsSync(MANUAL_PATH)) return new Map();
+  const manual = JSON.parse(fs.readFileSync(MANUAL_PATH, 'utf8'));
+  const matchesByMediaId = new Map();
+
+  // Build media lookup by normalized title + type
+  const mediaByKey = new Map();
+  for (const item of media) {
+    const key = `${normalizeTitle(item.title)}|${(item.type || '').toLowerCase()}`;
+    // May have duplicates (e.g., Wolf Hall series + Wolf Hall book) — store array
+    const list = mediaByKey.get(key) || [];
+    list.push(item);
+    mediaByKey.set(key, list);
+  }
+
+  for (const entry of manual) {
+    const key = `${normalizeTitle(entry.title)}|${(entry.type || '').toLowerCase()}`;
+    const mediaItems = mediaByKey.get(key) || [];
+    if (mediaItems.length === 0) continue;
+
+    const figureId = mapNameToFigure(entry.figure_name, figuresByName, aliasToId);
+    if (!figureId) {
+      console.warn(`Manual link: figure "${entry.figure_name}" not found in database`);
+      continue;
+    }
+
+    for (const item of mediaItems) {
+      const existing = matchesByMediaId.get(item.id) || [];
+      existing.push({
+        figure_id: figureId,
+        figure_name: entry.figure_name,
+        relation: entry.relation || 'about',
+        confidence: 1.0,
+        source: 'manual',
+      });
+      matchesByMediaId.set(item.id, existing);
+    }
+  }
+
+  return matchesByMediaId;
 }
 
 function parseArgs() {
@@ -171,13 +266,17 @@ async function main() {
 
   const media = loadMedia();
   const directMatches = buildDirectMatches(media, figures, aliasByFigure);
+  const manualMatches = loadManualLinks(media, figuresByName, aliasToId);
 
   const shakespeareId = mapNameToFigure('William Shakespeare', figuresByName, aliasToId);
   const adaptationMatches = new Map();
   if (shakespeareId) {
     for (const item of media) {
       const haystack = normalize(`${item.title || ''} ${item.notes || ''} ${(item.tags || []).join(' ')}`);
-      const matches = SHAKESPEARE_KEYWORDS.some((keyword) => haystack.includes(keyword));
+      const matches = SHAKESPEARE_KEYWORDS.some((keyword) => {
+        const regex = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        return regex.test(haystack);
+      });
       if (!matches) continue;
       const relation = haystack.includes('inspired') ? 'inspired_by' : 'adaptation';
       adaptationMatches.set(item.id, [{
@@ -193,9 +292,11 @@ async function main() {
   const combined = [];
   for (const item of media) {
     const links = [];
+    // Manual links have highest priority
+    const manual = manualMatches.get(item.id) || [];
     const direct = directMatches.get(item.id) || [];
     const adaptation = adaptationMatches.get(item.id) || [];
-    const merged = [...direct, ...adaptation];
+    const merged = [...manual, ...direct, ...adaptation];
     const seen = new Set();
     for (const link of merged) {
       if (seen.has(link.figure_id)) continue;
@@ -225,7 +326,7 @@ async function main() {
 
   const payload = {
     generated_at: new Date().toISOString(),
-    model: 'local-rules',
+    model: 'local-rules+manual',
     total_media: media.length,
     total_with_links: combined.length,
     items: combined,
@@ -234,6 +335,15 @@ async function main() {
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(payload, null, 2));
   console.log(`Saved suggestions to ${OUTPUT_PATH}`);
   console.log(`Items with links: ${combined.length}`);
+
+  // Print stats by source
+  const sourceCounts = {};
+  for (const entry of combined) {
+    for (const link of entry.links) {
+      sourceCounts[link.source] = (sourceCounts[link.source] || 0) + 1;
+    }
+  }
+  console.log('Links by source:', sourceCounts);
 }
 
 function figureById(id, figures) {
