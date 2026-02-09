@@ -423,6 +423,7 @@ function HomeContent() {
   useEffect(() => {
     const currentQuery = searchParams.toString();
     if (lastUrlSyncRef.current === currentQuery) return;
+    lastUrlSyncRef.current = currentQuery;
     const nextSearch = searchParams.get('search') ?? '';
     const nextDomain = searchParams.get('domain');
     const nextEra = searchParams.get('era');
