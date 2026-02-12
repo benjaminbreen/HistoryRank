@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.593Z",
+  "figureId": "bah-u-ll-h",
+  "figureName": "Bahá'u'lláh",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Bahá'u'lláh (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Baháʼu'lláh",
+      "snippet": "Baháʼu'lláh was an Iranian religious leader who founded the Baháʼí Faith. He was born to an aristocratic family in Iran and was exiled due to his adherence to the messianic Bábism. In 1863, in Ottoman Iraq, he first announced his claim to a revelation from God and spent the rest of his life in further imprisonment in the Ottoman Empire. His teachings revolved around the principles of unity and religious renewal, ranging from moral and spiritual progress to world governance.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

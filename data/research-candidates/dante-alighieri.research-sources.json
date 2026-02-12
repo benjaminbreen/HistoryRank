@@ -1,0 +1,212 @@
+{
+  "generatedAt": "2026-02-10T00:14:49.087Z",
+  "figureId": "dante-alighieri",
+  "figureName": "Dante Alighieri",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 3
+      },
+      "byCorpus": {
+        "project_gutenberg": 2,
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 1948,
+        "max": 1948
+      },
+      "nonEnglishCandidates": 1
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 676,
+      "totalTokenCount": 966,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Divine Comedy",
+        "author": "Dante Alighieri",
+        "year": 1320,
+        "rationale": "Dante's epic poem is his most famous work and a foundational text of Italian literature. It is widely available in numerous editions and translations.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "La Vita Nuova",
+        "author": "Dante Alighieri",
+        "year": 1295,
+        "rationale": "This early work by Dante combines poetry and prose, detailing his love for Beatrice. It is a significant text for understanding his early life and poetic development.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "De Monarchia",
+        "author": "Dante Alighieri",
+        "year": 1313,
+        "rationale": "A political treatise in Latin, De Monarchia outlines Dante's views on the relationship between secular and ecclesiastical power. It is crucial for understanding his political philosophy.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Dante",
+        "author": "Ronald B. Herzman",
+        "year": 2005,
+        "rationale": "This is a comprehensive collection of essays by leading scholars covering various aspects of Dante's life, works, and influence, published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Dante: The Poet of the Divine Comedy",
+        "author": "Erich Auerbach",
+        "year": 1961,
+        "rationale": "While published before 1976, Auerbach's work is a seminal and enduring critical analysis of Dante's masterpiece, often cited in later scholarship. It provides deep insights into the poem's literary and theological dimensions.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Dante's Epic Journeys: From the Inferno to the Purgatorio",
+        "author": "Giuseppe Mazzotta",
+        "year": 2000,
+        "rationale": "Mazzotta is a prominent Dante scholar, and this book offers a detailed scholarly examination of key themes and structures within the Divine Comedy.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The primary sources are foundational texts by Dante. Secondary sources include a major companion volume and influential critical works by leading scholars, with one seminal work predating the 1976 cutoff due to its lasting importance."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "De Monarchia",
+      "reason": "Best score below threshold (0.71 < 0.75)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Dante",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.50"
+    },
+    {
+      "role": "secondary",
+      "title": "Dante: The Poet of the Divine Comedy",
+      "reason": "Best score below threshold (0.00 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Dante's Epic Journeys: From the Inferno to the Purgatorio",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The divine comedy",
+      "author": "Dante Alighieri",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/8800",
+      "access_url": "https://www.gutenberg.org/ebooks/8800",
+      "snippet": "\"The divine comedy\" by Dante Alighieri is an Italian narrative poem written between 1308 and 1321. The work follows Dante's journey through the three realms of the afterlife: Hell, Purgatory, and Heaven.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Divine Comedy\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Divine Comedy",
+        "suggestion_author": "Dante Alighieri",
+        "suggestion_year": 1320,
+        "suggestion_rationale": "Dante's epic poem is his most famous work and a foundational text of Italian literature. It is widely available in numerous editions and translations.",
+        "gutenberg_id": 8800,
+        "languages": [
+          "en"
+        ],
+        "download_count": 18358
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "the divine comedy",
+      "author": "dante alighieri",
+      "publication_year": 1948,
+      "source_url": "https://archive.org/details/divinecomedy0000dant_e6l4",
+      "access_url": "https://archive.org/details/divinecomedy0000dant_e6l4",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"The Divine Comedy\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Divine Comedy",
+        "suggestion_author": "Dante Alighieri",
+        "suggestion_year": 1320,
+        "suggestion_rationale": "Dante's epic poem is his most famous work and a foundational text of Italian literature. It is widely available in numerous editions and translations.",
+        "ia_identifier": "divinecomedy0000dant_e6l4"
+      }
+    },
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "La vita nuova",
+      "author": "Dante Alighieri",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/71218",
+      "access_url": "https://www.gutenberg.org/ebooks/71218",
+      "snippet": "\"La vita nuova\" by Dante Alighieri is a text published in 1294. This groundbreaking work combines prose and verse to chronicle Dante's love for Beatrice from their childhood meeting at age nine through her death and beyond.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"La Vita Nuova\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "La Vita Nuova",
+        "suggestion_author": "Dante Alighieri",
+        "suggestion_year": 1295,
+        "suggestion_rationale": "This early work by Dante combines poetry and prose, detailing his love for Beatrice. It is a significant text for understanding his early life and poetic development.",
+        "gutenberg_id": 71218,
+        "languages": [
+          "it"
+        ],
+        "download_count": 247
+      }
+    }
+  ]
+}

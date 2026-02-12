@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.774Z",
+  "figureId": "toni-morrison",
+  "figureName": "Toni Morrison",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Toni Morrison is consistently described across 12 model source lists as influential for: Nobel Prize-winning novelist who explored African American identity; Novelist exploring African American experience; Nobel-winning author, Beloved; American novelist and Nobel laureate, advancing African American literature; Novelist; examined the African American experience; Nobel Prize laureate; Author exploring African-American experience; Novelist who explored African American history and identity, winning the Nobel Prize in Literature; Nobel laureate whose novels explored the African American experience with lyrical power.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

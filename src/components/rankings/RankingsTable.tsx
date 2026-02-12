@@ -129,7 +129,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
-              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 line-clamp-1 sm:line-clamp-none`}>{figure.name}</span>
+              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 line-clamp-2 sm:line-clamp-none`}>{figure.name}</span>
               {figure.badges && figure.badges.length > 0 && (
                 <span className="hidden md:inline-flex">
                   <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
@@ -204,7 +204,7 @@ export function RankingsTable({
   // Keyboard navigation state
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [isTableFocused, setIsTableFocused] = useState(false);
-  const [renderRange, setRenderRange] = useState({ start: 0, end: 0 });
+  const [renderRange, setRenderRange] = useState({ start: 0, end: Math.min(figures.length, 40) });
   const tableRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<Map<number, HTMLTableRowElement>>(new Map());
   const pendingFocusIndex = useRef<number | null>(null);
@@ -213,6 +213,7 @@ export function RankingsTable({
   // Reset focus when figures change (e.g., filtering)
   useEffect(() => {
     if (focusedIndex >= figures.length) {
+      setIsTableFocused(false);
       setFocusedIndex(figures.length > 0 ? 0 : -1);
     }
   }, [figures.length, focusedIndex]);
@@ -323,7 +324,7 @@ export function RankingsTable({
         {sortBy === column ? (
           sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
         ) : (
-          <span className="flex flex-col leading-none text-stone-300 dark:text-slate-600">
+          <span className="flex flex-col leading-none text-stone-300/60 dark:text-slate-600/60">
             <ChevronUp className="h-2.5 w-2.5 -mb-1" />
             <ChevronDown className="h-2.5 w-2.5" />
           </span>
@@ -416,11 +417,11 @@ export function RankingsTable({
         onKeyDown={handleKeyDown}
         onFocus={handleTableFocus}
         onBlur={handleTableBlur}
-        className="border border-stone-200 dark:border-amber-900/30 rounded-lg overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
-        style={{ fontSize: `${fontScale}em` }}
+        className="font-scale-root border border-stone-200 dark:border-slate-700/60 rounded-lg overflow-clip [&_[data-slot=table-container]]:overflow-x-clip focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+        style={{ '--fs': fontScale } as React.CSSProperties}
       >
       <Table>
-        <TableHeader className="border-t border-stone-200/70 dark:border-amber-900/40">
+        <TableHeader className="border-t border-stone-200/70 dark:border-slate-700/50 sticky top-[var(--app-header-height,56px)] z-20">
           <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
             <TableHead className="w-[46px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
               <SortHeader column="llmRank">LLM</SortHeader>
@@ -457,6 +458,16 @@ export function RankingsTable({
           </TableRow>
         </TableHeader>
         <TableBody role="rowgroup">
+          {figures.length === 0 && (
+            <TableRow>
+              <TableCell colSpan={columnCount} className="text-center py-12">
+                <div className="text-stone-400 dark:text-slate-500">
+                  <p className="text-sm font-medium">No figures match your filters</p>
+                  <p className="text-xs mt-1">Try adjusting your search or filter criteria</p>
+                </div>
+              </TableCell>
+            </TableRow>
+          )}
           {topSpacerHeight > 0 && (
             <TableRow aria-hidden="true">
               <TableCell colSpan={columnCount} style={{ height: topSpacerHeight, padding: 0 }} />

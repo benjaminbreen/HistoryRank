@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 3 (January 12, 2025).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-02-10T23:45:00.733Z
+
+VERDICT: FAIL
+
+Summary: Issues: 1 exact duplicates; 777 entries (expected 500 or 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: FAIL - 777 entries (expected 500 or 1000); non-sequential ranks
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (35):
+  - Exact duplicate: "deng xiaoping" at ranks 99, 340
+  - Fuzzy duplicate: gautama buddha / siddhartha gautama buddha at ranks 3, 26
+  - Fuzzy duplicate: qin shi huang / qin shi huang dup avoided at ranks 10, 731
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 13, 144
+  - Fuzzy duplicate: genghis khan / temujin genghis khan / genghis khan temujin at ranks 15, 87, 381
+  - Fuzzy duplicate: cyrus the great / cyrus the great dup avoided at ranks 28, 737
+  - Fuzzy duplicate: ibn sina avicenna / ibn sina avicenna again at ranks 71, 447
+  - Fuzzy duplicate: zheng he / zheng he ma he / zheng he again at ranks 93, 215, 389
+  - Fuzzy duplicate: chiang kaishek / chiang kaishek dup avoided at ranks 98, 658
+  - Fuzzy duplicate: margaret thatcher / margaret thatcher dup avoided at ranks 100, 647
+  ... and 25 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 46, Middle East: 27, Africa: 14, Americas: 10, Unknown: 633
+  Domains: Politics/Leadership: 20, Science/Technology: 10, Philosophy/Religion: 21, Arts/Literature: 29, Military: 16, Other: 681
+
+Advanced Metrics:
+  Advanced score: 94.6
+  Parenthetical names: 8.6%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.3%
+  Short contributions: 0.4%

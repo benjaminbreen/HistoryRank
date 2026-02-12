@@ -1,0 +1,39 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 2 (January 12, 2025).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-02-10T23:44:59.927Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 6 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (9):
+  - Exact duplicate: "zheng he" at ranks 47, 317
+  - Exact duplicate: "suleiman the magnificent" at ranks 56, 360
+  - Exact duplicate: "deng xiaoping" at ranks 115, 299
+  - Exact duplicate: "hernn corts" at ranks 132, 445
+  - Exact duplicate: "bartolom de las casas" at ranks 134, 446
+  - Exact duplicate: "woodrow wilson" at ranks 199, 484
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 14, 342
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 244, 341
+  - Fuzzy duplicate: hernando de soto / hernando de soto explorer at ranks 319, 494
+
+Diversity Estimates:
+  Regions: Europe: 40, Asia: 38, Middle East: 23, Africa: 10, Americas: 7, Unknown: 382
+  Domains: Politics/Leadership: 17, Science/Technology: 9, Philosophy/Religion: 30, Arts/Literature: 27, Military: 5, Other: 412
+
+Advanced Metrics:
+  Advanced score: 98.2
+  Parenthetical names: 3.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

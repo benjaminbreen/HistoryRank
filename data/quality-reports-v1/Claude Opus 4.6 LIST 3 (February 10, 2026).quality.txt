@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.6 LIST 3 (February 10, 2026).txt
+Model: Claude Opus 4.6
+Timestamp: 2026-02-10T23:43:56.925Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 28 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (40):
+  - Exact duplicate: "murasaki shikibu" at ranks 278, 972
+  - Exact duplicate: "xuanzang" at ranks 327, 920
+  - Exact duplicate: "aljazari" at ranks 768, 866
+  - Exact duplicate: "charlie chaplin" at ranks 799, 900
+  - Exact duplicate: "giotto di bondone" at ranks 804, 852
+  - Exact duplicate: "filippo brunelleschi" at ranks 805, 897
+  - Exact duplicate: "frank lloyd wright" at ranks 810, 898
+  - Exact duplicate: "le corbusier" at ranks 811, 899
+  - Exact duplicate: "milton friedman" at ranks 812, 877
+  - Exact duplicate: "joseph schumpeter" at ranks 813, 878
+  ... and 30 more issues
+
+Diversity Estimates:
+  Regions: Europe: 219, Asia: 71, Middle East: 58, Africa: 25, Americas: 58, Unknown: 569
+  Domains: Politics/Leadership: 99, Science/Technology: 27, Philosophy/Religion: 33, Arts/Literature: 80, Military: 39, Other: 722
+
+Advanced Metrics:
+  Advanced score: 99.7
+  Parenthetical names: 0.4%
+  Multi-person names: 0.0%
+  Comma names: 0.4%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

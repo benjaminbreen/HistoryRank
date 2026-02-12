@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.128Z",
+  "figureId": "emmy-noether",
+  "figureName": "Emmy Noether",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Emmy Noether is consistently described across 10 model source lists as influential for: Mathematician whose theorem links symmetries and conservation laws; Mathematician contributing to abstract algebra; Developed Noether's theorem, linking symmetry in physics to conservation laws; revolutionized algebra; Abstract algebra, Noether's theorem; Symmetry principles; deep foundations of modern physics; Proved Noether's theorem linking symmetries to conservation laws, fundamentally connecting abstract algebra to theoretical physics and transforming both fields; Emmy Noether shaped historical development through influential work in science with lasting institutional effects; Mathematician known for abstract algebra.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

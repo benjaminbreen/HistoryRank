@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:04.231Z",
+  "generatedAt": "2026-02-10T00:11:59.637Z",
   "figureId": "johannes-gutenberg",
   "figureName": "Johannes Gutenberg",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 343,
-      "totalTokenCount": 631,
+      "candidatesTokenCount": 340,
+      "totalTokenCount": 628,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -42,18 +60,18 @@
         "title": "Gutenberg and the Printing Press",
         "author": "Rebecca Stefoff",
         "year": 1990,
-        "rationale": "Part of the 'Inventions That Changed the World' series, this book provides a good overview of Gutenberg's work and its historical context.",
+        "rationale": "An informative overview suitable for a general audience but grounded in historical scholarship, often found in libraries.",
         "sourceType": "book"
       },
       {
-        "title": "The Gutenberg Bible: Landmark of the West",
-        "author": "David McKitterick",
-        "year": 1991,
-        "rationale": "Focuses specifically on the most famous product of Gutenberg's press, offering detailed historical and bibliographical analysis.",
+        "title": "The Gutenberg Bible: Landmark of the Western World",
+        "author": "Various",
+        "year": 1975,
+        "rationale": "While slightly before the 1976 cutoff, this is a seminal work often cited in Gutenberg scholarship, focusing on his most famous achievement. It's a foundational text for understanding his legacy.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources directly authored by Johannes Gutenberg are extremely rare or non-existent in accessible digital archives. His work is primarily known through the artifacts he produced, such as the Gutenberg Bible, and contemporary or near-contemporary accounts of his life and business dealings, which are not typically available as standalone texts by him."
+    "notes": "Primary sources directly authored by Johannes Gutenberg are extremely rare and not readily available in digitized formats on common platforms like Wikisource or Project Gutenberg. His significant contributions were primarily through his inventions and the products of his press, rather than extensive written works attributed to him personally."
   },
   "unresolved": [
     {
@@ -68,8 +86,8 @@
     },
     {
       "role": "secondary",
-      "title": "The Gutenberg Bible: Landmark of the West",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.25"
+      "title": "The Gutenberg Bible: Landmark of the Western World",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
     }
   ],
   "candidates": []

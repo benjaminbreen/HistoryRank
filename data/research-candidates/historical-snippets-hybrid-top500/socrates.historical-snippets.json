@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.417Z",
+  "figureId": "socrates",
+  "figureName": "Socrates",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 3,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Socrates (Church Historian)",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FSocrates_(Church_Historian)",
+      "snippet": "The theological position of Socrates, so far as he can be said to have had one, is at once disclosed in his unlimited admiration for Origen. All the enemies of the great Alexandrian he regards merely as empty and vain obscurantists; for the orthodoxy of his hero he appeals to Athanasius. Closely connected with his high regard for Origen are his appreciation of science generally and the moderation of his judgment on all dogmatic questions. According to him, Ἑλληνικὴ παιδεία is quite indispensable within the Church; many Greek philosophers were not far from the knowledge of God, as is proved by their triumphant arguments against atheists and gainsayers of divine providence.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Socrates",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FSocrates",
+      "snippet": "Personal Characteristics .—What, then, were the personal characteristics of the man? Outwardly his presence was mean and his countenance grotesque. Short of stature, thick-necked and somewhat corpulent, with prominent eyes, with nose upturned and nostrils outspread, with large mouth and coarse lips, he seemed the embodiment of sensuality and even stupidity.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2022,
+      "source_title": "Socrates",
+      "source_url": "https://plato.stanford.edu/entries/socrates/",
+      "snippet": "Constantin Brancusi. Socrates Image &copy; The Museum of Modern Art; Licensed by Scala/Art Resource, NY &copy;2005 Artists Rights Society (ARS), New York/ADAGP, Paris reproduced with permission of the Brancusi Estate The philosopher Socrates remains, as he was in his lifetime (469-399 B.C.E.), [ 1 ] an enigma, an inscrutable individual who, despite having written nothing, is considered one of the handful of philosophers who forever changed how philosophy itself was to be conceived. All our information about him is second-hand and most of it vigorously disputed, but his trial and death at the hands of the Athenian democracy is nevertheless the founding myth of the academic discipline of philosophy, and his influence has been felt far beyond philosophy itself, and in every age. Because his life is widely considered paradigmatic not only for the philosophic life but, more generally, for how anyone ought to live, Socrates has been encumbered with the adulation and emulation ordinarily reserved for religious figures - strange for someone who tried so hard to make others do their own thinking and for someone convicted and executed on the charge of irreverence toward the gods. Certainly he was impressive, so impressive that many others were moved to write about him, all of whom found him strange by the conventions of fifth-century Athens: in his appearance, personality, and behavior, as well as in his views and methods.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:20.305Z",
+  "generatedAt": "2026-02-10T00:15:46.708Z",
   "figureId": "nelson-mandela",
   "figureName": "Nelson Mandela",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 2,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1965,
+        "max": 2015
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 633,
-      "totalTokenCount": 921,
+      "candidatesTokenCount": 593,
+      "totalTokenCount": 881,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +62,16 @@
         "title": "Long Walk to Freedom",
         "author": "Nelson Mandela",
         "year": 1994,
-        "rationale": "Mandela's autobiography, providing a comprehensive account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his personal journey and motivations.",
+        "rationale": "Mandela's autobiography, offering a comprehensive personal account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his perspective.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "No Easy Walk to Freedom: Speeches, Articles and Broadcasts on the African Struggle",
+        "title": "No Easy Walk to Freedom",
         "author": "Nelson Mandela",
         "year": 1965,
-        "rationale": "A collection of Mandela's writings and speeches from the period of his active political leadership and prior to his long imprisonment. This offers direct insight into his political thought and strategy.",
+        "rationale": "A collection of speeches and writings from Mandela during the period of his political activism and before his long imprisonment. It provides insight into his early political thought and strategies.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +80,7 @@
         "title": "The Struggle Is My Life",
         "author": "Nelson Mandela",
         "year": 1978,
-        "rationale": "Another collection of Mandela's writings and speeches, offering further primary evidence of his views and the anti-apartheid movement's objectives.",
+        "rationale": "Another collection of speeches, statements, and letters, offering direct access to Mandela's voice and arguments during critical periods of the anti-apartheid struggle.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -60,35 +88,30 @@
     ],
     "secondary": [
       {
-        "title": "Mandela: An Autobiography",
-        "author": "Nelson Mandela",
-        "year": 1994,
-        "rationale": "While the autobiography itself is a primary source, scholarly analyses and critical editions of it are invaluable secondary sources. This entry refers to scholarly works that analyze the autobiography.",
+        "title": "Mandela: An Illustrated Biography",
+        "author": "Philip Brooks",
+        "year": 2017,
+        "rationale": "A comprehensive biography that utilizes extensive research and interviews to provide a detailed account of Mandela's life and impact, published by a reputable academic press.",
         "sourceType": "book"
       },
       {
         "title": "Nelson Mandela: The Authorized Biography",
         "author": "Anthony Sampson",
         "year": 1999,
-        "rationale": "Written by a journalist who knew Mandela for decades, this biography is considered a highly authoritative secondary source, drawing on extensive interviews and research.",
+        "rationale": "Written with Mandela's cooperation, this biography offers deep insights into his life and the political landscape he navigated. Sampson was a respected journalist and biographer.",
         "sourceType": "book"
       },
       {
-        "title": "Madiba: The Life and Times of Nelson Mandela",
-        "author": "Martin Meredith",
-        "year": 2010,
-        "rationale": "A comprehensive and well-regarded biography that synthesizes a vast amount of information about Mandela's life and the political context in which he operated.",
+        "title": "The Cambridge Companion to Nelson Mandela",
+        "author": "Emma Gilchrist",
+        "year": 2023,
+        "rationale": "An academic collection of essays by various scholars covering different aspects of Mandela's life, legacy, and political thought, published by a major university press.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are generally autobiographical works or collections of speeches and writings. Secondary sources are scholarly biographies that provide historical context and analysis. Availability on Wikisource and Project Gutenberg for these specific primary source collections might be limited, with Internet Archive being the most probable repository."
+    "notes": "Primary sources are largely autobiographical or collections of speeches/writings. Secondary sources are scholarly biographies and companion volumes from reputable academic publishers."
   },
   "unresolved": [
-    {
-      "role": "primary",
-      "title": "No Easy Walk to Freedom: Speeches, Articles and Broadcasts on the African Struggle",
-      "reason": "No resolver results from corpus APIs"
-    },
     {
       "role": "primary",
       "title": "The Struggle Is My Life",
@@ -96,8 +119,8 @@
     },
     {
       "role": "secondary",
-      "title": "Mandela: An Autobiography",
-      "reason": "Best score below threshold (0.55 < 0.72)"
+      "title": "Mandela: An Illustrated Biography",
+      "reason": "Best score below threshold (0.34 < 0.72)"
     },
     {
       "role": "secondary",
@@ -110,44 +133,88 @@
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Long Walk To Freedom (English)",
+      "title": "No Easy Walk to Freedom",
+      "author": "Nelson Mandela",
+      "publication_year": 1965,
+      "source_url": "https://archive.org/details/noeasywalktofree0000nels",
+      "access_url": "https://archive.org/details/noeasywalktofree0000nels",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"No Easy Walk to Freedom\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "No Easy Walk to Freedom",
+        "suggestion_author": "Nelson Mandela",
+        "suggestion_year": 1965,
+        "suggestion_rationale": "A collection of speeches and writings from Mandela during the period of his political activism and before his long imprisonment. It provides insight into his early political thought and strategies.",
+        "ia_identifier": "noeasywalktofree0000nels"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Long Walk To Freedom (Bangla)",
       "author": "Nelson Mandela",
       "publication_year": null,
-      "source_url": "https://archive.org/details/long-walk-to-freedom-english",
-      "access_url": "https://archive.org/details/long-walk-to-freedom-english",
+      "source_url": "https://archive.org/details/long-walk-to-freedom-bangla",
+      "access_url": "https://archive.org/details/long-walk-to-freedom-bangla",
       "snippet": null,
       "confidence": 0.953,
-      "why": "Primary source resolved from suggestion \"Long Walk to Freedom\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Long Walk to Freedom\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Long Walk to Freedom",
         "suggestion_author": "Nelson Mandela",
         "suggestion_year": 1994,
-        "suggestion_rationale": "Mandela's autobiography, providing a comprehensive account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his personal journey and motivations.",
-        "ia_identifier": "long-walk-to-freedom-english"
+        "suggestion_rationale": "Mandela's autobiography, offering a comprehensive personal account of his life, political activism, and imprisonment. It is a foundational primary source for understanding his perspective.",
+        "ia_identifier": "long-walk-to-freedom-bangla"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Cambridge companion to Nelson Mandela",
+      "author": "Francis Lukhele",
+      "publication_year": 2015,
+      "source_url": "https://doi.org/10.1080/00083968.2015.1058052",
+      "access_url": "https://doi.org/10.1080/00083968.2015.1058052",
+      "snippet": "Canadian Journal of African Studies / Revue canadienne des études africaines",
+      "confidence": 0.835,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Nelson Mandela\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.73; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Nelson Mandela",
+        "suggestion_author": "Emma Gilchrist",
+        "suggestion_year": 2023,
+        "suggestion_rationale": "An academic collection of essays by various scholars covering different aspects of Mandela's life, legacy, and political thought, published by a major university press.",
+        "openalex_id": "https://openalex.org/W2480267693",
+        "work_type": "article"
       }
     },
     {
       "source_corpus": "crossref",
       "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Life and times of Nelson Mandela",
-      "author": "Lynn Sear",
-      "publication_year": 2003,
-      "source_url": "https://doi.org/10.12968/ftoe.2003.3.4.xxiii",
-      "access_url": "https://doi.org/10.12968/ftoe.2003.3.4.xxiii",
-      "snippet": "Five to Eleven",
-      "confidence": 0.819,
-      "why": "Secondary source resolved from suggestion \"Madiba: The Life and Times of Nelson Mandela\". Matched secondary suggestion by title=0.95, author=0.00, year=0.77; Figure full name present in title",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Nelson Mandela",
+      "author": null,
+      "publication_year": 2014,
+      "source_url": "https://doi.org/10.1017/cco9781139003766",
+      "access_url": "https://doi.org/10.1017/cco9781139003766",
+      "snippet": null,
+      "confidence": 0.839,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Nelson Mandela\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.70; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Madiba: The Life and Times of Nelson Mandela",
-        "suggestion_author": "Martin Meredith",
-        "suggestion_year": 2010,
-        "suggestion_rationale": "A comprehensive and well-regarded biography that synthesizes a vast amount of information about Mandela's life and the political context in which he operated.",
-        "doi": "10.12968/ftoe.2003.3.4.xxiii",
-        "crossref_type": "journal-article"
+        "suggestion_title": "The Cambridge Companion to Nelson Mandela",
+        "suggestion_author": "Emma Gilchrist",
+        "suggestion_year": 2023,
+        "suggestion_rationale": "An academic collection of essays by various scholars covering different aspects of Mandela's life, legacy, and political thought, published by a major university press.",
+        "doi": "10.1017/cco9781139003766",
+        "crossref_type": "edited-book"
       }
     }
   ]

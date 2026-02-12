@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.116Z",
+  "figureId": "aeschylus",
+  "figureName": "Aeschylus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Aeschylus is consistently described across 10 model source lists as influential for: Founded tragic drama with works like the 'Oresteia,' shaping Western theater and moral inquiry; Greek tragedy, theatrical innovation; Playwright whose *Oresteia* trilogy defined Greek tragedy and justice; Greek tragedian; Playwright known as 'Father of Tragedy'; pioneered dramatic form; Founded tragic drama, establishing the Western theatrical tradition; Tragedian innovating Greek drama; Playwright; 'Father of Tragedy'.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

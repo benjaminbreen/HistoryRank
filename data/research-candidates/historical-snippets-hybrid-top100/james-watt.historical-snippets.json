@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.604Z",
+  "figureId": "james-watt",
+  "figureName": "James Watt",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Watt, James",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FWatt%2C_James",
+      "snippet": "Before many months Joseph Black, the discoverer of latent heat, then lecturer on chemistry, and John Robison, then a student, afterwards professor of natural philosophy at Edinburgh, became his intimate friends, and with them he often discussed the possibility of improving the steam-engine, of which at that time Thomas Newcomen's was the most advanced type. The engine was then applied only to pumping water—chiefly in the drainage of mines; and it was so clumsy and wasteful of fuel as to be but little used.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

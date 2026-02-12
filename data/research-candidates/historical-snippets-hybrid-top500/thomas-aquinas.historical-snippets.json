@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.435Z",
+  "figureId": "thomas-aquinas",
+  "figureName": "Thomas Aquinas",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 3,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Aquinas, Thomas",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAquinas%2C_Thomas",
+      "snippet": "His superiors, seeing his great aptitude for theological study, sent him to the Dominican school in Cologne, where Albertus Magnus was lecturing on philosophy and theology. In 1245 Albertus was called to Paris, and there Aquinas followed him, and remained with him for three years, at the end of which he graduated as bachelor of theology. In 1248 he returned to Cologne with Albertus, and was appointed second lecturer and magister studentium . This year may be taken as the beginning of his literary activity and public life.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Thomas Aquinas",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FThomas_Aquinas",
+      "snippet": "His superiors, seeing his great aptitude for theological study, sent him to the Dominican school in Cologne, where Albertus Magnus was lecturing on philosophy and theology. In 1245 Albertus was called to Paris, and there Aquinas followed him, and remained with him for three years, at the end of which he graduated as bachelor of theology. In 1248 he returned to Cologne with Albertus, and was appointed second lecturer and magister studentium . This year may be taken as the beginning of his literary activity and public life.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2022,
+      "source_title": "Aquinas, Thomas",
+      "source_url": "https://plato.stanford.edu/entries/aquinas/",
+      "snippet": "Between antiquity and modernity stands Thomas Aquinas (ca. 1225-1274). The greatest figure of thirteenth-century Europe in the two preeminent sciences of the era, philosophy and theology, he epitomizes the scholastic method of the newly founded universities. Like Dante or Michelangelo, Aquinas takes inspiration from antiquity, especially Aristotle , and builds something entirely new. Viewed through a theological lens, Aquinas has often been seen as the summit of the Christian tradition that runs back to Augustine and the early Church. Viewed as a philosopher, he is a foundational figure of modern thought. His efforts at a systematic reworking of Aristotelianism reshaped Western philosophy and provoked countless elaborations and disputations among later medieval and modern philosophers.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.488Z",
+  "figureId": "william-the-conqueror",
+  "figureName": "William the Conqueror",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "William the Conqueror is consistently described across 12 model source lists as influential for: Norman Conquest; reshaped English state, law, and elites; Norman Conquest, transformed English language, law, and society; Norman Conquest of England, reshaping English language and governance; Norman Conquest reshaping English language, law, and governance; Norman Conquest, reshaped English language and governance; Led the Norman conquest of England, fundamentally changing the English language and law; Norman Conquest reshaping English language and governance; Norman conquest of England, transforming English language and governance.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

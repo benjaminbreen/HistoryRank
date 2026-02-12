@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.611Z",
+  "figureId": "michael-faraday",
+  "figureName": "Michael Faraday",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "project_gutenberg",
+      "edition_year": null,
+      "source_title": "The Chemical History of a Candle",
+      "source_url": "https://www.gutenberg.org/ebooks/14474",
+      "snippet": "\"The Chemical History of a Candle\" by Michael Faraday is a series of six lectures delivered in 1848. Originally presented as Christmas lectures for young people at the Royal Institution, Faraday uses the simple candle flame to explore fundamental principles of chemistry and physi...",
+      "match_score": 1,
+      "why": "Existing project_gutenberg snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Faraday, Michael",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FFaraday%2C_Michael",
+      "snippet": "Faraday’s earliest chemical work was in the paths opened by Davy, to whom he acted as assistant. He made a special study of chlorine, and discovered two new chlorides of carbon. He also made the first rough experiments on the diffusion of gases, a phenomenon first pointed out by John Dalton, the physical importance of which was more fully brought to light by Thomas Graham and Joseph Loschmidt. He succeeded in liquefying several gases; he investigated the alloys of steel, and produced several new kinds of glass intended for optical purposes.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

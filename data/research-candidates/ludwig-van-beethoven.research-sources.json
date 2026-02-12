@@ -1,0 +1,206 @@
+{
+  "generatedAt": "2026-02-10T00:18:14.324Z",
+  "figureId": "ludwig-van-beethoven",
+  "figureName": "Ludwig van Beethoven",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "secondary": 3
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 2
+      },
+      "yearSpan": {
+        "min": 2000,
+        "max": 2015
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 611,
+      "totalTokenCount": 900,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Beethoven's Letters",
+        "author": "Ludwig van Beethoven",
+        "year": 1800,
+        "rationale": "A collection of Beethoven's personal correspondence, offering direct insight into his thoughts, relationships, and creative process. Many editions exist, and individual letters are often digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Beethoven's Conversation Books",
+        "author": "Ludwig van Beethoven",
+        "year": 1818,
+        "rationale": "These books were used by Beethoven, who was increasingly deaf, to communicate with visitors. They provide invaluable, unvarnished glimpses into his daily life, opinions, and interactions.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Fidelio",
+        "author": "Ludwig van Beethoven",
+        "year": 1814,
+        "rationale": "Beethoven's only opera. While a musical work, the libretto and its creation history are primary source material for understanding his dramatic and political ideas.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Beethoven: Anguish and Triumph",
+        "author": "Jan Swafford",
+        "year": 2014,
+        "rationale": "A comprehensive and highly regarded biography that draws on extensive research to present a detailed portrait of Beethoven's life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Beethoven",
+        "author": "Jonathan Kregor",
+        "year": 2014,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Beethoven's life, music, and legacy, offering diverse scholarly perspectives.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Beethoven's Ninth: A Political, Revolutionary, and Sublime Masterpiece",
+        "author": "David B. Levy",
+        "year": 2015,
+        "rationale": "An in-depth scholarly analysis of Beethoven's Ninth Symphony, exploring its historical context, musical innovations, and enduring impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source dates are approximate for collections and represent the earliest known material within them. Availability on digital platforms can vary by specific edition or translation."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Beethoven's Letters",
+      "reason": "Title similarity too low (0.35); baseScore=0.52"
+    },
+    {
+      "role": "primary",
+      "title": "Beethoven's Conversation Books",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Fidelio",
+      "reason": "Title similarity too low (0.24); baseScore=0.45"
+    },
+    {
+      "role": "secondary",
+      "title": "Beethoven's Ninth: A Political, Revolutionary, and Sublime Masterpiece",
+      "reason": "Best score below threshold (0.28 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Review: The Cambridge Companion to Beethoven",
+      "author": "Michael Spitzer",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.1093/ml/84.1.106",
+      "access_url": "https://doi.org/10.1093/ml/84.1.106",
+      "snippet": "Music and Letters",
+      "confidence": 0.818,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Beethoven\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.63; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Beethoven",
+        "suggestion_author": "Jonathan Kregor",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Beethoven's life, music, and legacy, offering diverse scholarly perspectives.",
+        "openalex_id": "https://openalex.org/W1988208419",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Beethoven: anguish and triumph: a biography",
+      "author": null,
+      "publication_year": 2015,
+      "source_url": "https://doi.org/10.5860/choice.189173",
+      "access_url": "https://doi.org/10.5860/choice.189173",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.884,
+      "why": "Secondary source resolved from suggestion \"Beethoven: Anguish and Triumph\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Beethoven: Anguish and Triumph",
+        "suggestion_author": "Jan Swafford",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A comprehensive and highly regarded biography that draws on extensive research to present a detailed portrait of Beethoven's life and work.",
+        "doi": "10.5860/choice.189173",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Beethoven",
+      "author": null,
+      "publication_year": 2000,
+      "source_url": "https://doi.org/10.1017/ccol9780521580748",
+      "access_url": "https://doi.org/10.1017/ccol9780521580748",
+      "snippet": null,
+      "confidence": 0.811,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Beethoven\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.53; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Beethoven",
+        "suggestion_author": "Jonathan Kregor",
+        "suggestion_year": 2014,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Beethoven's life, music, and legacy, offering diverse scholarly perspectives.",
+        "doi": "10.1017/ccol9780521580748",
+        "crossref_type": "book"
+      }
+    }
+  ]
+}

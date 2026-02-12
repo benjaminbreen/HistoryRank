@@ -1,0 +1,111 @@
+{
+  "file": "gemini-3-flash-preview V2 LIST 2 (February 4, 2026).txt",
+  "model": "gemini-3-flash-preview V2",
+  "timestamp": "2026-02-10T23:47:06.000Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 2,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "2 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "moses",
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "sun yatsen",
+      "ranks": [
+        58,
+        322
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zheng he",
+      "ranks": [
+        200,
+        303
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        61
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 36,
+      "Asia": 17,
+      "Middle East": 19,
+      "Africa": 9,
+      "Americas": 23,
+      "Oceania": 0,
+      "Unknown": 396
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 45,
+      "Science/Technology": 9,
+      "Philosophy/Religion": 12,
+      "Arts/Literature": 47,
+      "Military": 12,
+      "Other": 375
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.4
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,0 +1,241 @@
+{
+  "file": "gemini-3-flash-preview V2 LIST 4 (February 4, 2026).txt",
+  "model": "gemini-3-flash-preview V2",
+  "timestamp": "2026-02-10T23:47:07.812Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 18,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "18 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 56,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "moses",
+        "saint paul",
+        "paul the apostle",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "56/61 anchor figures found (92%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        26,
+        373
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michelangelo",
+      "ranks": [
+        29,
+        291
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ashoka the great",
+      "ranks": [
+        35,
+        465
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "akbar the great",
+      "ranks": [
+        39,
+        470
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        40,
+        381
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simon bolivar",
+      "ranks": [
+        41,
+        314
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franklin d roosevelt",
+      "ranks": [
+        48,
+        231
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cyrus the great",
+      "ranks": [
+        55,
+        462
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hammurabi",
+      "ranks": [
+        56,
+        421
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guglielmo marconi",
+      "ranks": [
+        66,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john von neumann",
+      "ranks": [
+        86,
+        391
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zoroaster",
+      "ranks": [
+        101,
+        471
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adi shankara",
+      "ranks": [
+        102,
+        476
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "guru nanak",
+      "ranks": [
+        103,
+        473
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gamal abdel nasser",
+      "ranks": [
+        118,
+        287
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "darius the great",
+      "ranks": [
+        242,
+        463
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nebuchadnezzar ii",
+      "ranks": [
+        341,
+        461
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "xerxes the great",
+      "ranks": [
+        342,
+        464
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        71
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 70,
+      "Asia": 9,
+      "Middle East": 23,
+      "Africa": 1,
+      "Americas": 18,
+      "Oceania": 0,
+      "Unknown": 379
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 30,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 20,
+      "Arts/Literature": 50,
+      "Military": 10,
+      "Other": 379
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.4
+  },
+  "summary": "List passes all quality checks"
+}

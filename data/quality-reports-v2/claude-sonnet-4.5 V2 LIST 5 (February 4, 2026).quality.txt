@@ -1,0 +1,34 @@
+Quality Assessment Report
+========================
+File: claude-sonnet-4.5 V2 LIST 5 (February 4, 2026).txt
+Model: claude-sonnet-4.5 V2
+Timestamp: 2026-02-10T23:47:04.104Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 11 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (4):
+  - Exact duplicate: "winston churchill" at ranks 50, 318
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 17, 48
+  - Fuzzy duplicate: pope john paul ii / pope urban ii at ranks 198, 200
+  - Pattern collapse: "american" (11 entries, ranks 362-372)
+
+Diversity Estimates:
+  Regions: Europe: 71, Asia: 15, Middle East: 21, Africa: 7, Americas: 34, Unknown: 352
+  Domains: Politics/Leadership: 17, Science/Technology: 7, Philosophy/Religion: 13, Arts/Literature: 20, Military: 13, Other: 430
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

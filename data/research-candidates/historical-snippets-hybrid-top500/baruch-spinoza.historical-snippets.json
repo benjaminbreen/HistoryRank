@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.519Z",
+  "figureId": "baruch-spinoza",
+  "figureName": "Baruch Spinoza",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Spinoza, Baruch",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FSpinoza%2C_Baruch",
+      "snippet": "A romance has woven itself round Spinoza’s connexion with Van den Ende’s household. The physician had an only daughter, Clara Maria by name, who, besides being proficient in music, understood Latin, it is said, so perfectly that she was able to teach her father’s pupils in his absence. Spinoza, the story goes, fell in love with his fair instructress; but a fellow-student, called Kerkering, supplanted him in his mistress’s affections by the help of a valuable necklace of pearls which he presented to the young lady. Chronology unfortunately forbids us to accept this little episode as true.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2023,
+      "source_title": "Spinoza, Baruch",
+      "source_url": "https://plato.stanford.edu/entries/spinoza/",
+      "snippet": "Bento (in Hebrew, Baruch; in Latin, Benedictus) Spinoza is one of the most important philosophers—and certainly the most radical—of the early modern period. His thought combines a commitment to a number of Cartesian metaphysical and epistemological principles with elements from ancient Stoicism, Hobbes, and medieval Jewish rationalism into a nonetheless highly original system. His extremely naturalistic views on God, the world, the human being and knowledge serve to ground a moral philosophy centered on the control of the passions leading to virtue and happiness. They also lay the foundations for a strongly democratic political thought and a deep critique of the pretensions of Scripture and sectarian religion. Of all the philosophers of the seventeenth century, Spinoza is among the most relevant today.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

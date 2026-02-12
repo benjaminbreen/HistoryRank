@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 1 (January 12, 2025).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-02-10T23:43:05.517Z
+
+VERDICT: WARN
+
+Summary: Issues: 87 exact duplicates
+
+Scores:
+  Repetition: WARN - 87 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (87):
+  - Exact duplicate: "confucius" at ranks 5, 605
+  - Exact duplicate: "charles darwin" at ranks 9, 975
+  - Exact duplicate: "nikola tesla" at ranks 26, 251, 622, 928
+  - Exact duplicate: "charlemagne" at ranks 48, 756
+  - Exact duplicate: "gregor mendel" at ranks 49, 856
+  - Exact duplicate: "nikita khrushchev" at ranks 56, 366, 805
+  - Exact duplicate: "kublai khan" at ranks 68, 682
+  - Exact duplicate: "suleiman the magnificent" at ranks 78, 575
+  - Exact duplicate: "hernn corts" at ranks 99, 665
+  - Exact duplicate: "alan turing" at ranks 102, 438
+  ... and 77 more issues
+
+Diversity Estimates:
+  Regions: Europe: 134, Asia: 51, Middle East: 34, Africa: 24, Americas: 45, Unknown: 712
+  Domains: Politics/Leadership: 60, Science/Technology: 18, Philosophy/Religion: 40, Arts/Literature: 114, Military: 11, Other: 757
+
+Advanced Metrics:
+  Advanced score: 97.5
+  Parenthetical names: 0.8%
+  Multi-person names: 0.2%
+  Comma names: 0.2%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 9.5%

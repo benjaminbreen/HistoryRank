@@ -2,14 +2,14 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Clapperboard, Map, ScatterChart, Menu, X, GitCompareArrows, Award, ChevronDown, BookOpen, FileText, AlertTriangle } from 'lucide-react';
+import { Clapperboard, Map, ScatterChart, Menu, X, GitCompareArrows, Award, ChevronDown, BookOpen, FileText, AlertTriangle, Sun, Moon, Share2 } from 'lucide-react';
 import { SettingsSheet } from '@/components/settings/SettingsSheet';
 import { AboutDialog } from '@/components/about/AboutDialog';
 import { useDarkMode } from '@/hooks/useDarkMode';
 import type { Settings } from '@/hooks/useSettings';
 
 type AppHeaderProps = {
-  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'compare' | 'media' | 'table' | 'benchmarks';
+  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'influence' | 'compare' | 'media' | 'table' | 'benchmarks';
   settings: Settings;
   onSettingsChange: (patch: Partial<Settings>) => void;
   onSettingsReset: () => void;
@@ -20,6 +20,7 @@ const PAGE_LABELS: Record<string, string> = {
   table: 'Rankings',
   maps: 'Maps',
   scatter: 'Scatter',
+  influence: 'Influence Graph',
   media: 'Media Atlas',
   compare: 'Compare',
   benchmarks: 'Benchmarks',
@@ -35,7 +36,7 @@ export function AppHeader({
   onSettingsReset,
   figureCount,
 }: AppHeaderProps) {
-  const { isDarkMode, mounted } = useDarkMode();
+  const { isDarkMode, mounted, toggleDarkMode } = useDarkMode();
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isCompactHeader, setIsCompactHeader] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,9 +47,15 @@ export function AppHeader({
   const dropdownTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const headerRef = useRef<HTMLElement>(null);
 
-  // Compact on scroll
+  // Compact on scroll (hysteresis to prevent oscillation)
   useEffect(() => {
-    const onScroll = () => setIsCompactHeader(window.scrollY > 48);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setIsCompactHeader((prev) => {
+        if (prev) return y > 12;   // stay compact until near top
+        return y > 48;              // compact once scrolled past 48px
+      });
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -71,7 +78,7 @@ export function AppHeader({
     };
   }, [isCompactHeader]);
 
-  // Close dropdowns on outside click
+  // Close dropdowns on outside click or Escape key
   useEffect(() => {
     if (!openDropdown) return;
     const handleClick = (e: MouseEvent) => {
@@ -83,11 +90,18 @@ export function AppHeader({
       ) return;
       setOpenDropdown(null);
     };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenDropdown(null);
+    };
     document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [openDropdown]);
 
-  // Close mobile menu on outside click
+  // Close mobile menu on outside click or Escape
   useEffect(() => {
     if (!isMenuOpen) return;
     const handleClick = (e: MouseEvent) => {
@@ -95,8 +109,15 @@ export function AppHeader({
       if (target.closest('[data-mobile-menu]') || target.closest('[data-menu-trigger]')) return;
       setIsMenuOpen(false);
     };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false);
+    };
     document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isMenuOpen]);
 
   // Cleanup timer
@@ -115,7 +136,7 @@ export function AppHeader({
     dropdownTimerRef.current = setTimeout(() => setOpenDropdown(null), 150);
   }, []);
 
-  const isVisualizeActive = active === 'maps' || active === 'scatter';
+  const isVisualizeActive = active === 'maps' || active === 'scatter' || active === 'influence';
   const isAnalyzeActive = active === 'compare' || active === 'benchmarks';
   const isAboutActive = active === 'about' || active === 'methodology' || active === 'caveats';
   const pageLabel = active ? PAGE_LABELS[active] || null : null;
@@ -124,20 +145,29 @@ export function AppHeader({
     <>
       {/* Gold accent ribbon */}
       <div
-        className="h-[2.5px]"
+        className="h-[2.5px] relative"
         style={{ background: 'linear-gradient(90deg, #c9a55c 0%, #d4a574 40%, #a8bed2 75%, #7a8fa8 100%)' }}
-      />
+      >
+        {/* Warm glow beneath ribbon in dark mode */}
+        <div className="hidden dark:block absolute top-full left-0 right-0 h-[12px] pointer-events-none"
+          style={{ background: 'linear-gradient(180deg, rgba(201,165,92,0.12) 0%, transparent 100%)' }}
+        />
+      </div>
 
       <header
         ref={headerRef}
         className="sticky top-0 z-50 transition-all duration-300 ease-out"
         style={{
-          backgroundColor: mounted && isDarkMode ? 'rgba(15, 23, 42, 0.88)' : 'rgba(250, 250, 247, 0.84)',
+          background: mounted && isDarkMode
+            ? 'linear-gradient(180deg, rgba(12, 14, 20, 0.96) 0%, rgba(17, 19, 27, 0.93) 100%)'
+            : 'rgba(250, 250, 247, 0.84)',
           backdropFilter: 'blur(24px) saturate(1.6)',
           WebkitBackdropFilter: 'blur(24px) saturate(1.6)',
           borderBottom: '1px solid',
-          borderColor: mounted && isDarkMode ? 'rgba(217,119,6,0.15)' : 'rgba(0,0,0,0.05)',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+          borderColor: mounted && isDarkMode ? 'rgba(201,165,92,0.12)' : 'rgba(0,0,0,0.05)',
+          boxShadow: mounted && isDarkMode
+            ? '0 1px 0 rgba(201,165,92,0.06) inset, 0 4px 24px rgba(0,0,0,0.4)'
+            : '0 1px 3px rgba(0,0,0,0.04)',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -153,16 +183,16 @@ export function AppHeader({
             <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
               <button
                 onClick={() => setIsAboutOpen(true)}
-                className="flex-shrink-0 rounded-[7px] border flex items-center justify-center font-serif font-bold tracking-wide transition-all duration-200 hover:scale-[1.04]"
+                className="flex-shrink-0 rounded-[7px] border flex items-center justify-center font-serif font-bold tracking-wide transition-all duration-200 hover:scale-[1.06]"
                 style={{
                   width: isCompactHeader ? '26px' : '30px',
                   height: isCompactHeader ? '26px' : '30px',
                   fontSize: isCompactHeader ? '9px' : '11px',
-                  borderColor: mounted && isDarkMode ? 'rgba(217,119,6,0.3)' : '#c4b99a',
+                  borderColor: mounted && isDarkMode ? 'rgba(201,165,92,0.3)' : '#c4b99a',
                   background: mounted && isDarkMode
-                    ? 'linear-gradient(145deg, rgba(30,41,59,1), rgba(15,23,42,1))'
+                    ? 'linear-gradient(145deg, rgba(38, 42, 52, 1), rgba(22, 25, 34, 1))'
                     : 'linear-gradient(145deg, #faf5eb, #f0e8d8)',
-                  color: mounted && isDarkMode ? '#d4a574' : '#7a6630',
+                  color: mounted && isDarkMode ? '#d4b880' : '#7a6630',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
                 aria-label="Open About"
@@ -219,6 +249,9 @@ export function AppHeader({
                   </DropdownItem>
                   <DropdownItem href="/scatter" icon={<ScatterChart />} desc="Correlations" isActive={active === 'scatter'} onClick={() => setOpenDropdown(null)}>
                     Scatter
+                  </DropdownItem>
+                  <DropdownItem href="/influence" icon={<Share2 />} desc="Network" isActive={active === 'influence'} onClick={() => setOpenDropdown(null)}>
+                    Influence
                   </DropdownItem>
                 </DropdownPanel>
               </div>
@@ -307,6 +340,12 @@ export function AppHeader({
 
               <div className="w-px h-[18px] bg-stone-300/40 dark:bg-slate-600/40 mx-1.5" />
 
+              <ThemeToggleButton
+                isDarkMode={mounted && isDarkMode}
+                onToggle={toggleDarkMode}
+                className="mr-1.5"
+              />
+
               <SettingsSheet
                 settings={settings}
                 onChange={onSettingsChange}
@@ -318,10 +357,15 @@ export function AppHeader({
             <div className="flex items-center gap-1.5 md:hidden">
               {/* Current page indicator on mobile */}
               {pageLabel && active !== 'table' && (
-                <span className="text-xs font-medium text-stone-500 dark:text-slate-400 truncate max-w-[80px]">
+                <span className="text-xs font-medium text-stone-500 dark:text-slate-400 truncate max-w-[120px]">
                   {pageLabel}
                 </span>
               )}
+              <ThemeToggleButton
+                isDarkMode={mounted && isDarkMode}
+                onToggle={toggleDarkMode}
+                mobile
+              />
               <button
                 type="button"
                 data-menu-trigger
@@ -388,6 +432,9 @@ export function AppHeader({
               <MobileNavLink href="/scatter" icon={<ScatterChart className="h-4 w-4" />} isActive={active === 'scatter'} onClick={() => setIsMenuOpen(false)}>
                 Scatter
               </MobileNavLink>
+              <MobileNavLink href="/influence" icon={<Share2 className="h-4 w-4" />} isActive={active === 'influence'} onClick={() => setIsMenuOpen(false)}>
+                Influence
+              </MobileNavLink>
 
               <div className="my-1.5 mx-1">
                 <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-slate-500 px-3 pb-1">Analyze</div>
@@ -449,14 +496,16 @@ function DropdownPanel({
 
   return (
     <div
-      className={`absolute top-[calc(100%+6px)] ${positionClass} min-w-[210px] bg-white dark:bg-slate-800 border rounded-[10px] p-1 transition-all duration-[180ms] ease-out ${
+      className={`absolute top-[calc(100%+6px)] ${positionClass} min-w-[210px] bg-white dark:bg-[#181b24] border rounded-[10px] p-1 transition-all duration-[180ms] ease-out ${
         isOpen
           ? `opacity-100 pointer-events-auto translate-y-0 ${align === 'center' ? '-translate-x-1/2' : ''}`
           : `opacity-0 pointer-events-none -translate-y-1 ${align === 'center' ? '-translate-x-1/2' : ''}`
       }`}
       style={{
-        borderColor: isDarkMode ? 'rgba(51,65,85,0.8)' : 'rgba(0,0,0,0.08)',
-        boxShadow: '0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04)',
+        borderColor: isDarkMode ? 'rgba(201,165,92,0.15)' : 'rgba(0,0,0,0.08)',
+        boxShadow: isDarkMode
+          ? '0 8px 30px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3), 0 0 1px rgba(201,165,92,0.1)'
+          : '0 8px 30px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.04)',
       }}
     >
       {children}
@@ -486,7 +535,7 @@ function DropdownItem({
     <Link
       href={href}
       onClick={onClick}
-      className={`flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium rounded-[7px] transition-colors ${
+      className={`flex items-center gap-2.5 px-3 py-2 text-[13px] font-medium rounded-[7px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
         isActive
           ? 'text-stone-900 dark:text-amber-100 bg-stone-50 dark:bg-slate-700/50'
           : secondary
@@ -520,7 +569,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className={`relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 ${
+      className={`relative flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium rounded-md transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
         isActive
           ? 'text-stone-900 dark:text-amber-100'
           : 'text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-black/[0.035] dark:hover:bg-white/[0.06]'
@@ -568,5 +617,33 @@ function MobileNavLink({
       </span>
       {children}
     </Link>
+  );
+}
+
+function ThemeToggleButton({
+  isDarkMode,
+  onToggle,
+  mobile = false,
+  className,
+}: {
+  isDarkMode: boolean;
+  onToggle: () => void;
+  mobile?: boolean;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={isDarkMode ? 'Light mode' : 'Dark mode'}
+      className={`inline-flex items-center justify-center rounded-lg border transition-all ${
+        mobile
+          ? 'w-10 h-10 border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-300 hover:text-stone-900 dark:hover:text-slate-100 hover:border-stone-300 dark:hover:border-slate-500'
+          : 'w-8 h-8 border-stone-200/70 dark:border-slate-600/50 bg-white/70 dark:bg-slate-800/60 text-stone-500 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:border-stone-300/80 dark:hover:border-slate-500'
+      } ${className ?? ''}`}
+    >
+      {isDarkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+    </button>
   );
 }

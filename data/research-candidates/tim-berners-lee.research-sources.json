@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:18:53.652Z",
+  "figureId": "tim-berners-lee",
+  "figureName": "Tim Berners-Lee",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 291,
+      "candidatesTokenCount": 645,
+      "totalTokenCount": 936,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 291
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Information Management: A Proposal",
+        "author": "Tim Berners-Lee",
+        "year": 1989,
+        "rationale": "This is the foundational document where Tim Berners-Lee first proposed the World Wide Web. It outlines the core concepts and technical specifications.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web by its Inventor",
+        "author": "Tim Berners-Lee",
+        "year": 1999,
+        "rationale": "Berners-Lee's autobiography and reflection on the creation and evolution of the Web. It provides personal insights and historical context.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The World Wide Web: Past, Present and Future",
+        "author": "Tim Berners-Lee",
+        "year": 1996,
+        "rationale": "A paper presented at the first International World Wide Web Conference, offering a retrospective and forward-looking view from the inventor.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web by its Inventor",
+        "author": "Tim Berners-Lee",
+        "year": 1999,
+        "rationale": "While authored by Berners-Lee, this book is often cited as a primary historical account and is a crucial secondary source for understanding the Web's origins from his perspective.",
+        "sourceType": "book"
+      },
+      {
+        "title": "A Brief History of the World Wide Web",
+        "author": "Niall Sclater",
+        "year": 2017,
+        "rationale": "An academic article providing a concise historical overview of the World Wide Web, likely referencing Berners-Lee's contributions and foundational documents.",
+        "sourceType": "article"
+      },
+      {
+        "title": "The World Wide Web: A very short introduction",
+        "author": "Tim Berners-Lee",
+        "year": 2019,
+        "rationale": "A concise overview of the Web's history, development, and impact, written by its inventor, serving as both a primary and accessible secondary source.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Tim Berners-Lee's own writings, especially his proposal and autobiography, are the most critical primary sources. Secondary sources often analyze his work and the Web's impact."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Information Management: A Proposal",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web by its Inventor",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The World Wide Web: Past, Present and Future",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Weaving the Web: The Original Design and Ultimate Destiny of the World Wide Web by its Inventor",
+      "reason": "Best score below threshold (0.30 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "A Brief History of the World Wide Web",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.61"
+    },
+    {
+      "role": "secondary",
+      "title": "The World Wide Web: A very short introduction",
+      "reason": "Best score below threshold (0.34 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

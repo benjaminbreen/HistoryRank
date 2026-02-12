@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.462Z",
+  "figureId": "david-hume",
+  "figureName": "David Hume",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Hume, David",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHume%2C_David",
+      "snippet": "Of Hume’s early education little is known beyond what he has himself stated in his Life . He appears to have entered the Greek classes of the university of Edinburgh in 1723, and, he tells us, “passed through the ordinary course of education with success.” From a letter printed in Burton’s Life (i. 30-39), it appears that about 1726 Hume returned to Ninewells with a fair knowledge of Latin, slight acquaintance with Greek and literary tastes decidedly inclining to “books of reasoning and philosophy, and to poetry and the polite authors.” We do not know, except by inference, to what studies he especially devoted himself.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2023,
+      "source_title": "Hume, David",
+      "source_url": "https://plato.stanford.edu/entries/hume/",
+      "snippet": "Generally regarded as one of the most important philosophers to write in English, David Hume (1711-1776) was also well known in his own time as an historian and essayist. A master stylist in any genre, his major philosophical works— A Treatise of Human Nature (1739-1740), the Enquiries concerning Human Understanding (1748) and concerning the Principles of Morals (1751), as well as his posthumously published Dialogues concerning Natural Religion (1779)—remain widely and deeply influential. Although Hume's more conservative contemporaries denounced his writings as works of scepticism and atheism, his influence is evident in the moral philosophy and economic writings of his close friend Adam Smith. Kant reported that Hume's work woke him from his \"dogmatic slumbers\" ( Prolegomena , Introduction) and Jeremy Bentham remarked that reading Hume \"caused the scales to fall\" from his eyes (\"A Fragment on Government\", chapter 1, paragraph 36, footnote 2). Charles Darwin regarded his work as a central influence on the theory of evolution. The diverse directions in which these writers took what they gleaned from reading him reflect both the richness of their sources and the wide range of his empiricism. Today, philosophers recognize Hume as a thoroughgoing exponent of philosophical naturalism, as a precursor of contemporary cognitive science, and as the inspiration for several of the most significant types of ethical theory developed in contemporary moral philosophy.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

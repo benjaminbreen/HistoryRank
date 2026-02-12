@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wax Seal Mockup V5 - Porcelain Cameo</title>
+  <style>
+    :root {
+      --bg-a: #f1f4f8;
+      --bg-b: #d8dee8;
+      --ink: #1f2b3a;
+      --ceramic-1: #fefefe;
+      --ceramic-2: #e4ebf4;
+      --ceramic-3: #c2cfdd;
+      --trim: #a3b1c2;
+      --face-1: #f6f9ff;
+      --face-2: #5f7fb0;
+      --face-3: #364f73;
+      --text-on: #f3f8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(1300px 760px at 0% 0%, #ffffff 0%, transparent 58%),
+        radial-gradient(1100px 700px at 100% 100%, #e7edf6 0%, transparent 62%),
+        linear-gradient(145deg, var(--bg-a), var(--bg-b));
+    }
+
+    .sheet {
+      width: min(900px, 100%);
+      border-radius: 22px;
+      border: 1px solid #b4c0d0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.58));
+      box-shadow: 0 16px 30px rgba(31, 44, 66, 0.2), inset 0 1px 0 rgba(255,255,255,0.88);
+      padding: 24px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font: 600 28px/1.1 "Iowan Old Style", "Times New Roman", serif;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .meta { display: grid; gap: 10px; font-size: 15px; }
+
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      color: #5f6f84;
+      margin-right: 8px;
+    }
+
+    .cameo {
+      width: 118px;
+      height: 118px;
+      border-radius: 999px;
+      border: 1px solid #97a8bc;
+      background:
+        radial-gradient(circle at 30% 22%, var(--ceramic-1) 0%, var(--ceramic-2) 56%, var(--ceramic-3) 100%);
+      box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.9),
+        inset 0 -6px 10px rgba(89, 109, 136, 0.35),
+        0 10px 18px rgba(55, 72, 98, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cameo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,255,255,0.7), transparent 42%),
+        repeating-linear-gradient(35deg, rgba(150,166,188,0.08) 0px 2px, rgba(255,255,255,0) 2px 10px);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .cameo-core {
+      position: absolute;
+      inset: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.75);
+      background: radial-gradient(circle at 28% 24%, var(--face-1) 0%, var(--face-2) 58%, var(--face-3) 100%);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.25), inset 0 -3px 6px rgba(38,58,89,0.56);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--text-on);
+      text-shadow: 0 1px 1px rgba(17, 26, 39, 0.72);
+    }
+
+    .rank-label {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .rank-num {
+      margin: 4px 0 0;
+      font: 700 32px/1 "Iowan Old Style", "Times New Roman", serif;
+    }
+
+    .cap {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #607089;
+    }
+
+    .controls {
+      margin-top: 16px;
+      border-top: 1px dashed #b4c3d5;
+      padding-top: 12px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .controls label { display: flex; align-items: center; gap: 6px; }
+
+    input, select {
+      border: 1px solid #b6c5d8;
+      border-radius: 9px;
+      background: #f8fbff;
+      color: #243246;
+      padding: 5px 8px;
+      font: inherit;
+    }
+
+    @media (max-width: 680px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <h1>Wax Seal V5: Porcelain Cameo</h1>
+
+    <section class="layout">
+      <div class="meta">
+        <div><span class="label">Role</span>Philosopher</div>
+        <div><span class="label">Born</span>428 BCE in Athens <span class="label" style="margin-left:12px;">Died</span>348 BCE</div>
+        <div><span class="label">Notable works</span>Republic, Symposium, Timaeus</div>
+      </div>
+
+      <div>
+        <div class="cameo">
+          <div class="cameo-core">
+            <p id="rankLabel" class="rank-label">Rank</p>
+            <p id="rankNum" class="rank-num">#31</p>
+          </div>
+        </div>
+        <div class="cap">Archive Emblem</div>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label>Domain
+        <select id="domain">
+          <option>Science</option>
+          <option>Religion</option>
+          <option selected>Philosophy</option>
+          <option>Politics</option>
+          <option>Military</option>
+          <option>Arts</option>
+          <option>Exploration</option>
+          <option>Economics</option>
+          <option>Medicine</option>
+        </select>
+      </label>
+      <label>Rank
+        <input id="rank" type="number" min="1" max="5000" value="31" />
+      </label>
+    </section>
+  </main>
+
+  <script>
+    const palettes = {
+      Science: ['#ffffff', '#e7edf8', '#bfd0e6', '#f4f8ff', '#5b83c1', '#35557e', '#f2f7ff'],
+      Religion: ['#fffefe', '#ece6f5', '#c8badf', '#f8f3ff', '#8f6bbb', '#5a407e', '#faf5ff'],
+      Philosophy: ['#fefefe', '#e4ebf4', '#c2cfdd', '#f6f9ff', '#5f7fb0', '#364f73', '#f3f8ff'],
+      Politics: ['#fffefe', '#f2e7ea', '#d3b8c0', '#fff3f5', '#b55d6f', '#6f3240', '#fff6f8'],
+      Military: ['#fffefb', '#f2e8de', '#d3bfa9', '#fff7ef', '#b67a4f', '#774825', '#fff9f4'],
+      Arts: ['#ffffff', '#e4f0ea', '#bad9cd', '#effcf6', '#4f9b7f', '#2d624e', '#f3fff9'],
+      Exploration: ['#ffffff', '#e4eef1', '#bdd0d7', '#eef9fc', '#4f8ea1', '#2d5a67', '#f3fdff'],
+      Economics: ['#fffefc', '#f0ebdf', '#d1c5ac', '#fff8ed', '#a98f55', '#6a5732', '#fffaf2'],
+      Medicine: ['#ffffff', '#efe6f0', '#d0b9d3', '#fdf1ff', '#9a63a4', '#633867', '#fff5ff']
+    };
+
+    const root = document.documentElement;
+    const rankInput = document.getElementById('rank');
+    const domainInput = document.getElementById('domain');
+    const rankLabel = document.getElementById('rankLabel');
+    const rankNum = document.getElementById('rankNum');
+
+    function setDomain(name) {
+      const p = palettes[name] || palettes.Philosophy;
+      root.style.setProperty('--ceramic-1', p[0]);
+      root.style.setProperty('--ceramic-2', p[1]);
+      root.style.setProperty('--ceramic-3', p[2]);
+      root.style.setProperty('--face-1', p[3]);
+      root.style.setProperty('--face-2', p[4]);
+      root.style.setProperty('--face-3', p[5]);
+      root.style.setProperty('--text-on', p[6]);
+    }
+
+    function setRank(v) {
+      const n = Math.max(1, Math.floor(Number(v) || 1));
+      const d = String(n).length;
+      rankNum.textContent = `#${n}`;
+      rankLabel.style.fontSize = d <= 2 ? '9px' : d === 3 ? '8px' : '7px';
+      rankNum.style.fontSize = d <= 2 ? '32px' : d === 3 ? '27px' : '21px';
+    }
+
+    domainInput.addEventListener('change', () => setDomain(domainInput.value));
+    rankInput.addEventListener('input', () => setRank(rankInput.value));
+
+    setDomain(domainInput.value);
+    setRank(rankInput.value);
+  </script>
+</body>
+</html>

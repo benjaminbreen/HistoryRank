@@ -101,6 +101,7 @@ export interface FiguresResponse {
   stats?: {
     totalLists: number;
     totalModels: number;
+    totalRankings?: number;
   };
 }
 
@@ -126,10 +127,19 @@ export interface MapResponse {
   };
 }
 
+export interface FigureNeighbor {
+  id: string;
+  name: string;
+}
+
 export interface FigureDetailResponse {
   figure: Figure;
   rankings: Ranking[];
   aliases?: string[];
+  neighbors?: {
+    prev: FigureNeighbor | null;
+    next: FigureNeighbor | null;
+  };
 }
 
 export interface FigureEvidenceSource {
@@ -175,6 +185,26 @@ export interface FigureEvidenceSnippet {
   metadata: Record<string, unknown>;
 }
 
+export interface FigureEvidenceWikidataFact {
+  id: number;
+  propertyId: string;
+  propertyLabel: string;
+  value: string;
+  sourceUrl: string;
+  confidence: number;
+  metadata: Record<string, unknown>;
+}
+
+export interface FigureEvidenceWikipediaSection {
+  id: number;
+  sectionTitle: string;
+  excerpt: string;
+  sourceUrl: string;
+  accessUrl: string | null;
+  confidence: number;
+  metadata: Record<string, unknown>;
+}
+
 export interface FigureEvidenceAssessment {
   id: number;
   assessmentKind: string;
@@ -211,6 +241,8 @@ export interface FigureEvidenceResponse {
     sources: FigureEvidenceSource[];
     quotes: FigureEvidenceQuote[];
     historicalSnippets: FigureEvidenceSnippet[];
+    wikidataFacts: FigureEvidenceWikidataFact[];
+    wikipediaSections: FigureEvidenceWikipediaSection[];
   };
   timeline: {
     assessment: FigureEvidenceAssessment | null;
@@ -223,6 +255,64 @@ export interface FigureEvidenceResponse {
     eventCount: number;
     hasAnyEvidence: boolean;
   };
+}
+
+export interface InfluenceNetworkNode {
+  id: string;
+  name: string;
+  llmRank: number | null;
+  birthYear: number | null;
+  deathYear: number | null;
+  domain: string | null;
+  status: 'approved' | 'candidate';
+  degree: number;
+}
+
+export interface InfluenceNetworkEdge {
+  id: number;
+  source: string;
+  target: string;
+  direction: 'directed' | 'undirected';
+  relationType: 'influenced' | 'mentored' | 'rival' | 'associated';
+  confidence: number;
+  evidenceScore: number;
+  supportCount: number;
+  sourceFamilyCount: number;
+  status: 'approved' | 'candidate';
+}
+
+export interface InfluenceNetworkResponse {
+  nodes: InfluenceNetworkNode[];
+  edges: InfluenceNetworkEdge[];
+  stats: {
+    figureWindow: number;
+    connectedNodes: number;
+    edgeCount: number;
+    approvedCount: number;
+    candidateCount: number;
+  };
+}
+
+export interface InfluenceEdgeEvidenceItem {
+  id: number;
+  evidenceKind: 'timeline_ref' | 'source_excerpt' | 'snippet_match' | 'llm_seed';
+  sourceTable: 'figure_timeline_events' | 'figure_research_sources' | 'figure_historical_snippets' | 'figures';
+  sourceRowId: number | null;
+  excerpt: string | null;
+  weight: number;
+  metadata: Record<string, unknown>;
+  sourceTitle: string | null;
+  sourceUrl: string | null;
+  sourceFigureId: string | null;
+  sourceFigureName: string | null;
+}
+
+export interface InfluenceEdgeDetailResponse {
+  edge: InfluenceNetworkEdge & {
+    sourceName: string;
+    targetName: string;
+  };
+  evidence: InfluenceEdgeEvidenceItem[];
 }
 
 // Filter options

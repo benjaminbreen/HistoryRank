@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 4 (January 12, 2025).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-02-10T23:45:02.932Z
+
+VERDICT: FAIL
+
+Summary: Issues: 3 exact duplicates; 1026 entries (expected 500 or 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 3 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: FAIL - 1026 entries (expected 500 or 1000); non-sequential ranks
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (115):
+  - Exact duplicate: "deng xiaoping" at ranks 99, 340
+  - Exact duplicate: "charles darwin dup avoided earlier list" at ranks 844, 985
+  - Exact duplicate: "tim bernerslee dup avoided earlier list" at ranks 906, 999
+  - Fuzzy duplicate: jesus of nazareth / jesus of nazareth dup avoided earlier list at ranks 2, 977
+  - Fuzzy duplicate: gautama buddha / siddhartha gautama buddha / gautama buddha dup avoided earlier list at ranks 3, 26, 979
+  - Fuzzy duplicate: isaac newton / isaac newton dup avoided earlier list at ranks 5, 967
+  - Fuzzy duplicate: karl marx / karl marx dup avoided earlier list at ranks 6, 971
+  - Fuzzy duplicate: johannes gutenberg / johannes gutenberg dup avoided earlier list at ranks 7, 970
+  - Fuzzy duplicate: christopher columbus / christopher columbus dup avoided earlier list at ranks 8, 984
+  - Fuzzy duplicate: albert einstein / albert einstein dup avoided earlier list at ranks 9, 966
+  ... and 105 more issues
+
+Diversity Estimates:
+  Regions: Europe: 57, Asia: 61, Middle East: 30, Africa: 18, Americas: 12, Unknown: 848
+  Domains: Politics/Leadership: 25, Science/Technology: 14, Philosophy/Religion: 29, Arts/Literature: 37, Military: 19, Other: 902
+
+Advanced Metrics:
+  Advanced score: 89.8
+  Parenthetical names: 15.3%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 4.4%
+  Short contributions: 0.3%

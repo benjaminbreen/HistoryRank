@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.390Z",
+  "figureId": "johannes-gutenberg",
+  "figureName": "Johannes Gutenberg",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Gutenberg, Johann",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FGutenberg%2C_Johann",
+      "snippet": "It is not known whether any books were printed while this partnership between Gutenberg and Fust lasted. Trithemius ( Ann. Hirsaug. ii. 421) says they first printed, from wooden blocks, a vocabulary called Catholicon , which cannot have been the Catholicon of Johannes de Janua, a folio of 748 pages in two columns of 66 lines each, printed in 1460, but was perhaps a small glossary now lost. &#91; 3 &#93;",
+      "match_score": 0.91,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 1454,
+      "source_title": "Gutenberg Bible.",
+      "source_url": "https://www.loc.gov/item/2021666734/",
+      "snippet": "Johann Gutenberg was born in Mainz, Germany, around 1400, the son of an aristocratic family with ties to the local metalworking industry. He lived in Strasbourg (in present-day France) for a time, where he carried out experiments with moveable metallic type made from a mold. By the mid-1450s, he had perfected a system of printing with moveable type that he used to create what became the world's most famous book, the Latin translation of the Bible (Vulgate), generally known as the Gutenberg Bible. Scholars have thoroughly researched all aspects of Gutenberg's work: the elaborate typeface with its 290 different characters derived from a Gothic missal script, the way he divided the text in the typesetting process, and the paper he used in the printing. Yet certain fundamental matters about the Gutenberg Bible are unknown or remain matters of dispute. The date on which the printing was completed is based solely on the notation \"1455\" on the binding of the Paris paper copy. It is believed that 180 copies of the Bible were printed, but this information is based on a single letter of Enea Silvio Piccolomini (the future Pope Pius II), who viewed samples of Gutenberg's work in Frankfurt in 1455. Gutenberg originally intended to print in red the headings of the books of the Bible, but he abandoned this approach, using instead a separately printed table as a pattern for entering these lines by hand. Of the 49 extant, more-or-less complete copies of the Gutenberg Bible (12 on vellum, 37 on paper), this copy from the Bavarian State Library is one of only two (along with one copy in the Austrian National Library) in which this table is found as a vestige of the production process.",
+      "match_score": 0.798,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 11 (February 10, 2026)).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-02-10T23:44:54.076Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 244 fuzzy duplicates found
+  Pattern Collapse: PASS - Max sequence of 25 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (108):
+  - Fuzzy duplicate: henry viii of england / henry vi of england at ranks 25, 245
+  - Fuzzy duplicate: pope benedict xvi / pope benedict xv / pope gregory xvi / pope benedict xiv at ranks 29, 321, 433, 641
+  - Fuzzy duplicate: louis xiv of france / louis xvi of france / louis xv of france / louis xiii of france / louis xviii of france / louis xvii of france / louis ix of france / louis xii of france at ranks 41, 94, 248, 392, 438, 627, 783, 935
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 45, 49
+  - Fuzzy duplicate: pope john paul ii / pope john paul i / pope julius ii / pope pius ii / pope urban ii / pope marcellus ii at ranks 48, 116, 454, 676, 761, 889
+  - Fuzzy duplicate: muhammad ali / muhammad ali jinnah / muhammad ali of egypt at ranks 86, 255, 869
+  - Fuzzy duplicate: george vi / george v at ranks 87, 113
+  - Fuzzy duplicate: louis xvi of france / louis xv of france / louis xiii of france / louis xviii of france / louis xvii of france / louis ix of france / louis xii of france at ranks 94, 248, 392, 438, 627, 783, 935
+  - Fuzzy duplicate: charles i of england / charles ii of england at ranks 110, 165
+  - Fuzzy duplicate: pope john paul i / pope clement i / pope leo i / pope gregory i / pope sylvester i at ranks 116, 317, 699, 726, 727
+  ... and 98 more issues
+
+Diversity Estimates:
+  Regions: Europe: 11, Asia: 3, Middle East: 1, Americas: 13, Unknown: 972
+  Domains: Politics/Leadership: 454, Science/Technology: 1, Philosophy/Religion: 136, Arts/Literature: 252, Military: 20, Other: 137
+
+Advanced Metrics:
+  Advanced score: 99.6
+  Parenthetical names: 0.0%
+  Multi-person names: 0.1%
+  Comma names: 3.2%
+  Short names: 0.1%
+  Long names: 0.1%
+  Short contributions: 0.0%

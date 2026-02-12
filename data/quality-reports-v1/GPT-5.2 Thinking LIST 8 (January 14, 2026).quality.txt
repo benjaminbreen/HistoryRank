@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.2 Thinking LIST 8 (January 14, 2026).txt
+Model: GPT-5.2 Thinking
+Timestamp: 2026-02-10T23:45:14.850Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (60):
+  - Exact duplicate: "gregor mendel" at ranks 106, 199
+  - Fuzzy duplicate: martin luther / martin luther king jr / martin luther relisted at ranks 12, 160, 595
+  - Fuzzy duplicate: genghis khan / genghis khan temujin at ranks 17, 346
+  - Fuzzy duplicate: thomas aquinas / st thomas aquinas relisted at ranks 21, 858
+  - Fuzzy duplicate: sargon of akkad / sargon of akkad relisted at ranks 27, 894
+  - Fuzzy duplicate: john locke / john locke relisted at ranks 34, 868
+  - Fuzzy duplicate: thomas jefferson / thomas jefferson relisted at ranks 42, 869
+  - Fuzzy duplicate: adam smith / adam smith relisted at ranks 44, 747
+  - Fuzzy duplicate: zheng he / zheng he relisted at ranks 47, 642
+  - Fuzzy duplicate: hernn corts / hernando corts / hernn corts relisted at ranks 65, 304, 633
+  ... and 50 more issues
+
+Diversity Estimates:
+  Regions: Europe: 41, Asia: 34, Middle East: 35, Africa: 13, Americas: 9, Unknown: 868
+  Domains: Politics/Leadership: 25, Science/Technology: 12, Philosophy/Religion: 6, Arts/Literature: 28, Military: 7, Other: 922
+
+Advanced Metrics:
+  Advanced score: 75.6
+  Parenthetical names: 9.5%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 93.3%

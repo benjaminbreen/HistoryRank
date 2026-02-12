@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.537Z",
+  "figureId": "ronald-reagan",
+  "figureName": "Ronald Reagan",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Ronald Reagan is consistently described across 12 model source lists as influential for: Ronald Reagan reshaped governance through state-building, legal reform, and durable changes to political institutions; U.S. President, end of Cold War; U.S. President who helped end the Cold War; U.S. President during end of Cold War; US President contributing to end of Cold War; Cold War Leadership and Economic Policies; Ronald Reagan shifted political order by building, reforming, or toppling institutions that governed large populations; Neoliberal turn and Cold War strategy; global influence.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

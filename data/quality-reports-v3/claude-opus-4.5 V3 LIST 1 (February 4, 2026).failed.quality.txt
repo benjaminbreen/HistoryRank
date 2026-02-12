@@ -1,0 +1,36 @@
+Quality Assessment Report
+========================
+File: claude-opus-4.5 V3 LIST 1 (February 4, 2026).failed.txt
+Model: claude-opus-4.5 V3
+Timestamp: 2026-02-10T23:12:32.179Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 3 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (6):
+  - Exact duplicate: "blaise pascal" at ranks 80, 490
+  - Exact duplicate: "soren kierkegaard" at ranks 200, 491
+  - Exact duplicate: "fyodor dostoevsky" at ranks 339, 492
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 19, 182
+  - Fuzzy duplicate: baruch spinoza / baruch de spinoza at ranks 202, 322
+  - Pattern collapse: "influencing" (10 entries, ranks 201-210)
+
+Diversity Estimates:
+  Regions: Europe: 60, Asia: 23, Middle East: 22, Africa: 2, Americas: 23, Unknown: 370
+  Domains: Politics/Leadership: 11, Science/Technology: 8, Philosophy/Religion: 16, Arts/Literature: 9, Military: 5, Other: 451
+
+Advanced Metrics:
+  Advanced score: 99.9
+  Parenthetical names: 0.2%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

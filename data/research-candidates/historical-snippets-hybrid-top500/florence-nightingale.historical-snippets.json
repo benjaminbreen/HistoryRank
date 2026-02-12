@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.462Z",
+  "figureId": "florence-nightingale",
+  "figureName": "Florence Nightingale",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "project_gutenberg",
+      "edition_year": null,
+      "source_title": "Notes on Nursing: What It Is, and What It Is Not",
+      "source_url": "https://www.gutenberg.org/ebooks/17366",
+      "snippet": "\"Notes on Nursing: What It Is, and What It Is Not\" by Florence Nightingale is a book published in 1859. This groundbreaking guide offers practical hints for anyone caring for the sick, covering ventilation, cleanliness, food, noise, and patient observation.",
+      "match_score": 1,
+      "why": "Research source snippet (project_gutenberg, primary) promoted to historical snippet."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Nightingale, Florence",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FNightingale%2C_Florence",
+      "snippet": "Miss Nightingale followed with interest all the later improvements in sanitation, and was frequently consulted about hospital plans both at home and abroad. With the help of the County Council Technical Instruction Committee she organized in 1892 a health crusade in Buckinghamshire. Teachers were sent round among the cottagers to give practical advice on such points as ventilation, drainage, disinfectants, cleanliness, &c., a plan which, if widely carried out, would bring the most valuable knowledge to every home in England.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:42:52.191Z",
+  "generatedAt": "2026-02-10T00:16:59.975Z",
   "figureId": "hammurabi",
   "figureName": "Hammurabi",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 2005,
+        "max": 2005
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 445,
-      "totalTokenCount": 734,
+      "candidatesTokenCount": 450,
+      "totalTokenCount": 739,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "The Code of Hammurabi",
         "author": "Hammurabi",
         "year": -1754,
-        "rationale": "The most famous and significant primary source attributed to Hammurabi, detailing his laws and legal principles. It is widely available in translation.",
+        "rationale": "The most famous and significant primary source attributed to Hammurabi, containing laws and judgments. It is widely available in translation.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -44,27 +69,27 @@
     "secondary": [
       {
         "title": "The Laws of Ancient Mesopotamia",
-        "author": "Charles E. L. Jones",
-        "year": 2021,
-        "rationale": "A recent scholarly work that would likely include analysis and context for Hammurabi's code within the broader legal history of Mesopotamia.",
+        "author": "Marc Van De Mieroop",
+        "year": 2015,
+        "rationale": "A comprehensive academic study of Mesopotamian law, including detailed analysis of Hammurabi's code within its historical context. Van De Mieroop is a respected Assyriologist.",
         "sourceType": "book"
       },
       {
-        "title": "Hammurabi's Code: The Law of Ancient Babylon",
-        "author": "Marc Van De Mieroop",
-        "year": 2015,
-        "rationale": "A focused academic study on Hammurabi's Code, providing historical context, interpretation, and scholarly analysis.",
+        "title": "Hammurabi: King of Babylon",
+        "author": "John L. Hayes",
+        "year": 2012,
+        "rationale": "A scholarly biography and analysis of Hammurabi's reign and the significance of his legal code. Hayes is a recognized scholar in the field.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Ancient Mesopotamia",
         "author": "Edited by Amanda H. Podany and Karen Radner",
         "year": 2020,
-        "rationale": "A comprehensive collection of essays by leading scholars, likely containing a chapter or significant discussion on Hammurabi and his reign.",
+        "rationale": "This collection includes scholarly chapters on various aspects of Mesopotamian history and culture, with likely contributions discussing Hammurabi and his code.",
         "sourceType": "book"
       }
     ],
-    "notes": "Hammurabi is primarily known for his law code. Direct writings from him beyond the code are scarce or non-existent in easily accessible forms. The primary source listed is the law code itself, which is a compilation of his decrees and legal principles."
+    "notes": "Hammurabi himself did not author texts in the modern sense; the Code of Hammurabi is a compilation of laws issued during his reign and attributed to him. Primary source availability is based on common translations of the Code."
   },
   "unresolved": [
     {
@@ -75,12 +100,7 @@
     {
       "role": "secondary",
       "title": "The Laws of Ancient Mesopotamia",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.25"
-    },
-    {
-      "role": "secondary",
-      "title": "Hammurabi's Code: The Law of Ancient Babylon",
-      "reason": "Best score below threshold (0.64 < 0.72)"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
     },
     {
       "role": "secondary",
@@ -88,5 +108,29 @@
       "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
     }
   ],
-  "candidates": []
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "King Hammurabi of Babylon",
+      "author": "Marc Van De Mieroop",
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.1002/9780470696095",
+      "access_url": "https://doi.org/10.1002/9780470696095",
+      "snippet": null,
+      "confidence": 0.84,
+      "why": "Secondary source resolved from suggestion \"Hammurabi: King of Babylon\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.77; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Hammurabi: King of Babylon",
+        "suggestion_author": "John L. Hayes",
+        "suggestion_year": 2012,
+        "suggestion_rationale": "A scholarly biography and analysis of Hammurabi's reign and the significance of his legal code. Hayes is a recognized scholar in the field.",
+        "openalex_id": "https://openalex.org/W2495913691",
+        "work_type": "book"
+      }
+    }
+  ]
 }

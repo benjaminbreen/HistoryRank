@@ -1,7 +1,7 @@
 {
   "file": "Gemini Pro 3 LIST 3 (January 13, 2025).txt",
   "model": "Gemini Pro 3",
-  "timestamp": "2026-02-05T18:16:55.407Z",
+  "timestamp": "2026-02-10T18:22:55.332Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -766,7 +766,7 @@
       "validJson": true,
       "sequentialRanks": false,
       "status": "FAIL",
-      "details": "1017 entries (expected 1000); non-sequential ranks"
+      "details": "1017 entries (expected 500 or 1000); non-sequential ranks"
     },
     "anchor_coverage": {
       "found": 58,
@@ -1740,5 +1740,5 @@
     "contributionShortRate": 0.0019665683382497543,
     "score": 99.13470993117011
   },
-  "summary": "Issues: 14 exact duplicates; pattern collapse (max 23); 1017 entries (expected 1000); non-sequential ranks"
+  "summary": "Issues: 14 exact duplicates; pattern collapse (max 23); 1017 entries (expected 500 or 1000); non-sequential ranks"
 }

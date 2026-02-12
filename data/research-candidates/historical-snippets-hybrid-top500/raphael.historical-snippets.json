@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.545Z",
+  "figureId": "raphael",
+  "figureName": "Raphael",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Raphael is consistently described across 13 model source lists as influential for: High Renaissance art; The School of Athens; Italian painter and architect of the High Renaissance, known for his Madonnas and the School of Athens; Renaissance painter and architect; known for clarity of form and the *School of Athens*; High Renaissance art; perfected classical artistic ideals; Italian painter and architect of the High Renaissance, known for his Madonnas and frescoes in the Vatican; Italian painter and architect of the High Renaissance, known for his clarity of form and ease of composition; Renaissance painting, School of Athens; Painter whose harmonious compositions epitomized High Renaissance ideals and influenced Western art for centuries.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

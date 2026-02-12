@@ -1,0 +1,315 @@
+{
+  "file": "Claude Sonnet 4.5 LIST 1 (January 12, 2025).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-02-10T23:44:04.400Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 16,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 552,
+          "endRank": 561,
+          "count": 10,
+          "examples": [
+            "552. Rabindranath Tagore",
+            "553. R.K. Narayan",
+            "554. Salman Rushdie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music",
+          "startRank": 601,
+          "endRank": 615,
+          "count": 15,
+          "examples": [
+            "601. Camille Saint-Saëns",
+            "602. Gabriel Fauré",
+            "603. Claude Debussy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music",
+          "startRank": 621,
+          "endRank": 636,
+          "count": 16,
+          "examples": [
+            "621. Carl Orff",
+            "622. Paul Hindemith",
+            "623. Béla Bartók"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "music",
+          "startRank": 663,
+          "endRank": 675,
+          "count": 13,
+          "examples": [
+            "663. Michael Jackson",
+            "664. Prince",
+            "665. Madonna"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 991,
+          "endRank": 1000,
+          "count": 10,
+          "examples": [
+            "991. Bjarne Stroustrup",
+            "992. James Gosling",
+            "993. Guido van Rossum"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 16 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        30,
+        902
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        37,
+        293
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        54,
+        918
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        57,
+        468
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        75,
+        725
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        123,
+        953
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        142,
+        185
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gian lorenzo bernini",
+      "ranks": [
+        752,
+        762
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        167
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john smith",
+      "variants": [
+        "john smith",
+        "john maynard smith"
+      ],
+      "ranks": [
+        211,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "richard rogers",
+      "variants": [
+        "richard rogers",
+        "richard rodgers"
+      ],
+      "ranks": [
+        797,
+        807
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "herbert simon",
+      "variants": [
+        "herbert simon",
+        "herbert a simon"
+      ],
+      "ranks": [
+        872,
+        964
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 552,
+      "endRank": 561,
+      "count": 10,
+      "examples": [
+        "552. Rabindranath Tagore",
+        "553. R.K. Narayan",
+        "554. Salman Rushdie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music",
+      "startRank": 601,
+      "endRank": 615,
+      "count": 15,
+      "examples": [
+        "601. Camille Saint-Saëns",
+        "602. Gabriel Fauré",
+        "603. Claude Debussy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music",
+      "startRank": 621,
+      "endRank": 636,
+      "count": 16,
+      "examples": [
+        "621. Carl Orff",
+        "622. Paul Hindemith",
+        "623. Béla Bartók"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "music",
+      "startRank": 663,
+      "endRank": 675,
+      "count": 13,
+      "examples": [
+        "663. Michael Jackson",
+        "664. Prince",
+        "665. Madonna"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 991,
+      "endRank": 1000,
+      "count": 10,
+      "examples": [
+        "991. Bjarne Stroustrup",
+        "992. James Gosling",
+        "993. Guido van Rossum"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 178,
+      "Asia": 34,
+      "Middle East": 22,
+      "Africa": 20,
+      "Americas": 55,
+      "Oceania": 0,
+      "Unknown": 691
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 18,
+      "Science/Technology": 5,
+      "Philosophy/Religion": 15,
+      "Arts/Literature": 64,
+      "Military": 8,
+      "Other": 890
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.005,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 624,
+    "contributionShortRate": 0.624,
+    "score": 87.16
+  },
+  "summary": "Issues: 8 exact duplicates; pattern collapse (max 16); non-sequential ranks"
+}

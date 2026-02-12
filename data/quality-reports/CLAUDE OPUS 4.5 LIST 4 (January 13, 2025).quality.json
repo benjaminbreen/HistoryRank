@@ -1,7 +1,7 @@
 {
   "file": "Claude Opus 4.5 LIST 4 (January 13, 2025).txt",
   "model": "Claude Opus 4.5",
-  "timestamp": "2026-02-05T18:16:08.838Z",
+  "timestamp": "2026-02-10T18:22:22.211Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -21,7 +21,7 @@
       "validJson": true,
       "sequentialRanks": false,
       "status": "FAIL",
-      "details": "1132 entries (expected 1000); non-sequential ranks"
+      "details": "1132 entries (expected 500 or 1000); non-sequential ranks"
     },
     "anchor_coverage": {
       "found": 58,
@@ -883,5 +883,5 @@
     "contributionShortRate": 0.22173144876325088,
     "score": 94.41696113074207
   },
-  "summary": "Issues: 71 exact duplicates; 1132 entries (expected 1000); non-sequential ranks"
+  "summary": "Issues: 71 exact duplicates; 1132 entries (expected 500 or 1000); non-sequential ranks"
 }

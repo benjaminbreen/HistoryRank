@@ -1,0 +1,166 @@
+{
+  "file": "GPT-5.2 Thinking LIST 2 (January 12, 2025).txt",
+  "model": "GPT-5.2 Thinking",
+  "timestamp": "2026-02-10T23:44:59.927Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "socrates",
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "zheng he",
+      "ranks": [
+        47,
+        317
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        56,
+        360
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "deng xiaoping",
+      "ranks": [
+        115,
+        299
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernn corts",
+      "ranks": [
+        132,
+        445
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bartolom de las casas",
+      "ranks": [
+        134,
+        446
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        199,
+        484
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        14,
+        342
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        244,
+        341
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernando de soto",
+      "variants": [
+        "hernando de soto",
+        "hernando de soto explorer"
+      ],
+      "ranks": [
+        319,
+        494
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 40,
+      "Asia": 38,
+      "Middle East": 23,
+      "Africa": 10,
+      "Americas": 7,
+      "Oceania": 0,
+      "Unknown": 382
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 17,
+      "Science/Technology": 9,
+      "Philosophy/Religion": 30,
+      "Arts/Literature": 27,
+      "Military": 5,
+      "Other": 412
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 15,
+    "parentheticalRate": 0.03,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 98.2
+  },
+  "summary": "List passes all quality checks"
+}

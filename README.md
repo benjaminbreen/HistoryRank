@@ -16,6 +16,21 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Local Smart Search (OpenAI embeddings)
+
+Smart search runs on the server and combines lexical matching with OpenAI embeddings.
+
+1. Add these to `.env.local`:
+   - `OPENAI_API_KEY=your_key_here`
+   - `OPENAI_EMBEDDING_MODEL=text-embedding-3-small`
+2. Restart `npm run dev` after changing env vars.
+3. Keep `OPENAI_API_KEY` server-only (do not prefix with `NEXT_PUBLIC_`).
+
+Notes:
+- `.env.local` is git-ignored, so local keys are not committed.
+- Vercel uses its own Project Environment Variables; local `.env.local` does not affect deploy secrets.
+
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

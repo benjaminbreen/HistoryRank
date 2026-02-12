@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.480Z",
+  "figureId": "ada-lovelace",
+  "figureName": "Ada Lovelace",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Ada Lovelace is consistently described across 13 model source lists as influential for: Early computational concepts; symbolic programming imagination; First computer programmer, whose work on Babbage’s Analytical Engine laid the foundation for software; Pioneer in computer programming; Mathematician recognized as the first computer programmer; Mathematician and writer, considered the first computer programmer for her work on Babbage's Analytical Engine; Wrote the first algorithm intended for machine processing, recognizing the Analytical Engine's potential beyond calculation and anticipating general-purpose computing; First computer programmer; Mathematician contributing to early computing.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

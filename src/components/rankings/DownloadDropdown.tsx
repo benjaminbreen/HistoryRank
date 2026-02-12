@@ -23,9 +23,7 @@ interface DownloadDropdownProps {
     region?: string | null;
     search?: string;
     modelSource?: string | null;
-    useWeightedAvg?: boolean;
-    useWeightedAvgV2?: boolean;
-    useWeightedAvgV3?: boolean;
+    rankingMode?: 'data-driven' | 'unweighted';
     useV2?: boolean;
     useV3?: boolean;
   };
@@ -61,9 +59,8 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
     const filterParts: string[] = [];
     if (filters?.domain) filterParts.push(filters.domain.toLowerCase().replace(/\s+/g, '-'));
     if (filters?.era) filterParts.push(filters.era.toLowerCase().replace(/\s+/g, '-'));
-    if (filters?.useWeightedAvg) filterParts.push('weighted');
-    if (filters?.useWeightedAvgV2) filterParts.push('weighted2');
-    if (filters?.useWeightedAvgV3) filterParts.push('weighted3');
+    if (filters?.rankingMode === 'data-driven') filterParts.push('data-driven');
+    if (filters?.rankingMode === 'unweighted') filterParts.push('unweighted');
     if (filters?.useV2) filterParts.push('v2');
     if (filters?.useV3) filterParts.push('v3');
     const suffix = filterParts.length > 0 ? `-${filterParts.join('-')}` : '';
@@ -96,9 +93,8 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
         `Total figures: ${lines.length}`,
         filters?.domain ? `Domain: ${filters.domain}` : null,
         filters?.era ? `Era: ${filters.era}` : null,
-        filters?.useWeightedAvg ? 'Using quality-weighted average' : null,
-        filters?.useWeightedAvgV2 ? 'Using quality-weighted average (normalized)' : null,
-        filters?.useWeightedAvgV3 ? 'Using quality-weighted average (robust)' : null,
+        filters?.rankingMode === 'data-driven' ? 'Using data-driven average' : null,
+        filters?.rankingMode === 'unweighted' ? 'Using unweighted rankings' : null,
         filters?.useV2 ? 'Using V2 consensus' : null,
         filters?.useV3 ? 'Using V3 consensus' : null,
         '',
@@ -123,8 +119,7 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
       if (filters?.domain) params.set('domain', filters.domain);
       if (filters?.era) params.set('era', filters.era);
       if (filters?.region) params.set('region', filters.region);
-      if (filters?.useWeightedAvgV2) params.set('weighted2', 'true');
-      if (filters?.useWeightedAvgV3) params.set('weighted3', 'true');
+      if (filters?.rankingMode === 'unweighted') params.set('rankingMode', 'unweighted');
       if (filters?.useV2) params.set('v2', 'true');
       if (filters?.useV3) params.set('v3', 'true');
 
@@ -150,8 +145,7 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
       if (filters?.domain) params.set('domain', filters.domain);
       if (filters?.era) params.set('era', filters.era);
       if (filters?.region) params.set('region', filters.region);
-      if (filters?.useWeightedAvgV2) params.set('weighted2', 'true');
-      if (filters?.useWeightedAvgV3) params.set('weighted3', 'true');
+      if (filters?.rankingMode === 'unweighted') params.set('rankingMode', 'unweighted');
       if (filters?.useV2) params.set('v2', 'true');
       if (filters?.useV3) params.set('v3', 'true');
 
@@ -189,9 +183,8 @@ export function DownloadDropdown({ figures, filters }: DownloadDropdownProps) {
         filters?.domain ? `Domain: ${filters.domain}` : null,
         filters?.era ? `Era: ${filters.era}` : null,
         filters?.region ? `Region: ${filters.region}` : null,
-        filters?.useWeightedAvg ? 'Quality-weighted average' : null,
-        filters?.useWeightedAvgV2 ? 'Quality-weighted average (normalized)' : null,
-        filters?.useWeightedAvgV3 ? 'Quality-weighted average (robust)' : null,
+        filters?.rankingMode === 'data-driven' ? 'Data-driven average' : null,
+        filters?.rankingMode === 'unweighted' ? 'Unweighted rankings' : null,
         filters?.useV2 ? 'V2 consensus' : null,
         filters?.useV3 ? 'V3 consensus' : null,
       ].filter(Boolean);

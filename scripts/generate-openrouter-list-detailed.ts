@@ -31,6 +31,7 @@ type GenerateOptions = {
   label: string;
   labelFromArgs: boolean;
   outputDir: string;
+  reportDir: string;
   maxRetries: number;
   chunked: boolean;
   chunkSize: number;
@@ -42,6 +43,7 @@ type GenerateOptions = {
 const DEFAULT_MODEL = 'qwen/qwen3-235b-a22b-2507';
 const DEFAULT_LABEL = '';
 const OUTPUT_DIR = path.join(process.cwd(), 'data', 'raw');
+const REPORT_DIR = path.join(process.cwd(), 'data', 'quality-reports-v1');
 const MAX_RETRIES = 3;
 const DEFAULT_CHUNK_SIZE = 250;
 const DEFAULT_TIMEOUT_MS = 180000;
@@ -127,6 +129,7 @@ function parseArgs(): GenerateOptions {
     label: DEFAULT_LABEL,
     labelFromArgs: false,
     outputDir: OUTPUT_DIR,
+    reportDir: REPORT_DIR,
     maxRetries: MAX_RETRIES,
     chunked: false,
     chunkSize: DEFAULT_CHUNK_SIZE,
@@ -156,6 +159,11 @@ function parseArgs(): GenerateOptions {
       options.outputDir = path.resolve(arg.slice('--out='.length));
     } else if (arg === '--out' && nextArg && !nextArg.startsWith('--')) {
       options.outputDir = path.resolve(nextArg);
+      i++;
+    } else if (arg.startsWith('--report-dir=')) {
+      options.reportDir = path.resolve(arg.slice('--report-dir='.length));
+    } else if (arg === '--report-dir' && nextArg && !nextArg.startsWith('--')) {
+      options.reportDir = path.resolve(nextArg);
       i++;
     } else if (arg.startsWith('--retries=')) {
       options.maxRetries = Number(arg.slice('--retries='.length));
@@ -211,18 +219,19 @@ function runQualityAssessment(
   entries: ListEntry[],
   filename: string,
   model: string,
-  outputDir: string
+  reportDir: string
 ): QualityReport {
   const report = assessListQuality(entries, filename, model);
+  fs.mkdirSync(reportDir, { recursive: true });
 
   // Save JSON report
   const reportFilename = filename.replace(/\.txt$/, '.quality.json');
-  const reportPath = path.join(outputDir, reportFilename);
+  const reportPath = path.join(reportDir, reportFilename);
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
 
   // Save text report
   const textReportFilename = filename.replace(/\.txt$/, '.quality.txt');
-  const textReportPath = path.join(outputDir, textReportFilename);
+  const textReportPath = path.join(reportDir, textReportFilename);
   fs.writeFileSync(textReportPath, formatReportAsText(report));
 
   // Print summary to console
@@ -230,7 +239,7 @@ function runQualityAssessment(
   const resetColor = '\x1b[0m';
   console.log(`\n📊 Quality Assessment: ${verdictColor}${report.verdict}${resetColor}`);
   console.log(`   ${report.summary}`);
-  console.log(`   Report saved to: ${reportFilename}`);
+  console.log(`   Report saved to: ${reportPath}`);
 
   if (report.verdict === 'FAIL') {
     console.log('\n⚠️  WARNING: This list has quality issues and may not be suitable for inclusion.');
@@ -521,7 +530,7 @@ async function main() {
     console.log(`Saved ${chunks.length} entries to ${fullPath}`);
 
     // Run quality assessment
-    runQualityAssessment(chunks as ListEntry[], filename, options.model, options.outputDir);
+    runQualityAssessment(chunks as ListEntry[], filename, options.model, options.reportDir);
     return;
   }
 
@@ -546,7 +555,7 @@ async function main() {
       console.log(`Saved ${parsed.length} entries to ${fullPath}`);
 
       // Run quality assessment
-      runQualityAssessment(parsed as ListEntry[], filename, options.model, options.outputDir);
+      runQualityAssessment(parsed as ListEntry[], filename, options.model, options.reportDir);
       return;
     } catch (error) {
       lastError = error as Error;

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.463Z",
+  "figureId": "enrico-fermi",
+  "figureName": "Enrico Fermi",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Enrico Fermi is consistently described across 13 model source lists as influential for: Pioneering nuclear physics and quantum theory; Led development of the first nuclear reactor and made key contributions to quantum and particle physics; Physicist who built the first nuclear reactor, advancing atomic energy; Architect of the nuclear age and the first nuclear reactor; Created the first nuclear reactor and made major contributions to quantum theory and nuclear physics; Pioneer of nuclear physics, built the first nuclear reactor; Creator of the first nuclear reactor; architect of the nuclear age; Creator of the world's first nuclear reactor; architect of the nuclear age.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

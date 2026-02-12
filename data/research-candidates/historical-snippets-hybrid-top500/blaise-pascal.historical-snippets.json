@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.465Z",
+  "figureId": "blaise-pascal",
+  "figureName": "Blaise Pascal",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Pascal, Blaise",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FPascal%2C_Blaise",
+      "snippet": "The Pascal family, some years after settling in Paris, had to go through a period of adversity. Étienne Pascal, who had bought some of the hôtel-de-ville rentes , protested against Richelieu’s reduction of the interest, and to escape the Bastille had to go into hiding. He was, according to the story (told by Jacqueline herself), restored to favour owing to the good acting and graceful appearance of his daughter Jacqueline in a representation of Scudéry’s Amour tyrannique before Richelieu. Mme d’Aiguillon’s intervention in the matter was perhaps as powerful as Jacqueline’s acting, and Richelieu gave Étienne Pascal (in 1641) the important and lucrative&#32; &#8203;",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2015,
+      "source_title": "Pascal, Blaise",
+      "source_url": "https://plato.stanford.edu/entries/pascal/",
+      "snippet": "Pascal did not publish any philosophical works during his relatively brief lifetime. His status in French literature today is based primarily on the posthumous publication of a notebook in which he drafted or recorded ideas for a planned defence of Christianity, the Pens&eacute;es de M. Pascal sur la religion et sur quelques autres sujets (1670). Nonetheless, his philosophical commitments can be gleaned from his contributions to scientific and theological debates in France in the mid-seventeenth century.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

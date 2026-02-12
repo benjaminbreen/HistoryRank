@@ -1,0 +1,516 @@
+{
+  "file": "Grok 4 LIST 6 (January 19, 2026).txt",
+  "model": "Grok 4",
+  "timestamp": "2026-02-10T23:46:21.493Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 9,
+      "fuzzy": 6,
+      "status": "PASS",
+      "details": "9 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 30,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 218,
+          "endRank": 227,
+          "count": 10,
+          "examples": [
+            "218. Gabriel García Márquez",
+            "219. Leo Tolstoy",
+            "220. Fyodor Dostoevsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 325,
+          "endRank": 335,
+          "count": 11,
+          "examples": [
+            "325. Harry S. Truman",
+            "326. Dwight D. Eisenhower",
+            "327. Richard Nixon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociologist",
+          "startRank": 450,
+          "endRank": 460,
+          "count": 11,
+          "examples": [
+            "450. Émile Durkheim",
+            "451. Max Weber",
+            "452. Talcott Parsons"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 462,
+          "endRank": 476,
+          "count": 15,
+          "examples": [
+            "462. Le Corbusier",
+            "463. Frank Lloyd Wright",
+            "464. Ludwig Mies van der Rohe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 546,
+          "endRank": 560,
+          "count": 15,
+          "examples": [
+            "546. George Carlin",
+            "547. Richard Pryor",
+            "548. Eddie Murphy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "playing",
+          "startRank": 796,
+          "endRank": 811,
+          "count": 16,
+          "examples": [
+            "796. Tom Holland",
+            "797. Robert Downey Jr.",
+            "798. Chris Evans"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 813,
+          "endRank": 825,
+          "count": 13,
+          "examples": [
+            "813. Arnold Schwarzenegger",
+            "814. Sylvester Stallone",
+            "815. Bruce Willis"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "character",
+          "startRank": 861,
+          "endRank": 878,
+          "count": 18,
+          "examples": [
+            "861. Ted Mullens",
+            "862. David Rose",
+            "863. Alexis Rose"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "grateful",
+          "startRank": 911,
+          "endRank": 923,
+          "count": 13,
+          "examples": [
+            "911. Jerry Garcia",
+            "912. Bob Weir",
+            "913. Phil Lesh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 111,
+          "endRank": 130,
+          "count": 20,
+          "examples": [
+            "111. Euclid",
+            "112. Archimedes",
+            "113. Pythagoras"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 262,
+          "endRank": 280,
+          "count": 19,
+          "examples": [
+            "262. Salvador Dalí",
+            "263. Andy Warhol",
+            "264. Banksy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 930,
+          "endRank": 959,
+          "count": 30,
+          "examples": [
+            "930. Gregory Corso",
+            "931. Lawrence Ferlinghetti",
+            "932. Gary Snyder"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 30 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        13,
+        309
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noam chomsky",
+      "ranks": [
+        159,
+        437
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ts eliot",
+      "ranks": [
+        247,
+        951
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "langston hughes",
+      "ranks": [
+        250,
+        957
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "max weber",
+      "ranks": [
+        451,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eddie murphy",
+      "ranks": [
+        548,
+        818
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tina fey",
+      "ranks": [
+        551,
+        832
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amy poehler",
+      "ranks": [
+        552,
+        833
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "satyajit ray",
+      "ranks": [
+        646,
+        696
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        80
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "queen elizabeth ii"
+      ],
+      "ranks": [
+        41,
+        204
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen isabella i",
+      "variants": [
+        "queen isabella i",
+        "queen isabella ii"
+      ],
+      "ranks": [
+        100,
+        318
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ada lovelace",
+      "variants": [
+        "ada lovelace",
+        "ada byron lovelace"
+      ],
+      "ranks": [
+        129,
+        286
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen elizabeth ii",
+      "variants": [
+        "queen elizabeth ii",
+        "queen isabella ii"
+      ],
+      "ranks": [
+        204,
+        318
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george hw bush",
+      "variants": [
+        "george hw bush",
+        "george w bush"
+      ],
+      "ranks": [
+        329,
+        331
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 218,
+      "endRank": 227,
+      "count": 10,
+      "examples": [
+        "218. Gabriel García Márquez",
+        "219. Leo Tolstoy",
+        "220. Fyodor Dostoevsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 325,
+      "endRank": 335,
+      "count": 11,
+      "examples": [
+        "325. Harry S. Truman",
+        "326. Dwight D. Eisenhower",
+        "327. Richard Nixon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociologist",
+      "startRank": 450,
+      "endRank": 460,
+      "count": 11,
+      "examples": [
+        "450. Émile Durkheim",
+        "451. Max Weber",
+        "452. Talcott Parsons"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 462,
+      "endRank": 476,
+      "count": 15,
+      "examples": [
+        "462. Le Corbusier",
+        "463. Frank Lloyd Wright",
+        "464. Ludwig Mies van der Rohe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 546,
+      "endRank": 560,
+      "count": 15,
+      "examples": [
+        "546. George Carlin",
+        "547. Richard Pryor",
+        "548. Eddie Murphy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "playing",
+      "startRank": 796,
+      "endRank": 811,
+      "count": 16,
+      "examples": [
+        "796. Tom Holland",
+        "797. Robert Downey Jr.",
+        "798. Chris Evans"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 813,
+      "endRank": 825,
+      "count": 13,
+      "examples": [
+        "813. Arnold Schwarzenegger",
+        "814. Sylvester Stallone",
+        "815. Bruce Willis"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "character",
+      "startRank": 861,
+      "endRank": 878,
+      "count": 18,
+      "examples": [
+        "861. Ted Mullens",
+        "862. David Rose",
+        "863. Alexis Rose"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "grateful",
+      "startRank": 911,
+      "endRank": 923,
+      "count": 13,
+      "examples": [
+        "911. Jerry Garcia",
+        "912. Bob Weir",
+        "913. Phil Lesh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 111,
+      "endRank": 130,
+      "count": 20,
+      "examples": [
+        "111. Euclid",
+        "112. Archimedes",
+        "113. Pythagoras"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 262,
+      "endRank": 280,
+      "count": 19,
+      "examples": [
+        "262. Salvador Dalí",
+        "263. Andy Warhol",
+        "264. Banksy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 930,
+      "endRank": 959,
+      "count": 30,
+      "examples": [
+        "930. Gregory Corso",
+        "931. Lawrence Ferlinghetti",
+        "932. Gary Snyder"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 40,
+      "Asia": 26,
+      "Middle East": 8,
+      "Africa": 12,
+      "Americas": 22,
+      "Oceania": 0,
+      "Unknown": 892
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 109,
+      "Science/Technology": 85,
+      "Philosophy/Religion": 70,
+      "Arts/Literature": 194,
+      "Military": 5,
+      "Other": 537
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 415,
+    "contributionShortRate": 0.415,
+    "score": 91.14999999999999
+  },
+  "summary": "List passes all quality checks"
+}

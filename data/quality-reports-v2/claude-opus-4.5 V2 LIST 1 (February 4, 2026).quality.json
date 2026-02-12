@@ -1,0 +1,127 @@
+{
+  "file": "claude-opus-4.5 V2 LIST 1 (February 4, 2026).txt",
+  "model": "claude-opus-4.5 V2",
+  "timestamp": "2026-02-10T23:46:58.028Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 1,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "1 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "saint paul",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "nikola tesla",
+      "ranks": [
+        24,
+        279
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        113
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kemal atatrk",
+      "variants": [
+        "kemal atatrk",
+        "mustafa kemal atatrk"
+      ],
+      "ranks": [
+        126,
+        407
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        422,
+        446
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 59,
+      "Asia": 28,
+      "Middle East": 29,
+      "Africa": 13,
+      "Americas": 63,
+      "Oceania": 0,
+      "Unknown": 308
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 34,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 15,
+      "Arts/Literature": 30,
+      "Military": 9,
+      "Other": 402
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.002,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.72
+  },
+  "summary": "List passes all quality checks"
+}

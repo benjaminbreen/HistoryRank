@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:41.024Z",
+  "generatedAt": "2026-02-10T00:12:29.185Z",
   "figureId": "martin-luther",
   "figureName": "Martin Luther",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "secondary": 3
+      },
+      "byCorpus": {
+        "openalex": 2,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 2003,
+        "max": 2003
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 565,
-      "totalTokenCount": 853,
+      "candidatesTokenCount": 583,
+      "totalTokenCount": 871,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,10 +60,9 @@
         "title": "Ninety-five Theses",
         "author": "Martin Luther",
         "year": 1517,
-        "rationale": "The foundational document of the Protestant Reformation, widely available in translation.",
+        "rationale": "The foundational document of the Protestant Reformation, widely translated and available.",
         "likelyCorpora": [
           "wikisource",
-          "project_gutenberg",
           "internet_archive"
         ]
       },
@@ -45,7 +70,7 @@
         "title": "On the Freedom of a Christian",
         "author": "Martin Luther",
         "year": 1520,
-        "rationale": "A key theological treatise outlining Luther's core beliefs on faith and Christian liberty.",
+        "rationale": "A key theological work outlining Luther's understanding of Christian liberty, available in translation.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,10 +81,9 @@
         "title": "Table Talk",
         "author": "Martin Luther",
         "year": 1569,
-        "rationale": "A collection of Luther's reported conversations and sayings, offering insights into his personal views and daily life. Published posthumously.",
+        "rationale": "A collection of Luther's reported conversations and sayings, offering insights into his thought and life. Compiled posthumously.",
         "likelyCorpora": [
           "wikisource",
-          "project_gutenberg",
           "internet_archive"
         ]
       }
@@ -80,14 +104,14 @@
         "sourceType": "book"
       },
       {
-        "title": "Luther's Last Battle: The Struggle for the German Reformation",
-        "author": "Mark U. Edwards Jr.",
-        "year": 2017,
-        "rationale": "Focuses on the later years of Luther's life and his role in shaping the Reformation's trajectory.",
+        "title": "Luther's Works",
+        "author": "Jaroslav Pelikan and Helmut T. Lehmann",
+        "year": 1955,
+        "rationale": "While the publication started before 1976, this multi-volume collection is the standard English edition of Luther's writings and essential for scholarly research. Many volumes are available digitally.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source texts are often available in collected works or specific translations. Secondary sources are chosen for their scholarly reputation and recency."
+    "notes": "The 'Luther's Works' entry is included as a foundational secondary resource despite its earlier start date due to its unparalleled importance in Luther scholarship. Many individual volumes and related scholarly analyses are available from 1976 onwards."
   },
   "unresolved": [
     {
@@ -107,8 +131,8 @@
     },
     {
       "role": "secondary",
-      "title": "Luther's Last Battle: The Struggle for the German Reformation",
-      "reason": "Best score below threshold (0.51 < 0.72)"
+      "title": "Luther's Works",
+      "reason": "Best score below threshold (0.52 < 0.72)"
     }
   ],
   "candidates": [
@@ -123,7 +147,7 @@
       "access_url": "https://doi.org/10.1017/ccol0521816483",
       "snippet": "Cambridge University Press eBooks",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Martin Luther\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Martin Luther\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
@@ -133,6 +157,28 @@
         "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Luther's life, theology, and impact.",
         "openalex_id": "https://openalex.org/W561079719",
         "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Martin Luther",
+      "author": "Donald K. McKim",
+      "publication_year": 2003,
+      "source_url": "https://openlibrary.org/works/OL3273761W",
+      "access_url": "https://openlibrary.org/works/OL3273761W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Martin Luther\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Martin Luther",
+        "suggestion_author": "Donald K. McKim",
+        "suggestion_year": 2003,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Luther's life, theology, and impact.",
+        "edition_count": 3
       }
     },
     {
@@ -146,7 +192,7 @@
       "access_url": "https://openlibrary.org/books/OL3708535M/Martin_Luther",
       "snippet": null,
       "confidence": 0.93,
-      "why": "Secondary source resolved from suggestion \"Martin Luther: A Life\". Matched secondary suggestion by title=1.00, author=0.25, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Martin Luther: A Life\" (openalex). Matched secondary suggestion by title=1.00, author=0.25, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Sonnet 4.5 LIST 3 (January 12, 2025).txt
+Model: Claude Sonnet 4.5
+Timestamp: 2026-02-10T23:44:12.062Z
+
+VERDICT: FAIL
+
+Summary: Issues: 222 exact duplicates; pattern collapse (max 20); non-sequential ranks
+
+Scores:
+  Repetition: FAIL - 222 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 20 similar entries
+  Structural: FAIL - non-sequential ranks
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
+
+Issues (206):
+  - Exact duplicate: "charles darwin" at ranks 8, 745
+  - Exact duplicate: "genghis khan" at ranks 9, 592
+  - Exact duplicate: "karl marx" at ranks 11, 787
+  - Exact duplicate: "moses" at ranks 13, 850
+  - Exact duplicate: "thomas edison" at ranks 23, 823
+  - Exact duplicate: "louis pasteur" at ranks 24, 298
+  - Exact duplicate: "mao zedong" at ranks 26, 752
+  - Exact duplicate: "nicolaus copernicus" at ranks 28, 172
+  - Exact duplicate: "james watt" at ranks 31, 400
+  - Exact duplicate: "archimedes" at ranks 33, 316
+  ... and 196 more issues
+
+Diversity Estimates:
+  Regions: Europe: 183, Asia: 40, Middle East: 70, Africa: 24, Americas: 21, Unknown: 662
+  Domains: Politics/Leadership: 215, Science/Technology: 107, Philosophy/Religion: 190, Arts/Literature: 164, Military: 22, Other: 302
+
+Advanced Metrics:
+  Advanced score: 96.5
+  Parenthetical names: 1.1%
+  Multi-person names: 0.3%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 13.4%

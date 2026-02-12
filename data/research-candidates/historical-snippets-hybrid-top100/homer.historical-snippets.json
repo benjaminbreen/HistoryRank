@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.618Z",
+  "figureId": "homer",
+  "figureName": "Homer",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "project_gutenberg",
+      "edition_year": null,
+      "source_title": "The Iliad",
+      "source_url": "https://www.gutenberg.org/ebooks/6130",
+      "snippet": "\"The Iliad\" by Homer is an ancient Greek epic poem composed around the late 8th or early 7th century BC. Set during the final weeks of the ten-year Trojan War, it follows the devastating anger of Achilles, the greatest Greek warrior, sparked by a bitter quarrel with King Agamemno...",
+      "match_score": 1,
+      "why": "Existing project_gutenberg snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Homer",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHomer",
+      "snippet": "The extant lives of Homer (edited in Westermann’s Vitarum Scriptores Graeci minores ) are eight in number, including the piece called the Contest of Hesiod and Homer . The longest is written in the Ionic dialect, and bears the name of Herodotus, but is certainly spurious. In all probability it belongs to the time which was fruitful beyond all others in literary forgeries, viz. the 2nd century of our era. &#91; 2 &#93; The other lives are certainly not more ancient. Their chief value consists in the curious short poems or fragments of verse which they have preserved—the so-called Epigrams , which used to be printed at the end of editions of Homer.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

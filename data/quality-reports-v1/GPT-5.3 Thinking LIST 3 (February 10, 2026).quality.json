@@ -1,0 +1,412 @@
+{
+  "file": "GPT-5.3 Thinking LIST 3 (February 10, 2026).txt",
+  "model": "GPT-5.3 Thinking",
+  "timestamp": "2026-02-10T23:45:22.695Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "1 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 85,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "shifted",
+          "startRank": 33,
+          "endRank": 46,
+          "count": 14,
+          "examples": [
+            "33. Peter the Great",
+            "34. Constantine the Great",
+            "35. Charlemagne"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "shifted",
+          "startRank": 48,
+          "endRank": 57,
+          "count": 10,
+          "examples": [
+            "48. Rene Descartes",
+            "49. Immanuel Kant",
+            "50. Georg Wilhelm Friedrich Hegel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "shifted",
+          "startRank": 59,
+          "endRank": 68,
+          "count": 10,
+          "examples": [
+            "59. Euclid",
+            "60. Archimedes",
+            "61. Ptolemy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "shifted",
+          "startRank": 70,
+          "endRank": 95,
+          "count": 26,
+          "examples": [
+            "70. Augustine of Hippo",
+            "71. Thomas Jefferson",
+            "72. James Madison"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "institutions",
+          "startRank": 70,
+          "endRank": 120,
+          "count": 51,
+          "examples": [
+            "70. Augustine of Hippo",
+            "71. Thomas Jefferson",
+            "72. James Madison"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "changed",
+          "startRank": 121,
+          "endRank": 205,
+          "count": 85,
+          "examples": [
+            "121. Marco Polo",
+            "122. Vasco da Gama",
+            "123. Ferdinand Magellan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 206,
+          "endRank": 253,
+          "count": 48,
+          "examples": [
+            "206. Kabir",
+            "207. Chaitanya Mahaprabhu",
+            "208. Ram Mohan Roy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "advanced",
+          "startRank": 259,
+          "endRank": 328,
+          "count": 70,
+          "examples": [
+            "259. Grace Hopper",
+            "260. Ada Lovelace",
+            "261. Charles Babbage"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "transformed",
+          "startRank": 329,
+          "endRank": 400,
+          "count": 72,
+          "examples": [
+            "329. Euripides",
+            "330. Aeschylus",
+            "331. Aristophanes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "redefined",
+          "startRank": 401,
+          "endRank": 440,
+          "count": 40,
+          "examples": [
+            "401. Franz Schubert",
+            "402. Johannes Brahms",
+            "403. Richard Wagner"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "changed",
+          "startRank": 441,
+          "endRank": 480,
+          "count": 40,
+          "examples": [
+            "441. Titian",
+            "442. Caravaggio",
+            "443. Rembrandt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "altered",
+          "startRank": 486,
+          "endRank": 500,
+          "count": 15,
+          "examples": [
+            "486. Milton Friedman",
+            "487. Friedrich Hayek",
+            "488. Joseph Schumpeter"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 441,
+          "endRank": 480,
+          "count": 40,
+          "examples": [
+            "441. Titian",
+            "442. Caravaggio",
+            "443. Rembrandt"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 85 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 54,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "homer",
+        "moses",
+        "saint paul",
+        "pythagoras",
+        "hitler",
+        "adolf hitler"
+      ],
+      "status": "PASS",
+      "details": "54/61 anchor figures found (89%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        17,
+        163
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shifted",
+      "startRank": 33,
+      "endRank": 46,
+      "count": 14,
+      "examples": [
+        "33. Peter the Great",
+        "34. Constantine the Great",
+        "35. Charlemagne"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shifted",
+      "startRank": 48,
+      "endRank": 57,
+      "count": 10,
+      "examples": [
+        "48. Rene Descartes",
+        "49. Immanuel Kant",
+        "50. Georg Wilhelm Friedrich Hegel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shifted",
+      "startRank": 59,
+      "endRank": 68,
+      "count": 10,
+      "examples": [
+        "59. Euclid",
+        "60. Archimedes",
+        "61. Ptolemy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shifted",
+      "startRank": 70,
+      "endRank": 95,
+      "count": 26,
+      "examples": [
+        "70. Augustine of Hippo",
+        "71. Thomas Jefferson",
+        "72. James Madison"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "institutions",
+      "startRank": 70,
+      "endRank": 120,
+      "count": 51,
+      "examples": [
+        "70. Augustine of Hippo",
+        "71. Thomas Jefferson",
+        "72. James Madison"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "changed",
+      "startRank": 121,
+      "endRank": 205,
+      "count": 85,
+      "examples": [
+        "121. Marco Polo",
+        "122. Vasco da Gama",
+        "123. Ferdinand Magellan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 206,
+      "endRank": 253,
+      "count": 48,
+      "examples": [
+        "206. Kabir",
+        "207. Chaitanya Mahaprabhu",
+        "208. Ram Mohan Roy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "advanced",
+      "startRank": 259,
+      "endRank": 328,
+      "count": 70,
+      "examples": [
+        "259. Grace Hopper",
+        "260. Ada Lovelace",
+        "261. Charles Babbage"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "transformed",
+      "startRank": 329,
+      "endRank": 400,
+      "count": 72,
+      "examples": [
+        "329. Euripides",
+        "330. Aeschylus",
+        "331. Aristophanes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "redefined",
+      "startRank": 401,
+      "endRank": 440,
+      "count": 40,
+      "examples": [
+        "401. Franz Schubert",
+        "402. Johannes Brahms",
+        "403. Richard Wagner"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "changed",
+      "startRank": 441,
+      "endRank": 480,
+      "count": 40,
+      "examples": [
+        "441. Titian",
+        "442. Caravaggio",
+        "443. Rembrandt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "altered",
+      "startRank": 486,
+      "endRank": 500,
+      "count": 15,
+      "examples": [
+        "486. Milton Friedman",
+        "487. Friedrich Hayek",
+        "488. Joseph Schumpeter"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 441,
+      "endRank": 480,
+      "count": 40,
+      "examples": [
+        "441. Titian",
+        "442. Caravaggio",
+        "443. Rembrandt"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 1,
+      "Asia": 2,
+      "Middle East": 1,
+      "Africa": 0,
+      "Americas": 0,
+      "Oceania": 0,
+      "Unknown": 496
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 9,
+      "Science/Technology": 1,
+      "Philosophy/Religion": 2,
+      "Arts/Literature": 41,
+      "Military": 3,
+      "Other": 444
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "Issues: pattern collapse (max 85)"
+}

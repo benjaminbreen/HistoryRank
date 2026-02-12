@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.468Z",
+  "figureId": "fyodor-dostoevsky",
+  "figureName": "Fyodor Dostoevsky",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Fyodor Dostoevsky is consistently described across 13 model source lists as influential for: Influential Russian novelist and philosopher, exploring human psychology in the context of the political and social strife of 19th-century Russia; Explored psychology, faith, and existential despair in novels that influenced modern literature and philosophy; Novelist whose works explored psychology, philosophy, and the human condition in 19th-century Russia; Novelist and philosopher whose works explored psychology, existentialism, and the human condition; Influenced existential literature; Author exploring psychology in novels; His psychological and existential novels influenced modern philosophy, theology, and literature; Novelist exploring psychology and philosophy.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "file": "claude-sonnet-4.5 V2 LIST 1 (February 4, 2026).txt",
+  "model": "claude-sonnet-4.5 V2",
+  "timestamp": "2026-02-10T23:47:00.851Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 13,
+      "status": "PASS",
+      "details": "13 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 404,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "WARN",
+      "details": "404 entries (expected 500 or 1000)"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "siddhartha gautama",
+      "variants": [
+        "siddhartha gautama",
+        "siddhartha gautamas disciple ananda"
+      ],
+      "ranks": [
+        14,
+        333
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        305,
+        306
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alan mathison turing",
+      "variants": [
+        "alan mathison turing",
+        "alan turing"
+      ],
+      "ranks": [
+        33,
+        79
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "niccolo machiavelli",
+      "variants": [
+        "niccolo machiavelli",
+        "niccol machiavelli"
+      ],
+      "ranks": [
+        58,
+        59
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vladimir ilyich lenin",
+      "variants": [
+        "vladimir ilyich lenin",
+        "vladimir lenin"
+      ],
+      "ranks": [
+        86,
+        146
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernn corts",
+      "variants": [
+        "hernn corts",
+        "hernando corts"
+      ],
+      "ranks": [
+        127,
+        128
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hongwu emperor zhu yuanzhang",
+      "variants": [
+        "hongwu emperor zhu yuanzhang",
+        "hongwu emperor"
+      ],
+      "ranks": [
+        243,
+        293
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harun alrashid",
+      "variants": [
+        "harun alrashid",
+        "harun alrashid ibn muhammad"
+      ],
+      "ranks": [
+        266,
+        350
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        280,
+        314
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mustafa kemal ataturk",
+      "variants": [
+        "mustafa kemal ataturk",
+        "mustafa kemal atatrk"
+      ],
+      "ranks": [
+        288,
+        289
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther king",
+      "variants": [
+        "martin luther king",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        305,
+        306
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nelson mandela",
+      "variants": [
+        "nelson mandela",
+        "nelson rolihlahla mandela"
+      ],
+      "ranks": [
+        308,
+        309
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 68,
+      "Asia": 18,
+      "Middle East": 31,
+      "Africa": 4,
+      "Americas": 6,
+      "Oceania": 0,
+      "Unknown": 277
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 404
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 33,
+      "Science/Technology": 6,
+      "Philosophy/Religion": 12,
+      "Arts/Literature": 12,
+      "Military": 18,
+      "Other": 323
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "Issues: 404 entries (expected 500 or 1000)"
+}

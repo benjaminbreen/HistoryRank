@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:30:16.680Z",
+  "generatedAt": "2026-02-10T00:10:48.914Z",
   "figureId": "qin-shi-huang",
   "figureName": "Qin Shi Huang",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 643,
-      "totalTokenCount": 932,
+      "candidatesTokenCount": 494,
+      "totalTokenCount": 783,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +52,7 @@
         "title": "Records of the Grand Historian (Shiji)",
         "author": "Sima Qian",
         "year": -94,
-        "rationale": "While not authored by Qin Shi Huang himself, the Shiji is the most important and earliest comprehensive historical account of his reign and life. It contains numerous speeches, decrees, and biographical details attributed to him, making it a primary source for understanding his actions and policies. Sima Qian was a historian who lived shortly after Qin Shi Huang's reign.",
-        "likelyCorpora": [
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "The Annals of the Bamboo Books",
-        "author": "Unknown",
-        "year": -400,
-        "rationale": "The Bamboo Books are an ancient Chinese chronicle that predates the Qin dynasty but includes information about the period leading up to and during Qin Shi Huang's rule. While its direct attribution to Qin Shi Huang is non-existent, it provides a contemporary or near-contemporary perspective on events and figures of the era.",
+        "rationale": "While not authored by Qin Shi Huang himself, the Shiji is the most important and earliest comprehensive historical account of his reign and life, compiled by a historian who had access to earlier records and oral traditions. It contains decrees and speeches attributed to Qin Shi Huang.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -51,28 +60,28 @@
     ],
     "secondary": [
       {
-        "title": "The First Emperor: China's Terracotta Army",
-        "author": "Jane Portal",
-        "year": 2007,
-        "rationale": "This book, accompanying a major exhibition, offers a scholarly overview of Qin Shi Huang's reign, his achievements, and the context of the Terracotta Army. It draws on archaeological evidence and historical texts.",
-        "sourceType": "book"
-      },
-      {
         "title": "The Cambridge History of Ancient China: From the Origins of Civilization to 221 BC",
         "author": "Michael Loewe and Edward L. Shaughnessy",
         "year": 1999,
-        "rationale": "This comprehensive volume includes detailed chapters on the Qin state and the unification under Qin Shi Huang, written by leading scholars in the field. It provides a robust academic analysis of the period.",
+        "rationale": "This is a comprehensive and authoritative academic work covering the period leading up to and including the Qin dynasty. It features scholarly chapters on Qin Shi Huang and his era.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The First Emperor: China's Terracotta Army",
+        "author": "Jane Portal",
+        "year": 2007,
+        "rationale": "This book, often accompanying major exhibitions, provides a scholarly overview of Qin Shi Huang's reign, his achievements, and the context of the Terracotta Army, drawing on archaeological and historical research.",
         "sourceType": "book"
       },
       {
         "title": "Qin Shi Huang: The First Emperor of China",
         "author": "Li Yu",
-        "year": 2017,
-        "rationale": "A scholarly biography that examines Qin Shi Huang's life, policies, and legacy, synthesizing historical and archaeological findings.",
+        "year": 2010,
+        "rationale": "A scholarly biography focusing on Qin Shi Huang, synthesizing historical evidence and archaeological findings to present a detailed account of his life and impact.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Qin Shi Huang himself are extremely rare and typically exist only as inscriptions on artifacts or as recorded in later historical texts like the Shiji. The Shiji is the most crucial source for his direct words and actions, though it is an interpretation by Sima Qian."
+    "notes": "Direct primary sources authored by Qin Shi Huang are extremely rare and typically exist only as fragments or inscriptions recorded in later historical texts. The 'Records of the Grand Historian' is the closest available primary source that provides extensive information attributed to him."
   },
   "unresolved": [
     {
@@ -81,9 +90,9 @@
       "reason": "No resolver results from corpus APIs"
     },
     {
-      "role": "primary",
-      "title": "The Annals of the Bamboo Books",
-      "reason": "No resolver results from corpus APIs"
+      "role": "secondary",
+      "title": "The Cambridge History of Ancient China: From the Origins of Civilization to 221 BC",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.23"
     },
     {
       "role": "secondary",
@@ -92,13 +101,8 @@
     },
     {
       "role": "secondary",
-      "title": "The Cambridge History of Ancient China: From the Origins of Civilization to 221 BC",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.23"
-    },
-    {
-      "role": "secondary",
       "title": "Qin Shi Huang: The First Emperor of China",
-      "reason": "Best score below threshold (0.57 < 0.72)"
+      "reason": "Best score below threshold (0.56 < 0.72)"
     }
   ],
   "candidates": []

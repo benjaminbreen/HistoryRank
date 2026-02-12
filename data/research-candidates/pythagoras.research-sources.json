@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-02-10T00:16:41.541Z",
+  "figureId": "pythagoras",
+  "figureName": "Pythagoras",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 2001,
+        "max": 2003
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 336,
+      "totalTokenCount": 623,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [],
+    "secondary": [
+      {
+        "title": "Pythagoras and the Pythagoreans: A Brief History",
+        "author": "Charles H. Kahn",
+        "year": 2001,
+        "rationale": "A concise and authoritative overview of Pythagorean thought and history, suitable for introductory research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Pythagorean Sourcebook and Compendium",
+        "author": "Kenneth Sylvan Guthrie",
+        "year": 1987,
+        "rationale": "A comprehensive collection of texts related to Pythagoras and his followers, offering primary fragments and later commentaries.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Pythagoras: His Life and Teachings",
+        "author": "Manfred Ullmann",
+        "year": 1976,
+        "rationale": "An early, yet still relevant, scholarly examination of Pythagoras's life and the philosophical and religious aspects of Pythagoreanism.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Direct primary sources authored by Pythagoras himself are extremely scarce and largely lost. Most surviving texts are attributed to later Pythagoreans or are collections compiled centuries after his death. Therefore, the primary source section is empty, and the focus is on secondary scholarly analysis of the available evidence."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "The Pythagorean Sourcebook and Compendium",
+      "reason": "Best score below threshold (0.42 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Pythagoras: His Life and Teachings",
+      "reason": "Best score below threshold (0.71 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Pythagoras and the Pythagoreans : a brief history",
+      "author": "Charles H. Kahn",
+      "publication_year": 2001,
+      "source_url": "https://openalex.org/W579732119",
+      "access_url": "https://openalex.org/W579732119",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Pythagoras and the Pythagoreans: A Brief History\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Pythagoras and the Pythagoreans: A Brief History",
+        "suggestion_author": "Charles H. Kahn",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A concise and authoritative overview of Pythagorean thought and history, suitable for introductory research.",
+        "openalex_id": "https://openalex.org/W579732119",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Pythagoras and the Pythagoreans",
+      "author": "Daniel W. Graham",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.5840/ancientphil200323237",
+      "access_url": "https://doi.org/10.5840/ancientphil200323237",
+      "snippet": "Ancient Philosophy",
+      "confidence": 0.795,
+      "why": "Secondary source resolved from suggestion \"Pythagoras and the Pythagoreans: A Brief History\" (crossref). Matched secondary suggestion by title=0.87, author=0.00, year=0.93; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Pythagoras and the Pythagoreans: A Brief History",
+        "suggestion_author": "Charles H. Kahn",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A concise and authoritative overview of Pythagorean thought and history, suitable for introductory research.",
+        "doi": "10.5840/ancientphil200323237",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

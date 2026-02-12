@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.103Z",
+  "figureId": "napoleon-iii",
+  "figureName": "Napoleon III",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Napoleon III is consistently described across 9 model source lists as influential for: Modernized French infrastructure; Modernization of France in the 19th Century; Napoleon III shifted political order by building, reforming, or toppling institutions that governed large populations; Second French Empire; Modern urban statecraft; France; Second Empire; Emperor of France who modernized Paris and expanded French influence, though his reign ended in military defeat; Napoleon III reshaped governance through state-building, legal reform, and durable changes to political institutions.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

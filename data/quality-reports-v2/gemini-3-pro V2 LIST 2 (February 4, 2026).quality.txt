@@ -1,0 +1,37 @@
+Quality Assessment Report
+========================
+File: gemini-3-pro V2 LIST 2 (February 4, 2026).txt
+Model: gemini-3-pro V2
+Timestamp: 2026-02-10T23:47:09.428Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 3 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
+
+Issues (7):
+  - Exact duplicate: "alexander graham bell" at ranks 33, 105
+  - Exact duplicate: "louis braille" at ranks 234, 346
+  - Exact duplicate: "haile selassie" at ranks 285, 383
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 24, 158
+  - Fuzzy duplicate: yuri gagarin / iuri gagarin at ranks 155, 353
+  - Fuzzy duplicate: muhammad ali / muhammad ali jinnah at ranks 432, 499
+  - Fuzzy duplicate: raja raja chola i / rajendra chola i at ranks 490, 491
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 18, Middle East: 11, Africa: 7, Americas: 10, Unknown: 407
+  Domains: Politics/Leadership: 28, Science/Technology: 5, Philosophy/Religion: 10, Arts/Literature: 20, Military: 6, Other: 431
+
+Advanced Metrics:
+  Advanced score: 99.0
+  Parenthetical names: 1.2%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 1.6%

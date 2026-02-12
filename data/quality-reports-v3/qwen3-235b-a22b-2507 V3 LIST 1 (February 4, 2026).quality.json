@@ -1,0 +1,745 @@
+{
+  "file": "qwen3-235b-a22b-2507 V3 LIST 1 (February 4, 2026).txt",
+  "model": "qwen3-235b-a22b-2507 V3",
+  "timestamp": "2026-02-10T23:47:25.269Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 138,
+      "fuzzy": 5,
+      "status": "WARN",
+      "details": "138 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 11,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "poetry",
+          "startRank": 257,
+          "endRank": 267,
+          "count": 11,
+          "examples": [
+            "257. T.S. Eliot",
+            "258. Ezra Pound",
+            "259. Wallace Stevens"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 11 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 57,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle",
+        "voltaire",
+        "rousseau"
+      ],
+      "status": "PASS",
+      "details": "57/61 anchor figures found (93%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "napoleon bonaparte",
+      "ranks": [
+        10,
+        195
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        13,
+        147
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonardo da vinci",
+      "ranks": [
+        19,
+        301
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        39,
+        221
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kublai khan",
+      "ranks": [
+        40,
+        148
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "johann sebastian bach",
+      "ranks": [
+        51,
+        306
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ludwig van beethoven",
+      "ranks": [
+        52,
+        307
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wolfgang amadeus mozart",
+      "ranks": [
+        53,
+        308
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nelson mandela",
+      "ranks": [
+        82,
+        198
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "desmond tutu",
+      "ranks": [
+        83,
+        199
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "virginia woolf",
+      "ranks": [
+        91,
+        254
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        109,
+        177
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "langston hughes",
+      "ranks": [
+        203,
+        261
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "toni morrison",
+      "ranks": [
+        206,
+        271
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maya angelou",
+      "ranks": [
+        207,
+        262
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alice walker",
+      "ranks": [
+        208,
+        272
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david bowie",
+      "ranks": [
+        325,
+        374,
+        423,
+        472
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aretha franklin",
+      "ranks": [
+        332,
+        383,
+        432,
+        481
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ray charles",
+      "ranks": [
+        333,
+        384,
+        433,
+        482
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sam cooke",
+      "ranks": [
+        334,
+        385,
+        434,
+        483
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stevie wonder",
+      "ranks": [
+        335,
+        381,
+        430,
+        479
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marvin gaye",
+      "ranks": [
+        336,
+        382,
+        431,
+        480
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james brown",
+      "ranks": [
+        337,
+        386,
+        435,
+        484
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sly stone",
+      "ranks": [
+        338,
+        387,
+        436,
+        485
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george clinton",
+      "ranks": [
+        339,
+        388,
+        437,
+        486
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tupac shakur",
+      "ranks": [
+        340,
+        389,
+        438,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "the notorious big",
+      "ranks": [
+        341,
+        390,
+        439,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jayz",
+      "ranks": [
+        342,
+        391,
+        440,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nas",
+      "ranks": [
+        343,
+        392,
+        441,
+        490
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kendrick lamar",
+      "ranks": [
+        344,
+        393,
+        442,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chuck d",
+      "ranks": [
+        345,
+        394,
+        443,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eminem",
+      "ranks": [
+        346,
+        395,
+        444,
+        493
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dr dre",
+      "ranks": [
+        347,
+        396,
+        445,
+        494
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "snoop dogg",
+      "ranks": [
+        348,
+        397,
+        446,
+        495
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kurt cobain",
+      "ranks": [
+        349,
+        398,
+        447,
+        496
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nirvana",
+      "ranks": [
+        350,
+        399,
+        448,
+        497
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "johnny cash",
+      "ranks": [
+        351,
+        400,
+        449,
+        498
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "willie nelson",
+      "ranks": [
+        352,
+        401,
+        450,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dolly parton",
+      "ranks": [
+        353,
+        402,
+        451,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elton john",
+      "ranks": [
+        354,
+        403,
+        452
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul mccartney",
+      "ranks": [
+        355,
+        404,
+        453
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john lennon",
+      "ranks": [
+        356,
+        405,
+        454
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george harrison",
+      "ranks": [
+        357,
+        406,
+        455
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ringo starr",
+      "ranks": [
+        358,
+        407,
+        456
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david gilmour",
+      "ranks": [
+        359,
+        408,
+        457
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roger waters",
+      "ranks": [
+        360,
+        409,
+        458
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "syd barrett",
+      "ranks": [
+        361,
+        373,
+        410,
+        422,
+        459,
+        471
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jim morrison",
+      "ranks": [
+        362,
+        411,
+        460
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mick jagger",
+      "ranks": [
+        363,
+        412,
+        461
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "keith richards",
+      "ranks": [
+        364,
+        413,
+        462
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brian jones",
+      "ranks": [
+        365,
+        414,
+        463
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eric clapton",
+      "ranks": [
+        366,
+        415,
+        464
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jimmy page",
+      "ranks": [
+        367,
+        416,
+        465
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert plant",
+      "ranks": [
+        368,
+        417,
+        466
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john bonham",
+      "ranks": [
+        369,
+        418,
+        467
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "keith moon",
+      "ranks": [
+        370,
+        419,
+        468
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pete townshend",
+      "ranks": [
+        371,
+        420,
+        469
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roger daltrey",
+      "ranks": [
+        372,
+        421,
+        470
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brian eno",
+      "ranks": [
+        375,
+        424,
+        473
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "phil spector",
+      "ranks": [
+        376,
+        425,
+        474
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "quincy jones",
+      "ranks": [
+        377,
+        426,
+        475
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "berry gordy",
+      "ranks": [
+        378,
+        427,
+        476
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "smokey robinson",
+      "ranks": [
+        379,
+        428,
+        477
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "diana ross",
+      "ranks": [
+        380,
+        429,
+        478
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr",
+        "martin luther king"
+      ],
+      "ranks": [
+        15,
+        84,
+        131
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther king jr",
+      "variants": [
+        "martin luther king jr",
+        "martin luther king"
+      ],
+      "ranks": [
+        84,
+        131
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "indira gandhi",
+      "variants": [
+        "indira gandhi",
+        "indira priyadarshini gandhi"
+      ],
+      "ranks": [
+        93,
+        97
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        126,
+        129
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "poetry",
+      "startRank": 257,
+      "endRank": 267,
+      "count": 11,
+      "examples": [
+        "257. T.S. Eliot",
+        "258. Ezra Pound",
+        "259. Wallace Stevens"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 27,
+      "Asia": 10,
+      "Middle East": 18,
+      "Africa": 10,
+      "Americas": 18,
+      "Oceania": 0,
+      "Unknown": 417
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 10,
+      "Science/Technology": 4,
+      "Philosophy/Religion": 15,
+      "Arts/Literature": 53,
+      "Military": 3,
+      "Other": 415
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "Issues: 138 exact duplicates; pattern collapse (max 11)"
+}

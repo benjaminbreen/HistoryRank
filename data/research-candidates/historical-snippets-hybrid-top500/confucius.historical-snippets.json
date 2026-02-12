@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.387Z",
+  "figureId": "confucius",
+  "figureName": "Confucius",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Confucius",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FConfucius",
+      "snippet": "Within the China of the Chow dynasty there might be a population, in Confucius’s time, of from 10,000,000 to 15,000,000. We read frequently, in the classical books, of the “ten thousand states” in which the people were distributed, but that is merely a grand exaggeration. In what has been called, though erroneously, as we shall see, Confucius’s History of his own Times , we find only 13 states of note, and the number of all the states, large and small, which can be brought together from it, and the much more extensive supplement to it by Tso Kʽiu-ming, not much posterior to the sage, is under 150. Chow was a feudal kingdom.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Confucius",
+      "source_url": "https://plato.stanford.edu/entries/confucius/",
+      "snippet": "At different times in Chinese history, Confucius (trad. 551-479 BCE) has been portrayed as a teacher, advisor, editor, philosopher, reformer, and prophet. The name Confucius, a Latinized combination of the surname Kong 孔 with an honorific suffix \"Master\" ( fuzi 夫子), has also come to be used as a global metonym for different aspects of traditional East Asian society. This association of Confucius with many of the foundational concepts and cultural practices in East Asia, and his casting as a progenitor of \"Eastern\" thought in Early Modern Europe, make him arguably the most significant thinker in East Asian history. Yet while early sources preserve biographical details about Master Kong, dialogues and stories about him in early texts like the Analects ( Lunyu 論語) reflect a diversity of representations and concerns, strands of which were later differentially selected and woven together by interpreters intent on appropriating or condemning particular associated views and traditions. This means that the philosophy of Confucius is historically underdetermined, and it is possible to trace multiple sets of coherent doctrines back to the early period, each grounded in different sets of classical sources and schools of interpretation linked to his name. After introducing key texts and interpreters, then, this entry explores three principal interconnected areas of concern: a psychology of ritual that describes how ideal social forms regulate individuals, an ethics rooted in the cultivation of a set of personal virtues, and a theory of society and politics based on normative views of the family and the state. Each of these areas has unique features that were developed by later thinkers, some of whom have been identified as \"Confucians\", even though that term is not well-defined. The Chinese term Ru (儒) predates Confucius, and connoted specialists in ritual and music, and later experts in Classical Studies. Ru is routinely translated into English as \"Confucian\". Yet \"Confucian\" is also sometimes used in English to refer to the sage kings of antiquity who were credited with key cultural innovations by the Ru , to sacrificial practices at temples dedicated to Confucius and related figures, and to traditional features of East Asian social organization like the \"bureaucracy\" or \"meritocracy\".",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

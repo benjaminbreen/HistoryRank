@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:56.364Z",
+  "generatedAt": "2026-02-10T00:14:30.405Z",
   "figureId": "joseph-stalin",
   "figureName": "Joseph Stalin",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 2015,
+        "max": 2015
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 586,
-      "totalTokenCount": 874,
+      "candidatesTokenCount": 582,
+      "totalTokenCount": 870,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -36,20 +61,21 @@
         "year": 1924,
         "rationale": "A foundational text outlining Stalin's interpretation of Marxist-Leninist theory, widely disseminated and influential.",
         "likelyCorpora": [
+          "wikisource",
           "internet_archive"
         ]
       },
       {
-        "title": "Problems of Leninism",
+        "title": "Report to the Eighteenth Congress of the C.P.S.U.(B.) on the Work of the Central Committee",
         "author": "Joseph Stalin",
-        "year": 1926,
-        "rationale": "An expanded work building upon 'The Foundations of Leninism,' further articulating Stalin's political and ideological positions.",
+        "year": 1939,
+        "rationale": "A key speech delivered at a major party congress, detailing the party's policies and achievements from Stalin's perspective.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "The Great Patriotic War of the Soviet Union",
+        "title": "On the Great Patriotic War of the Soviet Union",
         "author": "Joseph Stalin",
         "year": 1946,
         "rationale": "A collection of speeches and orders during World War II, offering direct insight into his wartime leadership and propaganda.",
@@ -63,35 +89,40 @@
         "title": "Stalin: Paradoxes of Power, 1878-1953",
         "author": "Stephen Kotkin",
         "year": 2017,
-        "rationale": "A highly acclaimed and comprehensive biography that offers deep analysis of Stalin's life, rule, and impact.",
+        "rationale": "A comprehensive and highly regarded biography that offers deep analysis of Stalin's life, ideology, and rule.",
         "sourceType": "book"
       },
       {
-        "title": "Stalin: The Court of the Red Tsar",
-        "author": "Simon Sebag Montefiore",
-        "year": 2003,
-        "rationale": "Focuses on Stalin's inner circle and personal life, providing a detailed and often intimate portrait of his regime.",
+        "title": "The Soviet Tragedy: A History of Stalinism",
+        "author": "Martin Malia",
+        "year": 1994,
+        "rationale": "A critical examination of the historical trajectory and ideological underpinnings of Stalinism.",
         "sourceType": "book"
       },
       {
-        "title": "The Cambridge History of Russia: Volume 3, The Soviet Union, 1917-1991",
-        "author": "Ronald Grigor Suny (editor)",
-        "year": 2006,
-        "rationale": "Contains scholarly chapters by leading historians that analyze the Stalinist period within the broader context of Soviet history.",
+        "title": "Stalin: New Biography of a Dictator",
+        "author": "Robert Service",
+        "year": 2004,
+        "rationale": "Another major biographical work that provides a detailed account of Stalin's rise to power and his dictatorial regime.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source availability on Wikisource and Project Gutenberg for Stalin's works is limited, with Internet Archive being the most likely repository for his major writings and speeches."
+    "notes": "Primary sources are often found in collections of speeches, writings, and official documents. Secondary sources are selected for their scholarly reputation and comprehensive coverage."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "The Foundations of Leninism",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "primary",
+      "title": "Report to the Eighteenth Congress of the C.P.S.U.(B.) on the Work of the Central Committee",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "The Great Patriotic War of the Soviet Union",
+      "title": "On the Great Patriotic War of the Soviet Union",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -101,53 +132,32 @@
     },
     {
       "role": "secondary",
-      "title": "The Cambridge History of Russia: Volume 3, The Soviet Union, 1917-1991",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+      "title": "The Soviet Tragedy: A History of Stalinism",
+      "reason": "Best score below threshold (0.59 < 0.72)"
     }
   ],
   "candidates": [
     {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Problems of Leninism",
-      "author": "Joseph Stalin",
-      "publication_year": 1945,
-      "source_url": "https://archive.org/details/problemsofleninism",
-      "access_url": "https://archive.org/details/problemsofleninism",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Problems of Leninism\". Matched primary suggestion by title=1.00, author=1.00, year=0.62; Primary gate passed",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Problems of Leninism",
-        "suggestion_author": "Joseph Stalin",
-        "suggestion_year": 1926,
-        "suggestion_rationale": "An expanded work building upon 'The Foundations of Leninism,' further articulating Stalin's political and ideological positions.",
-        "ia_identifier": "problemsofleninism"
-      }
-    },
-    {
-      "source_corpus": "crossref",
+      "source_corpus": "openalex",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "Stalin: The Court of the Red Tsar",
-      "author": "Robert Legvold",
-      "publication_year": 2004,
-      "source_url": "https://doi.org/10.2307/20034014",
-      "access_url": "https://doi.org/10.2307/20034014",
-      "snippet": "Foreign Affairs",
-      "confidence": 0.884,
-      "why": "Secondary source resolved from suggestion \"Stalin: The Court of the Red Tsar\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Very high title match with surname/aboutness support",
+      "title": "Stalin: new biography of a dictator",
+      "author": null,
+      "publication_year": 2015,
+      "source_url": "https://doi.org/10.5860/choice.192548",
+      "access_url": "https://doi.org/10.5860/choice.192548",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.818,
+      "why": "Secondary source resolved from suggestion \"Stalin: New Biography of a Dictator\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.63; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Stalin: The Court of the Red Tsar",
-        "suggestion_author": "Simon Sebag Montefiore",
-        "suggestion_year": 2003,
-        "suggestion_rationale": "Focuses on Stalin's inner circle and personal life, providing a detailed and often intimate portrait of his regime.",
-        "doi": "10.2307/20034014",
-        "crossref_type": "journal-article"
+        "suggestion_title": "Stalin: New Biography of a Dictator",
+        "suggestion_author": "Robert Service",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "Another major biographical work that provides a detailed account of Stalin's rise to power and his dictatorial regime.",
+        "openalex_id": "https://openalex.org/W2588845314",
+        "work_type": "article"
       }
     }
   ]

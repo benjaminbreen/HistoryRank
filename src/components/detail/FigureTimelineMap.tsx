@@ -5,6 +5,20 @@ import * as d3 from 'd3';
 import { loadLandData } from '@/components/maps/landData';
 import type { FigureEvidenceTimelineEvent } from '@/types';
 
+function useIsDark(): boolean {
+  const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<boolean>).detail;
+      if (typeof detail === 'boolean') setIsDark(detail);
+    };
+    window.addEventListener('historyrank:theme', handler as EventListener);
+    return () => window.removeEventListener('historyrank:theme', handler as EventListener);
+  }, []);
+  return isDark;
+}
+
 interface FigureTimelineMapProps {
   events: FigureEvidenceTimelineEvent[];
 }
@@ -219,12 +233,34 @@ function groupLocations(projectedEvents: ProjectedEvent[]): LocationPoint[] {
     .sort((a, b) => a.firstOrder - b.firstOrder);
 }
 
+const THEME = {
+  light: {
+    bgGradient: ['#faf8f4', '#f2ede5'],
+    land: { fill: 'rgba(214, 207, 196, 0.6)', stroke: 'rgba(120, 113, 108, 0.3)', strokeWidth: 0.65 },
+    hudBracket: 'rgba(120, 113, 108, 0.2)',
+    path: 'rgba(245, 158, 11, 0.5)',
+    dotStroke: 'rgba(255, 255, 255, 0.95)',
+    colorRange: ['#3b82f6', '#3b82f6'] as [string, string],
+    labelFill: 'rgba(87, 83, 78, 0.85)',
+  },
+  dark: {
+    bgGradient: ['#232831', '#141821'],
+    land: { fill: 'rgba(200, 180, 150, 0.1)', stroke: 'rgba(200, 180, 150, 0.18)', strokeWidth: 0.65 },
+    hudBracket: 'rgba(200, 180, 150, 0.3)',
+    path: 'rgba(200, 170, 120, 0.7)',
+    dotStroke: 'rgba(255, 255, 255, 0.9)',
+    colorRange: ['#60a5fa', '#60a5fa'] as [string, string],
+    labelFill: 'rgba(220, 200, 160, 0.9)',
+  },
+} as const;
+
 export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
   const uid = useId().replace(/:/g, '');
+  const isDark = useIsDark();
 
   const points = useMemo(() => {
     const parsed = events
@@ -278,6 +314,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
   useEffect(() => {
     if (!svgRef.current || dimensions.width === 0 || dimensions.height === 0) return;
 
+    const theme = isDark ? THEME.dark : THEME.light;
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove();
 
@@ -296,17 +333,17 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
       .attr('y1', '0%')
       .attr('x2', '100%')
       .attr('y2', '100%');
-    bgGradient.append('stop').attr('offset', '0%').attr('stop-color', '#1a1f2e');
-    bgGradient.append('stop').attr('offset', '100%').attr('stop-color', '#0d1117');
+    bgGradient.append('stop').attr('offset', '0%').attr('stop-color', theme.bgGradient[0]);
+    bgGradient.append('stop').attr('offset', '100%').attr('stop-color', theme.bgGradient[1]);
 
     const glowFilter = defs
       .append('filter')
       .attr('id', markerGlowId)
-      .attr('x', '-60%')
-      .attr('y', '-60%')
-      .attr('width', '220%')
-      .attr('height', '220%');
-    glowFilter.append('feGaussianBlur').attr('stdDeviation', 2.5).attr('result', 'blur');
+      .attr('x', '-80%')
+      .attr('y', '-80%')
+      .attr('width', '260%')
+      .attr('height', '260%');
+    glowFilter.append('feGaussianBlur').attr('stdDeviation', isDark ? 3 : 2.5).attr('result', 'blur');
     const merge = glowFilter.append('feMerge');
     merge.append('feMergeNode').attr('in', 'blur');
     merge.append('feMergeNode').attr('in', 'SourceGraphic');
@@ -327,7 +364,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
         .append('path')
         .attr('d', path)
         .attr('fill', 'none')
-        .attr('stroke', 'rgba(245, 158, 11, 0.38)')
+        .attr('stroke', theme.hudBracket)
         .attr('stroke-width', 1.3);
     });
 
@@ -372,7 +409,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
         .append('path')
         .attr('d', lineBuilder(pathCoordinates) || '')
         .attr('fill', 'none')
-        .attr('stroke', 'rgba(245, 158, 11, 0.86)')
+        .attr('stroke', theme.path)
         .attr('stroke-linecap', 'round')
         .attr('stroke-linejoin', 'round');
     }
@@ -380,7 +417,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
     const colorScale = d3
       .scaleLinear<string>()
       .domain([0, Math.max(1, points.length - 1)])
-      .range(['#60a5fa', '#f59e0b']);
+      .range(theme.colorRange);
 
     let hoveredKey: string | null = null;
     let currentK = 1;
@@ -395,7 +432,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
       .attr('cy', (d) => d.y)
       .attr('fill', (d) => colorScale(d.firstOrder))
       .attr('fill-opacity', 0.96)
-      .attr('stroke', 'rgba(255, 255, 255, 0.9)')
+      .attr('stroke', theme.dotStroke)
       .attr('filter', `url(#${markerGlowId})`)
       .on('mouseenter', function (event: MouseEvent, d: LocationPoint) {
         hoveredKey = d.key;
@@ -431,7 +468,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
       .attr('class', 'timeline-location-label')
       .attr('x', (d) => d.x)
       .attr('y', (d) => d.y)
-      .attr('fill', 'rgba(251, 191, 36, 0.95)')
+      .attr('fill', theme.labelFill)
       .attr('font-weight', 700)
       .text((d) => {
         if (d.events.length === 1) return `${d.firstOrder + 1}`;
@@ -439,7 +476,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
       });
 
     function baseRadiusForLocation(location: LocationPoint): number {
-      return 5 + Math.min(3.5, (location.events.length - 1) * 0.7);
+      return 7 + Math.min(4, (location.events.length - 1) * 0.8);
     }
 
     function updateZoomSensitiveStyles(k: number) {
@@ -473,9 +510,9 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
         .enter()
         .append('path')
         .attr('d', (feature) => geoPath(feature as d3.GeoPermissibleObjects) || '')
-        .attr('fill', 'rgba(245, 158, 11, 0.14)')
-        .attr('stroke', 'rgba(245, 158, 11, 0.26)')
-        .attr('stroke-width', 0.65)
+        .attr('fill', theme.land.fill)
+        .attr('stroke', theme.land.stroke)
+        .attr('stroke-width', theme.land.strokeWidth)
         .attr('vector-effect', 'non-scaling-stroke');
     });
 
@@ -527,7 +564,7 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
 
       svg.call(zoom.transform, d3.zoomIdentity.translate(translateX, translateY).scale(startScale));
     }
-  }, [dimensions.height, dimensions.width, points, spanMode, uid]);
+  }, [dimensions.height, dimensions.width, points, spanMode, uid, isDark]);
 
   if (points.length === 0) {
     return (
@@ -540,47 +577,47 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
   const modeLabel = spanMode === 'world' ? 'World scale' : spanMode === 'regional' ? 'Regional scale' : 'Local scale';
 
   return (
-    <div className="rounded-xl border border-amber-900/30 bg-slate-900/95 p-4 shadow-sm">
+    <div className="rounded-xl border border-stone-200/75 bg-white p-4 shadow-sm dark:border-amber-900/30 dark:bg-slate-900/95">
       <div className="mb-3 flex items-center justify-between">
-        <div className="text-xs font-medium uppercase tracking-[0.16em] text-amber-200/80">
+        <div className="text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-amber-200/80">
           Event map
         </div>
-        <div className="text-xs text-amber-100/70">{modeLabel}</div>
+        <div className="text-xs text-stone-400 dark:text-amber-100/70">{modeLabel}</div>
       </div>
 
       <div ref={containerRef} className="relative w-full">
-        <svg ref={svgRef} className="h-auto w-full rounded-lg border border-amber-900/35" />
+        <svg ref={svgRef} className="h-auto w-full rounded-lg border border-stone-200 dark:border-amber-900/35" />
 
         {tooltip && (
           <div
-            className="pointer-events-none absolute z-10 w-72 rounded-xl border border-amber-800/55 bg-slate-950/96 p-3 text-xs text-slate-200 shadow-lg backdrop-blur-sm"
+            className="pointer-events-none absolute z-10 w-72 rounded-xl border border-stone-200 bg-white/96 p-3 text-xs text-stone-700 shadow-lg backdrop-blur-sm dark:border-amber-800/55 dark:bg-slate-950/96 dark:text-slate-200"
             style={{
               left: Math.min(tooltip.x + 14, dimensions.width - 292),
               top: Math.max(tooltip.y - 12, 10),
             }}
           >
-            <div className="text-sm font-semibold text-amber-200">
+            <div className="text-sm font-semibold text-stone-900 dark:text-amber-200">
               {tooltip.location.placeLabel || 'Mapped location'}
             </div>
             {tooltip.location.events.length === 1 ? (
               <div className="mt-2 space-y-1.5">
-                <div className="text-[11px] text-amber-100/75">{tooltip.location.events[0].dateLabel}</div>
-                <div className="text-[12px] font-medium text-slate-100">{tooltip.location.events[0].label}</div>
+                <div className="text-[11px] text-stone-500 dark:text-amber-100/75">{tooltip.location.events[0].dateLabel}</div>
+                <div className="text-[12px] font-medium text-stone-800 dark:text-slate-100">{tooltip.location.events[0].label}</div>
                 {tooltip.location.events[0].description && (
-                  <div className="text-[11px] leading-relaxed text-slate-300/95">
+                  <div className="text-[11px] leading-relaxed text-stone-600 dark:text-slate-300/95">
                     {tooltip.location.events[0].description}
                   </div>
                 )}
               </div>
             ) : (
               <div className="mt-2 space-y-1.5">
-                <div className="text-[11px] text-amber-100/75">
+                <div className="text-[11px] text-stone-500 dark:text-amber-100/75">
                   {tooltip.location.events.length} events at this location
                 </div>
                 {tooltip.location.events.slice(0, 8).map((event) => (
-                  <div key={event.id} className="text-[11px] text-slate-200/95">
-                    <span className="text-amber-200/85">{event.dateLabel}</span>
-                    {' · '}
+                  <div key={event.id} className="text-[11px] text-stone-700 dark:text-slate-200/95">
+                    <span className="font-medium text-amber-700 dark:text-amber-200/85">{event.dateLabel}</span>
+                    {' \u00b7 '}
                     {event.label}
                   </div>
                 ))}
@@ -590,20 +627,16 @@ export function FigureTimelineMap({ events }: FigureTimelineMapProps) {
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-amber-100/70">
+      <div className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-stone-500 dark:text-amber-100/70">
         <span className="inline-flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
-          Early events
+          <span className="h-2.5 w-2.5 rounded-full bg-blue-500 dark:bg-blue-400" />
+          Events
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-          Later events
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-[2px] w-4 bg-amber-300/90" />
+          <span className="h-[2px] w-4 bg-amber-500/50 dark:bg-amber-300/90" />
           Chronological path
         </span>
-        <span className="text-amber-100/60">Markers are plotted at true coordinates</span>
+        <span className="text-stone-400 dark:text-amber-100/60">Markers are plotted at true coordinates</span>
       </div>
     </div>
   );

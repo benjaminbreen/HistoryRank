@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.466Z",
+  "figureId": "thomas-hobbes",
+  "figureName": "Thomas Hobbes",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Hobbes, Thomas",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHobbes%2C_Thomas",
+      "snippet": "In the same year Hobbes was recommended by Wilkinson as tutor to the son of William Cavendish, baron of Hardwick (afterwards 2nd earl of Devonshire), and thus began a lifelong connexion with a great and powerful family. Twice it was loosened—once, for a short time, after twenty years, and again, for a longer period, during the Civil War—but it never was broken. Hobbes spoke of the first years of his tutorship as the happiest of his life.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Hobbes, Thomas",
+      "source_url": "https://plato.stanford.edu/entries/hobbes/",
+      "snippet": "Thomas Hobbes (1588-1679), whose current reputation rests largely on his political philosophy, was a thinker with wide-ranging interests. In philosophy, he defended a range of materialist, nominalist, and empiricist views against Cartesian and Aristotelian alternatives. In physics, his work was influential on Leibniz, and led him into disputes with Boyle and the experimentalists of the early Royal Society. In history, he translated Thucydides' History of the Peloponnesian War into English, and later wrote his own history of the Long Parliament. In mathematics he was less successful, and is best remembered for his repeated unsuccessful attempts to square the circle. But despite that, Hobbes was a serious and prominent participant in the intellectual life of his time.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

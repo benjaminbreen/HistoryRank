@@ -128,6 +128,10 @@ export function dot(a: number[], b: number[]): number {
 }
 
 export async function embedQuery(text: string): Promise<number[]> {
+  if (typeof window !== 'undefined') {
+    throw new Error('embedQuery can only run on the server');
+  }
+
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error('Missing OPENAI_API_KEY');

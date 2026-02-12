@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.025Z",
+  "figureId": "leif-erikson",
+  "figureName": "Leif Erikson",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Leif Erikson is consistently described across 10 model source lists as influential for: Norse explorer who reached North America; Reportedly reached North America before Columbus, expanding Norse exploration; First European to set foot in North America (Vinland); Led Norse expedition to North America, preceding Columbus by centuries; First European in North America; Vinland discovery; Norse exploration of North America; Norse explorer who reached North America 500 years before Columbus.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

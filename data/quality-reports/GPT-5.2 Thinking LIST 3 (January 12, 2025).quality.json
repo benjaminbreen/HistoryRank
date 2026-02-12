@@ -1,7 +1,7 @@
 {
   "file": "GPT-5.2 Thinking LIST 3 (January 12, 2025).txt",
   "model": "GPT-5.2 Thinking",
-  "timestamp": "2026-02-05T18:16:38.374Z",
+  "timestamp": "2026-02-10T18:22:42.368Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -21,7 +21,7 @@
       "validJson": true,
       "sequentialRanks": false,
       "status": "FAIL",
-      "details": "777 entries (expected 1000); non-sequential ranks"
+      "details": "777 entries (expected 500 or 1000); non-sequential ranks"
     },
     "anchor_coverage": {
       "found": 60,
@@ -501,5 +501,5 @@
     "contributionShortRate": 0.003861003861003861,
     "score": 94.63320463320463
   },
-  "summary": "Issues: 1 exact duplicates; 777 entries (expected 1000); non-sequential ranks"
+  "summary": "Issues: 1 exact duplicates; 777 entries (expected 500 or 1000); non-sequential ranks"
 }

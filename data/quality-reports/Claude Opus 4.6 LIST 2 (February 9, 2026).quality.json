@@ -1,0 +1,97 @@
+{
+  "file": "Claude Opus 4.6 LIST 2 (February 9, 2026).txt",
+  "model": "Claude Opus 4.6",
+  "timestamp": "2026-02-10T18:22:28.970Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "1 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 473,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "WARN",
+      "details": "473 entries (expected 500 or 1000)"
+    },
+    "anchor_coverage": {
+      "found": 56,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "moses",
+        "saint paul",
+        "paul the apostle",
+        "mozart"
+      ],
+      "status": "PASS",
+      "details": "56/61 anchor figures found (92%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        68
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 89,
+      "Asia": 24,
+      "Middle East": 24,
+      "Africa": 12,
+      "Americas": 24,
+      "Oceania": 0,
+      "Unknown": 300
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 473
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 34,
+      "Science/Technology": 12,
+      "Philosophy/Religion": 13,
+      "Arts/Literature": 23,
+      "Military": 17,
+      "Other": 374
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 7,
+    "parentheticalRate": 0.014799154334038054,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0021141649048625794,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.00634249471459
+  },
+  "summary": "Issues: 473 entries (expected 500 or 1000)"
+}

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.413Z",
+  "figureId": "charlemagne",
+  "figureName": "Charlemagne",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Charlemagne",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FCharlemagne",
+      "snippet": "In 761 he accompanied his father on a campaign in Aquitaine, and in 763 undertook the government of several counties. In 768 Pippin divided his dominions between his two sons, and on his death soon afterwards Charles became the ruler of the northern portion of the Frankish kingdom, and was crowned at Noyon on the 9th of October 768. Bad feeling had existed for some time between Charles and Carloman, and when Charles early in 769 was called upon to suppress a rising in Aquitaine, his brother refused to afford him any assistance.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

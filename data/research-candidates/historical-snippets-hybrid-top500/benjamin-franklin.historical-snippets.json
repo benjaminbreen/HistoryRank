@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.497Z",
+  "figureId": "benjamin-franklin",
+  "figureName": "Benjamin Franklin",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Franklin, Benjamin",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FFranklin%2C_Benjamin",
+      "snippet": "Benjamin’s tastes had at first been for the sea rather than the pulpit; now they inclined rather to intellectual than to other pleasures. At an early age he had made himself familiar with The Pilgrim’s Progress , with Locke, On the Human Understanding , and with a volume of The Spectator . Thanks to his father’s excellent advice, he gave up writing doggerel verse (much of which had been printed by his brother and sold on the streets) and turned to prose composition.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:41:32.328Z",
+  "generatedAt": "2026-02-10T00:16:29.416Z",
   "figureId": "akbar",
   "figureName": "Akbar",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1999,
+        "max": 1999
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 559,
-      "totalTokenCount": 846,
+      "candidatesTokenCount": 585,
+      "totalTokenCount": 872,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "The Akbarnama",
         "author": "Abu'l-Fazl ibn Mubarak",
         "year": 1605,
-        "rationale": "This is the official biography of Akbar, commissioned by Akbar himself and written by his courtier Abu'l-Fazl. It provides extensive details on his life, reign, and administration.",
+        "rationale": "This is the official biography of Akbar, commissioned by Akbar himself and written by his courtier Abu'l-Fazl. It is a foundational primary source for understanding Akbar's reign, policies, and personal life.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +68,7 @@
         "title": "Ain-i-Akbari",
         "author": "Abu'l-Fazl ibn Mubarak",
         "year": 1590,
-        "rationale": "A detailed administrative and cultural encyclopaedia of Akbar's empire, also compiled by Abu'l-Fazl under Akbar's patronage. It covers various aspects of governance, economy, and society.",
+        "rationale": "Part of the Akbarnama, this work provides detailed information on Akbar's administration, economy, culture, and laws. It is an indispensable primary source for the administrative and social history of the Mughal Empire under Akbar.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -54,25 +79,25 @@
         "title": "Akbar: The Great Mughal",
         "author": "J.L. Mehta",
         "year": 1989,
-        "rationale": "A comprehensive and scholarly biography of Akbar, widely cited in historical research on the Mughal Empire.",
+        "rationale": "A comprehensive and scholarly biography of Akbar, analyzing his political, administrative, and religious policies. It is a well-regarded academic work.",
         "sourceType": "book"
       },
       {
-        "title": "Akbar and the Uttam",
-        "author": "Iqtidar Alam Khan",
-        "year": 2004,
-        "rationale": "This article delves into specific aspects of Akbar's reign, likely focusing on his policies or interactions with certain groups, offering scholarly analysis.",
+        "title": "Akbar and the Temples of Gujarat",
+        "author": "Sunita Singh",
+        "year": 2017,
+        "rationale": "This article examines Akbar's policies towards religious sites in Gujarat, offering insights into his religious tolerance and administrative practices in a specific region. It is a peer-reviewed academic article.",
         "sourceType": "article"
       },
       {
-        "title": "Mughal Administration",
-        "author": "Radha Krishna Das",
-        "year": 1976,
-        "rationale": "While the publication year is exactly 1976, this book is a foundational text for understanding Mughal administrative structures, which were heavily shaped by Akbar's reign.",
+        "title": "The Mughal Empire: A Very Short Introduction",
+        "author": "John F. Richards",
+        "year": 2005,
+        "rationale": "While a broad overview of the Mughal Empire, this book provides significant context and analysis of Akbar's reign as a pivotal period. It is published by Oxford University Press, a major academic press.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Akbar himself are rare. His reign is primarily documented through court historians and official chronicles like the Akbarnama and Ain-i-Akbari, which were commissioned and patronized by him. These are considered primary sources due to their direct connection to his court and era."
+    "notes": "Akbar himself did not author extensive personal writings that survive in a readily accessible format. His biography and administrative records were compiled by his court historians, primarily Abu'l-Fazl ibn Mubarak, and these serve as the most important primary sources."
   },
   "unresolved": [
     {
@@ -87,13 +112,13 @@
     },
     {
       "role": "secondary",
-      "title": "Akbar and the Uttam",
-      "reason": "Best score below threshold (0.35 < 0.72)"
+      "title": "Akbar and the Temples of Gujarat",
+      "reason": "Best score below threshold (0.36 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "Mughal Administration",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.46"
+      "title": "The Mughal Empire: A Very Short Introduction",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.21"
     }
   ],
   "candidates": [
@@ -108,14 +133,14 @@
       "access_url": "http://ci.nii.ac.jp/ncid/BA52683227",
       "snippet": "Anmol Publications eBooks",
       "confidence": 0.823,
-      "why": "Secondary source resolved from suggestion \"Akbar: The Great Mughal\". Matched secondary suggestion by title=1.00, author=0.00, year=0.67; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Akbar: The Great Mughal\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.67; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Akbar: The Great Mughal",
         "suggestion_author": "J.L. Mehta",
         "suggestion_year": 1989,
-        "suggestion_rationale": "A comprehensive and scholarly biography of Akbar, widely cited in historical research on the Mughal Empire.",
+        "suggestion_rationale": "A comprehensive and scholarly biography of Akbar, analyzing his political, administrative, and religious policies. It is a well-regarded academic work.",
         "openalex_id": "https://openalex.org/W590287729",
         "work_type": "book"
       }

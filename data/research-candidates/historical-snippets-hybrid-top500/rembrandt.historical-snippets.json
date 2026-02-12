@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.593Z",
+  "figureId": "rembrandt",
+  "figureName": "Rembrandt",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Rembrandt is consistently described across 12 model source lists as influential for: Dutch Golden Age painting; Master painter who shaped Baroque art and portraiture; Dutch Golden Age painting, portraiture; Dutch painter whose mastery of light and shadow revolutionized visual storytelling and portraiture; Dutch Golden Age master, portraiture innovation; Art; Dutch Golden Age; Baroque master; Painter whose mastery of light and emotion defined Dutch Golden Age art.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

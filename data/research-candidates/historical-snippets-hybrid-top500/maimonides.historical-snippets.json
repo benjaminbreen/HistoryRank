@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.485Z",
+  "figureId": "maimonides",
+  "figureName": "Maimonides",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Maimonides",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FMaimonides",
+      "snippet": "The works of Maimonides fall into three periods: ( a ) To the Spanish period belong his commentary on the whole Talmud (not fully carried out), a treatise on the calendar ( Maamar ha-ibbur ), a treatise on logic ( Milloth Higgayon ), and his commentary on the Mishnah (this was called Siraj or Maor , i.e. “Light”: begun 1158, completed 1168 in Egypt). ( b ) While he was in Fez, he wrote an essay on the Sanctification of the Name of God ( Maamar Kiddush Hashem , Iggereth Hashemad ). ( c ) The works written in Egypt were: Letter to the Yemenites ( Iggereth Teman or Pethaḥ Tiqvah ); Responsa on questions of law; Biblical and Rabbinical Code ( Misnheh Torah or Yad Hahazaka , completed 1180);",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Maimonides",
+      "source_url": "https://plato.stanford.edu/entries/maimonides/",
+      "snippet": "Moses ben Maimon [known to English speaking audiences as Maimonides and Hebrew speaking as Rambam] (1138-1204) is the greatest Jewish philosopher of the medieval period and is still widely read today. The Mishneh Torah , his 14-volume compendium of Jewish law, established him as the leading rabbinic authority of his time and quite possibly of all time. His philosophic masterpiece, the Guide of the Perplexed , is a sustained treatment of Jewish thought and practice that seeks to resolve the conflict between religious knowledge and secular. Although heavily influenced by the Neo-Platonized Aristotelianism that had taken root in Islamic circles, it departs from prevailing modes of Aristotelian thought by emphasizing the limits of human knowledge and the questionable foundations of significant parts of astronomy and metaphysics. Maimonides also achieved fame as a physician and wrote medical treatises on a number of diseases and their cures. Succeeding generations of philosophers wrote extensive commentaries on his works, which influenced thinkers as diverse as Aquinas, Spinoza, Leibniz, and Newton.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

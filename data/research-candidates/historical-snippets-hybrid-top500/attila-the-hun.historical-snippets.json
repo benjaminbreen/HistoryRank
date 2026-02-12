@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.538Z",
+  "figureId": "attila-the-hun",
+  "figureName": "Attila the Hun",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Attila the Hun is consistently described across 12 model source lists as influential for: Leader of the Huns who invaded Europe; Leader of the Huns, terrorizing the Roman Empire; Leader invading Roman Empire, altering European history; Hunnic Empire; hastened fall of Western Rome; Hunnic Empire; Threatened both Roman Empires; influenced fall of Western Rome; shaped European migration; Led devastating campaigns against the Roman Empire, accelerating its fragmentation; Led devastating raids across Europe, accelerating the decline of the Western Roman Empire.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

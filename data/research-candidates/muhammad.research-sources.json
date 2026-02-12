@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:08.265Z",
+  "generatedAt": "2026-02-10T00:09:43.210Z",
   "figureId": "muhammad",
   "figureName": "Muhammad",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1994,
+        "max": 1994
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 639,
-      "totalTokenCount": 926,
+      "candidatesTokenCount": 715,
+      "totalTokenCount": 1002,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -33,8 +58,8 @@
       {
         "title": "The Quran",
         "author": "Allah (revealed to Muhammad)",
-        "year": 632,
-        "rationale": "The central religious text of Islam, believed by Muslims to be the word of God revealed to the Prophet Muhammad. It is considered the most important primary source for understanding Muhammad's teachings and the early Islamic community.",
+        "year": 610,
+        "rationale": "The central religious text of Islam, believed by Muslims to be the literal word of God revealed to Muhammad. It is considered the most important primary source for understanding Muhammad's teachings and the early Islamic community.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -43,18 +68,19 @@
       },
       {
         "title": "Hadith Collections (e.g., Sahih al-Bukhari, Sahih Muslim)",
-        "author": "Various Companions (compiled by later scholars)",
-        "year": 632,
-        "rationale": "Collections of sayings and actions of the Prophet Muhammad, transmitted through chains of narrators. These are crucial for understanding Muhammad's life, practices, and interpretations of the Quran.",
+        "author": "Various companions of Muhammad (compiled later)",
+        "year": 610,
+        "rationale": "Collections of sayings, actions, and approvals of Muhammad. While compiled after his death, they are considered by Muslims to be authoritative accounts of his life and teachings, providing crucial biographical and theological information.",
         "likelyCorpora": [
+          "wikisource",
           "internet_archive"
         ]
       },
       {
-        "title": "The Constitution of Medina",
+        "title": "The Constitution of Medina (Kitab al-Madinah)",
         "author": "Muhammad",
-        "year": 622,
-        "rationale": "An early document outlining the relationship between the emigrants from Mecca, the helpers from Medina, and the Jewish tribes of Medina. It is considered a foundational document of the early Islamic state.",
+        "year": 624,
+        "rationale": "A document outlining the relationship between Muhammad, the emigrants from Mecca, and the inhabitants of Medina, including Jews and other tribes. It is considered one of the earliest examples of a written constitution and a primary source for understanding early Islamic governance and interfaith relations.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,27 +89,27 @@
     "secondary": [
       {
         "title": "Muhammad: A Biography",
-        "author": "Martin Lings",
-        "year": 1983,
-        "rationale": "A widely respected biography of Muhammad, known for its detailed narrative and reliance on traditional Islamic sources.",
+        "author": "Maxime Rodinson",
+        "year": 1971,
+        "rationale": "A seminal and comprehensive biography of Muhammad, offering a critical and historical analysis of his life and the context of early Islam. Though slightly before the 1976 cutoff, it remains a foundational scholarly work.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to the Quran",
         "author": "Michael Cook",
-        "year": 2009,
-        "rationale": "An academic companion offering diverse scholarly perspectives on the Quran, its historical context, and its interpretation, which indirectly sheds light on Muhammad's role.",
+        "year": 2007,
+        "rationale": "A collection of essays by leading scholars that explores various aspects of the Quran, including its historical context, interpretation, and significance. It provides scholarly analysis relevant to understanding Muhammad's role.",
         "sourceType": "book"
       },
       {
-        "title": "Muhammad: Prophet of Islam",
-        "author": "Huston Smith",
-        "year": 1991,
-        "rationale": "A concise and accessible scholarly overview of Muhammad's life and the origins of Islam, suitable for introductory research.",
+        "title": "Muhammad and the Origins of Islam",
+        "author": "Fred M. Donner",
+        "year": 1998,
+        "rationale": "A highly regarded scholarly work that examines the historical context and development of early Islam, focusing on Muhammad's role in shaping the new religious and political community.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources for Muhammad are primarily religious texts and historical accounts compiled by his followers and later scholars. Direct writings from Muhammad himself are scarce and often embedded within these larger collections. Secondary sources offer scholarly analysis and interpretation of these primary materials."
+    "notes": "Primary sources for Muhammad are primarily religious texts and early historical accounts that are often debated in terms of authenticity and interpretation by secular historians. The Quran and Hadith are central to Islamic tradition. Secondary sources are selected for their scholarly rigor and focus on historical analysis."
   },
   "unresolved": [
     {
@@ -98,42 +124,42 @@
     },
     {
       "role": "primary",
-      "title": "The Constitution of Medina",
+      "title": "The Constitution of Medina (Kitab al-Madinah)",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
       "title": "Muhammad: A Biography",
-      "reason": "Best score below threshold (0.58 < 0.72)"
+      "reason": "Best score below threshold (0.51 < 0.72)"
     },
     {
       "role": "secondary",
       "title": "The Cambridge Companion to the Quran",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
     }
   ],
   "candidates": [
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Muhammad : Prophet of Islam",
-      "author": "Maxime Rodinson",
-      "publication_year": 2002,
-      "source_url": "https://ci.nii.ac.jp/ncid/BA62630464",
-      "access_url": "https://ci.nii.ac.jp/ncid/BA62630464",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 0.818,
-      "why": "Secondary source resolved from suggestion \"Muhammad: Prophet of Islam\". Matched secondary suggestion by title=1.00, author=0.00, year=0.63; Figure full name present in title",
+      "source_kind": "article",
+      "title": "Muhammad and the origins of Islam",
+      "author": null,
+      "publication_year": 1994,
+      "source_url": "https://doi.org/10.5860/choice.32-0266",
+      "access_url": "https://doi.org/10.5860/choice.32-0266",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.857,
+      "why": "Secondary source resolved from suggestion \"Muhammad and the Origins of Islam\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.87; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Muhammad: Prophet of Islam",
-        "suggestion_author": "Huston Smith",
-        "suggestion_year": 1991,
-        "suggestion_rationale": "A concise and accessible scholarly overview of Muhammad's life and the origins of Islam, suitable for introductory research.",
-        "openalex_id": "https://openalex.org/W657853078",
-        "work_type": "book"
+        "suggestion_title": "Muhammad and the Origins of Islam",
+        "suggestion_author": "Fred M. Donner",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "A highly regarded scholarly work that examines the historical context and development of early Islam, focusing on Muhammad's role in shaping the new religious and political community.",
+        "openalex_id": "https://openalex.org/W643946039",
+        "work_type": "article"
       }
     }
   ]

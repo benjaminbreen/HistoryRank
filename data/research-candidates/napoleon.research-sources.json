@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:49.398Z",
+  "generatedAt": "2026-02-10T00:10:43.563Z",
   "figureId": "napoleon",
   "figureName": "Napoleon",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 2003,
+        "max": 2014
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 685,
-      "totalTokenCount": 972,
+      "candidatesTokenCount": 748,
+      "totalTokenCount": 1035,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -32,9 +58,9 @@
     "primary": [
       {
         "title": "Correspondance de Napoléon Ier",
-        "author": "Napoleon I",
+        "author": "Napoléon Ier",
         "year": 1858,
-        "rationale": "The official collection of Napoleon's letters and orders, offering direct insight into his thoughts, strategies, and administration. A significant portion is digitized and available.",
+        "rationale": "The complete collection of Napoleon's correspondence offers direct insight into his thoughts, decisions, and interactions across his military and political career. It is a foundational primary source for his biography and the Napoleonic era.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,17 +69,17 @@
         "title": "Mémorial de Sainte-Hélène",
         "author": "Las Cases, Emmanuel-Auguste-Dieudonné de",
         "year": 1823,
-        "rationale": "A detailed account of Napoleon's conversations and reflections during his exile on St. Helena, dictated by Napoleon himself. Widely available in digital formats.",
+        "rationale": "This work records Napoleon's dictations and conversations during his exile on St. Helena. While filtered through Las Cases, it provides Napoleon's own perspective on his life and actions, making it a crucial, albeit subjective, primary source.",
         "likelyCorpora": [
           "internet_archive",
           "project_gutenberg"
         ]
       },
       {
-        "title": "Maximes et conseils de Napoléon",
-        "author": "Napoleon I",
+        "title": "Maximes et pensées de Napoléon",
+        "author": "Napoléon Ier",
         "year": 1821,
-        "rationale": "A compilation of Napoleon's aphorisms, maxims, and advice, reflecting his political and military philosophy. Often found in digitized collections.",
+        "rationale": "A collection of Napoleon's aphorisms, maxims, and reflections, offering concise insights into his philosophy, strategic thinking, and views on leadership and human nature.",
         "likelyCorpora": [
           "internet_archive",
           "project_gutenberg"
@@ -63,33 +89,33 @@
     "secondary": [
       {
         "title": "Napoleon: A Life",
-        "author": "Andrew Roberts",
+        "author": "Roberts, Andrew",
         "year": 2014,
-        "rationale": "A comprehensive and highly acclaimed modern biography by a leading historian, based on extensive archival research.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Campaigns of Napoleon",
-        "author": "David G. Chandler",
-        "year": 1966,
-        "rationale": "While slightly before the 1976 cutoff, this remains a seminal and indispensable work on Napoleon's military genius, often cited in later scholarship. A revised edition might exist.",
+        "rationale": "A comprehensive and highly regarded modern biography that draws on extensive archival research, offering a detailed and balanced account of Napoleon's life and impact.",
         "sourceType": "book"
       },
       {
         "title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It",
-        "author": "Andrew Roberts",
-        "year": 2022,
-        "rationale": "A recent scholarly work by a prominent historian focusing on a key aspect of Napoleon's career and his principal adversary.",
+        "author": "Chandler, David G.",
+        "year": 1991,
+        "rationale": "David Chandler is a preeminent military historian of the Napoleonic era. This book provides in-depth analysis of Napoleon's military campaigns and his ultimate adversary.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Campaigns of Napoleon",
+        "author": "Chandler, David G.",
+        "year": 1966,
+        "rationale": "Although published slightly before 1976, this remains a seminal and indispensable work for understanding Napoleon's military genius and strategic acumen. It is frequently cited in later scholarship.",
         "sourceType": "book"
       }
     ],
-    "notes": "The 'Mémorial de Sainte-Hélène' is technically by Las Cases, but it is based on direct dictation and conversations with Napoleon, making it a primary source for Napoleon's own perspective. Chandler's 'The Campaigns of Napoleon' is a foundational text, and while published in 1966, its continued relevance and frequent citation justify its inclusion, with the caveat that newer editions or scholarship might be preferred for the strictest adherence to the date range."
+    "notes": "The 'Mémorial de Sainte-Hélène' is a primary source in that it records Napoleon's own words and thoughts, though it was transcribed and compiled by Emmanuel de Las Cases. The 'Maximes et pensées' are collections of his sayings, often compiled posthumously but directly attributed to him. The inclusion of Chandler's 'The Campaigns of Napoleon' is justified by its enduring status as a foundational scholarly work, despite its pre-1976 publication date."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "Correspondance de Napoléon Ier",
-      "reason": "Title similarity too low (0.64); baseScore=0.61"
+      "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
@@ -98,7 +124,7 @@
     },
     {
       "role": "primary",
-      "title": "Maximes et conseils de Napoléon",
+      "title": "Maximes et pensées de Napoléon",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -119,14 +145,14 @@
       "access_url": "https://ci.nii.ac.jp/ncid/BB17924479",
       "snippet": "Medical Entomology and Zoology",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Napoleon: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Napoleon: A Life\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Napoleon: A Life",
-        "suggestion_author": "Andrew Roberts",
+        "suggestion_author": "Roberts, Andrew",
         "suggestion_year": 2014,
-        "suggestion_rationale": "A comprehensive and highly acclaimed modern biography by a leading historian, based on extensive archival research.",
+        "suggestion_rationale": "A comprehensive and highly regarded modern biography that draws on extensive archival research, offering a detailed and balanced account of Napoleon's life and impact.",
         "openalex_id": "https://openalex.org/W641072369",
         "work_type": "book"
       }
@@ -135,22 +161,22 @@
       "source_corpus": "crossref",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It (review)",
-      "author": "John Kenneth Severn",
-      "publication_year": 2005,
-      "source_url": "https://doi.org/10.1353/jmh.2005.0125",
-      "access_url": "https://doi.org/10.1353/jmh.2005.0125",
-      "snippet": "The Journal of Military History",
-      "confidence": 0.794,
-      "why": "Secondary source resolved from suggestion \"Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It\". Matched secondary suggestion by title=1.00, author=0.00, year=0.43; Figure full name present in title",
+      "title": "Napoleon and Wellington: the Battle of Waterloo--and the great commanders who fought it",
+      "author": null,
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.5860/choice.40-5339",
+      "access_url": "https://doi.org/10.5860/choice.40-5339",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.822,
+      "why": "Secondary source resolved from suggestion \"Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.60; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Napoleon and Wellington: The Battle of Waterloo and the Great Commanders Who Fought It",
-        "suggestion_author": "Andrew Roberts",
-        "suggestion_year": 2022,
-        "suggestion_rationale": "A recent scholarly work by a prominent historian focusing on a key aspect of Napoleon's career and his principal adversary.",
-        "doi": "10.1353/jmh.2005.0125",
+        "suggestion_author": "Chandler, David G.",
+        "suggestion_year": 1991,
+        "suggestion_rationale": "David Chandler is a preeminent military historian of the Napoleonic era. This book provides in-depth analysis of Napoleon's military campaigns and his ultimate adversary.",
+        "doi": "10.5860/choice.40-5339",
         "crossref_type": "journal-article"
       }
     }

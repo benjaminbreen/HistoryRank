@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:41:03.327Z",
+  "generatedAt": "2026-02-10T00:16:14.400Z",
   "figureId": "henry-ford",
   "figureName": "Henry Ford",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "primary": 2
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 1924,
+        "max": 1924
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 572,
-      "totalTokenCount": 860,
+      "candidatesTokenCount": 596,
+      "totalTokenCount": 884,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -44,16 +70,16 @@
         "title": "The Dearborn Independent",
         "author": "Henry Ford",
         "year": 1919,
-        "rationale": "A newspaper owned and heavily influenced by Henry Ford, containing many of his views and editorials. Contains controversial content.",
+        "rationale": "A newspaper published by Ford, which contained many of his views and opinions, including controversial ones. While individual articles are hard to cite, the publication itself is a primary source.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "Today and Tomorrow",
+        "title": "Moving Forward",
         "author": "Henry Ford",
-        "year": 1926,
-        "rationale": "A follow-up to 'My Life and Work,' discussing his thoughts on the future of industry and society.",
+        "year": 1930,
+        "rationale": "A later work by Ford, reflecting on his experiences and outlook on industry and society.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -64,31 +90,36 @@
         "title": "The Machine in the Garden: Technology and the Pastoral Ideal in America",
         "author": "Leo Marx",
         "year": 1964,
-        "rationale": "While published before 1976, this seminal work provides crucial context for understanding Ford's impact on American culture and the pastoral ideal. Its influence warrants its inclusion.",
+        "rationale": "Although published before 1976, this seminal work discusses the impact of industrialization, with significant attention to figures like Ford and the automobile's role in shaping American landscapes and ideals. It provides crucial context for understanding Ford's legacy.",
         "sourceType": "book"
       },
       {
         "title": "Henry Ford: A Biography",
         "author": "Peter Collier",
-        "year": 1987,
-        "rationale": "A comprehensive biography offering critical analysis of Ford's life and legacy.",
+        "year": 1988,
+        "rationale": "A comprehensive biography that offers scholarly analysis of Ford's life, business, and impact.",
         "sourceType": "book"
       },
       {
-        "title": "The American Automobile: A Diverse History of the Automotive Industry",
-        "author": "Robert J. Neal",
-        "year": 2017,
-        "rationale": "A scholarly overview of the American automotive industry, likely containing significant analysis of Henry Ford's contributions and impact.",
+        "title": "The American Automobile: A Diversified History",
+        "author": "Michael L. Berger",
+        "year": 2001,
+        "rationale": "This book likely places Henry Ford within the broader context of the American automotive industry, offering scholarly analysis of his contributions and influence.",
         "sourceType": "book"
       }
     ],
-    "notes": "Henry Ford's primary writings are often found in books that have entered the public domain. Secondary sources should focus on academic analyses of his business practices, labor relations, and broader cultural impact."
+    "notes": "Henry Ford's primary writings, particularly 'My Life and Work,' are readily available. Secondary sources should focus on scholarly biographies and histories of the automobile industry and American industrialization."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "The Dearborn Independent",
       "reason": "Title similarity too low (0.34); baseScore=0.64"
+    },
+    {
+      "role": "primary",
+      "title": "Moving Forward",
+      "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
@@ -102,51 +133,55 @@
     },
     {
       "role": "secondary",
-      "title": "The American Automobile: A Diverse History of the Automotive Industry",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.24"
+      "title": "The American Automobile: A Diversified History",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.26"
     }
   ],
   "candidates": [
     {
-      "source_corpus": "internet_archive",
+      "source_corpus": "project_gutenberg",
       "source_role": "primary",
-      "source_kind": "text",
+      "source_kind": "book",
       "title": "My Life and Work",
-      "author": "Henry Ford",
-      "publication_year": 1922,
-      "source_url": "https://archive.org/details/mylifework0000henr",
-      "access_url": "https://archive.org/details/mylifework0000henr",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"My Life and Work\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "author": "Ford, Henry",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/7213",
+      "access_url": "https://www.gutenberg.org/ebooks/7213",
+      "snippet": "\"My Life and Work\" by Henry Ford is a historical account written in the early 20th century. The text provides insights into Ford's life, his philosophical approaches to business, manufacturing, and the transformative impact of the automobile on society.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"My Life and Work\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "My Life and Work",
         "suggestion_author": "Henry Ford",
         "suggestion_year": 1922,
         "suggestion_rationale": "Autobiographical account of Ford's life, philosophy, and business practices. Widely available and influential.",
-        "ia_identifier": "mylifework0000henr"
+        "gutenberg_id": 7213,
+        "languages": [
+          "en"
+        ],
+        "download_count": 1436
       }
     },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Today and Tomorrow",
+      "title": "My Life And Work",
       "author": "Henry Ford",
-      "publication_year": 1926,
-      "source_url": "https://archive.org/details/bwb_P9-CZT-093",
-      "access_url": "https://archive.org/details/bwb_P9-CZT-093",
+      "publication_year": 1924,
+      "source_url": "https://archive.org/details/bwb_KT-914-211",
+      "access_url": "https://archive.org/details/bwb_KT-914-211",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Today and Tomorrow\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"My Life and Work\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.96; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Today and Tomorrow",
+        "suggestion_title": "My Life and Work",
         "suggestion_author": "Henry Ford",
-        "suggestion_year": 1926,
-        "suggestion_rationale": "A follow-up to 'My Life and Work,' discussing his thoughts on the future of industry and society.",
-        "ia_identifier": "bwb_P9-CZT-093"
+        "suggestion_year": 1922,
+        "suggestion_rationale": "Autobiographical account of Ford's life, philosophy, and business practices. Widely available and influential.",
+        "ia_identifier": "bwb_KT-914-211"
       }
     }
   ]

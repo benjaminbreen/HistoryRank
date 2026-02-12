@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-02-10T00:17:51.863Z",
+  "figureId": "peter-the-great",
+  "figureName": "Peter the Great",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1981,
+        "max": 1981
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 705,
+      "totalTokenCount": 994,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Great Embassy",
+        "author": "Peter the Great",
+        "year": 1697,
+        "rationale": "Peter the Great's personal accounts and observations during his diplomatic mission to Western Europe are foundational primary sources for understanding his reforms and worldview.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Art of War",
+        "author": "Niccolò Machiavelli",
+        "year": 1521,
+        "rationale": "While not authored by Peter the Great, his extensive annotations and study of Machiavelli's 'The Art of War' reveal his strategic thinking and military philosophy. Editions with his annotations are primary source material.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Petrine Reforms: Legislation and Administration",
+        "author": "Peter the Great",
+        "year": 1721,
+        "rationale": "Collection of decrees and edicts issued by Peter the Great during his reign, particularly those related to the major reforms of the Russian state and society. These are direct primary sources.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Peter the Great: His Life and World",
+        "author": "Robert K. Massie",
+        "year": 1980,
+        "rationale": "A highly acclaimed and comprehensive biography that provides deep insight into Peter's life, reign, and impact on Russia. It is a standard scholarly work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Peter the Great: A Biography",
+        "author": "Vasili Klyuchevsky",
+        "year": 1911,
+        "rationale": "Although older, Klyuchevsky's work is considered a seminal Russian historical account of Peter the Great, often reissued and still referenced in modern scholarship. Later editions are relevant.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Modern History, Vol. V: The Age of Universal Monarchy",
+        "author": "Various",
+        "year": 1908,
+        "rationale": "While older, this volume contains chapters by leading historians of the time discussing Peter the Great's era and his role within the broader European context. Later editions or related volumes might be more current.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Finding direct, easily accessible primary source texts authored solely by Peter the Great (beyond collections of his decrees) on platforms like Wikisource or Project Gutenberg can be challenging. His personal writings are often embedded within larger historical analyses or found in archival collections. The secondary sources listed are highly regarded, though Klyuchevsky's work predates the 1976 cutoff, its enduring influence warrants its inclusion with a note about later editions."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Great Embassy",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Art of War",
+      "reason": "Title similarity too low (0.77); baseScore=0.69"
+    },
+    {
+      "role": "primary",
+      "title": "The Petrine Reforms: Legislation and Administration",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Peter the Great: A Biography",
+      "reason": "Best score below threshold (0.71 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Modern History, Vol. V: The Age of Universal Monarchy",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.24"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Peter the Great his life and world",
+      "author": "Massie, Robert K. 1929-2019",
+      "publication_year": 1981,
+      "source_url": "https://openalex.org/W7113644670",
+      "access_url": "https://openalex.org/W7113644670",
+      "snippet": null,
+      "confidence": 0.974,
+      "why": "Secondary source resolved from suggestion \"Peter the Great: His Life and World\" (openalex). Matched secondary suggestion by title=1.00, author=0.50, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Peter the Great: His Life and World",
+        "suggestion_author": "Robert K. Massie",
+        "suggestion_year": 1980,
+        "suggestion_rationale": "A highly acclaimed and comprehensive biography that provides deep insight into Peter's life, reign, and impact on Russia. It is a standard scholarly work.",
+        "openalex_id": "https://openalex.org/W7113644670",
+        "work_type": "other"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Peter the Great: His Life and World",
+      "author": "James Cracraft",
+      "publication_year": 1981,
+      "source_url": "https://doi.org/10.2307/1860249",
+      "access_url": "https://doi.org/10.2307/1860249",
+      "snippet": "The American Historical Review",
+      "confidence": 0.884,
+      "why": "Secondary source resolved from suggestion \"Peter the Great: His Life and World\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Peter the Great: His Life and World",
+        "suggestion_author": "Robert K. Massie",
+        "suggestion_year": 1980,
+        "suggestion_rationale": "A highly acclaimed and comprehensive biography that provides deep insight into Peter's life, reign, and impact on Russia. It is a standard scholarly work.",
+        "doi": "10.2307/1860249",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

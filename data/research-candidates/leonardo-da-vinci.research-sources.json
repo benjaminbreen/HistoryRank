@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:45.278Z",
+  "generatedAt": "2026-02-10T00:15:19.330Z",
   "figureId": "leonardo-da-vinci",
   "figureName": "Leonardo da Vinci",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,38 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 6,
+      "byRole": {
+        "primary": 3,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "crossref": 2,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1877,
+        "max": 2008
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 510,
-      "totalTokenCount": 799,
+      "candidatesTokenCount": 522,
+      "totalTokenCount": 811,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +63,7 @@
         "title": "Notebooks",
         "author": "Leonardo da Vinci",
         "year": 1519,
-        "rationale": "Leonardo's extensive notebooks contain his observations, scientific studies, and artistic theories. They are a foundational primary source for understanding his mind and work.",
+        "rationale": "Leonardo's extensive notebooks contain his scientific observations, artistic theories, and personal reflections. They are a fundamental primary source for understanding his mind and work.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +72,7 @@
         "title": "Treatise on Painting",
         "author": "Leonardo da Vinci",
         "year": 1651,
-        "rationale": "A compilation of Leonardo's writings on painting, perspective, and art theory, assembled posthumously. It offers direct insight into his artistic philosophy.",
+        "rationale": "A compilation of Leonardo's writings on art theory and practice, particularly perspective, light, and shadow. While compiled posthumously, it directly reflects his artistic teachings.",
         "likelyCorpora": [
           "project_gutenberg",
           "internet_archive"
@@ -52,28 +81,28 @@
     ],
     "secondary": [
       {
-        "title": "Leonardo da Vinci: The Flights of the Mind",
-        "author": "Charles Nicholl",
-        "year": 2004,
-        "rationale": "A highly regarded biography that delves deeply into Leonardo's life, work, and intellectual development, drawing extensively on his notebooks.",
+        "title": "Leonardo da Vinci: The Biography",
+        "author": "Walter Isaacson",
+        "year": 2017,
+        "rationale": "A comprehensive and widely acclaimed biography that draws on Leonardo's notebooks and other primary sources to provide a detailed account of his life and multifaceted genius.",
         "sourceType": "book"
       },
       {
         "title": "Leonardo da Vinci",
-        "author": "Walter Isaacson",
-        "year": 2017,
-        "rationale": "A comprehensive and accessible biography that explores Leonardo's multifaceted genius, connecting his art, science, and personal life.",
+        "author": "Martin Kemp",
+        "year": 2019,
+        "rationale": "A leading Leonardo scholar, Kemp offers an authoritative overview of Leonardo's life, work, and intellectual context, incorporating recent scholarship.",
         "sourceType": "book"
       },
       {
-        "title": "Leonardo da Vinci: Anatomist",
-        "author": "Martin Clayton and Ron Philo",
-        "year": 2019,
-        "rationale": "This scholarly work focuses specifically on Leonardo's anatomical studies, analyzing his drawings and notes to reveal his scientific rigor and understanding.",
+        "title": "Leonardo da Vinci: Experience, Experiment, Design",
+        "author": "Luke Syson",
+        "year": 2011,
+        "rationale": "Published in conjunction with a major exhibition, this scholarly catalog explores Leonardo's diverse activities and innovations through essays by leading experts.",
         "sourceType": "book"
       }
     ],
-    "notes": "While Leonardo's notebooks are vast, they were not published in his lifetime and exist in fragmented forms. The 'Treatise on Painting' is a later compilation. Availability of specific editions on digital platforms can vary."
+    "notes": "Leonardo's primary writings are primarily his notebooks, which are vast and cover a wide range of topics. The 'Treatise on Painting' is a posthumous compilation. Secondary sources are chosen for their scholarly rigor and recent publication dates."
   },
   "unresolved": [],
   "candidates": [
@@ -86,16 +115,41 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/46915",
       "access_url": "https://www.gutenberg.org/ebooks/46915",
-      "snippet": null,
+      "snippet": "\"A Treatise on Painting\" by Leonardo da Vinci is a scientific publication likely written in the late 15th century. The treatise is an exploration of the principles of painting, covering topics such as drawing, proportion, perspective, motion, light and shadow, and the use of colo...",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Treatise on Painting\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Treatise on Painting\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Treatise on Painting",
         "suggestion_author": "Leonardo da Vinci",
         "suggestion_year": 1651,
-        "suggestion_rationale": "A compilation of Leonardo's writings on painting, perspective, and art theory, assembled posthumously. It offers direct insight into his artistic philosophy.",
-        "gutenberg_id": 46915
+        "suggestion_rationale": "A compilation of Leonardo's writings on art theory and practice, particularly perspective, light, and shadow. While compiled posthumously, it directly reflects his artistic teachings.",
+        "gutenberg_id": 46915,
+        "languages": [
+          "en"
+        ],
+        "download_count": 2143
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "A Treatise On Painting",
+      "author": "Leonardo Da Vinci",
+      "publication_year": 1877,
+      "source_url": "https://archive.org/details/treatiseonpainti001974mbp",
+      "access_url": "https://archive.org/details/treatiseonpainti001974mbp",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Treatise on Painting\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Treatise on Painting",
+        "suggestion_author": "Leonardo da Vinci",
+        "suggestion_year": 1651,
+        "suggestion_rationale": "A compilation of Leonardo's writings on art theory and practice, particularly perspective, light, and shadow. While compiled posthumously, it directly reflects his artistic teachings.",
+        "ia_identifier": "treatiseonpainti001974mbp"
       }
     },
     {
@@ -109,37 +163,37 @@
       "access_url": "https://archive.org/details/notebooks0000leon",
       "snippet": null,
       "confidence": 0.82,
-      "why": "Primary source resolved from suggestion \"Notebooks\". Matched primary suggestion by title=1.00, author=0.60, year=0.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Notebooks\" (internet_archive). Matched primary suggestion by title=1.00, author=0.60, year=0.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Notebooks",
         "suggestion_author": "Leonardo da Vinci",
         "suggestion_year": 1519,
-        "suggestion_rationale": "Leonardo's extensive notebooks contain his observations, scientific studies, and artistic theories. They are a foundational primary source for understanding his mind and work.",
+        "suggestion_rationale": "Leonardo's extensive notebooks contain his scientific observations, artistic theories, and personal reflections. They are a fundamental primary source for understanding his mind and work.",
         "ia_identifier": "notebooks0000leon"
       }
     },
     {
-      "source_corpus": "openalex",
+      "source_corpus": "crossref",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Leonardo da Vinci: The Flights of the Mind",
-      "author": "Charles Nicholl",
-      "publication_year": 2004,
-      "source_url": "https://ci.nii.ac.jp/ncid/BA71879419",
-      "access_url": "https://ci.nii.ac.jp/ncid/BA71879419",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci: The Flights of the Mind\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "source_kind": "article",
+      "title": "Leonardo da Vinci",
+      "author": "Martin Kemp",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.1093/gao/9781884446054.article.t050401",
+      "access_url": "https://doi.org/10.1093/gao/9781884446054.article.t050401",
+      "snippet": "Oxford Art Online",
+      "confidence": 0.999,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci\" (crossref). Matched secondary suggestion by title=1.00, author=1.00, year=0.47; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Leonardo da Vinci: The Flights of the Mind",
-        "suggestion_author": "Charles Nicholl",
-        "suggestion_year": 2004,
-        "suggestion_rationale": "A highly regarded biography that delves deeply into Leonardo's life, work, and intellectual development, drawing extensively on his notebooks.",
-        "openalex_id": "https://openalex.org/W600184691",
-        "work_type": "book"
+        "suggestion_title": "Leonardo da Vinci",
+        "suggestion_author": "Martin Kemp",
+        "suggestion_year": 2019,
+        "suggestion_rationale": "A leading Leonardo scholar, Kemp offers an authoritative overview of Leonardo's life, work, and intellectual context, incorporating recent scholarship.",
+        "doi": "10.1093/gao/9781884446054.article.t050401",
+        "crossref_type": "reference-entry"
       }
     },
     {
@@ -147,44 +201,44 @@
       "source_role": "secondary",
       "source_kind": "book",
       "title": "Leonardo da Vinci",
-      "author": "Walter Isaacson",
-      "publication_year": 2017,
-      "source_url": "https://openlibrary.org/works/OL17802920W",
-      "access_url": "https://openlibrary.org/works/OL17802920W",
+      "author": "Martin Kemp",
+      "publication_year": 2006,
+      "source_url": "https://openlibrary.org/works/OL42243830W",
+      "access_url": "https://openlibrary.org/works/OL42243830W",
       "snippet": null,
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "confidence": 0.956,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.57; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Leonardo da Vinci",
-        "suggestion_author": "Walter Isaacson",
-        "suggestion_year": 2017,
-        "suggestion_rationale": "A comprehensive and accessible biography that explores Leonardo's multifaceted genius, connecting his art, science, and personal life.",
-        "edition_count": 21
+        "suggestion_author": "Martin Kemp",
+        "suggestion_year": 2019,
+        "suggestion_rationale": "A leading Leonardo scholar, Kemp offers an authoritative overview of Leonardo's life, work, and intellectual context, incorporating recent scholarship.",
+        "edition_count": 1
       }
     },
     {
-      "source_corpus": "openalex",
+      "source_corpus": "crossref",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Leonardo da Vinci: Anatomist",
-      "author": "Martin Clayton",
-      "publication_year": 2012,
-      "source_url": "https://ci.nii.ac.jp/ncid/BB17218317",
-      "access_url": "https://ci.nii.ac.jp/ncid/BB17218317",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 0.92,
-      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci: Anatomist\". Matched secondary suggestion by title=1.00, author=0.40, year=0.77; Figure full name present in title",
+      "source_kind": "article",
+      "title": ":\n                    <i>Leonardo da Vinci: Experience, Experiment and Design</i>",
+      "author": "Francesca Fiorani",
+      "publication_year": 2008,
+      "source_url": "https://doi.org/10.1353/ren.0.0215",
+      "access_url": "https://doi.org/10.1353/ren.0.0215",
+      "snippet": "Renaissance Quarterly",
+      "confidence": 0.783,
+      "why": "Secondary source resolved from suggestion \"Leonardo da Vinci: Experience, Experiment, Design\" (crossref). Matched secondary suggestion by title=0.86, author=0.00, year=0.90; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Leonardo da Vinci: Anatomist",
-        "suggestion_author": "Martin Clayton and Ron Philo",
-        "suggestion_year": 2019,
-        "suggestion_rationale": "This scholarly work focuses specifically on Leonardo's anatomical studies, analyzing his drawings and notes to reveal his scientific rigor and understanding.",
-        "openalex_id": "https://openalex.org/W616231336",
-        "work_type": "book"
+        "suggestion_title": "Leonardo da Vinci: Experience, Experiment, Design",
+        "suggestion_author": "Luke Syson",
+        "suggestion_year": 2011,
+        "suggestion_rationale": "Published in conjunction with a major exhibition, this scholarly catalog explores Leonardo's diverse activities and innovations through essays by leading experts.",
+        "doi": "10.1353/ren.0.0215",
+        "crossref_type": "journal-article"
       }
     }
   ]

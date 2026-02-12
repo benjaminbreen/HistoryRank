@@ -126,7 +126,7 @@ export default function MapsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f8f5ef]">
+    <div className="min-h-screen bg-[#f8f5ef] dark:bg-slate-900">
       <AppHeader
         active="maps"
         settings={settings}
@@ -136,47 +136,53 @@ export default function MapsPage() {
       <main className="mx-auto max-w-7xl px-6 pb-16 pt-10">
         <div className="flex flex-col gap-8">
           <header className="flex flex-col gap-3">
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-400">Maps</p>
-            <h2 className="text-3xl font-serif text-stone-900">
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-400 dark:text-slate-500">Maps</p>
+            <h2 className="text-3xl font-serif text-stone-900 dark:text-amber-100">
               A geographic view of historical influence
             </h2>
-            <p className="max-w-3xl text-sm text-stone-600">
+            <p className="max-w-3xl text-sm text-stone-600 dark:text-slate-400">
               Explore the birthplace geography of the top 1,000 figures. Toggle between a flat projection
               and a rotating globe, then filter by model, era, and domain to spot geographic clusters.
             </p>
           </header>
 
-          <section className="rounded-3xl border border-stone-200/70 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-3">
-                <div className="rounded-full border border-stone-200 bg-stone-50 p-1 shadow-inner">
+          <section className="rounded-3xl border border-stone-200/70 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 p-4 shadow-sm backdrop-blur-sm">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3">
+                <div className="rounded-full border border-stone-200 dark:border-slate-600 bg-stone-50 dark:bg-slate-700 p-1 shadow-inner self-start">
                   <button
                     className={`px-4 py-1.5 text-sm transition-all ${
                       viewMode === 'map'
-                        ? 'rounded-full bg-white text-stone-900 shadow-sm'
-                        : 'text-stone-500 hover:text-stone-700'
+                        ? 'rounded-full bg-white dark:bg-slate-600 text-stone-900 dark:text-slate-100 shadow-sm'
+                        : 'text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200'
                     }`}
                     onClick={() => setViewMode('map')}
+                    aria-label="Switch to flat map view"
+                    aria-pressed={viewMode === 'map'}
                   >
                     Map
                   </button>
                   <button
                     className={`px-4 py-1.5 text-sm transition-all ${
                       viewMode === 'globe'
-                        ? 'rounded-full bg-white text-stone-900 shadow-sm'
-                        : 'text-stone-500 hover:text-stone-700'
+                        ? 'rounded-full bg-white dark:bg-slate-600 text-stone-900 dark:text-slate-100 shadow-sm'
+                        : 'text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200'
                     }`}
                     onClick={() => setViewMode('globe')}
+                    aria-label="Switch to 3D globe view"
+                    aria-pressed={viewMode === 'globe'}
                   >
                     Globe
                   </button>
                   <button
                     className={`px-4 py-1.5 text-sm transition-all ${
                       viewMode === 'timeline'
-                        ? 'rounded-full bg-white text-stone-900 shadow-sm'
-                        : 'text-stone-500 hover:text-stone-700'
+                        ? 'rounded-full bg-white dark:bg-slate-600 text-stone-900 dark:text-slate-100 shadow-sm'
+                        : 'text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200'
                     }`}
                     onClick={() => setViewMode('timeline')}
+                    aria-label="Switch to timeline view"
+                    aria-pressed={viewMode === 'timeline'}
                   >
                     Timeline
                   </button>
@@ -185,7 +191,7 @@ export default function MapsPage() {
                 <select
                   value={modelSource}
                   onChange={(event) => setModelSource(event.target.value)}
-                  className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm text-stone-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
+                  className="w-full sm:w-auto rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm text-stone-700 dark:text-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
                 >
                   <option value="all">All models (average)</option>
                   {meta.sources.map((source) => (
@@ -198,7 +204,7 @@ export default function MapsPage() {
                 <select
                   value={era}
                   onChange={(event) => setEra(event.target.value)}
-                  className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm text-stone-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
+                  className="w-full sm:w-auto rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm text-stone-700 dark:text-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
                 >
                   <option value="all">All eras</option>
                   {meta.eras.map((item) => (
@@ -211,7 +217,7 @@ export default function MapsPage() {
                 <select
                   value={domain}
                   onChange={(event) => setDomain(event.target.value)}
-                  className="rounded-full border border-stone-200 bg-white px-4 py-2 text-sm text-stone-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
+                  className="w-full sm:w-auto rounded-full border border-stone-200 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-2 text-sm text-stone-700 dark:text-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/60"
                 >
                   <option value="all">All domains</option>
                   {meta.domains.map((item) => (
@@ -222,7 +228,7 @@ export default function MapsPage() {
                 </select>
               </div>
 
-              <div className="text-xs text-stone-500">
+              <div className="text-xs text-stone-500 dark:text-slate-400">
                 {points.length.toLocaleString()} figures plotted
                 {viewMode !== 'timeline' && <span className="ml-2">Scroll to zoom</span>}
               </div>
@@ -230,7 +236,7 @@ export default function MapsPage() {
           </section>
 
           <section
-            className={`relative overflow-hidden rounded-[32px] border border-stone-200/70 bg-white shadow-md ${
+            className={`relative overflow-hidden rounded-[32px] border border-stone-200/70 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-md ${
               viewMode === 'timeline' ? 'h-auto min-h-[700px] max-h-[85vh]' : 'h-[60vh] min-h-[480px]'
             }`}
           >
@@ -239,7 +245,7 @@ export default function MapsPage() {
                 <Skeleton className="h-full w-full rounded-[28px]" />
               </div>
             ) : errorMessage ? (
-              <div className="flex h-full items-center justify-center text-sm text-stone-500">
+              <div className="flex h-full items-center justify-center text-sm text-stone-500 dark:text-slate-400">
                 {errorMessage}
               </div>
             ) : viewMode === 'map' ? (

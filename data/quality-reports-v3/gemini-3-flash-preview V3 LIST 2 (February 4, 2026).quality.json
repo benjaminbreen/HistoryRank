@@ -1,0 +1,252 @@
+{
+  "file": "gemini-3-flash-preview V3 LIST 2 (February 4, 2026).txt",
+  "model": "gemini-3-flash-preview V3",
+  "timestamp": "2026-02-10T23:47:21.998Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 15,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "15 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 57,
+      "expected": 61,
+      "missing": [
+        "homer",
+        "saint paul",
+        "paul the apostle",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "57/61 anchor figures found (93%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "abraham lincoln",
+      "ranks": [
+        27,
+        478
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george washington",
+      "ranks": [
+        28,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        31,
+        120
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas jefferson",
+      "ranks": [
+        38,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franklin d roosevelt",
+      "ranks": [
+        83,
+        463
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter the great",
+      "ranks": [
+        88,
+        421
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james madison",
+      "ranks": [
+        156,
+        486
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john adams",
+      "ranks": [
+        158,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andrew jackson",
+      "ranks": [
+        159,
+        483
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodore roosevelt",
+      "ranks": [
+        160,
+        469
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        161,
+        467
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "harry s truman",
+      "ranks": [
+        162,
+        462
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        163,
+        461
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john f kennedy",
+      "ranks": [
+        164,
+        460
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lyndon b johnson",
+      "ranks": [
+        165,
+        459
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        33,
+        77
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mustafa kemal ataturk",
+      "variants": [
+        "mustafa kemal ataturk",
+        "mustafa kemal atatrk"
+      ],
+      "ranks": [
+        93,
+        414
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        301,
+        410
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        307,
+        376
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 67,
+      "Asia": 13,
+      "Middle East": 23,
+      "Africa": 9,
+      "Americas": 10,
+      "Oceania": 0,
+      "Unknown": 378
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 85,
+      "Science/Technology": 5,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 32,
+      "Military": 14,
+      "Other": 355
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.88
+  },
+  "summary": "List passes all quality checks"
+}

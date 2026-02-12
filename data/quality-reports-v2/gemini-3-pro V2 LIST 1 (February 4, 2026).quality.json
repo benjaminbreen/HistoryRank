@@ -1,0 +1,166 @@
+{
+  "file": "gemini-3-pro V2 LIST 1 (February 4, 2026).txt",
+  "model": "gemini-3-pro V2",
+  "timestamp": "2026-02-10T23:47:08.605Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 507,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "507 entries (expected 500 or 1000); non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "moses",
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "louis daguerre",
+      "ranks": [
+        47,
+        330
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william harvey",
+      "ranks": [
+        55,
+        320
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        108,
+        431
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "coco chanel",
+      "ranks": [
+        253,
+        389
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paracelsus",
+      "ranks": [
+        318,
+        438
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis braille",
+      "ranks": [
+        328,
+        356
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "siddhartha gautama buddha",
+      "variants": [
+        "siddhartha gautama buddha",
+        "gautama buddha"
+      ],
+      "ranks": [
+        4,
+        120
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        24,
+        130
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kirby",
+      "variants": [
+        "jack kirby",
+        "jack kilby"
+      ],
+      "ranks": [
+        369,
+        400
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 55,
+      "Asia": 10,
+      "Middle East": 19,
+      "Africa": 6,
+      "Americas": 10,
+      "Oceania": 0,
+      "Unknown": 407
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 507
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 29,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 14,
+      "Arts/Literature": 54,
+      "Military": 3,
+      "Other": 397
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 12,
+    "parentheticalRate": 0.023668639053254437,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.0039447731755424065,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 12,
+    "contributionShortRate": 0.023668639053254437,
+    "score": 97.90927021696251
+  },
+  "summary": "Issues: 6 exact duplicates; 507 entries (expected 500 or 1000); non-sequential ranks"
+}

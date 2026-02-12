@@ -59,11 +59,11 @@ export function BirthplaceGlobe({ lat, lon, placeName }: BirthplaceGlobeProps) {
 
     globeGradient.append('stop')
       .attr('offset', '0%')
-      .attr('stop-color', '#1a1f2e');
+      .attr('stop-color', '#232831');
 
     globeGradient.append('stop')
       .attr('offset', '100%')
-      .attr('stop-color', '#0d1117');
+      .attr('stop-color', '#141821');
 
     // Glow filter for the marker
     const glowFilter = defs.append('filter')

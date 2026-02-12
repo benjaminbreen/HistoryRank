@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.615Z",
+  "figureId": "richard-wagner",
+  "figureName": "Richard Wagner",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Richard Wagner is consistently described across 12 model source lists as influential for: Composer who revolutionized opera and influenced 19th-century German nationalism; Composer; revolutionized opera through his concept of the Gesamtkunstwerk; Composer; revolutionized opera through concept of Gesamtkunstwerk; Romantic opera; Opera revolution, music drama concept; Opera revolution, Gesamtkunstwerk; Opera composer; Composer who revolutionized opera through his concept of the 'Gesamtkunstwerk'.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

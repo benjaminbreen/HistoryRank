@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.624Z",
+  "figureId": "francis-bacon",
+  "figureName": "Francis Bacon",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 3,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Bacon, Francis",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FBacon%2C_Francis",
+      "snippet": "On the 27th of June 1576 he and his brother Anthony were entered de societate magistrorum at Gray’s Inn, and a few months later he was sent abroad with Sir Amyas Paulet, the English ambassador at Paris. The disturbed state of government and society in France at that time afforded him valuable political instruction. It was formerly supposed that certain Notes on the State of Christendom , usually printed in his works, contain the results of his observations, but Spedding has shown that there is no reason for ascribing these Notes to him, and that they may be attributed with more probability to one of his brother Anthony’s correspondents.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Francis Bacon",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FFrancis_Bacon",
+      "snippet": "On the 27th of June 1576 he and his brother Anthony were entered de societate magistrorum at Gray’s Inn, and a few months later he was sent abroad with Sir Amyas Paulet, the English ambassador at Paris. The disturbed state of government and society in France at that time afforded him valuable political instruction. It was formerly supposed that certain Notes on the State of Christendom , usually printed in his works, contain the results of his observations, but Spedding has shown that there is no reason for ascribing these Notes to him, and that they may be attributed with more probability to one of his brother Anthony’s correspondents.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Bacon, Francis",
+      "source_url": "https://plato.stanford.edu/entries/francis-bacon/",
+      "snippet": "[ Editor's Note: The following new entry by Markku Peltonen replaces the former entry on this topic by the previous author. ] Francis Bacon (1561-1626) was one of the most important philosophers of the early modern period. He was a truly protean figure—a lawyer by training and profession who advocated law reform for over thirty years; a politician and statesman who sat in parliament from the age of twenty until the age of sixty; a popular essayist and historian whose Essays were printed more than twenty times and The Historie of the Raigne of King Henrie the Seuenth (1622) at least six times in the seventeenth century. But before everything else, Bacon was a philosopher who had a profound impact on the subsequent development of philosophy. The main endeavor of his philosophical pursuits was creating a colossal program for renewing all knowledge, especially natural philosophy. Bacon called this program \" Instauratio magna \" (\"Great Instauration\"). It included a completely new aim for natural philosophy and sciences. All knowledge, rather than being only speculative and contemplative, should also be operative and beneficial to humankind. Bacon is remembered for insisting that human knowledge and power are closely connected. Another central aspect of his program for renewing all learning and knowledge was the creation of a new organon or method, often called eliminative induction, for studying nature. Bacon allocated an important role in this new organon to natural history, and his understanding of natural history, its content and role, was novel. His program also included the idea that knowledge and learning should be an institutional effort, that learning could only be advanced by collaboration.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

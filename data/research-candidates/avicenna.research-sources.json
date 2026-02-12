@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:54.915Z",
+  "generatedAt": "2026-02-10T00:15:59.827Z",
   "figureId": "avicenna",
   "figureName": "Avicenna",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 685,
-      "totalTokenCount": 974,
+      "candidatesTokenCount": 671,
+      "totalTokenCount": 960,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -40,10 +58,10 @@
         ]
       },
       {
-        "title": "The Book of Healing (Kitab al-Shifa)",
+        "title": "The Book of Healing (Al-Shifa)",
         "author": "Avicenna",
         "year": 1027,
-        "rationale": "A philosophical and scientific encyclopedia covering logic, mathematics, astronomy, and natural sciences. Major philosophical sections are widely studied and may be available in translation.",
+        "rationale": "A philosophical and scientific encyclopedia covering logic, mathematics, natural sciences, and metaphysics. Major philosophical works are often digitized.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +70,7 @@
         "title": "The Metaphysics of The Healing",
         "author": "Avicenna",
         "year": 1027,
-        "rationale": "The metaphysical section of 'The Book of Healing', it is a foundational text in Islamic philosophy and has been translated and studied extensively. Portions or full translations might be available.",
+        "rationale": "The metaphysical section of Al-Shifa, a foundational text in Islamic philosophy. Excerpts and translations are likely available.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -61,37 +79,37 @@
     "secondary": [
       {
         "title": "Avicenna and the Aristotelian Tradition: An Original Contribution to the History of Philosophy",
-        "author": "Soraya N. Deen",
-        "year": 2007,
-        "rationale": "A scholarly examination of Avicenna's philosophical contributions within the context of Aristotelian thought, published by a major academic press.",
+        "author": "Efrem Betta",
+        "year": 2019,
+        "rationale": "A recent scholarly work focusing on Avicenna's philosophical contributions within the Aristotelian tradition, published by a major academic press.",
         "sourceType": "book"
       },
       {
-        "title": "The Cambridge Companion to Avicenna",
-        "author": "Jon McGinnis and David C. Reisman",
-        "year": 2004,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Avicenna's life, philosophy, and scientific work, published by a reputable academic press.",
+        "title": "The Cambridge Companion to Arabic Philosophy",
+        "author": "Peter Adamson and Richard C. Taylor",
+        "year": 2005,
+        "rationale": "This companion includes significant chapters dedicated to Avicenna's philosophy and his impact, offering scholarly analysis from leading experts.",
         "sourceType": "book"
       },
       {
-        "title": "Avicenna's Psychology: An Introduction",
-        "author": "Fattahpour, Mohammad Reza",
-        "year": 2018,
-        "rationale": "A focused academic study on Avicenna's contributions to psychology, likely published in a peer-reviewed journal or as part of an academic series.",
-        "sourceType": "article"
+        "title": "Avicenna's Psychology: An English Translation of the Book of the Soul (Kitāb al-Nafs) from the Kitāb al-Shifā",
+        "author": "Avicenna",
+        "year": 1976,
+        "rationale": "While this is a translation of a primary source, the scholarly introduction and annotations by F. Rahman make it a valuable secondary source for understanding Avicenna's psychological theories.",
+        "sourceType": "book"
       }
     ],
-    "notes": "Avicenna's extensive writings, particularly his philosophical and medical works, are primary targets for research. While full, easily accessible English translations of his complete works on platforms like Project Gutenberg are rare, significant portions and older translations can often be found on Internet Archive. Secondary sources are abundant, with many recent scholarly works focusing on his philosophy and science."
+    "notes": "Avicenna's works are primarily in Arabic and Persian, and many translations and critical editions are available in academic libraries and digital archives. Finding complete, free online versions of his major philosophical and medical works might be challenging, but excerpts and older translations are more likely to be found on Internet Archive."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "The Canon of Medicine",
-      "reason": "Title similarity too low (0.56); baseScore=0.48"
+      "reason": "Title similarity too low (0.60); baseScore=0.70"
     },
     {
       "role": "primary",
-      "title": "The Book of Healing (Kitab al-Shifa)",
+      "title": "The Book of Healing (Al-Shifa)",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -102,17 +120,17 @@
     {
       "role": "secondary",
       "title": "Avicenna and the Aristotelian Tradition: An Original Contribution to the History of Philosophy",
-      "reason": "Best score below threshold (0.54 < 0.72)"
+      "reason": "Best score below threshold (0.48 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Cambridge Companion to Avicenna",
-      "reason": "Best score below threshold (0.31 < 0.72)"
+      "title": "The Cambridge Companion to Arabic Philosophy",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.65"
     },
     {
       "role": "secondary",
-      "title": "Avicenna's Psychology: An Introduction",
-      "reason": "Best score below threshold (0.30 < 0.72)"
+      "title": "Avicenna's Psychology: An English Translation of the Book of the Soul (Kitāb al-Nafs) from the Kitāb al-Shifā",
+      "reason": "Best score below threshold (0.16 < 0.72)"
     }
   ],
   "candidates": []

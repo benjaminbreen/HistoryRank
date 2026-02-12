@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.554Z",
+  "figureId": "charles-dickens",
+  "figureName": "Charles Dickens",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Charles Dickens is consistently described across 12 model source lists as influential for: His serialized fiction mobilized public attention to urban poverty, labor abuse, and social reform; Victorian literature; social commentary; Social realism in literature; exposed Victorian inequalities; English writer who depicted Victorian society; Social reform through literature, Victorian era; Victorian novelist, social critic; Victorian novelist; Literature; Social Commentary.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

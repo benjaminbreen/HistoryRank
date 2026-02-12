@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Search, X, Gem, Radar, Globe, Crown, TrendingUp, Bot, BookOpen, ScrollText, PenLine, Loader2, Tag, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Tooltip } from '@/components/ui/tooltip';
 import type { BadgeType } from '@/types';
 import { BADGE_DEFINITIONS } from '@/types';
 
@@ -32,15 +33,15 @@ interface RankingsFiltersProps {
 
 // Badge filter buttons configuration
 const BADGE_FILTERS: { type: BadgeType; icon: typeof Gem; color: string }[] = [
-  { type: 'hidden-gem', icon: Gem, color: 'text-cyan-600 bg-cyan-50 border-cyan-200 hover:bg-cyan-100' },
-  { type: 'under-the-radar', icon: Radar, color: 'text-sky-600 bg-sky-50 border-sky-200 hover:bg-sky-100' },
-  { type: 'historians-favorite', icon: ScrollText, color: 'text-stone-600 bg-stone-100 border-stone-300 hover:bg-stone-200' },
-  { type: 'underwritten', icon: PenLine, color: 'text-orange-600 bg-orange-50 border-orange-200 hover:bg-orange-100' },
-  { type: 'global-icon', icon: Globe, color: 'text-teal-600 bg-teal-50 border-teal-200 hover:bg-teal-100' },
-  { type: 'universal-recognition', icon: Crown, color: 'text-amber-600 bg-amber-50 border-amber-200 hover:bg-amber-100' },
-  { type: 'popular', icon: TrendingUp, color: 'text-rose-600 bg-rose-50 border-rose-200 hover:bg-rose-100' },
-  { type: 'llm-favorite', icon: Bot, color: 'text-indigo-600 bg-indigo-50 border-indigo-200 hover:bg-indigo-100' },
-  { type: 'legacy-leaning', icon: BookOpen, color: 'text-violet-600 bg-violet-50 border-violet-200 hover:bg-violet-100' },
+  { type: 'hidden-gem', icon: Gem, color: 'text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-900/30 border-cyan-200 dark:border-cyan-800 hover:bg-cyan-100 dark:hover:bg-cyan-900/50' },
+  { type: 'under-the-radar', icon: Radar, color: 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-900/30 border-sky-200 dark:border-sky-800 hover:bg-sky-100 dark:hover:bg-sky-900/50' },
+  { type: 'historians-favorite', icon: ScrollText, color: 'text-stone-600 dark:text-slate-300 bg-stone-100 dark:bg-slate-700/50 border-stone-300 dark:border-slate-600 hover:bg-stone-200 dark:hover:bg-slate-700' },
+  { type: 'underwritten', icon: PenLine, color: 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/30 border-orange-200 dark:border-orange-800 hover:bg-orange-100 dark:hover:bg-orange-900/50' },
+  { type: 'global-icon', icon: Globe, color: 'text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 border-teal-200 dark:border-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900/50' },
+  { type: 'universal-recognition', icon: Crown, color: 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/50' },
+  { type: 'popular', icon: TrendingUp, color: 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30 border-rose-200 dark:border-rose-800 hover:bg-rose-100 dark:hover:bg-rose-900/50' },
+  { type: 'llm-favorite', icon: Bot, color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50' },
+  { type: 'legacy-leaning', icon: BookOpen, color: 'text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-900/30 border-violet-200 dark:border-violet-800 hover:bg-violet-100 dark:hover:bg-violet-900/50' },
 ];
 
 const DOMAINS = [
@@ -158,7 +159,7 @@ export function RankingsFilters({
   return (
     <div className="space-y-2">
       <div
-        className="sticky z-30 rounded-xl border border-stone-200/70 bg-[#f8f6f2]/95 px-2.5 py-2 shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-[#0c1220]/95"
+        className="sticky z-30 rounded-xl border border-stone-200/70 bg-[#f8f6f2]/95 px-2.5 py-2 shadow-sm backdrop-blur-sm dark:border-slate-700/70 dark:bg-[#111419]/95"
         style={{ top: 'var(--app-header-height, 56px)' }}
       >
         <div className="flex flex-wrap items-center gap-2">
@@ -190,15 +191,17 @@ export function RankingsFilters({
         </div>
 
         {showSmartSearchToggle && (
-          <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none whitespace-nowrap">
-            <input
-              type="checkbox"
-              checked={smartSearch}
-              onChange={(e) => onSmartSearchChange(e.target.checked)}
-              className="h-4 w-4 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
-            />
-            Smart search
-          </label>
+          <Tooltip content="Uses AI embeddings to find semantically related figures, not just exact name matches">
+            <label className="flex items-center gap-2 text-xs text-stone-600 dark:text-slate-400 select-none whitespace-nowrap cursor-help">
+              <input
+                type="checkbox"
+                checked={smartSearch}
+                onChange={(e) => onSmartSearchChange(e.target.checked)}
+                className="h-4 w-4 rounded border-stone-300 text-amber-600 focus:ring-amber-500"
+              />
+              Smart search
+            </label>
+          </Tooltip>
         )}
 
         {showResultCount && (
@@ -338,7 +341,7 @@ export function RankingsFilters({
         {(domain || era || region || modelSource || search || badgeFilter) && (
           <button
               onClick={clearAllFilters}
-              className="col-span-2 sm:col-span-1 justify-self-start text-xs sm:text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 underline underline-offset-2 py-1.5"
+              className="col-span-2 sm:col-span-1 justify-self-start text-xs sm:text-sm text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700/50 rounded-md px-2.5 py-2 min-h-[44px] sm:min-h-0 sm:py-1.5 transition-colors"
           >
             Clear all
           </button>

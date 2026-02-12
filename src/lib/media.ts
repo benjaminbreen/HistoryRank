@@ -38,6 +38,7 @@ export type MediaItem = {
   page_count?: number | null;
   genres?: string[] | null;
   language?: string | null;
+  student_notes?: Array<{ initials: string; note?: string }>;
 };
 
 const MEDIA_PATH = path.join(process.cwd(), 'data', 'raw', 'media', 'ucsc-history-media.jsonl');

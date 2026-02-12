@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:37:12.416Z",
+  "generatedAt": "2026-02-10T00:13:06.907Z",
   "figureId": "mao-zedong",
   "figureName": "Mao Zedong",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 2,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1967,
+        "max": 2010
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 636,
-      "totalTokenCount": 925,
+      "candidatesTokenCount": 635,
+      "totalTokenCount": 924,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,29 +62,27 @@
         "title": "Quotations from Chairman Mao Tse-tung",
         "author": "Mao Zedong",
         "year": 1964,
-        "rationale": "This is a collection of Mao's writings and speeches, widely disseminated and a key text for understanding his ideology and the Cultural Revolution. It is highly likely to be found in digital archives.",
+        "rationale": "This is a collection of Mao's writings and speeches, widely disseminated and influential. It is a key primary source for understanding his ideology and the Cultural Revolution.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "On Practice",
+        "title": "On Protracted War",
         "author": "Mao Zedong",
-        "year": 1937,
-        "rationale": "A foundational philosophical essay by Mao, outlining his theory of knowledge and dialectical materialism. Important for understanding his intellectual development.",
+        "year": 1938,
+        "rationale": "A seminal work outlining Mao's strategic thinking on guerrilla warfare and the protracted nature of the Sino-Japanese War. Crucial for understanding his military and political theories.",
         "likelyCorpora": [
-          "internet_archive",
-          "wikisource"
+          "internet_archive"
         ]
       },
       {
-        "title": "On Contradiction",
+        "title": "Selected Works of Mao Tse-tung",
         "author": "Mao Zedong",
-        "year": 1937,
-        "rationale": "Another key philosophical work by Mao, elaborating on the concept of contradiction as the driving force of change. Essential for understanding his dialectical thinking.",
+        "year": 1998,
+        "rationale": "A comprehensive collection of Mao's most important writings, speeches, and letters, spanning his political career. Essential for in-depth research.",
         "likelyCorpora": [
-          "internet_archive",
-          "wikisource"
+          "internet_archive"
         ]
       }
     ],
@@ -65,27 +91,32 @@
         "title": "Mao: The Unknown Story",
         "author": "Jung Chang and Jon Halliday",
         "year": 2005,
-        "rationale": "A comprehensive and controversial biography that offers a critical perspective on Mao's life and rule, based on extensive research.",
+        "rationale": "A highly critical and widely read biography that offers a controversial perspective on Mao's life and rule, based on extensive interviews and archival research.",
         "sourceType": "book"
       },
       {
         "title": "Mao Zedong and China in the Twentieth-Century World: A Concise History",
         "author": "Rebecca E. Karl",
         "year": 2010,
-        "rationale": "A scholarly overview that places Mao's life and leadership within the broader context of 20th-century global history, offering a balanced academic assessment.",
+        "rationale": "A scholarly and accessible overview of Mao's life and impact within the broader context of 20th-century global history, written by a respected historian.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Mao Zedong",
-        "author": "Rebecca E. Karl and Laura J. Song (Editors)",
-        "year": 2004,
+        "author": "Rebecca E. Karl and Laura A. Storti (Editors)",
+        "year": 2019,
         "rationale": "A collection of essays by leading scholars providing diverse perspectives on Mao's thought, actions, and legacy.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source texts by Mao are often available in collections of his works or as standalone essays on platforms like Internet Archive and Wikisource. Secondary sources are chosen for their scholarly reputation and publication date post-Mao's death."
+    "notes": "Primary source texts by Mao are often available in various editions and translations online, particularly on Internet Archive. Secondary sources are chosen for their scholarly reputation and publication date post-Mao's death."
   },
   "unresolved": [
+    {
+      "role": "primary",
+      "title": "On Protracted War",
+      "reason": "No resolver results from corpus APIs"
+    },
     {
       "role": "secondary",
       "title": "Mao: The Unknown Story",
@@ -94,31 +125,10 @@
     {
       "role": "secondary",
       "title": "The Cambridge Companion to Mao Zedong",
-      "reason": "Best score below threshold (0.45 < 0.72)"
+      "reason": "Best score below threshold (0.43 < 0.72)"
     }
   ],
   "candidates": [
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "On Contradiction",
-      "author": "Mao Zedong",
-      "publication_year": 1953,
-      "source_url": "https://archive.org/details/oncontradiction0000maoz",
-      "access_url": "https://archive.org/details/oncontradiction0000maoz",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"On Contradiction\". Matched primary suggestion by title=1.00, author=1.00, year=0.68; Primary gate passed",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "On Contradiction",
-        "suggestion_author": "Mao Zedong",
-        "suggestion_year": 1937,
-        "suggestion_rationale": "Another key philosophical work by Mao, elaborating on the concept of contradiction as the driving force of change. Essential for understanding his dialectical thinking.",
-        "ia_identifier": "oncontradiction0000maoz"
-      }
-    },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
@@ -130,35 +140,58 @@
       "access_url": "https://archive.org/details/quotations-from-chairman-mao-tse-tung-chinese-and-english",
       "snippet": null,
       "confidence": 0.96,
-      "why": "Primary source resolved from suggestion \"Quotations from Chairman Mao Tse-tung\". Matched primary suggestion by title=0.87, author=1.00, year=0.94; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Quotations from Chairman Mao Tse-tung\" (internet_archive). Matched primary suggestion by title=0.87, author=1.00, year=0.94; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Quotations from Chairman Mao Tse-tung",
         "suggestion_author": "Mao Zedong",
         "suggestion_year": 1964,
-        "suggestion_rationale": "This is a collection of Mao's writings and speeches, widely disseminated and a key text for understanding his ideology and the Cultural Revolution. It is highly likely to be found in digital archives.",
+        "suggestion_rationale": "This is a collection of Mao's writings and speeches, widely disseminated and influential. It is a key primary source for understanding his ideology and the Cultural Revolution.",
         "ia_identifier": "quotations-from-chairman-mao-tse-tung-chinese-and-english"
       }
     },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
-      "source_kind": "text",
-      "title": "On practice",
-      "author": "Mao, Zedong, 1893-1976",
-      "publication_year": 1950,
-      "source_url": "https://archive.org/details/onpractice00maoz",
-      "access_url": "https://archive.org/details/onpractice00maoz",
+      "source_kind": "book",
+      "title": "Selected Works of Mao Tse Tung 1956-1971",
+      "author": "Mao Zedong",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/SelectedWorksOfZhouEnlaiVolumeIi",
+      "access_url": "https://archive.org/details/SelectedWorksOfZhouEnlaiVolumeIi",
       "snippet": null,
-      "confidence": 0.891,
-      "why": "Primary source resolved from suggestion \"On Practice\". Matched primary suggestion by title=1.00, author=0.50, year=0.74; Primary gate passed",
+      "confidence": 0.921,
+      "why": "Primary source resolved from suggestion \"Selected Works of Mao Tse-tung\" (internet_archive). Matched primary suggestion by title=0.95, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "On Practice",
+        "suggestion_title": "Selected Works of Mao Tse-tung",
         "suggestion_author": "Mao Zedong",
-        "suggestion_year": 1937,
-        "suggestion_rationale": "A foundational philosophical essay by Mao, outlining his theory of knowledge and dialectical materialism. Important for understanding his intellectual development.",
-        "ia_identifier": "onpractice00maoz"
+        "suggestion_year": 1998,
+        "suggestion_rationale": "A comprehensive collection of Mao's most important writings, speeches, and letters, spanning his political career. Essential for in-depth research.",
+        "ia_identifier": "SelectedWorksOfZhouEnlaiVolumeIi"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Mao Zedong and China in the Twentieth-Century World: A Concise History (review)",
+      "author": "Yu Shen",
+      "publication_year": 2010,
+      "source_url": "https://doi.org/10.1353/cri.2010.0092",
+      "access_url": "https://doi.org/10.1353/cri.2010.0092",
+      "snippet": "China review international",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"Mao Zedong and China in the Twentieth-Century World: A Concise History\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Mao Zedong and China in the Twentieth-Century World: A Concise History",
+        "suggestion_author": "Rebecca E. Karl",
+        "suggestion_year": 2010,
+        "suggestion_rationale": "A scholarly and accessible overview of Mao's life and impact within the broader context of 20th-century global history, written by a respected historian.",
+        "openalex_id": "https://openalex.org/W2116519618",
+        "work_type": "article"
       }
     },
     {
@@ -172,14 +205,14 @@
       "access_url": "https://doi.org/10.2307/j.ctv11hpp6w",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Mao Zedong and China in the Twentieth-Century World: A Concise History\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Mao Zedong and China in the Twentieth-Century World: A Concise History\" (crossref). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Mao Zedong and China in the Twentieth-Century World: A Concise History",
         "suggestion_author": "Rebecca E. Karl",
         "suggestion_year": 2010,
-        "suggestion_rationale": "A scholarly overview that places Mao's life and leadership within the broader context of 20th-century global history, offering a balanced academic assessment.",
+        "suggestion_rationale": "A scholarly and accessible overview of Mao's life and impact within the broader context of 20th-century global history, written by a respected historian.",
         "doi": "10.2307/j.ctv11hpp6w",
         "crossref_type": "monograph"
       }

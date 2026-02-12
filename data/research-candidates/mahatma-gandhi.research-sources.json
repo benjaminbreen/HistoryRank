@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:16.939Z",
+  "generatedAt": "2026-02-10T00:13:55.036Z",
   "figureId": "mahatma-gandhi",
   "figureName": "Mahatma Gandhi",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,36 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 2,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 2
+      },
+      "yearSpan": {
+        "min": 1959,
+        "max": 2011
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 638,
-      "totalTokenCount": 926,
+      "candidatesTokenCount": 619,
+      "totalTokenCount": 907,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,10 +61,11 @@
         "title": "An Autobiography or The Story of My Experiments with Truth",
         "author": "Mahatma Gandhi",
         "year": 1927,
-        "rationale": "Gandhi's autobiography is a foundational primary source for understanding his life, philosophy, and political activities. It is widely available.",
+        "rationale": "Gandhi's autobiography is a foundational text for understanding his life, philosophy, and political activities. It is widely available in digital formats.",
         "likelyCorpora": [
-          "internet_archive",
-          "project_gutenberg"
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
         ]
       },
       {
@@ -46,15 +74,16 @@
         "year": 1909,
         "rationale": "This seminal work outlines Gandhi's vision for India's independence and his critique of Western civilization. It is a key text for his political thought.",
         "likelyCorpora": [
-          "internet_archive",
-          "project_gutenberg"
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
         ]
       },
       {
         "title": "The Collected Works of Mahatma Gandhi",
         "author": "Mahatma Gandhi",
         "year": 1958,
-        "rationale": "This multi-volume collection contains a vast array of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
+        "rationale": "A comprehensive collection of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,27 +92,27 @@
     "secondary": [
       {
         "title": "Gandhi: A Political and Spiritual Biography",
-        "author": "Judith M. Brown",
+        "author": "Peter Rühe",
         "year": 2008,
-        "rationale": "Judith Brown is a respected historian of modern India, and this biography offers a comprehensive and scholarly analysis of Gandhi's life and impact.",
+        "rationale": "A comprehensive biography by a respected scholar, offering a detailed analysis of Gandhi's life and impact.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Gandhi",
-        "author": "Judith M. Brown",
-        "year": 2014,
-        "rationale": "This collection of essays by leading scholars provides diverse perspectives on Gandhi's life, thought, and legacy, covering various aspects of his influence.",
+        "author": "Judith M. Brown and Anthony Parel",
+        "year": 2015,
+        "rationale": "An edited collection of essays by leading scholars covering various aspects of Gandhi's thought and legacy, providing diverse scholarly perspectives.",
         "sourceType": "book"
       },
       {
-        "title": "Gandhi and the Modern World: A Reader's Guide",
-        "author": "Peter Brock",
-        "year": 1978,
-        "rationale": "While slightly before the 1976 cutoff, this work is a significant scholarly guide to understanding Gandhi's ideas and their relevance in the modern context, often cited in academic research.",
+        "title": "Gandhi's Political Philosophy: A Critical Examination",
+        "author": "M. M. Sankhdher",
+        "year": 1977,
+        "rationale": "An early scholarly analysis of Gandhi's political philosophy, offering critical insights into his ideas and their application.",
         "sourceType": "book"
       }
     ],
-    "notes": "The 'Collected Works' is a massive undertaking; specific volumes or selections are more likely to be found in digital archives than the entire set."
+    "notes": "Primary sources are selected based on their foundational importance and likelihood of digital availability. Secondary sources are chosen for their scholarly merit and publication date."
   },
   "unresolved": [
     {
@@ -95,14 +124,30 @@
       "role": "secondary",
       "title": "Gandhi: A Political and Spiritual Biography",
       "reason": "Best score below threshold (0.55 < 0.72)"
-    },
-    {
-      "role": "secondary",
-      "title": "Gandhi and the Modern World: A Reader's Guide",
-      "reason": "Best score below threshold (0.25 < 0.72)"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Collected Works Of Mahatma Gandhi,ii (1896-1897 )",
+      "author": "Mahatma Gandhi",
+      "publication_year": 1959,
+      "source_url": "https://archive.org/details/in.ernet.dli.2015.100765",
+      "access_url": "https://archive.org/details/in.ernet.dli.2015.100765",
+      "snippet": null,
+      "confidence": 0.965,
+      "why": "Primary source resolved from suggestion \"The Collected Works of Mahatma Gandhi\" (internet_archive). Matched primary suggestion by title=0.87, author=1.00, year=0.98; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Collected Works of Mahatma Gandhi",
+        "suggestion_author": "Mahatma Gandhi",
+        "suggestion_year": 1958,
+        "suggestion_rationale": "A comprehensive collection of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
+        "ia_identifier": "in.ernet.dli.2015.100765"
+      }
+    },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
@@ -114,7 +159,7 @@
       "access_url": "https://archive.org/details/in.ernet.dli.2015.170524",
       "snippet": null,
       "confidence": 0.953,
-      "why": "Primary source resolved from suggestion \"Hind Swaraj or Indian Home Rule\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Hind Swaraj or Indian Home Rule\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Hind Swaraj or Indian Home Rule",
@@ -122,27 +167,6 @@
         "suggestion_year": 1909,
         "suggestion_rationale": "This seminal work outlines Gandhi's vision for India's independence and his critique of Western civilization. It is a key text for his political thought.",
         "ia_identifier": "in.ernet.dli.2015.170524"
-      }
-    },
-    {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "The collected works of Mahatma Gandhi",
-      "author": "Mahatma Gandhi",
-      "publication_year": 1909,
-      "source_url": "https://archive.org/details/bwb_W9-ABY-475_10",
-      "access_url": "https://archive.org/details/bwb_W9-ABY-475_10",
-      "snippet": null,
-      "confidence": 0.923,
-      "why": "Primary source resolved from suggestion \"The Collected Works of Mahatma Gandhi\". Matched primary suggestion by title=1.00, author=1.00, year=0.02; Primary gate passed",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "The Collected Works of Mahatma Gandhi",
-        "suggestion_author": "Mahatma Gandhi",
-        "suggestion_year": 1958,
-        "suggestion_rationale": "This multi-volume collection contains a vast array of Gandhi's writings, speeches, and letters, offering unparalleled depth for research. While the full collection might be extensive, individual volumes or selections are often digitized.",
-        "ia_identifier": "bwb_W9-ABY-475_10"
       }
     },
     {
@@ -155,17 +179,40 @@
       "source_url": "https://doi.org/10.1017/ccol9780521116701",
       "access_url": "https://doi.org/10.1017/ccol9780521116701",
       "snippet": null,
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Gandhi\". Matched secondary suggestion by title=1.00, author=1.00, year=0.90; Surname + aboutness term present in title",
+      "confidence": 0.937,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Gandhi\" (openalex). Matched secondary suggestion by title=1.00, author=0.40, year=0.87; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Gandhi",
-        "suggestion_author": "Judith M. Brown",
-        "suggestion_year": 2014,
-        "suggestion_rationale": "This collection of essays by leading scholars provides diverse perspectives on Gandhi's life, thought, and legacy, covering various aspects of his influence.",
+        "suggestion_author": "Judith M. Brown and Anthony Parel",
+        "suggestion_year": 2015,
+        "suggestion_rationale": "An edited collection of essays by leading scholars covering various aspects of Gandhi's thought and legacy, providing diverse scholarly perspectives.",
         "openalex_id": "https://openalex.org/W1565496659",
         "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Gandhi's political philosophy: a critical examination",
+      "author": null,
+      "publication_year": 1989,
+      "source_url": "https://doi.org/10.5860/choice.27-0564",
+      "access_url": "https://doi.org/10.5860/choice.27-0564",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.812,
+      "why": "Secondary source resolved from suggestion \"Gandhi's Political Philosophy: A Critical Examination\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.60; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Gandhi's Political Philosophy: A Critical Examination",
+        "suggestion_author": "M. M. Sankhdher",
+        "suggestion_year": 1977,
+        "suggestion_rationale": "An early scholarly analysis of Gandhi's political philosophy, offering critical insights into his ideas and their application.",
+        "openalex_id": "https://openalex.org/W4210428588",
+        "work_type": "article"
       }
     }
   ]

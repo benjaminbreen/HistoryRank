@@ -1,0 +1,184 @@
+{
+  "generatedAt": "2026-02-10T00:20:00.120Z",
+  "figureId": "hippocrates",
+  "figureName": "Hippocrates",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 2
+      },
+      "yearSpan": {
+        "min": 2011,
+        "max": 2018
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 553,
+      "totalTokenCount": 841,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Hippocratic Corpus",
+        "author": "Hippocrates",
+        "year": -400,
+        "rationale": "A collection of ancient Greek medical texts attributed to Hippocrates and his followers. Many individual treatises are available.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "On Airs, Waters, and Places",
+        "author": "Hippocrates",
+        "year": -400,
+        "rationale": "A foundational text in the Hippocratic Corpus, discussing the influence of environment on health.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Oath",
+        "author": "Hippocrates",
+        "year": -400,
+        "rationale": "A foundational ethical text in Western medicine, traditionally attributed to Hippocrates.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Hippocrates in Context: Nature, Kinship, and Cosmos",
+        "author": "Philip van der Eijk",
+        "year": 2018,
+        "rationale": "A comprehensive scholarly analysis of Hippocrates' work within its historical and philosophical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Hippocrates",
+        "author": "Philip van der Eijk",
+        "year": 2005,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Hippocrates' life, work, and legacy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Hippocrates: The 'Art' of Medicine",
+        "author": "Vivian Nutton",
+        "year": 2009,
+        "rationale": "An accessible yet scholarly overview of Hippocratic medicine, its practices, and its impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The Hippocratic Corpus is a collection of works, and attribution to Hippocrates himself is complex. The 'likely_corpora' reflect the availability of translations and editions of these texts."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Hippocratic Corpus",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "On Airs, Waters, and Places",
+      "reason": "Best score below threshold (0.68 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "The Oath",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "secondary",
+      "title": "Hippocrates in Context: Nature, Kinship, and Cosmos",
+      "reason": "Best score below threshold (0.58 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Hippocrates",
+      "author": "Pormann, Peter E.",
+      "publication_year": 2018,
+      "source_url": "https://doi.org/10.1017/9781107705784",
+      "access_url": "https://doi.org/10.1017/9781107705784",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.806,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Hippocrates\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.57; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Hippocrates",
+        "suggestion_author": "Philip van der Eijk",
+        "suggestion_year": 2005,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Hippocrates' life, work, and legacy.",
+        "openalex_id": "https://openalex.org/W2911595923",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "[Hippocrates, the art of medicine, rationalism and astrology].",
+      "author": "Samuel Finkielman",
+      "publication_year": 2011,
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/21745782",
+      "access_url": "https://pubmed.ncbi.nlm.nih.gov/21745782",
+      "snippet": "PubMed",
+      "confidence": 0.758,
+      "why": "Secondary source resolved from suggestion \"Hippocrates: The 'Art' of Medicine\" (openalex). Matched secondary suggestion by title=0.82, author=0.00, year=0.93; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Hippocrates: The 'Art' of Medicine",
+        "suggestion_author": "Vivian Nutton",
+        "suggestion_year": 2009,
+        "suggestion_rationale": "An accessible yet scholarly overview of Hippocratic medicine, its practices, and its impact.",
+        "openalex_id": "https://openalex.org/W1893233747",
+        "work_type": "editorial"
+      }
+    }
+  ]
+}

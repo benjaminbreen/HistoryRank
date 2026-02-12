@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.036Z",
+  "figureId": "charlie-chaplin",
+  "figureName": "Charlie Chaplin",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Charlie Chaplin is consistently described across 11 model source lists as influential for: Silent film icon who defined early cinema and physical comedy; Silent film pioneer; Silent film actor and director; Iconic figure of the silent film era and a pioneer of cinematic comedy; Iconic figure of the silent film era, known for his character 'The Tramp.'; Icon of the silent film era; revolutionized film comedy; Actor and filmmaker in silent films; Global icon of the silent film era and a pioneer in cinema as an art form.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

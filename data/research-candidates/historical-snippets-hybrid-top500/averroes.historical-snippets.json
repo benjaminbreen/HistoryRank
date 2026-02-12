@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.463Z",
+  "figureId": "averroes",
+  "figureName": "Averroes",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Averroes",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAverroes",
+      "snippet": "The literary works of Averroes include treatises on jurisprudence, grammar, astronomy, medicine and philosophy. In 1859 a work of Averroes was for the first time published in Arabic by the Bavarian Academy, and a German translation appeared in 1873 by the editor, J. Müller. It is a treatise entitled Philosophy and Theology , and, with the exception of a German version of the essay on the conjunction of the intellect with man, is the first translation which enables the non-Semitic scholar to form any adequate idea of Averroes. The Latin translations of most of his works are barbarous and obscure.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

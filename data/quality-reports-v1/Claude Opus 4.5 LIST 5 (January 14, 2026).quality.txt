@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 5 (January 14, 2026).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-02-10T23:43:34.425Z
+
+VERDICT: WARN
+
+Summary: Issues: 71 exact duplicates; pattern collapse (max 10)
+
+Scores:
+  Repetition: WARN - 71 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (79):
+  - Exact duplicate: "cyrus the great" at ranks 37, 517
+  - Exact duplicate: "adam smith" at ranks 42, 607
+  - Exact duplicate: "john locke" at ranks 46, 593
+  - Exact duplicate: "archimedes" at ranks 48, 541
+  - Exact duplicate: "gregor mendel" at ranks 58, 507
+  - Exact duplicate: "suleiman the magnificent" at ranks 65, 501
+  - Exact duplicate: "francis bacon" at ranks 74, 589
+  - Exact duplicate: "voltaire" at ranks 75, 601
+  - Exact duplicate: "jeanjacques rousseau" at ranks 76, 599
+  - Exact duplicate: "hernn corts" at ranks 87, 526
+  ... and 69 more issues
+
+Diversity Estimates:
+  Regions: Europe: 86, Asia: 67, Middle East: 29, Africa: 19, Americas: 34, Unknown: 765
+  Domains: Politics/Leadership: 55, Science/Technology: 12, Philosophy/Religion: 182, Arts/Literature: 54, Military: 6, Other: 691
+
+Advanced Metrics:
+  Advanced score: 95.7
+  Parenthetical names: 0.4%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 20.4%

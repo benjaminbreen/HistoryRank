@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.627Z",
+  "figureId": "shah-jahan",
+  "figureName": "Shah Jahan",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Shah Jahan is consistently described across 12 model source lists as influential for: Commissioned the Taj Mahal and expanded Mughal architectural and cultural legacy; Taj Mahal; Mughal architectural achievements including Taj Mahal; Architectural Legacy; Built the Taj Mahal, symbolizing Mughal architecture and cultural legacy; Mughal Emperor; built the Taj Mahal; zenith of Mughal architecture; Mughal architectural golden age, Taj Mahal; Reshaped state power through war, diplomacy, or institutional reform with effects beyond their own generation.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

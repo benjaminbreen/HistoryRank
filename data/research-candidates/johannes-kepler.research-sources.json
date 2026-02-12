@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:19:20.909Z",
+  "figureId": "johannes-kepler",
+  "figureName": "Johannes Kepler",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 612,
+      "totalTokenCount": 900,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Mysterium Cosmographicum",
+        "author": "Johannes Kepler",
+        "year": 1596,
+        "rationale": "Kepler's first major astronomical work, outlining his heliocentric model and geometric explanation of planetary orbits. It is a foundational text in the history of astronomy.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Astronomia nova",
+        "author": "Johannes Kepler",
+        "year": 1609,
+        "rationale": "This work presents Kepler's first two laws of planetary motion, derived from his meticulous analysis of Tycho Brahe's data. It is a landmark publication in scientific history.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Harmonices Mundi",
+        "author": "Johannes Kepler",
+        "year": 1619,
+        "rationale": "In this book, Kepler presents his third law of planetary motion and explores the mathematical relationships between celestial bodies, including his famous 'music of the spheres' concept.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Kepler's Witch: An Astronomer's Young Life",
+        "author": "Marcus du Sautoy",
+        "year": 2015,
+        "rationale": "A biographical account focusing on Kepler's early life and the challenges he faced, offering insights into his scientific development and personal circumstances.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Essential Kepler",
+        "author": "Johannes Kepler",
+        "year": 2000,
+        "rationale": "While this is a collection of Kepler's writings, the scholarly introduction and annotations by the editor, Nick Kollerstrom, provide significant secondary analysis and context for his work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Kepler's Laws of Planetary Motion",
+        "author": "Owen Gingerich",
+        "year": 1976,
+        "rationale": "A foundational article by a leading Kepler scholar, providing a detailed analysis of the development and significance of Kepler's laws.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Primary sources are likely available in their original Latin or in translation on Internet Archive. Secondary sources are selected for their scholarly merit and recency, with a focus on biographical and analytical works."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Mysterium Cosmographicum",
+      "reason": "Title similarity too low (0.45); baseScore=0.49"
+    },
+    {
+      "role": "primary",
+      "title": "Astronomia nova",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Harmonices Mundi",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Kepler's Witch: An Astronomer's Young Life",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.25"
+    },
+    {
+      "role": "secondary",
+      "title": "The Essential Kepler",
+      "reason": "Best score below threshold (0.36 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Kepler's Laws of Planetary Motion",
+      "reason": "Best score below threshold (0.43 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

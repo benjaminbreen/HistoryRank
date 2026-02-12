@@ -1,0 +1,218 @@
+{
+  "generatedAt": "2026-02-10T00:19:15.999Z",
+  "figureId": "johann-sebastian-bach",
+  "figureName": "Johann Sebastian Bach",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 1,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1899,
+        "max": 2014
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 589,
+      "totalTokenCount": 878,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Well-Tempered Clavier",
+        "author": "Johann Sebastian Bach",
+        "year": 1722,
+        "rationale": "A seminal collection of preludes and fugues, representing Bach's mastery of counterpoint and keyboard composition. While the original manuscripts are primary, printed editions and transcriptions are widely available.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Brandenburg Concertos",
+        "author": "Johann Sebastian Bach",
+        "year": 1721,
+        "rationale": "A collection of six instrumental concertos, showcasing Bach's innovative orchestral writing and compositional techniques. Scores and analyses are readily accessible.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Mass in B minor",
+        "author": "Johann Sebastian Bach",
+        "year": 1749,
+        "rationale": "One of Bach's last and most significant choral works, representing the culmination of his sacred music. Full scores and vocal scores are widely published and digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Bach",
+        "author": "Christoph Wolff",
+        "year": 2000,
+        "rationale": "A comprehensive and highly regarded biography by a leading Bach scholar, offering deep insights into his life, work, and historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Bach",
+        "author": "John Butt",
+        "year": 1997,
+        "rationale": "A collection of essays by various scholars covering different aspects of Bach's music, performance, and reception.",
+        "sourceType": "book"
+      },
+      {
+        "title": "J.S. Bach: The Complete Works",
+        "author": "Klaus Hofmann",
+        "year": 2015,
+        "rationale": "An extensive overview of Bach's entire oeuvre, providing context and analysis for his compositions.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources for Bach are primarily his musical compositions. While letters and documents exist, they are less voluminous than his musical output. Availability on digital platforms often refers to printed editions of scores and scholarly analyses rather than original manuscripts."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Well-Tempered Clavier",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Brandenburg Concertos",
+      "reason": "Title similarity too low (0.53); baseScore=0.63"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "MASS IN B MINOR",
+      "author": "JOHANN SEBASTIAN BACH",
+      "publication_year": 1899,
+      "source_url": "https://archive.org/details/bwb_Y0-AEX-944",
+      "access_url": "https://archive.org/details/bwb_Y0-AEX-944",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Mass in B minor\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Mass in B minor",
+        "suggestion_author": "Johann Sebastian Bach",
+        "suggestion_year": 1749,
+        "suggestion_rationale": "One of Bach's last and most significant choral works, representing the culmination of his sacred music. Full scores and vocal scores are widely published and digitized.",
+        "ia_identifier": "bwb_Y0-AEX-944"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Bach",
+      "author": "John Butt",
+      "publication_year": 1997,
+      "source_url": "https://doi.org/10.1017/ccol9780521587808",
+      "access_url": "https://doi.org/10.1017/ccol9780521587808",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Bach\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Bach",
+        "suggestion_author": "John Butt",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A collection of essays by various scholars covering different aspects of Bach's music, performance, and reception.",
+        "openalex_id": "https://openalex.org/W207597711",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "C. Ph. E. Bach: The Complete Works",
+      "author": "Reinmar Emans",
+      "publication_year": 2014,
+      "source_url": "https://doi.org/10.52412/mf.2014.h2.3178",
+      "access_url": "https://doi.org/10.52412/mf.2014.h2.3178",
+      "snippet": "Die Musikforschung",
+      "confidence": 0.758,
+      "why": "Secondary source resolved from suggestion \"J.S. Bach: The Complete Works\" (crossref). Matched secondary suggestion by title=0.80, author=0.00, year=0.97; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "J.S. Bach: The Complete Works",
+        "suggestion_author": "Klaus Hofmann",
+        "suggestion_year": 2015,
+        "suggestion_rationale": "An extensive overview of Bach's entire oeuvre, providing context and analysis for his compositions.",
+        "doi": "10.52412/mf.2014.h2.3178",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion To Bach",
+      "author": "John Anthony Butt",
+      "publication_year": 1997,
+      "source_url": "https://openlibrary.org/works/OL17492937W",
+      "access_url": "https://openlibrary.org/works/OL17492937W",
+      "snippet": null,
+      "confidence": 0.963,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Bach\" (openlibrary). Matched secondary suggestion by title=1.00, author=0.67, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Bach",
+        "suggestion_author": "John Butt",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A collection of essays by various scholars covering different aspects of Bach's music, performance, and reception.",
+        "edition_count": 1
+      }
+    }
+  ]
+}

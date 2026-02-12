@@ -2,14 +2,15 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import Database from 'better-sqlite3';
 
-type SourceRole = 'primary' | 'secondary';
+type SourceRole = 'primary' | 'secondary' | 'reference';
 type SourceCorpus =
   | 'wikisource'
   | 'project_gutenberg'
   | 'internet_archive'
   | 'crossref'
   | 'openalex'
-  | 'openlibrary';
+  | 'openlibrary'
+  | 'sep';
 type SourceKind = 'text' | 'speech' | 'letter' | 'book' | 'article' | 'archive_record' | 'other';
 
 type CliArgs = {
@@ -17,6 +18,7 @@ type CliArgs = {
   figureId: string | null;
   name: string | null;
   top: number;
+  offset: number;
   model: string;
   outDir: string;
   maxPrimary: number;
@@ -24,6 +26,7 @@ type CliArgs = {
   limitPerRole: number;
   publish: boolean;
   dryRun: boolean;
+  stopOnError: boolean;
 };
 
 type FigureTarget = {
@@ -142,6 +145,19 @@ const SECONDARY_DIVERSITY_ORDER: SourceCorpus[] = [
   'openlibrary',
 ];
 
+type SepEntry = {
+  slug: string;
+  title: string;
+  normalizedTitles: string[];
+};
+
+type SepIndex = {
+  entries: SepEntry[];
+  byNormalizedTitle: Map<string, SepEntry[]>;
+};
+
+let sepIndexPromise: Promise<SepIndex | null> | null = null;
+
 function parseArgs(argv: string[]): CliArgs {
   const get = (flag: string) => {
     const match = argv.find((arg) => arg.startsWith(`${flag}=`));
@@ -153,6 +169,8 @@ function parseArgs(argv: string[]): CliArgs {
   const name = get('--name');
   const topRaw = get('--top');
   const top = topRaw ? Number.parseInt(topRaw, 10) : 1;
+  const offsetRaw = get('--offset');
+  const offset = offsetRaw ? Number.parseInt(offsetRaw, 10) : 0;
   const model = get('--model') || 'gemini-2.5-flash-lite';
   const outDir = get('--out-dir') || path.join(process.cwd(), 'data', 'research-candidates');
   const maxPrimaryRaw = get('--max-primary');
@@ -163,9 +181,13 @@ function parseArgs(argv: string[]): CliArgs {
   const limitPerRole = limitPerRoleRaw ? Number.parseInt(limitPerRoleRaw, 10) : 3;
   const publish = argv.includes('--publish');
   const dryRun = argv.includes('--dry-run');
+  const stopOnError = argv.includes('--stop-on-error');
 
   if (!Number.isFinite(top) || top < 1 || top > 200) {
     throw new Error('Invalid --top. Use a number between 1 and 200.');
+  }
+  if (!Number.isFinite(offset) || offset < 0 || offset > 5000) {
+    throw new Error('Invalid --offset. Use a number between 0 and 5000.');
   }
   if (!Number.isFinite(maxPrimary) || maxPrimary < 1 || maxPrimary > 8) {
     throw new Error('Invalid --max-primary. Use a number between 1 and 8.');
@@ -182,6 +204,7 @@ function parseArgs(argv: string[]): CliArgs {
     figureId,
     name,
     top,
+    offset,
     model,
     outDir,
     maxPrimary,
@@ -189,6 +212,7 @@ function parseArgs(argv: string[]): CliArgs {
     limitPerRole,
     publish,
     dryRun,
+    stopOnError,
   };
 }
 
@@ -210,6 +234,57 @@ function normalizeText(value: string): string {
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function decodeHtmlEntities(value: string): string {
+  const named: Record<string, string> = {
+    amp: '&',
+    lt: '<',
+    gt: '>',
+    quot: '"',
+    apos: "'",
+    nbsp: ' ',
+    ndash: '-',
+    mdash: '—',
+    lsquo: "'",
+    rsquo: "'",
+    ldquo: '"',
+    rdquo: '"',
+    hellip: '...',
+  };
+
+  return value
+    .replace(/&#(\d+);/g, (_, digits: string) => {
+      const code = Number.parseInt(digits, 10);
+      if (!Number.isFinite(code)) return _;
+      try {
+        return String.fromCodePoint(code);
+      } catch {
+        return _;
+      }
+    })
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex: string) => {
+      const code = Number.parseInt(hex, 16);
+      if (!Number.isFinite(code)) return _;
+      try {
+        return String.fromCodePoint(code);
+      } catch {
+        return _;
+      }
+    })
+    .replace(/&([a-zA-Z]+);/g, (full, key: string) => named[key] || full);
+}
+
+function stripHtmlToText(value: string): string {
+  return decodeHtmlEntities(
+    value
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+  )
+    .replace(/\[[0-9]+\]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -431,6 +506,170 @@ async function fetchJson<T>(url: string): Promise<T | null> {
   }
 }
 
+async function fetchText(url: string): Promise<string | null> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20_000);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: { 'User-Agent': 'HistoryRank/1.0 (hybrid source resolver)' },
+    });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function buildSepTitleVariants(title: string): string[] {
+  const variants = new Set<string>();
+  const base = title.trim();
+  if (!base) return [];
+
+  variants.add(base);
+  variants.add(base.replace(/\s*\[[^\]]+\]\s*/g, ' ').replace(/\s+/g, ' ').trim());
+  variants.add(base.replace(/\s*\([^)]*\)\s*$/g, '').trim());
+
+  if (base.includes(',')) {
+    const parts = base.split(',').map((part) => part.trim()).filter(Boolean);
+    if (parts.length >= 2) {
+      variants.add(`${parts.slice(1).join(' ')} ${parts[0]}`.trim());
+    }
+  }
+
+  return Array.from(variants)
+    .map((value) => normalizeText(value))
+    .filter(Boolean);
+}
+
+async function loadSepIndex(): Promise<SepIndex | null> {
+  if (sepIndexPromise) return sepIndexPromise;
+
+  sepIndexPromise = (async () => {
+    const html = await fetchText('https://plato.stanford.edu/contents.html');
+    if (!html) return null;
+
+    const entries: SepEntry[] = [];
+    const byNormalizedTitle = new Map<string, SepEntry[]>();
+    const linkPattern = /<a\s+href="entries\/([^"#/]+)\/"[^>]*>\s*<strong>([\s\S]*?)<\/strong>\s*<\/a>/gi;
+    let match: RegExpExecArray | null;
+    while ((match = linkPattern.exec(html)) !== null) {
+      const slug = match[1]?.trim();
+      const rawTitle = stripHtmlToText(match[2] || '');
+      if (!slug || !rawTitle) continue;
+      const normalizedTitles = buildSepTitleVariants(rawTitle);
+      const entry: SepEntry = { slug, title: rawTitle, normalizedTitles };
+      entries.push(entry);
+      for (const normalized of normalizedTitles) {
+        const bucket = byNormalizedTitle.get(normalized) || [];
+        bucket.push(entry);
+        byNormalizedTitle.set(normalized, bucket);
+      }
+    }
+
+    return { entries, byNormalizedTitle };
+  })();
+
+  return sepIndexPromise;
+}
+
+function buildFigureNameVariantsForSep(name: string): string[] {
+  const variants = new Set<string>();
+  const base = name.trim();
+  if (!base) return [];
+
+  variants.add(base);
+  variants.add(base.replace(/\s*\([^)]*\)\s*$/g, '').trim());
+
+  const tokens = base.split(/\s+/).filter(Boolean);
+  if (tokens.length >= 2) {
+    variants.add(`${tokens[tokens.length - 1]}, ${tokens.slice(0, -1).join(' ')}`);
+  }
+
+  return Array.from(variants)
+    .map((value) => normalizeText(value))
+    .filter(Boolean);
+}
+
+function extractSepExcerptParagraphs(html: string): string[] {
+  const preambleStart = html.indexOf('<div id="preamble"');
+  const mainTextStart = html.indexOf('<div id="main-text"');
+  const scoped =
+    preambleStart !== -1 && mainTextStart !== -1 && mainTextStart > preambleStart
+      ? html.slice(preambleStart, mainTextStart)
+      : html;
+
+  const paragraphs: string[] = [];
+  const paragraphPattern = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = paragraphPattern.exec(scoped)) !== null) {
+    const text = stripHtmlToText(match[1] || '');
+    if (!text || text.length < 80) continue;
+    paragraphs.push(text);
+    if (paragraphs.length >= 2) break;
+  }
+
+  return paragraphs;
+}
+
+function extractSepPublicationYear(html: string): number | null {
+  const pubInfoMatch = html.match(/<div id="pubinfo">[\s\S]*?<\/div>/i);
+  if (!pubInfoMatch) return null;
+  const text = stripHtmlToText(pubInfoMatch[0]);
+  const years = text.match(/\b(1[6-9]\d{2}|20\d{2})\b/g);
+  if (!years || years.length === 0) return null;
+  const latest = years[years.length - 1];
+  const parsed = Number.parseInt(latest, 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+async function resolveSepReferenceForFigure(figure: FigureTarget): Promise<ResolvedSource | null> {
+  const index = await loadSepIndex();
+  if (!index) return null;
+
+  let matched: SepEntry | null = null;
+  for (const variant of buildFigureNameVariantsForSep(figure.canonicalName)) {
+    const hit = index.byNormalizedTitle.get(variant)?.[0];
+    if (hit) {
+      matched = hit;
+      break;
+    }
+  }
+  if (!matched) return null;
+
+  const url = `https://plato.stanford.edu/entries/${matched.slug}/`;
+  const html = await fetchText(url);
+  if (!html) return null;
+
+  const paragraphs = extractSepExcerptParagraphs(html);
+  if (paragraphs.length === 0) return null;
+
+  return {
+    source_corpus: 'sep',
+    source_role: 'reference',
+    source_kind: 'article',
+    title: matched.title,
+    author: null,
+    publication_year: extractSepPublicationYear(html),
+    source_url: url,
+    access_url: url,
+    snippet: paragraphs.join('\n\n'),
+    confidence: 0.86,
+    why: `Matched Stanford Encyclopedia of Philosophy entry "${matched.title}"`,
+    metadata: {
+      strategy: 'sep_match_v1',
+      provider: 'sep',
+      sep_slug: matched.slug,
+      sep_title: matched.title,
+      sep_url: url,
+      sep_excerpt_paragraphs: paragraphs,
+      sep_excerpt_source: 'preamble_first_two_paragraphs',
+    },
+  };
+}
+
 async function resolveFigureTargets(args: CliArgs): Promise<FigureTarget[]> {
   if (args.figureId && args.name) {
     return [{ id: args.figureId, canonicalName: args.name, birthYear: null }];
@@ -456,9 +695,10 @@ async function resolveFigureTargets(args: CliArgs): Promise<FigureTarget[]> {
          FROM figures
          WHERE llm_consensus_rank IS NOT NULL
          ORDER BY llm_consensus_rank ASC
-         LIMIT ?`
+         LIMIT ?
+         OFFSET ?`
       )
-      .all(args.top) as FigureTarget[];
+      .all(args.top, args.offset) as FigureTarget[];
 
     if (rows.length === 0) {
       throw new Error('No figures found for target selection.');
@@ -1006,7 +1246,8 @@ async function resolveSuggestionsForFigure(
       continue;
     }
 
-    let best: { candidate: SearchCandidate; score: number; why: string } | null = null;
+    let bestOverall: { candidate: SearchCandidate; score: number; why: string } | null = null;
+    const bestByCorpus = new Map<SourceCorpus, { candidate: SearchCandidate; score: number; why: string }>();
     let bestRejectedReason: string | null = null;
     for (const row of searchResults) {
       const scored = scorePrimarySuggestion(suggestion, row, figure);
@@ -1018,48 +1259,60 @@ async function resolveSuggestionsForFigure(
         scored.authorScore
       );
       if (!gate.pass) {
-        if (!bestRejectedReason || scored.score > (best?.score || 0)) {
+        if (!bestRejectedReason || scored.score > (bestOverall?.score || 0)) {
           bestRejectedReason = `${gate.reason}; baseScore=${scored.score.toFixed(2)}`;
         }
         continue;
       }
-      if (!best || scored.score > best.score) {
-        best = { candidate: row, score: scored.score, why: `${scored.why}; ${gate.reason}` };
+      const resolved = { candidate: row, score: scored.score, why: `${scored.why}; ${gate.reason}` };
+      if (!bestOverall || scored.score > bestOverall.score) {
+        bestOverall = resolved;
+      }
+
+      const existingByCorpus = bestByCorpus.get(row.source_corpus);
+      if (!existingByCorpus || scored.score > existingByCorpus.score) {
+        bestByCorpus.set(row.source_corpus, resolved);
       }
     }
 
-    if (!best || best.score < PRIMARY_MIN_SCORE) {
+    const passingByCorpus = Array.from(bestByCorpus.values())
+      .filter((entry) => entry.score >= PRIMARY_MIN_SCORE)
+      .sort((a, b) => b.score - a.score);
+
+    if (passingByCorpus.length === 0) {
       unresolved.push({
         role: 'primary',
         title: suggestion.title,
-        reason: best
-          ? `Best score below threshold (${best.score.toFixed(2)} < ${PRIMARY_MIN_SCORE.toFixed(2)})`
+        reason: bestOverall
+          ? `Best score below threshold (${bestOverall.score.toFixed(2)} < ${PRIMARY_MIN_SCORE.toFixed(2)})`
           : bestRejectedReason || 'No candidate passed primary gate',
       });
       continue;
     }
 
-    resolved.push({
-      source_corpus: best.candidate.source_corpus,
-      source_role: 'primary',
-      source_kind: best.candidate.source_kind,
-      title: best.candidate.title,
-      author: best.candidate.author,
-      publication_year: best.candidate.publication_year,
-      source_url: best.candidate.source_url,
-      access_url: best.candidate.access_url,
-      snippet: best.candidate.snippet,
-      confidence: best.score,
-      why: `Primary source resolved from suggestion "${suggestion.title}". ${best.why}`,
-      metadata: {
-        strategy: 'llm_hybrid_resolver_v1',
-        suggestion_title: suggestion.title,
-        suggestion_author: suggestion.author,
-        suggestion_year: suggestion.year,
-        suggestion_rationale: suggestion.rationale,
-        ...best.candidate.metadata,
-      },
-    });
+    for (const best of passingByCorpus) {
+      resolved.push({
+        source_corpus: best.candidate.source_corpus,
+        source_role: 'primary',
+        source_kind: best.candidate.source_kind,
+        title: best.candidate.title,
+        author: best.candidate.author,
+        publication_year: best.candidate.publication_year,
+        source_url: best.candidate.source_url,
+        access_url: best.candidate.access_url,
+        snippet: best.candidate.snippet,
+        confidence: best.score,
+        why: `Primary source resolved from suggestion "${suggestion.title}" (${best.candidate.source_corpus}). ${best.why}`,
+        metadata: {
+          strategy: 'llm_hybrid_resolver_v1',
+          suggestion_title: suggestion.title,
+          suggestion_author: suggestion.author,
+          suggestion_year: suggestion.year,
+          suggestion_rationale: suggestion.rationale,
+          ...best.candidate.metadata,
+        },
+      });
+    }
   }
 
   const secondarySuggestions = suggestions.secondary_sources.slice(0, args.maxSecondary);
@@ -1077,59 +1330,71 @@ async function resolveSuggestionsForFigure(
       continue;
     }
 
-    let best: { candidate: SearchCandidate; score: number; why: string } | null = null;
+    let bestOverall: { candidate: SearchCandidate; score: number; why: string } | null = null;
+    const bestByCorpus = new Map<SourceCorpus, { candidate: SearchCandidate; score: number; why: string }>();
     let bestRejectedReason: string | null = null;
     for (const row of searchResults) {
       const scored = scoreSecondarySuggestion(suggestion, row, minSecondaryYear);
       const aboutness = evaluateSecondaryAboutness(figure, suggestion, row, scored.titleScore);
       if (!aboutness.pass) {
-        if (!bestRejectedReason || scored.score > (best?.score || 0)) {
+        if (!bestRejectedReason || scored.score > (bestOverall?.score || 0)) {
           bestRejectedReason = `${aboutness.reason}; baseScore=${scored.score.toFixed(2)}`;
         }
         continue;
       }
-      if (!best || scored.score > best.score) {
-        best = {
-          candidate: row,
-          score: scored.score,
-          why: `${scored.why}; ${aboutness.reason}`,
-        };
+      const resolved = {
+        candidate: row,
+        score: scored.score,
+        why: `${scored.why}; ${aboutness.reason}`,
+      };
+      if (!bestOverall || scored.score > bestOverall.score) {
+        bestOverall = resolved;
+      }
+      const existingByCorpus = bestByCorpus.get(row.source_corpus);
+      if (!existingByCorpus || scored.score > existingByCorpus.score) {
+        bestByCorpus.set(row.source_corpus, resolved);
       }
     }
 
-    if (!best || best.score < SECONDARY_MIN_SCORE) {
+    const passingByCorpus = Array.from(bestByCorpus.values())
+      .filter((entry) => entry.score >= SECONDARY_MIN_SCORE)
+      .sort((a, b) => b.score - a.score);
+
+    if (passingByCorpus.length === 0) {
       unresolved.push({
         role: 'secondary',
         title: suggestion.title,
-        reason: best
-          ? `Best score below threshold (${best.score.toFixed(2)} < ${SECONDARY_MIN_SCORE.toFixed(2)})`
+        reason: bestOverall
+          ? `Best score below threshold (${bestOverall.score.toFixed(2)} < ${SECONDARY_MIN_SCORE.toFixed(2)})`
           : bestRejectedReason || 'No candidate passed secondary aboutness gate',
       });
       continue;
     }
 
-    resolved.push({
-      source_corpus: best.candidate.source_corpus,
-      source_role: 'secondary',
-      source_kind: best.candidate.source_kind,
-      title: best.candidate.title,
-      author: best.candidate.author,
-      publication_year: best.candidate.publication_year,
-      source_url: best.candidate.source_url,
-      access_url: best.candidate.access_url,
-      snippet: best.candidate.snippet,
-      confidence: best.score,
-      why: `Secondary source resolved from suggestion "${suggestion.title}". ${best.why}`,
-      metadata: {
-        strategy: 'llm_hybrid_resolver_v1',
-        min_secondary_year: minSecondaryYear,
-        suggestion_title: suggestion.title,
-        suggestion_author: suggestion.author,
-        suggestion_year: suggestion.year,
-        suggestion_rationale: suggestion.rationale,
-        ...best.candidate.metadata,
-      },
-    });
+    for (const best of passingByCorpus) {
+      resolved.push({
+        source_corpus: best.candidate.source_corpus,
+        source_role: 'secondary',
+        source_kind: best.candidate.source_kind,
+        title: best.candidate.title,
+        author: best.candidate.author,
+        publication_year: best.candidate.publication_year,
+        source_url: best.candidate.source_url,
+        access_url: best.candidate.access_url,
+        snippet: best.candidate.snippet,
+        confidence: best.score,
+        why: `Secondary source resolved from suggestion "${suggestion.title}" (${best.candidate.source_corpus}). ${best.why}`,
+        metadata: {
+          strategy: 'llm_hybrid_resolver_v1',
+          min_secondary_year: minSecondaryYear,
+          suggestion_title: suggestion.title,
+          suggestion_author: suggestion.author,
+          suggestion_year: suggestion.year,
+          suggestion_rationale: suggestion.rationale,
+          ...best.candidate.metadata,
+        },
+      });
+    }
   }
 
   const deduped = dedupeByUrl(resolved);
@@ -1144,6 +1409,10 @@ async function resolveSuggestionsForFigure(
     SECONDARY_DIVERSITY_ORDER
   );
   const roleFiltered: ResolvedSource[] = [...primaryBalanced, ...secondaryBalanced];
+  const sepReference = await resolveSepReferenceForFigure(figure);
+  if (sepReference) {
+    roleFiltered.push(sepReference);
+  }
   const coverage = buildCoverageSummary(roleFiltered);
 
   return {
@@ -1155,7 +1424,7 @@ async function resolveSuggestionsForFigure(
       selection: 'balanced_role_and_corpus_v1',
       model: normalizeGeminiModel(args.model),
       language: 'en',
-      sourceRoles: ['primary', 'secondary'],
+      sourceRoles: ['primary', 'secondary', ...(sepReference ? ['reference'] : [])],
       minSecondaryYear,
       minPrimaryScore: PRIMARY_MIN_SCORE,
       minSecondaryScore: SECONDARY_MIN_SCORE,
@@ -1164,6 +1433,7 @@ async function resolveSuggestionsForFigure(
       limitPerRole: args.limitPerRole,
       preferredPrimaryCorpora: PRIMARY_DIVERSITY_ORDER,
       preferredSecondaryCorpora: SECONDARY_DIVERSITY_ORDER,
+      sepMatched: Boolean(sepReference),
       coverage,
     },
     suggestions: {
@@ -1285,27 +1555,44 @@ async function main() {
   await mkdir(args.outDir, { recursive: true });
 
   let publishedTotal = 0;
+  const failures: Array<{ figureId: string; message: string }> = [];
   for (const figure of figures) {
-    console.log(`Generating suggestions for ${figure.id} (${figure.canonicalName})`);
-    const { suggestions, usage } = await generateSuggestions(figure, args);
-    const file = await resolveSuggestionsForFigure(figure, suggestions, args);
-    file.constraints.usageMetadata = usage;
+    try {
+      console.log(`Generating suggestions for ${figure.id} (${figure.canonicalName})`);
+      const { suggestions, usage } = await generateSuggestions(figure, args);
+      const file = await resolveSuggestionsForFigure(figure, suggestions, args);
+      file.constraints.usageMetadata = usage;
 
-    const outputPath = path.join(args.outDir, `${figure.id}.research-sources.json`);
-    await writeFile(outputPath, JSON.stringify(file, null, 2), 'utf8');
-    console.log(
-      `Wrote ${file.candidates.length} resolved candidates (${file.unresolved.length} unresolved) to ${outputPath}`
-    );
+      const outputPath = path.join(args.outDir, `${figure.id}.research-sources.json`);
+      await writeFile(outputPath, JSON.stringify(file, null, 2), 'utf8');
+      console.log(
+        `Wrote ${file.candidates.length} resolved candidates (${file.unresolved.length} unresolved) to ${outputPath}`
+      );
 
-    if (args.publish) {
-      const published = publishCandidates(args.dbPath, file);
-      publishedTotal += published;
-      console.log(`Published ${published} rows for ${figure.id}`);
+      if (args.publish) {
+        const published = publishCandidates(args.dbPath, file);
+        publishedTotal += published;
+        console.log(`Published ${published} rows for ${figure.id}`);
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      failures.push({ figureId: figure.id, message });
+      console.error(`Failed for ${figure.id}: ${message}`);
+      if (args.stopOnError) {
+        throw error;
+      }
     }
   }
 
   if (args.publish) {
     console.log(`Done. Published total rows: ${publishedTotal}`);
+  }
+  if (failures.length > 0) {
+    console.log(
+      `Completed with ${failures.length} failures: ${failures
+        .map((entry) => `${entry.figureId}: ${entry.message}`)
+        .join(' | ')}`
+    );
   }
 }
 

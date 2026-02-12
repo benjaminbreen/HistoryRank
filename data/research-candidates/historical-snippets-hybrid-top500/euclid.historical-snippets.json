@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.422Z",
+  "figureId": "euclid",
+  "figureName": "Euclid",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Euclid",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FEuclid",
+      "snippet": "The question has often been mooted, to what extent Euclid, in his Elements , is a discoverer or a compiler. To this question no entirely satisfactory answer can be given, for scarcely any of the writings of earlier geometers have come down to our times. We are mainly dependent on Pappus and Proclus for the scanty notices we have of Euclid’s predecessors, and of the problems which engaged their attention; for the solution of problems, and not the discovery of theorems, would seem to have been their principal object.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

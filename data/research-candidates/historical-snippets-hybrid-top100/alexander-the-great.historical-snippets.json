@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.595Z",
+  "figureId": "alexander-the-great",
+  "figureName": "Alexander the Great",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Alexander the Great",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAlexander_the_Great",
+      "snippet": "In the spring of 334, Alexander crossed with an army of between 30,000 and 40,000 men, Macedonians, Illyrians, Thracians and the contingents of the Greek states, into Asia. The place of concentration was Arisbe on the Hellespont. Alexander himself first visited the site of Troy and there went through those dramatic acts of sacrifice to the Ilian Athena, Invasion of Asia Minor. assumption of the shield believed to be that of Achilles and offerings to the great Homeric dead, which are significant of the poetic glamour shed, in the young king’s mind, over the whole enterprise, and which men will estimate differently according to the part they assign to imagination in human affairs.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2002,
+      "source_title": "Great lodges",
+      "source_url": "//lccn.loc.gov/2003619116",
+      "snippet": "Companion Web site to the Great Lodges of the National Parks, a four-part PBS documentary exploring the most significant lodges of the Western National Parks. Each of the 15 featured lodges showcases a pivotal era of American architecture and design, and also examines the history of the surrounding Park. The site also provides links for further exploration of the national parks and the great lodges. Includes a section for teachers, as well as a souvenir shop.",
+      "match_score": 0.798,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

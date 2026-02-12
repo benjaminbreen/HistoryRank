@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:11.716Z",
+  "generatedAt": "2026-02-10T00:12:08.920Z",
   "figureId": "karl-marx",
   "figureName": "Karl Marx",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 3,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1848,
+        "max": 2013
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 543,
-      "totalTokenCount": 831,
+      "candidatesTokenCount": 572,
+      "totalTokenCount": 860,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -36,14 +64,16 @@
         "year": 1867,
         "rationale": "Marx's magnum opus, a foundational text of communist theory and critique of political economy. Its historical significance is immense.",
         "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
           "internet_archive"
         ]
       },
       {
         "title": "The Communist Manifesto",
-        "author": "Karl Marx",
+        "author": "Karl Marx and Friedrich Engels",
         "year": 1848,
-        "rationale": "A seminal political pamphlet outlining the principles of communism, widely studied and influential.",
+        "rationale": "A seminal political pamphlet outlining the principles of communism. Widely translated and studied.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -54,7 +84,7 @@
         "title": "The Eighteenth Brumaire of Louis Bonaparte",
         "author": "Karl Marx",
         "year": 1852,
-        "rationale": "An important historical analysis of a specific political event, demonstrating Marx's application of historical materialism.",
+        "rationale": "An influential historical analysis of the 1851 French coup d'état, applying historical materialism to a specific event.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -74,18 +104,18 @@
         "title": "Karl Marx: A Nineteenth-Century Life",
         "author": "Jonathan Sperber",
         "year": 2013,
-        "rationale": "A comprehensive and well-regarded biography that places Marx within his historical context.",
+        "rationale": "A comprehensive and well-regarded biography that situates Marx within his historical context.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Marx's Capital",
         "author": "Terry Eagleton",
-        "year": 1991,
+        "year": 1997,
         "rationale": "A collection of essays by leading scholars providing in-depth analysis of Marx's most important work.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are widely available in multiple digital archives. Secondary sources are major academic works providing context and analysis."
+    "notes": "Primary sources are foundational texts by Marx and Engels. Secondary sources offer scholarly analysis and biographical context, with a focus on recent academic works."
   },
   "unresolved": [
     {
@@ -101,31 +131,10 @@
     {
       "role": "secondary",
       "title": "The Cambridge Companion to Marx's Capital",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.14"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.18"
     }
   ],
   "candidates": [
-    {
-      "source_corpus": "project_gutenberg",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "The Communist Manifesto",
-      "author": "Marx, Karl",
-      "publication_year": null,
-      "source_url": "https://www.gutenberg.org/ebooks/61",
-      "access_url": "https://www.gutenberg.org/ebooks/61",
-      "snippet": null,
-      "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Communist Manifesto\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "The Communist Manifesto",
-        "suggestion_author": "Karl Marx",
-        "suggestion_year": 1848,
-        "suggestion_rationale": "A seminal political pamphlet outlining the principles of communism, widely studied and influential.",
-        "gutenberg_id": 61
-      }
-    },
     {
       "source_corpus": "project_gutenberg",
       "source_role": "primary",
@@ -135,16 +144,62 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/1346",
       "access_url": "https://www.gutenberg.org/ebooks/1346",
-      "snippet": null,
+      "snippet": "\"The Eighteenth Brumaire of Louis Bonaparte\" by Karl Marx is an essay written between December 1851 and March 1852. Marx analyzes the 1851 French coup d'état that transformed Louis-Napoléon Bonaparte from president into emperor.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Eighteenth Brumaire of Louis Bonaparte\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Eighteenth Brumaire of Louis Bonaparte\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Eighteenth Brumaire of Louis Bonaparte",
         "suggestion_author": "Karl Marx",
         "suggestion_year": 1852,
-        "suggestion_rationale": "An important historical analysis of a specific political event, demonstrating Marx's application of historical materialism.",
-        "gutenberg_id": 1346
+        "suggestion_rationale": "An influential historical analysis of the 1851 French coup d'état, applying historical materialism to a specific event.",
+        "gutenberg_id": 1346,
+        "languages": [
+          "en"
+        ],
+        "download_count": 1797
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Communist Manifesto",
+      "author": "Karl Marx and Friedrich Engels",
+      "publication_year": 1848,
+      "source_url": "https://archive.org/details/Manifesto_201807",
+      "access_url": "https://archive.org/details/Manifesto_201807",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Communist Manifesto\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Communist Manifesto",
+        "suggestion_author": "Karl Marx and Friedrich Engels",
+        "suggestion_year": 1848,
+        "suggestion_rationale": "A seminal political pamphlet outlining the principles of communism. Widely translated and studied.",
+        "ia_identifier": "Manifesto_201807"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Eighteenth Brumaire of Louis Bonaparte",
+      "author": "Karl Marx",
+      "publication_year": 1913,
+      "source_url": "https://archive.org/details/bwb_KR-557-462",
+      "access_url": "https://archive.org/details/bwb_KR-557-462",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"The Eighteenth Brumaire of Louis Bonaparte\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Eighteenth Brumaire of Louis Bonaparte",
+        "suggestion_author": "Karl Marx",
+        "suggestion_year": 1852,
+        "suggestion_rationale": "An influential historical analysis of the 1851 French coup d'état, applying historical materialism to a specific event.",
+        "ia_identifier": "bwb_KR-557-462"
       }
     },
     {
@@ -158,14 +213,14 @@
       "access_url": "https://doi.org/10.5860/choice.50-6977",
       "snippet": "Choice Reviews Online",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Karl Marx: A Nineteenth-Century Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Karl Marx: A Nineteenth-Century Life\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Karl Marx: A Nineteenth-Century Life",
         "suggestion_author": "Jonathan Sperber",
         "suggestion_year": 2013,
-        "suggestion_rationale": "A comprehensive and well-regarded biography that places Marx within his historical context.",
+        "suggestion_rationale": "A comprehensive and well-regarded biography that situates Marx within his historical context.",
         "openalex_id": "https://openalex.org/W1507973995",
         "work_type": "article"
       }

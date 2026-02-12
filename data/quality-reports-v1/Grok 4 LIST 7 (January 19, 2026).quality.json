@@ -1,0 +1,645 @@
+{
+  "file": "Grok 4 LIST 7 (January 19, 2026).txt",
+  "model": "Grok 4",
+  "timestamp": "2026-02-10T23:46:24.784Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 36,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "36 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 26,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "founder",
+          "startRank": 332,
+          "endRank": 343,
+          "count": 12,
+          "examples": [
+            "332. Estée Lauder",
+            "333. Mary Kay Ash",
+            "334. Anita Roddick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 504,
+          "endRank": 516,
+          "count": 13,
+          "examples": [
+            "504. Ernest Hemingway",
+            "505. F. Scott Fitzgerald",
+            "506. John Steinbeck"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "rapper",
+          "startRank": 581,
+          "endRank": 590,
+          "count": 10,
+          "examples": [
+            "581. Tupac Shakur",
+            "582. The Notorious B.I.G.",
+            "583. Eminem"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "architect",
+          "startRank": 626,
+          "endRank": 638,
+          "count": 13,
+          "examples": [
+            "626. Frank Lloyd Wright",
+            "627. Le Corbusier",
+            "628. Ludwig Mies van der Rohe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 665,
+          "endRank": 675,
+          "count": 11,
+          "examples": [
+            "665. Dmitri Shostakovich",
+            "666. Sergei Prokofiev",
+            "667. Aaron Copland"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 827,
+          "endRank": 836,
+          "count": 10,
+          "examples": [
+            "827. Karl Popper",
+            "828. Thomas Kuhn",
+            "829. Paul Feyerabend"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "justice",
+          "startRank": 911,
+          "endRank": 930,
+          "count": 20,
+          "examples": [
+            "911. Ruth Bader Ginsburg",
+            "912. Thurgood Marshall",
+            "913. Earl Warren"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 937,
+          "endRank": 962,
+          "count": 26,
+          "examples": [
+            "937. Barack Obama",
+            "938. Ronald Reagan",
+            "939. Bill Clinton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 964,
+          "endRank": 975,
+          "count": 12,
+          "examples": [
+            "964. James Buchanan",
+            "965. Franklin Pierce",
+            "966. Millard Fillmore"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 388,
+          "endRank": 405,
+          "count": 18,
+          "examples": [
+            "388. Michael Bloomberg",
+            "389. Larry Ellison",
+            "390. Sergey Mikhaylov"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 937,
+          "endRank": 962,
+          "count": 26,
+          "examples": [
+            "937. Barack Obama",
+            "938. Ronald Reagan",
+            "939. Bill Clinton"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 26 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "charles darwin",
+      "ranks": [
+        12,
+        293
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "abraham lincoln",
+      "ranks": [
+        15,
+        963
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        28,
+        933
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        30,
+        786
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        51,
+        316,
+        357,
+        651
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "karl benz",
+      "ranks": [
+        54,
+        344
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas jefferson",
+      "ranks": [
+        57,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george washington",
+      "ranks": [
+        58,
+        978
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franklin d roosevelt",
+      "ranks": [
+        59,
+        934
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john f kennedy",
+      "ranks": [
+        60,
+        935
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin luther king jr",
+      "ranks": [
+        61,
+        936
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jrr tolkien",
+      "ranks": [
+        111,
+        522
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "johann sebastian bach",
+      "ranks": [
+        113,
+        652
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael jackson",
+      "ranks": [
+        118,
+        741
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bob dylan",
+      "ranks": [
+        119,
+        702
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        129,
+        289
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nikolaus copernicus",
+      "ranks": [
+        145,
+        300
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andrew carnegie",
+      "ranks": [
+        167,
+        326
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "angela davis",
+      "ranks": [
+        201,
+        860
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michel foucault",
+      "ranks": [
+        235,
+        866
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jacques derrida",
+      "ranks": [
+        236,
+        847
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "noam chomsky",
+      "ranks": [
+        237,
+        812
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edward said",
+      "ranks": [
+        238,
+        851
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bell hooks",
+      "ranks": [
+        239,
+        858
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "judith butler",
+      "ranks": [
+        240,
+        864
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ngg wa thiongo",
+      "ranks": [
+        438,
+        856
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "whitney houston",
+      "ranks": [
+        565,
+        744
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "prince",
+      "ranks": [
+        574,
+        742
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "freddie mercury",
+      "ranks": [
+        575,
+        761
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john adams",
+      "ranks": [
+        680,
+        977
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ludwig wittgenstein",
+      "ranks": [
+        771,
+        822
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jean baudrillard",
+      "ranks": [
+        848,
+        887
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donna haraway",
+      "ranks": [
+        863,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bruno latour",
+      "ranks": [
+        871,
+        893
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alan turing",
+      "variants": [
+        "alan turing",
+        "alan mathison turing"
+      ],
+      "ranks": [
+        52,
+        246
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "homi j bhabha",
+      "variants": [
+        "homi j bhabha",
+        "homi bhabha"
+      ],
+      "ranks": [
+        309,
+        853
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founder",
+      "startRank": 332,
+      "endRank": 343,
+      "count": 12,
+      "examples": [
+        "332. Estée Lauder",
+        "333. Mary Kay Ash",
+        "334. Anita Roddick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 504,
+      "endRank": 516,
+      "count": 13,
+      "examples": [
+        "504. Ernest Hemingway",
+        "505. F. Scott Fitzgerald",
+        "506. John Steinbeck"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "rapper",
+      "startRank": 581,
+      "endRank": 590,
+      "count": 10,
+      "examples": [
+        "581. Tupac Shakur",
+        "582. The Notorious B.I.G.",
+        "583. Eminem"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "architect",
+      "startRank": 626,
+      "endRank": 638,
+      "count": 13,
+      "examples": [
+        "626. Frank Lloyd Wright",
+        "627. Le Corbusier",
+        "628. Ludwig Mies van der Rohe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 665,
+      "endRank": 675,
+      "count": 11,
+      "examples": [
+        "665. Dmitri Shostakovich",
+        "666. Sergei Prokofiev",
+        "667. Aaron Copland"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 827,
+      "endRank": 836,
+      "count": 10,
+      "examples": [
+        "827. Karl Popper",
+        "828. Thomas Kuhn",
+        "829. Paul Feyerabend"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "justice",
+      "startRank": 911,
+      "endRank": 930,
+      "count": 20,
+      "examples": [
+        "911. Ruth Bader Ginsburg",
+        "912. Thurgood Marshall",
+        "913. Earl Warren"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 937,
+      "endRank": 962,
+      "count": 26,
+      "examples": [
+        "937. Barack Obama",
+        "938. Ronald Reagan",
+        "939. Bill Clinton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 964,
+      "endRank": 975,
+      "count": 12,
+      "examples": [
+        "964. James Buchanan",
+        "965. Franklin Pierce",
+        "966. Millard Fillmore"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 388,
+      "endRank": 405,
+      "count": 18,
+      "examples": [
+        "388. Michael Bloomberg",
+        "389. Larry Ellison",
+        "390. Sergey Mikhaylov"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 937,
+      "endRank": 962,
+      "count": 26,
+      "examples": [
+        "937. Barack Obama",
+        "938. Ronald Reagan",
+        "939. Bill Clinton"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 39,
+      "Asia": 14,
+      "Middle East": 11,
+      "Africa": 5,
+      "Americas": 16,
+      "Oceania": 0,
+      "Unknown": 915
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 120,
+      "Science/Technology": 98,
+      "Philosophy/Religion": 146,
+      "Arts/Literature": 191,
+      "Military": 5,
+      "Other": 440
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 16,
+    "parentheticalRate": 0.016,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 514,
+    "contributionShortRate": 0.514,
+    "score": 88.66000000000001
+  },
+  "summary": "List passes all quality checks"
+}

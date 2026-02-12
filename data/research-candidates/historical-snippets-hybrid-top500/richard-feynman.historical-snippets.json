@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.544Z",
+  "figureId": "richard-feynman",
+  "figureName": "Richard Feynman",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Richard Feynman is consistently described across 13 model source lists as influential for: Developed quantum electrodynamics, revolutionizing particle physics and scientific communication; Physicist who advanced quantum mechanics and science communication; Nobel laureate whose work in quantum electrodynamics and physics education transformed modern science; Physicist who advanced quantum electrodynamics and science communication; Revolutionized quantum electrodynamics and became a leading science communicator, influencing physics and public understanding of science; Physicist contributing to quantum electrodynamics; Developed quantum electrodynamics and popularized physics through teaching and writing; Contributions to Quantum Mechanics.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

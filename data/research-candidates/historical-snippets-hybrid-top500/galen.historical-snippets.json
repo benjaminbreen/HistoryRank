@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.501Z",
+  "figureId": "galen",
+  "figureName": "Galen",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Galen, Claudius",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FGalen%2C_Claudius",
+      "snippet": "In 1844 Minas published a work, avowedly from a MS. with the superscription Galenus , entitled Γαληνοῦ εἰσαγωγὴ διαλεκτική . Of this work, which contains no direct intimation of a fourth figure, and which in general exhibits an astonishing mixture of the Aristotelian and Stoic logic, Prantl speaks with the bitterest contempt. He shows demonstratively that it cannot be regarded as a writing of Galen’s, and ascribes it to some one or other of the later Greek logicians. A full summary of its contents will be found in the 1st vol. of the Geschichte der Logik (pp. 591-610), and a notice of the logical theories of the true Galen in the same work, pp. 559-577.",
+      "match_score": 0.91,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2021,
+      "source_title": "Galen",
+      "source_url": "https://plato.stanford.edu/entries/galen/",
+      "snippet": "Galen ( Galēnos , 129-c. 200 CE) was primarily a medical author, but had a deep engagement with and influence on the philosophical debates of his time. He wrote many works of logic and ethics, and also addressed those and other philosophical areas—especially of epistemology, causation in the natural world, and philosophy of mind—in his medical-scientific writings. His medical, and in some contexts his philosophical, work had enormous influence throughout the medieval period and even later, both in Europe and (through Arabo-Islamic transmission) beyond. Largely ignored by the intellectual world, including philosophers, since the Scientific Revolution, he has recently attracted considerable scholarly attention, especially for his work on scientific knowledge, his contribution to logic, and his discussions of ethics, moral psychology and the mind-body relationship. Galen was one of the most prolific intellectuals of western antiquity, his works extending to 21 volumes of roughly 1000 pages each in the standard Greek edition (with a few additional works surviving only in Arabic, Syriac, Hebrew or Latin translations)—a total of more than 4 million words. While most of his scientific and medical writings survive, many of his specialist works of philosophy do not. He is an extremely adversarial author, a vigorous participant in the highly rhetorical and learned competitive intellectual culture of second-century-CE Rome (the so-called \"Second Sophistic\"); and he is extremely prone to digression. He often expresses his own views through the twin media of polemic against his opponents and textual interpretation and commentary on his intellectual heroes, especially Plato and Hippocrates. And, in spite of his profound knowledge of the Greek philosophical tradition and \"classic\" philosophical texts and his use of philosophical terminology and modes of argument, he does not define himself as a philosopher, often expressing hostility towards \"school\" practitioners of philosophy.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

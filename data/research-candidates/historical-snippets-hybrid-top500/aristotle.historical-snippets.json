@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.388Z",
+  "figureId": "aristotle",
+  "figureName": "Aristotle",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Aristotle",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAristotle",
+      "snippet": "This account is practically repeated by Diogenes Laertius in his Life of Aristotle , on the authority of the Chronicles of Apollodorus, who lived in the 2nd century B.C. Starting then from this tradition, near enough to the time, we can confidently divide Aristotle’s career into four periods: his youth under his parents till his eighteenth year; his philosophical education under Plato at Athens till his thirty-eighth year; his travels in the Greek world till his fiftieth year; and his philosophical teaching in the Lyceum till his departure to Chalcis and his death in his sixty-third year.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2020,
+      "source_title": "Aristotle",
+      "source_url": "https://plato.stanford.edu/entries/aristotle/",
+      "snippet": "Aristotle (384-322 B.C.E.) numbers among the greatest philosophers of all time. Judged solely in terms of his philosophical influence, only Plato is his peer: Aristotle's works shaped centuries of philosophy from Late Antiquity through the Renaissance, and even today continue to be studied with keen, non-antiquarian interest. A prodigious researcher and writer, Aristotle left a great body of work, perhaps numbering as many as two-hundred treatises, from which approximately thirty-one survive. [ 1 ] His extant writings span a wide range of disciplines, from logic, metaphysics and philosophy of mind, through ethics, political theory, aesthetics and rhetoric, and into such primarily non-philosophical fields as empirical biology, where he excelled at detailed plant and animal observation and description. In all these areas, Aristotle's theories have provided illumination, met with resistance, sparked debate, and generally stimulated the sustained interest of an abiding readership. Because of its wide range and its remoteness in time, Aristotle's philosophy defies easy encapsulation. The long history of interpretation and appropriation of Aristotelian texts and themes—spanning over two millennia and comprising philosophers working within a variety of religious and secular traditions—has rendered even basic points of interpretation controversial. The set of entries on Aristotle in this site addresses this situation by proceeding in three tiers. First, the present, general entry offers a brief account of Aristotle's life and characterizes his central philosophical commitments, highlighting his most distinctive methods and most influential achievements. [ 2 ] Second are General Topics , which offer detailed introductions to the main areas of Aristotle's philosophical activity. Finally, there follow Special Topics , which investigate in greater detail more narrowly focused issues, especially those of central concern in recent Aristotelian scholarship.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

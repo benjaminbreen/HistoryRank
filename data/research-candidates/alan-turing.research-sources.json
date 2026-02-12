@@ -1,0 +1,205 @@
+{
+  "generatedAt": "2026-02-10T00:18:30.026Z",
+  "figureId": "alan-turing",
+  "figureName": "Alan Turing",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 1,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1984,
+        "max": 2023
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 640,
+      "totalTokenCount": 928,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+        "author": "Alan Turing",
+        "year": 1936,
+        "rationale": "This seminal paper introduced the Turing machine, a foundational concept in theoretical computer science and artificial intelligence. It is a primary source directly from Turing's work.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Computing Machinery and Intelligence",
+        "author": "Alan Turing",
+        "year": 1950,
+        "rationale": "This influential paper introduced the Turing Test, a criterion for assessing a machine's ability to exhibit intelligent behavior equivalent to, or indistinguishable from, that of a human. It is a key primary source.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Chemical Basis of Morphogenesis",
+        "author": "Alan Turing",
+        "year": 1952,
+        "rationale": "This paper, published in Philosophical Transactions of the Royal Society, outlines Turing's theory of biological pattern formation, demonstrating his broad scientific interests beyond computation. It is a primary source.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Alan Turing: The Enigma",
+        "author": "Andrew Hodges",
+        "year": 1983,
+        "rationale": "This is widely considered the definitive biography of Alan Turing, offering a comprehensive and scholarly account of his life and work. It is a highly regarded academic book.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Turing's Cathedral: The Origins of the Digital Universe",
+        "author": "George Dyson",
+        "year": 2012,
+        "rationale": "This book explores the intellectual history of the digital age, with a significant focus on Alan Turing's contributions and the development of early computing at the Institute for Advanced Study.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Essential Turing: Seminal Writings in Computing, Logic, Philosophy, Artificial Intelligence, and Artificial Life Plus Extensive Historical Material",
+        "author": "B. Jack Copeland",
+        "year": 2004,
+        "rationale": "Edited by a leading Turing scholar, this collection provides access to many of Turing's key writings along with extensive scholarly commentary and historical context.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are foundational academic papers. Secondary sources are major biographies and scholarly analyses of Turing's life and work."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Computing Machinery and Intelligence",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Turing's Cathedral: The Origins of the Digital Universe",
+      "reason": "Best score below threshold (0.45 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Essential Turing: Seminal Writings in Computing, Logic, Philosophy, Artificial Intelligence, and Artificial Life Plus Extensive Historical Material",
+      "reason": "Best score below threshold (0.63 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Alan Turing. The Chemical Basis Of Morphogenesis",
+      "author": "Alan Turing",
+      "publication_year": 2023,
+      "source_url": "https://archive.org/details/alan-turing.-the-chemical-basis-of-morphogenesis",
+      "access_url": "https://archive.org/details/alan-turing.-the-chemical-basis-of-morphogenesis",
+      "snippet": null,
+      "confidence": 0.867,
+      "why": "Primary source resolved from suggestion \"The Chemical Basis of Morphogenesis\" (internet_archive). Matched primary suggestion by title=0.91, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Chemical Basis of Morphogenesis",
+        "suggestion_author": "Alan Turing",
+        "suggestion_year": 1952,
+        "suggestion_rationale": "This paper, published in Philosophical Transactions of the Royal Society, outlines Turing's theory of biological pattern formation, demonstrating his broad scientific interests beyond computation. It is a primary source.",
+        "ia_identifier": "alan-turing.-the-chemical-basis-of-morphogenesis"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "<i>Alan Turing: The Enigma</i>",
+      "author": "Andrew Hodges",
+      "publication_year": 1984,
+      "source_url": "https://doi.org/10.1063/1.2915935",
+      "access_url": "https://doi.org/10.1063/1.2915935",
+      "snippet": "Physics Today",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Alan Turing: The Enigma\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Alan Turing: The Enigma",
+        "suggestion_author": "Andrew Hodges",
+        "suggestion_year": 1983,
+        "suggestion_rationale": "This is widely considered the definitive biography of Alan Turing, offering a comprehensive and scholarly account of his life and work. It is a highly regarded academic book.",
+        "openalex_id": "https://openalex.org/W4236358654",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Alan Turing, Enigma",
+      "author": "Andrew Hodges",
+      "publication_year": 1994,
+      "source_url": "https://doi.org/10.1007/978-3-7091-9381-5",
+      "access_url": "https://doi.org/10.1007/978-3-7091-9381-5",
+      "snippet": "Computerkultur",
+      "confidence": 0.87,
+      "why": "Secondary source resolved from suggestion \"Alan Turing: The Enigma\" (crossref). Matched secondary suggestion by title=0.75, author=1.00, year=0.63; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Alan Turing: The Enigma",
+        "suggestion_author": "Andrew Hodges",
+        "suggestion_year": 1983,
+        "suggestion_rationale": "This is widely considered the definitive biography of Alan Turing, offering a comprehensive and scholarly account of his life and work. It is a highly regarded academic book.",
+        "doi": "10.1007/978-3-7091-9381-5",
+        "crossref_type": "book"
+      }
+    }
+  ]
+}

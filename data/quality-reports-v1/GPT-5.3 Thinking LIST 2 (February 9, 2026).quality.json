@@ -1,0 +1,386 @@
+{
+  "file": "GPT-5.3 Thinking LIST 2 (February 9, 2026).txt",
+  "model": "GPT-5.3 Thinking",
+  "timestamp": "2026-02-10T23:45:21.733Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "1 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 53,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "institutional",
+          "startRank": 161,
+          "endRank": 175,
+          "count": 15,
+          "examples": [
+            "161. Charles de Gaulle",
+            "162. Margaret Thatcher",
+            "163. Ronald Reagan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "built",
+          "startRank": 176,
+          "endRank": 198,
+          "count": 23,
+          "examples": [
+            "176. Pope John Paul II",
+            "177. Pope Gregory I",
+            "178. Pope Innocent III"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "reshaped",
+          "startRank": 207,
+          "endRank": 216,
+          "count": 10,
+          "examples": [
+            "207. Kublai Khan",
+            "208. Timur",
+            "209. Babur"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "reshaped",
+          "startRank": 222,
+          "endRank": 274,
+          "count": 53,
+          "examples": [
+            "222. Saladin",
+            "223. Baybars",
+            "224. Ibn Battuta"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "changed",
+          "startRank": 284,
+          "endRank": 293,
+          "count": 10,
+          "examples": [
+            "284. Jan Hus",
+            "285. Erasmus",
+            "286. Thomas More"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "reshaped",
+          "startRank": 346,
+          "endRank": 391,
+          "count": 46,
+          "examples": [
+            "346. Andres Bonifacio",
+            "347. Emilio Aguinaldo",
+            "348. Norodom Sihanouk"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "built",
+          "startRank": 393,
+          "endRank": 439,
+          "count": 47,
+          "examples": [
+            "393. Judah Halevi",
+            "394. Rashi",
+            "395. Saadia Gaon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "visual",
+          "startRank": 415,
+          "endRank": 440,
+          "count": 26,
+          "examples": [
+            "415. Giordano Bruno",
+            "416. Giovanni Pico della Mirandola",
+            "417. Marsilio Ficino"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "language",
+          "startRank": 482,
+          "endRank": 496,
+          "count": 15,
+          "examples": [
+            "482. Alexander Solzhenitsyn",
+            "483. Leo Tolstoy",
+            "484. Fyodor Dostoevsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 176,
+          "endRank": 198,
+          "count": 23,
+          "examples": [
+            "176. Pope John Paul II",
+            "177. Pope Gregory I",
+            "178. Pope Innocent III"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:religion",
+          "startRank": 393,
+          "endRank": 414,
+          "count": 22,
+          "examples": [
+            "393. Judah Halevi",
+            "394. Rashi",
+            "395. Saadia Gaon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 415,
+          "endRank": 439,
+          "count": 25,
+          "examples": [
+            "415. Giordano Bruno",
+            "416. Giovanni Pico della Mirandola",
+            "417. Marsilio Ficino"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 53 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 56,
+      "expected": 61,
+      "missing": [
+        "socrates",
+        "homer",
+        "moses",
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "56/61 anchor figures found (92%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        85
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "institutional",
+      "startRank": 161,
+      "endRank": 175,
+      "count": 15,
+      "examples": [
+        "161. Charles de Gaulle",
+        "162. Margaret Thatcher",
+        "163. Ronald Reagan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "built",
+      "startRank": 176,
+      "endRank": 198,
+      "count": 23,
+      "examples": [
+        "176. Pope John Paul II",
+        "177. Pope Gregory I",
+        "178. Pope Innocent III"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "reshaped",
+      "startRank": 207,
+      "endRank": 216,
+      "count": 10,
+      "examples": [
+        "207. Kublai Khan",
+        "208. Timur",
+        "209. Babur"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "reshaped",
+      "startRank": 222,
+      "endRank": 274,
+      "count": 53,
+      "examples": [
+        "222. Saladin",
+        "223. Baybars",
+        "224. Ibn Battuta"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "changed",
+      "startRank": 284,
+      "endRank": 293,
+      "count": 10,
+      "examples": [
+        "284. Jan Hus",
+        "285. Erasmus",
+        "286. Thomas More"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "reshaped",
+      "startRank": 346,
+      "endRank": 391,
+      "count": 46,
+      "examples": [
+        "346. Andres Bonifacio",
+        "347. Emilio Aguinaldo",
+        "348. Norodom Sihanouk"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "built",
+      "startRank": 393,
+      "endRank": 439,
+      "count": 47,
+      "examples": [
+        "393. Judah Halevi",
+        "394. Rashi",
+        "395. Saadia Gaon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "visual",
+      "startRank": 415,
+      "endRank": 440,
+      "count": 26,
+      "examples": [
+        "415. Giordano Bruno",
+        "416. Giovanni Pico della Mirandola",
+        "417. Marsilio Ficino"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "language",
+      "startRank": 482,
+      "endRank": 496,
+      "count": 15,
+      "examples": [
+        "482. Alexander Solzhenitsyn",
+        "483. Leo Tolstoy",
+        "484. Fyodor Dostoevsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 176,
+      "endRank": 198,
+      "count": 23,
+      "examples": [
+        "176. Pope John Paul II",
+        "177. Pope Gregory I",
+        "178. Pope Innocent III"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:religion",
+      "startRank": 393,
+      "endRank": 414,
+      "count": 22,
+      "examples": [
+        "393. Judah Halevi",
+        "394. Rashi",
+        "395. Saadia Gaon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 415,
+      "endRank": 439,
+      "count": 25,
+      "examples": [
+        "415. Giordano Bruno",
+        "416. Giovanni Pico della Mirandola",
+        "417. Marsilio Ficino"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 12,
+      "Asia": 7,
+      "Middle East": 6,
+      "Africa": 0,
+      "Americas": 0,
+      "Oceania": 0,
+      "Unknown": 475
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 6,
+      "Science/Technology": 7,
+      "Philosophy/Religion": 48,
+      "Arts/Literature": 33,
+      "Military": 2,
+      "Other": 404
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.96
+  },
+  "summary": "Issues: pattern collapse (max 53)"
+}

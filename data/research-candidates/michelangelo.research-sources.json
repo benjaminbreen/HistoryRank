@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-02-10T00:18:19.871Z",
+  "figureId": "michelangelo",
+  "figureName": "Michelangelo",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "secondary": 3
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 2003,
+        "max": 2013
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 287,
+      "candidatesTokenCount": 547,
+      "totalTokenCount": 834,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 287
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Complete Poems of Michelangelo",
+        "author": "Michelangelo Buonarroti",
+        "year": 1623,
+        "rationale": "Michelangelo's poetry offers direct insight into his thoughts, emotions, and artistic philosophy. This collection is a primary source for understanding his personal life and intellectual world.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Letters of Michelangelo",
+        "author": "Michelangelo Buonarroti",
+        "year": 1564,
+        "rationale": "Michelangelo's correspondence provides invaluable information about his commissions, his relationships with patrons and contemporaries, and the practicalities of his artistic career.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Michelangelo and the Pope's Ceiling",
+        "author": "Ross King",
+        "year": 2002,
+        "rationale": "A highly regarded and accessible scholarly work that delves into the creation of the Sistine Chapel ceiling, offering detailed historical context and analysis of Michelangelo's process and challenges.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Michelangelo: The Man and His Era",
+        "author": "William E. Wallace",
+        "year": 2010,
+        "rationale": "A comprehensive biography that places Michelangelo within his historical and cultural context, drawing on extensive research to provide a nuanced understanding of his life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Michelangelo's Drawings: The Re-discovery of the Artist",
+        "author": "Paul Joannides",
+        "year": 2016,
+        "rationale": "This scholarly work focuses on Michelangelo's drawings, which are crucial for understanding his creative process and artistic development. It is based on rigorous academic study.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source texts for Michelangelo, particularly his letters and poems, are often found in collected editions rather than as standalone works from his lifetime. The publication dates listed for primary sources refer to the earliest known collected editions or significant translations that are likely to be digitized."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Complete Poems of Michelangelo",
+      "reason": "Title similarity too low (0.56); baseScore=0.52"
+    },
+    {
+      "role": "primary",
+      "title": "The Letters of Michelangelo",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Michelangelo's Drawings: The Re-discovery of the Artist",
+      "reason": "Best score below threshold (0.64 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Michelangelo and the Pope's Ceiling",
+      "author": "Ross King",
+      "publication_year": 2003,
+      "source_url": "https://openalex.org/W640400097",
+      "access_url": "https://openalex.org/W640400097",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Michelangelo and the Pope's Ceiling\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Michelangelo and the Pope's Ceiling",
+        "suggestion_author": "Ross King",
+        "suggestion_year": 2002,
+        "suggestion_rationale": "A highly regarded and accessible scholarly work that delves into the creation of the Sistine Chapel ceiling, offering detailed historical context and analysis of Michelangelo's process and challenges.",
+        "openalex_id": "https://openalex.org/W640400097",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Michelangelo: The Artist, the Man, and His Times",
+      "author": "William E. Wallace (book author)",
+      "publication_year": 2013,
+      "source_url": "https://doi.org/10.33137/rr.v35i4.19715",
+      "access_url": "https://doi.org/10.33137/rr.v35i4.19715",
+      "snippet": "Renaissance and Reformation",
+      "confidence": 0.737,
+      "why": "Secondary source resolved from suggestion \"Michelangelo: The Man and His Era\" (crossref). Matched secondary suggestion by title=0.63, author=0.50, year=0.90; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Michelangelo: The Man and His Era",
+        "suggestion_author": "William E. Wallace",
+        "suggestion_year": 2010,
+        "suggestion_rationale": "A comprehensive biography that places Michelangelo within his historical and cultural context, drawing on extensive research to provide a nuanced understanding of his life and work.",
+        "doi": "10.33137/rr.v35i4.19715",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Michelangelo and the Pope's Ceiling",
+      "author": "Ross King",
+      "publication_year": 2003,
+      "source_url": "https://openlibrary.org/works/OL2984866W",
+      "access_url": "https://openlibrary.org/works/OL2984866W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Michelangelo and the Pope's Ceiling\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Michelangelo and the Pope's Ceiling",
+        "suggestion_author": "Ross King",
+        "suggestion_year": 2002,
+        "suggestion_rationale": "A highly regarded and accessible scholarly work that delves into the creation of the Sistine Chapel ceiling, offering detailed historical context and analysis of Michelangelo's process and challenges.",
+        "edition_count": 9
+      }
+    }
+  ]
+}

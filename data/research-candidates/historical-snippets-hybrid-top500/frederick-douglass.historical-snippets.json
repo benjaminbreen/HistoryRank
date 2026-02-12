@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.490Z",
+  "figureId": "frederick-douglass",
+  "figureName": "Frederick Douglass",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Douglass, Frederick",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FDouglass%2C_Frederick",
+      "snippet": "His autobiography appeared, after two revisions, as The Life and Times of Frederick Douglass (London, 1882). See F.&#160;M. Holland, Frederick Douglass , The Colored Orator (New York, 1891); C.&#160;W. Chesnutt , Frederick Douglass , (Boston, 1899); and Booker T. Washington , Frederick Douglass (Philadelphia, 1907), in the series of American Crisis Biographies.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2023,
+      "source_title": "Douglass, Frederick",
+      "source_url": "https://plato.stanford.edu/entries/frederick-douglass/",
+      "snippet": "Frederick Douglass (c. 1817-1895) is a central figure in U.S. and African American history. [ 1 ] He was born into slavery circa 1817; his mother was an enslaved black woman, while his father was reputed to be his white master. Douglass escaped from slavery in 1838 and rose to become a principal leader and spokesperson for the U.S. Abolition movement. [ 2 ] He would eventually develop into a towering figure for the U.S. Civil Rights Movement and American politics, and his legacy would be claimed by a diverse span of groups, from liberals and integrationists to conservatives to nationalists, within and without black America. He wrote three autobiographies, each one expanding on the details of his life. The first was Narrative of the Life of Frederick Douglass, an American Slave, Written By Himself (1845); the second was My Bondage and My Freedom (1855); and the third was Life and Times of Frederick Douglass (1881/1893). [ 3 ] They are now foremost examples of the American slave narrative. In addition to being autobiographical, they are also, as is standard, explicitly works of political and social criticism and moral suasion; they aim at the hearts and minds of the readers. Their greater purpose was to attack slavery, contribute to its abolition in the United States, and argue for black Americans' full inclusion into the nation.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "file": "Gemini Pro 3 LIST 3 (January 13, 2025).txt",
+  "model": "Gemini Pro 3",
+  "timestamp": "2026-02-10T23:45:58.006Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 14,
+      "fuzzy": 5,
+      "status": "PASS",
+      "details": "14 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 21,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "basketball player",
+          "startRank": 674,
+          "endRank": 680,
+          "count": 7,
+          "examples": [
+            "674. Magic Johnson",
+            "675. Larry Bird",
+            "676. Wilt Chamberlain"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "football player",
+          "startRank": 681,
+          "endRank": 685,
+          "count": 5,
+          "examples": [
+            "681. Joe Montana",
+            "682. Jerry Rice",
+            "683. Peyton Manning"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "tennis player",
+          "startRank": 474,
+          "endRank": 482,
+          "count": 9,
+          "examples": [
+            "474. Billie Jean King",
+            "475. Martina Navratilova",
+            "476. Steffi Graf"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "tennis player",
+          "startRank": 696,
+          "endRank": 702,
+          "count": 7,
+          "examples": [
+            "696. Pete Sampras",
+            "697. Boris Becker",
+            "698. Monica Seles"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "golfer",
+          "startRank": 703,
+          "endRank": 707,
+          "count": 5,
+          "examples": [
+            "703. Jack Nicklaus",
+            "704. Arnold Palmer",
+            "705. Gary Player"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer",
+          "startRank": 307,
+          "endRank": 316,
+          "count": 10,
+          "examples": [
+            "307. Naguib Mahfouz",
+            "308. Mark Twain",
+            "309. Ernest Hemingway"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 371,
+          "endRank": 384,
+          "count": 14,
+          "examples": [
+            "371. Antonio Vivaldi",
+            "372. George Frideric Handel",
+            "373. Franz Schubert"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker",
+          "startRank": 412,
+          "endRank": 427,
+          "count": 16,
+          "examples": [
+            "412. Steven Spielberg",
+            "413. George Lucas",
+            "414. James Cameron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker",
+          "startRank": 651,
+          "endRank": 660,
+          "count": 10,
+          "examples": [
+            "651. Pedro Almodovar",
+            "652. Guillermo del Toro",
+            "653. Alfonso Cuaron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "footballer",
+          "startRank": 661,
+          "endRank": 673,
+          "count": 13,
+          "examples": [
+            "661. Zinedine Zidane",
+            "662. Ronaldo Nazario",
+            "663. Ronaldinho"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "player",
+          "startRank": 674,
+          "endRank": 685,
+          "count": 12,
+          "examples": [
+            "674. Magic Johnson",
+            "675. Larry Bird",
+            "676. Wilt Chamberlain"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "philosopher",
+          "startRank": 719,
+          "endRank": 730,
+          "count": 12,
+          "examples": [
+            "719. Ayn Rand",
+            "720. John Rawls",
+            "721. Thomas Hobbes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "designer",
+          "startRank": 754,
+          "endRank": 763,
+          "count": 10,
+          "examples": [
+            "754. Christian Dior",
+            "755. Yves Saint Laurent",
+            "756. Gianni Versace"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "politician",
+          "startRank": 818,
+          "endRank": 838,
+          "count": 21,
+          "examples": [
+            "818. Hillary Clinton",
+            "819. Nancy Pelosi",
+            "820. Kamala Harris"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "politician",
+          "startRank": 954,
+          "endRank": 967,
+          "count": 14,
+          "examples": [
+            "954. Mahathir Mohamad",
+            "955. Thaksin Shinawatra",
+            "956. Hun Sen"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 299,
+          "endRank": 316,
+          "count": 19,
+          "examples": [
+            "299. Hafez",
+            "300. Rabindranath Tagore",
+            "301. Leo Tolstoy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 667,
+          "endRank": 685,
+          "count": 19,
+          "examples": [
+            "667. Alfredo Di Stefano",
+            "668. Ferenc Puskas",
+            "669. Eusebio"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 818,
+          "endRank": 838,
+          "count": 21,
+          "examples": [
+            "818. Hillary Clinton",
+            "819. Nancy Pelosi",
+            "820. Kamala Harris"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 952,
+          "endRank": 967,
+          "count": 16,
+          "examples": [
+            "952. Norodom Sihanouk",
+            "953. Bhumibol Adulyadej",
+            "954. Mahathir Mohamad"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 21 similar entries"
+    },
+    "structural": {
+      "entries": 1017,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "1017 entries (expected 500 or 1000); non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "mahatma gandhi",
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "confucius",
+      "ranks": [
+        5,
+        295
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin luther",
+      "ranks": [
+        25,
+        536
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander fleming",
+      "ranks": [
+        43,
+        195
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        58,
+        609
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph lister",
+      "ranks": [
+        60,
+        601
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        112,
+        514
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "haile selassie",
+      "ranks": [
+        145,
+        912
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "j robert oppenheimer",
+      "ranks": [
+        154,
+        595
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "louis braille",
+      "ranks": [
+        163,
+        292
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leo tolstoy",
+      "ranks": [
+        168,
+        301
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simone de beauvoir",
+      "ranks": [
+        210,
+        711
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tupac shakur",
+      "ranks": [
+        239,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "garibaldi",
+      "ranks": [
+        254,
+        910
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "geronimo",
+      "ranks": [
+        259,
+        860
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "antony van leeuwenhoek",
+      "variants": [
+        "antony van leeuwenhoek",
+        "antonie van leeuwenhoek"
+      ],
+      "ranks": [
+        36,
+        608
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        51,
+        531
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen isabella i",
+      "variants": [
+        "queen isabella i",
+        "queen elizabeth i"
+      ],
+      "ranks": [
+        65,
+        94
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ingrid bergman",
+      "variants": [
+        "ingrid bergman",
+        "ingmar bergman"
+      ],
+      "ranks": [
+        406,
+        421
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kirby",
+      "variants": [
+        "jack kirby",
+        "jack kilby"
+      ],
+      "ranks": [
+        433,
+        616
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "basketball player",
+      "startRank": 674,
+      "endRank": 680,
+      "count": 7,
+      "examples": [
+        "674. Magic Johnson",
+        "675. Larry Bird",
+        "676. Wilt Chamberlain"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "football player",
+      "startRank": 681,
+      "endRank": 685,
+      "count": 5,
+      "examples": [
+        "681. Joe Montana",
+        "682. Jerry Rice",
+        "683. Peyton Manning"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "tennis player",
+      "startRank": 474,
+      "endRank": 482,
+      "count": 9,
+      "examples": [
+        "474. Billie Jean King",
+        "475. Martina Navratilova",
+        "476. Steffi Graf"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "tennis player",
+      "startRank": 696,
+      "endRank": 702,
+      "count": 7,
+      "examples": [
+        "696. Pete Sampras",
+        "697. Boris Becker",
+        "698. Monica Seles"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "golfer",
+      "startRank": 703,
+      "endRank": 707,
+      "count": 5,
+      "examples": [
+        "703. Jack Nicklaus",
+        "704. Arnold Palmer",
+        "705. Gary Player"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer",
+      "startRank": 307,
+      "endRank": 316,
+      "count": 10,
+      "examples": [
+        "307. Naguib Mahfouz",
+        "308. Mark Twain",
+        "309. Ernest Hemingway"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 371,
+      "endRank": 384,
+      "count": 14,
+      "examples": [
+        "371. Antonio Vivaldi",
+        "372. George Frideric Handel",
+        "373. Franz Schubert"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker",
+      "startRank": 412,
+      "endRank": 427,
+      "count": 16,
+      "examples": [
+        "412. Steven Spielberg",
+        "413. George Lucas",
+        "414. James Cameron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker",
+      "startRank": 651,
+      "endRank": 660,
+      "count": 10,
+      "examples": [
+        "651. Pedro Almodovar",
+        "652. Guillermo del Toro",
+        "653. Alfonso Cuaron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "footballer",
+      "startRank": 661,
+      "endRank": 673,
+      "count": 13,
+      "examples": [
+        "661. Zinedine Zidane",
+        "662. Ronaldo Nazario",
+        "663. Ronaldinho"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "player",
+      "startRank": 674,
+      "endRank": 685,
+      "count": 12,
+      "examples": [
+        "674. Magic Johnson",
+        "675. Larry Bird",
+        "676. Wilt Chamberlain"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "philosopher",
+      "startRank": 719,
+      "endRank": 730,
+      "count": 12,
+      "examples": [
+        "719. Ayn Rand",
+        "720. John Rawls",
+        "721. Thomas Hobbes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "designer",
+      "startRank": 754,
+      "endRank": 763,
+      "count": 10,
+      "examples": [
+        "754. Christian Dior",
+        "755. Yves Saint Laurent",
+        "756. Gianni Versace"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "politician",
+      "startRank": 818,
+      "endRank": 838,
+      "count": 21,
+      "examples": [
+        "818. Hillary Clinton",
+        "819. Nancy Pelosi",
+        "820. Kamala Harris"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "politician",
+      "startRank": 954,
+      "endRank": 967,
+      "count": 14,
+      "examples": [
+        "954. Mahathir Mohamad",
+        "955. Thaksin Shinawatra",
+        "956. Hun Sen"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 299,
+      "endRank": 316,
+      "count": 19,
+      "examples": [
+        "299. Hafez",
+        "300. Rabindranath Tagore",
+        "301. Leo Tolstoy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 667,
+      "endRank": 685,
+      "count": 19,
+      "examples": [
+        "667. Alfredo Di Stefano",
+        "668. Ferenc Puskas",
+        "669. Eusebio"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 818,
+      "endRank": 838,
+      "count": 21,
+      "examples": [
+        "818. Hillary Clinton",
+        "819. Nancy Pelosi",
+        "820. Kamala Harris"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 952,
+      "endRank": 967,
+      "count": 16,
+      "examples": [
+        "952. Norodom Sihanouk",
+        "953. Bhumibol Adulyadej",
+        "954. Mahathir Mohamad"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 84,
+      "Asia": 16,
+      "Middle East": 18,
+      "Africa": 16,
+      "Americas": 44,
+      "Oceania": 0,
+      "Unknown": 839
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1017
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 177,
+      "Science/Technology": 111,
+      "Philosophy/Religion": 106,
+      "Arts/Literature": 132,
+      "Military": 32,
+      "Other": 459
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 13,
+    "parentheticalRate": 0.012782694198623401,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0009832841691248771,
+    "commaNameCount": 1,
+    "commaNameRate": 0.0009832841691248771,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 2,
+    "contributionShortRate": 0.0019665683382497543,
+    "score": 99.13470993117011
+  },
+  "summary": "Issues: 14 exact duplicates; pattern collapse (max 21); 1017 entries (expected 500 or 1000); non-sequential ranks"
+}

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Instrument_Sans } from 'next/font/google';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { useSettings } from '@/hooks/useSettings';
@@ -9,8 +10,37 @@ const instrument = Instrument_Sans({
   weight: ['400', '500', '600'],
 });
 
+const ABOUT_SECTIONS = [
+  ['overview', 'Overview'],
+  ['aims', 'Aims'],
+  ['how', 'How to read the list'],
+  ['prompts', 'Prompt'],
+  ['team', 'Project team'],
+  ['future', 'Future work'],
+];
+
 export default function AboutPage() {
   const { settings, updateSettings, resetSettings } = useSettings();
+  const [activeSection, setActiveSection] = useState<string>('overview');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+    for (const [id] of ABOUT_SECTIONS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-transparent">
@@ -27,19 +57,16 @@ export default function AboutPage() {
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
                 About
               </div>
-              <nav className="mt-4 space-y-2">
-                {[
-                  ['overview', 'Overview'],
-                  ['aims', 'Aims'],
-                  ['how', 'How to read the list'],
-                  ['prompts', 'Prompt'],
-                  ['team', 'Project team'],
-                  ['future', 'Future work'],
-                ].map(([id, label]) => (
+              <nav className="mt-4 space-y-1">
+                {ABOUT_SECTIONS.map(([id, label]) => (
                   <a
                     key={id}
                     href={`#${id}`}
-                    className="block rounded-lg px-2 py-1 text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors"
+                    className={`block rounded-lg px-2 py-1 transition-colors ${
+                      activeSection === id
+                        ? 'bg-amber-50 text-amber-800 font-medium'
+                        : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                    }`}
                   >
                     {label}
                   </a>

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:01.286Z",
+  "generatedAt": "2026-02-10T00:11:56.849Z",
   "figureId": "charles-darwin",
   "figureName": "Charles Darwin",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,38 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 6,
+      "byRole": {
+        "primary": 3,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "project_gutenberg": 2,
+        "internet_archive": 1,
+        "openalex": 2,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1874,
+        "max": 2003
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 584,
-      "totalTokenCount": 872,
+      "candidatesTokenCount": 624,
+      "totalTokenCount": 912,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +63,7 @@
         "title": "On the Origin of Species",
         "author": "Charles Darwin",
         "year": 1859,
-        "rationale": "Darwin's seminal work, fundamental to evolutionary biology and natural selection. Widely available.",
+        "rationale": "Darwin's seminal work that introduced the theory of evolution by natural selection. It is a foundational text in biology and widely available.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +74,7 @@
         "title": "The Descent of Man, and Selection in Relation to Sex",
         "author": "Charles Darwin",
         "year": 1871,
-        "rationale": "Explores human evolution and sexual selection, a significant follow-up to 'Origin of Species'.",
+        "rationale": "This work applies Darwin's theory of natural selection to human evolution and sexual selection, offering further insights into his thought process.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +85,7 @@
         "title": "The Voyage of the Beagle",
         "author": "Charles Darwin",
         "year": 1839,
-        "rationale": "Darwin's account of his travels and observations during the second voyage of HMS Beagle, which laid the groundwork for his later theories.",
+        "rationale": "Darwin's journal of his travels on HMS Beagle, detailing his observations of geology and natural history that contributed to his later theories.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -69,53 +98,57 @@
         "title": "Darwin's Dangerous Idea: Evolution and the Meanings of Life",
         "author": "Daniel C. Dennett",
         "year": 1995,
-        "rationale": "A comprehensive philosophical exploration of Darwin's ideas and their implications, by a prominent philosopher.",
+        "rationale": "A philosophical exploration of Darwin's ideas and their profound implications for our understanding of life and meaning, by a prominent philosopher.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Darwin",
-        "author": "David N. Reznick",
-        "year": 2009,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Darwin's life, work, and legacy.",
+        "author": "David L. Hull and Michael Ruse",
+        "year": 1998,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Darwin's life, work, and legacy, providing a comprehensive scholarly overview.",
         "sourceType": "book"
       },
       {
         "title": "Charles Darwin: A Very Short Introduction",
-        "author": "Jonathan Hodge",
-        "year": 2008,
-        "rationale": "A concise overview of Darwin's life and scientific contributions, suitable for an introduction to his work.",
+        "author": "Jonathan R. S. Jones",
+        "year": 2017,
+        "rationale": "A concise and accessible introduction to Darwin's life and scientific contributions, suitable for a broad academic audience.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are widely available in digital archives. Secondary sources are influential academic works published after 1976."
+    "notes": "Primary sources are foundational texts by Darwin. Secondary sources are scholarly analyses and companions published after 1976, offering critical perspectives on his work."
   },
   "unresolved": [
     {
       "role": "secondary",
       "title": "Charles Darwin: A Very Short Introduction",
-      "reason": "Best score below threshold (0.39 < 0.72)"
+      "reason": "Best score below threshold (0.34 < 0.72)"
     }
   ],
   "candidates": [
     {
-      "source_corpus": "internet_archive",
+      "source_corpus": "project_gutenberg",
       "source_role": "primary",
-      "source_kind": "text",
-      "title": "On the origin of species",
-      "author": "Charles Darwin",
-      "publication_year": 1859,
-      "source_url": "https://archive.org/details/bwb_Y0-BME-470",
-      "access_url": "https://archive.org/details/bwb_Y0-BME-470",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"On the Origin of Species\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "source_kind": "book",
+      "title": "The Descent of Man, and Selection in Relation to Sex",
+      "author": "Darwin, Charles",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/2300",
+      "access_url": "https://www.gutenberg.org/ebooks/2300",
+      "snippet": "\"The Descent of Man, and Selection in Relation to Sex\" by Charles Darwin is a scientific publication written during the late 19th century.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Descent of Man, and Selection in Relation to Sex\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "On the Origin of Species",
+        "suggestion_title": "The Descent of Man, and Selection in Relation to Sex",
         "suggestion_author": "Charles Darwin",
-        "suggestion_year": 1859,
-        "suggestion_rationale": "Darwin's seminal work, fundamental to evolutionary biology and natural selection. Widely available.",
-        "ia_identifier": "bwb_Y0-BME-470"
+        "suggestion_year": 1871,
+        "suggestion_rationale": "This work applies Darwin's theory of natural selection to human evolution and sexual selection, offering further insights into his thought process.",
+        "gutenberg_id": 2300,
+        "languages": [
+          "en"
+        ],
+        "download_count": 2379
       }
     },
     {
@@ -129,13 +162,13 @@
       "access_url": "https://archive.org/details/bwb_S0-DNM-484",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"The Descent of Man, and Selection in Relation to Sex\". Matched primary suggestion by title=1.00, author=1.00, year=0.94; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Descent of Man, and Selection in Relation to Sex\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.94; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Descent of Man, and Selection in Relation to Sex",
         "suggestion_author": "Charles Darwin",
         "suggestion_year": 1871,
-        "suggestion_rationale": "Explores human evolution and sexual selection, a significant follow-up to 'Origin of Species'.",
+        "suggestion_rationale": "This work applies Darwin's theory of natural selection to human evolution and sexual selection, offering further insights into his thought process.",
         "ia_identifier": "bwb_S0-DNM-484"
       }
     },
@@ -148,16 +181,20 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/944",
       "access_url": "https://www.gutenberg.org/ebooks/944",
-      "snippet": null,
+      "snippet": "\"The Voyage of the Beagle\" by Charles Darwin is a book published in 1839, chronicling the five-year HMS Beagle expedition around the world.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Voyage of the Beagle\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Voyage of the Beagle\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Voyage of the Beagle",
         "suggestion_author": "Charles Darwin",
         "suggestion_year": 1839,
-        "suggestion_rationale": "Darwin's account of his travels and observations during the second voyage of HMS Beagle, which laid the groundwork for his later theories.",
-        "gutenberg_id": 944
+        "suggestion_rationale": "Darwin's journal of his travels on HMS Beagle, detailing his observations of geology and natural history that contributed to his later theories.",
+        "gutenberg_id": 944,
+        "languages": [
+          "en"
+        ],
+        "download_count": 2532
       }
     },
     {
@@ -171,16 +208,39 @@
       "access_url": "https://openalex.org/W1515814298",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Darwin's Dangerous Idea: Evolution and the Meanings of Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"Darwin's Dangerous Idea: Evolution and the Meanings of Life\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Darwin's Dangerous Idea: Evolution and the Meanings of Life",
         "suggestion_author": "Daniel C. Dennett",
         "suggestion_year": 1995,
-        "suggestion_rationale": "A comprehensive philosophical exploration of Darwin's ideas and their implications, by a prominent philosopher.",
+        "suggestion_rationale": "A philosophical exploration of Darwin's ideas and their profound implications for our understanding of life and meaning, by a prominent philosopher.",
         "openalex_id": "https://openalex.org/W1515814298",
         "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "<i>Darwin's Dangerous Idea: Evolution and the Meanings of Life.</i>Daniel C. Dennett",
+      "author": "David L. Hull",
+      "publication_year": 1996,
+      "source_url": "https://doi.org/10.1086/233714",
+      "access_url": "https://doi.org/10.1086/233714",
+      "snippet": "Ethics",
+      "confidence": 0.884,
+      "why": "Secondary source resolved from suggestion \"Darwin's Dangerous Idea: Evolution and the Meanings of Life\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Darwin's Dangerous Idea: Evolution and the Meanings of Life",
+        "suggestion_author": "Daniel C. Dennett",
+        "suggestion_year": 1995,
+        "suggestion_rationale": "A philosophical exploration of Darwin's ideas and their profound implications for our understanding of life and meaning, by a prominent philosopher.",
+        "doi": "10.1086/233714",
+        "crossref_type": "journal-article"
       }
     },
     {
@@ -189,20 +249,20 @@
       "source_kind": "book",
       "title": "The Cambridge Companion to Darwin",
       "author": "Jonathan Hodge",
-      "publication_year": 2009,
-      "source_url": "https://doi.org/10.1017/ccol9780521884754",
-      "access_url": "https://doi.org/10.1017/ccol9780521884754",
+      "publication_year": 2003,
+      "source_url": "https://doi.org/10.1017/ccol0521771978",
+      "access_url": "https://doi.org/10.1017/ccol0521771978",
       "snippet": "Cambridge University Press eBooks",
-      "confidence": 0.88,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Darwin\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "confidence": 0.852,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Darwin\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.83; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Darwin",
-        "suggestion_author": "David N. Reznick",
-        "suggestion_year": 2009,
-        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Darwin's life, work, and legacy.",
-        "openalex_id": "https://openalex.org/W4298471273",
+        "suggestion_author": "David L. Hull and Michael Ruse",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Darwin's life, work, and legacy, providing a comprehensive scholarly overview.",
+        "openalex_id": "https://openalex.org/W1606408885",
         "work_type": "book"
       }
     }

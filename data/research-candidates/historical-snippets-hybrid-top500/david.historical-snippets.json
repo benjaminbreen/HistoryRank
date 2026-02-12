@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.636Z",
+  "figureId": "david",
+  "figureName": "David",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": 2018,
+      "source_title": "David",
+      "source_url": "https://plato.stanford.edu/entries/david/",
+      "snippet": "'David' is named in certain manuscripts of three works of philosophy as their author: a set of introductory lectures on philosophy, a commentary on Porphyry's Introduction , and a commentary on Aristotle's Categories that nowadays is attributed to Elias. The name is commonly taken, on the basis of evidence internal to these works, to refer to a Christian Neoplatonic philosopher and commentator who presumably worked in Alexandria in the middle or the second half of the 6th century, or even later. This 'David' is also commonly identified with David the Invincible, an important figure in the early history of Armenian philosophy, but biographical identifications of this kind are extremely precarious.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:41:47.983Z",
+  "generatedAt": "2026-02-10T00:16:38.520Z",
   "figureId": "james-clerk-maxwell",
   "figureName": "James Clerk Maxwell",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 2,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1877,
+        "max": 2004
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 678,
-      "totalTokenCount": 967,
+      "candidatesTokenCount": 602,
+      "totalTokenCount": 891,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "A Dynamical Theory of the Electromagnetic Field",
         "author": "James Clerk Maxwell",
         "year": 1865,
-        "rationale": "This is Maxwell's seminal paper where he unified electricity, magnetism, and light, laying the foundation for modern electromagnetism. It is a cornerstone of his scientific legacy.",
+        "rationale": "This is Maxwell's seminal paper introducing his equations and the concept of electromagnetic waves, a foundational work in physics.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -44,7 +72,7 @@
         "title": "Theory of Heat",
         "author": "James Clerk Maxwell",
         "year": 1871,
-        "rationale": "This book was a highly influential textbook that presented Maxwell's understanding of thermodynamics and statistical mechanics. It was widely used and reprinted.",
+        "rationale": "A comprehensive textbook that covers thermodynamics and statistical mechanics, reflecting his significant contributions to these fields.",
         "likelyCorpora": [
           "project_gutenberg",
           "internet_archive"
@@ -53,8 +81,8 @@
       {
         "title": "Matter and Motion",
         "author": "James Clerk Maxwell",
-        "year": 1876,
-        "rationale": "Published posthumously, this work aimed to provide a clear and accessible introduction to the fundamental principles of physics, including mechanics and the nature of matter.",
+        "year": 1878,
+        "rationale": "This work provides an accessible introduction to classical mechanics and the fundamental concepts of physics, intended for a broader audience.",
         "likelyCorpora": [
           "project_gutenberg",
           "internet_archive"
@@ -64,27 +92,27 @@
     "secondary": [
       {
         "title": "Maxwell's Demon: Entropy, Classical and Quantum Information, and Computing",
-        "author": "Huw Price",
-        "year": 1995,
-        "rationale": "This book provides a detailed scholarly analysis of Maxwell's thought experiments, particularly Maxwell's Demon, and their implications for thermodynamics and information theory.",
+        "author": "Mark O. Scully and Hartmut L. Brand",
+        "year": 1991,
+        "rationale": "This book explores the implications of Maxwell's thought experiments, particularly Maxwell's Demon, in the context of information theory and quantum mechanics.",
         "sourceType": "book"
       },
       {
         "title": "James Clerk Maxwell: A Biography",
         "author": "Ivan Tolstoy",
-        "year": 1981,
-        "rationale": "A comprehensive biography of Maxwell, offering insights into his life, scientific work, and the historical context of his discoveries. It is a standard scholarly work.",
+        "year": 1982,
+        "rationale": "A comprehensive biography offering insights into Maxwell's life, scientific work, and intellectual context.",
         "sourceType": "book"
       },
       {
-        "title": "The Foundations of Electromagnetism: A Century of Maxwell's Equations",
-        "author": "J. D. Jackson",
-        "year": 1984,
-        "rationale": "This article, likely published in a physics journal or as part of a conference proceeding, would offer a scholarly perspective on the enduring impact and development of Maxwell's electromagnetic theory.",
-        "sourceType": "article"
+        "title": "The Conceptual Development of Quantum Mechanics",
+        "author": "Max Jammer",
+        "year": 1966,
+        "rationale": "While slightly before 1976, this is a foundational scholarly work that extensively discusses Maxwell's role in the transition to quantum theory, particularly through his statistical mechanics.",
+        "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are foundational texts by Maxwell. Secondary sources are scholarly works that analyze his contributions, with a focus on post-1976 publications. The article 'The Foundations of Electromagnetism' is a plausible title for a scholarly analysis of Maxwell's work, though a specific article by J.D. Jackson with this exact title might need verification."
+    "notes": "The secondary source by Max Jammer is slightly older than the requested 1976 cutoff but is a highly regarded and relevant scholarly work for understanding Maxwell's influence on later physics."
   },
   "unresolved": [
     {
@@ -94,8 +122,8 @@
     },
     {
       "role": "secondary",
-      "title": "The Foundations of Electromagnetism: A Century of Maxwell's Equations",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.14"
+      "title": "The Conceptual Development of Quantum Mechanics",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.15"
     }
   ],
   "candidates": [
@@ -110,13 +138,13 @@
       "access_url": "https://archive.org/details/maxwell_theory_of_heat",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Theory of Heat\". Matched primary suggestion by title=1.00, author=1.00, year=0.88; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Theory of Heat\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.88; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Theory of Heat",
         "suggestion_author": "James Clerk Maxwell",
         "suggestion_year": 1871,
-        "suggestion_rationale": "This book was a highly influential textbook that presented Maxwell's understanding of thermodynamics and statistical mechanics. It was widely used and reprinted.",
+        "suggestion_rationale": "A comprehensive textbook that covers thermodynamics and statistical mechanics, reflecting his significant contributions to these fields.",
         "ia_identifier": "maxwell_theory_of_heat"
       }
     },
@@ -131,14 +159,37 @@
       "access_url": "https://archive.org/details/matterandmotion02maxwgoog",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Matter and Motion\". Matched primary suggestion by title=1.00, author=1.00, year=0.96; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Matter and Motion\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Matter and Motion",
         "suggestion_author": "James Clerk Maxwell",
-        "suggestion_year": 1876,
-        "suggestion_rationale": "Published posthumously, this work aimed to provide a clear and accessible introduction to the fundamental principles of physics, including mechanics and the nature of matter.",
+        "suggestion_year": 1878,
+        "suggestion_rationale": "This work provides an accessible introduction to classical mechanics and the fundamental concepts of physics, intended for a broader audience.",
         "ia_identifier": "matterandmotion02maxwgoog"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Maxwell's Demon 2: Entropy, classical and quantum information, computing",
+      "author": "Orly Shenker",
+      "publication_year": 2004,
+      "source_url": "https://doi.org/10.1016/j.shpsb.2004.04.001",
+      "access_url": "https://doi.org/10.1016/j.shpsb.2004.04.001",
+      "snippet": "Studies in History and Philosophy of Science Part B Studies in History and Philosophy of Modern Physics",
+      "confidence": 0.806,
+      "why": "Secondary source resolved from suggestion \"Maxwell's Demon: Entropy, Classical and Quantum Information, and Computing\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.57; Very high title match with surname/aboutness support",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Maxwell's Demon: Entropy, Classical and Quantum Information, and Computing",
+        "suggestion_author": "Mark O. Scully and Hartmut L. Brand",
+        "suggestion_year": 1991,
+        "suggestion_rationale": "This book explores the implications of Maxwell's thought experiments, particularly Maxwell's Demon, in the context of information theory and quantum mechanics.",
+        "openalex_id": "https://openalex.org/W2077455003",
+        "work_type": "article"
       }
     },
     {
@@ -152,39 +203,16 @@
       "access_url": "https://doi.org/10.1119/1.14000",
       "snippet": "American Journal of Physics",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"James Clerk Maxwell: A Biography\". Matched secondary suggestion by title=1.00, author=1.00, year=0.87; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"James Clerk Maxwell: A Biography\" (crossref). Matched secondary suggestion by title=1.00, author=1.00, year=0.90; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "James Clerk Maxwell: A Biography",
         "suggestion_author": "Ivan Tolstoy",
-        "suggestion_year": 1981,
-        "suggestion_rationale": "A comprehensive biography of Maxwell, offering insights into his life, scientific work, and the historical context of his discoveries. It is a standard scholarly work.",
+        "suggestion_year": 1982,
+        "suggestion_rationale": "A comprehensive biography offering insights into Maxwell's life, scientific work, and intellectual context.",
         "doi": "10.1119/1.14000",
         "crossref_type": "journal-article"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Maxwell's Demon 2: Entropy, classical and quantum information, computing",
-      "author": "Orly Shenker",
-      "publication_year": 2004,
-      "source_url": "https://doi.org/10.1016/j.shpsb.2004.04.001",
-      "access_url": "https://doi.org/10.1016/j.shpsb.2004.04.001",
-      "snippet": "Studies in History and Philosophy of Science Part B Studies in History and Philosophy of Modern Physics",
-      "confidence": 0.829,
-      "why": "Secondary source resolved from suggestion \"Maxwell's Demon: Entropy, Classical and Quantum Information, and Computing\". Matched secondary suggestion by title=1.00, author=0.00, year=0.70; Very high title match with surname/aboutness support",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Maxwell's Demon: Entropy, Classical and Quantum Information, and Computing",
-        "suggestion_author": "Huw Price",
-        "suggestion_year": 1995,
-        "suggestion_rationale": "This book provides a detailed scholarly analysis of Maxwell's thought experiments, particularly Maxwell's Demon, and their implications for thermodynamics and information theory.",
-        "openalex_id": "https://openalex.org/W2077455003",
-        "work_type": "article"
       }
     }
   ]

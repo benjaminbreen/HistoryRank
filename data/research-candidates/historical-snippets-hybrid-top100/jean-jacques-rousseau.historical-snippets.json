@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.609Z",
+  "figureId": "jean-jacques-rousseau",
+  "figureName": "Jean-Jacques Rousseau",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Rousseau, Jean Jacques",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FRousseau%2C_Jean_Jacques",
+      "snippet": "Even then Rousseau did not settle at once in the anomalous but to him charming position of domestic lover to this lady, who, nominally a converted Protestant, was in reality, as many women of her time were, a kind of deist, with a theory of noble sentiment and a practice of libertinism tempered by good nature. It used to be held that in her conjugal relations she was more sinned against than sinning. But modern investigations seem to show that M.&#160;de Vuarrens (which is said to be the correct spelling of the name) was an unfortunate husband, and was deserted and robbed by his wife.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2023,
+      "source_title": "Rousseau, Jean Jacques",
+      "source_url": "https://plato.stanford.edu/entries/rousseau/",
+      "snippet": "Jean-Jacques Rousseau remains an important figure in the history of philosophy, both because of his contributions to political philosophy and moral psychology and on account of his influence on later thinkers. Rousseau's own view of most philosophy and philosophers was firmly negative, seeing them as post-hoc rationalizers of self-interest, as apologists for various forms of tyranny, and as playing a role in the alienation of the modern individual from humanity's natural impulse to compassion. The concern that dominates Rousseau's work is to find a way of preserving human freedom in a world where people are increasingly dependent on one another to satisfy their needs. This concern has two dimensions: material and psychological, of which the latter has greater importance. In the modern world, human beings get their very sense of their identity and value from the opinion of others, which Rousseau sees as corrosive of freedom and destructive of individual authenticity. In his mature work, he principally explores two routes to achieving and protecting freedom: the first is a political one aimed at constructing institutions that permit and foster the co-existence of free and equal citizens in a community where they themselves are sovereign; the second is a project for child development and education that nurtures autonomy and avoids the genesis of the most destructive forms of self-interest. However, though Rousseau believes the co-existence of human beings in relations of equality and freedom is possible, he is consistently and overwhelmingly pessimistic that humanity will escape from a dystopia of alienation, oppression, and unfreedom. In addition to his contributions to philosophy, Rousseau was active as a composer and a music theorist, as the pioneer of modern autobiography, as a novelist, and as a botanist. Rousseau's appreciation of the wonders of nature and his stress on the importance of feeling and emotion made him an important influence on and anticipator of the romantic movement. To a very large extent, the interests and concerns that mark his philosophical work also inform these other activities, and Rousseau's contributions in ostensibly non-philosophical fields often serve to illuminate his philosophical commitments and arguments.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

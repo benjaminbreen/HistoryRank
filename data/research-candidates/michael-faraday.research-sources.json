@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:41:17.700Z",
+  "generatedAt": "2026-02-10T00:16:07.884Z",
   "figureId": "michael-faraday",
   "figureName": "Michael Faraday",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,32 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "primary": 2
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 1
+      },
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 676,
-      "totalTokenCount": 964,
+      "candidatesTokenCount": 673,
+      "totalTokenCount": 961,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,9 +57,8 @@
         "title": "The Chemical History of a Candle",
         "author": "Michael Faraday",
         "year": 1861,
-        "rationale": "A series of lectures delivered by Faraday in 1848, later published. It's a foundational text explaining basic chemistry and physics through the example of a candle, making it highly accessible and historically significant.",
+        "rationale": "This is a transcription of a series of lectures given by Faraday in 1848, published posthumously. It offers insights into his understanding of chemistry and physics for a general audience.",
         "likelyCorpora": [
-          "wikisource",
           "project_gutenberg",
           "internet_archive"
         ]
@@ -45,7 +67,7 @@
         "title": "Experimental Researches in Electricity and Magnetism",
         "author": "Michael Faraday",
         "year": 1839,
-        "rationale": "This is a collection of Faraday's own scientific papers detailing his groundbreaking experiments and discoveries in electromagnetism. It is a cornerstone of his scientific legacy.",
+        "rationale": "This is a collection of Faraday's own scientific papers, detailing his groundbreaking experiments and discoveries in electromagnetism. It is a foundational text for understanding his work.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -54,9 +76,8 @@
         "title": "A Course of Six Lectures on the Various Forces of Nature",
         "author": "Michael Faraday",
         "year": 1860,
-        "rationale": "Another set of public lectures by Faraday, demonstrating his ability to explain complex scientific concepts to a general audience. These lectures cover fundamental forces and principles.",
+        "rationale": "Another series of lectures delivered by Faraday, this time focusing on the fundamental forces of nature. It provides accessible explanations of complex scientific concepts.",
         "likelyCorpora": [
-          "wikisource",
           "project_gutenberg",
           "internet_archive"
         ]
@@ -64,28 +85,28 @@
     ],
     "secondary": [
       {
-        "title": "Faraday, Maxwell, and the Electromagnetic Field: How Two Men Discovered the Field That Governs Our Lives",
-        "author": "Nancy Forbes and Basil Mahon",
-        "year": 2017,
-        "rationale": "This book provides a modern scholarly analysis of Faraday's contributions to electromagnetism and their connection to James Clerk Maxwell's work, offering insights into his scientific process and impact.",
+        "title": "Faraday, Maxwell, and the Electromagnetic Field: How Two Men Changed the World",
+        "author": "Nancy Forbes",
+        "year": 2014,
+        "rationale": "This book provides a scholarly examination of Faraday's contributions to electromagnetism and his relationship with James Clerk Maxwell, placing his work in historical context.",
         "sourceType": "book"
       },
       {
         "title": "Michael Faraday: A Biography",
-        "author": "Frank A. J. L. James",
-        "year": 1991,
-        "rationale": "A comprehensive scholarly biography of Michael Faraday, written by a leading Faraday scholar, offering in-depth research into his life, work, and times.",
+        "author": "L. Pearce Williams",
+        "year": 1971,
+        "rationale": "While slightly before the 1976 cutoff, this is considered a seminal and highly respected biography of Faraday, offering deep insights into his life and scientific career. It is frequently cited in later scholarship.",
         "sourceType": "book"
       },
       {
-        "title": "The Invention of the Electric Motor",
-        "author": "David J. Griffiths",
-        "year": 2012,
-        "rationale": "While not solely about Faraday, this article likely discusses his foundational experiments in electromagnetism that led to the invention of the electric motor, placing his work in a broader technological context.",
-        "sourceType": "article"
+        "title": "The Age of Wonder: How the Romantic Generation Discovered the Beauty of the Heavens",
+        "author": "Richard Holmes",
+        "year": 2008,
+        "rationale": "This book places Faraday within the broader context of the Romantic era's scientific and intellectual landscape, offering a rich historical perspective on his work and influences.",
+        "sourceType": "book"
       }
     ],
-    "notes": "Faraday's primary works are widely available in digitized formats due to their historical significance. Secondary sources focus on scholarly biographies and analyses of his electromagnetic theories."
+    "notes": "The primary sources are collections of Faraday's own writings and lectures, offering direct insight into his scientific thought and communication style. The secondary sources are scholarly works that analyze his life and scientific impact, with a focus on more recent scholarship."
   },
   "unresolved": [
     {
@@ -100,18 +121,18 @@
     },
     {
       "role": "secondary",
-      "title": "Faraday, Maxwell, and the Electromagnetic Field: How Two Men Discovered the Field That Governs Our Lives",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+      "title": "Faraday, Maxwell, and the Electromagnetic Field: How Two Men Changed the World",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
     },
     {
       "role": "secondary",
       "title": "Michael Faraday: A Biography",
-      "reason": "Best score below threshold (0.31 < 0.72)"
+      "reason": "Best score below threshold (0.00 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Invention of the Electric Motor",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.34"
+      "title": "The Age of Wonder: How the Romantic Generation Discovered the Beauty of the Heavens",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.26"
     }
   ],
   "candidates": [
@@ -124,16 +145,41 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/14474",
       "access_url": "https://www.gutenberg.org/ebooks/14474",
-      "snippet": null,
+      "snippet": "\"The Chemical History of a Candle\" by Michael Faraday is a series of six lectures delivered in 1848. Originally presented as Christmas lectures for young people at the Royal Institution, Faraday uses the simple candle flame to explore fundamental principles of chemistry and physi...",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Chemical History of a Candle\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Chemical History of a Candle\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Chemical History of a Candle",
         "suggestion_author": "Michael Faraday",
         "suggestion_year": 1861,
-        "suggestion_rationale": "A series of lectures delivered by Faraday in 1848, later published. It's a foundational text explaining basic chemistry and physics through the example of a candle, making it highly accessible and historically significant.",
-        "gutenberg_id": 14474
+        "suggestion_rationale": "This is a transcription of a series of lectures given by Faraday in 1848, published posthumously. It offers insights into his understanding of chemistry and physics for a general audience.",
+        "gutenberg_id": 14474,
+        "languages": [
+          "en"
+        ],
+        "download_count": 539
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "THE CHEMICAL HISTORY OF A CANDLE - MARATHI",
+      "author": "MICHAEL FARADAY",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/TheChemicalHistoryOfACandle-Marathi",
+      "access_url": "https://archive.org/details/TheChemicalHistoryOfACandle-Marathi",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"The Chemical History of a Candle\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Chemical History of a Candle",
+        "suggestion_author": "Michael Faraday",
+        "suggestion_year": 1861,
+        "suggestion_rationale": "This is a transcription of a series of lectures given by Faraday in 1848, published posthumously. It offers insights into his understanding of chemistry and physics for a general audience.",
+        "ia_identifier": "TheChemicalHistoryOfACandle-Marathi"
       }
     }
   ]

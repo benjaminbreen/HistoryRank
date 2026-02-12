@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.104Z",
+  "figureId": "warren-buffett",
+  "figureName": "Warren Buffett",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Warren Buffett is consistently described across 12 model source lists as influential for: Investor and philanthropist; Investor and philanthropist whose financial strategies influenced global markets; Investor and philanthropist who redefined value investing and global finance; Investor known for value investing; Investor influencing value investing; Value investing; American investor, business tycoon, philanthropist, and the chairman and CEO of Berkshire Hathaway; Highly successful investor and philanthropist, known for his value investing approach and pledge to give away most of his wealth.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

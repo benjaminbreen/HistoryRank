@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.483Z",
+  "figureId": "cai-lun",
+  "figureName": "Cai Lun",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Cai Lun is consistently described across 11 model source lists as influential for: Paper; Invention; Invented paper; revolutionized the transmission of knowledge and record-keeping globally; Credited with inventing paper as we know it, revolutionizing the recording and dissemination of information; Invented paper, revolutionizing the recording and dissemination of human knowledge; Inventor of the modern papermaking process, enabling the global spread of knowledge; Inventor of the modern papermaking process, revolutionizing the storage and transmission of human knowledge; Inventor of the modern paper-making process, enabling mass literacy and administration; Invented the modern papermaking process, enabling the mass preservation and transmission of human knowledge.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

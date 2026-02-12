@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GLM 4.7 LIST 2 (January 14, 2026).txt
+Model: GLM 4.7
+Timestamp: 2026-02-10T23:44:40.422Z
+
+VERDICT: WARN
+
+Summary: Issues: 91 exact duplicates; pattern collapse (max 38)
+
+Scores:
+  Repetition: WARN - 91 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 38 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (104):
+  - Exact duplicate: "louis pasteur" at ranks 12, 651
+  - Exact duplicate: "edward jenner" at ranks 18, 655
+  - Exact duplicate: "hernn corts" at ranks 41, 513
+  - Exact duplicate: "francis bacon" at ranks 42, 514
+  - Exact duplicate: "michelangelo" at ranks 44, 899
+  - Exact duplicate: "vasco da gama" at ranks 45, 512
+  - Exact duplicate: "john dalton" at ranks 46, 287
+  - Exact duplicate: "oliver cromwell" at ranks 47, 516
+  - Exact duplicate: "john d rockefeller" at ranks 51, 877
+  - Exact duplicate: "james watt" at ranks 55, 515
+  ... and 94 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 7, Middle East: 22, Africa: 5, Americas: 6, Unknown: 913
+  Domains: Politics/Leadership: 21, Science/Technology: 5, Philosophy/Religion: 6, Arts/Literature: 21, Military: 14, Other: 933
+
+Advanced Metrics:
+  Advanced score: 84.5
+  Parenthetical names: 0.3%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 76.3%

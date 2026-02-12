@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: qwen3-235b-a22b V3 LIST 1 (February 4, 2026).raw.txt
+Model: qwen3-235b-a22b V3
+Timestamp: 2026-02-10T23:12:41.249Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 34 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (43):
+  - Exact duplicate: "isaac newton" at ranks 2, 105
+  - Exact duplicate: "karl marx" at ranks 13, 190
+  - Exact duplicate: "martin luther" at ranks 15, 439
+  - Exact duplicate: "sigmund freud" at ranks 16, 171
+  - Exact duplicate: "genghis khan" at ranks 22, 94
+  - Exact duplicate: "joseph stalin" at ranks 28, 420
+  - Exact duplicate: "michael faraday" at ranks 33, 133
+  - Exact duplicate: "james clerk maxwell" at ranks 34, 134
+  - Exact duplicate: "niels bohr" at ranks 35, 114
+  - Exact duplicate: "marie curie" at ranks 36, 465
+  ... and 33 more issues
+
+Diversity Estimates:
+  Regions: Europe: 54, Asia: 16, Middle East: 23, Africa: 8, Americas: 6, Unknown: 393
+  Domains: Politics/Leadership: 34, Science/Technology: 7, Philosophy/Religion: 9, Arts/Literature: 46, Military: 6, Other: 398
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

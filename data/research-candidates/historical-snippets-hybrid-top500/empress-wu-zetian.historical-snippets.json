@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.507Z",
+  "figureId": "empress-wu-zetian",
+  "figureName": "Empress Wu Zetian",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Empress Wu Zetian is consistently described across 12 model source lists as influential for: Imperial authority and administrative precedents; symbolic gender politics; Only female Emperor of China; Tang Dynasty governance; Consolidated Tang-era central power and patronage of institutions; Only female Chinese emperor; Only female emperor of China, expanded Tang Dynasty influence; Only female emperor of China; expanded empire and promoted Buddhism; Ruled Tang Dynasty China as its only female emperor, expanding the empire, reforming the civil service, and patronizing Buddhism.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

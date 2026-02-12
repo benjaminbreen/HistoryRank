@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:51.325Z",
+  "generatedAt": "2026-02-10T00:11:44.802Z",
   "figureId": "albert-einstein",
   "figureName": "Albert Einstein",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,38 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 6,
+      "byRole": {
+        "primary": 3,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 2
+      },
+      "yearSpan": {
+        "min": 1920,
+        "max": 2014
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 548,
-      "totalTokenCount": 836,
+      "candidatesTokenCount": 583,
+      "totalTokenCount": 871,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,8 +63,9 @@
         "title": "Relativity: The Special and the General Theory",
         "author": "Albert Einstein",
         "year": 1920,
-        "rationale": "Einstein's own explanation of his theories for a general audience. Likely to be available in digitized form.",
+        "rationale": "Einstein's own explanation of his theories for a general audience, offering direct insight into his thought process and communication style.",
         "likelyCorpora": [
+          "project_gutenberg",
           "internet_archive"
         ]
       },
@@ -43,7 +73,7 @@
         "title": "The Meaning of Relativity",
         "author": "Albert Einstein",
         "year": 1922,
-        "rationale": "A more technical exposition of his theories, based on lectures. A foundational text by the author.",
+        "rationale": "A collection of lectures given by Einstein, providing a more technical yet accessible overview of his work on relativity.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +82,7 @@
         "title": "Ideas and Opinions",
         "author": "Albert Einstein",
         "year": 1954,
-        "rationale": "A collection of his essays and speeches covering a wide range of topics, offering insight into his thought process and public statements.",
+        "rationale": "A compilation of Einstein's essays, articles, and interviews covering a wide range of topics, including science, philosophy, and politics. Offers a broad view of his public intellectual life.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,34 +93,59 @@
         "title": "Einstein: His Life and Universe",
         "author": "Walter Isaacson",
         "year": 2007,
-        "rationale": "A comprehensive and widely acclaimed biography by a respected author, offering deep insights into Einstein's life and work.",
+        "rationale": "A comprehensive and widely acclaimed biography that draws on extensive research to explore Einstein's scientific achievements, personal life, and political views.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Einstein and the Quantum: The Quest of the Valiant Swabian",
+        "author": "A. Douglas Stone",
+        "year": 2013,
+        "rationale": "Focuses on Einstein's crucial contributions to quantum theory, offering a scholarly analysis of his scientific development and its impact.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Einstein",
         "author": "Don Howard",
         "year": 2002,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Einstein's scientific and philosophical contributions.",
-        "sourceType": "book"
-      },
-      {
-        "title": "Einstein and the Quantum: The Quest of the Magnetic Boy",
-        "author": "A. Douglas Stone",
-        "year": 2013,
-        "rationale": "Focuses on Einstein's crucial contributions to quantum theory, providing a scholarly analysis of a key area of his work.",
+        "rationale": "A collection of essays by leading scholars covering various aspects of Einstein's life and work, providing diverse perspectives on his scientific and philosophical legacy.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are selected based on their likelihood of being digitized and available in public domain repositories. Secondary sources are recent, scholarly works from major publishers."
+    "notes": "Primary sources are generally available in multiple editions and translations. Secondary sources are chosen for their scholarly reputation and recency."
   },
   "unresolved": [
     {
       "role": "secondary",
-      "title": "Einstein and the Quantum: The Quest of the Magnetic Boy",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+      "title": "Einstein and the Quantum: The Quest of the Valiant Swabian",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=1.00"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Relativity: The Special and General Theory",
+      "author": "Einstein, Albert",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/30155",
+      "access_url": "https://www.gutenberg.org/ebooks/30155",
+      "snippet": "\"Relativity: The Special and General Theory\" by Albert Einstein is a popular science book published in German in 1916. Einstein wrote it to explain his revolutionary theories of relativity to readers without advanced mathematical training.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Relativity: The Special and the General Theory\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Relativity: The Special and the General Theory",
+        "suggestion_author": "Albert Einstein",
+        "suggestion_year": 1920,
+        "suggestion_rationale": "Einstein's own explanation of his theories for a general audience, offering direct insight into his thought process and communication style.",
+        "gutenberg_id": 30155,
+        "languages": [
+          "en"
+        ],
+        "download_count": 959
+      }
+    },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
@@ -102,13 +157,13 @@
       "access_url": "https://archive.org/details/in.ernet.dli.2015.162673",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Relativity: The Special and the General Theory\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Relativity: The Special and the General Theory\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Relativity: The Special and the General Theory",
         "suggestion_author": "Albert Einstein",
         "suggestion_year": 1920,
-        "suggestion_rationale": "Einstein's own explanation of his theories for a general audience. Likely to be available in digitized form.",
+        "suggestion_rationale": "Einstein's own explanation of his theories for a general audience, offering direct insight into his thought process and communication style.",
         "ia_identifier": "in.ernet.dli.2015.162673"
       }
     },
@@ -123,35 +178,37 @@
       "access_url": "https://archive.org/details/ost-physics-36276-pdf",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"The Meaning of Relativity\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Meaning of Relativity\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Meaning of Relativity",
         "suggestion_author": "Albert Einstein",
         "suggestion_year": 1922,
-        "suggestion_rationale": "A more technical exposition of his theories, based on lectures. A foundational text by the author.",
+        "suggestion_rationale": "A collection of lectures given by Einstein, providing a more technical yet accessible overview of his work on relativity.",
         "ia_identifier": "ost-physics-36276-pdf"
       }
     },
     {
-      "source_corpus": "internet_archive",
-      "source_role": "primary",
-      "source_kind": "text",
-      "title": "Ideas and Opinions",
-      "author": "Albert Einstein",
-      "publication_year": 1954,
-      "source_url": "https://archive.org/details/ideasopinions0000albe_h5w6",
-      "access_url": "https://archive.org/details/ideasopinions0000albe_h5w6",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Ideas and Opinions\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Einstein: His Life and Universe",
+      "author": "F. David Winter",
+      "publication_year": 2007,
+      "source_url": "https://doi.org/10.1080/08998280.2007.11928340",
+      "access_url": "https://doi.org/10.1080/08998280.2007.11928340",
+      "snippet": "Baylor University Medical Center Proceedings",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"Einstein: His Life and Universe\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Ideas and Opinions",
-        "suggestion_author": "Albert Einstein",
-        "suggestion_year": 1954,
-        "suggestion_rationale": "A collection of his essays and speeches covering a wide range of topics, offering insight into his thought process and public statements.",
-        "ia_identifier": "ideasopinions0000albe_h5w6"
+        "min_secondary_year": 1976,
+        "suggestion_title": "Einstein: His Life and Universe",
+        "suggestion_author": "Walter Isaacson",
+        "suggestion_year": 2007,
+        "suggestion_rationale": "A comprehensive and widely acclaimed biography that draws on extensive research to explore Einstein's scientific achievements, personal life, and political views.",
+        "openalex_id": "https://openalex.org/W240340350",
+        "work_type": "article"
       }
     },
     {
@@ -165,14 +222,14 @@
       "access_url": "https://doi.org/10.1063/1.2812127",
       "snippet": "Physics Today",
       "confidence": 0.89,
-      "why": "Secondary source resolved from suggestion \"Einstein: His Life and Universe\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"Einstein: His Life and Universe\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Einstein: His Life and Universe",
         "suggestion_author": "Walter Isaacson",
         "suggestion_year": 2007,
-        "suggestion_rationale": "A comprehensive and widely acclaimed biography by a respected author, offering deep insights into Einstein's life and work.",
+        "suggestion_rationale": "A comprehensive and widely acclaimed biography that draws on extensive research to explore Einstein's scientific achievements, personal life, and political views.",
         "doi": "10.1063/1.2812127",
         "crossref_type": "journal-article"
       }
@@ -188,14 +245,14 @@
       "access_url": "https://doi.org/10.1017/cco9781139024525",
       "snippet": null,
       "confidence": 0.822,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Einstein\". Matched secondary suggestion by title=1.00, author=0.00, year=0.60; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Einstein\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.60; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Einstein",
         "suggestion_author": "Don Howard",
         "suggestion_year": 2002,
-        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Einstein's scientific and philosophical contributions.",
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Einstein's life and work, providing diverse perspectives on his scientific and philosophical legacy.",
         "doi": "10.1017/cco9781139024525",
         "crossref_type": "edited-book"
       }

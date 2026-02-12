@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.607Z",
+  "figureId": "voltaire",
+  "figureName": "Voltaire",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "project_gutenberg",
+      "edition_year": null,
+      "source_title": "Candide, ou l'optimisme",
+      "source_url": "https://www.gutenberg.org/ebooks/4650",
+      "snippet": "\"Candide, ou l'optimisme\" by Voltaire is a French satire first published in 1759. Young Candide lives a sheltered life in paradise, taught Leibnizian optimism by his mentor Professor Pangloss, who insists \"all is for the best\" in the \"best of all possible worlds.\" When this life...",
+      "match_score": 1,
+      "why": "Existing project_gutenberg snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Voltaire",
+      "source_url": "https://plato.stanford.edu/entries/voltaire/",
+      "snippet": "Fran&ccedil;ois-Marie d'Arouet (1694-1778), better known by his pen name Voltaire, was a French writer and public activist who played a singular role in defining the eighteenth-century movement called the Enlightenment. At the center of his work was a new conception of philosophy and the philosopher that in several crucial respects influenced the modern concept of each. Yet in other ways Voltaire was not a philosopher at all in the modern sense of the term. He wrote as many plays, stories, and poems as patently philosophical tracts, and he in fact directed many of his critical writings against the philosophical pretensions of recognized philosophers such as Leibniz, Malebranche, and Descartes. He was, however, a vigorous defender of a conception of natural science that served in his mind as the antidote to vain and fruitless philosophical investigation. In clarifying this new distinction between science and philosophy, and especially in fighting vigorously for it in public campaigns directed against the perceived enemies of fanaticism and superstition, Voltaire pointed modern philosophy down several paths that it subsequently followed. To capture Voltaire's unconventional place in the history of philosophy, this article will be structured in a particular way. First, a full account of Voltaire's life is offered, not merely as background context for his philosophical work, but as an argument about the way that his particular career produced his particular contributions to European philosophy. Second, a survey of Voltaire's philosophical views is offered so as to attach the legacy of what Voltaire did with the intellectual viewpoints that his activities reinforced.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

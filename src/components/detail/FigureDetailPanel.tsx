@@ -5,14 +5,15 @@ import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
-import { getVarianceLevel, SOURCE_LABELS, MODEL_ICONS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS } from '@/types';
+import { getVarianceLevel, SOURCE_LABELS, MODEL_ICONS, REGION_COLORS, LANGUAGE_NAMES, LANGUAGE_FLAGS, DOMAIN_COLORS } from '@/types';
 import type { FigureEvidenceResponse } from '@/types';
-import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, ChevronLeft, Share2, Link2, LayoutGrid, BookOpen, Clock3, AlertTriangle, Maximize2 } from 'lucide-react';
+import { X, ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, ChevronRight, ChevronLeft, Share2, Link2, LayoutGrid, BookOpen, Clock3, Maximize2 } from 'lucide-react';
 import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
 import type { Figure, Ranking, FigureRow, WikipediaData, RelatedMediaItem, DetailTab } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
+import { FigureResearchTab } from './FigureResearchTab';
 import { FigureLifeTimeline } from './FigureLifeTimeline';
 import { FigureTimelineMap } from './FigureTimelineMap';
 import { SourceRankingCard } from './SourceRankingCard';
@@ -20,8 +21,6 @@ import {
   formatYear,
   formatViews,
   formatAlias,
-  formatCorpusLabel,
-  formatEvidenceYear,
   formatEventYears,
   getExtractParagraphs,
   groupRankingsBySource,
@@ -58,6 +57,124 @@ interface FigureDetailPanelProps {
   hasPrevious?: boolean;
   hasNext?: boolean;
   onNavigate?: (figureId: string) => void;
+}
+
+function wikipediaArticleUrlFromTitle(title: string): string {
+  const article = title.trim().replace(/\s+/g, '_');
+  return `https://en.wikipedia.org/wiki/${encodeURIComponent(article)}`;
+}
+
+type WaxSealPalette = {
+  border: string;
+  highlight: string;
+  outer: string;
+  mid: string;
+  inner: string;
+  ring: string;
+  text: string;
+};
+
+const DOMAIN_WAX_PALETTES: Record<string, WaxSealPalette> = {
+  Science: {
+    border: '#234b88',
+    highlight: '#9dc4ff',
+    outer: '#5f95e3',
+    mid: '#3d6fbe',
+    inner: '#294b86',
+    ring: 'rgba(214,232,255,0.38)',
+    text: '#eef5ff',
+  },
+  Religion: {
+    border: '#5f3e84',
+    highlight: '#d6b4ff',
+    outer: '#9a72cc',
+    mid: '#7654aa',
+    inner: '#523875',
+    ring: 'rgba(244,223,255,0.34)',
+    text: '#f8efff',
+  },
+  Philosophy: {
+    border: '#3f4e92',
+    highlight: '#b7c6ff',
+    outer: '#6b7dd8',
+    mid: '#4f60b5',
+    inner: '#35407f',
+    ring: 'rgba(226,233,255,0.34)',
+    text: '#f2f6ff',
+  },
+  Politics: {
+    border: '#7f111f',
+    highlight: '#ffc3cc',
+    outer: '#be2a43',
+    mid: '#931a2f',
+    inner: '#641220',
+    ring: 'rgba(255,220,225,0.32)',
+    text: '#fff1f3',
+  },
+  Military: {
+    border: '#7f3e13',
+    highlight: '#ffd1ad',
+    outer: '#cf6b29',
+    mid: '#a14d1f',
+    inner: '#6f3313',
+    ring: 'rgba(255,224,197,0.32)',
+    text: '#fff3e8',
+  },
+  Arts: {
+    border: '#17664f',
+    highlight: '#b6f6de',
+    outer: '#33ab86',
+    mid: '#248366',
+    inner: '#195d48',
+    ring: 'rgba(215,255,241,0.3)',
+    text: '#ebfff8',
+  },
+  Exploration: {
+    border: '#1c5f67',
+    highlight: '#b8eef7',
+    outer: '#3ca9bb',
+    mid: '#2f8390',
+    inner: '#1f5f68',
+    ring: 'rgba(214,247,255,0.3)',
+    text: '#ebfbff',
+  },
+  Economics: {
+    border: '#7a4b10',
+    highlight: '#ffe1a7',
+    outer: '#cf9230',
+    mid: '#9f6f22',
+    inner: '#704d18',
+    ring: 'rgba(255,236,202,0.32)',
+    text: '#fff8e8',
+  },
+  Medicine: {
+    border: '#7a1f57',
+    highlight: '#ffd0ec',
+    outer: '#c85a9b',
+    mid: '#9a3f77',
+    inner: '#6d2c56',
+    ring: 'rgba(255,225,244,0.34)',
+    text: '#fff1f8',
+  },
+};
+
+const DEFAULT_WAX_PALETTE: WaxSealPalette = {
+  border: '#7f111f',
+  highlight: '#ffc3cc',
+  outer: '#be2a43',
+  mid: '#931a2f',
+  inner: '#641220',
+  ring: 'rgba(255,220,225,0.32)',
+  text: '#fff1f3',
+};
+
+function getWaxSealPalette(domain: string | null): WaxSealPalette {
+  if (!domain) return DEFAULT_WAX_PALETTE;
+  const direct = DOMAIN_WAX_PALETTES[domain];
+  if (direct) return direct;
+  const domainColor = DOMAIN_COLORS[domain];
+  if (!domainColor) return DEFAULT_WAX_PALETTE;
+  return DEFAULT_WAX_PALETTE;
 }
 
 export function FigureDetailPanel({
@@ -173,10 +290,6 @@ export function FigureDetailPanel({
   }, [figureId]);
 
   useEffect(() => {
-    setActiveTab('overview');
-  }, [figureId]);
-
-  useEffect(() => {
     if (!isOpen || !figureId) {
       setEvidenceData(null);
       setEvidenceError(null);
@@ -187,6 +300,7 @@ export function FigureDetailPanel({
     const controller = new AbortController();
 
     const fetchEvidence = async () => {
+      setEvidenceData(null);
       setEvidenceLoading(true);
       setEvidenceError(null);
       try {
@@ -230,34 +344,31 @@ export function FigureDetailPanel({
   const researchSources = evidenceData?.research.sources || [];
   const researchQuotes = evidenceData?.research.quotes || [];
   const historicalSnippets = evidenceData?.research.historicalSnippets || [];
-  const primaryResearchSources = researchSources.filter((source) => source.sourceRole === 'primary');
-  const secondaryResearchSources = researchSources.filter((source) => source.sourceRole === 'secondary');
-  const referenceResearchSources = researchSources.filter((source) => source.sourceRole === 'reference');
-  const groupedResearchSources: Array<{
-    key: 'primary' | 'secondary' | 'reference';
-    title: string;
-    subtitle: string;
-    rows: typeof researchSources;
-  }> = [
-    {
-      key: 'primary',
-      title: 'Primary works',
-      subtitle: 'Texts or speeches authored by the figure',
-      rows: primaryResearchSources,
-    },
-    {
-      key: 'secondary',
-      title: 'Secondary scholarship',
-      subtitle: 'Articles and books analyzing the figure',
-      rows: secondaryResearchSources,
-    },
-    {
-      key: 'reference',
-      title: 'Reference leads',
-      subtitle: 'Catalog and bibliographic records',
-      rows: referenceResearchSources,
-    },
-  ];
+  const wikidataFacts = evidenceData?.research.wikidataFacts || [];
+  const wikipediaSections = evidenceData?.research.wikipediaSections || [];
+  const notableWorks = Array.from(
+    new Set(
+      wikidataFacts
+        .filter((fact) => fact.propertyId === 'P800' || fact.propertyLabel.toLowerCase() === 'notable work')
+        .map((fact) => fact.value.trim())
+        .filter(Boolean)
+    )
+  ).slice(0, 3);
+  const displayName = figure?.canonicalName || previewRow?.name || '';
+  const displayHistoricalRank =
+    llmRank ??
+    (figure?.llmConsensusRank ? Math.round(figure.llmConsensusRank) : null) ??
+    previewRow?.llmRank ??
+    null;
+  const rankDigitCount = displayHistoricalRank !== null ? String(Math.abs(displayHistoricalRank)).length : 1;
+  const rankLabelSizeClass =
+    rankDigitCount <= 2 ? 'text-[8px] sm:text-[9.5px]' : rankDigitCount === 3 ? 'text-[7.5px] sm:text-[9px]' : 'text-[7px] sm:text-[8px]';
+  const rankNumberSizeClass =
+    rankDigitCount <= 2 ? 'text-[1.35rem] sm:text-[1.55rem]' : rankDigitCount === 3 ? 'text-[1.12rem] sm:text-[1.28rem]' : 'text-[0.92rem] sm:text-[1rem]';
+  const waxPalette = useMemo(
+    () => getWaxSealPalette(figure?.domain || previewRow?.domain || null),
+    [figure?.domain, previewRow?.domain]
+  );
   const timelineAssessment = evidenceData?.timeline.assessment || null;
   const timelineEvents = evidenceData?.timeline.events || [];
 
@@ -266,7 +377,7 @@ export function FigureDetailPanel({
       <SheetContent
         forceMount
         showClose={false}
-        className="w-full sm:max-w-xl lg:max-w-2xl overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0"
+        className="w-full sm:max-w-[606px] lg:max-w-[702px] overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0"
       >
         {/* Accessibility: visually hidden title and description */}
         <SheetTitle className="sr-only">
@@ -279,147 +390,250 @@ export function FigureDetailPanel({
         {/* Show content immediately if we have any data (previewRow or figure) */}
         {displayData ? (
           <div className="flex flex-col min-h-full">
-            {/* Action buttons */}
-            <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
-              <button
-                onClick={() => setShareOpen(true)}
-                className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
-                aria-label="Share figure"
-              >
-                <Share2 className="w-4 h-4 text-stone-500 dark:text-slate-400" />
-              </button>
-              <button
-                onClick={onClose}
-                className="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-slate-700/50 transition-colors"
-                aria-label="Close panel"
-              >
-                <X className="w-5 h-5 text-stone-500 dark:text-slate-400" />
-              </button>
-            </div>
-
             {/* Header Section */}
-            <div className="p-6 pb-5 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
-              <div className="flex flex-col gap-5 sm:flex-row sm:gap-6 sm:items-start">
-                {/* Portrait - local thumbnail first (instant), then Wikipedia fallback */}
-                <div onClick={() => { if (figureId) window.location.href = `/figure/${figureId}`; }} className="flex-shrink-0 group/portrait cursor-pointer">
-                  {localThumbUrl && !localThumbFailed ? (
-                    <div className="relative">
-                      <img
-                        src={localThumbUrl}
-                        alt={figure?.canonicalName || previewRow?.name || ''}
-                        loading="lazy"
-                        className="w-28 h-36 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
-                        onError={() => {
-                          if (localThumbExt < 2) {
-                            setLocalThumbExt(localThumbExt + 1);
-                          } else {
-                            setLocalThumbFailed(true);
-                          }
-                        }}
-                      />
-                    </div>
-                  ) : wikiData?.thumbnail ? (
-                    <div className="relative">
-                      <img
-                        src={wikiData.thumbnail.source}
-                        alt={figure?.canonicalName || previewRow?.name || ''}
-                        loading="lazy"
-                        className="w-28 h-36 sm:w-32 sm:h-40 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
-                      />
-                    </div>
-                  ) : wikiLoading ? (
-                    <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-lg bg-stone-100 dark:bg-slate-700 animate-pulse" />
-                  ) : (
-                    <div className="w-28 h-36 sm:w-32 sm:h-40 rounded-lg bg-gradient-to-br from-stone-100 to-stone-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-inner">
-                      <span className="text-4xl font-serif text-stone-400 dark:text-slate-500">
-                        {(figure?.canonicalName || previewRow?.name || '?').charAt(0)}
-                      </span>
-                    </div>
+            <div className="relative px-6 pt-6 pb-4 bg-gradient-to-b from-white to-[#faf9f7] dark:from-slate-800 dark:to-slate-900 border-b border-stone-200/60 dark:border-amber-900/30">
+              {/* Action buttons - top right */}
+              <div className="absolute top-3.5 right-4 z-20 inline-flex items-center gap-1 rounded-full bg-white/72 px-1 py-1 shadow-sm ring-1 ring-stone-200/85 backdrop-blur-md dark:bg-slate-900/72 dark:ring-slate-700/85">
+                <button
+                  onClick={() => setShareOpen(true)}
+                  className="p-1.5 rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors"
+                  aria-label="Share figure"
+                >
+                  <Share2 className="w-4 h-4 text-stone-500 dark:text-slate-300" />
+                </button>
+                <button
+                  onClick={onClose}
+                  className="p-1.5 rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors"
+                  aria-label="Close panel"
+                >
+                  <X className="w-5 h-5 text-stone-500 dark:text-slate-300" />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-4 pt-8 sm:flex-row sm:gap-6 sm:items-start">
+                {/* Portrait - tall, starts at top of panel */}
+                <div className="flex-shrink-0 w-28 sm:w-36 min-h-[214px] sm:min-h-[250px]">
+                  <div
+                    onClick={() => {
+                      if (figureId) window.location.href = `/figure/${figureId}`;
+                    }}
+                    className="group/portrait cursor-pointer relative"
+                  >
+                    {localThumbUrl && !localThumbFailed ? (
+                      <div className="relative">
+                        <img
+                          src={localThumbUrl}
+                          alt={figure?.canonicalName || previewRow?.name || ''}
+                          loading="lazy"
+                          className="w-28 h-40 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
+                          onError={() => {
+                            if (localThumbExt < 2) {
+                              setLocalThumbExt(localThumbExt + 1);
+                            } else {
+                              setLocalThumbFailed(true);
+                            }
+                          }}
+                        />
+                        <div className="absolute inset-0 rounded-lg bg-black/0 group-hover/portrait:bg-black/30 transition-all flex items-end justify-center pb-2 opacity-0 group-hover/portrait:opacity-100">
+                          <span className="text-[10px] font-medium text-white/90 bg-black/50 px-2 py-0.5 rounded-full backdrop-blur-sm">View profile</span>
+                        </div>
+                      </div>
+                    ) : wikiData?.thumbnail ? (
+                      <div className="relative">
+                        <img
+                          src={wikiData.thumbnail.source}
+                          alt={figure?.canonicalName || previewRow?.name || ''}
+                          loading="lazy"
+                          className="w-28 h-40 sm:w-36 sm:h-48 object-cover rounded-lg shadow-lg ring-1 ring-stone-200/50 group-hover/portrait:ring-amber-400 transition-all"
+                        />
+                        <div className="absolute inset-0 rounded-lg bg-black/0 group-hover/portrait:bg-black/30 transition-all flex items-end justify-center pb-2 opacity-0 group-hover/portrait:opacity-100">
+                          <span className="text-[10px] font-medium text-white/90 bg-black/50 px-2 py-0.5 rounded-full backdrop-blur-sm">View profile</span>
+                        </div>
+                      </div>
+                    ) : wikiLoading ? (
+                      <div className="w-28 h-40 sm:w-36 sm:h-48 rounded-lg bg-stone-100 dark:bg-slate-700 animate-pulse" />
+                    ) : (
+                      <div className="w-28 h-40 sm:w-36 sm:h-48 rounded-lg bg-gradient-to-br from-stone-100 to-stone-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-inner">
+                        <span className="text-4xl font-serif text-stone-400 dark:text-slate-500">
+                          {(figure?.canonicalName || previewRow?.name || '?').charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  {figureId && (
+                    <a
+                      href={`/figure/${figureId}`}
+                      className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-stone-800 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:bg-stone-900 hover:shadow-lg dark:bg-[#b89a50] dark:text-stone-900 dark:hover:bg-[#c9a55c]"
+                    >
+                      <Maximize2 className="h-3.5 w-3.5" />
+                      Full profile
+                      <ChevronRight className="h-3.5 w-3.5 opacity-60" />
+                    </a>
                   )}
                 </div>
 
                 {/* Name and metadata */}
-                <div className="flex-1 min-w-0 pt-1">
-                  <div className="text-[10px] uppercase tracking-[0.15em] text-stone-400 dark:text-amber-600 font-medium mb-1">
-                    Figure Details
-                  </div>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-stone-900 dark:text-amber-100 leading-tight mb-2">
-                    {figure?.canonicalName || previewRow?.name}
-                  </h2>
-                  {previewRow?.badges && previewRow.badges.length > 0 && (
-                    <div className="mb-3">
-                      <BadgeDisplay badges={previewRow.badges} maxVisible={4} />
-                    </div>
-                  )}
-                  <div className="flex flex-col gap-1.5 text-sm text-stone-600 dark:text-slate-400">
-                    {figure?.occupation && (
-                      <span className="inline-flex items-center gap-1.5">
-                        <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
-                          Role
+                <div className="flex-1 min-w-0 pt-1 min-h-[214px] sm:min-h-[250px]">
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1fr)_108px] sm:items-start sm:gap-x-4">
+                    <div className="min-h-[148px] sm:min-h-[178px]">
+                      <div className="mb-1 text-[10px] uppercase tracking-[0.16em] text-stone-400/90 dark:text-amber-600/85 font-medium">
+                        Figure Details
+                      </div>
+                      <h2
+                        title={displayName}
+                        className="mb-2 font-serif text-2xl sm:text-[1.7rem] font-semibold text-stone-900 dark:text-amber-100 leading-tight [text-wrap:balance] overflow-hidden [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]"
+                      >
+                        {displayName}
+                      </h2>
+                      {/* Profession + badges on same line */}
+                      {(figure?.occupation || (previewRow?.badges && previewRow.badges.length > 0)) && (
+                        <div className="flex items-center gap-2.5 flex-wrap mb-2">
+                          {figure?.occupation && (
+                            <span className="font-serif text-[0.92rem] sm:text-[0.98rem] uppercase tracking-[0.105em] leading-none first-letter:text-[1.14em] first-letter:tracking-[0.018em] text-stone-700 dark:text-amber-200/90">
+                              {figure.occupation}
+                            </span>
+                          )}
+                          {previewRow?.badges && previewRow.badges.length > 0 && (
+                            <BadgeDisplay badges={previewRow.badges} maxVisible={3} />
+                          )}
+                        </div>
+                      )}
+                      <div className="flex flex-col gap-2 text-sm text-stone-600 dark:text-slate-400">
+                      {/* Born on its own line */}
+                      {formatYear(displayData?.birthYear ?? null) && (
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/85 w-8">
+                            Born
+                          </span>
+                          <span className="font-medium text-stone-800 dark:text-slate-200">
+                            {formatYear(displayData?.birthYear ?? null)}{figure?.birthPlace ? ` in ${figure.birthPlace}` : ''}
+                          </span>
                         </span>
-                        <span className="font-medium text-stone-700 dark:text-slate-300">{figure.occupation}</span>
-                      </span>
-                    )}
-                    {(formatYear(displayData?.birthYear ?? null) || displayData?.regionSub) && (
-                      <span className="inline-flex items-center gap-2">
-                        {formatYear(displayData?.birthYear ?? null) && (
-                          <span className="inline-flex items-center gap-1.5">
-                            <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
-                              Born
-                            </span>
-                            <span className="font-medium text-stone-700 dark:text-slate-300">
-                              {formatYear(displayData?.birthYear ?? null)}
-                            </span>
-                            {figure?.deathYear && (
-                              <>
-                                <span className="text-stone-300 dark:text-slate-600">•</span>
-                                <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-amber-600">
-                                  Died
-                                </span>
-                                <span className="font-medium text-stone-700 dark:text-slate-300">
-                                  {formatYear(figure.deathYear)}
-                                </span>
-                              </>
-                            )}
+                      )}
+                      {/* Died on its own line */}
+                      {figure?.deathYear && (
+                        <span className="inline-flex items-center gap-1.5">
+                          <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/85 w-8">
+                            Died
                           </span>
-                        )}
-                        {displayData?.regionSub && (
-                          <span
-                            className="inline-flex w-fit items-center px-2 py-0.5 rounded-full text-xs font-medium text-white"
-                            style={{ backgroundColor: REGION_COLORS[displayData.regionSub] || '#9ca3af' }}
+                          <span className="font-medium text-stone-800 dark:text-slate-200">
+                            {formatYear(figure.deathYear)}
+                          </span>
+                        </span>
+                      )}
+                      {displayData?.regionSub && (
+                        <span
+                          className="inline-flex w-fit items-center px-2 py-0.5 rounded-full text-xs font-medium text-white mt-1"
+                          style={{ backgroundColor: REGION_COLORS[displayData.regionSub] || '#9ca3af' }}
+                        >
+                          {displayData.regionSub}
+                        </span>
+                      )}
+                      {aliases && aliases.length > 0 && (
+                        <span className="text-xs text-stone-500 dark:text-slate-500">
+                          Also known as: {aliases.slice(0, 4).map(formatAlias).join(', ')}
+                          {aliases.length > 4 ? ` +${aliases.length - 4}` : ''}
+                        </span>
+                      )}
+                      {notableWorks.length > 0 && (
+                        <div className="pt-1">
+                          <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/85">
+                            Notable works
+                          </span>
+                          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                            {notableWorks.map((work) => (
+                              <a
+                                key={work}
+                                href={wikipediaArticleUrlFromTitle(work)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 rounded-full border border-stone-200 bg-white/80 px-2.5 py-0.5 text-xs font-medium text-stone-700 transition-colors hover:border-amber-300 hover:text-amber-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:border-amber-500/60 dark:hover:text-amber-300"
+                              >
+                                {work}
+                                <ExternalLink className="h-3 w-3" />
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    </div>
+
+                    {displayHistoricalRank !== null && (
+                      <div className="w-20 sm:w-[108px] sm:justify-self-end sm:self-start sm:pr-2 pt-8 sm:pt-9">
+                        <Tooltip
+                          content={
+                            <div className="space-y-2">
+                              <div className="font-medium text-stone-800 dark:text-slate-100">
+                                LLM Rank: <span className="font-semibold">#{displayHistoricalRank}</span>
+                              </div>
+                              {figure?.llmConsensusRank != null && Math.round(figure.llmConsensusRank) !== displayHistoricalRank && (
+                                <div className="text-stone-600 dark:text-slate-300">
+                                  Unweighted Rank: <span className="font-semibold">#{Math.round(figure.llmConsensusRank)}</span>
+                                </div>
+                              )}
+                              {(figure?.hpiRank || previewRow?.hpiRank) && (
+                                <div className="text-stone-600 dark:text-slate-300">
+                                  Pantheon HPI Rank: <span className="font-semibold">#{figure?.hpiRank || previewRow?.hpiRank}</span>
+                                </div>
+                              )}
+                              {(figure?.domain || previewRow?.domain) && (
+                                <div className="pt-1 border-t border-stone-100 dark:border-slate-700">
+                                  <span className="text-stone-500 dark:text-slate-400">Seal color:</span>{' '}
+                                  <span className="font-medium" style={{ color: waxPalette.mid }}>
+                                    {figure?.domain || previewRow?.domain}
+                                  </span>
+                                  <div className="text-[10px] text-stone-400 dark:text-slate-500 mt-0.5 leading-snug">
+                                    Each domain has a unique seal color — blue for Science, red for Politics, green for Arts, purple for Religion, and more.
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          }
+                          align="right"
+                        >
+                          <div
+                            className="relative h-[72px] w-[72px] sm:h-[84px] sm:w-[84px] rounded-full border cursor-help transition-transform duration-300 ease-out hover:scale-110 hover:rotate-[6deg] shadow-[inset_0_2px_3px_rgba(255,255,255,0.28),inset_0_-4px_6px_rgba(35,8,14,0.6),0_6px_12px_rgba(35,8,14,0.28)] hover:shadow-[inset_0_2px_3px_rgba(255,255,255,0.28),inset_0_-4px_6px_rgba(35,8,14,0.6),0_8px_20px_rgba(35,8,14,0.35)] dark:shadow-[inset_0_2px_3px_rgba(255,255,255,0.2),inset_0_-4px_6px_rgba(10,3,6,0.72),0_6px_12px_rgba(0,0,0,0.45)] dark:hover:shadow-[inset_0_2px_3px_rgba(255,255,255,0.2),inset_0_-4px_6px_rgba(10,3,6,0.72),0_8px_20px_rgba(0,0,0,0.55)]"
+                            style={{
+                              borderColor: waxPalette.border,
+                              backgroundImage: `radial-gradient(circle at 30% 22%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.05) 16%, transparent 30%), radial-gradient(circle at 28% 24%, ${waxPalette.outer} 0%, ${waxPalette.mid} 62%, ${waxPalette.inner} 100%)`,
+                            }}
                           >
-                            {displayData.regionSub}
-                          </span>
-                        )}
-                      </span>
-                    )}
-                    {aliases && aliases.length > 0 && (
-                      <span className="text-xs text-stone-500 dark:text-slate-500">
-                        Also known as: {aliases.slice(0, 4).map(formatAlias).join(', ')}
-                        {aliases.length > 4 ? ` +${aliases.length - 4}` : ''}
-                      </span>
+                            <div
+                              className="absolute inset-[3px] sm:inset-[4px] rounded-full border"
+                              style={{
+                                borderColor: waxPalette.ring,
+                                backgroundImage:
+                                  'repeating-conic-gradient(from 0deg, rgba(255,255,255,0.12) 0deg 10deg, rgba(0,0,0,0.08) 10deg 20deg)',
+                              }}
+                            />
+                            <div
+                              className="absolute inset-[9px] sm:inset-[11px] rounded-full border shadow-[inset_0_2px_4px_rgba(255,255,255,0.2),inset_0_-2px_4px_rgba(20,4,8,0.55)]"
+                              style={{
+                                borderColor: waxPalette.ring,
+                                backgroundImage: `radial-gradient(circle at 30% 24%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 18%, transparent 32%), radial-gradient(circle at 30% 25%, ${waxPalette.outer} 0%, ${waxPalette.mid} 60%, ${waxPalette.inner} 100%)`,
+                              }}
+                            >
+                              <div className="flex h-full w-full flex-col items-center justify-center text-center">
+                                <span className={`${rankLabelSizeClass} uppercase tracking-[0.18em]`} style={{ color: waxPalette.text }}>
+                                  Rank
+                                </span>
+                                <span className={`mt-1 font-serif ${rankNumberSizeClass} font-semibold leading-none drop-shadow-[0_1px_1px_rgba(30,5,10,0.7)]`} style={{ color: waxPalette.text }}>
+                                  #{displayHistoricalRank}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </Tooltip>
+                      </div>
                     )}
                   </div>
                 </div>
 
               </div>
-
-              {/* See full profile button */}
-              {figureId && (
-                <div className="mt-4">
-                  <a
-                    href={`/figure/${figureId}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-stone-800 hover:bg-stone-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white text-sm font-medium transition-colors shadow-sm"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5" />
-                    See full profile
-                    <ChevronRight className="w-3.5 h-3.5 opacity-60" />
-                  </a>
-                </div>
-              )}
             </div>
 
-            <div className="mx-6 mt-4">
+            <div className="mx-6 mt-3">
               <div className="grid grid-cols-3 gap-1 rounded-xl border border-stone-200/80 bg-white/90 p-1 shadow-sm dark:border-slate-700 dark:bg-slate-800/80">
                 {TAB_LABELS.map((tab) => {
                   const Icon = tab.icon;
@@ -431,7 +645,7 @@ export function FigureDetailPanel({
                       onClick={() => setActiveTab(tab.id)}
                       className={`flex items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors ${
                         isActive
-                          ? 'bg-stone-900 text-white dark:bg-amber-500 dark:text-stone-900'
+                          ? 'bg-stone-900 text-white dark:bg-[#c9a55c] dark:text-stone-900'
                           : 'text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700'
                       }`}
                       aria-pressed={isActive}
@@ -496,7 +710,7 @@ export function FigureDetailPanel({
                             }}
                           />
                         </div>
-                        <span className="text-xs text-stone-600 dark:text-slate-300 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors max-w-[120px] truncate">
+                        <span className="text-xs text-stone-600 dark:text-slate-300 group-hover:text-amber-700 dark:group-hover:text-[#d4b06a] transition-colors max-w-[120px] truncate">
                           {related.name}
                         </span>
                       </button>
@@ -593,7 +807,7 @@ export function FigureDetailPanel({
                       href={`https://en.wikipedia.org/wiki/${wikiSlug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium"
+                      className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 dark:text-[#c9a55c] hover:text-amber-700 dark:hover:text-[#d4b06a] transition-colors font-medium"
                     >
                       Read more on Wikipedia <ExternalLink className="w-3 h-3" />
                     </a>
@@ -744,9 +958,11 @@ export function FigureDetailPanel({
                         ) : (
                           <Minus className="w-5 h-5 text-stone-400 dark:text-slate-500" />
                         )}
-                        <span className="text-xs uppercase tracking-wide text-stone-500 dark:text-slate-400 font-medium">
-                          Attention Gap
-                        </span>
+                        <Tooltip content="Compares this figure's academic ranking (Pantheon/HPI) to their LLM consensus rank. Values above 1x suggest LLMs rate them higher than traditional metrics; below 1x means lower.">
+                          <span className="text-xs uppercase tracking-wide text-stone-500 dark:text-slate-400 font-medium cursor-help">
+                            Attention Gap
+                          </span>
+                        </Tooltip>
                       </div>
                       <div className={`text-3xl font-semibold tracking-tight ${
                         attentionGap.direction === 'up'
@@ -841,7 +1057,7 @@ export function FigureDetailPanel({
                     </div>
                     <div className="relative h-10 bg-gradient-to-r from-stone-100 to-stone-50 dark:from-slate-700 dark:to-slate-600 rounded-full overflow-hidden">
                       {/* Scale markers */}
-                      <div className="absolute inset-0 flex justify-between items-center px-3 text-[10px] text-stone-300 dark:text-slate-500">
+                      <div className="absolute inset-0 flex justify-between items-center px-3 text-[10px] text-stone-400 dark:text-slate-400">
                         <span>{rangeStart === 0 ? 1 : rangeStart}</span>
                         <span>{midPoint}</span>
                         <span>{effectiveEnd}</span>
@@ -868,7 +1084,7 @@ export function FigureDetailPanel({
                               align="center"
                             >
                               <div
-                                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full shadow-sm ring-1 ring-white/80 cursor-help opacity-80 hover:opacity-100 hover:scale-125 transition-all z-10"
+                                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full shadow-sm ring-1 ring-white/80 dark:ring-slate-700/80 cursor-help opacity-80 hover:opacity-100 hover:scale-125 transition-all z-10"
                                 style={{
                                   left: `${position}%`,
                                   backgroundColor: color,
@@ -892,7 +1108,7 @@ export function FigureDetailPanel({
                         align="center"
                       >
                         <div
-                          className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-blue-500 rounded-full shadow-md ring-2 ring-white cursor-help z-20 hover:scale-110 transition-transform"
+                          className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-blue-500 rounded-full shadow-md ring-2 ring-white dark:ring-slate-700 cursor-help z-20 hover:scale-110 transition-transform"
                           style={{ left: `${getPosition(hpiRankVal)}%` }}
                         />
                       </Tooltip>
@@ -911,7 +1127,7 @@ export function FigureDetailPanel({
                         align="center"
                       >
                         <div
-                          className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-amber-500 rounded-full shadow-md ring-2 ring-white cursor-help z-20 hover:scale-110 transition-transform"
+                          className="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-amber-500 rounded-full shadow-md ring-2 ring-white dark:ring-slate-700 cursor-help z-20 hover:scale-110 transition-transform"
                           style={{ left: `${getPosition(llmAvgRank)}%` }}
                         />
                       </Tooltip>
@@ -1027,7 +1243,7 @@ export function FigureDetailPanel({
                             </div>
                             <div className="h-1.5 bg-stone-100 dark:bg-slate-700 rounded-full overflow-hidden">
                               <div
-                                className="h-full bg-gradient-to-r from-amber-400 to-amber-500 dark:from-amber-500 dark:to-amber-600 rounded-full transition-all group-hover:from-amber-500 group-hover:to-amber-600"
+                                className="h-full bg-gradient-to-r from-amber-400 to-amber-500 dark:from-[#c9a55c] dark:to-[#b89a50] rounded-full transition-all group-hover:from-amber-500 group-hover:to-amber-600"
                                 style={{ width: `${barWidth}%` }}
                               />
                             </div>
@@ -1039,7 +1255,7 @@ export function FigureDetailPanel({
                     {/* Notable insight if non-English language dominates */}
                     {sortedLangs[0] && sortedLangs[0][0] !== 'en' && sortedLangs[0][1] > (langData['en'] || 0) * 1.2 && (
                       <div className="mt-3 pt-3 border-t border-stone-100 dark:border-slate-700">
-                        <p className="text-xs text-amber-600 dark:text-amber-500 flex items-center gap-1.5">
+                        <p className="text-xs text-amber-600 dark:text-[#c9a55c] flex items-center gap-1.5">
                           <span className="text-sm">{LANGUAGE_FLAGS[sortedLangs[0][0]]}</span>
                           <span>
                             Most popular in {LANGUAGE_NAMES[sortedLangs[0][0]] || sortedLangs[0][0]} Wikipedia
@@ -1068,176 +1284,16 @@ export function FigureDetailPanel({
               )}
 
               {activeTab === 'research' && (
-                <div className="space-y-5">
-                  {evidenceLoading && (
-                    <div className="space-y-3">
-                      <Skeleton className="h-24 w-full rounded-xl" />
-                      <Skeleton className="h-24 w-full rounded-xl" />
-                      <Skeleton className="h-24 w-full rounded-xl" />
-                    </div>
-                  )}
-
-                  {!evidenceLoading && evidenceError && (
-                    <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-300">
-                      {evidenceError}
-                    </div>
-                  )}
-
-                  {!evidenceLoading && !evidenceError && (
-                    <>
-                      {researchSources.length > 0 && (
-                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
-                          <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
-                            Source leads
-                          </div>
-                          <div className="space-y-4">
-                            {groupedResearchSources.map((group) => (
-                              <div key={group.key} className="space-y-2.5">
-                                <div className="border-b border-stone-200/80 pb-2 dark:border-slate-700">
-                                  <div className="text-[11px] font-medium uppercase tracking-[0.12em] text-stone-600 dark:text-slate-300">
-                                    {group.title}
-                                  </div>
-                                  <div className="mt-0.5 text-[11px] text-stone-500 dark:text-slate-400">
-                                    {group.subtitle}
-                                  </div>
-                                </div>
-                                {group.rows.length === 0 && (
-                                  <div className="rounded-lg border border-dashed border-stone-200 bg-stone-50/60 p-3 text-xs text-stone-500 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-400">
-                                    No {group.key} source leads ingested yet.
-                                  </div>
-                                )}
-                                {group.rows.slice(0, 6).map((source) => (
-                                  <a
-                                    key={source.id}
-                                    href={source.accessUrl || source.sourceUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block rounded-lg border border-stone-200 bg-stone-50/70 p-3 transition-colors hover:border-stone-300 hover:bg-stone-100/70 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600 dark:hover:bg-slate-700"
-                                  >
-                                    <div className="flex items-start justify-between gap-3">
-                                      <div className="min-w-0">
-                                        <div className="truncate text-sm font-medium text-stone-800 dark:text-slate-100">
-                                          {source.title}
-                                        </div>
-                                        <div className="mt-1 text-xs text-stone-500 dark:text-slate-400">
-                                          {[source.author, formatEvidenceYear(source.publicationYear)]
-                                            .filter(Boolean)
-                                            .join(' · ') || 'Author/date unknown'}
-                                        </div>
-                                      </div>
-                                      <div className="flex flex-col items-end gap-1">
-                                        <span className="rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-stone-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300">
-                                          {formatCorpusLabel(source.sourceCorpus, source.metadata)}
-                                        </span>
-                                        <span className="rounded-full bg-stone-900 px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] text-white dark:bg-amber-500 dark:text-stone-900">
-                                          {source.sourceRole}
-                                        </span>
-                                      </div>
-                                    </div>
-                                    {source.snippet && (
-                                      <p className="mt-2 text-xs leading-relaxed text-stone-600 dark:text-slate-300">
-                                        {source.snippet}
-                                      </p>
-                                    )}
-                                  </a>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {researchQuotes.length > 0 && (
-                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
-                          <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
-                            Quotes
-                          </div>
-                          <div className="space-y-3">
-                            {researchQuotes.slice(0, 6).map((quote) => (
-                              <div
-                                key={quote.id}
-                                className="rounded-lg border border-stone-200 bg-stone-50/70 p-3 dark:border-slate-700 dark:bg-slate-800"
-                              >
-                                <p className="text-sm leading-relaxed text-stone-700 dark:text-slate-200">
-                                  &ldquo;{quote.quoteText}&rdquo;
-                                </p>
-                                <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-stone-500 dark:text-slate-400">
-                                  <span>{quote.attributedTo || figure?.canonicalName || previewRow?.name || 'Unknown attribution'}</span>
-                                  {quote.quoteYear !== null && <span>· {formatEvidenceYear(quote.quoteYear)}</span>}
-                                  {(quote.verificationStatus !== 'verified' || quote.warningShort) && (
-                                    <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-800 dark:border-amber-900/40 dark:bg-amber-950/30 dark:text-amber-300">
-                                      <AlertTriangle className="h-3 w-3" />
-                                      {quote.warningShort || 'Quote not fully verified'}
-                                    </span>
-                                  )}
-                                  {quote.sourceUrl && (
-                                    <a
-                                      href={quote.sourceUrl}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="inline-flex items-center gap-1 text-amber-700 hover:text-amber-800 dark:text-amber-500 dark:hover:text-amber-400"
-                                    >
-                                      Source <ExternalLink className="h-3 w-3" />
-                                    </a>
-                                  )}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {historicalSnippets.length > 0 && (
-                        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
-                          <div className="mb-3 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
-                            <span>Historical encyclopedia snippets</span>
-                            <Tooltip
-                              content="Auto-extracted from the 1911 Encyclopaedia Britannica and shown as a historical reference point for how this figure was described over a century ago."
-                              align="left"
-                            >
-                              <HelpCircle className="h-3.5 w-3.5 cursor-help text-stone-300 transition-colors hover:text-stone-500 dark:text-slate-600 dark:hover:text-slate-400" />
-                            </Tooltip>
-                          </div>
-                          <div className="space-y-3">
-                            {historicalSnippets.slice(0, 4).map((snippet) => (
-                              <div
-                                key={snippet.id}
-                                className="rounded-xl border border-stone-200 bg-stone-50/80 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/80"
-                              >
-                                <div className="mb-2 text-[11px] font-medium uppercase tracking-[0.12em] text-stone-500 dark:text-slate-400">
-                                  {formatCorpusLabel(snippet.corpus)}
-                                  {snippet.editionYear !== null && ` · ${snippet.editionYear}`}
-                                  {snippet.sourceTitle ? ` · ${snippet.sourceTitle}` : ''}
-                                </div>
-                                <blockquote className="rounded-lg border-l-2 border-amber-300 bg-white/75 px-4 py-3 text-base italic leading-relaxed text-stone-800 dark:border-amber-500/60 dark:bg-slate-900/40 dark:text-slate-100">
-                                  <span className="mr-1 text-lg leading-none text-amber-700/70 dark:text-amber-400/80">&ldquo;</span>
-                                  {snippet.snippet}
-                                  <span className="ml-1 text-lg leading-none text-amber-700/70 dark:text-amber-400/80">&rdquo;</span>
-                                </blockquote>
-                                {snippet.sourceUrl && (
-                                  <a
-                                    href={snippet.sourceUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-amber-700 hover:text-amber-800 dark:text-amber-500 dark:hover:text-amber-400"
-                                  >
-                                    Open source <ExternalLink className="h-3 w-3" />
-                                  </a>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {researchSources.length === 0 && researchQuotes.length === 0 && historicalSnippets.length === 0 && (
-                        <div className="rounded-xl border border-stone-200/70 bg-white/90 p-5 text-sm text-stone-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300">
-                          No research evidence has been ingested for this figure yet.
-                        </div>
-                      )}
-                    </>
-                  )}
-                </div>
+                <FigureResearchTab
+                  sources={researchSources}
+                  quotes={researchQuotes}
+                  snippets={historicalSnippets}
+                  wikidataFacts={wikidataFacts}
+                  wikipediaSections={wikipediaSections}
+                  figureName={figure?.canonicalName || previewRow?.name || 'Unknown figure'}
+                  isLoading={evidenceLoading}
+                  error={evidenceError}
+                />
               )}
 
               {activeTab === 'timeline' && (
@@ -1315,9 +1371,10 @@ export function FigureDetailPanel({
                             ))}
                           </div>
                         ) : (
-                          <p className="text-sm text-stone-600 dark:text-slate-300">
-                            No timeline events generated yet.
-                          </p>
+                          <div className="flex flex-col items-center gap-2 py-4 text-sm text-stone-600 dark:text-slate-300">
+                            <Clock3 className="h-6 w-6 text-stone-300 dark:text-slate-600" />
+                            <p>No timeline events generated yet.</p>
+                          </div>
                         )}
                       </div>
                     </>

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Gemini Pro 3 LIST 2 (January 12, 2025).txt
+Model: Gemini Pro 3
+Timestamp: 2026-02-10T23:45:55.844Z
+
+VERDICT: WARN
+
+Summary: Issues: 55 exact duplicates; pattern collapse (max 40)
+
+Scores:
+  Repetition: WARN - 55 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 40 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (64):
+  - Exact duplicate: "confucius" at ranks 5, 565, 661
+  - Exact duplicate: "louis pasteur" at ranks 11, 527
+  - Exact duplicate: "guglielmo marconi" at ranks 38, 346
+  - Exact duplicate: "alexander graham bell" at ranks 42, 126
+  - Exact duplicate: "gregor mendel" at ranks 58, 282
+  - Exact duplicate: "francis bacon" at ranks 90, 382
+  - Exact duplicate: "zoroaster" at ranks 93, 530
+  - Exact duplicate: "suleiman the magnificent" at ranks 111, 235, 360
+  - Exact duplicate: "charles babbage" at ranks 125, 272, 447
+  - Exact duplicate: "robert goddard" at ranks 140, 410
+  ... and 54 more issues
+
+Diversity Estimates:
+  Regions: Europe: 97, Asia: 29, Middle East: 26, Africa: 10, Americas: 39, Unknown: 799
+  Domains: Politics/Leadership: 103, Science/Technology: 68, Philosophy/Religion: 102, Arts/Literature: 323, Military: 15, Other: 389
+
+Advanced Metrics:
+  Advanced score: 93.9
+  Parenthetical names: 0.7%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 27.5%

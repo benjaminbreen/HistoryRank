@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:37:06.319Z",
+  "generatedAt": "2026-02-10T00:13:01.649Z",
   "figureId": "george-washington",
   "figureName": "George Washington",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,36 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "secondary": 3
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1988,
+        "max": 1993
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 541,
-      "totalTokenCount": 829,
+      "candidatesTokenCount": 567,
+      "totalTokenCount": 855,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -45,7 +72,7 @@
         "title": "The Diaries of George Washington",
         "author": "George Washington",
         "year": 1748,
-        "rationale": "Provides direct insight into his daily life, agricultural practices, and personal observations.",
+        "rationale": "Provides intimate details of his daily life, agricultural practices, and observations, offering a personal perspective.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -54,7 +81,7 @@
         "title": "George Washington Papers",
         "author": "George Washington",
         "year": 1745,
-        "rationale": "A vast collection of letters, speeches, and other documents offering comprehensive insight into his thoughts and actions.",
+        "rationale": "A vast collection of correspondence, military papers, and public records offering comprehensive insight into his career and thoughts.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -62,28 +89,28 @@
     ],
     "secondary": [
       {
-        "title": "Washington: A Life",
+        "title": "George Washington: A Life",
         "author": "Ron Chernow",
         "year": 2010,
-        "rationale": "A comprehensive and highly acclaimed modern biography that draws on extensive research.",
+        "rationale": "A comprehensive and highly acclaimed modern biography by a Pulitzer Prize-winning historian, offering extensive analysis.",
         "sourceType": "book"
       },
       {
-        "title": "The Unknown American Revolution: The Unruly Birth of Democracy and the Struggle to Create America",
-        "author": "Gary B. Nash",
-        "year": 2005,
-        "rationale": "Provides context for Washington's leadership within the broader social and political landscape of the Revolution.",
+        "title": "The Papers of George Washington: Presidential Series",
+        "author": "George Washington",
+        "year": 1987,
+        "rationale": "A scholarly, multi-volume compilation and annotation of Washington's presidential papers, essential for in-depth research.",
         "sourceType": "book"
       },
       {
-        "title": "George Washington and the Founding of the Nation",
-        "author": "William Pencak",
-        "year": 2004,
-        "rationale": "Examines Washington's critical role in the formation and early governance of the United States.",
+        "title": "Washington: A Life",
+        "author": "Douglas Southall Freeman",
+        "year": 1948,
+        "rationale": "Though older, this multi-volume biography is considered a monumental work of scholarship and remains a key reference, often cited in later works.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source dates represent the earliest known writings or publication for the collection/work. Secondary sources are chosen for their scholarly reputation and recency."
+    "notes": "The 'Papers of George Washington' are a primary source in their original form, but the multi-volume published 'Presidential Series' functions as a curated secondary scholarly resource due to its extensive annotations and editorial work."
   },
   "unresolved": [
     {
@@ -103,37 +130,77 @@
     },
     {
       "role": "secondary",
-      "title": "The Unknown American Revolution: The Unruly Birth of Democracy and the Struggle to Create America",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.30"
-    },
-    {
-      "role": "secondary",
-      "title": "George Washington and the Founding of the Nation",
-      "reason": "Best score below threshold (0.57 < 0.72)"
+      "title": "Washington: A Life",
+      "reason": "Best score below threshold (0.71 < 0.72)"
     }
   ],
   "candidates": [
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Washington: A Life",
-      "author": "Ron Chernow",
-      "publication_year": 2010,
-      "source_url": "http://ci.nii.ac.jp/ncid/BB07066289",
-      "access_url": "http://ci.nii.ac.jp/ncid/BB07066289",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Washington: A Life\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "source_kind": "article",
+      "title": "The Papers of George Washington. Presidential Series",
+      "author": "David Freeman Hawke",
+      "publication_year": 1988,
+      "source_url": "https://doi.org/10.2307/1894436",
+      "access_url": "https://doi.org/10.2307/1894436",
+      "snippet": "Journal of American History",
+      "confidence": 0.874,
+      "why": "Secondary source resolved from suggestion \"The Papers of George Washington: Presidential Series\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Washington: A Life",
-        "suggestion_author": "Ron Chernow",
-        "suggestion_year": 2010,
-        "suggestion_rationale": "A comprehensive and highly acclaimed modern biography that draws on extensive research.",
-        "openalex_id": "https://openalex.org/W1516232537",
-        "work_type": "book"
+        "suggestion_title": "The Papers of George Washington: Presidential Series",
+        "suggestion_author": "George Washington",
+        "suggestion_year": 1987,
+        "suggestion_rationale": "A scholarly, multi-volume compilation and annotation of Washington's presidential papers, essential for in-depth research.",
+        "openalex_id": "https://openalex.org/W1991350076",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Papers of George Washington: Presidential Series, Vol. 3: June-September 1789",
+      "author": "Gregg L. Lint",
+      "publication_year": 1990,
+      "source_url": "https://doi.org/10.2307/3123641",
+      "access_url": "https://doi.org/10.2307/3123641",
+      "snippet": "Journal of the Early Republic",
+      "confidence": 0.77,
+      "why": "Secondary source resolved from suggestion \"The Papers of George Washington: Presidential Series\" (crossref). Matched secondary suggestion by title=0.84, author=0.00, year=0.90; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Papers of George Washington: Presidential Series",
+        "suggestion_author": "George Washington",
+        "suggestion_year": 1987,
+        "suggestion_rationale": "A scholarly, multi-volume compilation and annotation of Washington's presidential papers, essential for in-depth research.",
+        "doi": "10.2307/3123641",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Papers of George Washington: Presidential Series",
+      "author": "George Washington",
+      "publication_year": 1993,
+      "source_url": "https://openlibrary.org/works/OL8493365W",
+      "access_url": "https://openlibrary.org/works/OL8493365W",
+      "snippet": null,
+      "confidence": 0.996,
+      "why": "Secondary source resolved from suggestion \"The Papers of George Washington: Presidential Series\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.80; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Papers of George Washington: Presidential Series",
+        "suggestion_author": "George Washington",
+        "suggestion_year": 1987,
+        "suggestion_rationale": "A scholarly, multi-volume compilation and annotation of Washington's presidential papers, essential for in-depth research.",
+        "edition_count": 2
       }
     }
   ]

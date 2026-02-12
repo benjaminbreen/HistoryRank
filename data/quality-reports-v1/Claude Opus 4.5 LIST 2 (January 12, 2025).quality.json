@@ -1,0 +1,501 @@
+{
+  "file": "Claude Opus 4.5 LIST 2 (January 12, 2025).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-02-10T23:43:17.119Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 5,
+      "fuzzy": 31,
+      "status": "PASS",
+      "details": "5 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "fiction",
+          "startRank": 967,
+          "endRank": 976,
+          "count": 10,
+          "examples": [
+            "967. Dinaw Mengestu",
+            "968. Maaza Mengiste",
+            "969. Yaa Gyasi"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 57,
+      "expected": 61,
+      "missing": [
+        "julius caesar",
+        "saint paul",
+        "hitler",
+        "adolf hitler"
+      ],
+      "status": "PASS",
+      "details": "57/61 anchor figures found (93%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "lao she",
+      "ranks": [
+        179,
+        927
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "naguib mahfouz",
+      "ranks": [
+        502,
+        911
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salman rushdie",
+      "ranks": [
+        548,
+        920
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james baldwin",
+      "ranks": [
+        686,
+        886
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "margaret atwood",
+      "ranks": [
+        882,
+        945
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        19,
+        193
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "thomas edison",
+      "variants": [
+        "thomas edison",
+        "nikola teslas rival thomas edison"
+      ],
+      "ranks": [
+        28,
+        562
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikola tesla",
+      "variants": [
+        "nikola tesla",
+        "nikola teslas rival thomas edison",
+        "nikola teslas rival george westinghouse"
+      ],
+      "ranks": [
+        37,
+        562,
+        730
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gregor mendel",
+      "variants": [
+        "gregor mendel",
+        "gregor mendels rediscoverer hugo de vries"
+      ],
+      "ranks": [
+        74,
+        649
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikita khrushchev",
+      "variants": [
+        "nikita khrushchev",
+        "nikita khrushchevs rival lavrentiy beria"
+      ],
+      "ranks": [
+        90,
+        425
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gottfried wilhelm leibniz",
+      "variants": [
+        "gottfried wilhelm leibniz",
+        "gottfried von leibniz"
+      ],
+      "ranks": [
+        103,
+        360
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "woodrow wilson",
+      "variants": [
+        "woodrow wilson",
+        "woodrow wilsons advisor edward house"
+      ],
+      "ranks": [
+        126,
+        655
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "kemal atatrk",
+      "variants": [
+        "kemal atatrk",
+        "mustafa kemal atatrk"
+      ],
+      "ranks": [
+        146,
+        299
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nelson mandela",
+      "variants": [
+        "nelson mandela",
+        "nelson mandelas predecessor walter sisulu"
+      ],
+      "ranks": [
+        155,
+        568
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rachel carson",
+      "variants": [
+        "rachel carson",
+        "rachel carsons mentor william beebe"
+      ],
+      "ranks": [
+        165,
+        423
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jonas salk",
+      "variants": [
+        "jonas salk",
+        "jonas salks rival albert sabin"
+      ],
+      "ranks": [
+        177,
+        455
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rabindranath tagore",
+      "variants": [
+        "rabindranath tagore",
+        "rabindranath tagores father debendranath tagore",
+        "rabindranath tagores contemporary bankim chandra chattopadhyay"
+      ],
+      "ranks": [
+        192,
+        539,
+        569
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jawaharlal nehru",
+      "variants": [
+        "jawaharlal nehru",
+        "jawaharlal nehrus father motilal nehru"
+      ],
+      "ranks": [
+        215,
+        323
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "dmitri mendeleev",
+      "variants": [
+        "dmitri mendeleev",
+        "dmitri mendeleevs contemporary lothar meyer"
+      ],
+      "ranks": [
+        217,
+        633
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ho chi minh",
+      "variants": [
+        "ho chi minh",
+        "ho chi minhs general vo nguyen giap"
+      ],
+      "ranks": [
+        220,
+        420
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johannes kepler",
+      "variants": [
+        "johannes kepler",
+        "tycho brahes assistant johannes kepler"
+      ],
+      "ranks": [
+        225,
+        354
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sitting bull",
+      "variants": [
+        "sitting bull",
+        "sitting bulls ally crazy horse"
+      ],
+      "ranks": [
+        233,
+        353
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tycho brahe",
+      "variants": [
+        "tycho brahe",
+        "tycho brahes assistant johannes kepler"
+      ],
+      "ranks": [
+        276,
+        354
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mile durkheim",
+      "variants": [
+        "mile durkheim",
+        "mile durkheims student marcel mauss"
+      ],
+      "ranks": [
+        292,
+        476
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "werner von braun",
+      "variants": [
+        "werner von braun",
+        "wernher magnus von braun"
+      ],
+      "ranks": [
+        301,
+        554
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philo of alexandria",
+      "variants": [
+        "philo of alexandria",
+        "philos student clement of alexandria"
+      ],
+      "ranks": [
+        339,
+        362
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hannah arendt",
+      "variants": [
+        "hannah arendt",
+        "hannah arendts teacher martin heidegger"
+      ],
+      "ranks": [
+        340,
+        581
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ansel adams",
+      "variants": [
+        "ansel adams",
+        "ansel adams mentor alfred stieglitz"
+      ],
+      "ranks": [
+        373,
+        676
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        381,
+        867
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "fridtjof nansen",
+      "variants": [
+        "fridtjof nansen",
+        "fridtjof nansens explorer contemporary roald amundsen"
+      ],
+      "ranks": [
+        390,
+        656
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "hernando de soto",
+      "variants": [
+        "hernando de soto",
+        "hernando de soto economist"
+      ],
+      "ranks": [
+        429,
+        769
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "carl sagan",
+      "variants": [
+        "carl sagan",
+        "carl sagans contemporary frank drake"
+      ],
+      "ranks": [
+        495,
+        805
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vandana shiva",
+      "variants": [
+        "vandana shiva",
+        "vandana shivas contemporary medha patkar"
+      ],
+      "ranks": [
+        848,
+        856
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "vs naipaul",
+      "variants": [
+        "vs naipaul",
+        "vs naipauls brother shiva naipaul"
+      ],
+      "ranks": [
+        905,
+        921
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fiction",
+      "startRank": 967,
+      "endRank": 976,
+      "count": 10,
+      "examples": [
+        "967. Dinaw Mengestu",
+        "968. Maaza Mengiste",
+        "969. Yaa Gyasi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 98,
+      "Asia": 63,
+      "Middle East": 38,
+      "Africa": 30,
+      "Americas": 39,
+      "Oceania": 0,
+      "Unknown": 732
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 15,
+      "Science/Technology": 12,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 33,
+      "Military": 8,
+      "Other": 916
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 12,
+    "longNameRate": 0.012,
+    "contributionShortCount": 189,
+    "contributionShortRate": 0.189,
+    "score": 95.32000000000001
+  },
+  "summary": "List passes all quality checks"
+}

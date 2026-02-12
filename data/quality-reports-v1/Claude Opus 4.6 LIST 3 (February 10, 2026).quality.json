@@ -1,0 +1,453 @@
+{
+  "file": "Claude Opus 4.6 LIST 3 (February 10, 2026).txt",
+  "model": "Claude Opus 4.6",
+  "timestamp": "2026-02-10T23:43:56.925Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 28,
+      "fuzzy": 14,
+      "status": "PASS",
+      "details": "28 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "murasaki shikibu",
+      "ranks": [
+        278,
+        972
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "xuanzang",
+      "ranks": [
+        327,
+        920
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aljazari",
+      "ranks": [
+        768,
+        866
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charlie chaplin",
+      "ranks": [
+        799,
+        900
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giotto di bondone",
+      "ranks": [
+        804,
+        852
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "filippo brunelleschi",
+      "ranks": [
+        805,
+        897
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frank lloyd wright",
+      "ranks": [
+        810,
+        898
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "le corbusier",
+      "ranks": [
+        811,
+        899
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "milton friedman",
+      "ranks": [
+        812,
+        877
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph schumpeter",
+      "ranks": [
+        813,
+        878
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "amartya sen",
+      "ranks": [
+        815,
+        879
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rudolf virchow",
+      "ranks": [
+        817,
+        880
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ignaz semmelweis",
+      "ranks": [
+        818,
+        881
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john snow",
+      "ranks": [
+        819,
+        882
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william osler",
+      "ranks": [
+        820,
+        883
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bf skinner",
+      "ranks": [
+        821,
+        884
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul czanne",
+      "ranks": [
+        822,
+        887
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "henri matisse",
+      "ranks": [
+        823,
+        888
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "wassily kandinsky",
+      "ranks": [
+        824,
+        889
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "auguste rodin",
+      "ranks": [
+        826,
+        896
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francisco goya",
+      "ranks": [
+        828,
+        890
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eugne delacroix",
+      "ranks": [
+        829,
+        891
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jmw turner",
+      "ranks": [
+        830,
+        892
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edvard munch",
+      "ranks": [
+        831,
+        893
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jackson pollock",
+      "ranks": [
+        833,
+        894
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andy warhol",
+      "ranks": [
+        834,
+        895
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "variste galois",
+      "ranks": [
+        846,
+        885
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "konrad zuse",
+      "ranks": [
+        848,
+        886
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        66
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv of france",
+      "variants": [
+        "louis xiv of france",
+        "louis ix of france",
+        "louis xvi of france"
+      ],
+      "ranks": [
+        103,
+        656,
+        659
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles v",
+      "variants": [
+        "charles v",
+        "charles vii of france"
+      ],
+      "ranks": [
+        131,
+        865
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "sejong the great",
+      "variants": [
+        "sejong the great",
+        "king sejong the great"
+      ],
+      "ranks": [
+        386,
+        969
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san suu kyi",
+      "variants": [
+        "aung san suu kyi",
+        "aung san"
+      ],
+      "ranks": [
+        448,
+        843
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "matsuo bash",
+      "variants": [
+        "matsuo bash",
+        "matsuo basho"
+      ],
+      "ranks": [
+        459,
+        973
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii of england",
+      "variants": [
+        "henry viii of england",
+        "henry ii of england",
+        "henry v of england"
+      ],
+      "ranks": [
+        507,
+        720,
+        863
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        531,
+        609
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis ix of france",
+      "variants": [
+        "louis ix of france",
+        "louis xvi of france"
+      ],
+      "ranks": [
+        656,
+        659
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry ii of england",
+      "variants": [
+        "henry ii of england",
+        "henry v of england"
+      ],
+      "ranks": [
+        720,
+        863
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i of england",
+      "variants": [
+        "edward i of england",
+        "edward iii of england"
+      ],
+      "ranks": [
+        861,
+        862
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nikola karev",
+      "variants": [
+        "nikola karev",
+        "nikola karev revisited"
+      ],
+      "ranks": [
+        939,
+        998
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 219,
+      "Asia": 71,
+      "Middle East": 58,
+      "Africa": 25,
+      "Americas": 58,
+      "Oceania": 0,
+      "Unknown": 569
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 99,
+      "Science/Technology": 27,
+      "Philosophy/Religion": 33,
+      "Arts/Literature": 80,
+      "Military": 39,
+      "Other": 722
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 4,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.72
+  },
+  "summary": "List passes all quality checks"
+}

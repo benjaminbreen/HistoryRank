@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-10T00:19:28.901Z",
+  "figureId": "ramesses-ii",
+  "figureName": "Ramesses II",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 359,
+      "totalTokenCount": 648,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [],
+    "secondary": [
+      {
+        "title": "Ramesses the Great: Egypt's Greatest Pharaoh",
+        "author": "Kenneth A. Kitchen",
+        "year": 2003,
+        "rationale": "Kenneth Kitchen is a leading Egyptologist, and this book is a comprehensive and authoritative study of Ramesses II, drawing on extensive archaeological and textual evidence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Complete Royal Families of Ancient Egypt",
+        "author": "Aidan Dodson and Dyan Hilton",
+        "year": 2004,
+        "rationale": "This work provides detailed genealogical and biographical information on Egyptian royalty, including Ramesses II and his extensive family, based on scholarly research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Ramesses II: The Great",
+        "author": "B. R. Rees",
+        "year": 1976,
+        "rationale": "While at the very edge of the date range, this is a scholarly overview of Ramesses II's reign and achievements, often cited in academic contexts.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources directly authored by Ramesses II are scarce and typically exist as inscriptions on monuments or papyri, which are not readily available in digitized text formats on platforms like Wikisource or Project Gutenberg. These inscriptions are usually studied through scholarly translations and analyses."
+  },
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Ramesses the Great: Egypt's Greatest Pharaoh",
+      "reason": "Best score below threshold (0.42 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Complete Royal Families of Ancient Egypt",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.34"
+    },
+    {
+      "role": "secondary",
+      "title": "Ramesses II: The Great",
+      "reason": "Best score below threshold (0.55 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

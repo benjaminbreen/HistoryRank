@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt
+Model: Claude Sonnet 4.5
+Timestamp: 2026-02-10T23:44:26.078Z
+
+VERDICT: WARN
+
+Summary: Issues: 6 exact duplicates; pattern collapse (max 31)
+
+Scores:
+  Repetition: PASS - 6 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 31 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (33):
+  - Exact duplicate: "alan turing" at ranks 74, 302
+  - Exact duplicate: "charlie chaplin" at ranks 118, 914
+  - Exact duplicate: "cs lewis" at ranks 131, 405
+  - Exact duplicate: "franz kafka" at ranks 156, 385
+  - Exact duplicate: "dante alighieri" at ranks 325, 576
+  - Exact duplicate: "hayao miyazaki" at ranks 963, 970
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 15, 286
+  - Fuzzy duplicate: simone veil / simone weil at ranks 297, 473
+  - Fuzzy duplicate: george gershwin / george and ira gershwin at ranks 737, 773
+  - Pattern collapse: "russian" (17 entries, ranks 364-380)
+  ... and 23 more issues
+
+Diversity Estimates:
+  Regions: Europe: 163, Asia: 47, Middle East: 19, Africa: 15, Americas: 73, Unknown: 683
+  Domains: Politics/Leadership: 36, Science/Technology: 27, Philosophy/Religion: 80, Arts/Literature: 364, Military: 3, Other: 490
+
+Advanced Metrics:
+  Advanced score: 83.6
+  Parenthetical names: 0.0%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 81.4%

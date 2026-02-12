@@ -13,7 +13,7 @@ type MediaResponse = { items: MediaItem[] };
 
 function MediaLoading() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">
+    <div className="min-h-screen overflow-x-clip bg-transparent text-stone-900 dark:text-slate-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
         <div className="space-y-4">
           <Skeleton className="h-8 w-64" />
@@ -103,21 +103,72 @@ function MediaPageContent() {
   }, [selectedId]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">
+    <div className="min-h-screen overflow-x-clip bg-transparent text-stone-900 dark:text-slate-100">
       <AppHeader
         active="media"
         settings={settings}
         onSettingsChange={updateSettings}
         onSettingsReset={resetSettings}
       />
-      <main className="mx-auto max-w-7xl overflow-x-clip px-4 py-8 sm:px-6 sm:py-12">
-        <div className="mb-6 sm:mb-8 space-y-2">
+      <main className="mx-auto max-w-7xl overflow-x-clip px-4 py-6 sm:px-6 sm:py-8">
+        <div className="mb-4 sm:mb-6">
           <h1 className="text-2xl sm:text-3xl font-serif text-stone-900 dark:text-amber-100">Historical Media Atlas</h1>
-          <p className="max-w-3xl text-sm text-stone-500 dark:text-slate-400 leading-relaxed">
-            Curated films, series, podcasts, and books that deepen historical understanding.
-            Entries marked <span className="text-amber-600 dark:text-amber-400">★</span> are personal favorites.
-            Recommendations welcome at <a className="underline hover:text-stone-700 dark:hover:text-slate-200" href="mailto:bebreen@ucsc.edu">bebreen@ucsc.edu</a>.
-          </p>
+          <div className="mt-1.5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+            <div className="max-w-2xl text-sm text-stone-500 dark:text-slate-400 leading-relaxed space-y-0.5 min-w-0">
+              <p>Curated films, series, podcasts, and books that deepen historical understanding.</p>
+              <p>Entries marked <span className="text-amber-600 dark:text-amber-400">★</span> are personal recommendations by <a href="/about#team" className="underline hover:text-stone-700 dark:hover:text-slate-200">this site&apos;s author</a>.</p>
+              <p>Entries marked <span className="text-sky-500 dark:text-sky-400">★</span> are recommendations of individual UCSC history students.</p>
+            </div>
+            {/* Desktop stats — hidden on mobile */}
+            {!isLoading && items.length > 0 && (
+              <div className="hidden sm:block flex-shrink-0">
+                {(() => {
+                  const counts: Record<string, number> = {};
+                  for (const item of items) {
+                    const t = item.type?.toLowerCase() ?? '';
+                    if (t.includes('series') || t.includes('tv') || t.includes('miniseries')) counts['series'] = (counts['series'] ?? 0) + 1;
+                    else if (t.includes('game')) counts['games'] = (counts['games'] ?? 0) + 1;
+                    else if (t.includes('book') || t.includes('fiction') || t.includes('nonfiction') || t.includes('graphic')) counts['books'] = (counts['books'] ?? 0) + 1;
+                    else if (t.includes('podcast')) counts['podcasts'] = (counts['podcasts'] ?? 0) + 1;
+                    else if (t.includes('musical')) counts['musicals'] = (counts['musicals'] ?? 0) + 1;
+                    else if (t.includes('film') || t.includes('documentary') || t.includes('movie')) counts['films'] = (counts['films'] ?? 0) + 1;
+                    else counts['films'] = (counts['films'] ?? 0) + 1;
+                  }
+                  const row1 = [
+                    { label: 'total', value: items.length },
+                    { label: 'films', value: counts['films'] ?? 0 },
+                    { label: 'series', value: counts['series'] ?? 0 },
+                  ].filter(s => s.value > 0);
+                  const row2 = [
+                    { label: 'games', value: counts['games'] ?? 0 },
+                    { label: 'books', value: counts['books'] ?? 0 },
+                    { label: 'podcasts', value: counts['podcasts'] ?? 0 },
+                  ].filter(s => s.value > 0);
+                  const renderRow = (stats: typeof row1) =>
+                    stats.map((s, i) => (
+                      <div key={s.label} className="flex items-center gap-3">
+                        {i > 0 && <div className="h-4 w-px bg-stone-300 dark:bg-slate-600" />}
+                        <div className="flex items-baseline gap-1">
+                          <span className="font-mono text-lg font-semibold text-stone-900 dark:text-amber-100">{s.value}</span>
+                          <span className="text-xs text-stone-500 dark:text-slate-400">{s.label}</span>
+                        </div>
+                      </div>
+                    ));
+                  return (
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-4 justify-end">{renderRow(row1)}</div>
+                      {row2.length > 0 && (
+                        <>
+                          <div className="h-px bg-stone-200 dark:bg-slate-700" />
+                          <div className="flex items-center gap-4 justify-end">{renderRow(row2)}</div>
+                        </>
+                      )}
+                    </div>
+                  );
+                })()}
+              </div>
+            )}
+          </div>
         </div>
 
         {errorMessage && (
@@ -132,7 +183,14 @@ function MediaPageContent() {
             <Skeleton className="h-[360px] w-full" />
           </div>
         ) : (
-          <MediaExplorer items={items} selectedId={selectedId} onSelect={setSelectedId} />
+          <MediaExplorer
+            items={items}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            density={settings.density}
+            fontScale={settings.fontScale}
+            thumbnailSize={settings.thumbnailSize}
+          />
         )}
         <MediaDetailPanel
           item={selectedItem}

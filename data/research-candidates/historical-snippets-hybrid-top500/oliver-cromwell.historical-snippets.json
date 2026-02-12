@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.481Z",
+  "figureId": "oliver-cromwell",
+  "figureName": "Oliver Cromwell",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Cromwell, Oliver",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FCromwell%2C_Oliver",
+      "snippet": "During the eleven years of government without parliament very little is recorded of Cromwell. His name is not connected with the resistance to the levy of ship-money or to the action of the ecclesiastical courts, but in 1630 he was one of those fined for refusing to take up knighthood. The same year he was named one of the justices of the peace for his borough;",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Oliver Cromwell (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Oliver_Cromwell",
+      "snippet": "Oliver Cromwell was an English statesman, farmer and soldier, widely regarded as one of the most important figures in British history. He came to prominence during the Wars of the Three Kingdoms, initially as a senior commander in the Parliamentarian army and later as a politician. A leading advocate of the execution of Charles I in January 1649, which led to the establishment of the Commonwealth of England, Cromwell ruled as Lord Protector from December 1653 until his death.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

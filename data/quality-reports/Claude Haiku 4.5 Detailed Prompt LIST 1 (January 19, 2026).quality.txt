@@ -2,16 +2,16 @@ Quality Assessment Report
 ========================
 File: Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt
 Model: Claude Haiku 4.5 Detailed Prompt
-Timestamp: 2026-02-05T18:16:01.403Z
+Timestamp: 2026-02-10T18:22:17.405Z
 
-VERDICT: FAIL
+VERDICT: WARN
 
-Summary: Issues: 26 exact duplicates; pattern collapse (max 75); 500 entries (expected 1000); 10 missing anchors
+Summary: Issues: 26 exact duplicates; pattern collapse (max 75); 10 missing anchors
 
 Scores:
   Repetition: PASS - 26 exact duplicates found
   Pattern Collapse: WARN - Max sequence of 75 similar entries
-  Structural: FAIL - 500 entries (expected 1000)
+  Structural: PASS - OK
   Anchor Coverage: WARN - 31/61 anchor figures found (51%)
 
 Issues (83):

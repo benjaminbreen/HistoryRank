@@ -1,0 +1,31 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.6 LIST 2 (February 9, 2026).txt
+Model: Claude Opus 4.6
+Timestamp: 2026-02-10T18:22:28.970Z
+
+VERDICT: WARN
+
+Summary: Issues: 473 entries (expected 500 or 1000)
+
+Scores:
+  Repetition: PASS - 1 fuzzy duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: WARN - 473 entries (expected 500 or 1000)
+  Anchor Coverage: PASS - 56/61 anchor figures found (92%)
+
+Issues (1):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 22, 68
+
+Diversity Estimates:
+  Regions: Europe: 89, Asia: 24, Middle East: 24, Africa: 12, Americas: 24, Unknown: 300
+  Domains: Politics/Leadership: 34, Science/Technology: 12, Philosophy/Religion: 13, Arts/Literature: 23, Military: 17, Other: 374
+
+Advanced Metrics:
+  Advanced score: 99.0
+  Parenthetical names: 1.5%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

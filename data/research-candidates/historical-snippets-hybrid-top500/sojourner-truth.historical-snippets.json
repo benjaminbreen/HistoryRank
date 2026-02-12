@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.580Z",
+  "figureId": "sojourner-truth",
+  "figureName": "Sojourner Truth",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Sojourner Truth is consistently described across 13 model source lists as influential for: Advocated abolition and women’s rights, shaping 19th-century social reform; American abolitionist and women's rights activist, born into slavery, she escaped and became a leading advocate for abolition and suffrage; Advocated for abolition and women's rights with powerful speeches like 'Ain't I a Woman?'; Abolitionist and women's rights activist, born into slavery, known for her speech 'Ain't I a Woman?'; Sojourner Truth changed normative and intellectual frameworks through texts and teachings embedded in schools, law, or public discourse; Intersectional abolition and women’s rights advocacy; Abolitionist and women's rights activist whose speeches challenged racial and gender injustice; Abolition and rights advocacy influenced American political culture.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

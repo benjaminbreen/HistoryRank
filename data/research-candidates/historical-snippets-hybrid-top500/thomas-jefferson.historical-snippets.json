@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.420Z",
+  "figureId": "thomas-jefferson",
+  "figureName": "Thomas Jefferson",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Jefferson, Thomas",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FJefferson%2C_Thomas",
+      "snippet": "Jefferson carried with him from the college of William and Mary at Williamsburg, in his twentieth year, a good knowledge of Latin, Greek and French (to which he soon added Spanish, Italian and Anglo-Saxon), and a familiarity with the higher mathematics and natural sciences only possessed, at his age, by men who have a rare natural taste and ability for those studies. He remained an ardent student throughout life, able to give and take in association with the many scholars, American and foreign, whom he numbered among his friends and correspondents.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Jefferson, Thomas",
+      "source_url": "https://plato.stanford.edu/entries/jefferson/",
+      "snippet": "Scholars in general have not taken seriously Thomas Jefferson (1743-1826) as a philosopher, perhaps because he never wrote a formal philosophical treatise. Yet Jefferson was a prodigious writer, and his writings were suffuse with philosophical content. Well-acquainted with the philosophical literature of his day and of antiquity, he left behind a rich philosophical legacy in his declarations, presidential messages and addresses, public papers, numerous bills, letters to philosophically minded correspondents (Adams especially), and his only book, Notes on the State of Virginia . Scrutiny of those writings reveals a refined political philosophy as well as a systemic approach to a philosophy of education in partnership with it. Jefferson's political philosophy and his views on education were undergirded and guided by a consistent and progressive vision of humans, their place in the cosmos, and the good life that owed much to ancient philosophers like Epictetus, Antoninus, and Cicero; to the ethical precepts of Jesus; to coetaneous Scottish empiricists like Francis Hutcheson and Lord Kames; and even to esteemed religionists and philosophically inclined literary figures of the period like Laurence Sterne, Jean Baptiste Massillon, and Miguel Cervantes. In one area, however, he was behindhand: his views on race, the subject of the final section.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -10,6 +10,14 @@ type ListEntry = {
 };
 
 const RAW_DIR = path.join(process.cwd(), 'data', 'raw');
+const LIST_ARTIFACT_SUFFIX_RE = /\.(quality|failed|raw|repaired)\.txt$/i;
+const CANONICAL_LIST_FILE_RE = /\sLIST\s+\d+\s+\(.*\)\.txt$/i;
+
+function isCanonicalListFile(file: string): boolean {
+  if (!file.toLowerCase().endsWith('.txt')) return false;
+  if (LIST_ARTIFACT_SUFFIX_RE.test(file)) return false;
+  return CANONICAL_LIST_FILE_RE.test(file);
+}
 
 function parseLabel(file: string): string {
   const match = file.match(/^(.*)\s+LIST\s+\d+\s+\(/i);
@@ -29,7 +37,7 @@ export async function GET(request: Request) {
     if (!fs.existsSync(RAW_DIR)) {
       return NextResponse.json({ error: 'File not found' }, { status: 404 });
     }
-    const files = fs.readdirSync(RAW_DIR);
+    const files = fs.readdirSync(RAW_DIR).filter(isCanonicalListFile);
     const matched = files.find((f) => f === safeName) || files.find((f) => f.toLowerCase() === safeName.toLowerCase());
     if (!matched) {
       return NextResponse.json({ error: 'File not found' }, { status: 404 });
@@ -51,7 +59,7 @@ export async function GET(request: Request) {
 
   const files = fs
     .readdirSync(RAW_DIR)
-    .filter((file) => file.toLowerCase().includes('list') && file.toLowerCase().endsWith('.txt'))
+    .filter(isCanonicalListFile)
     .sort((a, b) => a.localeCompare(b));
 
   const lists: ListEntry[] = files.map((file) => {

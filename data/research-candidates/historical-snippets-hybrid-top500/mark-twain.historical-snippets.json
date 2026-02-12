@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.626Z",
+  "figureId": "mark-twain",
+  "figureName": "Mark Twain",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Mark Twain is consistently described across 11 model source lists as influential for: Author satirizing American society; American literature; social satire; American author known for Adventures of Huckleberry Finn; American literature, social commentary; American literature, social criticism; Led a mass political movement that reordered power across regions; Adventures of Huckleberry Finn; American humorist and novelist.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

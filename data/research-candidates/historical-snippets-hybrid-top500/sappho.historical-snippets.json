@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.787Z",
+  "figureId": "sappho",
+  "figureName": "Sappho",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Sappho is consistently described across 11 model source lists as influential for: Revolutionizing lyric poetry in ancient Greece; Ancient Greek poet whose lyrical works on love and emotion have influenced poetry for millennia; Ancient Greek lyric poet from Lesbos, whose work, though fragmentary, has been influential for millennia; Ancient Greek poet from the island of Lesbos, known for her lyric poetry, though most of her work is lost; Lyric poetry lineage; long influence on literary self-expression; Lyric poetry; Poetry; Lyric Verse; Poet; lyric poet whose work was revered in antiquity; symbol of female literary genius.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

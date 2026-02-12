@@ -1,0 +1,151 @@
+{
+  "file": "gemini-3-flash-preview V2 LIST 3 (February 4, 2026).txt",
+  "model": "gemini-3-flash-preview V2",
+  "timestamp": "2026-02-10T23:47:06.925Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 4,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "4 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "moses",
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        57,
+        439
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        58,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "susan b anthony",
+      "ranks": [
+        125,
+        381
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "satoshi nakamoto",
+      "ranks": [
+        279,
+        450
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        26,
+        90
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilbur wright",
+      "variants": [
+        "wilbur wright",
+        "will wright"
+      ],
+      "ranks": [
+        72,
+        491
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        295,
+        432
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 40,
+      "Asia": 13,
+      "Middle East": 15,
+      "Africa": 9,
+      "Americas": 31,
+      "Oceania": 0,
+      "Unknown": 392
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 42,
+      "Science/Technology": 6,
+      "Philosophy/Religion": 8,
+      "Arts/Literature": 46,
+      "Military": 6,
+      "Other": 392
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 4,
+    "parentheticalRate": 0.008,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.52
+  },
+  "summary": "List passes all quality checks"
+}

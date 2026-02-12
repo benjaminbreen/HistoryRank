@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:39:59.969Z",
+  "generatedAt": "2026-02-10T00:15:33.051Z",
   "figureId": "abraham-lincoln",
   "figureName": "Abraham Lincoln",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,39 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 5,
+      "byRole": {
+        "primary": 2,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1863,
+        "max": 2013
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 642,
-      "totalTokenCount": 930,
+      "candidatesTokenCount": 656,
+      "totalTokenCount": 944,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +64,7 @@
         "title": "The Collected Works of Abraham Lincoln",
         "author": "Abraham Lincoln",
         "year": 1953,
-        "rationale": "This is the most comprehensive collection of Lincoln's writings, including speeches, letters, and public papers. It is a foundational resource for any study of his life and presidency.",
+        "rationale": "This is the most comprehensive collection of Lincoln's writings, including speeches, letters, and public papers. It is a foundational source for any serious study of his life and presidency.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -67,25 +97,25 @@
         "title": "Team of Rivals: The Political Genius of Abraham Lincoln",
         "author": "Doris Kearns Goodwin",
         "year": 2005,
-        "rationale": "A highly acclaimed and widely read biography that examines Lincoln's presidency through his relationships with his cabinet members. It offers deep insights into his political strategies and leadership.",
+        "rationale": "A highly acclaimed and widely read biography that focuses on Lincoln's ability to manage his cabinet, composed of men who were his rivals for the presidency. It offers deep insights into his political strategies and character.",
         "sourceType": "book"
       },
       {
         "title": "Abraham Lincoln: A Life",
         "author": "Michael Burlingame",
         "year": 2008,
-        "rationale": "A comprehensive and scholarly biography that draws heavily on primary sources to present a nuanced portrait of Lincoln's life, character, and political evolution.",
+        "rationale": "A comprehensive and detailed two-volume biography that draws heavily on primary sources to present a nuanced portrait of Lincoln, addressing many aspects of his personal and political life.",
         "sourceType": "book"
       },
       {
-        "title": "Lincoln's Virtues: An Ethical and Historical Examination",
-        "author": "John J. Patrick",
-        "year": 2006,
-        "rationale": "This book provides an in-depth analysis of Lincoln's ethical framework and its influence on his decisions and leadership during the Civil War.",
+        "title": "Lincoln's Virtues: An Ethical Biography",
+        "author": "William D. Richardson",
+        "year": 2011,
+        "rationale": "This scholarly work examines Lincoln's moral and ethical development, exploring the virtues that guided his decisions and leadership during the Civil War.",
         "sourceType": "book"
       }
     ],
-    "notes": "The Collected Works of Abraham Lincoln is a multi-volume set, and individual volumes or selections may be more readily available on digital archives. The speeches are widely published and often included in collections of American oratory."
+    "notes": "The Collected Works of Abraham Lincoln is a multi-volume set, and while individual speeches and letters are widely available, the full collection is most likely found on Internet Archive. Other primary sources are very common across multiple digital libraries."
   },
   "unresolved": [
     {
@@ -97,14 +127,34 @@
       "role": "primary",
       "title": "Second Inaugural Address",
       "reason": "Title similarity too low (0.80); baseScore=0.85"
-    },
-    {
-      "role": "secondary",
-      "title": "Lincoln's Virtues: An Ethical and Historical Examination",
-      "reason": "Best score below threshold (0.41 < 0.72)"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "speech",
+      "title": "The Gettysburg Address",
+      "author": "Lincoln, Abraham",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/26200",
+      "access_url": "https://www.gutenberg.org/ebooks/26200",
+      "snippet": null,
+      "confidence": 0.89,
+      "why": "Primary source resolved from suggestion \"Gettysburg Address\" (project_gutenberg). Matched primary suggestion by title=0.87, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Gettysburg Address",
+        "suggestion_author": "Abraham Lincoln",
+        "suggestion_year": 1863,
+        "suggestion_rationale": "One of the most famous speeches in American history, delivered at the dedication of the Soldiers' National Cemetery in Gettysburg, Pennsylvania. Its text is widely available.",
+        "gutenberg_id": 26200,
+        "languages": [
+          "en"
+        ],
+        "download_count": 167
+      }
+    },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
@@ -116,7 +166,7 @@
       "access_url": "https://archive.org/details/gettysburg-address-page",
       "snippet": null,
       "confidence": 0.967,
-      "why": "Primary source resolved from suggestion \"Gettysburg Address\". Matched primary suggestion by title=0.87, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Gettysburg Address\" (internet_archive). Matched primary suggestion by title=0.87, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Gettysburg Address",
@@ -137,14 +187,14 @@
       "access_url": "https://bvbr.bib-bvb.de:443/F?func=service&doc_library=BVB01&local_base=BVB01&doc_number=014274976&sequence=000003&line_number=0001&func_code=DB_RECORDS&service_type=MEDIA",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Team of Rivals: The Political Genius of Abraham Lincoln\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Team of Rivals: The Political Genius of Abraham Lincoln\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Team of Rivals: The Political Genius of Abraham Lincoln",
         "suggestion_author": "Doris Kearns Goodwin",
         "suggestion_year": 2005,
-        "suggestion_rationale": "A highly acclaimed and widely read biography that examines Lincoln's presidency through his relationships with his cabinet members. It offers deep insights into his political strategies and leadership.",
+        "suggestion_rationale": "A highly acclaimed and widely read biography that focuses on Lincoln's ability to manage his cabinet, composed of men who were his rivals for the presidency. It offers deep insights into his political strategies and character.",
         "openalex_id": "https://openalex.org/W1516040183",
         "work_type": "book"
       }
@@ -160,16 +210,38 @@
       "access_url": "https://doi.org/10.56021/9780801889936",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Abraham Lincoln: A Life\". Matched secondary suggestion by title=0.87, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Abraham Lincoln: A Life\" (crossref). Matched secondary suggestion by title=0.87, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Abraham Lincoln: A Life",
         "suggestion_author": "Michael Burlingame",
         "suggestion_year": 2008,
-        "suggestion_rationale": "A comprehensive and scholarly biography that draws heavily on primary sources to present a nuanced portrait of Lincoln's life, character, and political evolution.",
+        "suggestion_rationale": "A comprehensive and detailed two-volume biography that draws heavily on primary sources to present a nuanced portrait of Lincoln, addressing many aspects of his personal and political life.",
         "doi": "10.56021/9780801889936",
         "crossref_type": "edited-book"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Abraham Lincoln - A Life",
+      "author": "Michael Burlingame",
+      "publication_year": 2013,
+      "source_url": "https://openlibrary.org/works/OL21053871W",
+      "access_url": "https://openlibrary.org/works/OL21053871W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Abraham Lincoln: A Life\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.83; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Abraham Lincoln: A Life",
+        "suggestion_author": "Michael Burlingame",
+        "suggestion_year": 2008,
+        "suggestion_rationale": "A comprehensive and detailed two-volume biography that draws heavily on primary sources to present a nuanced portrait of Lincoln, addressing many aspects of his personal and political life.",
+        "edition_count": 1
       }
     }
   ]

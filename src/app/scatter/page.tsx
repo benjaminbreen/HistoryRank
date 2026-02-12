@@ -162,7 +162,7 @@ export default function ScatterPage() {
       {/* Main content */}
       <div className="max-w-[1600px] mx-auto px-6 py-6">
         {errorMessage && (
-          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <div className="mb-6 rounded-md border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 px-4 py-3 text-sm text-amber-900 dark:text-amber-300">
             {errorMessage} Try refreshing or check the deployment logs.
           </div>
         )}
@@ -177,12 +177,12 @@ export default function ScatterPage() {
             />
 
             {/* Help panel */}
-            <div className="mt-4 p-4 bg-white rounded-lg border border-stone-200">
-              <div className="flex items-center gap-2 text-sm font-medium text-stone-700 mb-2">
+            <div className="mt-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-stone-200 dark:border-slate-700">
+              <div className="flex items-center gap-2 text-sm font-medium text-stone-700 dark:text-slate-200 mb-2">
                 <Info className="h-4 w-4" />
                 How to Read
               </div>
-              <div className="text-xs text-stone-600 space-y-2">
+              <div className="text-xs text-stone-600 dark:text-slate-400 space-y-2">
                 <p>
                   <strong>Diagonal line:</strong> Points on the line have equal ranks
                   across both axes (perfect agreement).
@@ -203,14 +203,14 @@ export default function ScatterPage() {
           {/* Chart area */}
           <div className="flex-1 min-w-0">
             {/* Legend */}
-            <div className="mb-4 p-3 bg-white rounded-lg border border-stone-200">
+            <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-lg border border-stone-200 dark:border-slate-700">
               <ScatterPlotLegend colorMode={config.colorMode} />
             </div>
 
             {/* Chart */}
             <div
               ref={chartRef}
-              className="bg-white rounded-lg border border-stone-200 p-4 relative"
+              className="bg-white dark:bg-slate-800 rounded-lg border border-stone-200 dark:border-slate-700 p-4 relative"
               style={{ height: 'calc(100vh - 280px)', minHeight: '360px' }}
             >
               {isLoading ? (
@@ -231,10 +231,10 @@ export default function ScatterPage() {
             </div>
 
             {/* Stats footer */}
-            <div className="mt-4 flex items-center justify-between text-sm text-stone-500">
+            <div className="mt-4 flex items-center justify-between text-sm text-stone-500 dark:text-slate-400">
               <div className="flex items-center gap-4">
                 <span>
-                  Showing <strong className="text-stone-700">{filteredData.length}</strong> of {data.length} figures
+                  Showing <strong className="text-stone-700 dark:text-slate-200">{filteredData.length}</strong> of {data.length} figures
                 </span>
                 {config.domains.length > 0 && (
                   <span>
@@ -249,7 +249,7 @@ export default function ScatterPage() {
               </div>
 
               {hoveredPoint && (
-                <div className="text-stone-700">
+                <div className="text-stone-700 dark:text-slate-200">
                   Hovering: <strong>{hoveredPoint.name}</strong>
                 </div>
               )}

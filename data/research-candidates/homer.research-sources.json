@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:41:58.020Z",
+  "generatedAt": "2026-02-10T00:19:43.902Z",
   "figureId": "homer",
   "figureName": "Homer",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,36 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 2,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 2,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 2004,
+        "max": 2004
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 520,
-      "totalTokenCount": 807,
+      "candidatesTokenCount": 525,
+      "totalTokenCount": 812,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +61,7 @@
         "title": "The Iliad",
         "author": "Homer",
         "year": -800,
-        "rationale": "One of the foundational epics of ancient Greek literature, attributed to Homer. It describes the final weeks of the Trojan War and the personal conflicts of its heroes.",
+        "rationale": "The foundational epic poem of ancient Greek literature, attributed to Homer. It is a cornerstone of Western literature and widely available.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +72,7 @@
         "title": "The Odyssey",
         "author": "Homer",
         "year": -800,
-        "rationale": "Another epic poem attributed to Homer, detailing the ten-year journey of the Greek hero Odysseus as he attempts to return home after the Trojan War.",
+        "rationale": "Another major epic poem attributed to Homer, detailing the journey of Odysseus. It is as fundamental as the Iliad and also widely accessible.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,29 +83,40 @@
     "secondary": [
       {
         "title": "The Cambridge Companion to Homer",
-        "author": "Robert Fowler",
-        "year": 2004,
-        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including the poems, their historical context, and their reception.",
+        "author": "I. Morris and B. Powell",
+        "year": 1997,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including textual criticism, archaeology, and reception.",
         "sourceType": "book"
       },
       {
-        "title": "Homer: The Odyssey",
-        "author": "Jasper Griffin",
-        "year": 1980,
-        "rationale": "A seminal critical study of Homer's Odyssey, analyzing its structure, themes, and characters.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Homeric Question",
-        "author": "J.B. Hainsworth",
+        "title": "Homer: The Story of the Iliad",
+        "author": "Elizabeth Cook",
         "year": 1976,
-        "rationale": "While published in 1976, this work is a foundational text in the modern scholarly debate about the authorship and composition of the Homeric epics.",
+        "rationale": "An accessible yet scholarly introduction to the Iliad, exploring its themes, characters, and historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Making of Homeric Verse: The Early Greek Poets and Their Oral Art",
+        "author": "G. Nagy",
+        "year": 1996,
+        "rationale": "A seminal work that explores the oral tradition behind the Homeric epics, arguing for their composition through a long process of oral performance.",
         "sourceType": "book"
       }
     ],
-    "notes": "The exact historical existence and authorship of Homer are subjects of the 'Homeric Question,' a long-standing debate in classical scholarship. The primary sources listed are the epic poems traditionally attributed to him."
+    "notes": "Homer's primary works are ancient epic poems. Scholarly research often focuses on their authorship, historical context, and oral tradition. The exact dates of composition are debated but are generally placed in the Archaic period."
   },
-  "unresolved": [],
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "Homer: The Story of the Iliad",
+      "reason": "Best score below threshold (0.40 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Making of Homeric Verse: The Early Greek Poets and Their Oral Art",
+      "reason": "Best score below threshold (0.38 < 0.72)"
+    }
+  ],
   "candidates": [
     {
       "source_corpus": "project_gutenberg",
@@ -89,16 +127,20 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/6130",
       "access_url": "https://www.gutenberg.org/ebooks/6130",
-      "snippet": null,
+      "snippet": "\"The Iliad\" by Homer is an ancient Greek epic poem composed around the late 8th or early 7th century BC. Set during the final weeks of the ten-year Trojan War, it follows the devastating anger of Achilles, the greatest Greek warrior, sparked by a bitter quarrel with King Agamemno...",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Iliad\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "why": "Primary source resolved from suggestion \"The Iliad\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Iliad",
         "suggestion_author": "Homer",
         "suggestion_year": -800,
-        "suggestion_rationale": "One of the foundational epics of ancient Greek literature, attributed to Homer. It describes the final weeks of the Trojan War and the personal conflicts of its heroes.",
-        "gutenberg_id": 6130
+        "suggestion_rationale": "The foundational epic poem of ancient Greek literature, attributed to Homer. It is a cornerstone of Western literature and widely available.",
+        "gutenberg_id": 6130,
+        "languages": [
+          "en"
+        ],
+        "download_count": 26270
       }
     },
     {
@@ -110,16 +152,20 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/3160",
       "access_url": "https://www.gutenberg.org/ebooks/3160",
-      "snippet": null,
+      "snippet": "\"The Odyssey\" by Homer is an epic poem composed around the 8th or 7th century BC. It follows Odysseus, king of Ithaca, on his perilous ten-year journey home after the Trojan War.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Odyssey\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "why": "Primary source resolved from suggestion \"The Odyssey\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Odyssey",
         "suggestion_author": "Homer",
         "suggestion_year": -800,
-        "suggestion_rationale": "Another epic poem attributed to Homer, detailing the ten-year journey of the Greek hero Odysseus as he attempts to return home after the Trojan War.",
-        "gutenberg_id": 3160
+        "suggestion_rationale": "Another major epic poem attributed to Homer, detailing the journey of Odysseus. It is as fundamental as the Iliad and also widely accessible.",
+        "gutenberg_id": 3160,
+        "languages": [
+          "en"
+        ],
+        "download_count": 3473
       }
     },
     {
@@ -132,63 +178,17 @@
       "source_url": "https://doi.org/10.1017/ccol0521813026",
       "access_url": "https://doi.org/10.1017/ccol0521813026",
       "snippet": "Cambridge University Press eBooks",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Homer\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "confidence": 0.84,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Homer\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.77; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Homer",
-        "suggestion_author": "Robert Fowler",
-        "suggestion_year": 2004,
-        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including the poems, their historical context, and their reception.",
+        "suggestion_author": "I. Morris and B. Powell",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Homeric studies, including textual criticism, archaeology, and reception.",
         "openalex_id": "https://openalex.org/W1557327656",
         "work_type": "book"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Homer, The Odyssey",
-      "author": "Jasper Griffin",
-      "publication_year": 1987,
-      "source_url": "https://ci.nii.ac.jp/ncid/BA66970205",
-      "access_url": "https://ci.nii.ac.jp/ncid/BA66970205",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Homer: The Odyssey\". Matched secondary suggestion by title=1.00, author=1.00, year=0.77; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Homer: The Odyssey",
-        "suggestion_author": "Jasper Griffin",
-        "suggestion_year": 1980,
-        "suggestion_rationale": "A seminal critical study of Homer's Odyssey, analyzing its structure, themes, and characters.",
-        "openalex_id": "https://openalex.org/W2071892894",
-        "work_type": "book"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "The Homeric Question",
-      "author": "Frank M. Turner",
-      "publication_year": 1997,
-      "source_url": "https://doi.org/10.1163/9789004217607_006",
-      "access_url": "https://doi.org/10.1163/9789004217607_006",
-      "snippet": null,
-      "confidence": 0.761,
-      "why": "Secondary source resolved from suggestion \"The Homeric Question\". Matched secondary suggestion by title=1.00, author=0.00, year=0.30; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "The Homeric Question",
-        "suggestion_author": "J.B. Hainsworth",
-        "suggestion_year": 1976,
-        "suggestion_rationale": "While published in 1976, this work is a foundational text in the modern scholarly debate about the authorship and composition of the Homeric epics.",
-        "openalex_id": "https://openalex.org/W754758433",
-        "work_type": "book-chapter"
       }
     }
   ]

@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.469Z",
+  "figureId": "john-stuart-mill",
+  "figureName": "John Stuart Mill",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Mill, John Stuart",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FMill%2C_John_Stuart",
+      "snippet": "Not unnaturally the training which the younger Mill received has aroused amazement and criticism; and it is reasonable to doubt whether the material knowledge which he retained in the result was as valuable to him as his father imagined. It is important, however, to note that the really important part of the training was the close association which it involved with the strenuous character and vigorous intellect of his father. From his earliest days he spent much time in his father’s study and habitually accompanied him on his walks in North London.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2016,
+      "source_title": "Mill, John Stuart",
+      "source_url": "https://plato.stanford.edu/entries/mill/",
+      "snippet": "John Stuart Mill (1806-73) was the most influential English language philosopher of the nineteenth century. He was a naturalist, a utilitarian, and a liberal, whose work explores the consequences of a thoroughgoing empiricist outlook. In doing so, he sought to combine the best of eighteenth-century Enlightenment thinking with newly emerging currents of nineteenth-century Romantic and historical philosophy. His most important works include System of Logic (1843), On Liberty (1859), Utilitarianism (1861) and An Examination of Sir William Hamilton's Philosophy (1865).",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "John Stuart Mill (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/John_Stuart_Mill",
+      "snippet": "John Stuart Mill was an English philosopher, political economist, politician and civil servant. One of the most influential thinkers in the history of liberalism and social liberalism, he contributed widely to social theory, political theory, and political economy. Dubbed \"the most influential English-speaking philosopher of the nineteenth century\" by the Stanford Encyclopedia of Philosophy, he conceived of liberty as justifying the freedom of the individual in opposition to unlimited state and social control. He advocated political and social reforms such as proportional representation, the emancipation of women, and the development of labour organisations and farm cooperatives.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

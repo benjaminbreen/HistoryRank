@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-02-10T00:18:57.825Z",
+  "figureId": "justinian-i",
+  "figureName": "Justinian I",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 2005,
+        "max": 2005
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 564,
+      "totalTokenCount": 853,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Corpus Juris Civilis",
+        "author": "Justinian I",
+        "year": 529,
+        "rationale": "The Corpus Juris Civilis is the most significant legal work of Justinian I, representing the codification and organization of Roman law. It is a foundational text for Western legal systems.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Novellae Constitutiones",
+        "author": "Justinian I",
+        "year": 535,
+        "rationale": "These are the later laws issued by Justinian after the initial codification of the Corpus Juris Civilis. They represent his ongoing legislative efforts and provide insight into the later period of his reign.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to the Age of Justinian",
+        "author": "Michael Maas",
+        "year": 2005,
+        "rationale": "This is a comprehensive collection of essays by leading scholars covering various aspects of Justinian's reign, including politics, religion, law, and culture. It is a standard academic reference.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Justinian's Flea: The Flea Plague and the Fall of Constantinople",
+        "author": "William Rosen",
+        "year": 2007,
+        "rationale": "While focusing on a specific event, this book provides a detailed narrative of Justinian's era and his impact, drawing on historical sources and scholarly analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Making of the Christian Middle Ages",
+        "author": "R.A. Markus",
+        "year": 1997,
+        "rationale": "This work places Justinian's reign within the broader context of the transition from the Roman Empire to the early Middle Ages, examining his religious policies and their long-term consequences.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources for Justinian I are primarily legal texts and imperial constitutions. Direct personal writings are rare. The Corpus Juris Civilis is often published in multiple editions and translations, making it accessible through various academic libraries and digital archives."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Corpus Juris Civilis",
+      "reason": "Best score below threshold (0.69 < 0.75)"
+    },
+    {
+      "role": "primary",
+      "title": "Novellae Constitutiones",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Justinian's Flea: The Flea Plague and the Fall of Constantinople",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    },
+    {
+      "role": "secondary",
+      "title": "The Making of the Christian Middle Ages",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to the Age of Justinian",
+      "author": "Michael Maas",
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.1017/ccol0521817463",
+      "access_url": "https://doi.org/10.1017/ccol0521817463",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to the Age of Justinian\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to the Age of Justinian",
+        "suggestion_author": "Michael Maas",
+        "suggestion_year": 2005,
+        "suggestion_rationale": "This is a comprehensive collection of essays by leading scholars covering various aspects of Justinian's reign, including politics, religion, law, and culture. It is a standard academic reference.",
+        "openalex_id": "https://openalex.org/W358584125",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge companion to the Age of Justinian",
+      "author": "Michael Maas",
+      "publication_year": 2005,
+      "source_url": "https://openlibrary.org/works/OL16984854W",
+      "access_url": "https://openlibrary.org/works/OL16984854W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to the Age of Justinian\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to the Age of Justinian",
+        "suggestion_author": "Michael Maas",
+        "suggestion_year": 2005,
+        "suggestion_rationale": "This is a comprehensive collection of essays by leading scholars covering various aspects of Justinian's reign, including politics, religion, law, and culture. It is a standard academic reference.",
+        "edition_count": 2
+      }
+    }
+  ]
+}

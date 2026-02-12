@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.581Z",
+  "figureId": "john-d-rockefeller",
+  "figureName": "John D. Rockefeller",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "John D. Rockefeller is consistently described across 12 model source lists as influential for: Philanthropy; Standard Oil; Founder of Standard Oil, defining figure in the American petroleum industry and modern philanthropy; Oil industry magnate; Industrialist who pioneered modern capitalism and philanthropy through Standard Oil; Oil industry pioneer, modern corporate structure; Industrialist whose Standard Oil monopoly reshaped global energy and philanthropy; Industrialist; revolutionized the oil industry and modern philanthropy; Expanded long-distance exchange through conquest, navigation, or trade networks.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

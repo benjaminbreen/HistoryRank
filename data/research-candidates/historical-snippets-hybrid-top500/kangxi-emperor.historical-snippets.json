@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.566Z",
+  "figureId": "kangxi-emperor",
+  "figureName": "Kangxi Emperor",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Kangxi Emperor is consistently described across 12 model source lists as influential for: Qing emperor who expanded China; promoted learning and consolidated imperial power; Consolidated Qing rule over China and expanded the empire to its greatest extent; Kangxi Emperor shifted political order by building, reforming, or toppling institutions that governed large populations; Qing consolidation; long imperial stability; Qing Dynasty consolidation, longest-reigning Chinese emperor; Qing consolidation; administrative and territorial durability; One of China's greatest emperors; brought the Qing Dynasty to its peak of power; Qing dynasty ruler, expanding China’s territory and advancing cultural synthesis.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

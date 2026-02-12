@@ -1,0 +1,93 @@
+{
+  "file": "Claude Opus 4.6 LIST 1 (February 9, 2026).txt",
+  "model": "Claude Opus 4.6",
+  "timestamp": "2026-02-10T23:43:55.188Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "1 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        67
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 85,
+      "Asia": 42,
+      "Middle East": 28,
+      "Africa": 20,
+      "Americas": 16,
+      "Oceania": 0,
+      "Unknown": 309
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 53,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 13,
+      "Arts/Literature": 17,
+      "Military": 13,
+      "Other": 393
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 19,
+    "parentheticalRate": 0.038,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 97.72
+  },
+  "summary": "List passes all quality checks"
+}

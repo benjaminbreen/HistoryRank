@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.647Z",
+  "figureId": "sergey-brin",
+  "figureName": "Sergey Brin",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Sergey Brin is consistently described across 12 model source lists as influential for: Co-founders of Google, whose search engine transformed access to information and digital advertising; Co-founder of Google, advancing search engine technology; Co-Founder of Google; Co-founded Google, transforming how knowledge is accessed and organized globally; Co-founder of Google, advancing search algorithms and AI; Co-founders of Google, revolutionizing information access and search; Developed a theory or method that redirected later science and technology; Google co-founder, search algorithm development.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

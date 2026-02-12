@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:58.912Z",
+  "generatedAt": "2026-02-10T00:12:42.799Z",
   "figureId": "william-shakespeare",
   "figureName": "William Shakespeare",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 3,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 2,
+        "internet_archive": 1,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1986,
+        "max": 1988
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 585,
-      "totalTokenCount": 873,
+      "candidatesTokenCount": 570,
+      "totalTokenCount": 858,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "Hamlet",
         "author": "William Shakespeare",
         "year": 1603,
-        "rationale": "Considered one of Shakespeare's greatest tragedies, it explores themes of revenge, betrayal, and mortality. Its enduring popularity ensures wide availability.",
+        "rationale": "Considered one of Shakespeare's most famous and influential tragedies, it is widely available in numerous editions and scholarly analyses.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +73,7 @@
         "title": "Romeo and Juliet",
         "author": "William Shakespeare",
         "year": 1597,
-        "rationale": "A quintessential tragedy of young love and feuding families, this play is one of Shakespeare's most frequently performed and studied works.",
+        "rationale": "A seminal work of English literature, this tragedy is a cornerstone of Shakespeare's canon and readily accessible.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +84,7 @@
         "title": "Macbeth",
         "author": "William Shakespeare",
         "year": 1606,
-        "rationale": "A dark and powerful tragedy exploring ambition, guilt, and the supernatural, Macbeth is a staple of Shakespearean literature.",
+        "rationale": "Another of Shakespeare's most performed and studied tragedies, its texts are abundant in digital archives.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -69,25 +97,25 @@
         "title": "Shakespeare: The Invention of the Human",
         "author": "Harold Bloom",
         "year": 1998,
-        "rationale": "A highly influential and comprehensive critical analysis of Shakespeare's plays and their impact on Western literature and thought.",
+        "rationale": "A highly influential and comprehensive critical study of Shakespeare's plays and characters, offering deep insights into his genius.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Shakespeare",
         "author": "Harold Bloom",
         "year": 1990,
-        "rationale": "A collection of essays by leading scholars offering diverse perspectives on Shakespeare's life, works, and historical context.",
+        "rationale": "A collection of essays by leading scholars covering various aspects of Shakespeare's life, works, and performance history.",
         "sourceType": "book"
       },
       {
-        "title": "Shakespeare's Tragedies: A History of the Tragic Form",
-        "author": "John P. Brockington",
-        "year": 2019,
-        "rationale": "Examines the evolution of the tragic form in Shakespeare's plays, providing scholarly analysis of key works and their dramatic conventions.",
+        "title": "Shakespeare's Lives",
+        "author": "Samuel Schoenbaum",
+        "year": 1977,
+        "rationale": "A foundational biography that meticulously reconstructs what is known about Shakespeare's life, based on extensive archival research.",
         "sourceType": "book"
       }
     ],
-    "notes": "Shakespeare's primary sources are his plays and poems. Secondary sources provide critical analysis and historical context."
+    "notes": "The primary sources listed are representative of Shakespeare's major dramatic works. The secondary sources are highly regarded critical and biographical studies that have significantly shaped Shakespearean scholarship."
   },
   "unresolved": [
     {
@@ -97,8 +125,8 @@
     },
     {
       "role": "secondary",
-      "title": "Shakespeare's Tragedies: A History of the Tragic Form",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.32"
+      "title": "Shakespeare's Lives",
+      "reason": "Best score below threshold (0.34 < 0.72)"
     }
   ],
   "candidates": [
@@ -111,16 +139,41 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/1524",
       "access_url": "https://www.gutenberg.org/ebooks/1524",
-      "snippet": null,
+      "snippet": "\"Hamlet\" by William Shakespeare is a tragedy written between 1599 and 1601. Set in Denmark, the play follows Prince Hamlet as he grapples with his father's sudden death and his mother's hasty marriage to his uncle Claudius.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Hamlet\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Hamlet\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Hamlet",
         "suggestion_author": "William Shakespeare",
         "suggestion_year": 1603,
-        "suggestion_rationale": "Considered one of Shakespeare's greatest tragedies, it explores themes of revenge, betrayal, and mortality. Its enduring popularity ensures wide availability.",
-        "gutenberg_id": 1524
+        "suggestion_rationale": "Considered one of Shakespeare's most famous and influential tragedies, it is widely available in numerous editions and scholarly analyses.",
+        "gutenberg_id": 1524,
+        "languages": [
+          "en"
+        ],
+        "download_count": 13347
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Hamlet",
+      "author": "William Shakespeare",
+      "publication_year": 1986,
+      "source_url": "https://archive.org/details/isbn_9780606020909_p3l3",
+      "access_url": "https://archive.org/details/isbn_9780606020909_p3l3",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Hamlet\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Hamlet",
+        "suggestion_author": "William Shakespeare",
+        "suggestion_year": 1603,
+        "suggestion_rationale": "Considered one of Shakespeare's most famous and influential tragedies, it is widely available in numerous editions and scholarly analyses.",
+        "ia_identifier": "isbn_9780606020909_p3l3"
       }
     },
     {
@@ -132,37 +185,20 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/1513",
       "access_url": "https://www.gutenberg.org/ebooks/1513",
-      "snippet": null,
+      "snippet": "\"Romeo and Juliet\" by William Shakespeare is a tragedy written between 1591 and 1595. Two young lovers from feuding Italian families meet and fall secretly in love in Verona.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Romeo and Juliet\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Romeo and Juliet\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Romeo and Juliet",
         "suggestion_author": "William Shakespeare",
         "suggestion_year": 1597,
-        "suggestion_rationale": "A quintessential tragedy of young love and feuding families, this play is one of Shakespeare's most frequently performed and studied works.",
-        "gutenberg_id": 1513
-      }
-    },
-    {
-      "source_corpus": "project_gutenberg",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "Macbeth",
-      "author": "Shakespeare, William",
-      "publication_year": null,
-      "source_url": "https://www.gutenberg.org/ebooks/1533",
-      "access_url": "https://www.gutenberg.org/ebooks/1533",
-      "snippet": null,
-      "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Macbeth\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Macbeth",
-        "suggestion_author": "William Shakespeare",
-        "suggestion_year": 1606,
-        "suggestion_rationale": "A dark and powerful tragedy exploring ambition, guilt, and the supernatural, Macbeth is a staple of Shakespearean literature.",
-        "gutenberg_id": 1533
+        "suggestion_rationale": "A seminal work of English literature, this tragedy is a cornerstone of Shakespeare's canon and readily accessible.",
+        "gutenberg_id": 1513,
+        "languages": [
+          "en"
+        ],
+        "download_count": 69731
       }
     },
     {
@@ -176,14 +212,14 @@
       "access_url": "http://www.loc.gov/catdir/description/cam023/85029066.html",
       "snippet": null,
       "confidence": 0.869,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Shakespeare\". Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Shakespeare\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Shakespeare",
         "suggestion_author": "Harold Bloom",
         "suggestion_year": 1990,
-        "suggestion_rationale": "A collection of essays by leading scholars offering diverse perspectives on Shakespeare's life, works, and historical context.",
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Shakespeare's life, works, and performance history.",
         "openalex_id": "https://openalex.org/W590790258",
         "work_type": "book"
       }

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.432Z",
+  "figureId": "wright-brothers",
+  "figureName": "Wright Brothers",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Wright Brothers (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Wright_brothers",
+      "snippet": "The Wright brothers, Orville Wright and Wilbur Wright, were American aviation pioneers generally credited with inventing, building, and flying the world's first successful airplane. They made the first controlled, sustained flight of an engine-powered, heavier-than-air aircraft with the Wright Flyer on December 17, 1903, four miles (6 km) south of Kitty Hawk, North Carolina, at what is now known as Kill Devil Hills. In 1904 the Wright brothers developed the Wright Flyer II, which made longer-duration flights including the first circle, followed in 1905 by the first truly practical fixed-wing aircraft, the Wright Flyer III.",
+      "match_score": 0.74,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.589Z",
+  "figureId": "isaac-newton",
+  "figureName": "Isaac Newton",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 6,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Newton, Sir Isaac",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FNewton%2C_Sir_Isaac",
+      "snippet": "“July 4, 1699.—By consulting an account of my expenses at Cambridge, in the years 1663 and 1664, I find that in the year 1664 a little before Christmas, I, being then Senior Sophister, bought Schooten’s Miscellanies and Cartes’ Geometry (having read this Geometry and Oughtred’s Clavis clean over half a year before), and borrowed Wallis’s works, and by consequence made these annotations out of Schooten and Wallis, in winter between the years 1664 and 1665. At such time I found the method of Infinite Series; and in summer 1665, being forced from Cambridge by the plague, I computed the area of the Hyperbola at Boothby, in Lincolnshire, to two and fifty figures by the same method.”",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2007,
+      "source_title": "Newton, Isaac",
+      "source_url": "https://plato.stanford.edu/entries/newton/",
+      "snippet": "Isaac Newton (1642-1727) is best known for having invented the calculus in the mid to late 1660s (most of a decade before Leibniz did so independently, and ultimately more influentially) and for having formulated the theory of universal gravity — the latter in his Principia , the single most important work in the transformation of early modern natural philosophy into modern physical science. Yet he also made major discoveries in optics beginning in the mid-1660s and reaching across four decades; and during the course of his 60 years of intense intellectual activity he put no less effort into chemical and alchemical research and into theology and biblical studies than he put into mathematics and physics. He became a dominant figure in Britain almost immediately following publication of his Principia in 1687, with the consequence that \"Newtonianism\" of one form or another had become firmly rooted there within the first decade of the eighteenth century. His influence on the continent, however, was delayed by the strong opposition to his theory of gravity expressed by such leading figures as Christiaan Huygens and Leibniz, both of whom saw the theory as invoking an occult power of action at a distance in the absence of Newton's having proposed a contact mechanism by means of which forces of gravity could act. As the promise of the theory of gravity became increasingly substantiated, starting in the late 1730s but especially during the 1740s and 1750s, Newton became an equally dominant figure on the continent, and \"Newtonianism,\" though perhaps in more guarded forms, flourished there as well. What physics textbooks now refer to as \"Newtonian mechanics\" and \"Newtonian science\" consists mostly of results achieved on the continent between 1740 and 1800.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

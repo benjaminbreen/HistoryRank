@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.424Z",
+  "figureId": "nelson-mandela",
+  "figureName": "Nelson Mandela",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Timeline synthesis (evidence-backed events)",
+      "source_url": null,
+      "snippet": "1944: Joins ANC Youth League - Mandela co-founds the African National Congress (ANC) Youth League, becoming a prominent figure in the anti-apartheid movement. 1964: Sentenced to life imprisonment - Mandela is sentenced to life imprisonment during the Rivonia Trial for sabotage and other charges against the apartheid government. 1990: Released from prison - After 27 years of imprisonment, Nelson Mandela is released, marking a pivotal moment in the fight against apartheid. 1994: Elected President of South Africa - Mandela is elected as the first post-apartheid President of South Africa, ushering in a new era of democracy.",
+      "match_score": 0.74,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:15.269Z",
+  "generatedAt": "2026-02-10T00:12:21.265Z",
   "figureId": "alexander-the-great",
   "figureName": "Alexander the Great",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1997,
+        "max": 2005
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 400,
-      "totalTokenCount": 689,
+      "candidatesTokenCount": 382,
+      "totalTokenCount": 671,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -42,18 +68,18 @@
         "title": "Alexander the Great",
         "author": "Robin Lane Fox",
         "year": 1973,
-        "rationale": "While slightly before the 1976 cutoff, Robin Lane Fox's biography is considered a seminal work and remains highly influential in Alexander scholarship. It is often cited and discussed in later works.",
+        "rationale": "While slightly before the 1976 cutoff, Robin Lane Fox's biography is considered a seminal work on Alexander, widely respected for its scholarship and detail. It has been reissued and remains influential.",
         "sourceType": "book"
       },
       {
         "title": "The Campaigns of Alexander",
         "author": "Arrian",
-        "year": 115,
-        "rationale": "Arrian's 'Anabasis Alexandri' is one of the most important and reliable ancient sources for Alexander's military campaigns. While not a modern secondary source, it is a primary source that is essential for any scholarly research on Alexander and is widely available in translation.",
+        "year": 1793,
+        "rationale": "Arrian's 'Anabasis Alexandri' is one of the most important and reliable ancient sources for Alexander's military campaigns. While the original text is ancient, modern scholarly editions and translations are widely available.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Alexander the Great himself (letters, speeches) are extremely scarce and often of questionable authenticity or only preserved in fragments within later historical accounts. Therefore, no direct primary sources authored by him are listed. Arrian's 'The Campaigns of Alexander' is included as a crucial ancient primary source that is foundational to modern scholarship."
+    "notes": "Direct primary sources authored by Alexander the Great himself (letters, speeches) are extremely scarce and often of questionable authenticity or only preserved through later historians. Therefore, no direct primary sources are listed. Arrian is included as a primary source from antiquity, but the listed year refers to a notable English translation."
   },
   "unresolved": [
     {
@@ -63,28 +89,6 @@
     }
   ],
   "candidates": [
-    {
-      "source_corpus": "openlibrary",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "ALEXANDER THE GREAT.",
-      "author": "Robin lane fox",
-      "publication_year": 1997,
-      "source_url": "https://openlibrary.org/works/OL42974554W",
-      "access_url": "https://openlibrary.org/works/OL42974554W",
-      "snippet": null,
-      "confidence": 0.894,
-      "why": "Secondary source resolved from suggestion \"Alexander the Great\". Matched secondary suggestion by title=1.00, author=1.00, year=0.20; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Alexander the Great",
-        "suggestion_author": "Robin Lane Fox",
-        "suggestion_year": 1973,
-        "suggestion_rationale": "While slightly before the 1976 cutoff, Robin Lane Fox's biography is considered a seminal work and remains highly influential in Alexander scholarship. It is often cited and discussed in later works.",
-        "edition_count": 1
-      }
-    },
     {
       "source_corpus": "crossref",
       "source_role": "secondary",
@@ -96,7 +100,7 @@
       "access_url": "https://doi.org/10.5860/choice.42-6016",
       "snippet": "Choice Reviews Online",
       "confidence": 0.884,
-      "why": "Secondary source resolved from suggestion \"Alexander the Great: The Hunt for a New Past\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Alexander the Great: The Hunt for a New Past\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
@@ -106,6 +110,28 @@
         "suggestion_rationale": "Paul Cartledge is a distinguished historian of ancient Greece, and this book offers a comprehensive and modern scholarly assessment of Alexander's life and legacy.",
         "doi": "10.5860/choice.42-6016",
         "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "ALEXANDER THE GREAT.",
+      "author": "Robin lane fox",
+      "publication_year": 1997,
+      "source_url": "https://openlibrary.org/works/OL42974554W",
+      "access_url": "https://openlibrary.org/works/OL42974554W",
+      "snippet": null,
+      "confidence": 0.894,
+      "why": "Secondary source resolved from suggestion \"Alexander the Great\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.20; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Alexander the Great",
+        "suggestion_author": "Robin Lane Fox",
+        "suggestion_year": 1973,
+        "suggestion_rationale": "While slightly before the 1976 cutoff, Robin Lane Fox's biography is considered a seminal work on Alexander, widely respected for its scholarship and detail. It has been reissued and remains influential.",
+        "edition_count": 1
       }
     }
   ]

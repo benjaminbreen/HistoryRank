@@ -1,0 +1,133 @@
+{
+  "file": "Claude Opus 4.5 LIST 8 (January 16, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-02-10T23:43:46.274Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 5,
+      "fuzzy": 1,
+      "status": "PASS",
+      "details": "5 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        68,
+        627
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanjacques rousseau",
+      "ranks": [
+        70,
+        954
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chiang kaishek",
+      "ranks": [
+        111,
+        220
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "booker t washington",
+      "ranks": [
+        339,
+        955
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        353,
+        979
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        115
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 106,
+      "Asia": 44,
+      "Middle East": 23,
+      "Africa": 26,
+      "Americas": 36,
+      "Oceania": 0,
+      "Unknown": 765
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 56,
+      "Science/Technology": 17,
+      "Philosophy/Religion": 22,
+      "Arts/Literature": 28,
+      "Military": 6,
+      "Other": 871
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 10,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 229,
+    "contributionShortRate": 0.229,
+    "score": 94.77000000000001
+  },
+  "summary": "List passes all quality checks"
+}

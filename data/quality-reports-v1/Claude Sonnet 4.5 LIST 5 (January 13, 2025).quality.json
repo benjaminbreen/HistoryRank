@@ -1,0 +1,436 @@
+{
+  "file": "Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-02-10T23:44:17.102Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 36,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "36 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 32,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 490,
+          "endRank": 521,
+          "count": 32,
+          "examples": [
+            "490. Jorge Luis Borges",
+            "491. Julio Cortázar",
+            "492. Isabel Allende"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 32 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "galileo galilei",
+      "ranks": [
+        13,
+        199
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        14,
+        275
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        25,
+        181,
+        322
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "voltaire",
+      "ranks": [
+        35,
+        272
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        51,
+        577
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        64,
+        546
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niccol machiavelli",
+      "ranks": [
+        72,
+        551
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "miguel de cervantes",
+      "ranks": [
+        81,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        144,
+        416
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        145,
+        409
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john von neumann",
+      "ranks": [
+        146,
+        410
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "claude shannon",
+      "ranks": [
+        147,
+        412
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles babbage",
+      "ranks": [
+        148,
+        408
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ada lovelace",
+      "ranks": [
+        149,
+        407
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james watson",
+      "ranks": [
+        152,
+        745
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis crick",
+      "ranks": [
+        153,
+        735
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "linus pauling",
+      "ranks": [
+        154,
+        724
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul dirac",
+      "ranks": [
+        158,
+        633
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ernest rutherford",
+      "ranks": [
+        162,
+        592
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pierre de fermat",
+      "ranks": [
+        205,
+        399
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david hilbert",
+      "ranks": [
+        209,
+        692
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john stuart mill",
+      "ranks": [
+        227,
+        290
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james joyce",
+      "ranks": [
+        248,
+        535
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "oscar wilde",
+      "ranks": [
+        256,
+        536
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mary shelley",
+      "ranks": [
+        261,
+        476
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jane goodall",
+      "ranks": [
+        384,
+        853
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sewall wright",
+      "ranks": [
+        394,
+        707
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "henri poincar",
+      "ranks": [
+        404,
+        695
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emmy noether",
+      "ranks": [
+        405,
+        691
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jorge luis borges",
+      "ranks": [
+        486,
+        490
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "irving langmuir",
+      "ranks": [
+        599,
+        642
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "subrahmanyan chandrasekhar",
+      "ranks": [
+        604,
+        670
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stanley cohen",
+      "ranks": [
+        741,
+        778
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "arvid carlsson",
+      "ranks": [
+        776,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "raymond cattell",
+      "ranks": [
+        826,
+        831
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        41
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "j robert oppenheimer",
+      "variants": [
+        "j robert oppenheimer",
+        "robert oppenheimer"
+      ],
+      "ranks": [
+        161,
+        601
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilhelm rntgen",
+      "variants": [
+        "wilhelm rntgen",
+        "wilhelm conrad rntgen"
+      ],
+      "ranks": [
+        170,
+        172
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "carl jung",
+      "variants": [
+        "carl jung",
+        "carl june"
+      ],
+      "ranks": [
+        182,
+        904
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 490,
+      "endRank": 521,
+      "count": 32,
+      "examples": [
+        "490. Jorge Luis Borges",
+        "491. Julio Cortázar",
+        "492. Isabel Allende"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 64,
+      "Asia": 26,
+      "Middle East": 12,
+      "Africa": 17,
+      "Americas": 24,
+      "Oceania": 0,
+      "Unknown": 857
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 14,
+      "Science/Technology": 17,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 25,
+      "Military": 5,
+      "Other": 930
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 392,
+    "contributionShortRate": 0.392,
+    "score": 92.1
+  },
+  "summary": "Issues: 36 exact duplicates; pattern collapse (max 32)"
+}

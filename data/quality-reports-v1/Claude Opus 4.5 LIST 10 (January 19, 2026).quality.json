@@ -1,0 +1,217 @@
+{
+  "file": "Claude Opus 4.5 LIST 10 (January 19, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-02-10T23:43:09.408Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 11,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "11 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "thomas edison",
+      "ranks": [
+        22,
+        507
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        71,
+        363
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vclav havel",
+      "ranks": [
+        233,
+        708
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles de gaulle",
+      "ranks": [
+        258,
+        726
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        269,
+        757
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        271,
+        724
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "aung san",
+      "ranks": [
+        313,
+        696
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "richard feynman",
+      "ranks": [
+        357,
+        904
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul ehrlich",
+      "ranks": [
+        401,
+        865
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steven pinker",
+      "ranks": [
+        799,
+        841
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david baltimore",
+      "ranks": [
+        917,
+        994
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        20,
+        194
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bill gates",
+      "variants": [
+        "bill gates",
+        "bill and melinda gates"
+      ],
+      "ranks": [
+        163,
+        417
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        234,
+        239
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "carl jung",
+      "variants": [
+        "carl jung",
+        "carl june"
+      ],
+      "ranks": [
+        811,
+        982
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 57,
+      "Asia": 52,
+      "Middle East": 12,
+      "Africa": 19,
+      "Americas": 28,
+      "Oceania": 0,
+      "Unknown": 832
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 35,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 14,
+      "Arts/Literature": 17,
+      "Military": 13,
+      "Other": 910
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 3,
+    "multiPersonRate": 0.003,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 438,
+    "contributionShortRate": 0.438,
+    "score": 90.96999999999998
+  },
+  "summary": "List passes all quality checks"
+}

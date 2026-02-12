@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.516Z",
+  "figureId": "ivan-the-terrible",
+  "figureName": "Ivan the Terrible",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Ivan the Terrible is consistently described across 13 model source lists as influential for: Ivan the Terrible shifted political order by building, reforming, or toppling institutions that governed large populations; First Tsar of Russia, known for centralization and expansion; Russian autocracy expansion; Tsar centralizing Russian state; Centralization of Russia; First Tsar of Russia, centralizing power and expanding territory, though through brutal methods; First Tsar of Russia; Russian autocracy consolidation; territorial expansion.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

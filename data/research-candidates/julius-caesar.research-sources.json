@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:38.107Z",
+  "generatedAt": "2026-02-10T00:14:15.806Z",
   "figureId": "julius-caesar",
   "figureName": "Julius Caesar",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 3,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1891,
+        "max": 2006
+      },
+      "nonEnglishCandidates": 1
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 577,
-      "totalTokenCount": 865,
+      "candidatesTokenCount": 625,
+      "totalTokenCount": 913,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -33,8 +61,8 @@
       {
         "title": "Commentarii de Bello Gallico",
         "author": "Julius Caesar",
-        "year": -51,
-        "rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military and political career.",
+        "year": -50,
+        "rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military career and political ambitions.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +73,7 @@
         "title": "Commentarii de Bello Civili",
         "author": "Julius Caesar",
         "year": -45,
-        "rationale": "Caesar's narrative of the civil war against Pompey and the Senate, offering his perspective on the conflict.",
+        "rationale": "Caesar's narrative of the civil war against Pompey, offering his perspective on the events that led to his dictatorship.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -55,8 +83,8 @@
       {
         "title": "The Gallic Wars",
         "author": "Julius Caesar",
-        "year": -51,
-        "rationale": "An English translation of Caesar's account of the Gallic Wars, widely available in digital formats.",
+        "year": -50,
+        "rationale": "An English translation of 'Commentarii de Bello Gallico', widely available in digital formats.",
         "likelyCorpora": [
           "project_gutenberg",
           "internet_archive"
@@ -75,18 +103,18 @@
         "title": "The Roman Revolution",
         "author": "Ronald Syme",
         "year": 1939,
-        "rationale": "While pre-1976, this is a seminal work on the transition from Republic to Empire, with significant analysis of Caesar's role and impact. Its influence warrants inclusion.",
+        "rationale": "While older, Syme's work is a seminal study of the transition from Republic to Empire, with significant analysis of Caesar's role. Its influence warrants its inclusion, though it predates the 1976 cutoff.",
         "sourceType": "book"
       },
       {
-        "title": "Julius Caesar: The Making of an Autocrat",
-        "author": "Pat Southern",
-        "year": 1998,
-        "rationale": "A scholarly examination of Caesar's rise to power and his consolidation of authority.",
+        "title": "Julius Caesar: The Lost Hero",
+        "author": "Barry Strauss",
+        "year": 2015,
+        "rationale": "A recent scholarly biography that offers a fresh perspective on Caesar's life and legacy.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are Caesar's own writings. Secondary sources include a major biography and a foundational work on the period, plus another scholarly biography."
+    "notes": "While Caesar's speeches are known through the writings of others (e.g., Cicero), direct primary source texts authored by him are primarily his commentaries on his military campaigns. Ronald Syme's 'The Roman Revolution' is included despite its age due to its foundational status in understanding the period, though newer scholarship is also provided."
   },
   "unresolved": [
     {
@@ -101,11 +129,36 @@
     },
     {
       "role": "secondary",
-      "title": "Julius Caesar: The Making of an Autocrat",
-      "reason": "Best score below threshold (0.54 < 0.72)"
+      "title": "Julius Caesar: The Lost Hero",
+      "reason": "Best score below threshold (0.65 < 0.72)"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Commentarii de Bello Gallico, Libri V-VIII",
+      "author": "Caesar, Julius",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/18837",
+      "access_url": "https://www.gutenberg.org/ebooks/18837",
+      "snippet": "\"Commentarii de Bello Gallico, Libri V-VIII\" by Julius Caesar is a firsthand military account written between 58-50 BC. Caesar narrates nine years of campaigns against Celtic and Germanic peoples resisting Roman conquest in Gaul.",
+      "confidence": 0.89,
+      "why": "Primary source resolved from suggestion \"Commentarii de Bello Gallico\" (project_gutenberg). Matched primary suggestion by title=0.87, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Commentarii de Bello Gallico",
+        "suggestion_author": "Julius Caesar",
+        "suggestion_year": -50,
+        "suggestion_rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military career and political ambitions.",
+        "gutenberg_id": 18837,
+        "languages": [
+          "la"
+        ],
+        "download_count": 449
+      }
+    },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
@@ -117,35 +170,35 @@
       "access_url": "https://archive.org/details/commentariidebe01caesgoog",
       "snippet": null,
       "confidence": 0.953,
-      "why": "Primary source resolved from suggestion \"Commentarii de Bello Civili\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "why": "Primary source resolved from suggestion \"Commentarii de Bello Civili\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Commentarii de Bello Civili",
         "suggestion_author": "Julius Caesar",
         "suggestion_year": -45,
-        "suggestion_rationale": "Caesar's narrative of the civil war against Pompey and the Senate, offering his perspective on the conflict.",
+        "suggestion_rationale": "Caesar's narrative of the civil war against Pompey, offering his perspective on the events that led to his dictatorship.",
         "ia_identifier": "commentariidebe01caesgoog"
       }
     },
     {
-      "source_corpus": "project_gutenberg",
+      "source_corpus": "internet_archive",
       "source_role": "primary",
-      "source_kind": "book",
-      "title": "Commentarii de Bello Gallico, Libri V-VIII",
-      "author": "Caesar, Julius",
-      "publication_year": null,
-      "source_url": "https://www.gutenberg.org/ebooks/18837",
-      "access_url": "https://www.gutenberg.org/ebooks/18837",
+      "source_kind": "text",
+      "title": "Commentarii de bello Gallico I-VIII",
+      "author": "Julius Caesar, Ighaz Prammer",
+      "publication_year": 1891,
+      "source_url": "https://archive.org/details/commentariidebe00pramgoog",
+      "access_url": "https://archive.org/details/commentariidebe00pramgoog",
       "snippet": null,
-      "confidence": 0.89,
-      "why": "Primary source resolved from suggestion \"Commentarii de Bello Gallico\". Matched primary suggestion by title=0.87, author=1.00, year=0.25; Primary gate passed",
+      "confidence": 0.795,
+      "why": "Primary source resolved from suggestion \"Commentarii de Bello Gallico\" (internet_archive). Matched primary suggestion by title=1.00, author=0.50, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Commentarii de Bello Gallico",
         "suggestion_author": "Julius Caesar",
-        "suggestion_year": -51,
-        "suggestion_rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military and political career.",
-        "gutenberg_id": 18837
+        "suggestion_year": -50,
+        "suggestion_rationale": "Caesar's own account of his campaigns in Gaul, a foundational text for understanding his military career and political ambitions.",
+        "ia_identifier": "commentariidebe00pramgoog"
       }
     },
     {
@@ -159,7 +212,7 @@
       "access_url": "http://www.loc.gov/catdir/toc/ecip065/2005036603.html",
       "snippet": null,
       "confidence": 0.796,
-      "why": "Secondary source resolved from suggestion \"Caesar: A Life\". Matched secondary suggestion by title=0.87, author=0.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Caesar: A Life\" (openalex). Matched secondary suggestion by title=0.87, author=0.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,

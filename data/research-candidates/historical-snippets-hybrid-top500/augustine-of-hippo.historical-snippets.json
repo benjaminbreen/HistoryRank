@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.461Z",
+  "figureId": "augustine-of-hippo",
+  "figureName": "Augustine of Hippo",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 3,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Augustine, Saint (of Hippo)",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAugustine%2C_Saint_(of_Hippo)",
+      "snippet": "Inheriting from his father a passionate nature, he formed while still a mere youth an irregular union with a girl, by whom he became the father of a son, whom in a fit of pious emotion he named Adeodatus (“by God given”), and to whom he was passionately attached. In his Confessions he afterwards described this period of his life in the blackest colours; for in the light of his conversion he saw behind him only shadows. Yet, whatever his youthful aberrations, Augustine was from the first an earnest student. His father, noticing his early promise, destined him for the brilliant and lucrative career of a rhetorician, for which he spared no expense in training him.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "St Augustine",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FSt_Augustine",
+      "snippet": "The city stands on a narrow, sandy peninsula, about 12 ft. above the sea, formed by the Matanzas and San Sebastian rivers, and is separated from the ocean by the northern end of Anastasia Island. St George, the chief street in St Augustine, is only 17 ft. wide, and Treasury Street is, at its east end, an alley across which two people may clasp hands. There are many old houses, some of which have balconies projecting above the streets. At its northern end is the old fort of San Marco (now renamed Fort Marion in honour of General Francis Marion), a well-preserved specimen of Spanish military architecture, begun, it is supposed, about 1656 and finished in 1756.",
+      "match_score": 0.91,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Augustine of Hippo",
+      "source_url": "https://plato.stanford.edu/entries/augustine/",
+      "snippet": "Augustine of Hippo was perhaps the greatest Christian philosopher of Antiquity and certainly the one who exerted the deepest and most lasting influence. He is a saint of the Catholic Church, and his authority in theological matters was universally accepted in the Latin Middle Ages and remained, in the Western Christian tradition, virtually uncontested till the nineteenth century. The impact of his views on sin, grace, freedom and sexuality on Western culture can hardly be overrated. These views, deeply at variance with the ancient philosophical and cultural tradition, provoked however fierce criticism in Augustine's lifetime and have, again, been vigorously opposed in the twentieth and twenty-first centuries from various (e.g., humanist, liberal, feminist) standpoints. Philosophers keep however being fascinated by his often innovative ideas on language, on skepticism and knowledge, on will and the emotions, on freedom and determinism and on the structure of the human mind and, last but not least, by his way of doing philosophy, which is—though of course committed to the truth of biblical revelation—surprisingly undogmatic and marked by a spirit of relentless inquiry. His most famous work, the Confessiones , is unique in the ancient literary tradition but greatly influenced the modern tradition of autobiography; it is an intriguing piece of philosophy from a first-person perspective. Because of his importance for the philosophical tradition of the Middle Ages he is often listed as the first medieval philosopher. But even though he was born several decades after the emperor Constantine I had terminated the anti-Christian persecutions and, in his mature years, saw the anti-pagan and anti-heretic legislation of Theodosius I and his sons, which virtually made Catholic (i.e., Nicene) Christianity the official religion of the Roman Empire, Augustine did not live in a \"medieval\" Christian world. Pagan religious, cultural and social traditions were much alive in his congregation, as he often deplores in his sermons, and his own cultural outlook was, like that of most of his learned upper-class contemporaries, shaped by the classical Latin authors, poets and philosophers whom he studied in the schools of grammar and rhetoric long before he encountered the Bible and Christian writers.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

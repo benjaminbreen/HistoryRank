@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.662Z",
+  "figureId": "robert-boyle",
+  "figureName": "Robert Boyle",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Boyle, Robert",
+      "source_url": "https://plato.stanford.edu/entries/boyle/",
+      "snippet": "Best known today as the father of chemistry, Robert Boyle (1627-1691) has, since the early 1990s, emerged as a significant figure in early modern philosophy, not only through his influence on the likes of John Locke and Isaac Newton, but as a thinker in his own right. His key philosophical contributions were to early modern matter theory, the theory of material qualities, the critique of the scholastic theory of forms and the philosophy of experiment. Boyle's intellectual range was broad and included ethics, natural theology, and especially natural philosophy. His literary output was also varied, ranging from autobiography, essays, romance, natural history, natural theology, to philosophy. His major contributions to the development of new literary genres included the genre of the natural philosophical desiderata , especially lists of queries, and most of all, the experimental report. He was also responsible for a number of important neologisms, including 'corpuscularian,' experimentum crucis (crucial experiment) and 'secondary quality' in the Lockean sense.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Robert Boyle (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Robert_Boyle",
+      "snippet": "Robert Boyle was an Anglo-Irish natural philosopher, chemist, physicist, alchemist and inventor. Boyle is largely regarded today as the first modern chemist, and therefore one of the founders of modern chemistry, and one of the pioneers of modern experimental scientific method.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

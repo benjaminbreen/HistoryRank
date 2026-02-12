@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:29:27.497Z",
+  "generatedAt": "2026-02-10T00:12:18.255Z",
   "figureId": "genghis-khan",
   "figureName": "Genghis Khan",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 2004,
+        "max": 2004
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 369,
-      "totalTokenCount": 658,
+      "candidatesTokenCount": 391,
+      "totalTokenCount": 680,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -35,28 +61,62 @@
         "title": "Genghis Khan and the Making of the Modern World",
         "author": "Jack Weatherford",
         "year": 2004,
-        "rationale": "A highly influential and widely read scholarly work that explores Genghis Khan's impact on global history, economics, and culture.",
+        "rationale": "A widely acclaimed and influential scholarly work that provides a comprehensive overview of Genghis Khan's life, conquests, and lasting impact on global history. It is based on extensive research and is considered a standard text in the field.",
         "sourceType": "book"
       },
       {
-        "title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
-        "author": "Paul Kahn",
-        "year": 1998,
-        "rationale": "This is a translation and analysis of the most important contemporary source on Genghis Khan's life, providing deep historical context.",
+        "title": "The Secret History of the Mongols",
+        "author": "Various (compiled by the Mongols)",
+        "year": 1240,
+        "rationale": "While not authored by Genghis Khan himself, this is the most important contemporary source for his life and the early Mongol Empire. It is a foundational text for understanding the period and is available in numerous scholarly translations.",
         "sourceType": "book"
       },
       {
-        "title": "Genghis Khan: Conqueror of the World",
+        "title": "Genghis Khan: The Emperor of All Men",
         "author": "Harold Lamb",
         "year": 1927,
-        "rationale": "While older, this biography remains a classic and foundational text for understanding Genghis Khan, often referenced in later scholarship. However, it predates the 1976 requirement, so it's included with that caveat.",
+        "rationale": "Although older, this biography by Harold Lamb remains a classic and highly readable account of Genghis Khan's life. It has been influential in shaping popular perceptions and continues to be referenced, though modern scholarship has updated some interpretations.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Genghis Khan are extremely rare and generally not available in digitized formats on common platforms like Wikisource or Project Gutenberg. His legacy is primarily understood through contemporary chronicles and later historical accounts, such as 'The Secret History of the Mongols'."
+    "notes": "Direct primary sources authored by Genghis Khan are extremely rare and not readily available in digitized formats on common platforms like Wikisource or Project Gutenberg. His legacy is primarily understood through contemporary chronicles and later historical accounts."
   },
-  "unresolved": [],
+  "unresolved": [
+    {
+      "role": "secondary",
+      "title": "The Secret History of the Mongols",
+      "reason": "Best score below threshold (0.52 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Genghis Khan: The Emperor of All Men",
+      "reason": "Best score below threshold (0.50 < 0.72)"
+    }
+  ],
   "candidates": [
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Genghis Khan and the Making of the Modern World",
+      "author": "Christopher Kaplonski",
+      "publication_year": 2004,
+      "source_url": "https://doi.org/10.1163/146481704793647063",
+      "access_url": "https://doi.org/10.1163/146481704793647063",
+      "snippet": "Inner Asia",
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"Genghis Khan and the Making of the Modern World\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Genghis Khan and the Making of the Modern World",
+        "suggestion_author": "Jack Weatherford",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "A widely acclaimed and influential scholarly work that provides a comprehensive overview of Genghis Khan's life, conquests, and lasting impact on global history. It is based on extensive research and is considered a standard text in the field.",
+        "doi": "10.1163/146481704793647063",
+        "crossref_type": "journal-article"
+      }
+    },
     {
       "source_corpus": "openlibrary",
       "source_role": "secondary",
@@ -68,61 +128,15 @@
       "access_url": "https://openlibrary.org/works/OL8162628W",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Genghis Khan and the Making of the Modern World\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Genghis Khan and the Making of the Modern World\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Genghis Khan and the Making of the Modern World",
         "suggestion_author": "Jack Weatherford",
         "suggestion_year": 2004,
-        "suggestion_rationale": "A highly influential and widely read scholarly work that explores Genghis Khan's impact on global history, economics, and culture.",
+        "suggestion_rationale": "A widely acclaimed and influential scholarly work that provides a comprehensive overview of Genghis Khan's life, conquests, and lasting impact on global history. It is based on extensive research and is considered a standard text in the field.",
         "edition_count": 6
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
-      "author": "Urgungge Onon",
-      "publication_year": 2001,
-      "source_url": "http://ci.nii.ac.jp/ncid/BA53878797",
-      "access_url": "http://ci.nii.ac.jp/ncid/BA53878797",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 0.863,
-      "why": "Secondary source resolved from suggestion \"The Secret History of the Mongols: The Life and Times of Chinggis Khan\". Matched secondary suggestion by title=1.00, author=0.00, year=0.90; Surname + aboutness term present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "The Secret History of the Mongols: The Life and Times of Chinggis Khan",
-        "suggestion_author": "Paul Kahn",
-        "suggestion_year": 1998,
-        "suggestion_rationale": "This is a translation and analysis of the most important contemporary source on Genghis Khan's life, providing deep historical context.",
-        "openalex_id": "https://openalex.org/W1500287438",
-        "work_type": "book"
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Genghis Khan, conqueror of the world",
-      "author": null,
-      "publication_year": 1990,
-      "source_url": "https://doi.org/10.5860/choice.27-5260",
-      "access_url": "https://doi.org/10.5860/choice.27-5260",
-      "snippet": "Choice Reviews Online",
-      "confidence": 0.72,
-      "why": "Secondary source resolved from suggestion \"Genghis Khan: Conqueror of the World\". Matched secondary suggestion by title=1.00, author=0.00, year=0.00; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Genghis Khan: Conqueror of the World",
-        "suggestion_author": "Harold Lamb",
-        "suggestion_year": 1927,
-        "suggestion_rationale": "While older, this biography remains a classic and foundational text for understanding Genghis Khan, often referenced in later scholarship. However, it predates the 1976 requirement, so it's included with that caveat.",
-        "doi": "10.5860/choice.27-5260",
-        "crossref_type": "journal-article"
       }
     }
   ]

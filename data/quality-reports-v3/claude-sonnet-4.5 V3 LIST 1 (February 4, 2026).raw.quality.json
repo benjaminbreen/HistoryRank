@@ -1,0 +1,239 @@
+{
+  "file": "claude-sonnet-4.5 V3 LIST 1 (February 4, 2026).raw.txt",
+  "model": "claude-sonnet-4.5 V3",
+  "timestamp": "2026-02-10T23:12:34.436Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "influencing",
+          "startRank": 164,
+          "endRank": 177,
+          "count": 14,
+          "examples": [
+            "164. Niccolo Machiavelli",
+            "165. Thomas Hobbes",
+            "166. Montesquieu"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "influencing",
+          "startRank": 165,
+          "endRank": 178,
+          "count": 14,
+          "examples": [
+            "165. Thomas Hobbes",
+            "166. Montesquieu",
+            "167. Edmund Burke"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "influencing",
+          "startRank": 171,
+          "endRank": 183,
+          "count": 13,
+          "examples": [
+            "171. Arthur Schopenhauer",
+            "172. Georg Wilhelm Friedrich Hegel",
+            "173. Baruch Spinoza"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "galileo galilei",
+      "ranks": [
+        12,
+        76
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "constantine the great",
+      "ranks": [
+        45,
+        311
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john calvin",
+      "ranks": [
+        68,
+        317
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hammurabi",
+      "ranks": [
+        71,
+        360
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        88,
+        255
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "omar khayyam",
+      "ranks": [
+        160,
+        207
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        13,
+        442
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        314,
+        440
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        385,
+        428
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "influencing",
+      "startRank": 164,
+      "endRank": 177,
+      "count": 14,
+      "examples": [
+        "164. Niccolo Machiavelli",
+        "165. Thomas Hobbes",
+        "166. Montesquieu"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "influencing",
+      "startRank": 165,
+      "endRank": 178,
+      "count": 14,
+      "examples": [
+        "165. Thomas Hobbes",
+        "166. Montesquieu",
+        "167. Edmund Burke"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "influencing",
+      "startRank": 171,
+      "endRank": 183,
+      "count": 13,
+      "examples": [
+        "171. Arthur Schopenhauer",
+        "172. Georg Wilhelm Friedrich Hegel",
+        "173. Baruch Spinoza"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 65,
+      "Asia": 23,
+      "Middle East": 24,
+      "Africa": 7,
+      "Americas": 20,
+      "Oceania": 0,
+      "Unknown": 361
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 19,
+      "Science/Technology": 6,
+      "Philosophy/Religion": 14,
+      "Arts/Literature": 19,
+      "Military": 6,
+      "Other": 436
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "List passes all quality checks"
+}

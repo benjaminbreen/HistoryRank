@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:44:32.332Z",
+  "generatedAt": "2026-02-10T00:18:41.268Z",
   "figureId": "saladin",
   "figureName": "Saladin",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 2
+      },
+      "yearSpan": {
+        "min": 1987,
+        "max": 1997
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 462,
-      "totalTokenCount": 750,
+      "candidatesTokenCount": 491,
+      "totalTokenCount": 779,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -32,9 +57,9 @@
     "primary": [
       {
         "title": "The Life of Saladin",
-        "author": "Baha al-Din ibn Shaddad",
+        "author": "Baha ad-Din ibn Shaddad",
         "year": 1249,
-        "rationale": "This is a contemporary biography of Saladin, written by his chief judge and companion. While not authored by Saladin himself, it is considered a primary source due to its direct access to Saladin and his court.",
+        "rationale": "This is a contemporary biography of Saladin, written by his chief qadi and confidant. While not authored by Saladin himself, it is considered a primary source due to its direct access to information and personal accounts.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -42,39 +67,34 @@
     ],
     "secondary": [
       {
-        "title": "Saladin: The Sultan Who Forged an Empire",
-        "author": "John Man",
-        "year": 2015,
-        "rationale": "A comprehensive and well-regarded biography of Saladin, drawing on extensive research and providing modern scholarly analysis.",
+        "title": "Saladin: The Politics of the Holy War",
+        "author": "Christopher Tyerman",
+        "year": 1998,
+        "rationale": "A comprehensive academic study of Saladin's political and military career, focusing on the context of the Crusades and the concept of 'holy war'. Tyerman is a respected historian of the Crusades.",
         "sourceType": "book"
       },
       {
         "title": "The Crusades: The Authoritative History of the War for the Holy Land",
         "author": "Thomas Asbridge",
         "year": 2010,
-        "rationale": "While covering the broader Crusades, this book offers significant and scholarly analysis of Saladin's role and impact within the context of the period.",
+        "rationale": "While covering the broader Crusades, this book provides significant analysis of Saladin's role and impact. Asbridge is a leading scholar in the field.",
         "sourceType": "book"
       },
       {
         "title": "Saladin and the Fall of Jerusalem",
         "author": "Charles Frazee",
         "year": 1987,
-        "rationale": "A scholarly examination of Saladin's life and military campaigns, focusing on his pivotal role in the recapture of Jerusalem.",
+        "rationale": "This book offers a detailed account of Saladin's life and achievements, particularly his conquest of Jerusalem. Frazee was a historian specializing in medieval history.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Saladin are scarce and often exist only in fragmented collections or translations within larger historical works. The biography by Baha al-Din ibn Shaddad is the closest contemporary account that functions as a primary source for understanding Saladin's life and actions."
+    "notes": "Direct primary sources authored by Saladin (letters, speeches) are scarce and often exist only within larger historical chronicles or collections, making them difficult to isolate as standalone works for digital archives. The biography by Baha ad-Din ibn Shaddad is the closest contemporary account."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "The Life of Saladin",
       "reason": "No resolver results from corpus APIs"
-    },
-    {
-      "role": "secondary",
-      "title": "Saladin: The Sultan Who Forged an Empire",
-      "reason": "Best score below threshold (0.39 < 0.72)"
     },
     {
       "role": "secondary",
@@ -94,16 +114,39 @@
       "access_url": "https://openalex.org/W633120606",
       "snippet": null,
       "confidence": 0.88,
-      "why": "Secondary source resolved from suggestion \"Saladin and the Fall of Jerusalem\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Saladin and the Fall of Jerusalem\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Saladin and the Fall of Jerusalem",
         "suggestion_author": "Charles Frazee",
         "suggestion_year": 1987,
-        "suggestion_rationale": "A scholarly examination of Saladin's life and military campaigns, focusing on his pivotal role in the recapture of Jerusalem.",
+        "suggestion_rationale": "This book offers a detailed account of Saladin's life and achievements, particularly his conquest of Jerusalem. Frazee was a historian specializing in medieval history.",
         "openalex_id": "https://openalex.org/W633120606",
         "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Saladin: The Politics of the Holy War.",
+      "author": "Paul E. Chevedden",
+      "publication_year": 1997,
+      "source_url": "https://doi.org/10.2307/2954042",
+      "access_url": "https://doi.org/10.2307/2954042",
+      "snippet": "The Journal of Military History",
+      "confidence": 0.874,
+      "why": "Secondary source resolved from suggestion \"Saladin: The Politics of the Holy War\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Saladin: The Politics of the Holy War",
+        "suggestion_author": "Christopher Tyerman",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "A comprehensive academic study of Saladin's political and military career, focusing on the context of the Crusades and the concept of 'holy war'. Tyerman is a respected historian of the Crusades.",
+        "openalex_id": "https://openalex.org/W2503167080",
+        "work_type": "article"
       }
     }
   ]

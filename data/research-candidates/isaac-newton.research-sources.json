@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:27.792Z",
+  "generatedAt": "2026-02-10T00:11:31.779Z",
   "figureId": "isaac-newton",
   "figureName": "Isaac Newton",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 5,
+      "byRole": {
+        "primary": 2,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "openlibrary": 2
+      },
+      "yearSpan": {
+        "min": 1687,
+        "max": 2016
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 583,
-      "totalTokenCount": 871,
+      "candidatesTokenCount": 572,
+      "totalTokenCount": 860,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -44,7 +72,7 @@
         "title": "Opticks",
         "author": "Isaac Newton",
         "year": 1704,
-        "rationale": "A comprehensive treatise on light and color, detailing Newton's experiments and theories on optics. It includes his corpuscular theory of light.",
+        "rationale": "A major work detailing Newton's experiments and theories on light and color, including his development of the reflecting telescope.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -55,7 +83,7 @@
         "title": "The Chronology of Ancient Kingdoms Amended",
         "author": "Isaac Newton",
         "year": 1728,
-        "rationale": "A posthumously published work where Newton applies his mathematical and historical methods to establish a chronology of ancient empires.",
+        "rationale": "Published posthumously, this work reflects Newton's extensive studies in history and chronology, applying mathematical principles to historical timelines.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,39 +91,34 @@
     ],
     "secondary": [
       {
+        "title": "Principia: The Mathematical Principles of Natural Philosophy",
+        "author": "Isaac Newton",
+        "year": 1999,
+        "rationale": "A modern translation and scholarly analysis of Newton's Principia Mathematica, providing context and interpretation for his groundbreaking work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Newton",
+        "author": "Isaac Newton",
+        "year": 2002,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Newton's life, work, and influence, offering a comprehensive overview.",
+        "sourceType": "book"
+      },
+      {
         "title": "Isaac Newton",
         "author": "James Gleick",
         "year": 2003,
-        "rationale": "A highly regarded biography that explores Newton's life, work, and intellectual legacy, written by a Pulitzer Prize-winning author.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Principia: Mathematical Principles of Natural Philosophy",
-        "author": "Isaac Newton",
-        "year": 1999,
-        "rationale": "A modern translation and scholarly analysis of Newton's Principia Mathematica, providing essential context and interpretation for understanding the work.",
-        "sourceType": "book"
-      },
-      {
-        "title": "Newton's Gift: How Sir Isaac Newton Forged the World We Live In",
-        "author": "James Gleick",
-        "year": 2016,
-        "rationale": "This book focuses on Newton's influence and the lasting impact of his scientific discoveries on modern society and scientific thought.",
+        "rationale": "A highly regarded biography that explores Newton's scientific achievements, personal life, and intellectual context, written for a broad audience but based on scholarly research.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are foundational texts by Newton. Secondary sources are recent, well-regarded scholarly biographies and analyses of his work."
+    "notes": "Primary sources are foundational texts. Secondary sources provide scholarly analysis and biographical context from reputable authors and publishers."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "The Chronology of Ancient Kingdoms Amended",
       "reason": "No resolver results from corpus APIs"
-    },
-    {
-      "role": "secondary",
-      "title": "Newton's Gift: How Sir Isaac Newton Forged the World We Live In",
-      "reason": "Best score below threshold (0.37 < 0.72)"
     }
   ],
   "candidates": [
@@ -105,19 +128,19 @@
       "source_kind": "text",
       "title": "Philosophiæ naturalis principia mathematica",
       "author": "Isaac Newton",
-      "publication_year": 1686,
-      "source_url": "https://archive.org/details/principiamathematica_202208",
-      "access_url": "https://archive.org/details/principiamathematica_202208",
+      "publication_year": 1687,
+      "source_url": "https://archive.org/details/philosophinatur03newtgoog",
+      "access_url": "https://archive.org/details/philosophinatur03newtgoog",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Philosophiæ Naturalis Principia Mathematica\". Matched primary suggestion by title=1.00, author=1.00, year=0.98; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Philosophiæ Naturalis Principia Mathematica\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Philosophiæ Naturalis Principia Mathematica",
         "suggestion_author": "Isaac Newton",
         "suggestion_year": 1687,
         "suggestion_rationale": "Newton's seminal work laying out the laws of motion and universal gravitation. It is a foundational text in physics and mathematics.",
-        "ia_identifier": "principiamathematica_202208"
+        "ia_identifier": "philosophinatur03newtgoog"
       }
     },
     {
@@ -131,14 +154,37 @@
       "access_url": "https://archive.org/details/opticks0000siri",
       "snippet": null,
       "confidence": 0.837,
-      "why": "Primary source resolved from suggestion \"Opticks\". Matched primary suggestion by title=1.00, author=0.67, year=0.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Opticks\" (internet_archive). Matched primary suggestion by title=1.00, author=0.67, year=0.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Opticks",
         "suggestion_author": "Isaac Newton",
         "suggestion_year": 1704,
-        "suggestion_rationale": "A comprehensive treatise on light and color, detailing Newton's experiments and theories on optics. It includes his corpuscular theory of light.",
+        "suggestion_rationale": "A major work detailing Newton's experiments and theories on light and color, including his development of the reflecting telescope.",
         "ia_identifier": "opticks0000siri"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Newton",
+      "author": "I. Bernard Cohen",
+      "publication_year": 2002,
+      "source_url": "https://doi.org/10.1017/ccol0521651778",
+      "access_url": "https://doi.org/10.1017/ccol0521651778",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Newton\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Newton",
+        "suggestion_author": "Isaac Newton",
+        "suggestion_year": 2002,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Newton's life, work, and influence, offering a comprehensive overview.",
+        "openalex_id": "https://openalex.org/W1532275399",
+        "work_type": "book"
       }
     },
     {
@@ -152,14 +198,14 @@
       "access_url": "https://openlibrary.org/works/OL15894W",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Isaac Newton\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Isaac Newton\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Isaac Newton",
         "suggestion_author": "James Gleick",
         "suggestion_year": 2003,
-        "suggestion_rationale": "A highly regarded biography that explores Newton's life, work, and intellectual legacy, written by a Pulitzer Prize-winning author.",
+        "suggestion_rationale": "A highly regarded biography that explores Newton's scientific achievements, personal life, and intellectual context, written for a broad audience but based on scholarly research.",
         "edition_count": 9
       }
     },
@@ -173,15 +219,15 @@
       "source_url": "https://openlibrary.org/works/OL40433284W",
       "access_url": "https://openlibrary.org/works/OL40433284W",
       "snippet": null,
-      "confidence": 0.855,
-      "why": "Secondary source resolved from suggestion \"The Principia: Mathematical Principles of Natural Philosophy\". Matched secondary suggestion by title=0.88, author=1.00, year=0.43; Surname + aboutness term present in title",
+      "confidence": 0.934,
+      "why": "Secondary source resolved from suggestion \"Principia: The Mathematical Principles of Natural Philosophy\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.43; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "The Principia: Mathematical Principles of Natural Philosophy",
+        "suggestion_title": "Principia: The Mathematical Principles of Natural Philosophy",
         "suggestion_author": "Isaac Newton",
         "suggestion_year": 1999,
-        "suggestion_rationale": "A modern translation and scholarly analysis of Newton's Principia Mathematica, providing essential context and interpretation for understanding the work.",
+        "suggestion_rationale": "A modern translation and scholarly analysis of Newton's Principia Mathematica, providing context and interpretation for his groundbreaking work.",
         "edition_count": 1
       }
     }

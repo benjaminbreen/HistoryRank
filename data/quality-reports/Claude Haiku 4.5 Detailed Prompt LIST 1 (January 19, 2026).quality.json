@@ -1,8 +1,8 @@
 {
   "file": "Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt",
   "model": "Claude Haiku 4.5 Detailed Prompt",
-  "timestamp": "2026-02-05T18:16:01.403Z",
-  "verdict": "FAIL",
+  "timestamp": "2026-02-10T18:22:17.405Z",
+  "verdict": "WARN",
   "scores": {
     "repetition": {
       "exact": 26,
@@ -705,8 +705,8 @@
       "entries": 500,
       "validJson": true,
       "sequentialRanks": true,
-      "status": "FAIL",
-      "details": "500 entries (expected 1000)"
+      "status": "PASS",
+      "details": "OK"
     },
     "anchor_coverage": {
       "found": 31,
@@ -1668,5 +1668,5 @@
     "contributionShortRate": 0.002,
     "score": 90.53999999999999
   },
-  "summary": "Issues: 26 exact duplicates; pattern collapse (max 75); 500 entries (expected 1000); 10 missing anchors"
+  "summary": "Issues: 26 exact duplicates; pattern collapse (max 75); 10 missing anchors"
 }

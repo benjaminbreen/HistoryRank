@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.541Z",
+  "figureId": "jeremy-bentham",
+  "figureName": "Jeremy Bentham",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Bentham, Jeremy",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FBentham%2C_Jeremy",
+      "snippet": "Bentham’s family connexions would naturally have given him a fair start at the bar, but this was not the career for which he was preparing himself. He spent his time in making chemical experiments and in speculating upon legal abuses, rather than in reading Coke upon Littleton and the Reports. On being called to the bar he “found a cause or two at nurse for him, which he did his best to put to death,” to the bitter disappointment of his father, who had confidently looked forward to seeing him upon the woolsack. The first fruits of Bentham’s studies, the Fragment on Government , appeared in 1776.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2026,
+      "source_title": "Bentham, Jeremy",
+      "source_url": "https://plato.stanford.edu/entries/bentham/",
+      "snippet": "Jeremy Bentham, jurist and political reformer, is the philosopher whose name is most closely associated with the foundational era of the modern utilitarian tradition. Earlier moralists had enunciated several of the core ideas and characteristic terminology of utilitarian philosophy, most notably John Gay, Francis Hutcheson, David Hume, Claude-Adrien Helv&eacute;tius and Cesare Beccaria, but it was Bentham who rendered the theory in its recognisably secular and systematic form and made it a critical tool of moral and legal philosophy and political and social improvement. In 1776, he first announced himself to the world as a proponent of utility as the guiding principle of conduct and law in A Fragment on Government . In An Introduction to the Principles of Morals and Legislation (printed 1780, published with additions 1789), as a preliminary to developing a theory of penal law he detailed the basic elements of classical utilitarian theory. The penal code was to be the first in a collection of codes that would constitute the utilitarian pannomion , a complete body of law based on the utility principle, the development of which was to engage Bentham in a lifetime's work and was to include civil, procedural, and constitutional law. As a by-product, and in the interstices between the sub-codes of this vast legislative edifice, Bentham's writings ranged across ethics, ontology, logic, political economy, judicial administration, poor law reform, prison reform, punishment, policing, international law, education, religious beliefs and institutions, democratic theory, government, and administration. In all these areas he made major contributions that continue to feature in discussions of utilitarianism, notably its moral, legal, economic and political forms. Upon this rests Bentham's reputation as one of the great thinkers in modern philosophy.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

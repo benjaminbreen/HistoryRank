@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:39:38.062Z",
+  "generatedAt": "2026-02-10T00:11:24.835Z",
   "figureId": "charlemagne",
   "figureName": "Charlemagne",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 2024,
+        "max": 2024
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 571,
-      "totalTokenCount": 859,
+      "candidatesTokenCount": 586,
+      "totalTokenCount": 874,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +59,16 @@
         "title": "The Capitularies of Charlemagne",
         "author": "Charlemagne",
         "year": 800,
-        "rationale": "Official decrees and laws issued by Charlemagne, providing direct insight into his administration and policies.",
+        "rationale": "Official decrees and laws issued by Charlemagne, providing direct insight into his governance and policies.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
         "title": "The Royal Frankish Annals (Annales regni Francorum)",
-        "author": "Various (contemporary chroniclers, often associated with the court)",
+        "author": "Various (contemporary chroniclers, often associated with the Carolingian court)",
         "year": 800,
-        "rationale": "Chronicles detailing events during Charlemagne's reign, offering contemporary perspectives on his actions and the political landscape.",
+        "rationale": "Chronicles detailing events during Charlemagne's reign, offering contemporary perspectives on his actions and achievements. While not solely authored by him, they are primary accounts of his era.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +77,7 @@
         "title": "Letters of Charlemagne",
         "author": "Charlemagne",
         "year": 790,
-        "rationale": "Personal and official correspondence that can reveal his thoughts, relationships, and diplomatic activities.",
+        "rationale": "Personal and official correspondence that can reveal his thoughts, relationships, and administrative concerns.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -61,27 +86,27 @@
     "secondary": [
       {
         "title": "Charlemagne: Father of Europe",
-        "author": "Russell, Paul",
-        "year": 2009,
-        "rationale": "A comprehensive scholarly biography offering an updated assessment of Charlemagne's life, reign, and legacy.",
+        "author": "David Levering Lewis",
+        "year": 2011,
+        "rationale": "A comprehensive and well-regarded biography that analyzes Charlemagne's impact on European history, politics, and culture.",
         "sourceType": "book"
       },
       {
         "title": "The Carolingian Renaissance: Image and Symbol",
-        "author": "Gabor, Anna",
-        "year": 2008,
-        "rationale": "Examines the cultural and intellectual revival under Charlemagne, a key aspect of his impact.",
+        "author": "Paul Dutton",
+        "year": 1999,
+        "rationale": "Examines the cultural and intellectual revival associated with Charlemagne's reign, focusing on art, literature, and education.",
         "sourceType": "book"
       },
       {
-        "title": "Charlemagne's Early Middle Ages: The Making of Europe",
-        "author": "Nelson, Janet L.",
-        "year": 2019,
-        "rationale": "A recent scholarly work by a leading historian, providing a detailed analysis of Charlemagne's reign and its significance for European history.",
+        "title": "Charlemagne: The Formation of Europe",
+        "author": "Richard Hodges",
+        "year": 1999,
+        "rationale": "A scholarly assessment of Charlemagne's reign and its lasting influence on the political and social landscape of early medieval Europe.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source texts are often found in collections of medieval documents or chronicles. Direct translations and scholarly editions are most likely to be found on Internet Archive. Secondary sources are selected for their recency and academic rigor."
+    "notes": "Primary sources attributed to Charlemagne are often collections of his decrees (capitularies) or letters. Contemporary annals provide crucial historical context. Secondary sources focus on modern scholarly interpretations of his reign and legacy."
   },
   "unresolved": [
     {
@@ -102,12 +127,12 @@
     {
       "role": "secondary",
       "title": "The Carolingian Renaissance: Image and Symbol",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.31"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.26"
     },
     {
       "role": "secondary",
-      "title": "Charlemagne's Early Middle Ages: The Making of Europe",
-      "reason": "Best score below threshold (0.64 < 0.72)"
+      "title": "Charlemagne: The Formation of Europe",
+      "reason": "Best score below threshold (0.55 < 0.72)"
     }
   ],
   "candidates": [
@@ -121,15 +146,15 @@
       "source_url": "https://doi.org/10.4324/9781003554417-17",
       "access_url": "https://doi.org/10.4324/9781003554417-17",
       "snippet": "Courts, Elites, and Gendered Power in the Early Middle Ages",
-      "confidence": 0.805,
-      "why": "Secondary source resolved from suggestion \"Charlemagne: Father of Europe\". Matched secondary suggestion by title=1.00, author=0.00, year=0.50; Figure full name present in title",
+      "confidence": 0.816,
+      "why": "Secondary source resolved from suggestion \"Charlemagne: Father of Europe\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.57; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Charlemagne: Father of Europe",
-        "suggestion_author": "Russell, Paul",
-        "suggestion_year": 2009,
-        "suggestion_rationale": "A comprehensive scholarly biography offering an updated assessment of Charlemagne's life, reign, and legacy.",
+        "suggestion_author": "David Levering Lewis",
+        "suggestion_year": 2011,
+        "suggestion_rationale": "A comprehensive and well-regarded biography that analyzes Charlemagne's impact on European history, politics, and culture.",
         "doi": "10.4324/9781003554417-17",
         "crossref_type": "book-chapter"
       }

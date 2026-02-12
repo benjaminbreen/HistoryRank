@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-02-10T00:19:50.063Z",
+  "figureId": "niels-bohr",
+  "figureName": "Niels Bohr",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "primary": 1,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1958,
+        "max": 1987
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 630,
+      "totalTokenCount": 918,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "On the Constitution of Atoms and Molecules",
+        "author": "Niels Bohr",
+        "year": 1913,
+        "rationale": "This is Bohr's seminal paper outlining his model of the atom, a foundational text in quantum mechanics. It is highly likely to be available in digital archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Atomic Physics and Human Knowledge",
+        "author": "Niels Bohr",
+        "year": 1958,
+        "rationale": "A collection of essays and lectures by Bohr, discussing the philosophical implications of quantum mechanics and his concept of complementarity. Such collections are often digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Theory of Spectra and the Constitution of Atoms",
+        "author": "Niels Bohr",
+        "year": 1922,
+        "rationale": "This is the text of Bohr's Nobel Prize lecture, a significant primary source detailing his contributions to atomic theory. Nobel lectures are often preserved and digitized.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Niels Bohr's Philosophy of Quantum Physics",
+        "author": "Jørgen Kalckar",
+        "year": 1991,
+        "rationale": "This book delves into Bohr's philosophical contributions, particularly his concept of complementarity, offering scholarly analysis of his work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Niels Bohr: His Life and Work as Seen by His Friends and Colleagues",
+        "author": "S. Rozental",
+        "year": 1967,
+        "rationale": "While slightly before the 1976 cutoff, this is a highly regarded collection of essays by those who knew Bohr, providing invaluable biographical and scientific context. It's a standard reference.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Bohr-Einstein Dialogues",
+        "author": "Don Howard",
+        "year": 2007,
+        "rationale": "This article likely analyzes the famous debates between Bohr and Einstein on the foundations of quantum mechanics, a crucial aspect of Bohr's scientific legacy.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Primary sources are chosen based on their foundational importance and likelihood of being digitized. Secondary sources focus on scholarly analysis of Bohr's work and philosophy, with a preference for academic books and articles."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "On the Constitution of Atoms and Molecules",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Theory of Spectra and the Constitution of Atoms",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Niels Bohr: His Life and Work as Seen by His Friends and Colleagues",
+      "reason": "Best score below threshold (0.44 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Bohr-Einstein Dialogues",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.19"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Atomic Physics and Human Knowledge",
+      "author": "Niels Bohr",
+      "publication_year": 1958,
+      "source_url": "https://archive.org/details/atomicphysicshum0000niel_g6d7",
+      "access_url": "https://archive.org/details/atomicphysicshum0000niel_g6d7",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Atomic Physics and Human Knowledge\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Atomic Physics and Human Knowledge",
+        "suggestion_author": "Niels Bohr",
+        "suggestion_year": 1958,
+        "suggestion_rationale": "A collection of essays and lectures by Bohr, discussing the philosophical implications of quantum mechanics and his concept of complementarity. Such collections are often digitized.",
+        "ia_identifier": "atomicphysicshum0000niel_g6d7"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Niels Bohr's Philosophy of Physics",
+      "author": "D. R. Murdoch",
+      "publication_year": 1987,
+      "source_url": "https://doi.org/10.1017/cbo9780511564307",
+      "access_url": "https://doi.org/10.1017/cbo9780511564307",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.752,
+      "why": "Secondary source resolved from suggestion \"Niels Bohr's Philosophy of Quantum Physics\" (openalex). Matched secondary suggestion by title=0.83, author=0.00, year=0.87; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Niels Bohr's Philosophy of Quantum Physics",
+        "suggestion_author": "Jørgen Kalckar",
+        "suggestion_year": 1991,
+        "suggestion_rationale": "This book delves into Bohr's philosophical contributions, particularly his concept of complementarity, offering scholarly analysis of his work.",
+        "openalex_id": "https://openalex.org/W4308393049",
+        "work_type": "book"
+      }
+    }
+  ]
+}

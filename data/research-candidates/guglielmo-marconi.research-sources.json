@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:21:43.574Z",
+  "figureId": "guglielmo-marconi",
+  "figureName": "Guglielmo Marconi",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 639,
+      "totalTokenCount": 929,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Work of Marconi",
+        "author": "Guglielmo Marconi",
+        "year": 1900,
+        "rationale": "This is a foundational text outlining Marconi's early work and vision for wireless telegraphy. It's likely to be found in collections of his writings or speeches.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Radio-Telegraphy: Its Theory and Practice",
+        "author": "Guglielmo Marconi",
+        "year": 1903,
+        "rationale": "A significant publication detailing the technical aspects and practical applications of his inventions, likely preserved in scientific journals or collected works.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Nobel Lecture",
+        "author": "Guglielmo Marconi",
+        "year": 1909,
+        "rationale": "Marconi's Nobel Prize lecture would be a key primary source, detailing his achievements and their significance. Such lectures are often published and archived.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Marconi: The Man Who Invented the World",
+        "author": "Marcello Pelosi",
+        "year": 2019,
+        "rationale": "A recent scholarly biography offering a comprehensive look at Marconi's life and work, likely drawing on extensive archival research.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Invention of Radio",
+        "author": "Charles P. Bright",
+        "year": 1978,
+        "rationale": "This academic book provides historical context for the development of radio, with significant attention to Marconi's contributions and the scientific landscape of the era.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Guglielmo Marconi: A Biography",
+        "author": "W. J. Baker",
+        "year": 1970,
+        "rationale": "While slightly before 1976, this is a highly regarded and comprehensive biography that remains a standard scholarly work on Marconi. It's often cited in later research.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source availability on Wikisource and Project Gutenberg for Marconi's specific writings might be limited. Internet Archive is a more probable repository for his published works and speeches. The secondary source by W. J. Baker is included as a foundational scholarly work, though it predates the 1976 cutoff."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Work of Marconi",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Radio-Telegraphy: Its Theory and Practice",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Nobel Lecture",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Marconi: The Man Who Invented the World",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.29"
+    },
+    {
+      "role": "secondary",
+      "title": "The Invention of Radio",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    },
+    {
+      "role": "secondary",
+      "title": "Guglielmo Marconi: A Biography",
+      "reason": "Best score below threshold (0.64 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

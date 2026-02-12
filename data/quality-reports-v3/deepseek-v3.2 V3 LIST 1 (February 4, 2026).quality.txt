@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: deepseek-v3.2 V3 LIST 1 (February 4, 2026).txt
+Model: deepseek-v3.2 V3
+Timestamp: 2026-02-10T23:47:20.721Z
+
+VERDICT: FAIL
+
+Summary: Issues: 252 exact duplicates; pattern collapse (max 25)
+
+Scores:
+  Repetition: FAIL - 252 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 25 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
+
+Issues (42):
+  - Exact duplicate: "mao zedong" at ranks 19, 112
+  - Exact duplicate: "benjamin netanyahu" at ranks 212, 215
+  - Exact duplicate: "king salman of saudi arabia" at ranks 237, 251, 265, 279, 293, 307, 321, 335, 349, 363, 377, 391, 405, 419, 433, 447, 461, 475, 489
+  - Exact duplicate: "mohammed bin salman" at ranks 238, 252, 266, 280, 294, 308, 322, 336, 350, 364, 378, 392, 406, 420, 434, 448, 462, 476, 490
+  - Exact duplicate: "sheikh zayed bin sultan al nahyan" at ranks 239, 253, 267, 281, 295, 309, 323, 337, 351, 365, 379, 393, 407, 421, 435, 449, 463, 477, 491
+  - Exact duplicate: "sheikh khalifa bin zayed al nahyan" at ranks 240, 254, 268, 282, 296, 310, 324, 338, 352, 366, 380, 394, 408, 422, 436, 450, 464, 478, 492
+  - Exact duplicate: "sheikh mohammed bin rashid al maktoum" at ranks 241, 255, 269, 283, 297, 311, 325, 339, 353, 367, 381, 395, 409, 423, 437, 451, 465, 479, 493
+  - Exact duplicate: "sheikh mohamed bin zayed al nahyan" at ranks 242, 256, 270, 284, 298, 312, 326, 340, 354, 368, 382, 396, 410, 424, 438, 452, 466, 480, 494
+  - Exact duplicate: "emir sabah alahmad aljaber alsabah" at ranks 243, 257, 271, 285, 299, 313, 327, 341, 355, 369, 383, 397, 411, 425, 439, 453, 467, 481, 495
+  - Exact duplicate: "emir nawaf alahmad aljaber alsabah" at ranks 244, 258, 272, 286, 300, 314, 328, 342, 356, 370, 384, 398, 412, 426, 440, 454, 468, 482, 496
+  ... and 32 more issues
+
+Diversity Estimates:
+  Regions: Europe: 47, Asia: 4, Middle East: 109, Africa: 1, Americas: 3, Unknown: 336
+  Domains: Politics/Leadership: 275, Science/Technology: 3, Philosophy/Religion: 19, Arts/Literature: 14, Military: 3, Other: 186
+
+Advanced Metrics:
+  Advanced score: 99.7
+  Parenthetical names: 0.4%
+  Multi-person names: 0.0%
+  Comma names: 0.4%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

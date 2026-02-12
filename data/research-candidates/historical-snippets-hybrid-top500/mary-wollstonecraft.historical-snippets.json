@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.482Z",
+  "figureId": "mary-wollstonecraft",
+  "figureName": "Mary Wollstonecraft",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Wollstonecraft, Mary",
+      "source_url": "https://plato.stanford.edu/entries/wollstonecraft/",
+      "snippet": "Mary Wollstonecraft (1759-1797) is a moral and political philosopher whose analysis of the condition of women in modern society retains much of its original radicalism. One of the reasons her pronouncements on the subject remain challenging is that her reflections on the status of the female sex were part of an attempt to come to a comprehensive understanding of human relations within a civilization increasingly governed by acquisitiveness and consumption. Her first publication was on the education of daughters; she went on to write about politics, history and various aspects of philosophy in a number of different genres that included critical reviews, translations, pamphlets, and novels. Best known for her Vindication of the Rights of Woman (1792), her influence went beyond the substantial contribution to feminism for which she is mostly remembered and extended to shaping the art of travel writing as a literary genre; with her account of her journey through Scandinavia as well as her writings on women and thoughts on the imagination, she had an impact on the Romantic movement.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Mary Wollstonecraft (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Mary_Wollstonecraft",
+      "snippet": "Mary Wollstonecraft was an English writer and philosopher best known for her advocacy of women's rights. Until the late twentieth century, Wollstonecraft's life, which encompassed several unconventional personal relationships, received more attention than her writing. Wollstonecraft is regarded as one of the founding feminist philosophers, and feminists often cite both her life and her works as important influences.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

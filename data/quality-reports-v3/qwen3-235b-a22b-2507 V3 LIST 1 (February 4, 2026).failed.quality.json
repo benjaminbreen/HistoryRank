@@ -1,0 +1,479 @@
+{
+  "file": "qwen3-235b-a22b-2507 V3 LIST 1 (February 4, 2026).failed.txt",
+  "model": "qwen3-235b-a22b-2507 V3",
+  "timestamp": "2026-02-10T23:12:41.981Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 132,
+      "fuzzy": 4,
+      "status": "WARN",
+      "details": "132 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "copernicus"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        57,
+        264
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        158,
+        294
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frederick ii",
+      "ranks": [
+        218,
+        232
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william howard taft",
+      "ranks": [
+        344,
+        372,
+        400,
+        428,
+        456,
+        484
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "warren g harding",
+      "ranks": [
+        345,
+        373,
+        401,
+        429,
+        457,
+        485
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "calvin coolidge",
+      "ranks": [
+        346,
+        374,
+        402,
+        430,
+        458,
+        486
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "herbert hoover",
+      "ranks": [
+        347,
+        375,
+        403,
+        431,
+        459,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin van buren",
+      "ranks": [
+        348,
+        376,
+        404,
+        432,
+        460,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james k polk",
+      "ranks": [
+        349,
+        377,
+        405,
+        433,
+        461,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andrew jackson",
+      "ranks": [
+        350,
+        378,
+        406,
+        434,
+        462,
+        490
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john quincy adams",
+      "ranks": [
+        351,
+        379,
+        407,
+        435,
+        463,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james madison",
+      "ranks": [
+        352,
+        380,
+        408,
+        436,
+        464,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander hamilton",
+      "ranks": [
+        353,
+        381,
+        409,
+        437,
+        465,
+        493
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john adams",
+      "ranks": [
+        354,
+        382,
+        410,
+        438,
+        466,
+        494
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benjamin franklin",
+      "ranks": [
+        355,
+        383,
+        411,
+        439,
+        467,
+        495
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "patrick henry",
+      "ranks": [
+        356,
+        384,
+        412,
+        440,
+        468,
+        496
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "samuel adams",
+      "ranks": [
+        357,
+        385,
+        413,
+        441,
+        469,
+        497
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas paine",
+      "ranks": [
+        358,
+        386,
+        414,
+        442,
+        470,
+        498
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james monroe",
+      "ranks": [
+        359,
+        387,
+        415,
+        443,
+        471,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "zachary taylor",
+      "ranks": [
+        360,
+        388,
+        416,
+        444,
+        472,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "millard fillmore",
+      "ranks": [
+        361,
+        389,
+        417,
+        445,
+        473
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franklin pierce",
+      "ranks": [
+        362,
+        390,
+        418,
+        446,
+        474
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james buchanan",
+      "ranks": [
+        363,
+        391,
+        419,
+        447,
+        475
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andrew johnson",
+      "ranks": [
+        364,
+        392,
+        420,
+        448,
+        476
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ulysses s grant",
+      "ranks": [
+        365,
+        393,
+        421,
+        449,
+        477
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rutherford b hayes",
+      "ranks": [
+        366,
+        394,
+        422,
+        450,
+        478
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james a garfield",
+      "ranks": [
+        367,
+        395,
+        423,
+        451,
+        479
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chester a arthur",
+      "ranks": [
+        368,
+        396,
+        424,
+        452,
+        480
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "grover cleveland",
+      "ranks": [
+        369,
+        397,
+        425,
+        453,
+        481
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benjamin harrison",
+      "ranks": [
+        370,
+        398,
+        426,
+        454,
+        482
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "william mckinley",
+      "ranks": [
+        371,
+        399,
+        427,
+        455,
+        483
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        18,
+        44
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip ii of spain",
+      "variants": [
+        "philip ii of spain",
+        "philip ii"
+      ],
+      "ranks": [
+        207,
+        221
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles v",
+      "variants": [
+        "charles v",
+        "charles vii"
+      ],
+      "ranks": [
+        220,
+        238
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i",
+      "variants": [
+        "edward i",
+        "edward iii"
+      ],
+      "ranks": [
+        234,
+        235
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 66,
+      "Asia": 13,
+      "Middle East": 24,
+      "Africa": 5,
+      "Americas": 44,
+      "Oceania": 0,
+      "Unknown": 348
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 48,
+      "Science/Technology": 8,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 19,
+      "Military": 4,
+      "Other": 412
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "Issues: 132 exact duplicates"
+}

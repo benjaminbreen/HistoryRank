@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.385Z",
+  "figureId": "jesus",
+  "figureName": "Jesus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 6,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Jesus Christ",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FJesus_Christ",
+      "snippet": "With regard to traditional sayings or doings of our Lord, which were only written down at a later period, it will suffice to say that those which have any claim to be genuine are very scanty, and that their genuineness has to be tested by their correspondence with the great bulk of information which is derived from the sources already enumerated. The fictitious literature of the second and third centuries, known as the Apocryphal Gospels, offers no direct evidence of any historical value at all:",
+      "match_score": 0.91,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2012,
+      "source_title": "Jesus in continuum",
+      "source_url": "//lccn.loc.gov/2012495083",
+      "snippet": "Based on papers presented at seminars of the Study of the Historical Jesus Research Programme, arranged during the 2006 meeting of the European Association for Biblical Studies in Budapest/Piliscsaba, and the meeting of the European Association of Biblical Studies held in Vienna in 2007. Includes bibliographical references and indexes.",
+      "match_score": 0.798,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

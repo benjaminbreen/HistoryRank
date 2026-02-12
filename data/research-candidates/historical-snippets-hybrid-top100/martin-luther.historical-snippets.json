@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.596Z",
+  "figureId": "martin-luther",
+  "figureName": "Martin Luther",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Luther, Martin",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FLuther%2C_Martin",
+      "snippet": "Young Martin went to the village school at Mansfeld; to a school at Magdeburg kept by the Brethren of the Common Lot; then to the well-known St George’s school at Eisenach. At Magdeburg and Eisenach Luther was “a poor student,” i.e. a boy who was received into a hospice where he lived rent-free, attended school without paying fees, and had the privilege of begging for his bread at the house-doors of the town; in return for which he sang as a chorister in the church to which the school was attached. Luther was never a “wandering student”;",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Luther, Martin",
+      "source_url": "https://plato.stanford.edu/entries/luther/",
+      "snippet": "Martin Luther (1483-1546) is the central figure of the Protestant Reformation. Whilst he is primarily seen as a theologian, the philosophical interest and impact of his ideas is also significant, so that he arguably deserves to be ranked as highly within philosophy as other theologians in the Christian tradition, such as Augustine or Aquinas. Nonetheless, in Luther's case this may seem more problematic, as his attitude to philosophy and indeed reason can be hostile and dismissive. On closer inspection, however, it is clear that his position is more nuanced than that, and requires contextualisation: for his objection is only to reason put to certain theological ends, while his own thought is deeply steeped in the philosophical tradition, and contributed to it. At the same time, Luther's ideas had a fundamental influence on northern European philosophers who came after him, such as Leibniz, Kant, Hegel, Schelling, Kierkegaard, Nietzsche, Feuerbach, and Heidegger, all of whom worked within a broadly Lutheran context, and against the background of central Lutheran assumptions, often inculcated in them through their upbringing and education. [ 1 ] Several key issues in Luther's work make him of interest to philosophers and not just theologians or Reformation historians, and will be covered in this entry: his conception of the relation between theology and philosophy, and the place of reason in that relation; his negative conception of Aristotle and the Aristotelian tradition, and his relation to the nominalist alternative; his conception of divine and human freedom; and his conception of ethics and of social and political life. Luther's influence on subsequent philosophers in the Lutheran tradition is considered in more detail in the separate entry on Luther's influence on philosophy .",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "file": "claude-sonnet-4.5 V2 LIST 3 (February 4, 2026).txt",
+  "model": "claude-sonnet-4.5 V2",
+  "timestamp": "2026-02-10T23:47:02.416Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 29,
+      "fuzzy": 6,
+      "status": "PASS",
+      "details": "29 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "lincoln",
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "louis pasteur",
+      "ranks": [
+        27,
+        393
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nicolaus copernicus",
+      "ranks": [
+        33,
+        257,
+        398
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john locke",
+      "ranks": [
+        41,
+        212,
+        336
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "nikola tesla",
+      "ranks": [
+        56,
+        482
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "werner heisenberg",
+      "ranks": [
+        79,
+        434
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        80,
+        421
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cyrus the great",
+      "ranks": [
+        85,
+        289
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        89,
+        467
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hippocrates",
+      "ranks": [
+        90,
+        339
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernn corts",
+      "ranks": [
+        119,
+        147
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hernando de soto",
+      "ranks": [
+        128,
+        170
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin ibn ayyub",
+      "ranks": [
+        140,
+        462
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maimonides",
+      "ranks": [
+        142,
+        498
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sitting bull",
+      "ranks": [
+        145,
+        344
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "herodotus",
+      "ranks": [
+        153,
+        474
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tokugawa ieyasu",
+      "ranks": [
+        154,
+        256
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hatshepsut",
+      "ranks": [
+        159,
+        184,
+        311,
+        466
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "theodor herzl",
+      "ranks": [
+        164,
+        347
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andreas vesalius",
+      "ranks": [
+        181,
+        232
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "simn bolvar",
+      "ranks": [
+        193,
+        477
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mile durkheim",
+      "ranks": [
+        197,
+        496
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jonas salk",
+      "ranks": [
+        214,
+        464
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "giordano bruno",
+      "ranks": [
+        216,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "diocletian",
+      "ranks": [
+        282,
+        404
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john brown",
+      "ranks": [
+        392,
+        417
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        73
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gregor mendel",
+      "variants": [
+        "gregor mendel",
+        "gregory mendel"
+      ],
+      "ranks": [
+        54,
+        192
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "samuel morse",
+      "variants": [
+        "samuel morse",
+        "samuel fb morse"
+      ],
+      "ranks": [
+        136,
+        287
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert oppenheimer",
+      "variants": [
+        "robert oppenheimer",
+        "j robert oppenheimer"
+      ],
+      "ranks": [
+        139,
+        494
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        185,
+        359
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo iii",
+      "variants": [
+        "pope leo iii",
+        "pope innocent iii"
+      ],
+      "ranks": [
+        252,
+        300
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 85,
+      "Asia": 22,
+      "Middle East": 26,
+      "Africa": 13,
+      "Americas": 30,
+      "Oceania": 0,
+      "Unknown": 324
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 27,
+      "Science/Technology": 6,
+      "Philosophy/Religion": 21,
+      "Arts/Literature": 23,
+      "Military": 8,
+      "Other": 415
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.9
+  },
+  "summary": "List passes all quality checks"
+}

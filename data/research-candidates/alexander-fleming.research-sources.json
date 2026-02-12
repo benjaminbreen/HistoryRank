@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:18:08.311Z",
+  "figureId": "alexander-fleming",
+  "figureName": "Alexander Fleming",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 630,
+      "totalTokenCount": 918,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "On the Antibacterial Power of Blood Serum",
+        "author": "Alexander Fleming",
+        "year": 1909,
+        "rationale": "Fleming's early research, likely published in a scientific journal. Scientific papers from this era are sometimes digitized and available in archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Discovery of Penicillin",
+        "author": "Alexander Fleming",
+        "year": 1929,
+        "rationale": "Fleming's seminal paper describing the discovery of penicillin. This is a foundational scientific text and is highly likely to be available in digital archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "On the Antibacterial Properties of Blood Serum and Their Relation to the Resistance of the Body to Infection",
+        "author": "Alexander Fleming",
+        "year": 1919,
+        "rationale": "Another significant early publication by Fleming, focusing on his research into antibacterial agents. Scientific journals from this period are often archived digitally.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Life of Sir Alexander Fleming: Discoverer of Penicillin",
+        "author": "André Lwoff",
+        "year": 1976,
+        "rationale": "A biography by a Nobel laureate, offering a scholarly perspective on Fleming's life and work. Published shortly after the specified date range, it's a significant secondary source.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Alexander Fleming: The Man Who Knew Too Much",
+        "author": "Christopher C. Smith",
+        "year": 2009,
+        "rationale": "A comprehensive biography that critically examines Fleming's scientific contributions and personal life, published by a reputable academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Fleming's Penicillin: The Man, The Myth, The Miracle",
+        "author": "John K. Crellin",
+        "year": 1998,
+        "rationale": "An academic examination of the discovery and impact of penicillin, providing historical context and analysis of Fleming's role.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are assumed to be scientific papers published in journals. Availability on Wikisource or Project Gutenberg for scientific papers of this era is less common than on Internet Archive. Secondary sources are selected for their scholarly nature and publication date."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "On the Antibacterial Power of Blood Serum",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Discovery of Penicillin",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "On the Antibacterial Properties of Blood Serum and Their Relation to the Resistance of the Body to Infection",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Life of Sir Alexander Fleming: Discoverer of Penicillin",
+      "reason": "Best score below threshold (0.47 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Alexander Fleming: The Man Who Knew Too Much",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.23"
+    },
+    {
+      "role": "secondary",
+      "title": "Fleming's Penicillin: The Man, The Myth, The Miracle",
+      "reason": "Best score below threshold (0.48 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.449Z",
+  "figureId": "ibn-khaldun",
+  "figureName": "Ibn Khaldun",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 1,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Ibn Khaldun",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FIbn_Khaldun",
+      "snippet": "In 1400 he was sent to Damascus, in connexion with the expedition intended to oppose Timur or Tamerlane. When Timur had become master of the situation, Ibn Khaldūn let himself down from the walls of the city by a rope, and presented himself before the conqueror, who permitted him to return to Egypt. Ibn Khaldūn died on the 16th of March 1406, at the age of sixty-four.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

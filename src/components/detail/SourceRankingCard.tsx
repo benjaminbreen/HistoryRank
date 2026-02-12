@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { SOURCE_LABELS, MODEL_ICONS } from '@/types';
 
@@ -16,6 +16,12 @@ export function SourceRankingCard({ source, avgRank, sampleCount, contributions 
   const [isAnimating, setIsAnimating] = useState(false);
 
   const hasMultiple = contributions.length > 1;
+  const contributionKey = useMemo(() => contributions.join('\u0001'), [contributions]);
+
+  useEffect(() => {
+    setActiveIndex(0);
+    setIsAnimating(false);
+  }, [source, contributionKey]);
 
   const cycleNext = useCallback(() => {
     if (!hasMultiple || isAnimating) return;

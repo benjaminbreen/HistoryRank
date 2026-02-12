@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.392Z",
+  "figureId": "plato",
+  "figureName": "Plato",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 5,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Plato",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FPlato",
+      "snippet": "The later years of the Peloponnesian War witnessed much mental disturbance and restlessness at Athens. More than at any time since the age of Cleisthenes, the city was divided, and a man’s foes were often men of his own tribe or deme. Contention in the law courts and rivalries in the assembly had for many men a more Antecedent Conditions. absorbing interest than questions of peace and war. Hereditary traditions had relaxed their hold, and political principles were not yet formulated.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2022,
+      "source_title": "Plato",
+      "source_url": "https://plato.stanford.edu/entries/plato/",
+      "snippet": "Plato (429?-347 B.C.E.) is, by any reckoning, one of the most dazzling writers in the Western literary tradition and one of the most penetrating, wide-ranging, and influential authors in the history of philosophy. An Athenian citizen of high status, he displays in his works his absorption in the political events and intellectual movements of his time, but the questions he raises are so profound and the strategies he uses for tackling them so richly suggestive and provocative that educated readers of nearly every period have in some way been influenced by him, and in practically every age there have been philosophers who count themselves Platonists in some important respects. He was not the first thinker or writer to whom the word \"philosopher\" should be applied. But he was so self-conscious about how philosophy should be conceived, and what its scope and ambitions properly are, and he so transformed the intellectual currents with which he grappled, that the subject of philosophy, as it is often conceived—a rigorous and systematic examination of ethical, political, metaphysical, and epistemological issues, armed with a distinctive method—can be called his invention. Few other authors in the history of Western philosophy approximate him in depth and range: perhaps only Aristotle (who studied with him), Aquinas, and Kant would be generally agreed to be of the same rank.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

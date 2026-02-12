@@ -1,0 +1,35 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.6 LIST 4 (February 10, 2026).txt
+Model: Claude Opus 4.6
+Timestamp: 2026-02-10T23:44:00.434Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 5 fuzzy duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (5):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 17, 68
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 195, 370
+  - Fuzzy duplicate: aung san / aung san suu kyi at ranks 358, 827
+  - Fuzzy duplicate: pope leo i / pope gregory i at ranks 705, 706
+  - Fuzzy duplicate: robert schuman / robert schumann at ranks 768, 918
+
+Diversity Estimates:
+  Regions: Europe: 174, Asia: 72, Middle East: 57, Africa: 21, Americas: 56, Unknown: 620
+  Domains: Politics/Leadership: 91, Science/Technology: 24, Philosophy/Religion: 54, Arts/Literature: 76, Military: 44, Other: 711
+
+Advanced Metrics:
+  Advanced score: 99.9
+  Parenthetical names: 0.0%
+  Multi-person names: 0.1%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 0.1%
+  Short contributions: 0.0%

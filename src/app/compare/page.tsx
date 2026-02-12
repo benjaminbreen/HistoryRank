@@ -11,6 +11,7 @@ import { ModelProfileCard } from '@/components/compare/ModelProfileCard';
 import { ControversyCard } from '@/components/compare/ControversyCard';
 import { DomainBreakdown } from '@/components/compare/DomainBreakdown';
 import { OutlierSpotlight } from '@/components/compare/OutlierSpotlight';
+import { GeoBiasPanel } from '@/components/compare/GeoBiasPanel';
 import { Skeleton } from '@/components/ui/skeleton';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 import { useSettings } from '@/hooks/useSettings';
@@ -18,7 +19,7 @@ import { Tooltip } from '@/components/ui/tooltip';
 import { ListPreviewDialog } from '@/components/compare/ListPreviewDialog';
 import { InsightsPanel } from '@/components/compare/InsightsPanel';
 import { fetcher, comparisonDataConfig, figureDetailConfig, listDataConfig } from '@/lib/swr';
-import type { InsightsResponse } from '@/app/api/compare/route';
+import type { GeoBiasResponse, InsightsResponse } from '@/app/api/compare/route';
 import type { Figure, Ranking, FigureDetailResponse } from '@/types';
 import type { LLMComparisonResponse } from '@/app/api/compare/route';
 
@@ -33,7 +34,7 @@ const BiasRadarGrid = dynamic(
   { loading: () => <Skeleton className="h-[400px] w-full rounded-xl" />, ssr: false }
 );
 
-type ViewMode = 'overview' | 'agreement' | 'domain' | 'era' | 'pairwise' | 'lists' | 'insights';
+type ViewMode = 'overview' | 'agreement' | 'domain' | 'era' | 'geo' | 'pairwise' | 'lists' | 'insights';
 
 type ListEntry = {
   file: string;
@@ -60,7 +61,7 @@ function CompareLoading() {
   );
 }
 
-const VIEW_MODES = ['overview', 'agreement', 'domain', 'era', 'pairwise', 'lists', 'insights'] as const;
+const VIEW_MODES = ['overview', 'agreement', 'domain', 'era', 'geo', 'pairwise', 'lists', 'insights'] as const;
 
 function CompareContent() {
   const [showAllControversial, setShowAllControversial] = useState(false);
@@ -157,6 +158,16 @@ function CompareContent() {
     { revalidateOnFocus: false, dedupingInterval: 60000 }
   );
 
+  const {
+    data: geoBiasData,
+    error: geoBiasError,
+    isLoading: geoBiasLoading,
+  } = useSWR<GeoBiasResponse>(
+    viewMode === 'geo' ? '/api/compare?mode=geo-bias' : null,
+    fetcher,
+    { revalidateOnFocus: false, dedupingInterval: 60000 }
+  );
+
   const listsByModel = useMemo(() => {
     const map = new Map<string, ListEntry[]>();
     for (const entry of listData) {
@@ -179,7 +190,7 @@ function CompareContent() {
       {/* Main content */}
       <div className="max-w-[1400px] mx-auto px-6 py-8">
         {errorMessage && (
-          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <div className="mb-6 rounded-md border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 px-4 py-3 text-sm text-amber-900 dark:text-amber-300">
             {errorMessage}
           </div>
         )}
@@ -189,7 +200,9 @@ function CompareContent() {
         ) : data ? (
           <>
             {/* View mode tabs */}
-            <div className="-mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto mb-6 sm:mb-8">
+            <div className="relative -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto mb-6 sm:mb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#faf9f7] dark:from-slate-900 to-transparent sm:hidden z-10" />
+              <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#faf9f7] dark:from-slate-900 to-transparent sm:hidden z-10" />
               <div className="flex gap-2 min-w-max sm:min-w-0 sm:flex-wrap pb-2 sm:pb-0">
                 <button
                   onClick={() => setViewMode('overview')}
@@ -241,6 +254,16 @@ function CompareContent() {
                 >
                   <span className="sm:hidden">Compare</span>
                   <span className="hidden sm:inline">Pairwise</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('geo')}
+                  className={`px-4 py-2.5 sm:py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${
+                    viewMode === 'geo'
+                      ? 'bg-stone-900 dark:bg-amber-900/50 text-white dark:text-amber-100'
+                      : 'bg-white dark:bg-slate-800 text-stone-600 dark:text-slate-400 hover:bg-stone-100 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700'
+                  }`}
+                >
+                  Geo Bias
                 </button>
                 <button
                   onClick={() => setViewMode('lists')}
@@ -372,7 +395,8 @@ function CompareContent() {
                   {data.controversialFigures.length > 5 && (
                     <button
                       onClick={() => setShowAllControversial(!showAllControversial)}
-                      className="mt-4 w-full py-2 text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 flex items-center justify-center gap-1"
+                      aria-expanded={showAllControversial}
+                      className="mt-4 w-full py-2 text-sm text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:bg-stone-50 dark:hover:bg-slate-800/60 active:scale-[0.98] rounded-lg transition-all flex items-center justify-center gap-1"
                     >
                       {showAllControversial ? (
                         <>
@@ -489,6 +513,28 @@ function CompareContent() {
                 onModel2Change={setSelectedModel2}
                 onFigureClick={setSelectedId}
               />
+            )}
+
+            {viewMode === 'geo' && (
+              <section>
+                {geoBiasLoading ? (
+                  <div className="space-y-4">
+                    <Skeleton className="h-32 w-full rounded-xl" />
+                    <Skeleton className="h-72 w-full rounded-xl" />
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                      <Skeleton className="h-36 rounded-xl" />
+                      <Skeleton className="h-36 rounded-xl" />
+                      <Skeleton className="h-36 rounded-xl" />
+                    </div>
+                  </div>
+                ) : geoBiasError ? (
+                  <div className="text-sm text-stone-500 dark:text-slate-400">
+                    Failed to load geographic bias data.
+                  </div>
+                ) : geoBiasData ? (
+                  <GeoBiasPanel data={geoBiasData} />
+                ) : null}
+              </section>
             )}
 
             {viewMode === 'lists' && (

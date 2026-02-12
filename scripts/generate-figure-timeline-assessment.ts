@@ -11,6 +11,7 @@ type CliArgs = {
   ageCoverage: 'strict' | 'balanced' | 'off';
   birthPolicy: 'forbid' | 'discourage' | 'allow';
   promptVersion: string;
+  minEvents: number;
   maxEvents: number;
   maxTokens: number;
   dryRun: boolean;
@@ -118,8 +119,10 @@ function parseArgs(argv: string[]): CliArgs {
       ? birthPolicyRaw
       : null;
   const promptVersion = get('--prompt-version') || 'timeline_events_v6';
+  const minEventsRaw = get('--min-events');
   const maxEventsRaw = get('--max-events');
   const maxEvents = maxEventsRaw ? Number.parseInt(maxEventsRaw, 10) : 6;
+  const minEvents = minEventsRaw ? Number.parseInt(minEventsRaw, 10) : Math.max(1, Math.min(4, maxEvents));
   const maxTokensRaw = get('--max-tokens');
   const maxTokens = maxTokensRaw ? Number.parseInt(maxTokensRaw, 10) : 1100;
   const timeoutRaw = get('--timeout-ms');
@@ -142,6 +145,9 @@ function parseArgs(argv: string[]): CliArgs {
   if (!Number.isFinite(maxEvents) || maxEvents < 1 || maxEvents > 20) {
     throw new Error('Invalid --max-events. Use a number between 1 and 20.');
   }
+  if (!Number.isFinite(minEvents) || minEvents < 1 || minEvents > maxEvents) {
+    throw new Error('Invalid --min-events. Use a number between 1 and --max-events.');
+  }
   if (!Number.isFinite(maxTokens) || maxTokens < 256 || maxTokens > 20000) {
     throw new Error('Invalid --max-tokens. Use a number between 256 and 20000.');
   }
@@ -157,6 +163,7 @@ function parseArgs(argv: string[]): CliArgs {
     ageCoverage,
     birthPolicy,
     promptVersion,
+    minEvents,
     maxEvents,
     maxTokens,
     dryRun,
@@ -395,6 +402,7 @@ function formatAgeBandWindows(
 function buildPrompt(
   figureContext: Record<string, unknown>,
   evidenceRefs: EvidenceRef[],
+  minEvents: number,
   maxEvents: number,
   ageBandRequirements: AgeBandRequirement[],
   birthYear: number | null,
@@ -445,7 +453,9 @@ function buildPrompt(
     'Task:',
     'Given the figure context and evidence records, produce:',
     `1) A short biographical overview (2-4 sentences, factual)`,
-    `2) Exactly ${maxEvents} key life/career events suitable for timeline/map display`,
+    minEvents === maxEvents
+      ? `2) Exactly ${maxEvents} key life/career events suitable for timeline/map display`
+      : `2) Between ${minEvents} and ${maxEvents} key life/career events suitable for timeline/map display`,
     '',
     'Strict constraints:',
     '- English only.',
@@ -840,6 +850,7 @@ async function main() {
   const prompt = buildPrompt(
     figureContext,
     evidenceRefs,
+    args.minEvents,
     args.maxEvents,
     ageBandRequirements,
     figure.birth_year,
@@ -850,6 +861,8 @@ async function main() {
     figureContext,
     evidenceRefs,
     promptVersion: args.promptVersion,
+    minEvents: args.minEvents,
+    maxEvents: args.maxEvents,
     ageCoverage: args.ageCoverage,
     birthPolicy: args.birthPolicy,
   });
@@ -867,6 +880,7 @@ async function main() {
           birthPolicy: args.birthPolicy,
           promptVersion: args.promptVersion,
           evidenceRefs: evidenceRefs.length,
+          minEvents: args.minEvents,
           maxEvents: args.maxEvents,
           ageBandRequirements: ageBandRequirements.map((band) => band.label),
           inputHash,
@@ -900,9 +914,9 @@ async function main() {
       parsed = parseModelJsonObject(content);
       const candidate = normalizeOutput(parsed, args.maxEvents, args.birthPolicy);
 
-      if (candidate.events.length < args.maxEvents) {
+      if (candidate.events.length < args.minEvents) {
         const parsedPreview = JSON.stringify(parsed).slice(0, 1200);
-        finalValidationError = `Model returned ${candidate.events.length}/${args.maxEvents} valid events after birth/coordinate validation. Parsed preview: ${parsedPreview}`;
+        finalValidationError = `Model returned ${candidate.events.length} valid events; required ${args.minEvents}-${args.maxEvents} after birth/coordinate validation. Parsed preview: ${parsedPreview}`;
         continue;
       }
 

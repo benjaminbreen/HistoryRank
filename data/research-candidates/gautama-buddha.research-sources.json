@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:21.475Z",
+  "generatedAt": "2026-02-10T00:09:58.345Z",
   "figureId": "gautama-buddha",
   "figureName": "Gautama Buddha",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 638,
-      "totalTokenCount": 927,
+      "candidatesTokenCount": 649,
+      "totalTokenCount": 938,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +52,7 @@
         "title": "Dhammapada",
         "author": "Gautama Buddha",
         "year": -500,
-        "rationale": "A collection of sayings and teachings attributed to Gautama Buddha, considered a foundational text in Buddhism. It is widely available in translation.",
+        "rationale": "A collection of sayings and teachings attributed to Gautama Buddha, considered a foundational text in Buddhism.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -44,7 +62,7 @@
         "title": "Sutta Nipata",
         "author": "Gautama Buddha",
         "year": -500,
-        "rationale": "An early collection of Buddhist scriptures, containing verses attributed to the Buddha. It is a significant source for understanding early Buddhist thought.",
+        "rationale": "A collection of ancient Buddhist scriptures, containing verses attributed to the Buddha, covering various ethical and philosophical topics.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -54,7 +72,7 @@
         "title": "Majjhima Nikaya",
         "author": "Gautama Buddha",
         "year": -500,
-        "rationale": "A collection of the Buddha's middle-length discourses, offering insights into his teachings on various philosophical and ethical topics. It is a key text in the Pali Canon.",
+        "rationale": "A collection of the Buddha's middle-length discourses, offering insights into his teachings on various aspects of the path to enlightenment.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -66,25 +84,25 @@
         "title": "The Buddha and His Dhamma",
         "author": "B. R. Ambedkar",
         "year": 1970,
-        "rationale": "While published slightly before 1976, this work by a prominent scholar and social reformer offers a critical and modern interpretation of the Buddha's teachings and their social implications. It is highly influential.",
+        "rationale": "While published slightly before 1976, this is a seminal work by a prominent scholar reinterpreting Buddhist teachings and the life of the Buddha from a modern, critical perspective. It is widely available and influential.",
         "sourceType": "book"
       },
       {
         "title": "What the Buddha Taught",
         "author": "Walpola Rahula",
         "year": 1974,
-        "rationale": "Another foundational text for understanding Buddhism, providing a clear and accessible explanation of the Buddha's core teachings. It is widely considered a standard introduction.",
+        "rationale": "Another foundational text for understanding Buddhist doctrine, offering a clear and accessible explanation of the Buddha's core teachings. Though slightly before 1976, it remains a standard scholarly introduction.",
         "sourceType": "book"
       },
       {
-        "title": "The Life of the Buddha: As Told by an English Follower",
-        "author": "Arthur L. Herman",
-        "year": 2008,
-        "rationale": "A scholarly biography that synthesizes historical and textual evidence to present a comprehensive account of the Buddha's life and teachings.",
+        "title": "The Life of the Buddha: As Told by His Disciples",
+        "author": "Bhikkhu Nanamoli",
+        "year": 1992,
+        "rationale": "This scholarly work reconstructs the life of the Buddha based on early Buddhist texts, providing a critical and detailed historical account.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources attributed to Gautama Buddha are generally collections of his discourses and sayings, compiled by his disciples. Exact dating is approximate. Secondary sources are chosen for their scholarly merit and accessibility in understanding the figure and his teachings."
+    "notes": "Primary sources attributed to Gautama Buddha are generally collections of his discourses and sayings, compiled by his disciples. Exact dating is challenging, but they are considered to represent his teachings. Secondary sources are chosen for their scholarly rigor and accessibility in understanding the historical and philosophical context of the Buddha's life and teachings."
   },
   "unresolved": [
     {
@@ -114,8 +132,8 @@
     },
     {
       "role": "secondary",
-      "title": "The Life of the Buddha: As Told by an English Follower",
-      "reason": "Best score below threshold (0.54 < 0.72)"
+      "title": "The Life of the Buddha: As Told by His Disciples",
+      "reason": "Best score below threshold (0.42 < 0.72)"
     }
   ],
   "candidates": []

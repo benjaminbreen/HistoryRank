@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:37:46.618Z",
+  "generatedAt": "2026-02-10T00:13:37.354Z",
   "figureId": "nicolaus-copernicus",
   "figureName": "Nicolaus Copernicus",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 587,
-      "totalTokenCount": 876,
+      "candidatesTokenCount": 564,
+      "totalTokenCount": 853,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +52,7 @@
         "title": "De revolutionibus orbium coelestium",
         "author": "Nicolaus Copernicus",
         "year": 1543,
-        "rationale": "Copernicus's seminal work, presenting his heliocentric model of the universe. This is the most important primary source for understanding his scientific contributions.",
+        "rationale": "Copernicus's seminal work, presenting his heliocentric model of the universe. This is his most important and influential publication.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +61,7 @@
         "title": "Commentariolus",
         "author": "Nicolaus Copernicus",
         "year": 1540,
-        "rationale": "An earlier, shorter manuscript outlining the basic principles of his heliocentric theory, circulated among friends before the publication of 'De revolutionibus'.",
+        "rationale": "An earlier, shorter manuscript outlining the main points of his heliocentric theory, circulated among friends before the publication of 'De revolutionibus'.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +70,7 @@
         "title": "De lateribus et angulis triangulorum",
         "author": "Nicolaus Copernicus",
         "year": 1542,
-        "rationale": "Copernicus's work on trigonometry, demonstrating his mathematical expertise and its application to astronomical problems.",
+        "rationale": "A treatise on trigonometry, demonstrating Copernicus's mathematical expertise and its application to astronomy.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,25 +81,25 @@
         "title": "The Cambridge Companion to Copernicus",
         "author": "Nick Jardine",
         "year": 1998,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Copernicus's life, work, and legacy, offering comprehensive scholarly analysis.",
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Copernicus's life, work, and legacy.",
         "sourceType": "book"
       },
       {
         "title": "Copernicus: An Intellectual Biography",
         "author": "Edward Rosen",
         "year": 1976,
-        "rationale": "A foundational biography that provides in-depth analysis of Copernicus's intellectual development and the context of his scientific revolution.",
+        "rationale": "A foundational biography that provides deep insight into Copernicus's intellectual development and the context of his scientific revolution.",
         "sourceType": "book"
       },
       {
-        "title": "Nicolaus Copernicus: Reason, Religion, and the Revolution of the Heavenly Spheres",
+        "title": "Nicolaus Copernicus: Maker of the Modern Revolution",
         "author": "Owen Gingerich",
         "year": 2004,
-        "rationale": "A highly regarded scholarly biography by a renowned historian of science, offering a detailed and nuanced perspective on Copernicus's life and work.",
+        "rationale": "A highly regarded work by a leading Copernicus scholar, offering a detailed and accessible account of his life and scientific contributions.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are likely to be found in digitized manuscript collections or early printed book archives on Internet Archive. Modern scholarly editions and translations may also be available."
+    "notes": "Primary sources are likely to be found in historical collections on Internet Archive, often in Latin. Secondary sources are widely available through academic libraries and booksellers."
   },
   "unresolved": [
     {
@@ -102,7 +120,7 @@
     {
       "role": "secondary",
       "title": "The Cambridge Companion to Copernicus",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.16"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.26"
     },
     {
       "role": "secondary",
@@ -111,8 +129,8 @@
     },
     {
       "role": "secondary",
-      "title": "Nicolaus Copernicus: Reason, Religion, and the Revolution of the Heavenly Spheres",
-      "reason": "Best score below threshold (0.58 < 0.72)"
+      "title": "Nicolaus Copernicus: Maker of the Modern Revolution",
+      "reason": "Best score below threshold (0.64 < 0.72)"
     }
   ],
   "candidates": []

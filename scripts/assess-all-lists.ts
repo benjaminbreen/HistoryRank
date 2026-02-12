@@ -70,17 +70,20 @@ function extractModelFromFilename(filename: string): string {
   return 'unknown';
 }
 
+function isCanonicalListFile(file: string): boolean {
+  if (!file.toLowerCase().endsWith('.txt')) return false;
+  if (/\.(quality|failed|raw|repaired)\.txt$/i.test(file)) return false;
+  if (!/\slist\s+\d+\s*\(/i.test(file)) return false;
+  return /\)\.txt$/i.test(file);
+}
+
 function findListFiles(dir: string): string[] {
   if (!fs.existsSync(dir)) {
     return [];
   }
 
   return fs.readdirSync(dir)
-    .filter(file =>
-      file.endsWith('.txt') &&
-      file.includes('LIST') &&
-      !file.includes('.quality.')
-    )
+    .filter(isCanonicalListFile)
     .sort();
 }
 

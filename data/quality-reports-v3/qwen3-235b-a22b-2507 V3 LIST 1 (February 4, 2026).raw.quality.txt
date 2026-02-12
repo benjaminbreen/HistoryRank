@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: qwen3-235b-a22b-2507 V3 LIST 1 (February 4, 2026).raw.txt
+Model: qwen3-235b-a22b-2507 V3
+Timestamp: 2026-02-10T23:12:42.120Z
+
+VERDICT: WARN
+
+Summary: Issues: 132 exact duplicates
+
+Scores:
+  Repetition: WARN - 132 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (35):
+  - Exact duplicate: "suleiman the magnificent" at ranks 57, 264
+  - Exact duplicate: "alan turing" at ranks 158, 294
+  - Exact duplicate: "frederick ii" at ranks 218, 232
+  - Exact duplicate: "william howard taft" at ranks 344, 372, 400, 428, 456, 484
+  - Exact duplicate: "warren g harding" at ranks 345, 373, 401, 429, 457, 485
+  - Exact duplicate: "calvin coolidge" at ranks 346, 374, 402, 430, 458, 486
+  - Exact duplicate: "herbert hoover" at ranks 347, 375, 403, 431, 459, 487
+  - Exact duplicate: "martin van buren" at ranks 348, 376, 404, 432, 460, 488
+  - Exact duplicate: "james k polk" at ranks 349, 377, 405, 433, 461, 489
+  - Exact duplicate: "andrew jackson" at ranks 350, 378, 406, 434, 462, 490
+  ... and 25 more issues
+
+Diversity Estimates:
+  Regions: Europe: 66, Asia: 13, Middle East: 24, Africa: 5, Americas: 44, Unknown: 348
+  Domains: Politics/Leadership: 48, Science/Technology: 8, Philosophy/Religion: 9, Arts/Literature: 19, Military: 4, Other: 412
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

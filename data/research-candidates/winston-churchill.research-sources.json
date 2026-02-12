@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:39:08.192Z",
+  "generatedAt": "2026-02-10T00:14:40.860Z",
   "figureId": "winston-churchill",
   "figureName": "Winston Churchill",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "primary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 1967,
+        "max": 1967
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 581,
-      "totalTokenCount": 869,
+      "candidatesTokenCount": 629,
+      "totalTokenCount": 917,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "The Second World War",
         "author": "Winston Churchill",
         "year": 1948,
-        "rationale": "Churchill's personal account of the war, a monumental work of history and memoir. Likely available in digital archives.",
+        "rationale": "Churchill's own account of the war, a monumental work that offers direct insights into his perspectives and decisions. It is widely available.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +68,7 @@
         "title": "My Early Life: A Roving Commission",
         "author": "Winston Churchill",
         "year": 1930,
-        "rationale": "Autobiographical account of Churchill's childhood and early career. A significant personal narrative.",
+        "rationale": "An autobiography detailing Churchill's formative years, providing personal context for his later political career. Likely to be found in digital archives.",
         "likelyCorpora": [
           "internet_archive",
           "project_gutenberg"
@@ -52,8 +77,8 @@
       {
         "title": "Speeches",
         "author": "Winston Churchill",
-        "year": 1953,
-        "rationale": "A collection of his most famous speeches, including 'We Shall Fight on the Beaches' and 'Blood, Toil, Tears and Sweat'. Many of these are widely digitized.",
+        "year": 0,
+        "rationale": "Collections of Churchill's most famous speeches, such as 'Blood, toil, tears and sweat' and 'We shall fight on the beaches,' are crucial primary sources for understanding his rhetoric and leadership during critical times. Many are digitized.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -62,28 +87,28 @@
     ],
     "secondary": [
       {
-        "title": "Winston Churchill: A Biography",
+        "title": "Winston Churchill: A Life",
         "author": "Martin Gilbert",
         "year": 1991,
-        "rationale": "Considered the definitive, multi-volume biography of Churchill, based on extensive archival research. Published by a major academic press.",
+        "rationale": "A comprehensive and highly respected biography by a leading Churchill scholar, offering deep analysis of his life and career.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Churchill War Papers",
+        "author": "Martin Gilbert",
+        "year": 1993,
+        "rationale": "While a collection of primary documents, Gilbert's introductions and annotations make this a vital secondary scholarly resource for understanding the context of Churchill's wartime actions.",
         "sourceType": "book"
       },
       {
         "title": "Churchill: The Power of Words",
         "author": "J. E. Smyth",
         "year": 2019,
-        "rationale": "An academic study focusing on Churchill's oratory and its impact, published by a university press.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Cambridge Companion to Winston Churchill",
-        "author": "Edited by Hans Louis Trefousse",
-        "year": 2007,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Churchill's life and career, published by a major academic publisher.",
+        "rationale": "A more recent scholarly work focusing on Churchill's oratory and its impact, providing a focused academic perspective.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source availability on Project Gutenberg may vary for longer works. Secondary sources are highly regarded academic works published well after 1976."
+    "notes": "Winston Churchill's extensive writings and speeches make him a rich subject for historical research. His autobiographical works and multi-volume history of the Second World War are foundational primary sources. For secondary research, Martin Gilbert's biographies are considered definitive, with more recent scholarship offering new perspectives."
   },
   "unresolved": [
     {
@@ -94,7 +119,17 @@
     {
       "role": "primary",
       "title": "Speeches",
-      "reason": "Title similarity too low (0.53); baseScore=0.73"
+      "reason": "Title similarity too low (0.31); baseScore=0.49"
+    },
+    {
+      "role": "secondary",
+      "title": "Winston Churchill: A Life",
+      "reason": "Best score below threshold (0.68 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Churchill War Papers",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.83"
     },
     {
       "role": "secondary",
@@ -114,60 +149,14 @@
       "access_url": "https://archive.org/details/secondworldwartw0000wins_p3z0",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"The Second World War\". Matched primary suggestion by title=1.00, author=1.00, year=0.62; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Second World War\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.62; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Second World War",
         "suggestion_author": "Winston Churchill",
         "suggestion_year": 1948,
-        "suggestion_rationale": "Churchill's personal account of the war, a monumental work of history and memoir. Likely available in digital archives.",
+        "suggestion_rationale": "Churchill's own account of the war, a monumental work that offers direct insights into his perspectives and decisions. It is widely available.",
         "ia_identifier": "secondworldwartw0000wins_p3z0"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Winston Churchill: A Biography",
-      "author": "Piers Brendon",
-      "publication_year": 1984,
-      "source_url": "http://ci.nii.ac.jp/ncid/BA13197670",
-      "access_url": "http://ci.nii.ac.jp/ncid/BA13197670",
-      "snippet": "Medical Entomology and Zoology",
-      "confidence": 0.84,
-      "why": "Secondary source resolved from suggestion \"Winston Churchill: A Biography\". Matched secondary suggestion by title=1.00, author=0.00, year=0.77; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Winston Churchill: A Biography",
-        "suggestion_author": "Martin Gilbert",
-        "suggestion_year": 1991,
-        "suggestion_rationale": "Considered the definitive, multi-volume biography of Churchill, based on extensive archival research. Published by a major academic press.",
-        "openalex_id": "https://openalex.org/W2007504919",
-        "work_type": "book"
-      }
-    },
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "The Cambridge Companion to Winston Churchill",
-      "author": "Packwood, Allen",
-      "publication_year": 2023,
-      "source_url": "https://doi.org/10.1017/9781108879255",
-      "access_url": "https://doi.org/10.1017/9781108879255",
-      "snippet": "Cambridge University Press eBooks",
-      "confidence": 0.789,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Winston Churchill\". Matched secondary suggestion by title=1.00, author=0.00, year=0.47; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "The Cambridge Companion to Winston Churchill",
-        "suggestion_author": "Edited by Hans Louis Trefousse",
-        "suggestion_year": 2007,
-        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Churchill's life and career, published by a major academic publisher.",
-        "openalex_id": "https://openalex.org/W4317361196",
-        "work_type": "book"
       }
     }
   ]

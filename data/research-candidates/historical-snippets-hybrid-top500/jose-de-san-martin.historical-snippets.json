@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.568Z",
+  "figureId": "jose-de-san-martin",
+  "figureName": "Jose de San Martin",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Jose de San Martin (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/José_de_San_Martín",
+      "snippet": "José Francisco de San Martín y Matorras, nicknamed \"the Liberator of Argentina, Chile and Peru\", was an Argentine general and the primary leader of the southern and central parts of South America's successful struggle for independence from the Spanish Empire who served as the Protector of Peru. Born in Yapeyú, Corrientes, in modern-day Argentina, he left the Viceroyalty of the Río de la Plata at the early age of seven to study in Málaga, Spain.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

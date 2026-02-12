@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.601Z",
+  "figureId": "moses",
+  "figureName": "Moses",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Moses",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FMoses",
+      "snippet": "The story of the youth of Moses is, as is commonly the case with great heroes, of secondary origin; moreover, the circumstances of his birth as related in Exod. ii. find numerous parallels in legend elsewhere, e.g. in the story of the historical Sargon (L.&#160;W. King, Early Bab. Kings , ii. 87&#160;sqq.), in the myths of Osiris and many others (see, at length, A.&#160;Jeremias’s Das Alte Test. im Lichte des alten Orients , 1906, pp.&#160;408 sqq.; Bab. im N . Test . p.&#160;30 seq.). The story of the adoption of Moses by the Egyptian princess appealed to later imagination (Josephus, Ant . ii. 9, 10; Acts vii.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

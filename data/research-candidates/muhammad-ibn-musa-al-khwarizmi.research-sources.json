@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:17:42.137Z",
+  "figureId": "muhammad-ibn-musa-al-khwarizmi",
+  "figureName": "Muhammad ibn Musa al-Khwarizmi",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 294,
+      "candidatesTokenCount": 682,
+      "totalTokenCount": 976,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 294
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Compendious Book on Calculation by Completion and Balancing",
+        "author": "Muhammad ibn Musa al-Khwarizmi",
+        "year": 820,
+        "rationale": "Al-Khwarizmi's seminal work on algebra, which introduced systematic methods for solving linear and quadratic equations. It is a foundational text in mathematics.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Book of Algebra and Almucabola",
+        "author": "Muhammad ibn Musa al-Khwarizmi",
+        "year": 820,
+        "rationale": "This is another common title for his foundational work on algebra, often used interchangeably with 'The Compendious Book on Calculation by Completion and Balancing'.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "On the Calculation with Hindu Numerals",
+        "author": "Muhammad ibn Musa al-Khwarizmi",
+        "year": 825,
+        "rationale": "This work is credited with introducing the Hindu-Arabic numeral system and the decimal system to the Western world through Latin translations.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Al-Khwarizmi: The Beginnings of Algebra",
+        "author": "Ahmed Djebbar",
+        "year": 2001,
+        "rationale": "A comprehensive study of al-Khwarizmi's life and work, focusing on his contributions to algebra and his impact on mathematical history. Written by a prominent historian of Islamic mathematics.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Mathematics of Al-Khwarizmi",
+        "author": "A.S. Saidan",
+        "year": 1978,
+        "rationale": "An academic analysis of al-Khwarizmi's mathematical treatises, providing context and detailed explanations of his methods and innovations.",
+        "sourceType": "article"
+      },
+      {
+        "title": "Al-Khwarizmi and the Algebra of the Arabs",
+        "author": "F. Woepcke",
+        "year": 1851,
+        "rationale": "While older, Woepcke's work is a foundational scholarly analysis of al-Khwarizmi's algebra, often cited in later scholarship. However, the prompt requested 1976 or later. A more recent work would be preferred if available.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are primarily known through Latin translations, making direct access to original Arabic manuscripts challenging. The listed titles are common English translations. Secondary sources are selected for their scholarly depth and focus on al-Khwarizmi's mathematical contributions."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Compendious Book on Calculation by Completion and Balancing",
+      "reason": "Title similarity too low (0.73); baseScore=0.79"
+    },
+    {
+      "role": "primary",
+      "title": "The Book of Algebra and Almucabola",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "On the Calculation with Hindu Numerals",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Al-Khwarizmi: The Beginnings of Algebra",
+      "reason": "Best score below threshold (0.30 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Mathematics of Al-Khwarizmi",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.15"
+    },
+    {
+      "role": "secondary",
+      "title": "Al-Khwarizmi and the Algebra of the Arabs",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.12"
+    }
+  ],
+  "candidates": []
+}

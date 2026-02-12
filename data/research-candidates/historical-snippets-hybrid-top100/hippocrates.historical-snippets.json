@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.647Z",
+  "figureId": "hippocrates",
+  "figureName": "Hippocrates",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Hippocrates",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHippocrates",
+      "snippet": "The Hippocratic Collection consists of eighty-seven treatises, of which a part only can be accepted as genuine. The collection has been submitted to the closest criticism in ancient and modern times by a large number of commentators (for full list of the early commentators, see Adams’s Genuine Works of Hippocrates , Sydenham Society, i. 27, 28). The treatises have been classified according to (1) the direct evidence of ancient writers, (2) peculiarities of style and method, and (3) the presence of anachronisms and of opinions opposed to the general Hippocratic teaching—greatest weight being attached to the opinions of Erotian and Galen.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

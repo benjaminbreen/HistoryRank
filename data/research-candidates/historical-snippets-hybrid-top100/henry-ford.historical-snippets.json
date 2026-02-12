@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.618Z",
+  "figureId": "henry-ford",
+  "figureName": "Henry Ford",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Timeline synthesis (evidence-backed events)",
+      "source_url": null,
+      "snippet": "1903: Founding of Ford Motor Company - Founded the Ford Motor Company, which would pioneer mass production techniques. 1908: Introduction of the Model T - Introduced the Model T, the first affordable automobile for the masses. 1914: Implementation of the Five-Dollar Day - Instituted the five-dollar workday, significantly raising wages for factory workers. 1922: Publication of 'My Life and Work' - Published his influential autobiography and business philosophy, 'My Life and Work'.",
+      "match_score": 0.74,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

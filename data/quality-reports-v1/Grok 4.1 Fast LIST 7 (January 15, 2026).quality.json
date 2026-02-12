@@ -1,0 +1,416 @@
+{
+  "file": "Grok 4.1 Fast LIST 7 (January 15, 2026).txt",
+  "model": "Grok 4.1 Fast",
+  "timestamp": "2026-02-10T23:46:35.163Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 32,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "32 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 480,
+          "endRank": 489,
+          "count": 10,
+          "examples": [
+            "480. Xi Jinping",
+            "481. Vladimir Putin",
+            "482. Joe Biden"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "fashion",
+          "startRank": 789,
+          "endRank": 802,
+          "count": 14,
+          "examples": [
+            "789. Tim Walker",
+            "790. David LaChapelle",
+            "791. Ellen von Unwerth"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 889,
+          "endRank": 900,
+          "count": 12,
+          "examples": [
+            "889. Kacey Musgraves",
+            "890. Carrie Underwood",
+            "891. Miranda Lambert"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "confucius",
+      "ranks": [
+        4,
+        245
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "socrates",
+      "ranks": [
+        7,
+        42
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hypatia",
+      "ranks": [
+        90,
+        91
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "francis bacon",
+      "ranks": [
+        125,
+        537
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michelangelo",
+      "ranks": [
+        216,
+        592
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donatello",
+      "ranks": [
+        218,
+        589
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "andy warhol",
+      "ranks": [
+        225,
+        540
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kehinde wiley",
+      "ranks": [
+        526,
+        692
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "damien hirst",
+      "ranks": [
+        529,
+        609,
+        688
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeff koons",
+      "ranks": [
+        530,
+        608
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cindy sherman",
+      "ranks": [
+        531,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tracey emin",
+      "ranks": [
+        534,
+        644,
+        687
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "anish kapoor",
+      "ranks": [
+        535,
+        612,
+        648,
+        685
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gerhard richter",
+      "ranks": [
+        536,
+        631
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "barbara hepworth",
+      "ranks": [
+        606,
+        682
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel whiteread",
+      "ranks": [
+        610,
+        649,
+        684
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "antony gormley",
+      "ranks": [
+        611,
+        650,
+        686
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lucian freud",
+      "ranks": [
+        637,
+        643
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chris ofili",
+      "ranks": [
+        645,
+        689
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "steve mcqueen",
+      "ranks": [
+        646,
+        690
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "grayson perry",
+      "ranks": [
+        647,
+        691
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "donatella versace",
+      "ranks": [
+        821,
+        848
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kacey musgraves",
+      "ranks": [
+        889,
+        901
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "st vincent",
+      "ranks": [
+        903,
+        999
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sleaterkinney",
+      "ranks": [
+        940,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "evanescence",
+      "ranks": [
+        951,
+        958
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        27,
+        384
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "xerxes i",
+      "variants": [
+        "xerxes i",
+        "artaxerxes i"
+      ],
+      "ranks": [
+        169,
+        170
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philip ii of spain",
+      "variants": [
+        "philip ii of spain",
+        "philip iv of spain"
+      ],
+      "ranks": [
+        179,
+        203
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tim walker",
+      "variants": [
+        "tim walker",
+        "tom walker"
+      ],
+      "ranks": [
+        789,
+        915
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 480,
+      "endRank": 489,
+      "count": 10,
+      "examples": [
+        "480. Xi Jinping",
+        "481. Vladimir Putin",
+        "482. Joe Biden"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "fashion",
+      "startRank": 789,
+      "endRank": 802,
+      "count": 14,
+      "examples": [
+        "789. Tim Walker",
+        "790. David LaChapelle",
+        "791. Ellen von Unwerth"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 889,
+      "endRank": 900,
+      "count": 12,
+      "examples": [
+        "889. Kacey Musgraves",
+        "890. Carrie Underwood",
+        "891. Miranda Lambert"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 31,
+      "Asia": 14,
+      "Middle East": 11,
+      "Africa": 2,
+      "Americas": 10,
+      "Oceania": 0,
+      "Unknown": 932
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 84,
+      "Science/Technology": 3,
+      "Philosophy/Religion": 25,
+      "Arts/Literature": 38,
+      "Military": 7,
+      "Other": 843
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 6,
+    "multiPersonRate": 0.006,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 894,
+    "contributionShortRate": 0.894,
+    "score": 81.7
+  },
+  "summary": "List passes all quality checks"
+}

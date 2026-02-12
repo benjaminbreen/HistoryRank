@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:16.382Z",
+  "generatedAt": "2026-02-10T00:09:53.374Z",
   "figureId": "jesus",
   "figureName": "Jesus",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 1,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1992,
+        "max": 1995
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 444,
-      "totalTokenCount": 731,
+      "candidatesTokenCount": 677,
+      "totalTokenCount": 964,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,29 @@
         "title": "The Gospels",
         "author": "Matthew, Mark, Luke, John",
         "year": 80,
-        "rationale": "The Gospels are the primary accounts of Jesus' life and teachings, considered by many to be divinely inspired and historically significant.",
+        "rationale": "The Gospels are the primary accounts of Jesus' life and teachings, considered by Christians to be divinely inspired. While authorship is debated, they are directly attributed to the apostles or their close associates.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Acts of the Apostles",
+        "author": "Luke",
+        "year": 90,
+        "rationale": "Acts, traditionally attributed to Luke, provides an account of the early Christian church and the spread of Jesus' message after his ascension. It offers insights into the immediate impact of his teachings.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Epistles of Paul",
+        "author": "Paul the Apostle",
+        "year": 50,
+        "rationale": "While not direct accounts of Jesus' life, Paul's letters are the earliest surviving Christian writings. They offer theological interpretations of Jesus' life, death, and resurrection, and provide context for early Christian beliefs.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -47,25 +97,25 @@
         "title": "Jesus: A Revolutionary Biography",
         "author": "John Dominic Crossan",
         "year": 1994,
-        "rationale": "Crossan offers a scholarly reconstruction of Jesus' life, drawing on historical, archaeological, and textual evidence to present a portrait of Jesus as a peasant sage.",
+        "rationale": "Crossan offers a scholarly reconstruction of Jesus' life, placing him within his historical and social context as a Galilean peasant and social critic.",
         "sourceType": "book"
       },
       {
         "title": "The Historical Jesus: The Life of a Mediterranean Jewish Peasant",
         "author": "John P. Meier",
         "year": 1991,
-        "rationale": "Meier's multi-volume work is a comprehensive and detailed scholarly investigation into the historical Jesus, critically examining all available evidence.",
+        "rationale": "Meier's multi-volume work is a comprehensive and critical examination of the evidence for the historical Jesus, employing rigorous historical-critical methods.",
         "sourceType": "book"
       },
       {
         "title": "Jesus and the Victory of Judaism",
         "author": "Richard A. Horsley",
         "year": 1987,
-        "rationale": "Horsley situates Jesus within the context of first-century Judaism, arguing that his teachings and actions were deeply rooted in Jewish social and religious movements.",
+        "rationale": "Horsley analyzes Jesus within the context of Jewish peasant society and its resistance to Roman occupation, arguing for Jesus as a leader of social and religious change.",
         "sourceType": "book"
       }
     ],
-    "notes": "Direct primary sources authored by Jesus himself are not extant. The Gospels are the closest available primary accounts, though their authorship and precise historical accuracy are subjects of scholarly debate. Secondary sources focus on scholarly reconstructions of the historical Jesus."
+    "notes": "Primary sources for Jesus are exclusively religious texts, primarily the New Testament Gospels and Epistles. Historical consensus on their direct authorship and precise dating varies. Secondary sources represent major scholarly attempts to reconstruct the historical Jesus from these texts and other contemporary evidence."
   },
   "unresolved": [
     {
@@ -74,12 +124,38 @@
       "reason": "Title similarity too low (0.33); baseScore=0.31"
     },
     {
+      "role": "primary",
+      "title": "The Epistles of Paul",
+      "reason": "Title similarity too low (0.29); baseScore=0.28"
+    },
+    {
       "role": "secondary",
       "title": "Jesus and the Victory of Judaism",
       "reason": "Best score below threshold (0.67 < 0.72)"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Acts of the Apostles",
+      "author": "Johnson, Luke Timothy",
+      "publication_year": 1992,
+      "source_url": "https://archive.org/details/actsofapostles0000john",
+      "access_url": "https://archive.org/details/actsofapostles0000john",
+      "snippet": null,
+      "confidence": 0.753,
+      "why": "Primary source resolved from suggestion \"The Acts of the Apostles\" (internet_archive). Matched primary suggestion by title=1.00, author=0.33, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Acts of the Apostles",
+        "suggestion_author": "Luke",
+        "suggestion_year": 90,
+        "suggestion_rationale": "Acts, traditionally attributed to Luke, provides an account of the early Christian church and the spread of Jesus' message after his ascension. It offers insights into the immediate impact of his teachings.",
+        "ia_identifier": "actsofapostles0000john"
+      }
+    },
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
@@ -91,14 +167,14 @@
       "access_url": "http://scholars.wlu.ca/consensus/vol21/iss1/16",
       "snippet": "Scholars Commons (Wilfrid Laurier University)",
       "confidence": 0.924,
-      "why": "Secondary source resolved from suggestion \"Jesus: A Revolutionary Biography\". Matched secondary suggestion by title=1.00, author=0.25, year=0.97; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Jesus: A Revolutionary Biography\" (openalex). Matched secondary suggestion by title=1.00, author=0.25, year=0.97; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Jesus: A Revolutionary Biography",
         "suggestion_author": "John Dominic Crossan",
         "suggestion_year": 1994,
-        "suggestion_rationale": "Crossan offers a scholarly reconstruction of Jesus' life, drawing on historical, archaeological, and textual evidence to present a portrait of Jesus as a peasant sage.",
+        "suggestion_rationale": "Crossan offers a scholarly reconstruction of Jesus' life, placing him within his historical and social context as a Galilean peasant and social critic.",
         "openalex_id": "https://openalex.org/W2735538945",
         "work_type": "article"
       }
@@ -114,14 +190,14 @@
       "access_url": "https://doi.org/10.5860/choice.29-5646",
       "snippet": "Choice Reviews Online",
       "confidence": 0.884,
-      "why": "Secondary source resolved from suggestion \"The Historical Jesus: The Life of a Mediterranean Jewish Peasant\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"The Historical Jesus: The Life of a Mediterranean Jewish Peasant\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Historical Jesus: The Life of a Mediterranean Jewish Peasant",
         "suggestion_author": "John P. Meier",
         "suggestion_year": 1991,
-        "suggestion_rationale": "Meier's multi-volume work is a comprehensive and detailed scholarly investigation into the historical Jesus, critically examining all available evidence.",
+        "suggestion_rationale": "Meier's multi-volume work is a comprehensive and critical examination of the evidence for the historical Jesus, employing rigorous historical-critical methods.",
         "doi": "10.5860/choice.29-5646",
         "crossref_type": "journal-article"
       }

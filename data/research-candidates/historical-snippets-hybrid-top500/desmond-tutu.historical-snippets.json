@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.573Z",
+  "figureId": "desmond-tutu",
+  "figureName": "Desmond Tutu",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Desmond Tutu is consistently described across 13 model source lists as influential for: South African Anglican bishop; anti-apartheid activist; Advocated anti-apartheid and global human rights, shaping post-apartheid reconciliation; Anti-apartheid activist and Anglican bishop; South African cleric and anti-apartheid leader, advocate for truth and reconciliation; Anti-Apartheid; South African Anglican bishop and theologian known for his work as an anti-apartheid and human rights activist; Anti-apartheid leader and advocate for truth and reconciliation; Anti-apartheid moral leadership.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

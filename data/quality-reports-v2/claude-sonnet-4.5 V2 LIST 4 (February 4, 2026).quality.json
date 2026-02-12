@@ -1,0 +1,132 @@
+{
+  "file": "claude-sonnet-4.5 V2 LIST 4 (February 4, 2026).txt",
+  "model": "claude-sonnet-4.5 V2",
+  "timestamp": "2026-02-10T23:47:03.116Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "2 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "sociology",
+          "startRank": 305,
+          "endRank": 314,
+          "count": 10,
+          "examples": [
+            "305. Vilfredo Pareto",
+            "306. Max Weber",
+            "307. Émile Durkheim"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "moses",
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        11,
+        67
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "philo farnsworth",
+      "variants": [
+        "philo farnsworth",
+        "philo t farnsworth"
+      ],
+      "ranks": [
+        154,
+        500
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sociology",
+      "startRank": 305,
+      "endRank": 314,
+      "count": 10,
+      "examples": [
+        "305. Vilfredo Pareto",
+        "306. Max Weber",
+        "307. Émile Durkheim"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 69,
+      "Asia": 8,
+      "Middle East": 16,
+      "Africa": 11,
+      "Americas": 34,
+      "Oceania": 0,
+      "Unknown": 362
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 21,
+      "Science/Technology": 13,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 20,
+      "Military": 5,
+      "Other": 432
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.002,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.96
+  },
+  "summary": "List passes all quality checks"
+}

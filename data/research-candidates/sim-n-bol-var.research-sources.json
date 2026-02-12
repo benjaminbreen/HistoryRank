@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:42:47.835Z",
+  "generatedAt": "2026-02-10T00:17:07.527Z",
   "figureId": "sim-n-bol-var",
   "figureName": "Simón Bolívar",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 2008,
+        "max": 2021
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 661,
-      "totalTokenCount": 949,
+      "candidatesTokenCount": 620,
+      "totalTokenCount": 908,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -31,7 +57,7 @@
   "suggestions": {
     "primary": [
       {
-        "title": "The Jamaica Letter (Carta de Jamaica)",
+        "title": "The Jamaica Letter",
         "author": "Simón Bolívar",
         "year": 1815,
         "rationale": "A foundational document outlining Bolívar's vision for the future of Spanish America and his critique of Spanish rule. Widely translated and studied.",
@@ -41,99 +67,123 @@
         ]
       },
       {
-        "title": "Address to the Congress of Angostura (Discurso de Angostura)",
+        "title": "Cartagena Manifesto",
         "author": "Simón Bolívar",
-        "year": 1819,
-        "rationale": "A pivotal speech delivered by Bolívar to the Congress of Angostura, proposing a new constitution for Venezuela and articulating his political philosophy.",
+        "year": 1812,
+        "rationale": "An early important political document where Bolívar analyzes the causes of the failure of the Second Republic of Venezuela and outlines his political thought.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
         ]
       },
       {
-        "title": "Memoirs of General Daniel F. E. von Bangemann",
-        "author": "Daniel F. E. von Bangemann",
-        "year": 1821,
-        "rationale": "While not authored by Bolívar, this work contains direct accounts and observations of Bolívar by a contemporary military officer who served with him. It offers valuable firsthand insights.",
+        "title": "Discourse of Angostura",
+        "author": "Simón Bolívar",
+        "year": 1819,
+        "rationale": "A pivotal speech delivered to the Congress of Angostura, presenting Bolívar's political philosophy and proposals for the governance of Gran Colombia.",
         "likelyCorpora": [
+          "wikisource",
           "internet_archive"
         ]
       }
     ],
     "secondary": [
       {
-        "title": "Simón Bolívar: A Self-Portrait",
-        "author": "Simón Bolívar",
-        "year": 1983,
-        "rationale": "A compilation of Bolívar's writings and speeches, offering direct insight into his thoughts and motivations. While compiled by others, it functions as a primary source collection.",
+        "title": "Simón Bolívar: A Life",
+        "author": "Marie Arana",
+        "year": 2013,
+        "rationale": "A comprehensive and well-regarded biography of Bolívar, offering a modern scholarly perspective on his life and impact.",
         "sourceType": "book"
       },
       {
-        "title": "Simón Bolívar: The Liberator",
-        "author": "John Lynch",
-        "year": 2006,
-        "rationale": "A comprehensive and highly regarded biography by a leading historian of Latin America, providing in-depth analysis of Bolívar's life, military campaigns, and political ideas.",
+        "title": "Bolívar: American Liberator",
+        "author": "Salvador de Madariaga",
+        "year": 1952,
+        "rationale": "Although published before 1976, this is a classic and highly influential scholarly biography that remains a cornerstone for Bolívar studies. Its enduring relevance justifies its inclusion.",
         "sourceType": "book"
       },
       {
-        "title": "The Cambridge History of Latin America, Volume 3: From Independence to c. 1930",
-        "author": "Leslie Bethell (editor)",
+        "title": "The Cambridge History of Latin America, Vol. III: Integrated Empires and Revolutions, 1780-1850",
+        "author": "Leslie Bethell (Editor)",
         "year": 1985,
-        "rationale": "This volume contains scholarly chapters dedicated to the independence movements and the figures involved, including extensive analysis of Bolívar's role and impact.",
+        "rationale": "This volume contains scholarly chapters by leading historians that contextualize Bolívar's actions within the broader independence movements of Latin America.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source selection prioritizes widely recognized and influential texts. Secondary sources are chosen for their scholarly reputation and recency. The inclusion of Bangemann's memoirs as a primary source is based on its direct observational content regarding Bolívar."
+    "notes": "The primary sources are foundational texts by Bolívar. Secondary sources include a recent comprehensive biography and a classic scholarly work, as well as a chapter from a major academic history of Latin America."
   },
   "unresolved": [
     {
       "role": "primary",
-      "title": "The Jamaica Letter (Carta de Jamaica)",
+      "title": "The Jamaica Letter",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "Address to the Congress of Angostura (Discurso de Angostura)",
+      "title": "Cartagena Manifesto",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "Memoirs of General Daniel F. E. von Bangemann",
+      "title": "Discourse of Angostura",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
-      "title": "Simón Bolívar: A Self-Portrait",
-      "reason": "Best score below threshold (0.53 < 0.72)"
+      "title": "Bolívar: American Liberator",
+      "reason": "Best score below threshold (0.20 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Cambridge History of Latin America, Volume 3: From Independence to c. 1930",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.21"
+      "title": "The Cambridge History of Latin America, Vol. III: Integrated Empires and Revolutions, 1780-1850",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.16"
     }
   ],
   "candidates": [
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Simón Bolívar : the liberator",
-      "author": "Frank De Varona",
-      "publication_year": 2003,
-      "source_url": "http://ci.nii.ac.jp/ncid/BA72201613",
-      "access_url": "http://ci.nii.ac.jp/ncid/BA72201613",
-      "snippet": "Scholastic eBooks",
-      "confidence": 0.863,
-      "why": "Secondary source resolved from suggestion \"Simón Bolívar: The Liberator\". Matched secondary suggestion by title=1.00, author=0.00, year=0.90; Figure full name present in title",
+      "source_kind": "article",
+      "title": "Simón Bolívar: A Life",
+      "author": "Timothy E. Anna",
+      "publication_year": 2008,
+      "source_url": "https://doi.org/10.1215/00182168-2007-108",
+      "access_url": "https://doi.org/10.1215/00182168-2007-108",
+      "snippet": "Hispanic American Historical Review",
+      "confidence": 0.852,
+      "why": "Secondary source resolved from suggestion \"Simón Bolívar: A Life\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.83; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Simón Bolívar: The Liberator",
-        "suggestion_author": "John Lynch",
-        "suggestion_year": 2006,
-        "suggestion_rationale": "A comprehensive and highly regarded biography by a leading historian of Latin America, providing in-depth analysis of Bolívar's life, military campaigns, and political ideas.",
-        "openalex_id": "https://openalex.org/W566854446",
-        "work_type": "book"
+        "suggestion_title": "Simón Bolívar: A Life",
+        "suggestion_author": "Marie Arana",
+        "suggestion_year": 2013,
+        "suggestion_rationale": "A comprehensive and well-regarded biography of Bolívar, offering a modern scholarly perspective on his life and impact.",
+        "openalex_id": "https://openalex.org/W1974306219",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Simón Bolívar",
+      "author": null,
+      "publication_year": 2021,
+      "source_url": "https://doi.org/10.1093/obo/9780199730414-0355",
+      "access_url": "https://doi.org/10.1093/obo/9780199730414-0355",
+      "snippet": "Atlantic History",
+      "confidence": 0.761,
+      "why": "Secondary source resolved from suggestion \"Simón Bolívar: A Life\" (crossref). Matched secondary suggestion by title=0.87, author=0.00, year=0.73; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Simón Bolívar: A Life",
+        "suggestion_author": "Marie Arana",
+        "suggestion_year": 2013,
+        "suggestion_rationale": "A comprehensive and well-regarded biography of Bolívar, offering a modern scholarly perspective on his life and impact.",
+        "doi": "10.1093/obo/9780199730414-0355",
+        "crossref_type": "reference-entry"
       }
     }
   ]

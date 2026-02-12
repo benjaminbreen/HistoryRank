@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.740Z",
+  "figureId": "walt-disney",
+  "figureName": "Walt Disney",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Walt Disney is consistently described across 11 model source lists as influential for: Pioneer of animated film and theme park design, founder of The Walt Disney Company; Pioneer of animation and entertainment, shaping global pop culture; Founder of Disney, revolutionizing animation and family entertainment; Entertainment industry pioneer; Animator and entrepreneur creating entertainment empire; Entrepreneur; revolutionized the animation industry and American popular culture; Entrepreneur; revolutionized the animation industry and American culture; Created modern entertainment industry, shaped global popular culture.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

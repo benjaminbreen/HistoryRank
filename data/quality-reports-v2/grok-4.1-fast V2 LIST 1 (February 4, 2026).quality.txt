@@ -1,0 +1,35 @@
+Quality Assessment Report
+========================
+File: grok-4.1-fast V2 LIST 1 (February 4, 2026).txt
+Model: grok-4.1-fast V2
+Timestamp: 2026-02-10T23:47:11.108Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 5 fuzzy duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (5):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 127, 209
+  - Fuzzy duplicate: henry viii of england / henry ii of england at ranks 229, 333
+  - Fuzzy duplicate: ramesses ii / ramesses iii at ranks 239, 275
+  - Fuzzy duplicate: rajaraja chola i / rajendra chola i at ranks 365, 366
+  - Fuzzy duplicate: shah ismail i / shah abbas i at ranks 368, 455
+
+Diversity Estimates:
+  Regions: Europe: 64, Asia: 6, Middle East: 24, Africa: 3, Americas: 5, Unknown: 398
+  Domains: Politics/Leadership: 13, Science/Technology: 11, Philosophy/Religion: 4, Arts/Literature: 13, Military: 8, Other: 451
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.4%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

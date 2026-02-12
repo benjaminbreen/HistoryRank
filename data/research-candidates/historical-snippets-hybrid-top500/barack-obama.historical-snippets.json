@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.126Z",
+  "figureId": "barack-obama",
+  "figureName": "Barack Obama",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Barack Obama is consistently described across 10 model source lists as influential for: First African-American U.S. President; First African-American US President; First African American U.S. president, enacting healthcare reform and restoring diplomatic relations globally; First African American U.S. President, enacting healthcare reform; Developed a theory or method that redirected later science and technology; US multilateralism; symbolic political shift; First African-American President of the US, who oversaw the recovery from the 2008 financial crisis and the passage of the Affordable Care Act; First African American President of the U.S. and passed the Affordable Care Act.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

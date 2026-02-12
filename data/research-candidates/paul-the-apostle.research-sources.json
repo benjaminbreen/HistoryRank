@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:37:56.959Z",
+  "generatedAt": "2026-02-10T00:13:14.716Z",
   "figureId": "paul-the-apostle",
   "figureName": "Paul the Apostle",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 599,
-      "totalTokenCount": 888,
+      "candidatesTokenCount": 584,
+      "totalTokenCount": 873,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +52,7 @@
         "title": "The Epistles of Paul",
         "author": "Paul the Apostle",
         "year": 50,
-        "rationale": "A collection of letters attributed to Paul, forming a significant portion of the New Testament. These are foundational texts for understanding his theology and ministry.",
+        "rationale": "Collection of letters attributed to Paul, forming a significant portion of the New Testament and foundational to early Christian theology.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +63,7 @@
         "title": "Epistle to the Romans",
         "author": "Paul the Apostle",
         "year": 57,
-        "rationale": "Considered one of Paul's most important epistles, offering a systematic exposition of his theological views.",
+        "rationale": "One of the most influential of Paul's letters, offering a systematic exposition of his theology.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +74,7 @@
         "title": "First Epistle to the Corinthians",
         "author": "Paul the Apostle",
         "year": 55,
-        "rationale": "This epistle addresses various issues within the Corinthian church, providing insights into early Christian community life and Paul's pastoral concerns.",
+        "rationale": "Addresses various issues within the Corinthian church, providing insights into early Christian community life and Paul's pastoral concerns.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -68,26 +86,26 @@
       {
         "title": "Paul: A Very Short Introduction",
         "author": "E. P. Sanders",
-        "year": 2011,
+        "year": 2012,
         "rationale": "A concise and accessible overview of Paul's life, letters, and theology by a leading scholar in the field.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to St. Paul",
-        "author": "Harold W. Attridge",
-        "year": 2009,
+        "author": "James D. G. Dunn",
+        "year": 2003,
         "rationale": "A comprehensive collection of essays by various scholars covering different aspects of Paul's life, thought, and influence.",
         "sourceType": "book"
       },
       {
-        "title": "Paul the Apostle: His Life and Theology",
-        "author": "Stephen J. Patterson",
-        "year": 2017,
-        "rationale": "A scholarly examination of Paul's historical context, his missionary activities, and the development of his theological ideas.",
+        "title": "Paul and the Law",
+        "author": "Heikki Räisänen",
+        "year": 1983,
+        "rationale": "A significant scholarly work that critically examines Paul's complex relationship with Jewish law.",
         "sourceType": "book"
       }
     ],
-    "notes": "The dates for the epistles are approximate and based on scholarly consensus. The 'Epistles of Paul' is a general category encompassing multiple individual letters."
+    "notes": "The primary sources are the letters attributed to Paul in the New Testament. The years provided are approximate dates of composition. Secondary sources are chosen for their scholarly reputation and accessibility."
   },
   "unresolved": [
     {
@@ -108,37 +126,18 @@
     {
       "role": "secondary",
       "title": "Paul: A Very Short Introduction",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.15"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.14"
     },
     {
       "role": "secondary",
       "title": "The Cambridge Companion to St. Paul",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=1.00"
+    },
+    {
+      "role": "secondary",
+      "title": "Paul and the Law",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.88"
     }
   ],
-  "candidates": [
-    {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Apostle Paul: His Life and Theology",
-      "author": "Udo Schnelle",
-      "publication_year": 2005,
-      "source_url": "https://www.amazon.com/Apostle-Paul-His-Life-Theology/dp/0801048923",
-      "access_url": "https://www.amazon.com/Apostle-Paul-His-Life-Theology/dp/0801048923",
-      "snippet": null,
-      "confidence": 0.722,
-      "why": "Secondary source resolved from suggestion \"Paul the Apostle: His Life and Theology\". Matched secondary suggestion by title=0.86, author=0.00, year=0.60; Surname + aboutness term present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Paul the Apostle: His Life and Theology",
-        "suggestion_author": "Stephen J. Patterson",
-        "suggestion_year": 2017,
-        "suggestion_rationale": "A scholarly examination of Paul's historical context, his missionary activities, and the development of his theological ideas.",
-        "openalex_id": "https://openalex.org/W2889516473",
-        "work_type": "book"
-      }
-    }
-  ]
+  "candidates": []
 }

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: grok-4 V3 LIST 1 (February 4, 2026).raw.txt
+Model: grok-4 V3
+Timestamp: 2026-02-10T23:12:40.246Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 2 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 16 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (11):
+  - Exact duplicate: "muhammad" at ranks 2, 442
+  - Exact duplicate: "elon musk" at ranks 133, 418
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 22, 74
+  - Fuzzy duplicate: j robert oppenheimer / robert oppenheimer at ranks 72, 351
+  - Fuzzy duplicate: jack kilby / jack kirby at ranks 357, 463
+  - Pattern collapse: "co-founded" (15 entries, ranks 405-419)
+  - Pattern collapse: "co-founded" (15 entries, ranks 409-423)
+  - Pattern collapse: "co-founded" (16 entries, ranks 409-424)
+  - Pattern collapse: "directed" (14 entries, ranks 483-496)
+  - Pattern collapse: "directed" (10 entries, ranks 488-497)
+  ... and 1 more issues
+
+Diversity Estimates:
+  Regions: Europe: 27, Asia: 4, Middle East: 3, Africa: 6, Americas: 7, Unknown: 453
+  Domains: Politics/Leadership: 36, Science/Technology: 7, Philosophy/Religion: 12, Arts/Literature: 53, Military: 5, Other: 387
+
+Advanced Metrics:
+  Advanced score: 97.7
+  Parenthetical names: 0.0%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 11.0%

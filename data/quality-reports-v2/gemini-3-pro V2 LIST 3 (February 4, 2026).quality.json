@@ -1,0 +1,148 @@
+{
+  "file": "gemini-3-pro V2 LIST 3 (February 4, 2026).txt",
+  "model": "gemini-3-pro V2",
+  "timestamp": "2026-02-10T23:47:10.215Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 2,
+      "fuzzy": 4,
+      "status": "PASS",
+      "details": "2 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 57,
+      "expected": 61,
+      "missing": [
+        "socrates",
+        "saint paul",
+        "pythagoras",
+        "archimedes"
+      ],
+      "status": "PASS",
+      "details": "57/61 anchor figures found (93%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "booker t washington",
+      "ranks": [
+        226,
+        296
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "murasaki shikibu",
+      "ranks": [
+        263,
+        422
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        25,
+        134
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "queen isabella i",
+      "variants": [
+        "queen isabella i",
+        "queen elizabeth i"
+      ],
+      "ranks": [
+        65,
+        94
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pol pot",
+      "variants": [
+        "pol pot",
+        "saloth sar pol pot"
+      ],
+      "ranks": [
+        148,
+        297
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        462,
+        492
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 62,
+      "Asia": 20,
+      "Middle East": 16,
+      "Africa": 12,
+      "Americas": 13,
+      "Oceania": 0,
+      "Unknown": 377
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 41,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 18,
+      "Arts/Literature": 60,
+      "Military": 7,
+      "Other": 364
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.018,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 5,
+    "contributionShortRate": 0.01,
+    "score": 98.72
+  },
+  "summary": "List passes all quality checks"
+}

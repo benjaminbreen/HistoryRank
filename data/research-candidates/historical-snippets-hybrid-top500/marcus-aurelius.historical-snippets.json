@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.544Z",
+  "figureId": "marcus-aurelius",
+  "figureName": "Marcus Aurelius",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Marcus Aurelius",
+      "source_url": "https://plato.stanford.edu/entries/marcus-aurelius/",
+      "snippet": "The second century CE Roman emperor Marcus Aurelius was also a Stoic philosopher, and his Meditations , written to and for himself, offers readers a unique opportunity to see how an ancient person (indeed an emperor) might try to live a Stoic life, according to which only virtue is good, only vice is bad, and the things about which we normally concern ourselves are all indifferent to our happiness, as our lives are not made good or bad by our having or lacking them. The difficulties Marcus faces putting Stoicism into practice are philosophical as well as practical, and understanding his efforts improves our philosophical appreciation of Stoicism.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

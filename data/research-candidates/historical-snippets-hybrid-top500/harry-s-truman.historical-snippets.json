@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.557Z",
+  "figureId": "harry-s-truman",
+  "figureName": "Harry S. Truman",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Harry S. Truman is consistently described across 12 model source lists as influential for: Postwar order; nuclear and containment doctrine; Harry S. Truman reshaped governance through state-building, legal reform, and durable changes to political institutions; U.S. President who authorized atomic bombs; Harry S. Truman shifted political order by building, reforming, or toppling institutions that governed large populations; Ended WWII with atomic bombs, founded NATO, and advanced Cold War containment; Postwar order and nuclear decision; Cold War architecture; Initiated Cold War containment and nuclear-era geopolitical architecture; End of WWII & Cold War.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

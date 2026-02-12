@@ -14,10 +14,12 @@ import { Button } from '@/components/ui/button';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { useSettings } from '@/hooks/useSettings';
 import { fetcher, figureDetailConfig, listDataConfig } from '@/lib/swr';
-import { BADGE_DEFINITIONS, type FigureRow, type Figure, type Ranking, type FiguresResponse, type FigureDetailResponse, type BadgeType } from '@/types';
+import { SearchX } from 'lucide-react';
+import { BADGE_DEFINITIONS, type FigureRow, type FiguresResponse, type FigureDetailResponse, type BadgeType } from '@/types';
 
 // Load all ranked figures upfront for instant client-side filtering
 const ALL_FIGURES_LIMIT = 2000;
+type RankingMode = 'data-driven' | 'unweighted';
 
 // Loading fallback component
 function HomeLoading() {
@@ -32,6 +34,220 @@ function HomeLoading() {
         </div>
       </div>
     </main>
+  );
+}
+
+// Damped spring simulation for smooth physics animation
+function useSpring(target: number, config = { stiffness: 170, damping: 18, mass: 1.2 }) {
+  const [value, setValue] = useState(target);
+  const ref = useRef({ value: target, velocity: 0, target, settled: true });
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const s = ref.current;
+    s.target = target;
+    if (s.settled && Math.abs(s.value - target) < 0.5) {
+      // Snap for tiny changes (e.g., resize)
+      s.value = target;
+      setValue(target);
+      return;
+    }
+    s.settled = false;
+
+    const step = () => {
+      const { stiffness, damping, mass } = config;
+      const displacement = s.value - s.target;
+      const springForce = -stiffness * displacement;
+      const dampingForce = -damping * s.velocity;
+      const acceleration = (springForce + dampingForce) / mass;
+      const dt = 1 / 60;
+      s.velocity += acceleration * dt;
+      s.value += s.velocity * dt;
+
+      if (Math.abs(s.velocity) < 0.1 && Math.abs(s.value - s.target) < 0.3) {
+        s.value = s.target;
+        s.velocity = 0;
+        s.settled = true;
+        setValue(s.target);
+        return;
+      }
+      setValue(s.value);
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [target, config.stiffness, config.damping, config.mass]);
+
+  return value;
+}
+
+// Animated ranking mode toggle with sliding pill + glow
+function RankingModeToggle({
+  rankingMode,
+  onModeChange,
+  disabled,
+  openRankingTooltip,
+  setOpenRankingTooltip,
+}: {
+  rankingMode: RankingMode;
+  onModeChange: (mode: RankingMode) => void;
+  disabled: boolean;
+  openRankingTooltip: RankingMode | null;
+  setOpenRankingTooltip: React.Dispatch<React.SetStateAction<RankingMode | null>>;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const ddBtnRef = useRef<HTMLButtonElement>(null);
+  const uwBtnRef = useRef<HTMLButtonElement>(null);
+  const pillRef = useRef<HTMLDivElement>(null);
+  const [targetLeft, setTargetLeft] = useState(0);
+  const [targetWidth, setTargetWidth] = useState(0);
+  const [ready, setReady] = useState(false);
+
+  // Measure active button position
+  useEffect(() => {
+    const activeBtn = rankingMode === 'data-driven' ? ddBtnRef.current : uwBtnRef.current;
+    const container = containerRef.current;
+    if (!activeBtn || !container) return;
+    const cRect = container.getBoundingClientRect();
+    const bRect = activeBtn.getBoundingClientRect();
+    setTargetLeft(bRect.left - cRect.left);
+    setTargetWidth(bRect.width);
+    if (!ready) requestAnimationFrame(() => setReady(true));
+  }, [rankingMode, ready]);
+
+  // Spring-animated position — heavier mass for visible inertia + bounce
+  const springConfig = useMemo(() => ({ stiffness: 160, damping: 16, mass: 1.5 }), []);
+  const animLeft = useSpring(ready ? targetLeft : targetLeft, springConfig);
+  // Width uses a slightly stiffer spring so it doesn't wobble as much
+  const widthConfig = useMemo(() => ({ stiffness: 200, damping: 18, mass: 1.4 }), []);
+  const animWidth = useSpring(ready ? targetWidth : targetWidth, widthConfig);
+
+  // Compute animation progress (0 = settled, 1 = peak movement) for glow intensity
+  const velocity = Math.abs(animLeft - targetLeft);
+  const maxExpectedVelocity = 30;
+  const motionProgress = Math.min(velocity / maxExpectedVelocity, 1);
+
+  const isDataDriven = rankingMode === 'data-driven';
+  // Interpolate colors smoothly via CSS transition on the pill element
+  const emerald = { bg: 'rgba(16, 185, 129, 0.12)', border: 'rgba(16, 185, 129, 0.45)', glow: 'rgba(16, 185, 129,' };
+  const sky = { bg: 'rgba(14, 165, 233, 0.12)', border: 'rgba(14, 165, 233, 0.45)', glow: 'rgba(14, 165, 233,' };
+  const c = isDataDriven ? emerald : sky;
+  // Glow intensifies during motion, settles to subtle resting glow
+  const glowIntensity = 0.08 + motionProgress * 0.3;
+  const glowSpread = 8 + motionProgress * 14;
+  const innerGlow = 0.04 + motionProgress * 0.08;
+
+  const handleLongPress = (mode: RankingMode) => {
+    const timer = setTimeout(() => setOpenRankingTooltip(t => t === mode ? null : mode), 400);
+    const clear = () => clearTimeout(timer);
+    window.addEventListener('touchend', clear, { once: true });
+    window.addEventListener('touchmove', clear, { once: true });
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative inline-flex items-center rounded-full border border-stone-200/70 dark:border-slate-700/50 bg-white/70 dark:bg-slate-800/30 p-1 shadow-inner shadow-black/[0.03] dark:shadow-black/20"
+    >
+      {/* Sliding pill indicator — position driven by spring physics */}
+      <div
+        ref={pillRef}
+        className="absolute top-1 bottom-1 rounded-full pointer-events-none"
+        style={{
+          left: animLeft,
+          width: animWidth,
+          backgroundColor: c.bg,
+          border: `1px solid ${c.border}`,
+          boxShadow: `0 0 ${glowSpread}px ${c.glow}${glowIntensity}), inset 0 1px 0 rgba(255,255,255,${innerGlow})`,
+          // Only color/shadow transitions use CSS — position is spring-driven
+          transition: ready
+            ? 'background-color 0.5s ease, border-color 0.5s ease'
+            : 'none',
+        }}
+      />
+
+      {/* Data-Driven button */}
+      <div className="relative group z-10">
+        <button
+          ref={ddBtnRef}
+          onClick={() => onModeChange('data-driven')}
+          onContextMenu={(e) => { e.preventDefault(); setOpenRankingTooltip(t => t === 'data-driven' ? null : 'data-driven'); }}
+          onTouchStart={() => handleLongPress('data-driven')}
+          disabled={disabled}
+          className={`relative rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-300 ${
+            disabled
+              ? 'text-stone-400 dark:text-slate-500 cursor-not-allowed'
+              : isDataDriven
+                ? 'text-emerald-900 dark:text-emerald-100'
+                : 'text-stone-600 dark:text-slate-300 hover:text-stone-800 dark:hover:text-slate-100'
+          }`}
+        >
+          Data-Driven Avg
+        </button>
+        <div
+          className={`absolute right-0 top-full mt-5 w-80 max-w-[calc(100vw-2rem)] p-3.5 bg-stone-900/95 dark:bg-slate-950/95 backdrop-blur-sm text-white text-xs rounded-xl shadow-2xl z-50 border border-white/[0.06] transition-all duration-300 ease-out origin-top-right ${
+            openRankingTooltip === 'data-driven'
+              ? 'opacity-100 visible translate-y-0 scale-100'
+              : 'opacity-0 invisible translate-y-1.5 scale-[0.97] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100'
+          }`}
+        >
+          <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" />
+          <div className="font-semibold mb-2">Data-Driven Average</div>
+          <p className="text-stone-300 dark:text-slate-300 mb-2.5 leading-relaxed">
+            Quality-weighted consensus across v1+v2+v3 lists, excluding the bottom 10 known-bad lists.
+          </p>
+          <div className="space-y-1.5 text-[10px] text-stone-400 dark:text-slate-400">
+            <div className="flex justify-between"><span>Opus 4.6 / 4.5</span><span className="text-emerald-400">0.875 / 0.843</span></div>
+            <div className="flex justify-between"><span>GPT 5.3 / 5.2</span><span className="text-emerald-400">0.826 / 0.778</span></div>
+            <div className="flex justify-between"><span>Claude Sonnet 4.5</span><span className="text-amber-400">0.799</span></div>
+            <div className="flex justify-between"><span>Gemini Pro / Flash</span><span className="text-amber-400">0.748 / 0.723</span></div>
+            <div className="flex justify-between"><span>Grok 4 / 4.1</span><span className="text-orange-400">0.713 / 0.677</span></div>
+            <div className="flex justify-between"><span>GLM / Qwen</span><span className="text-orange-400">0.623 / 0.513</span></div>
+            <div className="flex justify-between"><span>DeepSeek / Mistral</span><span className="text-red-400">0.465 / 0.443</span></div>
+          </div>
+          <div className="absolute -top-[5px] right-5 w-2.5 h-2.5 bg-stone-900/95 dark:bg-slate-950/95 rotate-45 border-l border-t border-white/[0.06]" />
+        </div>
+      </div>
+
+      {/* Unweighted button */}
+      <div className="relative group z-10">
+        <button
+          ref={uwBtnRef}
+          onClick={() => onModeChange('unweighted')}
+          onContextMenu={(e) => { e.preventDefault(); setOpenRankingTooltip(t => t === 'unweighted' ? null : 'unweighted'); }}
+          onTouchStart={() => handleLongPress('unweighted')}
+          disabled={disabled}
+          className={`relative rounded-full px-3 py-1.5 text-xs font-medium transition-colors duration-300 ${
+            disabled
+              ? 'text-stone-400 dark:text-slate-500 cursor-not-allowed'
+              : !isDataDriven
+                ? 'text-sky-900 dark:text-sky-100'
+                : 'text-stone-600 dark:text-slate-300 hover:text-stone-800 dark:hover:text-slate-100'
+          }`}
+        >
+          Unweighted Rankings
+        </button>
+        <div
+          className={`absolute right-0 top-full mt-5 w-72 max-w-[calc(100vw-2rem)] p-3.5 bg-stone-900/95 dark:bg-slate-950/95 backdrop-blur-sm text-white text-xs rounded-xl shadow-2xl z-50 border border-white/[0.06] transition-all duration-300 ease-out origin-top-right ${
+            openRankingTooltip === 'unweighted'
+              ? 'opacity-100 visible translate-y-0 scale-100'
+              : 'opacity-0 invisible translate-y-1.5 scale-[0.97] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100'
+          }`}
+        >
+          <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
+          <div className="font-semibold mb-2">Unweighted Rankings</div>
+          <p className="text-stone-300 dark:text-slate-300 mb-2.5 leading-relaxed">
+            Equal-weight consensus across v1+v2+v3 lists. No model weights and no bottom-10 exclusion.
+          </p>
+          <p className="text-stone-400 dark:text-slate-400 leading-relaxed">
+            Includes all available v1+v2+v3 lists with equal weight; list count is higher than data-driven because no bottom-list exclusions are applied.
+          </p>
+          <div className="absolute -top-[5px] right-5 w-2.5 h-2.5 bg-stone-900/95 dark:bg-slate-950/95 rotate-45 border-l border-t border-white/[0.06]" />
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -55,29 +271,25 @@ function HomeContent() {
   const [region, setRegion] = useState<string | null>(null);
   const [modelSource, setModelSource] = useState<string | null>(null);
   const [badgeFilter, setBadgeFilter] = useState<BadgeType | null>(null);
-  const [useWeightedAvg, setUseWeightedAvg] = useState(false);
-  const [useWeightedAvgV2, setUseWeightedAvgV2] = useState(false);
-  const [useWeightedAvgV3, setUseWeightedAvgV3] = useState(false);
+  const [rankingMode, setRankingMode] = useState<RankingMode>('unweighted');
+  const [openRankingTooltip, setOpenRankingTooltip] = useState<'data-driven' | 'unweighted' | null>(null);
   const { settings, updateSettings, resetSettings } = useSettings();
   const [shareOrigin, setShareOrigin] = useState('');
   const hasAnimatedCounts = useRef(false);
   const suppressFigureSync = useRef(false);
 
-  // Build API URL - only changes when modelSource or weighted changes (requires server-side computation)
+  // Build API URL - only changes when server-side ranking mode changes
   const apiUrl = useMemo(() => {
     const params = new URLSearchParams();
     params.set('limit', String(ALL_FIGURES_LIMIT));
     params.set('sortBy', 'llmRank');
     params.set('sortOrder', 'asc');
-    // Only modelSource and weighted require server-side recomputation
+    params.set('rankingMode', rankingMode);
     if (modelSource) params.set('modelSource', modelSource);
-    if (useWeightedAvg) params.set('weighted', 'true');
-    if (useWeightedAvgV2) params.set('weighted2', 'true');
-    if (useWeightedAvgV3) params.set('weighted3', 'true');
     if (useV2) params.set('v2', 'true');
     if (useV3) params.set('v3', 'true');
     return `/api/figures?${params}`;
-  }, [modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3, useV2, useV3]);
+  }, [rankingMode, modelSource, useV2, useV3]);
 
   // Pagination state - how many to show (increases with "Load more")
   const [displayLimit, setDisplayLimit] = useState(500);
@@ -98,14 +310,12 @@ function HomeContent() {
     if (domain) params.set('domain', domain);
     if (era) params.set('era', era);
     if (region) params.set('region', region);
+    params.set('rankingMode', rankingMode);
     if (modelSource) params.set('modelSource', modelSource);
-    if (useWeightedAvg) params.set('weighted', 'true');
-    if (useWeightedAvgV2) params.set('weighted2', 'true');
-    if (useWeightedAvgV3) params.set('weighted3', 'true');
     if (useV2) params.set('v2', 'true');
     if (useV3) params.set('v3', 'true');
     return `/api/figures?${params}`;
-  }, [deferredSearch, displayLimit, smartSearch, domain, era, region, modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3, useV2, useV3]);
+  }, [deferredSearch, displayLimit, smartSearch, domain, era, region, rankingMode, modelSource, useV2, useV3]);
 
   const { data: searchData, error: searchError, isLoading: isSearchLoading } = useSWR<FiguresResponse>(
     searchApiUrl,
@@ -118,6 +328,7 @@ function HomeContent() {
   const activeData = deferredSearch ? searchData : figuresData;
   const totalLists = activeData?.stats?.totalLists ?? 0;
   const totalModels = activeData?.stats?.totalModels ?? 0;
+  const totalRankings = activeData?.stats?.totalRankings ?? 0;
   const errorMessage = (deferredSearch ? searchError : figuresError) ? 'Failed to fetch figures.' : null;
   const isLoading = deferredSearch ? isSearchLoading : isFiguresLoading;
 
@@ -125,50 +336,29 @@ function HomeContent() {
   const [displayTotal, setDisplayTotal] = useState(0);
   const [displayLists, setDisplayLists] = useState(0);
   const [displayModels, setDisplayModels] = useState(0);
+  const [displayRankings, setDisplayRankings] = useState(0);
+
+  // Close ranking tooltip on outside click
+  useEffect(() => {
+    if (!openRankingTooltip) return;
+    const close = () => setOpenRankingTooltip(null);
+    document.addEventListener('touchstart', close);
+    document.addEventListener('mousedown', close);
+    return () => {
+      document.removeEventListener('touchstart', close);
+      document.removeEventListener('mousedown', close);
+    };
+  }, [openRankingTooltip]);
 
   // Reset display limit when filters change (so we start at 500 again)
-  // Note: useWeightedAvg changes trigger API refetch via apiUrl, which resets data anyway
   useEffect(() => {
     setDisplayLimit(500);
-  }, [domain, era, region, deferredSearch, badgeFilter, modelSource, smartSearch, useV2, useV3, useWeightedAvgV2, useWeightedAvgV3, useWeightedAvg]);
+  }, [domain, era, region, deferredSearch, badgeFilter, modelSource, smartSearch, rankingMode, useV2, useV3]);
 
   useEffect(() => {
     if (modelSource && useV2) setUseV2(false);
     if (modelSource && useV3) setUseV3(false);
   }, [modelSource, useV2, useV3]);
-
-  useEffect(() => {
-    if (modelSource && useWeightedAvg) setUseWeightedAvg(false);
-    if (modelSource && useWeightedAvgV2) setUseWeightedAvgV2(false);
-    if (modelSource && useWeightedAvgV3) setUseWeightedAvgV3(false);
-  }, [modelSource, useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3]);
-
-  useEffect(() => {
-    if (useWeightedAvgV2) {
-      if (useWeightedAvg) setUseWeightedAvg(false);
-      if (useWeightedAvgV3) setUseWeightedAvgV3(false);
-      if (useV2) setUseV2(false);
-      if (useV3) setUseV3(false);
-    }
-  }, [useWeightedAvgV2, useWeightedAvg, useWeightedAvgV3, useV2, useV3]);
-
-  useEffect(() => {
-    if (useWeightedAvgV3) {
-      if (useWeightedAvg) setUseWeightedAvg(false);
-      if (useWeightedAvgV2) setUseWeightedAvgV2(false);
-      if (useV2) setUseV2(false);
-      if (useV3) setUseV3(false);
-    }
-  }, [useWeightedAvgV3, useWeightedAvg, useWeightedAvgV2, useV2, useV3]);
-
-  useEffect(() => {
-    if (useWeightedAvg && useWeightedAvgV2) {
-      setUseWeightedAvgV2(false);
-    }
-    if (useWeightedAvg && useWeightedAvgV3) {
-      setUseWeightedAvgV3(false);
-    }
-  }, [useWeightedAvg, useWeightedAvgV2, useWeightedAvgV3]);
 
   // Client-side filtering and sorting (instant!)
   const filteredAndSorted = useMemo(() => {
@@ -409,18 +599,22 @@ function HomeContent() {
       animateCount(totalFiguresInDb > 1 ? 1 : 0, totalFiguresInDb, 520, setDisplayTotal);
       animateCount(totalModels > 1 ? 1 : 0, totalModels, 820, setDisplayModels);
       animateCount(totalLists > 1 ? 1 : 0, totalLists, 640, setDisplayLists);
+      if (totalRankings > 0) animateCount(1, totalRankings, 720, setDisplayRankings);
       return;
     }
 
     setDisplayTotal(totalFiguresInDb);
     setDisplayModels(totalModels);
     setDisplayLists(totalLists);
-  }, [totalFiguresInDb, totalModels, totalLists, animateCount]);
+    setDisplayRankings(totalRankings);
+  }, [totalFiguresInDb, totalModels, totalLists, totalRankings, animateCount]);
 
   // Sync state from URL (shareable filters + deep links)
   // Note: We use a ref to track selectedId to avoid dependency loop
-  const selectedIdRef = useRef(selectedId);
-  selectedIdRef.current = selectedId;
+  const selectedIdRef = useRef<string | null>(selectedId);
+  useEffect(() => {
+    selectedIdRef.current = selectedId;
+  }, [selectedId]);
   const lastUrlSyncRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -432,9 +626,7 @@ function HomeContent() {
     const nextEra = searchParams.get('era');
     const nextRegion = searchParams.get('region');
     const nextModel = searchParams.get('modelSource');
-    const nextWeighted = searchParams.get('weighted') === 'true';
-    const nextWeighted2 = searchParams.get('weighted2') === 'true';
-    const nextWeighted3 = searchParams.get('weighted3') === 'true';
+    const nextRankingMode = searchParams.get('rankingMode') === 'data-driven' ? 'data-driven' : 'unweighted';
     const nextV2 = searchParams.get('v2') === 'true';
     const nextV3 = searchParams.get('v3') === 'true';
     const nextSortBy = searchParams.get('sortBy') ?? 'llmRank';
@@ -449,9 +641,7 @@ function HomeContent() {
     setEra(nextEra || null);
     setRegion(nextRegion || null);
     setModelSource(nextModel || null);
-    setUseWeightedAvg(nextWeighted);
-    setUseWeightedAvgV2(nextWeighted2);
-    setUseWeightedAvgV3(nextWeighted3);
+    setRankingMode(nextRankingMode);
     setUseV2(nextV2);
     setUseV3(nextV3);
     setSortBy(nextSortBy);
@@ -483,9 +673,7 @@ function HomeContent() {
       if (era) params.set('era', era);
       if (region) params.set('region', region);
       if (modelSource) params.set('modelSource', modelSource);
-      if (useWeightedAvg) params.set('weighted', 'true');
-      if (useWeightedAvgV2) params.set('weighted2', 'true');
-      if (useWeightedAvgV3) params.set('weighted3', 'true');
+      if (rankingMode === 'data-driven') params.set('rankingMode', 'data-driven');
       if (useV2) params.set('v2', 'true');
       if (useV3) params.set('v3', 'true');
       if (badgeFilter) params.set('badge', badgeFilter);
@@ -510,9 +698,7 @@ function HomeContent() {
     era,
     region,
     modelSource,
-    useWeightedAvg,
-    useWeightedAvgV2,
-    useWeightedAvgV3,
+    rankingMode,
     useV2,
     useV3,
     badgeFilter,
@@ -558,8 +744,7 @@ function HomeContent() {
     if (era) params.set('era', era);
     if (region) params.set('region', region);
     if (modelSource) params.set('modelSource', modelSource);
-    if (useWeightedAvg) params.set('weighted', 'true');
-    if (useWeightedAvgV2) params.set('weighted2', 'true');
+    if (rankingMode === 'data-driven') params.set('rankingMode', 'data-driven');
     if (badgeFilter) params.set('badge', badgeFilter);
     if (sortBy !== 'llmRank') params.set('sortBy', sortBy);
     if (sortOrder !== 'asc') params.set('sortOrder', sortOrder);
@@ -571,8 +756,7 @@ function HomeContent() {
     era,
     region,
     modelSource,
-    useWeightedAvg,
-    useWeightedAvgV2,
+    rankingMode,
     badgeFilter,
     sortBy,
     sortOrder,
@@ -656,17 +840,17 @@ function HomeContent() {
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {errorMessage && (
-          <div className="mb-6 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <div className="mb-6 rounded-md border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 px-4 py-3 text-sm text-amber-900 dark:text-amber-300">
             {errorMessage} Try refreshing or check the deployment logs.
           </div>
         )}
         {/* Stats bar */}
-        <div className="mb-4 sm:mb-6">
+        <div className="mb-4 sm:mb-6 relative z-40">
           <div className="flex flex-wrap items-center justify-between gap-y-2 mb-4">
             <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-2">
               <Link
                 href="/fulllist"
-                className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
+                className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 dark:hover:border-slate-600 dark:hover:bg-slate-800/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
               >
                 {isLoading ? (
                   <Skeleton className="h-6 sm:h-7 w-12 sm:w-16" />
@@ -678,7 +862,7 @@ function HomeContent() {
               <div className="h-4 w-px bg-stone-300 dark:bg-slate-600 hidden sm:block" />
               <Link
                 href="/compare?view=overview"
-                className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
+                className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 dark:hover:border-slate-600 dark:hover:bg-slate-800/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
               >
                 {isLoading ? (
                   <Skeleton className="h-6 sm:h-7 w-8 sm:w-10" />
@@ -688,135 +872,37 @@ function HomeContent() {
                 <span className="text-xs sm:text-sm text-stone-500 dark:text-slate-400">models</span>
               </Link>
               <div className="h-4 w-px bg-stone-300 dark:bg-slate-600 hidden sm:block" />
-              <div className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]">
+              <Link
+                href="/compare?view=lists"
+                className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1 transition-all hover:border-stone-200/70 hover:bg-white/70 dark:hover:border-slate-600 dark:hover:bg-slate-800/70 hover:shadow-sm active:translate-y-[2px] active:scale-[0.98]"
+              >
                 {isLoading ? (
                   <Skeleton className="h-6 sm:h-7 w-8 sm:w-10" />
                 ) : (
                   <span className="font-mono text-xl sm:text-2xl font-semibold text-stone-900 dark:text-amber-100">{displayLists || '–'}</span>
                 )}
                 <span className="text-xs sm:text-sm text-stone-500 dark:text-slate-400">lists</span>
+              </Link>
+              <div className="h-4 w-px bg-stone-300 dark:bg-slate-600 hidden sm:block" />
+              <div className="flex items-baseline gap-1 sm:gap-1.5 rounded-full border border-transparent px-1.5 sm:px-2 py-1">
+                {isLoading ? (
+                  <Skeleton className="h-6 sm:h-7 w-12 sm:w-16" />
+                ) : (
+                  <span className="font-mono text-xl sm:text-2xl font-semibold text-stone-900 dark:text-amber-100">{displayRankings ? displayRankings.toLocaleString() : '–'}</span>
+                )}
+                <span className="text-xs sm:text-sm text-stone-500 dark:text-slate-400">rankings</span>
               </div>
             </div>
 
-            {/* Weighted Average Toggle */}
             <div className="flex items-center gap-2">
-              <div className="relative group">
-                <button
-                  onClick={() => {
-                    if (modelSource) return;
-                    setUseWeightedAvg((prev) => {
-                      const next = !prev;
-                      if (next) {
-                        setUseWeightedAvgV2(false);
-                        setUseV2(false);
-                        setUseV3(false);
-                      }
-                      return next;
-                    });
-                  }}
-                  disabled={!!modelSource}
-                  className={`
-                    flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all
-                    ${modelSource
-                      ? 'bg-stone-100 text-stone-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500'
-                      : useWeightedAvg
-                        ? 'bg-amber-100 text-amber-800 border border-amber-300 shadow-sm dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-700'
-                        : 'bg-white/70 text-stone-600 border border-stone-200/70 hover:bg-white hover:border-stone-300 hover:shadow-sm dark:bg-slate-800/50 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800'
-                    }
-                  `}
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                  </svg>
-                  <span>Weighted Avg</span>
-                  {useWeightedAvg && (
-                    <span className="ml-1 text-[10px] bg-amber-200 dark:bg-amber-800 px-1.5 py-0.5 rounded-full">ON</span>
-                  )}
-                </button>
+              <RankingModeToggle
+                rankingMode={rankingMode}
+                onModeChange={setRankingMode}
+                disabled={!!modelSource}
+                openRankingTooltip={openRankingTooltip}
+                setOpenRankingTooltip={setOpenRankingTooltip}
+              />
 
-                {/* Tooltip */}
-                <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-stone-900 dark:bg-slate-950 text-white text-xs rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                  <div className="font-semibold mb-2">Quality-Weighted Consensus</div>
-                  <p className="text-stone-300 dark:text-slate-300 mb-2">
-                    Applies reliability weights to each model based on automated quality assessment (duplicates, pattern collapse) and LLM evaluation.
-                  </p>
-                  <p className="text-stone-400 dark:text-slate-400 mb-2">
-                    Weights reflect an average of suggested scores from multiple list audits by GPT-5.2 and Claude Opus 4.5.
-                  </p>
-                  <div className="space-y-1 text-[10px] text-stone-400 dark:text-slate-400">
-                    <div className="flex justify-between"><span>Claude Opus</span><span className="text-emerald-400">1.0×</span></div>
-                    <div className="flex justify-between"><span>GPT-5.2 Thinking</span><span className="text-emerald-400">0.79×</span></div>
-                    <div className="flex justify-between"><span>Claude Sonnet</span><span className="text-amber-400">0.54×</span></div>
-                    <div className="flex justify-between"><span>Gemini Pro, Gemini Flash</span><span className="text-amber-400">0.33× / 0.29×</span></div>
-                    <div className="flex justify-between"><span>Grok 4, Qwen</span><span className="text-orange-400">0.29× / 0.26×</span></div>
-                    <div className="flex justify-between"><span>DeepSeek, Grok 4.1, GLM</span><span className="text-orange-400">0.18× / 0.18× / 0.11×</span></div>
-                    <div className="flex justify-between"><span>Mistral Large</span><span className="text-red-400">0.05×</span></div>
-                  </div>
-                  {modelSource && (
-                    <p className="mt-2 text-amber-400 text-[10px]">
-                      Disabled when viewing single model rankings.
-                    </p>
-                  )}
-                  <div className="absolute -top-1 right-4 w-2 h-2 bg-stone-900 dark:bg-slate-950 rotate-45" />
-                </div>
-              </div>
-
-              {/* Expanded Avg (Weighted v3) Toggle */}
-              <div className="relative group">
-                <button
-                  onClick={() => {
-                    if (modelSource) return;
-                    setUseWeightedAvgV3((prev) => {
-                      const next = !prev;
-                      if (next) {
-                        setUseWeightedAvg(false);
-                        setUseV2(false);
-                        setUseV3(false);
-                      }
-                      return next;
-                    });
-                  }}
-                  disabled={!!modelSource}
-                  className={`
-                    flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all
-                    ${modelSource
-                      ? 'bg-stone-100 text-stone-400 cursor-not-allowed dark:bg-slate-800 dark:text-slate-500'
-                      : useWeightedAvgV3
-                        ? 'bg-sky-100 text-sky-900 border border-sky-300 shadow-sm dark:bg-sky-900/30 dark:text-sky-100 dark:border-sky-700'
-                        : 'bg-white/70 text-stone-600 border border-stone-200/70 hover:bg-white hover:border-stone-300 hover:shadow-sm dark:bg-slate-800/50 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800'
-                    }
-                  `}
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12h16M8 7h12M8 17h12" />
-                  </svg>
-                  <span>Expanded Avg</span>
-                  {useWeightedAvgV3 && (
-                    <span className="ml-1 text-[10px] bg-sky-200 dark:bg-sky-800 px-1.5 py-0.5 rounded-full">ON</span>
-                  )}
-                </button>
-
-                <div className="absolute right-0 top-full mt-2 w-72 p-3 bg-stone-900 dark:bg-slate-950 text-white text-xs rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                  <div className="font-semibold mb-2">Expanded Average</div>
-                  <p className="text-stone-300 dark:text-slate-300 mb-2">
-                    Averages three prompt variants (v1, v2, v3) to reduce prompt-based bias.
-                  </p>
-                  <p className="text-stone-400 dark:text-slate-400 mb-2">
-                    Uses canonical model weights, coverage-aware penalties, and Bayesian shrinkage for low-coverage figures.
-                  </p>
-                  <p className="text-stone-400 dark:text-slate-400 mb-2">
-                    Drops the ten worst lists using quantified quality metrics (duplicates, pattern collapse, name hygiene).
-                  </p>
-                  {modelSource && (
-                    <p className="mt-2 text-sky-400 text-[10px]">
-                      Disabled when viewing single model rankings.
-                    </p>
-                  )}
-                  <div className="absolute -top-1 right-4 w-2 h-2 bg-stone-900 dark:bg-slate-950 rotate-45" />
-                </div>
-              </div>
-
-              {/* Download Dropdown */}
               <DownloadDropdown
                 figures={filteredAndSorted}
                 filters={{
@@ -825,9 +911,7 @@ function HomeContent() {
                   region,
                   search,
                   modelSource,
-                  useWeightedAvg,
-                  useWeightedAvgV2,
-                  useWeightedAvgV3,
+                  rankingMode,
                   useV2,
                   useV3,
                 }}
@@ -946,7 +1030,8 @@ function HomeContent() {
               const activeFilterCount = [search, domain, era, region, modelSource, badgeFilter].filter(Boolean).length;
               return (
                 <div className="text-center py-12">
-                  <p className="text-stone-500 dark:text-slate-400">
+                  <SearchX className="h-10 w-10 mx-auto text-stone-300 dark:text-slate-600 mb-3" />
+                  <p className="text-stone-500 dark:text-slate-400 font-medium">
                     No figures found matching your filters.
                   </p>
                   {activeFilterCount > 0 && (
@@ -1025,7 +1110,7 @@ function HomeContent() {
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-stone-600 dark:text-slate-400">
             <div className="flex items-center gap-2">
               <span className="font-medium">LLM:</span>
-              <span>Position based on combined AI rankings (Claude, Gemini)</span>
+              <span>Position based on combined AI rankings across multiple frontier models</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-medium">HPI:</span>

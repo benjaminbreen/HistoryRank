@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.736Z",
+  "figureId": "tacitus",
+  "figureName": "Tacitus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Tacitus is consistently described across 11 model source lists as influential for: Roman historian whose critical accounts of imperial rule influenced political thought and historiography; Built or consolidated a state apparatus that governed large populations for generations; Roman historian and senator, known for his terse, critical analyses of the Roman Empire; Roman historian, Germania, Annals; Tacitus changed literary and intellectual culture through works that redefined language, narrative, and public imagination; History; Annals; Roman historian; Annals, Germania.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:36.621Z",
+  "generatedAt": "2026-02-10T00:10:11.635Z",
   "figureId": "confucius",
   "figureName": "Confucius",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "primary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 1998,
+        "max": 1998
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 644,
-      "totalTokenCount": 932,
+      "candidatesTokenCount": 640,
+      "totalTokenCount": 928,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "The Analects",
         "author": "Confucius",
         "year": -475,
-        "rationale": "The Analects is a collection of sayings and ideas attributed to the Chinese philosopher Confucius and his contemporaries, traditionally believed to have been compiled by Confucius's followers. It is the most famous and influential of the Four Books.",
+        "rationale": "The foundational text of Confucianism, containing sayings and ideas attributed to Confucius and his contemporaries. It is a primary source for understanding his philosophy and teachings.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +70,7 @@
         "title": "The Great Learning",
         "author": "Confucius",
         "year": -475,
-        "rationale": "The Great Learning is one of the Four Books in Confucian philosophy. It is a short, introductory text that outlines the path to self-cultivation and good governance.",
+        "rationale": "One of the Four Books, traditionally attributed to Confucius, though likely compiled by his disciples. It outlines a path to self-cultivation and good governance.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +81,7 @@
         "title": "The Doctrine of the Mean",
         "author": "Confucius",
         "year": -475,
-        "rationale": "The Doctrine of the Mean is another of the Four Books, focusing on the importance of balance, moderation, and harmony in personal conduct and governance.",
+        "rationale": "Another of the Four Books, also traditionally attributed to Confucius. It focuses on the importance of balance, moderation, and sincerity.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -69,25 +94,25 @@
         "title": "Confucius: A Life of Thought",
         "author": "Benjamin I. Schwartz",
         "year": 1985,
-        "rationale": "A highly regarded scholarly biography and intellectual history of Confucius by a prominent sinologist.",
+        "rationale": "A highly regarded scholarly biography and intellectual history that provides a comprehensive analysis of Confucius's life, thought, and influence.",
         "sourceType": "book"
       },
       {
         "title": "The Analects: An Introduction",
         "author": "D.C. Lau",
         "year": 1979,
-        "rationale": "A foundational scholarly introduction and translation of the Analects, providing context and analysis.",
+        "rationale": "An accessible yet scholarly introduction to the Analects, offering context, interpretation, and analysis of Confucius's core teachings.",
         "sourceType": "book"
       },
       {
         "title": "Confucianism: A Very Short Introduction",
-        "author": "Daniel A. Bell",
-        "year": 2013,
-        "rationale": "A concise and accessible overview of Confucianism, its history, and its relevance, written by a leading scholar in the field.",
+        "author": "Ann A. Pang-White",
+        "year": 2006,
+        "rationale": "A concise and authoritative overview of Confucianism, covering its origins, key concepts, and historical development, with significant focus on Confucius himself.",
         "sourceType": "book"
       }
     ],
-    "notes": "The primary sources listed are foundational texts of Confucianism, attributed to Confucius and compiled by his disciples. Their exact authorship and dating are subject to scholarly debate, but they are universally considered primary in the study of Confucius. Secondary sources are chosen for their scholarly reputation and recency."
+    "notes": "The primary sources listed are ancient texts traditionally attributed to Confucius or his immediate disciples. Their exact authorship and dating are subjects of scholarly debate, but they are universally accepted as the foundational texts for studying Confucian thought. The years provided are approximate traditional dates."
   },
   "unresolved": [
     {
@@ -113,7 +138,7 @@
     {
       "role": "secondary",
       "title": "Confucianism: A Very Short Introduction",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.09"
     }
   ],
   "candidates": [
@@ -121,21 +146,21 @@
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Confucius : the analects",
+      "title": "The Analects",
       "author": "Confucius",
-      "publication_year": 1992,
-      "source_url": "https://archive.org/details/confuciusanalect0000conf",
-      "access_url": "https://archive.org/details/confuciusanalect0000conf",
+      "publication_year": 1998,
+      "source_url": "https://archive.org/details/analects0000conf",
+      "access_url": "https://archive.org/details/analects0000conf",
       "snippet": null,
-      "confidence": 0.837,
-      "why": "Primary source resolved from suggestion \"The Analects\". Matched primary suggestion by title=0.87, author=1.00, year=0.00; Primary gate passed",
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"The Analects\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Analects",
         "suggestion_author": "Confucius",
         "suggestion_year": -475,
-        "suggestion_rationale": "The Analects is a collection of sayings and ideas attributed to the Chinese philosopher Confucius and his contemporaries, traditionally believed to have been compiled by Confucius's followers. It is the most famous and influential of the Four Books.",
-        "ia_identifier": "confuciusanalect0000conf"
+        "suggestion_rationale": "The foundational text of Confucianism, containing sayings and ideas attributed to Confucius and his contemporaries. It is a primary source for understanding his philosophy and teachings.",
+        "ia_identifier": "analects0000conf"
       }
     }
   ]

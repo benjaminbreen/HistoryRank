@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.570Z",
+  "figureId": "richard-the-lionheart",
+  "figureName": "Richard the Lionheart",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Richard the Lionheart is consistently described across 12 model source lists as influential for: English king during the Crusades; English king and leader in the Third Crusade; Symbol of crusading chivalry, though his reign had limited administrative impact; Richard the Lionheart shifted political order by building, reforming, or toppling institutions that governed large populations; Crusading kingship archetype; Anglo-French political mythology; English king, leader in Third Crusade; Third Crusade leadership; Symbolic leader of the Third Crusade, embodying medieval chivalry and military prowess.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

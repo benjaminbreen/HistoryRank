@@ -127,6 +127,30 @@ const COLLAPSE_PATTERNS = [
   /contestant/i,
 ];
 
+const GENERIC_COLLAPSE_STOPWORDS = new Set([
+  'their',
+  'which',
+  'about',
+  'known',
+  'famous',
+  'whose',
+  'where',
+  'there',
+  'these',
+  'those',
+  'through',
+  'within',
+]);
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function hasWholeWord(text: string, word: string): boolean {
+  const pattern = new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i');
+  return pattern.test(text);
+}
+
 /**
  * Normalize a name for comparison
  */
@@ -402,7 +426,10 @@ function detectPatternCollapse(entries: ListEntry[]): {
     // Extract common significant words (>4 chars)
     const wordCounts = new Map<string, number>();
     for (const contrib of contributions) {
-      const words = contrib.split(/\s+/).filter(w => w.length > 4);
+      const words = contrib
+        .split(/\s+/)
+        .map((w) => w.replace(/[^a-z0-9]/gi, ''))
+        .filter((w) => w.length > 4);
       for (const word of words) {
         wordCounts.set(word, (wordCounts.get(word) || 0) + 1);
       }
@@ -410,32 +437,60 @@ function detectPatternCollapse(entries: ListEntry[]): {
 
     // Check if any word appears in 80%+ of entries
     for (const [word, count] of wordCounts) {
-      if (count >= windowSize * 0.8 && !['their', 'which', 'about', 'known', 'famous'].includes(word)) {
-        // Extend the window to find full extent
+      if (count >= windowSize * 0.8 && !GENERIC_COLLAPSE_STOPWORDS.has(word)) {
+        // Find longest contiguous run for this token in and around the active window.
         let start = i;
         let end = i + windowSize - 1;
 
-        while (start > 0 && entries[start - 1].primary_contribution.toLowerCase().includes(word)) {
-          start--;
+        while (start <= end && !hasWholeWord(entries[start].primary_contribution.toLowerCase(), word)) {
+          start++;
         }
-        while (end < entries.length - 1 && entries[end + 1].primary_contribution.toLowerCase().includes(word)) {
-          end++;
+        while (end >= start && !hasWholeWord(entries[end].primary_contribution.toLowerCase(), word)) {
+          end--;
+        }
+        if (end < start) continue;
+
+        let runStart = start;
+        let runEnd = start;
+        let currentStart = -1;
+        for (let idx = start; idx <= end; idx++) {
+          const hasWord = hasWholeWord(entries[idx].primary_contribution.toLowerCase(), word);
+          if (hasWord && currentStart === -1) {
+            currentStart = idx;
+          } else if (!hasWord && currentStart !== -1) {
+            if (idx - currentStart > runEnd - runStart + 1) {
+              runStart = currentStart;
+              runEnd = idx - 1;
+            }
+            currentStart = -1;
+          }
+        }
+        if (currentStart !== -1 && end - currentStart + 1 > runEnd - runStart + 1) {
+          runStart = currentStart;
+          runEnd = end;
         }
 
-        const sequenceLength = end - start + 1;
+        while (runStart > 0 && hasWholeWord(entries[runStart - 1].primary_contribution.toLowerCase(), word)) {
+          runStart--;
+        }
+        while (runEnd < entries.length - 1 && hasWholeWord(entries[runEnd + 1].primary_contribution.toLowerCase(), word)) {
+          runEnd++;
+        }
+
+        const sequenceLength = runEnd - runStart + 1;
         if (sequenceLength >= 10) {
           const existingSeq = sequences.find(s =>
-            s.startRank <= entries[start].rank && s.endRank >= entries[end].rank
+            s.startRank <= entries[runStart].rank && s.endRank >= entries[runEnd].rank
           );
 
           if (!existingSeq) {
             sequences.push({
               type: 'pattern_collapse',
               pattern: word,
-              startRank: entries[start].rank,
-              endRank: entries[end].rank,
+              startRank: entries[runStart].rank,
+              endRank: entries[runEnd].rank,
               count: sequenceLength,
-              examples: entries.slice(start, start + 3).map(e => `${e.rank}. ${e.name}`),
+              examples: entries.slice(runStart, runStart + 3).map(e => `${e.rank}. ${e.name}`),
             });
             maxSequence = Math.max(maxSequence, sequenceLength);
           }
@@ -497,6 +552,12 @@ function checkStructural(entries: ListEntry[], expectedCount: number): {
 } {
   const entryCount = entries.length;
   const validJson = true; // If we got here, JSON was valid
+  const acceptedCounts = new Set<number>([expectedCount]);
+  // Batch assessments are often run with default expectedCount=1000, but we now
+  // intentionally support 500-entry lists as first-class outputs.
+  if (expectedCount === 1000) acceptedCounts.add(500);
+  const accepted = Array.from(acceptedCounts).sort((a, b) => a - b);
+  const acceptedLabel = accepted.join(' or ');
 
   // Check sequential ranks
   const ranks = entries.map(e => e.rank).sort((a, b) => a - b);
@@ -509,12 +570,20 @@ function checkStructural(entries: ListEntry[], expectedCount: number): {
   }
 
   const issues: string[] = [];
-  if (entryCount !== expectedCount) issues.push(`${entryCount} entries (expected ${expectedCount})`);
+  const countAccepted = accepted.includes(entryCount);
+  if (!countAccepted) issues.push(`${entryCount} entries (expected ${acceptedLabel})`);
   if (!sequentialRanks) issues.push('non-sequential ranks');
 
   let status: QualityStatus = 'PASS';
-  if (entryCount < Math.floor(expectedCount * 0.9) || !sequentialRanks) status = 'FAIL';
-  else if (entryCount < expectedCount) status = 'WARN';
+  if (!sequentialRanks) {
+    status = 'FAIL';
+  } else if (!countAccepted) {
+    const nearestAccepted = accepted.reduce((best, value) =>
+      Math.abs(value - entryCount) < Math.abs(best - entryCount) ? value : best
+    );
+    const relativeDiff = Math.abs(entryCount - nearestAccepted) / Math.max(1, nearestAccepted);
+    status = relativeDiff >= 0.2 ? 'FAIL' : 'WARN';
+  }
 
   return {
     entries: entryCount,

@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.603Z",
+  "figureId": "immanuel-kant",
+  "figureName": "Immanuel Kant",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Kant, Immanuel",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FKant%2C_Immanuel",
+      "snippet": "In 1755 Kant became tutor in the family of Count Kayserling. By the kindness of a friend named Richter, he was enabled to resume his university career, and in the autumn of that year he graduated as doctor and qualified as privatdocent. For fifteen years he continued to labour in this position, his fame as writer and lecturer steadily increasing. Though twice he failed to obtain a professorship at Königsberg, he steadily refused appointments elsewhere. The only academic preferment received by him during the lengthy probation was the post of under-librarian (1766).",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Kant, Immanuel",
+      "source_url": "https://plato.stanford.edu/entries/kant/",
+      "snippet": "Immanuel Kant (1724-1804) is the central figure in modern philosophy. He synthesized early modern rationalism and empiricism, set the terms for much of nineteenth and twentieth century philosophy, and continues to exercise a significant influence today in metaphysics, epistemology, ethics, political philosophy, aesthetics, and other fields. The fundamental idea of Kant's \"critical philosophy\" - especially in his three Critiques: the Critique of Pure Reason (1781, 1787), the Critique of Practical Reason (1788), and the Critique of the Power of Judgment (1790) - is human autonomy. He argues that the human understanding is the source of the general laws of nature that structure all our experience; and that human reason gives itself the moral law, which is our basis for belief in God, freedom, and immortality. Therefore, scientific knowledge, morality, and religious belief are mutually consistent and secure because they all rest on the same foundation of human autonomy, which is also the final end of nature according to the teleological worldview of reflecting judgment that Kant introduces to unify the theoretical and practical parts of his philosophical system.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Grok 4 LIST 3 (January 14, 2026).txt
+Model: Grok 4
+Timestamp: 2026-02-10T23:46:14.155Z
+
+VERDICT: WARN
+
+Summary: Issues: 115 exact duplicates; pattern collapse (max 12)
+
+Scores:
+  Repetition: WARN - 115 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 12 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
+
+Issues (136):
+  - Exact duplicate: "alexander the great" at ranks 7, 791
+  - Exact duplicate: "genghis khan" at ranks 8, 304, 799
+  - Exact duplicate: "napoleon bonaparte" at ranks 14, 787
+  - Exact duplicate: "abraham lincoln" at ranks 15, 723
+  - Exact duplicate: "adolf hitler" at ranks 18, 563
+  - Exact duplicate: "julius caesar" at ranks 20, 795
+  - Exact duplicate: "qin shi huang" at ranks 23, 565
+  - Exact duplicate: "vladimir lenin" at ranks 29, 555
+  - Exact duplicate: "sigmund freud" at ranks 30, 533
+  - Exact duplicate: "ashoka" at ranks 31, 312, 547
+  ... and 126 more issues
+
+Diversity Estimates:
+  Regions: Europe: 104, Asia: 40, Middle East: 60, Africa: 16, Americas: 22, Unknown: 758
+  Domains: Politics/Leadership: 158, Science/Technology: 55, Philosophy/Religion: 72, Arts/Literature: 79, Military: 15, Other: 621
+
+Advanced Metrics:
+  Advanced score: 89.8
+  Parenthetical names: 0.2%
+  Multi-person names: 0.3%
+  Comma names: 0.0%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 49.6%

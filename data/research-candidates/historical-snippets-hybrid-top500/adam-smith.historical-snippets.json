@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.398Z",
+  "figureId": "adam-smith",
+  "figureName": "Adam Smith",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Smith, Adam",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FSmith%2C_Adam",
+      "snippet": "In 1762 the senatus academicus of Glasgow conferred on him the honorary degree of doctor of laws. In 1763 he was invited to take charge of the young duke of Buccleuch on his travels. He accepted, and resigned his professorship. He went abroad with his pupil in February 1764; they remained only a few days at Paris and then settled at Toulouse, at that time the seat of a parlement, where they spent eighteen months in the best society of the place, afterwards making a tour in the south of France and passing two months at Geneva. Returning to Paris about Christmas of 1765, they remained there till the October of the following year.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

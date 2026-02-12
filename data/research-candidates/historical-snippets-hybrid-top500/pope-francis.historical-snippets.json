@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.102Z",
+  "figureId": "pope-francis",
+  "figureName": "Pope Francis",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Pope Francis is consistently described across 12 model source lists as influential for: Current Pope who redefined Catholic social teaching and global interfaith dialogue; Reformed the Catholic Church, advancing social justice and environmental ethics; Current Pope, shaping modern Catholic social teaching and global dialogue; Current Pope; Advocated for social justice, environmentalism, and church reform, reshaping Catholic leadership; Pontiff addressing climate change and inequality; Church reform, environmental advocacy, social justice; Catholic reform, social justice.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

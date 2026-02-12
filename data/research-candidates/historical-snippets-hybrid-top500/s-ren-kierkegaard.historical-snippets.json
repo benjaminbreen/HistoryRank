@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.522Z",
+  "figureId": "s-ren-kierkegaard",
+  "figureName": "Søren Kierkegaard",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Søren Kierkegaard is consistently described across 13 model source lists as influential for: Founded existentialism, emphasizing individual choice, faith, and subjective truth; Founder of existentialism, shaping modern theology and philosophy; Soren Kierkegaard altered historical trajectories through actions and ideas that had durable cross-regional consequences; Father of existentialism, shaping modern philosophy and theology; Existential philosophy; Christian thought; Introduced existential analysis of faith, anxiety, and individual responsibility; Existentialist philosopher; Existentialist philosophy; individual authenticity.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,0 +1,656 @@
+{
+  "file": "Grok 4 LIST 5 (January 15, 2026).txt",
+  "model": "Grok 4",
+  "timestamp": "2026-02-10T23:46:17.866Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 22,
+      "fuzzy": 7,
+      "status": "PASS",
+      "details": "22 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 30,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 466,
+          "endRank": 476,
+          "count": 11,
+          "examples": [
+            "466. Octavio Paz",
+            "467. Derek Walcott",
+            "468. Seamus Heaney"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 531,
+          "endRank": 544,
+          "count": 14,
+          "examples": [
+            "531. Akira Kurosawa",
+            "532. Federico Fellini",
+            "533. Ingmar Bergman"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 559,
+          "endRank": 572,
+          "count": 14,
+          "examples": [
+            "559. Jon Stewart",
+            "560. Stephen Colbert",
+            "561. John Oliver"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "player",
+          "startRank": 584,
+          "endRank": 594,
+          "count": 11,
+          "examples": [
+            "584. Michael Jordan",
+            "585. LeBron James",
+            "586. Kobe Bryant"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "runner",
+          "startRank": 686,
+          "endRank": 700,
+          "count": 15,
+          "examples": [
+            "686. Mo Farah",
+            "687. Hicham El Guerrouj",
+            "688. Sebastian Coe"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "designer",
+          "startRank": 813,
+          "endRank": 822,
+          "count": 10,
+          "examples": [
+            "813. Davey Wreden",
+            "814. Lucas Pope",
+            "815. Terry Cavanagh"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "manga",
+          "startRank": 849,
+          "endRank": 864,
+          "count": 16,
+          "examples": [
+            "849. Akira Toriyama",
+            "850. Eiichiro Oda",
+            "851. Masashi Kishimoto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "manga",
+          "startRank": 903,
+          "endRank": 912,
+          "count": 10,
+          "examples": [
+            "903. Ken Akamatsu",
+            "904. Hiro Mashima",
+            "905. Atsushi Ōkubo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer",
+          "startRank": 937,
+          "endRank": 946,
+          "count": 10,
+          "examples": [
+            "937. Gen Urobuchi",
+            "938. Kinoko Nasu",
+            "939. Ryukishi07"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "manga",
+          "startRank": 976,
+          "endRank": 990,
+          "count": 15,
+          "examples": [
+            "976. Sankichi Hinodeya",
+            "977. Aya Shouoto",
+            "978. Julietta Suzuki"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 455,
+          "endRank": 484,
+          "count": 30,
+          "examples": [
+            "455. John Keats",
+            "456. Percy Bysshe Shelley",
+            "457. Lord Byron"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 849,
+          "endRank": 863,
+          "count": 15,
+          "examples": [
+            "849. Akira Toriyama",
+            "850. Eiichiro Oda",
+            "851. Masashi Kishimoto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 976,
+          "endRank": 990,
+          "count": 15,
+          "examples": [
+            "976. Sankichi Hinodeya",
+            "977. Aya Shouoto",
+            "978. Julietta Suzuki"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 30 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "copernicus",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        15,
+        308
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        26,
+        493
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        60,
+        357
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gabriel garca mrquez",
+      "ranks": [
+        153,
+        485
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ernest hemingway",
+      "ranks": [
+        170,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john steinbeck",
+      "ranks": [
+        172,
+        488
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "pablo neruda",
+      "ranks": [
+        178,
+        486
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bob dylan",
+      "ranks": [
+        265,
+        477
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeanpaul sartre",
+      "ranks": [
+        323,
+        495
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "albert camus",
+      "ranks": [
+        324,
+        494
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bertrand russell",
+      "ranks": [
+        325,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suharto",
+      "ranks": [
+        389,
+        737
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ferdinand marcos",
+      "ranks": [
+        390,
+        738
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ts eliot",
+      "ranks": [
+        461,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hayao miyazaki",
+      "ranks": [
+        538,
+        865
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "masashi kishimoto",
+      "ranks": [
+        851,
+        926
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tite kubo",
+      "ranks": [
+        852,
+        881
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "clamp",
+      "ranks": [
+        856,
+        883
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sui ishida",
+      "ranks": [
+        858,
+        899
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "yoshihiro togashi",
+      "ranks": [
+        859,
+        902
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "takehiko inoue",
+      "ranks": [
+        860,
+        891
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "shin takahashi",
+      "ranks": [
+        906,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        18,
+        71
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robin williams",
+      "variants": [
+        "robin williams",
+        "roberta williams"
+      ],
+      "ranks": [
+        564,
+        799
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "diego maradona",
+      "variants": [
+        "diego maradona",
+        "diego armando maradona"
+      ],
+      "ranks": [
+        592,
+        610
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "florence griffith joyner",
+      "variants": [
+        "florence griffith joyner",
+        "florence griffithjoyner"
+      ],
+      "ranks": [
+        620,
+        675
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "rajaraja chola",
+      "variants": [
+        "rajaraja chola",
+        "rajendra chola"
+      ],
+      "ranks": [
+        718,
+        719
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        731,
+        732
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yusei matsui",
+      "variants": [
+        "yusei matsui",
+        "ysei matsui"
+      ],
+      "ranks": [
+        907,
+        934
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 466,
+      "endRank": 476,
+      "count": 11,
+      "examples": [
+        "466. Octavio Paz",
+        "467. Derek Walcott",
+        "468. Seamus Heaney"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 531,
+      "endRank": 544,
+      "count": 14,
+      "examples": [
+        "531. Akira Kurosawa",
+        "532. Federico Fellini",
+        "533. Ingmar Bergman"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 559,
+      "endRank": 572,
+      "count": 14,
+      "examples": [
+        "559. Jon Stewart",
+        "560. Stephen Colbert",
+        "561. John Oliver"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "player",
+      "startRank": 584,
+      "endRank": 594,
+      "count": 11,
+      "examples": [
+        "584. Michael Jordan",
+        "585. LeBron James",
+        "586. Kobe Bryant"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "runner",
+      "startRank": 686,
+      "endRank": 700,
+      "count": 15,
+      "examples": [
+        "686. Mo Farah",
+        "687. Hicham El Guerrouj",
+        "688. Sebastian Coe"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "designer",
+      "startRank": 813,
+      "endRank": 822,
+      "count": 10,
+      "examples": [
+        "813. Davey Wreden",
+        "814. Lucas Pope",
+        "815. Terry Cavanagh"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "manga",
+      "startRank": 849,
+      "endRank": 864,
+      "count": 16,
+      "examples": [
+        "849. Akira Toriyama",
+        "850. Eiichiro Oda",
+        "851. Masashi Kishimoto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "manga",
+      "startRank": 903,
+      "endRank": 912,
+      "count": 10,
+      "examples": [
+        "903. Ken Akamatsu",
+        "904. Hiro Mashima",
+        "905. Atsushi Ōkubo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer",
+      "startRank": 937,
+      "endRank": 946,
+      "count": 10,
+      "examples": [
+        "937. Gen Urobuchi",
+        "938. Kinoko Nasu",
+        "939. Ryukishi07"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "manga",
+      "startRank": 976,
+      "endRank": 990,
+      "count": 15,
+      "examples": [
+        "976. Sankichi Hinodeya",
+        "977. Aya Shouoto",
+        "978. Julietta Suzuki"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 455,
+      "endRank": 484,
+      "count": 30,
+      "examples": [
+        "455. John Keats",
+        "456. Percy Bysshe Shelley",
+        "457. Lord Byron"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 849,
+      "endRank": 863,
+      "count": 15,
+      "examples": [
+        "849. Akira Toriyama",
+        "850. Eiichiro Oda",
+        "851. Masashi Kishimoto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 976,
+      "endRank": 990,
+      "count": 15,
+      "examples": [
+        "976. Sankichi Hinodeya",
+        "977. Aya Shouoto",
+        "978. Julietta Suzuki"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 49,
+      "Asia": 31,
+      "Middle East": 8,
+      "Africa": 9,
+      "Americas": 17,
+      "Oceania": 0,
+      "Unknown": 886
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 119,
+      "Science/Technology": 66,
+      "Philosophy/Religion": 75,
+      "Arts/Literature": 253,
+      "Military": 2,
+      "Other": 485
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.001,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 2,
+    "shortNameRate": 0.002,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 555,
+    "contributionShortRate": 0.555,
+    "score": 88.74000000000001
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.524Z",
+  "figureId": "jonas-salk",
+  "figureName": "Jonas Salk",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Jonas Salk (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Jonas_Salk",
+      "snippet": "Jonas Edward Salk was an American virologist and medical researcher who developed one of the first successful polio vaccines. He was born in New York City and attended the City College of New York and New York University School of Medicine.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

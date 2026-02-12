@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.583Z",
+  "figureId": "james-joyce",
+  "figureName": "James Joyce",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "James Joyce is consistently described across 13 model source lists as influential for: Revolutionized narrative form with 'Ulysses' and 'Finnegans Wake,' shaping modernist literature; Ulysses, stream of consciousness technique; Revolutionized modernist literature with *Ulysses*; Revolutionized the novel with 'Ulysses' and the stream-of-consciousness technique; Modernist author of Ulysses; Irish modernist author of Ulysses; Revolutionized the novel with his stream-of-consciousness technique in 'Ulysses.'; Transformed the modern novel with 'Ulysses' and 'Finnegans Wake.'.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.400Z",
+  "figureId": "john-locke",
+  "figureName": "John Locke",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Locke, John",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FLocke%2C_John",
+      "snippet": "Under Owen scholastic studies were maintained with a formality and dogmatism unsuited to Locke’s free inquisitive temper. The aversion to them which he expressed showed thus early an innate disposition to rebel against empty verbal reasoning. He was not, according to his own account of himself to Lady Masham, a hard student at first. He sought the company of pleasant and witty men, and thus gained knowledge of life. He took the ordinary bachelor’s degree in 1656, and the master’s in 1658. In December 1660 he was serving as tutor of Christ Church, lecturing in Greek, rhetoric and philosophy.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2022,
+      "source_title": "Locke, John",
+      "source_url": "https://plato.stanford.edu/entries/locke/",
+      "snippet": "John Locke (b. 1632, d. 1704) was a British philosopher, Oxford academic and medical researcher. Locke's monumental An Essay Concerning Human Understanding (1689) is one of the first great defenses of modern empiricism and concerns itself with determining the limits of human understanding in respect to a wide spectrum of topics. It thus tells us in some detail what one can legitimately claim to know and what one cannot. Locke's association with Anthony Ashley Cooper (later the First Earl of Shaftesbury) led him to become successively a government official charged with collecting information about trade and colonies, economic writer, opposition political activist, and finally a revolutionary whose cause ultimately triumphed in the Glorious Revolution of 1688. Among Locke's political works he is most famous for The Second Treatise of Government in which he argues that sovereignty resides in the people and explains the nature of legitimate government in terms of natural rights and the social contract. He is also famous for calling for the separation of Church and State in his Letter Concerning Toleration . Much of Locke's work is characterized by opposition to authoritarianism. This is apparent both on the level of the individual person and on the level of institutions such as government and church. For the individual, Locke wants each of us to use reason to search after truth rather than simply accept the opinion of authorities or be subject to superstition. He wants us to proportion assent to propositions to the evidence for them. On the level of institutions it becomes important to distinguish the legitimate from the illegitimate functions of institutions and to make the corresponding distinction for the uses of force by these institutions. Locke believes that using reason to try to grasp the truth, and determine the legitimate functions of institutions will optimize human flourishing for the individual and society both in respect to its material and spiritual welfare. This in turn, amounts to following natural law and the fulfillment of the divine purpose for humanity.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

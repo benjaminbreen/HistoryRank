@@ -1,11 +1,11 @@
 # List Quality Assessment Summary
 
-Generated: 2026-02-05T18:17:17.879Z
+Generated: 2026-02-10T18:23:11.284Z
 
-Total lists assessed: 79
-- PASS: 13
-- WARN: 21
-- FAIL: 45
+Total lists assessed: 83
+- PASS: 16
+- WARN: 23
+- FAIL: 44
 
 ## Model Quality Ranking
 
@@ -13,34 +13,26 @@ Models ranked by quality score (0-100). Higher is better.
 
 | Rank | Model | Score | Lists | Avg Duplicates | Avg Max Sequence | Anchor Coverage |
 |------|-------|-------|-------|----------------|------------------|-----------------|
-| 1 | Claude Opus 4.5 | 🟡 53 | 10 | 27.2 | 15.4 | 97% |
-| 2 | GPT-5.2 Thinking | 🔴 43 | 11 | 71.6 | 9.3 | 98% |
-| 3 | Claude Sonnet 4.5 | 🔴 30 | 8 | 52.4 | 38.4 | 96% |
-| 4 | Claude Haiku 4.5 Detailed Prompt | 🔴 27 | 1 | 26.0 | 75.0 | 51% |
-| 5 | Grok 4 | 🔴 18 | 7 | 74.7 | 72.0 | 96% |
-| 6 | DeepSeek V3.2 | 🔴 17 | 5 | 540.8 | 163.0 | 97% |
-| 7 | Grok 4.1 Fast | 🔴 16 | 7 | 280.7 | 36.1 | 96% |
-| 8 | Qwen3 235B A22B | 🔴 16 | 7 | 504.0 | 16.6 | 89% |
-| 9 | Gemini Pro 3 | 🔴 15 | 7 | 114.7 | 50.6 | 95% |
-| 10 | Gemini Flash 3 Preview | 🔴 14 | 7 | 158.1 | 25.7 | 94% |
-| 11 | GLM 4.7 | 🔴 12 | 4 | 240.0 | 173.0 | 92% |
-| 12 | Mistral Large 3 | 🔴 5 | 5 | 275.4 | 328.4 | 85% |
+| 1 | Claude Opus 4.6 | 🟢 95 | 2 | 0.0 | 0.0 | 95% |
+| 2 | Claude Opus 4.5 | 🟡 53 | 10 | 27.2 | 15.4 | 97% |
+| 3 | GPT-5.3 Thinking | 🟡 53 | 2 | 0.0 | 56.0 | 93% |
+| 4 | GPT-5.2 Thinking | 🔴 43 | 11 | 71.6 | 9.3 | 98% |
+| 5 | Claude Sonnet 4.5 | 🔴 30 | 8 | 52.4 | 38.4 | 96% |
+| 6 | Claude Haiku 4.5 Detailed Prompt | 🔴 27 | 1 | 26.0 | 75.0 | 51% |
+| 7 | Grok 4 | 🔴 18 | 7 | 74.7 | 72.0 | 96% |
+| 8 | DeepSeek V3.2 | 🔴 17 | 5 | 540.8 | 163.0 | 97% |
+| 9 | Grok 4.1 Fast | 🔴 16 | 7 | 280.7 | 36.1 | 96% |
+| 10 | Qwen3 235B A22B | 🔴 16 | 7 | 504.0 | 16.6 | 89% |
+| 11 | Gemini Pro 3 | 🔴 15 | 7 | 114.7 | 50.6 | 95% |
+| 12 | Gemini Flash 3 Preview | 🔴 14 | 7 | 158.1 | 25.7 | 94% |
+| 13 | GLM 4.7 | 🔴 12 | 4 | 240.0 | 173.0 | 92% |
+| 14 | Mistral Large 3 | 🔴 5 | 5 | 275.4 | 328.4 | 85% |
 
 ## Failing Lists
 
-### Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt
-- **Model:** Claude Haiku 4.5 Detailed Prompt
-- **Issues:** Issues: 26 exact duplicates; pattern collapse (max 75); 500 entries (expected 1000); 10 missing anchors
-- **Details:**
-  - Exact duplicate: "newton isaac" at ranks 4, 58
-  - Exact duplicate: "descartes ren" at ranks 20, 405
-  - Exact duplicate: "locke john" at ranks 21, 409
-  - Exact duplicate: "watt james" at ranks 26, 318
-  - Exact duplicate: "volta alessandro" at ranks 27, 299
-
 ### Claude Opus 4.5 LIST 4 (January 13, 2025).txt
 - **Model:** Claude Opus 4.5
-- **Issues:** Issues: 71 exact duplicates; 1132 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 71 exact duplicates; 1132 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "charles darwin" at ranks 8, 705
   - Exact duplicate: "euclid" at ranks 16, 929
@@ -148,25 +140,15 @@ Models ranked by quality score (0-100). Higher is better.
   - Exact duplicate: "zlatan ibrahimovi" at ranks 250, 284
   - Exact duplicate: "federico valverde" at ranks 311, 347
 
-### GPT-5.2 Thinking LIST 2 (January 12, 2025).txt
-- **Model:** GPT-5.2 Thinking
-- **Issues:** Issues: 6 exact duplicates; pattern collapse (max 10); 500 entries (expected 1000)
-- **Details:**
-  - Exact duplicate: "zheng he" at ranks 47, 317
-  - Exact duplicate: "suleiman the magnificent" at ranks 56, 360
-  - Exact duplicate: "deng xiaoping" at ranks 115, 299
-  - Exact duplicate: "hernn corts" at ranks 132, 445
-  - Exact duplicate: "bartolom de las casas" at ranks 134, 446
-
 ### GPT-5.2 Thinking LIST 3 (January 12, 2025).txt
 - **Model:** GPT-5.2 Thinking
-- **Issues:** Issues: 1 exact duplicates; 777 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 1 exact duplicates; 777 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "deng xiaoping" at ranks 99, 340
 
 ### GPT-5.2 Thinking LIST 4 (January 12, 2025).txt
 - **Model:** GPT-5.2 Thinking
-- **Issues:** Issues: 3 exact duplicates; pattern collapse (max 10); 1026 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 3 exact duplicates; pattern collapse (max 10); 1026 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "deng xiaoping" at ranks 99, 340
   - Exact duplicate: "charles darwin dup avoided earlier list" at ranks 844, 985
@@ -194,15 +176,24 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### GPT-5.2 Thinking LIST 7 (January 13, 2025).txt
 - **Model:** GPT-5.2 Thinking
-- **Issues:** Issues: 3 exact duplicates; pattern collapse (max 10); 1027 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 3 exact duplicates; pattern collapse (max 10); 1027 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "deng xiaoping" at ranks 99, 340
   - Exact duplicate: "charles darwin dup avoided earlier list" at ranks 844, 985
   - Exact duplicate: "tim bernerslee dup avoided earlier list" at ranks 906, 999
 
+### GPT-5.3 Thinking LIST 2 (February 9, 2026).txt
+- **Model:** GPT-5.3 Thinking
+- **Issues:** Issues: pattern collapse (max 112)
+- **Details:**
+  - Pattern collapse: "institutional" (18 entries)
+  - Pattern collapse: "reform" (40 entries)
+  - Pattern collapse: "built" (24 entries)
+  - Pattern collapse: "built" (25 entries)
+
 ### Gemini Flash 3 Preview LIST 1 (January 12, 2025).txt
 - **Model:** Gemini Flash 3 Preview
-- **Issues:** Issues: 204 exact duplicates; 1026 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 204 exact duplicates; 1026 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "christopher columbus" at ranks 9, 759
   - Exact duplicate: "louis pasteur" at ranks 11, 737
@@ -232,7 +223,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Gemini Pro 3 LIST 1 (January 12, 2025).txt
 - **Model:** Gemini Pro 3
-- **Issues:** Issues: 21 exact duplicates; pattern collapse (max 14); 1028 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 21 exact duplicates; pattern collapse (max 14); 1028 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "johannes gutenberg" at ranks 8, 848
   - Exact duplicate: "louis pasteur" at ranks 11, 716, 853
@@ -242,7 +233,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Gemini Pro 3 LIST 3 (January 13, 2025).txt
 - **Model:** Gemini Pro 3
-- **Issues:** Issues: 14 exact duplicates; pattern collapse (max 23); 1017 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 14 exact duplicates; pattern collapse (max 23); 1017 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "confucius" at ranks 5, 295
   - Exact duplicate: "martin luther" at ranks 25, 536
@@ -252,7 +243,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Gemini Pro 3 LIST 4 (January 13, 2025).txt
 - **Model:** Gemini Pro 3
-- **Issues:** Issues: 6 exact duplicates; pattern collapse (max 23); 1004 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 6 exact duplicates; pattern collapse (max 23); 1004 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "gregor mendel" at ranks 58, 385
   - Exact duplicate: "sigmund freud" at ranks 69, 399
@@ -262,7 +253,7 @@ Models ranked by quality score (0-100). Higher is better.
 
 ### Gemini Pro 3 LIST 5 (January 13, 2025).txt
 - **Model:** Gemini Pro 3
-- **Issues:** Issues: 8 exact duplicates; pattern collapse (max 220); 1003 entries (expected 1000); non-sequential ranks
+- **Issues:** Issues: 8 exact duplicates; pattern collapse (max 220); 1003 entries (expected 500 or 1000); non-sequential ranks
 - **Details:**
   - Exact duplicate: "tim bernerslee" at ranks 102, 864
   - Exact duplicate: "suleiman the magnificent" at ranks 104, 197
@@ -473,9 +464,11 @@ Models ranked by quality score (0-100). Higher is better.
 
 ## Warning Lists
 
+- **Claude Haiku 4.5 Detailed Prompt LIST 1 (January 19, 2026).txt** (Claude Haiku 4.5 Detailed Prompt): Issues: 26 exact duplicates; pattern collapse (max 75); 10 missing anchors
 - **Claude Opus 4.5 LIST 1 (January 12, 2025).txt** (Claude Opus 4.5): Issues: 87 exact duplicates
 - **Claude Opus 4.5 LIST 3 (January 12, 2025).txt** (Claude Opus 4.5): Issues: 2 exact duplicates; pattern collapse (max 65)
 - **Claude Opus 4.5 LIST 5 (January 14, 2026).txt** (Claude Opus 4.5): Issues: 71 exact duplicates; pattern collapse (max 11)
+- **Claude Opus 4.6 LIST 2 (February 9, 2026).txt** (Claude Opus 4.6): Issues: 473 entries (expected 500 or 1000)
 - **Claude Sonnet 4.5 LIST 2 (January 12, 2025).txt** (Claude Sonnet 4.5): Issues: 72 exact duplicates
 - **Claude Sonnet 4.5 LIST 4 (January 12, 2025).txt** (Claude Sonnet 4.5): Issues: 58 exact duplicates
 - **Claude Sonnet 4.5 LIST 5 (January 13, 2025).txt** (Claude Sonnet 4.5): Issues: 36 exact duplicates; pattern collapse (max 36)

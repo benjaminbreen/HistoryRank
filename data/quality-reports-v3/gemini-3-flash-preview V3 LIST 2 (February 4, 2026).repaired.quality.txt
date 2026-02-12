@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: gemini-3-flash-preview V3 LIST 2 (February 4, 2026).repaired.txt
+Model: gemini-3-flash-preview V3
+Timestamp: 2026-02-10T23:12:38.299Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 15 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 10 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
+
+Issues (20):
+  - Exact duplicate: "abraham lincoln" at ranks 27, 478
+  - Exact duplicate: "george washington" at ranks 28, 489
+  - Exact duplicate: "michael faraday" at ranks 31, 120
+  - Exact duplicate: "thomas jefferson" at ranks 38, 487
+  - Exact duplicate: "franklin d roosevelt" at ranks 83, 463
+  - Exact duplicate: "peter the great" at ranks 88, 421
+  - Exact duplicate: "james madison" at ranks 156, 486
+  - Exact duplicate: "john adams" at ranks 158, 488
+  - Exact duplicate: "andrew jackson" at ranks 159, 483
+  - Exact duplicate: "theodore roosevelt" at ranks 160, 469
+  ... and 10 more issues
+
+Diversity Estimates:
+  Regions: Europe: 67, Asia: 13, Middle East: 23, Africa: 9, Americas: 10, Unknown: 378
+  Domains: Politics/Leadership: 85, Science/Technology: 5, Philosophy/Religion: 9, Arts/Literature: 32, Military: 14, Other: 355
+
+Advanced Metrics:
+  Advanced score: 99.9
+  Parenthetical names: 0.2%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

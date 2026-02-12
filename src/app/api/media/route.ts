@@ -7,6 +7,19 @@ import { loadMediaEmbeddings, embedQuery, normalizeVector, dot } from '@/lib/emb
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+type CastWithRole = {
+  name: string;
+  character: string;
+  profile_path: string | null;
+  order: number;
+};
+
+type CrewMember = {
+  name: string;
+  job: string;
+  department: string;
+};
+
 type MediaDetail = ReturnType<typeof loadMediaItems>[number] & {
   wikipedia_extract?: string | null;
   summary_paragraphs?: string[];
@@ -17,6 +30,17 @@ type MediaDetail = ReturnType<typeof loadMediaItems>[number] & {
   countries?: string[];
   awards?: string[];
   runtime_minutes?: number | null;
+  // TMDB enrichment fields
+  tmdb_id?: number | null;
+  tmdb_overview?: string | null;
+  tmdb_tagline?: string | null;
+  tmdb_genres?: string[];
+  tmdb_runtime?: number | null;
+  tmdb_production_companies?: string[];
+  tmdb_budget?: number | null;
+  tmdb_revenue?: number | null;
+  cast_with_roles?: CastWithRole[];
+  crew?: CrewMember[];
 };
 
 type LinkEntry = {

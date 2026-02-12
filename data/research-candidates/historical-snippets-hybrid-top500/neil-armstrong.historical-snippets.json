@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.550Z",
+  "figureId": "neil-armstrong",
+  "figureName": "Neil Armstrong",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Neil Armstrong is consistently described across 13 model source lists as influential for: First person to walk on the Moon; First human on the Moon; First human on the Moon, symbolizing the pinnacle of space exploration; Astronaut, first person to walk on the Moon; First human to walk on the Moon, symbolizing space exploration; First human on Moon, symbol of space achievement; First human to walk on the Moon; First human to walk on the Moon, marking a milestone in space exploration.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

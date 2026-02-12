@@ -1,0 +1,1091 @@
+{
+  "file": "deepseek-v3.2 V3 LIST 1 (February 4, 2026).repaired.txt",
+  "model": "deepseek-v3.2 V3",
+  "timestamp": "2026-02-10T23:12:36.192Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 252,
+      "fuzzy": 35,
+      "status": "FAIL",
+      "details": "252 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 31,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "england",
+          "startRank": 137,
+          "endRank": 149,
+          "count": 13,
+          "examples": [
+            "137. Charles Martel",
+            "138. Alfred the Great",
+            "139. William I of England"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "england",
+          "startRank": 138,
+          "endRank": 153,
+          "count": 16,
+          "examples": [
+            "138. Alfred the Great",
+            "139. William I of England",
+            "140. Henry II of England"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "england",
+          "startRank": 138,
+          "endRank": 154,
+          "count": 17,
+          "examples": [
+            "138. Alfred the Great",
+            "139. William I of England",
+            "140. Henry II of England"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "england",
+          "startRank": 138,
+          "endRank": 155,
+          "count": 18,
+          "examples": [
+            "138. Alfred the Great",
+            "139. William I of England",
+            "140. Henry II of England"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "united",
+          "startRank": 157,
+          "endRank": 166,
+          "count": 10,
+          "examples": [
+            "157. George III of the United Kingdom",
+            "158. George IV of the United Kingdom",
+            "159. William IV of the United Kingdom"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "united",
+          "startRank": 158,
+          "endRank": 167,
+          "count": 10,
+          "examples": [
+            "158. George IV of the United Kingdom",
+            "159. William IV of the United Kingdom",
+            "160. Victoria of the United Kingdom"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "france",
+          "startRank": 168,
+          "endRank": 198,
+          "count": 31,
+          "examples": [
+            "168. Louis XIV of France",
+            "169. Louis XV of France",
+            "170. Louis XVI of France"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 174,
+          "endRank": 199,
+          "count": 26,
+          "examples": [
+            "174. Napoleon III of France",
+            "175. Adolphe Thiers",
+            "176. Patrice de MacMahon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "chancellor",
+          "startRank": 197,
+          "endRank": 207,
+          "count": 11,
+          "examples": [
+            "197. François Hollande",
+            "198. Emmanuel Macron",
+            "199. Angela Merkel"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "chancellor",
+          "startRank": 199,
+          "endRank": 208,
+          "count": 10,
+          "examples": [
+            "199. Angela Merkel",
+            "200. Konrad Adenauer",
+            "201. Ludwig Erhard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "chancellor",
+          "startRank": 199,
+          "endRank": 209,
+          "count": 11,
+          "examples": [
+            "199. Angela Merkel",
+            "200. Konrad Adenauer",
+            "201. Ludwig Erhard"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 216,
+          "endRank": 228,
+          "count": 13,
+          "examples": [
+            "216. Hosni Mubarak",
+            "217. Mohamed Morsi",
+            "218. Abdel Fattah el-Sisi"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 220,
+          "endRank": 229,
+          "count": 10,
+          "examples": [
+            "220. Hafez al-Assad",
+            "221. Bashar al-Assad",
+            "222. Saddam Hussein"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 166,
+          "endRank": 190,
+          "count": 25,
+          "examples": [
+            "166. Charles III of the United Kingdom",
+            "167. Philip II of Spain",
+            "168. Louis XIV of France"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:politics",
+          "startRank": 224,
+          "endRank": 242,
+          "count": 19,
+          "examples": [
+            "224. Mahmoud Ahmadinejad",
+            "225. Hassan Rouhani",
+            "226. Ebrahim Raisi"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 31 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 55,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "pythagoras",
+        "euclid",
+        "archimedes",
+        "mozart",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "55/61 anchor figures found (90%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "mao zedong",
+      "ranks": [
+        19,
+        112
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "benjamin netanyahu",
+      "ranks": [
+        212,
+        215
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king salman of saudi arabia",
+      "ranks": [
+        237,
+        251,
+        265,
+        279,
+        293,
+        307,
+        321,
+        335,
+        349,
+        363,
+        377,
+        391,
+        405,
+        419,
+        433,
+        447,
+        461,
+        475,
+        489
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mohammed bin salman",
+      "ranks": [
+        238,
+        252,
+        266,
+        280,
+        294,
+        308,
+        322,
+        336,
+        350,
+        364,
+        378,
+        392,
+        406,
+        420,
+        434,
+        448,
+        462,
+        476,
+        490
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh zayed bin sultan al nahyan",
+      "ranks": [
+        239,
+        253,
+        267,
+        281,
+        295,
+        309,
+        323,
+        337,
+        351,
+        365,
+        379,
+        393,
+        407,
+        421,
+        435,
+        449,
+        463,
+        477,
+        491
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh khalifa bin zayed al nahyan",
+      "ranks": [
+        240,
+        254,
+        268,
+        282,
+        296,
+        310,
+        324,
+        338,
+        352,
+        366,
+        380,
+        394,
+        408,
+        422,
+        436,
+        450,
+        464,
+        478,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh mohammed bin rashid al maktoum",
+      "ranks": [
+        241,
+        255,
+        269,
+        283,
+        297,
+        311,
+        325,
+        339,
+        353,
+        367,
+        381,
+        395,
+        409,
+        423,
+        437,
+        451,
+        465,
+        479,
+        493
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sheikh mohamed bin zayed al nahyan",
+      "ranks": [
+        242,
+        256,
+        270,
+        284,
+        298,
+        312,
+        326,
+        340,
+        354,
+        368,
+        382,
+        396,
+        410,
+        424,
+        438,
+        452,
+        466,
+        480,
+        494
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emir sabah alahmad aljaber alsabah",
+      "ranks": [
+        243,
+        257,
+        271,
+        285,
+        299,
+        313,
+        327,
+        341,
+        355,
+        369,
+        383,
+        397,
+        411,
+        425,
+        439,
+        453,
+        467,
+        481,
+        495
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emir nawaf alahmad aljaber alsabah",
+      "ranks": [
+        244,
+        258,
+        272,
+        286,
+        300,
+        314,
+        328,
+        342,
+        356,
+        370,
+        384,
+        398,
+        412,
+        426,
+        440,
+        454,
+        468,
+        482,
+        496
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emir meshal alahmad aljaber alsabah",
+      "ranks": [
+        245,
+        259,
+        273,
+        287,
+        301,
+        315,
+        329,
+        343,
+        357,
+        371,
+        385,
+        399,
+        413,
+        427,
+        441,
+        455,
+        469,
+        483,
+        497
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sultan qaboos bin said",
+      "ranks": [
+        246,
+        260,
+        274,
+        288,
+        302,
+        316,
+        330,
+        344,
+        358,
+        372,
+        386,
+        400,
+        414,
+        428,
+        442,
+        456,
+        470,
+        484,
+        498
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sultan haitham bin tariq",
+      "ranks": [
+        247,
+        261,
+        275,
+        289,
+        303,
+        317,
+        331,
+        345,
+        359,
+        373,
+        387,
+        401,
+        415,
+        429,
+        443,
+        457,
+        471,
+        485,
+        499
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "emir tamim bin hamad al thani",
+      "ranks": [
+        248,
+        262,
+        276,
+        290,
+        304,
+        318,
+        332,
+        346,
+        360,
+        374,
+        388,
+        402,
+        416,
+        430,
+        444,
+        458,
+        472,
+        486,
+        500
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king mohammed vi of morocco",
+      "ranks": [
+        249,
+        263,
+        277,
+        291,
+        305,
+        319,
+        333,
+        347,
+        361,
+        375,
+        389,
+        403,
+        417,
+        431,
+        445,
+        459,
+        473,
+        487
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "king abdullah of jordan",
+      "ranks": [
+        250,
+        264,
+        278,
+        292,
+        306,
+        320,
+        334,
+        348,
+        362,
+        376,
+        390,
+        404,
+        418,
+        432,
+        446,
+        460,
+        474,
+        488
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        37,
+        74
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "william i of england",
+      "variants": [
+        "william i of england",
+        "william iii of england"
+      ],
+      "ranks": [
+        139,
+        153
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry ii of england",
+      "variants": [
+        "henry ii of england",
+        "henry v of england",
+        "henry viii of england"
+      ],
+      "ranks": [
+        140,
+        145,
+        146
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i of england",
+      "variants": [
+        "edward i of england",
+        "edward iii of england"
+      ],
+      "ranks": [
+        143,
+        144
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry v of england",
+      "variants": [
+        "henry v of england",
+        "henry viii of england"
+      ],
+      "ranks": [
+        145,
+        146
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james i of england",
+      "variants": [
+        "james i of england",
+        "james ii of england"
+      ],
+      "ranks": [
+        148,
+        152
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles i of england",
+      "variants": [
+        "charles i of england",
+        "charles ii of england"
+      ],
+      "ranks": [
+        149,
+        151
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george i of great britain",
+      "variants": [
+        "george i of great britain",
+        "george ii of great britain"
+      ],
+      "ranks": [
+        155,
+        156
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george iii of the united kingdom",
+      "variants": [
+        "george iii of the united kingdom",
+        "george iv of the united kingdom",
+        "george v of the united kingdom",
+        "george vi of the united kingdom"
+      ],
+      "ranks": [
+        157,
+        158,
+        162,
+        164
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george iv of the united kingdom",
+      "variants": [
+        "george iv of the united kingdom",
+        "george v of the united kingdom",
+        "george vi of the united kingdom"
+      ],
+      "ranks": [
+        158,
+        162,
+        164
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward vii of the united kingdom",
+      "variants": [
+        "edward vii of the united kingdom",
+        "edward viii of the united kingdom"
+      ],
+      "ranks": [
+        161,
+        163
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george v of the united kingdom",
+      "variants": [
+        "george v of the united kingdom",
+        "george vi of the united kingdom"
+      ],
+      "ranks": [
+        162,
+        164
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv of france",
+      "variants": [
+        "louis xiv of france",
+        "louis xv of france",
+        "louis xvi of france",
+        "louis xviii of france",
+        "louis philippe i of france"
+      ],
+      "ranks": [
+        168,
+        169,
+        170,
+        171,
+        173
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xv of france",
+      "variants": [
+        "louis xv of france",
+        "louis xvi of france",
+        "louis xviii of france",
+        "louis philippe i of france"
+      ],
+      "ranks": [
+        169,
+        170,
+        171,
+        173
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xvi of france",
+      "variants": [
+        "louis xvi of france",
+        "louis xviii of france",
+        "louis philippe i of france"
+      ],
+      "ranks": [
+        170,
+        171,
+        173
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xviii of france",
+      "variants": [
+        "louis xviii of france",
+        "louis philippe i of france"
+      ],
+      "ranks": [
+        171,
+        173
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king abdullah i of jordan",
+      "variants": [
+        "king abdullah i of jordan",
+        "king hussein of jordan",
+        "king abdullah ii of jordan"
+      ],
+      "ranks": [
+        229,
+        230,
+        231
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king hussein of jordan",
+      "variants": [
+        "king hussein of jordan",
+        "king abdullah ii of jordan"
+      ],
+      "ranks": [
+        230,
+        231
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king faisal of saudi arabia",
+      "variants": [
+        "king faisal of saudi arabia",
+        "king khalid of saudi arabia",
+        "king fahd of saudi arabia",
+        "king abdullah of saudi arabia"
+      ],
+      "ranks": [
+        233,
+        234,
+        235,
+        236
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king khalid of saudi arabia",
+      "variants": [
+        "king khalid of saudi arabia",
+        "king fahd of saudi arabia",
+        "king abdullah of saudi arabia"
+      ],
+      "ranks": [
+        234,
+        235,
+        236
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "king fahd of saudi arabia",
+      "variants": [
+        "king fahd of saudi arabia",
+        "king abdullah of saudi arabia"
+      ],
+      "ranks": [
+        235,
+        236
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "england",
+      "startRank": 137,
+      "endRank": 149,
+      "count": 13,
+      "examples": [
+        "137. Charles Martel",
+        "138. Alfred the Great",
+        "139. William I of England"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "england",
+      "startRank": 138,
+      "endRank": 153,
+      "count": 16,
+      "examples": [
+        "138. Alfred the Great",
+        "139. William I of England",
+        "140. Henry II of England"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "england",
+      "startRank": 138,
+      "endRank": 154,
+      "count": 17,
+      "examples": [
+        "138. Alfred the Great",
+        "139. William I of England",
+        "140. Henry II of England"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "england",
+      "startRank": 138,
+      "endRank": 155,
+      "count": 18,
+      "examples": [
+        "138. Alfred the Great",
+        "139. William I of England",
+        "140. Henry II of England"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "united",
+      "startRank": 157,
+      "endRank": 166,
+      "count": 10,
+      "examples": [
+        "157. George III of the United Kingdom",
+        "158. George IV of the United Kingdom",
+        "159. William IV of the United Kingdom"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "united",
+      "startRank": 158,
+      "endRank": 167,
+      "count": 10,
+      "examples": [
+        "158. George IV of the United Kingdom",
+        "159. William IV of the United Kingdom",
+        "160. Victoria of the United Kingdom"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "france",
+      "startRank": 168,
+      "endRank": 198,
+      "count": 31,
+      "examples": [
+        "168. Louis XIV of France",
+        "169. Louis XV of France",
+        "170. Louis XVI of France"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 174,
+      "endRank": 199,
+      "count": 26,
+      "examples": [
+        "174. Napoleon III of France",
+        "175. Adolphe Thiers",
+        "176. Patrice de MacMahon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "chancellor",
+      "startRank": 197,
+      "endRank": 207,
+      "count": 11,
+      "examples": [
+        "197. François Hollande",
+        "198. Emmanuel Macron",
+        "199. Angela Merkel"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "chancellor",
+      "startRank": 199,
+      "endRank": 208,
+      "count": 10,
+      "examples": [
+        "199. Angela Merkel",
+        "200. Konrad Adenauer",
+        "201. Ludwig Erhard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "chancellor",
+      "startRank": 199,
+      "endRank": 209,
+      "count": 11,
+      "examples": [
+        "199. Angela Merkel",
+        "200. Konrad Adenauer",
+        "201. Ludwig Erhard"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 216,
+      "endRank": 228,
+      "count": 13,
+      "examples": [
+        "216. Hosni Mubarak",
+        "217. Mohamed Morsi",
+        "218. Abdel Fattah el-Sisi"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 220,
+      "endRank": 229,
+      "count": 10,
+      "examples": [
+        "220. Hafez al-Assad",
+        "221. Bashar al-Assad",
+        "222. Saddam Hussein"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 166,
+      "endRank": 190,
+      "count": 25,
+      "examples": [
+        "166. Charles III of the United Kingdom",
+        "167. Philip II of Spain",
+        "168. Louis XIV of France"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:politics",
+      "startRank": 224,
+      "endRank": 242,
+      "count": 19,
+      "examples": [
+        "224. Mahmoud Ahmadinejad",
+        "225. Hassan Rouhani",
+        "226. Ebrahim Raisi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 47,
+      "Asia": 4,
+      "Middle East": 109,
+      "Africa": 1,
+      "Americas": 3,
+      "Oceania": 0,
+      "Unknown": 336
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 275,
+      "Science/Technology": 3,
+      "Philosophy/Religion": 19,
+      "Arts/Literature": 14,
+      "Military": 3,
+      "Other": 186
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.72
+  },
+  "summary": "Issues: 252 exact duplicates; pattern collapse (max 31)"
+}

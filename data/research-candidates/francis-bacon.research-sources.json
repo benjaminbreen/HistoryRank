@@ -1,0 +1,236 @@
+{
+  "generatedAt": "2026-02-10T00:17:32.751Z",
+  "figureId": "francis-bacon",
+  "figureName": "Francis Bacon",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 2,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 1,
+        "openalex": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1904,
+        "max": 1996
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 587,
+      "totalTokenCount": 875,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Advancement of Learning",
+        "author": "Francis Bacon",
+        "year": 1605,
+        "rationale": "A foundational work of Bacon's philosophy, outlining his ideas on the classification of knowledge and the scientific method. Widely available.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Novum Organum",
+        "author": "Francis Bacon",
+        "year": 1620,
+        "rationale": "Bacon's most famous work, presenting his inductive method for scientific inquiry. A key text in the history of science.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Essays",
+        "author": "Francis Bacon",
+        "year": 1597,
+        "rationale": "A collection of short, influential essays on a wide range of topics, demonstrating Bacon's prose style and practical wisdom. Frequently reprinted.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to Bacon",
+        "author": "Markku Peltonen",
+        "year": 1996,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Bacon's life, work, and influence.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Francis Bacon: A Very Short Introduction",
+        "author": "John Henry",
+        "year": 2012,
+        "rationale": "A concise overview of Bacon's life and thought, suitable for an introduction to his work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Francis Bacon: Philosopher of the Scientific Revolution",
+        "author": "Peter Urbach",
+        "year": 1987,
+        "rationale": "An academic study focusing on Bacon's role and contributions to the Scientific Revolution.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Francis Bacon's works are foundational to early modern philosophy and science, and are widely available in digital archives. Secondary sources are readily available from major academic publishers."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Novum Organum",
+      "reason": "Title similarity too low (0.53); baseScore=0.63"
+    },
+    {
+      "role": "primary",
+      "title": "Essays",
+      "reason": "Title similarity too low (0.70); baseScore=0.61"
+    },
+    {
+      "role": "secondary",
+      "title": "Francis Bacon: A Very Short Introduction",
+      "reason": "Best score below threshold (0.22 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Francis Bacon: Philosopher of the Scientific Revolution",
+      "reason": "Best score below threshold (0.39 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Advancement of Learning",
+      "author": "Bacon, Francis",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/5500",
+      "access_url": "https://www.gutenberg.org/ebooks/5500",
+      "snippet": "\"The Advancement of Learning\" by Francis Bacon is a philosophical treatise published in 1605 that introduces and popularizes the scientific method of observation, skepticism, and testability.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Advancement of Learning\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Advancement of Learning",
+        "suggestion_author": "Francis Bacon",
+        "suggestion_year": 1605,
+        "suggestion_rationale": "A foundational work of Bacon's philosophy, outlining his ideas on the classification of knowledge and the scientific method. Widely available.",
+        "gutenberg_id": 5500,
+        "languages": [
+          "en"
+        ],
+        "download_count": 2030
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "The Advancement of Learning, Book I",
+      "author": "Francis Bacon",
+      "publication_year": 1904,
+      "source_url": "https://archive.org/details/advancementlear01bacogoog",
+      "access_url": "https://archive.org/details/advancementlear01bacogoog",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"The Advancement of Learning\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Advancement of Learning",
+        "suggestion_author": "Francis Bacon",
+        "suggestion_year": 1605,
+        "suggestion_rationale": "A foundational work of Bacon's philosophy, outlining his ideas on the classification of knowledge and the scientific method. Widely available.",
+        "ia_identifier": "advancementlear01bacogoog"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge Companion to Bacon",
+      "author": "Markku Peltonen",
+      "publication_year": 1996,
+      "source_url": "https://doi.org/10.1017/ccol052143498x",
+      "access_url": "https://doi.org/10.1017/ccol052143498x",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Bacon\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Bacon",
+        "suggestion_author": "Markku Peltonen",
+        "suggestion_year": 1996,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Bacon's life, work, and influence.",
+        "openalex_id": "https://openalex.org/W2246797949",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Cambridge companion to Bacon",
+      "author": "Markku Peltonen",
+      "publication_year": 1996,
+      "source_url": "https://openlibrary.org/works/OL19411639W",
+      "access_url": "https://openlibrary.org/works/OL19411639W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Bacon\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Bacon",
+        "suggestion_author": "Markku Peltonen",
+        "suggestion_year": 1996,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Bacon's life, work, and influence.",
+        "edition_count": 4
+      }
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import type {
   Ranking,
   FigureDetailResponse,
   FigureEvidenceResponse,
+  FigureNeighbor,
   WikipediaData,
   RelatedMediaItem,
 } from '@/types';
@@ -19,6 +20,7 @@ export interface UseFigureDataReturn {
   figure: Figure | null;
   rankings: Ranking[];
   aliases: string[];
+  neighbors: { prev: FigureNeighbor | null; next: FigureNeighbor | null };
   evidence: FigureEvidenceResponse | null;
   wiki: WikipediaData | null;
   relatedMedia: RelatedMediaItem[];
@@ -51,6 +53,7 @@ export function useFigureData(id: string | null | undefined): UseFigureDataRetur
   const figure = detailData?.figure ?? null;
   const rankings = detailData?.rankings ?? [];
   const aliases = detailData?.aliases ?? [];
+  const neighbors = detailData?.neighbors ?? { prev: null, next: null };
   const wikiSlug = figure?.wikipediaSlug;
 
   // Evidence data
@@ -90,6 +93,7 @@ export function useFigureData(id: string | null | undefined): UseFigureDataRetur
     figure,
     rankings,
     aliases,
+    neighbors,
     evidence: evidenceData ?? null,
     wiki: wikiData ?? null,
     relatedMedia: Array.isArray(mediaData?.items) ? mediaData.items : [],

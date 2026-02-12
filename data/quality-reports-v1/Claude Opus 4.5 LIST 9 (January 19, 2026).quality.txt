@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 9 (January 19, 2026).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-02-10T23:43:50.752Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 4 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 17 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (14):
+  - Exact duplicate: "ren descartes" at ranks 63, 787
+  - Exact duplicate: "jonas salk" at ranks 95, 710
+  - Exact duplicate: "niccol machiavelli" at ranks 409, 863
+  - Exact duplicate: "emmy noether" at ranks 456, 793
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 27, 87
+  - Fuzzy duplicate: pope urban ii / pope john paul ii / pope julius ii at ranks 202, 847, 855
+  - Fuzzy duplicate: muhammad ali / muhammad ali jinnah at ranks 285, 592
+  - Fuzzy duplicate: jack kilby / jack kirby at ranks 491, 525
+  - Fuzzy duplicate: aung san suu kyi / aung san at ranks 584, 585
+  - Fuzzy duplicate: king hussein of jordan / king abdullah ii of jordan at ranks 655, 656
+  ... and 4 more issues
+
+Diversity Estimates:
+  Regions: Europe: 95, Asia: 64, Middle East: 33, Africa: 26, Americas: 41, Unknown: 741
+  Domains: Politics/Leadership: 58, Science/Technology: 18, Philosophy/Religion: 17, Arts/Literature: 20, Military: 10, Other: 877
+
+Advanced Metrics:
+  Advanced score: 92.0
+  Parenthetical names: 0.4%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 38.2%

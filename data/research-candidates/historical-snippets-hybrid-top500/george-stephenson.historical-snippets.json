@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.683Z",
+  "figureId": "george-stephenson",
+  "figureName": "George Stephenson",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "George Stephenson is consistently described across 11 model source lists as influential for: Engineer; 'Father of Railways'; built the first public inter-city railway line; Developed the first public inter-city railway line to use steam locomotives; Known as the 'Father of Railways,' he developed the first public intercity railway line to use steam locomotives; Father of the railways; built the first public inter-city railway line; Railways; Railway development; Railway locomotive, railway gauge; The 'Father of Railways,' he built the first public inter-city railway line to use steam locomotives.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

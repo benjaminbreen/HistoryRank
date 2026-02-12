@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.436Z",
+  "figureId": "johann-sebastian-bach",
+  "figureName": "Johann Sebastian Bach",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Bach, Johann Sebastian",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FBach%2C_Johann_Sebastian",
+      "snippet": "The Bach family never left Thuringia until the sons of Sebastian went into a more modern world. Through all the misery of the peasantry at the period of the Thirty Years’ War this clan maintained its position and produced musicians who, however local their fame, were among the greatest in Europe. So numerous and so eminent were they that in Erfurt musicians were known as “Bachs,” even when there were no longer any members of the family in the town. Sebastian Bach thus inherited the artistic tradition of a united family whose circumstances had deprived them of the distractions of the century of musical fermentation which in the rest of Europe had destroyed polyphonic music.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Johann Sebastian Bach",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FJohann_Sebastian_Bach",
+      "snippet": "The Bach family never left Thuringia until the sons of Sebastian went into a more modern world. Through all the misery of the peasantry at the period of the Thirty Years’ War this clan maintained its position and produced musicians who, however local their fame, were among the greatest in Europe. So numerous and so eminent were they that in Erfurt musicians were known as “Bachs,” even when there were no longer any members of the family in the town. Sebastian Bach thus inherited the artistic tradition of a united family whose circumstances had deprived them of the distractions of the century of musical fermentation which in the rest of Europe had destroyed polyphonic music.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

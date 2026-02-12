@@ -1,0 +1,141 @@
+{
+  "file": "Claude Opus 4.6 LIST 4 (February 10, 2026).txt",
+  "model": "Claude Opus 4.6",
+  "timestamp": "2026-02-10T23:44:00.434Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 5,
+      "status": "PASS",
+      "details": "5 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        17,
+        68
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        195,
+        370
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        358,
+        827
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo i",
+      "variants": [
+        "pope leo i",
+        "pope gregory i"
+      ],
+      "ranks": [
+        705,
+        706
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "robert schuman",
+      "variants": [
+        "robert schuman",
+        "robert schumann"
+      ],
+      "ranks": [
+        768,
+        918
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 174,
+      "Asia": 72,
+      "Middle East": 57,
+      "Africa": 21,
+      "Americas": 56,
+      "Oceania": 0,
+      "Unknown": 620
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 91,
+      "Science/Technology": 24,
+      "Philosophy/Religion": 54,
+      "Arts/Literature": 76,
+      "Military": 44,
+      "Other": 711
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.92
+  },
+  "summary": "List passes all quality checks"
+}

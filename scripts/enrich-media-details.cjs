@@ -77,10 +77,19 @@ async function fetchSummaryParagraphs(slug) {
   if (!res.ok) return [];
   const html = await res.text();
   const paragraphs = [];
-  const matches = html.match(/<p>(.*?)<\/p>/g) || [];
+  // Strip blockquotes, tables, and infoboxes before extracting paragraphs
+  // so we only get real article body text
+  const stripped = html
+    .replace(/<blockquote[\s\S]*?<\/blockquote>/gi, '')
+    .replace(/<table[\s\S]*?<\/table>/gi, '')
+    .replace(/<div[^>]*class="[^"]*infobox[^"]*"[\s\S]*?<\/div>/gi, '');
+  const matches = stripped.match(/<p>(.*?)<\/p>/g) || [];
   for (const match of matches) {
     const clean = stripHtml(match);
-    if (!clean || clean.toLowerCase().includes('coordinates')) continue;
+    if (!clean || clean.length < 40) continue;
+    if (clean.toLowerCase().includes('coordinates')) continue;
+    if (/^[*•]/.test(clean)) continue;                     // bullet / footnote
+    if (/^["\u201c\u201d]/.test(clean)) continue;          // blockquote remnant
     paragraphs.push(clean);
     if (paragraphs.length >= 3) break;
   }

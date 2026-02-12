@@ -1,0 +1,742 @@
+{
+  "file": "Claude Sonnet 4.5 LIST 7 (January 14, 2026).txt",
+  "model": "Claude Sonnet 4.5",
+  "timestamp": "2026-02-10T23:44:26.078Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 6,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "6 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 31,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "russian",
+          "startRank": 364,
+          "endRank": 380,
+          "count": 17,
+          "examples": [
+            "364. Anton Chekhov",
+            "365. Fyodor Dostoevsky",
+            "366. Leo Tolstoy"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "german",
+          "startRank": 387,
+          "endRank": 396,
+          "count": 10,
+          "examples": [
+            "387. Hermann Hesse",
+            "388. Thomas Mann",
+            "389. Günter Grass"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 424,
+          "endRank": 433,
+          "count": 10,
+          "examples": [
+            "424. Richard Wright",
+            "425. Zora Neale Hurston",
+            "426. Flannery O'Connor"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 582,
+          "endRank": 599,
+          "count": 18,
+          "examples": [
+            "582. Sandro Botticelli",
+            "583. Raphael",
+            "584. Titian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 601,
+          "endRank": 612,
+          "count": 12,
+          "examples": [
+            "601. Claude Monet",
+            "602. Pierre-Auguste Renoir",
+            "603. Edgar Degas"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 614,
+          "endRank": 623,
+          "count": 10,
+          "examples": [
+            "614. Piet Mondrian",
+            "615. Kazimir Malevich",
+            "616. Marc Chagall"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "painter",
+          "startRank": 648,
+          "endRank": 662,
+          "count": 15,
+          "examples": [
+            "648. Sesshū Tōyō",
+            "649. Hasegawa Tōhaku",
+            "650. Ogata Kōrin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "sculptor",
+          "startRank": 663,
+          "endRank": 672,
+          "count": 10,
+          "examples": [
+            "663. Auguste Rodin",
+            "664. Constantin Brâncuși",
+            "665. Alberto Giacometti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "photographer",
+          "startRank": 683,
+          "endRank": 696,
+          "count": 14,
+          "examples": [
+            "683. Cindy Sherman",
+            "684. Diane Arbus",
+            "685. Richard Avedon"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 701,
+          "endRank": 710,
+          "count": 10,
+          "examples": [
+            "701. Johann Sebastian Bach",
+            "702. Wolfgang Amadeus Mozart",
+            "703. Ludwig van Beethoven"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 712,
+          "endRank": 742,
+          "count": 31,
+          "examples": [
+            "712. Felix Mendelssohn",
+            "713. Hector Berlioz",
+            "714. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 744,
+          "endRank": 770,
+          "count": 27,
+          "examples": [
+            "744. Pierre Boulez",
+            "745. Olivier Messiaen",
+            "746. Arvo Pärt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "country",
+          "startRank": 831,
+          "endRank": 842,
+          "count": 12,
+          "examples": [
+            "831. Johnny Cash",
+            "832. Hank Williams",
+            "833. Willie Nelson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "american",
+          "startRank": 888,
+          "endRank": 900,
+          "count": 13,
+          "examples": [
+            "888. Marilyn Monroe",
+            "889. James Dean",
+            "890. Humphrey Bogart"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "actor",
+          "startRank": 889,
+          "endRank": 913,
+          "count": 25,
+          "examples": [
+            "889. James Dean",
+            "890. Humphrey Bogart",
+            "891. Cary Grant"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "comedian",
+          "startRank": 913,
+          "endRank": 929,
+          "count": 17,
+          "examples": [
+            "913. Peter Sellers",
+            "914. Charlie Chaplin",
+            "915. Buster Keaton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 940,
+          "endRank": 949,
+          "count": 10,
+          "examples": [
+            "940. Vittorio De Sica",
+            "941. Roberto Rossellini",
+            "942. Luchino Visconti"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "japanese",
+          "startRank": 961,
+          "endRank": 970,
+          "count": 10,
+          "examples": [
+            "961. Yasujirō Ozu",
+            "962. Kenji Mizoguchi",
+            "963. Hayao Miyazaki"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "director",
+          "startRank": 976,
+          "endRank": 1000,
+          "count": 25,
+          "examples": [
+            "976. Zhang Yimou",
+            "977. Chen Kaige",
+            "978. Wong Kar-wai"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 328,
+          "endRank": 343,
+          "count": 16,
+          "examples": [
+            "328. Alexander Pope",
+            "329. William Wordsworth",
+            "330. Samuel Taylor Coleridge"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 582,
+          "endRank": 599,
+          "count": 18,
+          "examples": [
+            "582. Sandro Botticelli",
+            "583. Raphael",
+            "584. Titian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 641,
+          "endRank": 662,
+          "count": 22,
+          "examples": [
+            "641. Keith Haring",
+            "642. Banksy",
+            "643. Ai Weiwei"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 712,
+          "endRank": 742,
+          "count": 31,
+          "examples": [
+            "712. Felix Mendelssohn",
+            "713. Hector Berlioz",
+            "714. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 744,
+          "endRank": 774,
+          "count": 31,
+          "examples": [
+            "744. Pierre Boulez",
+            "745. Olivier Messiaen",
+            "746. Arvo Pärt"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 31 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        74,
+        302
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charlie chaplin",
+      "ranks": [
+        118,
+        914
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        131,
+        405
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "franz kafka",
+      "ranks": [
+        156,
+        385
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        325,
+        576
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hayao miyazaki",
+      "ranks": [
+        963,
+        970
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        15,
+        286
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "simone veil",
+      "variants": [
+        "simone veil",
+        "simone weil"
+      ],
+      "ranks": [
+        297,
+        473
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george gershwin",
+      "variants": [
+        "george gershwin",
+        "george and ira gershwin"
+      ],
+      "ranks": [
+        737,
+        773
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "russian",
+      "startRank": 364,
+      "endRank": 380,
+      "count": 17,
+      "examples": [
+        "364. Anton Chekhov",
+        "365. Fyodor Dostoevsky",
+        "366. Leo Tolstoy"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "german",
+      "startRank": 387,
+      "endRank": 396,
+      "count": 10,
+      "examples": [
+        "387. Hermann Hesse",
+        "388. Thomas Mann",
+        "389. Günter Grass"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 424,
+      "endRank": 433,
+      "count": 10,
+      "examples": [
+        "424. Richard Wright",
+        "425. Zora Neale Hurston",
+        "426. Flannery O'Connor"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 582,
+      "endRank": 599,
+      "count": 18,
+      "examples": [
+        "582. Sandro Botticelli",
+        "583. Raphael",
+        "584. Titian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 601,
+      "endRank": 612,
+      "count": 12,
+      "examples": [
+        "601. Claude Monet",
+        "602. Pierre-Auguste Renoir",
+        "603. Edgar Degas"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 614,
+      "endRank": 623,
+      "count": 10,
+      "examples": [
+        "614. Piet Mondrian",
+        "615. Kazimir Malevich",
+        "616. Marc Chagall"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "painter",
+      "startRank": 648,
+      "endRank": 662,
+      "count": 15,
+      "examples": [
+        "648. Sesshū Tōyō",
+        "649. Hasegawa Tōhaku",
+        "650. Ogata Kōrin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "sculptor",
+      "startRank": 663,
+      "endRank": 672,
+      "count": 10,
+      "examples": [
+        "663. Auguste Rodin",
+        "664. Constantin Brâncuși",
+        "665. Alberto Giacometti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "photographer",
+      "startRank": 683,
+      "endRank": 696,
+      "count": 14,
+      "examples": [
+        "683. Cindy Sherman",
+        "684. Diane Arbus",
+        "685. Richard Avedon"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 701,
+      "endRank": 710,
+      "count": 10,
+      "examples": [
+        "701. Johann Sebastian Bach",
+        "702. Wolfgang Amadeus Mozart",
+        "703. Ludwig van Beethoven"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 712,
+      "endRank": 742,
+      "count": 31,
+      "examples": [
+        "712. Felix Mendelssohn",
+        "713. Hector Berlioz",
+        "714. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 744,
+      "endRank": 770,
+      "count": 27,
+      "examples": [
+        "744. Pierre Boulez",
+        "745. Olivier Messiaen",
+        "746. Arvo Pärt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "country",
+      "startRank": 831,
+      "endRank": 842,
+      "count": 12,
+      "examples": [
+        "831. Johnny Cash",
+        "832. Hank Williams",
+        "833. Willie Nelson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "american",
+      "startRank": 888,
+      "endRank": 900,
+      "count": 13,
+      "examples": [
+        "888. Marilyn Monroe",
+        "889. James Dean",
+        "890. Humphrey Bogart"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "actor",
+      "startRank": 889,
+      "endRank": 913,
+      "count": 25,
+      "examples": [
+        "889. James Dean",
+        "890. Humphrey Bogart",
+        "891. Cary Grant"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "comedian",
+      "startRank": 913,
+      "endRank": 929,
+      "count": 17,
+      "examples": [
+        "913. Peter Sellers",
+        "914. Charlie Chaplin",
+        "915. Buster Keaton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 940,
+      "endRank": 949,
+      "count": 10,
+      "examples": [
+        "940. Vittorio De Sica",
+        "941. Roberto Rossellini",
+        "942. Luchino Visconti"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "japanese",
+      "startRank": 961,
+      "endRank": 970,
+      "count": 10,
+      "examples": [
+        "961. Yasujirō Ozu",
+        "962. Kenji Mizoguchi",
+        "963. Hayao Miyazaki"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "director",
+      "startRank": 976,
+      "endRank": 1000,
+      "count": 25,
+      "examples": [
+        "976. Zhang Yimou",
+        "977. Chen Kaige",
+        "978. Wong Kar-wai"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 328,
+      "endRank": 343,
+      "count": 16,
+      "examples": [
+        "328. Alexander Pope",
+        "329. William Wordsworth",
+        "330. Samuel Taylor Coleridge"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 582,
+      "endRank": 599,
+      "count": 18,
+      "examples": [
+        "582. Sandro Botticelli",
+        "583. Raphael",
+        "584. Titian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 641,
+      "endRank": 662,
+      "count": 22,
+      "examples": [
+        "641. Keith Haring",
+        "642. Banksy",
+        "643. Ai Weiwei"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 712,
+      "endRank": 742,
+      "count": 31,
+      "examples": [
+        "712. Felix Mendelssohn",
+        "713. Hector Berlioz",
+        "714. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 744,
+      "endRank": 774,
+      "count": 31,
+      "examples": [
+        "744. Pierre Boulez",
+        "745. Olivier Messiaen",
+        "746. Arvo Pärt"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 163,
+      "Asia": 47,
+      "Middle East": 19,
+      "Africa": 15,
+      "Americas": 73,
+      "Oceania": 0,
+      "Unknown": 683
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 36,
+      "Science/Technology": 27,
+      "Philosophy/Religion": 80,
+      "Arts/Literature": 364,
+      "Military": 3,
+      "Other": 490
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 814,
+    "contributionShortRate": 0.814,
+    "score": 83.62
+  },
+  "summary": "Issues: 6 exact duplicates; pattern collapse (max 31)"
+}

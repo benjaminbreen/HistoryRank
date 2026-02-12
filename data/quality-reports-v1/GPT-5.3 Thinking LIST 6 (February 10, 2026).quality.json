@@ -1,0 +1,204 @@
+{
+  "file": "GPT-5.3 Thinking LIST 6 (February 10, 2026).txt",
+  "model": "GPT-5.3 Thinking",
+  "timestamp": "2026-02-10T23:45:33.294Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 8,
+      "status": "PASS",
+      "details": "8 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "football",
+          "startRank": 601,
+          "endRank": 610,
+          "count": 10,
+          "examples": [
+            "601. Pelé",
+            "602. Diego Maradona",
+            "603. Lionel Messi"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "hitler",
+        "adolf hitler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        370
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "yongle emperor",
+      "variants": [
+        "yongle emperor",
+        "yongzheng emperor"
+      ],
+      "ranks": [
+        80,
+        252
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        268,
+        384
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "ferdinand marcos",
+      "variants": [
+        "ferdinand marcos",
+        "ferdinand marcos jr"
+      ],
+      "ranks": [
+        270,
+        980
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali pasha",
+      "variants": [
+        "muhammad ali pasha",
+        "muhammad ali"
+      ],
+      "ranks": [
+        275,
+        624
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george h w bush",
+      "variants": [
+        "george h w bush",
+        "george w bush"
+      ],
+      "ranks": [
+        358,
+        360
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        543,
+        624
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "murad i",
+      "variants": [
+        "murad i",
+        "murad iv"
+      ],
+      "ranks": [
+        709,
+        712
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "football",
+      "startRank": 601,
+      "endRank": 610,
+      "count": 10,
+      "examples": [
+        "601. Pelé",
+        "602. Diego Maradona",
+        "603. Lionel Messi"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 54,
+      "Asia": 34,
+      "Middle East": 39,
+      "Africa": 12,
+      "Americas": 19,
+      "Oceania": 0,
+      "Unknown": 842
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 52,
+      "Science/Technology": 25,
+      "Philosophy/Religion": 19,
+      "Arts/Literature": 56,
+      "Military": 36,
+      "Other": 812
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "List passes all quality checks"
+}

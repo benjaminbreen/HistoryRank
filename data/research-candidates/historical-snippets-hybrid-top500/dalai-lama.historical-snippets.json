@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.060Z",
+  "figureId": "dalai-lama",
+  "figureName": "Dalai Lama",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Dalai Lama (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Dalai_Lama",
+      "snippet": "The Dalai Lama is the head of the Gelug school of Tibetan Buddhism. The term is part of the full title \"Holiness Knowing Everything Vajradhara Dalai Lama\" given by Altan Khan. He offered it in appreciation to the Gelug school's then-leader, Sonam Gyatso, who received it in 1578 at Yanghua Monastery. At that time, Sonam Gyatso had just given teachings to the Khan, and so the title of Dalai Lama was also given to the entire tulku lineage. Sonam Gyatso became the 3rd Dalai Lama, while the first two tulkus in the lineage, the 1st Dalai Lama and the 2nd Dalai Lama, were posthumously awarded the title.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

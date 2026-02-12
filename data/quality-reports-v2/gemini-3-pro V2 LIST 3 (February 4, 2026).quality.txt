@@ -1,0 +1,36 @@
+Quality Assessment Report
+========================
+File: gemini-3-pro V2 LIST 3 (February 4, 2026).txt
+Model: gemini-3-pro V2
+Timestamp: 2026-02-10T23:47:10.215Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 2 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 57/61 anchor figures found (93%)
+
+Issues (6):
+  - Exact duplicate: "booker t washington" at ranks 226, 296
+  - Exact duplicate: "murasaki shikibu" at ranks 263, 422
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 25, 134
+  - Fuzzy duplicate: queen isabella i / queen elizabeth i at ranks 65, 94
+  - Fuzzy duplicate: pol pot / saloth sar pol pot at ranks 148, 297
+  - Fuzzy duplicate: muhammad ali / muhammad ali jinnah at ranks 462, 492
+
+Diversity Estimates:
+  Regions: Europe: 62, Asia: 20, Middle East: 16, Africa: 12, Americas: 13, Unknown: 377
+  Domains: Politics/Leadership: 41, Science/Technology: 10, Philosophy/Religion: 18, Arts/Literature: 60, Military: 7, Other: 364
+
+Advanced Metrics:
+  Advanced score: 98.7
+  Parenthetical names: 1.8%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 1.0%

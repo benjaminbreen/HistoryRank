@@ -41,6 +41,7 @@ export function AppFooter() {
                   ['/', 'Rankings'],
                   ['/scatter', 'Scatter'],
                   ['/maps', 'Maps'],
+                  ['/influence', 'Influence'],
                   ['/media', 'Media Atlas'],
                   ['/compare', 'Compare'],
                 ].map(([href, label]) => (

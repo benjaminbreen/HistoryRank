@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.676Z",
+  "figureId": "david-livingstone",
+  "figureName": "David Livingstone",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "David Livingstone is consistently described across 12 model source lists as influential for: African explorer and missionary; Explored Africa and opposed the slave trade, inspiring missionary and colonial efforts; Missionary and explorer; mapped much of Africa and opposed the slave trade; African exploration, anti-slavery advocacy; Explored Africa; anti-slavery advocacy; opened Africa to Western influence; African exploration narratives; imperial-humanitarian entanglements; Explored central Africa and documented the slave trade, catalyzing European engagement with the African interior and abolitionist activism; African exploration, missionary work.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

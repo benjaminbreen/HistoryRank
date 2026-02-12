@@ -1,0 +1,226 @@
+{
+  "generatedAt": "2026-02-10T00:19:04.517Z",
+  "figureId": "martin-luther-king-jr",
+  "figureName": "Martin Luther King Jr.",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 1,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 2,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1982,
+        "max": 2009
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 291,
+      "candidatesTokenCount": 659,
+      "totalTokenCount": 950,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 291
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Letter from Birmingham Jail",
+        "author": "Martin Luther King Jr.",
+        "year": 1963,
+        "rationale": "A seminal letter articulating King's philosophy of nonviolent resistance and his critique of racial injustice in America. Widely published and studied.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "I Have a Dream",
+        "author": "Martin Luther King Jr.",
+        "year": 1963,
+        "rationale": "The iconic speech delivered during the March on Washington for Jobs and Freedom, a cornerstone of the Civil Rights Movement. Its text is widely preserved.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Stride Toward Freedom: The Montgomery Story",
+        "author": "Martin Luther King Jr.",
+        "year": 1958,
+        "rationale": "King's first book, detailing the Montgomery Bus Boycott and his early experiences with nonviolent direct action. A foundational text for understanding his thought.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "King: A Biography",
+        "author": "David L. Lewis",
+        "year": 1970,
+        "rationale": "While published slightly before 1976, this is a foundational and highly respected biography that has been updated and reissued. It provides comprehensive biographical and historical context.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Autobiography of Martin Luther King, Jr.",
+        "author": "Martin Luther King Jr., edited by Clayborne Carson",
+        "year": 1998,
+        "rationale": "Compiled from King's writings, this work offers an intimate look at his life and thought, edited by a leading King scholar.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr.",
+        "author": "Doreen Rappaport",
+        "year": 2001,
+        "rationale": "A well-regarded biography, often cited for its accessible yet scholarly approach to King's life and legacy.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The secondary source 'King: A Biography' by David L. Lewis was published in 1970, predating the 1976 requirement. However, it is a seminal work that has seen multiple revised editions, making it highly relevant. The other two secondary sources meet the date criteria."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Letter from Birmingham Jail",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "primary",
+      "title": "Stride Toward Freedom: The Montgomery Story",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "King: A Biography",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "I have a dream",
+      "author": "Martin Luther King, Jr.",
+      "publication_year": 1997,
+      "source_url": "https://archive.org/details/ihavedream00king_0",
+      "access_url": "https://archive.org/details/ihavedream00king_0",
+      "snippet": null,
+      "confidence": 0.962,
+      "why": "Primary source resolved from suggestion \"I Have a Dream\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.32; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "I Have a Dream",
+        "suggestion_author": "Martin Luther King Jr.",
+        "suggestion_year": 1963,
+        "suggestion_rationale": "The iconic speech delivered during the March on Washington for Jobs and Freedom, a cornerstone of the Civil Rights Movement. Its text is widely preserved.",
+        "ia_identifier": "ihavedream00king_0"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr.",
+      "author": "Doreen Rappaport",
+      "publication_year": 2001,
+      "source_url": "https://openlibrary.org/books/OL6786211M/Martin's_big_words",
+      "access_url": "https://openlibrary.org/books/OL6786211M/Martin's_big_words",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Martin's Big Words: The Life of Dr. Martin Luther King, Jr.\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr.",
+        "suggestion_author": "Doreen Rappaport",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A well-regarded biography, often cited for its accessible yet scholarly approach to King's life and legacy.",
+        "openalex_id": "https://openalex.org/W577694491",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Book Review: Martin's Big Words: The Life of Dr. Martin Luther King, Jr.",
+      "author": null,
+      "publication_year": 2009,
+      "source_url": "https://doi.org/10.1177/002205740918900319",
+      "access_url": "https://doi.org/10.1177/002205740918900319",
+      "snippet": "Journal of Education",
+      "confidence": 0.845,
+      "why": "Secondary source resolved from suggestion \"Martin's Big Words: The Life of Dr. Martin Luther King, Jr.\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.73; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Martin's Big Words: The Life of Dr. Martin Luther King, Jr.",
+        "suggestion_author": "Doreen Rappaport",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A well-regarded biography, often cited for its accessible yet scholarly approach to King's life and legacy.",
+        "doi": "10.1177/002205740918900319",
+        "crossref_type": "journal-article"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "The Autobiography of Martin Luther King, Jr.",
+      "author": "Martín Luther King",
+      "publication_year": 1982,
+      "source_url": "https://ci.nii.ac.jp/ncid/BA81863368",
+      "access_url": "https://ci.nii.ac.jp/ncid/BA81863368",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.864,
+      "why": "Secondary source resolved from suggestion \"The Autobiography of Martin Luther King, Jr.\" (openalex). Matched secondary suggestion by title=1.00, author=0.38, year=0.47; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Autobiography of Martin Luther King, Jr.",
+        "suggestion_author": "Martin Luther King Jr., edited by Clayborne Carson",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "Compiled from King's writings, this work offers an intimate look at his life and thought, edited by a leading King scholar.",
+        "openalex_id": "https://openalex.org/W1509485952",
+        "work_type": "book"
+      }
+    }
+  ]
+}

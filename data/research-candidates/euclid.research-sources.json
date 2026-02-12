@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:39.951Z",
+  "generatedAt": "2026-02-10T00:12:14.687Z",
   "figureId": "euclid",
   "figureName": "Euclid",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,35 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 2024,
+        "max": 2024
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 410,
-      "totalTokenCount": 697,
+      "candidatesTokenCount": 446,
+      "totalTokenCount": 733,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +60,7 @@
         "title": "Elements",
         "author": "Euclid",
         "year": -300,
-        "rationale": "Euclid's seminal work on geometry, foundational to mathematics. It exists in numerous translations and editions.",
+        "rationale": "Euclid's seminal work on geometry, considered one of the most influential works in the history of mathematics. It has been translated and published numerous times.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,85 +71,84 @@
     "secondary": [
       {
         "title": "Euclid's Elements",
+        "author": "Thomas L. Heath",
+        "year": 1925,
+        "rationale": "While published before 1976, Heath's edition and commentary on Euclid's Elements is considered the definitive scholarly English translation and analysis, often referenced in later works. It is widely available.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Thirteen Books of Euclid's Elements",
         "author": "Euclid",
-        "year": 1926,
-        "rationale": "A comprehensive translation and commentary on Euclid's Elements by Thomas L. Heath, considered a standard scholarly edition.",
+        "year": 1908,
+        "rationale": "This is a foundational English translation and commentary by Thomas L. Heath, essential for any serious study of Euclid's work. It is a primary source in translation but often treated as a secondary scholarly resource due to its extensive commentary.",
         "sourceType": "book"
       },
       {
-        "title": "The Crest of the Peacock: Non-European Roots of Mathematics",
-        "author": "George Gheverghese Joseph",
-        "year": 2011,
-        "rationale": "This book discusses the historical development of mathematics, including Euclid's contributions within a broader global context.",
-        "sourceType": "book"
-      },
-      {
-        "title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
-        "author": "Leonard Mlodinow",
-        "year": 2001,
-        "rationale": "A popular science book that explores the history and concepts of geometry, with significant focus on Euclid and his work.",
+        "title": "Euclid",
+        "author": "Reviel Netz",
+        "year": 2004,
+        "rationale": "A scholarly analysis of Euclid's life and work, focusing on the historical context and reception of his mathematical texts.",
         "sourceType": "book"
       }
     ],
-    "notes": "Euclid's primary work, 'Elements', is the most significant primary source. Secondary sources focus on scholarly analysis and historical context of his work."
+    "notes": "Euclid's primary contribution is 'Elements', which exists in many translations and editions. Secondary sources often focus on the analysis and historical context of 'Elements'."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "Elements",
-      "reason": "Title similarity too low (0.23); baseScore=0.44"
+      "reason": "Title similarity too low (0.24); baseScore=0.45"
     },
     {
       "role": "secondary",
-      "title": "The Crest of the Peacock: Non-European Roots of Mathematics",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.66"
+      "title": "Euclid's Elements",
+      "reason": "Best score below threshold (0.71 < 0.72)"
     }
   ],
   "candidates": [
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
-      "author": "Leonard Mlodinow",
-      "publication_year": 2001,
-      "source_url": "http://cds.cern.ch/record/1545791",
-      "access_url": "http://cds.cern.ch/record/1545791",
-      "snippet": "CERN Bulletin",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "source_kind": "article",
+      "title": "<i>Euclid</i>",
+      "author": "Y Mellier",
+      "publication_year": 2024,
+      "source_url": "https://doi.org/10.1051/0004-6361/202450810",
+      "access_url": "https://doi.org/10.1051/0004-6361/202450810",
+      "snippet": "Astronomy and Astrophysics",
+      "confidence": 0.767,
+      "why": "Secondary source resolved from suggestion \"Euclid\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.33; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Euclid's Window: The Story of Geometry from Parallel Lines to Hyperspace",
-        "suggestion_author": "Leonard Mlodinow",
-        "suggestion_year": 2001,
-        "suggestion_rationale": "A popular science book that explores the history and concepts of geometry, with significant focus on Euclid and his work.",
-        "openalex_id": "https://openalex.org/W1531520337",
-        "work_type": "book"
+        "suggestion_title": "Euclid",
+        "suggestion_author": "Reviel Netz",
+        "suggestion_year": 2004,
+        "suggestion_rationale": "A scholarly analysis of Euclid's life and work, focusing on the historical context and reception of his mathematical texts.",
+        "openalex_id": "https://openalex.org/W4398795509",
+        "work_type": "article"
       }
     },
     {
-      "source_corpus": "openalex",
+      "source_corpus": "openlibrary",
       "source_role": "secondary",
       "source_kind": "book",
-      "title": "Euclid's Elements",
+      "title": "The thirteen books of Euclid's Elements",
       "author": "Euclid",
-      "publication_year": 2007,
-      "source_url": "https://openlibrary.org/books/OL14044675M/Euclids_elements_of_geometry",
-      "access_url": "https://openlibrary.org/books/OL14044675M/Euclids_elements_of_geometry",
+      "publication_year": null,
+      "source_url": "https://openlibrary.org/works/OL12889578W",
+      "access_url": "https://openlibrary.org/works/OL12889578W",
       "snippet": null,
-      "confidence": 0.91,
-      "why": "Secondary source resolved from suggestion \"Euclid's Elements\". Matched secondary suggestion by title=1.00, author=1.00, year=0.00; Figure full name present in title",
+      "confidence": 0.903,
+      "why": "Secondary source resolved from suggestion \"The Thirteen Books of Euclid's Elements\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.25; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Euclid's Elements",
+        "suggestion_title": "The Thirteen Books of Euclid's Elements",
         "suggestion_author": "Euclid",
-        "suggestion_year": 1926,
-        "suggestion_rationale": "A comprehensive translation and commentary on Euclid's Elements by Thomas L. Heath, considered a standard scholarly edition.",
-        "openalex_id": "https://openalex.org/W2953402087",
-        "work_type": "book"
+        "suggestion_year": 1908,
+        "suggestion_rationale": "This is a foundational English translation and commentary by Thomas L. Heath, essential for any serious study of Euclid's work. It is a primary source in translation but often treated as a secondary scholarly resource due to its extensive commentary.",
+        "edition_count": 1
       }
     }
   ]

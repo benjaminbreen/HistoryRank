@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:37:40.978Z",
+  "generatedAt": "2026-02-10T00:13:47.392Z",
   "figureId": "sigmund-freud",
   "figureName": "Sigmund Freud",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 3,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1946,
+        "max": 1991
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 592,
-      "totalTokenCount": 880,
+      "candidatesTokenCount": 543,
+      "totalTokenCount": 831,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "The Interpretation of Dreams",
         "author": "Sigmund Freud",
         "year": 1899,
-        "rationale": "Freud's seminal work, laying the foundation for psychoanalysis. It is widely available and a cornerstone of his writings.",
+        "rationale": "Freud's seminal work, foundational to psychoanalysis, widely available.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +73,7 @@
         "title": "The Ego and the Id",
         "author": "Sigmund Freud",
         "year": 1923,
-        "rationale": "A key text in Freud's later structural model of the psyche. It is a foundational work for understanding his developed theories.",
+        "rationale": "A key text outlining Freud's structural model of the psyche, frequently digitized.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +84,7 @@
         "title": "Civilization and Its Discontents",
         "author": "Sigmund Freud",
         "year": 1930,
-        "rationale": "Explores the inherent conflict between individual desires and the demands of civilization. A widely read and influential work.",
+        "rationale": "Explores the conflict between individual desires and societal demands, a widely read and accessible work.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -66,28 +94,28 @@
     ],
     "secondary": [
       {
-        "title": "Freud: A Life for Our Time",
-        "author": "Peter Gay",
-        "year": 1988,
-        "rationale": "A comprehensive and highly regarded biography of Freud by a prominent historian, offering deep insights into his life and work.",
-        "sourceType": "book"
-      },
-      {
         "title": "The Cambridge Companion to Freud",
         "author": "Richard Wollheim and James Hopkins",
-        "year": 1991,
-        "rationale": "A collection of essays by leading scholars providing diverse perspectives on Freud's theories and their impact.",
+        "year": 1985,
+        "rationale": "A comprehensive collection of essays by leading scholars on Freud's life and work.",
         "sourceType": "book"
       },
       {
-        "title": "Freud's Patients: A New History of Psychoanalysis",
-        "author": "Ethan J. Kuperman",
-        "year": 2017,
-        "rationale": "Offers a fresh perspective on Freud's clinical work by examining his case histories and their significance.",
+        "title": "Freud: A Very Short Introduction",
+        "author": "Anthony Elliott",
+        "year": 2010,
+        "rationale": "A concise and accessible overview of Freud's major theories and their impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Companion to Psychoanalysis",
+        "author": "Elizabeth Bott Spillius",
+        "year": 1992,
+        "rationale": "Provides context and analysis of psychoanalytic theory, including Freud's contributions.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are foundational texts by Freud. Secondary sources are scholarly overviews and biographies published after 1976."
+    "notes": "Primary sources are foundational texts by Freud. Secondary sources offer scholarly analysis and context from reputable academic publishers."
   },
   "unresolved": [
     {
@@ -97,74 +125,81 @@
     },
     {
       "role": "secondary",
-      "title": "Freud's Patients: A New History of Psychoanalysis",
-      "reason": "Best score below threshold (0.52 < 0.72)"
+      "title": "Freud: A Very Short Introduction",
+      "reason": "Best score below threshold (0.00 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to Psychoanalysis",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.15"
     }
   ],
   "candidates": [
     {
-      "source_corpus": "internet_archive",
+      "source_corpus": "project_gutenberg",
       "source_role": "primary",
-      "source_kind": "text",
-      "title": "The Interpretation Of Dreams",
-      "author": "Sigmund Freud",
-      "publication_year": 1900,
-      "source_url": "https://archive.org/details/in.ernet.dli.2015.188424",
-      "access_url": "https://archive.org/details/in.ernet.dli.2015.188424",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Primary source resolved from suggestion \"The Interpretation of Dreams\". Matched primary suggestion by title=1.00, author=1.00, year=0.98; Primary gate passed",
+      "source_kind": "book",
+      "title": "The Interpretation of Dreams",
+      "author": "Freud, Sigmund",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/66048",
+      "access_url": "https://www.gutenberg.org/ebooks/66048",
+      "snippet": "\"The Interpretation of Dreams\" by Sigmund Freud is a book published in 1899 that introduces his groundbreaking theory of the unconscious through dream analysis. Freud argues that dreams are forms of wish fulfillment, shaped by unconscious forces and mental censorship.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"The Interpretation of Dreams\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Interpretation of Dreams",
         "suggestion_author": "Sigmund Freud",
         "suggestion_year": 1899,
-        "suggestion_rationale": "Freud's seminal work, laying the foundation for psychoanalysis. It is widely available and a cornerstone of his writings.",
-        "ia_identifier": "in.ernet.dli.2015.188424"
+        "suggestion_rationale": "Freud's seminal work, foundational to psychoanalysis, widely available.",
+        "gutenberg_id": 66048,
+        "languages": [
+          "en"
+        ],
+        "download_count": 4744
       }
     },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Civilization And Its Discontents",
+      "title": "Civilization and Its Discontents",
       "author": "Sigmund Freud",
-      "publication_year": 1930,
-      "source_url": "https://archive.org/details/in.ernet.dli.2015.221667",
-      "access_url": "https://archive.org/details/in.ernet.dli.2015.221667",
+      "publication_year": 1946,
+      "source_url": "https://archive.org/details/civilizationitsd0000sigm_l8v0",
+      "access_url": "https://archive.org/details/civilizationitsd0000sigm_l8v0",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Civilization and Its Discontents\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Civilization and Its Discontents\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.68; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Civilization and Its Discontents",
         "suggestion_author": "Sigmund Freud",
         "suggestion_year": 1930,
-        "suggestion_rationale": "Explores the inherent conflict between individual desires and the demands of civilization. A widely read and influential work.",
-        "ia_identifier": "in.ernet.dli.2015.221667"
+        "suggestion_rationale": "Explores the conflict between individual desires and societal demands, a widely read and accessible work.",
+        "ia_identifier": "civilizationitsd0000sigm_l8v0"
       }
     },
     {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "article",
-      "title": "Book Review: Freud: A Life for Our Time.",
-      "author": "Peter Gay",
-      "publication_year": 1993,
-      "source_url": "https://doi.org/10.1177/000306519304100317",
-      "access_url": "https://doi.org/10.1177/000306519304100317",
-      "snippet": "Journal of the American Psychoanalytic Association",
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Freud: A Life for Our Time\". Matched secondary suggestion by title=0.91, author=1.00, year=0.83; Surname + aboutness term present in title",
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "The Interpretation of Dreams",
+      "author": "Sigmund Freud",
+      "publication_year": null,
+      "source_url": "https://archive.org/details/dreams_202012",
+      "access_url": "https://archive.org/details/dreams_202012",
+      "snippet": null,
+      "confidence": 0.953,
+      "why": "Primary source resolved from suggestion \"The Interpretation of Dreams\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Freud: A Life for Our Time",
-        "suggestion_author": "Peter Gay",
-        "suggestion_year": 1988,
-        "suggestion_rationale": "A comprehensive and highly regarded biography of Freud by a prominent historian, offering deep insights into his life and work.",
-        "doi": "10.1177/000306519304100317",
-        "crossref_type": "journal-article"
+        "suggestion_title": "The Interpretation of Dreams",
+        "suggestion_author": "Sigmund Freud",
+        "suggestion_year": 1899,
+        "suggestion_rationale": "Freud's seminal work, foundational to psychoanalysis, widely available.",
+        "ia_identifier": "dreams_202012"
       }
     },
     {
@@ -177,15 +212,15 @@
       "source_url": "https://doi.org/10.1017/ccol0521374243",
       "access_url": "https://doi.org/10.1017/ccol0521374243",
       "snippet": "Cambridge University Press eBooks",
-      "confidence": 0.88,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Freud\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
+      "confidence": 0.846,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Freud\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.80; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Freud",
         "suggestion_author": "Richard Wollheim and James Hopkins",
-        "suggestion_year": 1991,
-        "suggestion_rationale": "A collection of essays by leading scholars providing diverse perspectives on Freud's theories and their impact.",
+        "suggestion_year": 1985,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars on Freud's life and work.",
         "openalex_id": "https://openalex.org/W2056610536",
         "work_type": "book"
       }

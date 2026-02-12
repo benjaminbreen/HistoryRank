@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.500Z",
+  "figureId": "herodotus",
+  "figureName": "Herodotus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Herodotus",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHerodotus",
+      "snippet": "Of the education of Herodotus no more can be said than that it was thoroughly Greek, and embraced no doubt the three subjects essential to a Greek liberal education—grammar, gymnastic training and music. His studies would be regarded as completed when he attained the age of eighteen, and took rank among the ephebi or eirenes of his native city. In a free Greek state he would at once have begun his duties as a citizen, and found therein sufficient employment for his growing energies. But in a city ruled by a tyrant this outlet was wanting; no political life worthy of the name existed.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

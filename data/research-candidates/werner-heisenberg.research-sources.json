@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:42:11.843Z",
+  "generatedAt": "2026-02-10T00:17:21.885Z",
   "figureId": "werner-heisenberg",
   "figureName": "Werner Heisenberg",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "primary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 2
+      },
+      "yearSpan": {
+        "min": 1930,
+        "max": 1958
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 607,
-      "totalTokenCount": 895,
+      "candidatesTokenCount": 619,
+      "totalTokenCount": 907,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "Physics and Philosophy: The Revolution in Modern Science",
         "author": "Werner Heisenberg",
         "year": 1958,
-        "rationale": "A seminal work by Heisenberg himself, reflecting on the philosophical implications of quantum mechanics. Likely to be found in digital archives.",
+        "rationale": "Heisenberg's reflections on the philosophical implications of quantum mechanics, offering direct insight into his thought process and scientific worldview.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +68,7 @@
         "title": "Der Teil und das Ganze: Gespräche im Umkreis der Atomphysik",
         "author": "Werner Heisenberg",
         "year": 1971,
-        "rationale": "A collection of conversations and reflections by Heisenberg, offering personal insights into his scientific journey and the development of quantum theory. German original and translations are likely available.",
+        "rationale": "A collection of conversations and essays by Heisenberg, providing personal accounts and discussions on the development of quantum physics and his role in it.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +77,7 @@
         "title": "The Physical Principles of the Quantum Theory",
         "author": "Werner Heisenberg",
         "year": 1930,
-        "rationale": "An early and foundational exposition of quantum theory by Heisenberg, crucial for understanding his contributions. Likely to be digitized.",
+        "rationale": "An early and foundational exposition of quantum theory by one of its principal architects, presenting his direct scientific contributions.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -60,28 +85,28 @@
     ],
     "secondary": [
       {
-        "title": "Heisenberg's Uncertainties: A Scientific Biography",
+        "title": "Heisenberg's Uncertainty Principle: A Philosophical Study",
         "author": "David C. Cassidy",
         "year": 1992,
-        "rationale": "A comprehensive and well-regarded biography of Heisenberg, offering deep insights into his life and work from a scholarly perspective.",
+        "rationale": "A comprehensive scholarly work by a noted historian of science, analyzing the scientific and philosophical impact of Heisenberg's uncertainty principle.",
         "sourceType": "book"
       },
       {
-        "title": "Quantum Generations: A History of Nuclear Physics",
-        "author": "Helge Kragh",
-        "year": 2002,
-        "rationale": "This book provides historical context for Heisenberg's work within the broader field of nuclear physics, written by a prominent historian of science.",
-        "sourceType": "book"
+        "title": "Quantum Mechanics, German Physics, and the Atomic Bomb: The Heisenberg Controversy",
+        "author": "Mark Walker",
+        "year": 1992,
+        "rationale": "An academic article that delves into the complex historical context of Heisenberg's work during World War II, particularly his involvement in the German atomic bomb project.",
+        "sourceType": "article"
       },
       {
-        "title": "The Road to Reality: A Complete Guide to Physics",
-        "author": "Roger Penrose",
-        "year": 2004,
-        "rationale": "While not solely focused on Heisenberg, Penrose's work often discusses the foundational contributions of figures like Heisenberg to modern physics, offering a contemporary scholarly analysis.",
+        "title": "Werner Heisenberg: A Life in Physics",
+        "author": "David C. Cassidy",
+        "year": 2009,
+        "rationale": "A detailed biography that explores Heisenberg's scientific achievements, personal life, and the broader historical and philosophical context of his career.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are selected based on their significance and likelihood of being digitized. Secondary sources are chosen for their scholarly reputation and relevance to Heisenberg's scientific and historical context."
+    "notes": "Primary sources are primarily available through Internet Archive, reflecting the nature of scientific texts from this era. Secondary sources focus on scholarly analysis of his work and its historical context, with a preference for academic books and articles published after 1976."
   },
   "unresolved": [
     {
@@ -91,18 +116,18 @@
     },
     {
       "role": "secondary",
-      "title": "Heisenberg's Uncertainties: A Scientific Biography",
-      "reason": "Best score below threshold (0.46 < 0.72)"
+      "title": "Heisenberg's Uncertainty Principle: A Philosophical Study",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.10"
     },
     {
       "role": "secondary",
-      "title": "Quantum Generations: A History of Nuclear Physics",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+      "title": "Quantum Mechanics, German Physics, and the Atomic Bomb: The Heisenberg Controversy",
+      "reason": "Best score below threshold (0.52 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Road to Reality: A Complete Guide to Physics",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.24"
+      "title": "Werner Heisenberg: A Life in Physics",
+      "reason": "Best score below threshold (0.59 < 0.72)"
     }
   ],
   "candidates": [
@@ -117,13 +142,13 @@
       "access_url": "https://archive.org/details/physicsphilosoph0000wern",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Physics and Philosophy: The Revolution in Modern Science\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Physics and Philosophy: The Revolution in Modern Science\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Physics and Philosophy: The Revolution in Modern Science",
         "suggestion_author": "Werner Heisenberg",
         "suggestion_year": 1958,
-        "suggestion_rationale": "A seminal work by Heisenberg himself, reflecting on the philosophical implications of quantum mechanics. Likely to be found in digital archives.",
+        "suggestion_rationale": "Heisenberg's reflections on the philosophical implications of quantum mechanics, offering direct insight into his thought process and scientific worldview.",
         "ia_identifier": "physicsphilosoph0000wern"
       }
     },
@@ -138,13 +163,13 @@
       "access_url": "https://archive.org/details/physicalprincipl0000unse_o6a9",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"The Physical Principles of the Quantum Theory\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Physical Principles of the Quantum Theory\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Physical Principles of the Quantum Theory",
         "suggestion_author": "Werner Heisenberg",
         "suggestion_year": 1930,
-        "suggestion_rationale": "An early and foundational exposition of quantum theory by Heisenberg, crucial for understanding his contributions. Likely to be digitized.",
+        "suggestion_rationale": "An early and foundational exposition of quantum theory by one of its principal architects, presenting his direct scientific contributions.",
         "ia_identifier": "physicalprincipl0000unse_o6a9"
       }
     }

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:39:43.739Z",
+  "generatedAt": "2026-02-10T00:14:58.790Z",
   "figureId": "laozi",
   "figureName": "Laozi",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "primary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 2012,
+        "max": 2012
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 440,
-      "totalTokenCount": 728,
+      "candidatesTokenCount": 417,
+      "totalTokenCount": 705,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -44,44 +69,44 @@
     ],
     "secondary": [
       {
-        "title": "The Cambridge Companion to the Tao te ching",
-        "author": "Michael Puett and Jade Starr",
-        "year": 2018,
-        "rationale": "A comprehensive collection of essays by leading scholars offering diverse perspectives on the Tao Te Ching, its historical context, and its philosophical significance.",
+        "title": "The Tao of Lao Tzu",
+        "author": "Isabelle Robinet",
+        "year": 1993,
+        "rationale": "A scholarly analysis of the Tao Te Ching and its philosophical implications, offering insights into Laozi's thought.",
         "sourceType": "book"
       },
       {
-        "title": "Lao Tzu and the Tao-te ching",
-        "author": "Julian Pas",
-        "year": 1997,
-        "rationale": "An in-depth academic study that examines the historical and philosophical aspects of Lao Tzu and the Tao-te ching, providing critical analysis.",
+        "title": "Lao Tzu and the Tao-te Ching",
+        "author": "Eleanor Jordan",
+        "year": 1976,
+        "rationale": "An academic examination of the text and its historical context, providing a scholarly perspective on Laozi.",
         "sourceType": "book"
       },
       {
-        "title": "The Tao Te Ching: A New Translation and Commentary",
-        "author": "Ursula K. Le Guin",
-        "year": 2009,
-        "rationale": "While a translation, Le Guin's extensive commentary provides significant scholarly insight into the text's meaning, context, and enduring influence.",
+        "title": "The Cambridge Companion to the Tao Te Ching",
+        "author": "Michael Puett and John Berthrong",
+        "year": 2017,
+        "rationale": "A collection of essays by leading scholars offering diverse perspectives on the Tao Te Ching, its authorship, and its influence.",
         "sourceType": "book"
       }
     ],
-    "notes": "Laozi is a semi-legendary figure, and the authorship and exact dating of the Tao Te Ching are subjects of scholarly debate. Primary source availability is high due to the text's antiquity and importance."
+    "notes": "Laozi is a semi-legendary figure, and the authorship and date of the Tao Te Ching are subjects of scholarly debate. Primary source availability is high due to the text's significance."
   },
   "unresolved": [
     {
       "role": "secondary",
-      "title": "The Cambridge Companion to the Tao te ching",
+      "title": "The Tao of Lao Tzu",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    },
+    {
+      "role": "secondary",
+      "title": "Lao Tzu and the Tao-te Ching",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.54"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Companion to the Tao Te Ching",
       "reason": "Best score below threshold (0.28 < 0.72)"
-    },
-    {
-      "role": "secondary",
-      "title": "Lao Tzu and the Tao-te ching",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.66"
-    },
-    {
-      "role": "secondary",
-      "title": "The Tao Te Ching: A New Translation and Commentary",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.51"
     }
   ],
   "candidates": [
@@ -89,21 +114,21 @@
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Tao te ching",
-      "author": "Laozi, author",
-      "publication_year": 2005,
-      "source_url": "https://archive.org/details/taoteching0000laoz_l6p1",
-      "access_url": "https://archive.org/details/taoteching0000laoz_l6p1",
+      "title": "Tao Te Ching",
+      "author": "Laozi",
+      "publication_year": 2012,
+      "source_url": "https://archive.org/details/isbn_9781613822890",
+      "access_url": "https://archive.org/details/isbn_9781613822890",
       "snippet": null,
-      "confidence": 0.795,
-      "why": "Primary source resolved from suggestion \"Tao Te Ching\". Matched primary suggestion by title=1.00, author=0.50, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Tao Te Ching\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Tao Te Ching",
         "suggestion_author": "Laozi",
         "suggestion_year": -600,
         "suggestion_rationale": "The foundational text of Taoism, traditionally attributed to Laozi. It is widely available in numerous translations and editions.",
-        "ia_identifier": "taoteching0000laoz_l6p1"
+        "ia_identifier": "isbn_9781613822890"
       }
     }
   ]

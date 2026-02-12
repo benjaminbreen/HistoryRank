@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:50.410Z",
+  "generatedAt": "2026-02-10T00:14:25.489Z",
   "figureId": "james-watt",
   "figureName": "James Watt",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 531,
-      "totalTokenCount": 819,
+      "candidatesTokenCount": 559,
+      "totalTokenCount": 847,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +52,16 @@
         "title": "The Origin and Progress of the Mechanical Inventions of James Watt",
         "author": "James Watt",
         "year": 1854,
-        "rationale": "This collection of Watt's writings and patents offers direct insight into his inventive process and technological developments. It is likely to contain letters, notebooks, and patent specifications.",
+        "rationale": "This is a collection of Watt's own writings, patents, and correspondence, offering direct insight into his inventions and thoughts. It was compiled posthumously but contains his original work.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "Correspondence of James Watt",
+        "title": "Correspondence of James Watt and Matthew Boulton",
         "author": "James Watt",
         "year": 1900,
-        "rationale": "A collection of letters written by James Watt, providing personal and professional insights into his life, work, and collaborations. Such correspondence is often digitized.",
+        "rationale": "This collection of letters between James Watt and his business partner Matthew Boulton provides a detailed account of their collaboration, business dealings, and the development of the steam engine.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,27 +70,27 @@
     "secondary": [
       {
         "title": "James Watt: The Birth of the Modern World",
-        "author": "Richard L. Hills",
-        "year": 2016,
-        "rationale": "A comprehensive scholarly biography of James Watt, published by a reputable academic press, offering in-depth analysis of his life and contributions to the Industrial Revolution.",
+        "author": "David Philip Miller",
+        "year": 2018,
+        "rationale": "A comprehensive biography by a respected historian, published by a major academic press, offering a modern scholarly assessment of Watt's life and impact.",
         "sourceType": "book"
       },
       {
         "title": "James Watt: His Life and Inventions",
         "author": "Andrew Carnegie",
-        "year": 1901,
-        "rationale": "While older, Carnegie's work is a significant early biographical account and often considered a foundational text for Watt scholarship. It may be available in digital archives.",
+        "year": 1905,
+        "rationale": "While older, Carnegie's work is a significant historical account, often drawing on primary sources. It's a foundational text for understanding Watt, and its availability on platforms like Project Gutenberg makes it accessible for research.",
         "sourceType": "book"
       },
       {
-        "title": "James Watt and the Steam Revolution",
-        "author": "Robert E. Schofield",
-        "year": 1989,
-        "rationale": "Scholarly work focusing on Watt's impact on the steam engine and the broader industrial revolution, likely drawing on extensive archival research.",
-        "sourceType": "book"
+        "title": "The Steam Engine of Watt",
+        "author": "J. G. R. Ellis",
+        "year": 1977,
+        "rationale": "This article likely provides a focused scholarly analysis of Watt's most significant invention, offering technical and historical context.",
+        "sourceType": "article"
       }
     ],
-    "notes": "Primary source materials for James Watt are primarily found in collected works, patents, and correspondence, often digitized by archives. Secondary sources are abundant, with recent scholarly biographies offering the most up-to-date analysis."
+    "notes": "Finding extensive primary source texts *authored by* James Watt and readily available on Wikisource or Project Gutenberg is challenging. Collections of his correspondence and writings are more likely found on Internet Archive. The secondary sources prioritize recent scholarly works and a foundational, widely accessible older biography."
   },
   "unresolved": [
     {
@@ -82,13 +100,13 @@
     },
     {
       "role": "primary",
-      "title": "Correspondence of James Watt",
+      "title": "Correspondence of James Watt and Matthew Boulton",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
       "title": "James Watt: The Birth of the Modern World",
-      "reason": "Best score below threshold (0.40 < 0.72)"
+      "reason": "Best score below threshold (0.44 < 0.72)"
     },
     {
       "role": "secondary",
@@ -97,8 +115,8 @@
     },
     {
       "role": "secondary",
-      "title": "James Watt and the Steam Revolution",
-      "reason": "Best score below threshold (0.54 < 0.72)"
+      "title": "The Steam Engine of Watt",
+      "reason": "Best score below threshold (0.45 < 0.72)"
     }
   ],
   "candidates": []

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.735Z",
+  "figureId": "andrew-jackson",
+  "figureName": "Andrew Jackson",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Andrew Jackson is consistently described across 11 model source lists as influential for: Andrew Jackson reshaped governance through state-building, legal reform, and durable changes to political institutions; Jacksonian democracy; westward expansion; Jacksonian democracy, Indian Removal; Pioneered Jacksonian democracy and expanded the powers of the presidency; Jacksonian democracy, American expansion; Democratic populism; Indian removal; shaped U.S. presidency; Seventh U.S. president, advancing populism and Indian Removal policies; Seventh U.S. President known for populism.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Mistral Large 3 LIST 1 (January 15, 2026).txt
+Model: Mistral Large 3
+Timestamp: 2026-02-10T23:46:37.737Z
+
+VERDICT: FAIL
+
+Summary: Issues: 266 exact duplicates; pattern collapse (max 65)
+
+Scores:
+  Repetition: FAIL - 266 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 65 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 54/61 anchor figures found (89%)
+
+Issues (228):
+  - Exact duplicate: "karl marx" at ranks 6, 239, 634, 640, 874
+  - Exact duplicate: "leonardo da vinci" at ranks 9, 107
+  - Exact duplicate: "martin luther" at ranks 15, 377
+  - Exact duplicate: "adam smith" at ranks 16, 233, 632, 872
+  - Exact duplicate: "thomas edison" at ranks 17, 86
+  - Exact duplicate: "nikola tesla" at ranks 18, 87
+  - Exact duplicate: "mahatma gandhi" at ranks 19, 294
+  - Exact duplicate: "sigmund freud" at ranks 29, 518
+  - Exact duplicate: "winston churchill" at ranks 34, 358
+  - Exact duplicate: "vladimir lenin" at ranks 36, 241, 337
+  ... and 218 more issues
+
+Diversity Estimates:
+  Regions: Europe: 49, Asia: 39, Middle East: 12, Africa: 29, Americas: 36, Unknown: 835
+  Domains: Politics/Leadership: 119, Science/Technology: 22, Philosophy/Religion: 141, Arts/Literature: 134, Military: 8, Other: 576
+
+Advanced Metrics:
+  Advanced score: 99.8
+  Parenthetical names: 0.3%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

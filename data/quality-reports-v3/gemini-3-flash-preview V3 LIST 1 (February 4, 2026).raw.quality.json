@@ -1,0 +1,300 @@
+{
+  "file": "gemini-3-flash-preview V3 LIST 1 (February 4, 2026).raw.txt",
+  "model": "gemini-3-flash-preview V3",
+  "timestamp": "2026-02-10T23:12:36.485Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 8,
+      "status": "PASS",
+      "details": "8 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "founded",
+          "startRank": 229,
+          "endRank": 239,
+          "count": 11,
+          "examples": [
+            "229. Albert Sabin",
+            "230. Florence Nightingale",
+            "231. Clara Barton"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "founded",
+          "startRank": 230,
+          "endRank": 240,
+          "count": 11,
+          "examples": [
+            "230. Florence Nightingale",
+            "231. Clara Barton",
+            "232. Henri Dunant"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 387,
+          "endRank": 400,
+          "count": 14,
+          "examples": [
+            "387. Philip II of Macedon",
+            "388. Hannibal Barca",
+            "389. Scipio Africanus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 389,
+          "endRank": 401,
+          "count": 13,
+          "examples": [
+            "389. Scipio Africanus",
+            "390. Cicero",
+            "391. Virgil"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "roman",
+          "startRank": 389,
+          "endRank": 402,
+          "count": 14,
+          "examples": [
+            "389. Scipio Africanus",
+            "390. Cicero",
+            "391. Virgil"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "homer",
+        "saint paul",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        24,
+        73
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "elizabeth ii"
+      ],
+      "ranks": [
+        83,
+        444
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry ii of england",
+      "variants": [
+        "henry ii of england",
+        "henry viii of england"
+      ],
+      "ranks": [
+        405,
+        422
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george iv",
+      "variants": [
+        "george iv",
+        "george v"
+      ],
+      "ranks": [
+        438,
+        441
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward vii",
+      "variants": [
+        "edward vii",
+        "edward viii"
+      ],
+      "ranks": [
+        440,
+        442
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george v",
+      "variants": [
+        "george v",
+        "george vi"
+      ],
+      "ranks": [
+        441,
+        443
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander ii of russia",
+      "variants": [
+        "alexander ii of russia",
+        "alexander i of russia"
+      ],
+      "ranks": [
+        447,
+        448
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pedro i of brazil",
+      "variants": [
+        "pedro i of brazil",
+        "pedro ii of brazil"
+      ],
+      "ranks": [
+        472,
+        473
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founded",
+      "startRank": 229,
+      "endRank": 239,
+      "count": 11,
+      "examples": [
+        "229. Albert Sabin",
+        "230. Florence Nightingale",
+        "231. Clara Barton"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "founded",
+      "startRank": 230,
+      "endRank": 240,
+      "count": 11,
+      "examples": [
+        "230. Florence Nightingale",
+        "231. Clara Barton",
+        "232. Henri Dunant"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 387,
+      "endRank": 400,
+      "count": 14,
+      "examples": [
+        "387. Philip II of Macedon",
+        "388. Hannibal Barca",
+        "389. Scipio Africanus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 389,
+      "endRank": 401,
+      "count": 13,
+      "examples": [
+        "389. Scipio Africanus",
+        "390. Cicero",
+        "391. Virgil"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "roman",
+      "startRank": 389,
+      "endRank": 402,
+      "count": 14,
+      "examples": [
+        "389. Scipio Africanus",
+        "390. Cicero",
+        "391. Virgil"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 83,
+      "Asia": 8,
+      "Middle East": 12,
+      "Africa": 8,
+      "Americas": 30,
+      "Oceania": 0,
+      "Unknown": 359
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 111,
+      "Science/Technology": 5,
+      "Philosophy/Religion": 17,
+      "Arts/Literature": 32,
+      "Military": 9,
+      "Other": 326
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.004,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 1,
+    "commaNameRate": 0.002,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.64000000000001
+  },
+  "summary": "List passes all quality checks"
+}

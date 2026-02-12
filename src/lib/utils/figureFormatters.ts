@@ -39,6 +39,11 @@ export function formatCorpusLabel(corpus: string, metadata?: Record<string, unkn
     if (provider === 'crossref') return 'Crossref';
     if (provider === 'openlibrary') return 'Open Library';
     if (provider === 'loc' || provider === 'library_of_congress') return 'Library of Congress';
+    if (provider === 'wikidata') return 'Wikidata';
+    if (provider === 'wikipedia_sections') return 'Wikipedia';
+    if (provider === 'sep' || provider === 'stanford_encyclopedia_of_philosophy') {
+      return 'Stanford Encyclopedia of Philosophy';
+    }
   }
   if (corpus === 'project_gutenberg') return 'Project Gutenberg';
   if (corpus === 'internet_archive') return 'Internet Archive';
@@ -47,6 +52,11 @@ export function formatCorpusLabel(corpus: string, metadata?: Record<string, unkn
   if (corpus === 'crossref') return 'Crossref';
   if (corpus === 'openlibrary') return 'Open Library';
   if (corpus === 'loc') return 'Library of Congress';
+  if (corpus === 'sep' || corpus === 'stanford_encyclopedia_of_philosophy') {
+    return 'Stanford Encyclopedia of Philosophy';
+  }
+  if (corpus === 'wikidata') return 'Wikidata';
+  if (corpus === 'wikipedia_sections') return 'Wikipedia';
   return corpus.replace(/_/g, ' ');
 }
 
@@ -137,10 +147,19 @@ export function groupRankingsBySource(rankings: Ranking[]): GroupedSourceRanking
 
   return Object.entries(bySource)
     .map(([source, data]) => ({
+      // Show the richest description first by default in model cards.
+      contributions: data.contributions
+        .map((value, index) => ({
+          text: value.replace(/\s+/g, ' ').trim(),
+          index,
+        }))
+        .filter((item) => item.text.length > 0)
+        .filter((item, idx, arr) => arr.findIndex((other) => other.text.toLowerCase() === item.text.toLowerCase()) === idx)
+        .sort((a, b) => (b.text.length - a.text.length) || (a.index - b.index))
+        .map((item) => item.text),
       source,
       avgRank: Math.round(data.ranks.reduce((a, b) => a + b, 0) / data.ranks.length),
       sampleCount: data.ranks.length,
-      contributions: data.contributions,
       ranks: data.ranks,
     }))
     .sort((a, b) => a.avgRank - b.avgRank);

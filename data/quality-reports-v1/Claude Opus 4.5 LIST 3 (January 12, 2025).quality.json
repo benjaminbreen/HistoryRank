@@ -1,0 +1,314 @@
+{
+  "file": "Claude Opus 4.5 LIST 3 (January 12, 2025).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-02-10T23:43:23.676Z",
+  "verdict": "WARN",
+  "scores": {
+    "repetition": {
+      "exact": 2,
+      "fuzzy": 6,
+      "status": "PASS",
+      "details": "2 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 62,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "nobel",
+          "startRank": 866,
+          "endRank": 927,
+          "count": 62,
+          "examples": [
+            "866. Tu Youyou",
+            "867. Har Gobind Khorana",
+            "868. Subrahmanyan Chandrasekhar"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "novelist",
+          "startRank": 938,
+          "endRank": 948,
+          "count": 11,
+          "examples": [
+            "938. Julio Cortázar",
+            "939. Carlos Fuentes",
+            "940. Isabel Allende"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "argentine",
+          "startRank": 987,
+          "endRank": 1000,
+          "count": 14,
+          "examples": [
+            "987. Manuel Puig",
+            "988. Ricardo Piglia",
+            "989. César Aira"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 902,
+          "endRank": 925,
+          "count": 24,
+          "examples": [
+            "902. Herta Müller",
+            "903. Doris Lessing",
+            "904. Nadine Gordimer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 935,
+          "endRank": 959,
+          "count": 25,
+          "examples": [
+            "935. Haruki Murakami",
+            "936. Gabriel García Márquez",
+            "937. Jorge Luis Borges"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 970,
+          "endRank": 995,
+          "count": 26,
+          "examples": [
+            "970. Ana Castillo",
+            "971. Helena María Viramontes",
+            "972. Cherríe Moraga"
+          ]
+        }
+      ],
+      "status": "WARN",
+      "details": "Max sequence of 62 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "nikos kazantzakis",
+      "ranks": [
+        623,
+        948
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "salman rushdie",
+      "ranks": [
+        842,
+        933
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        29,
+        76
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry vii of england",
+      "variants": [
+        "henry vii of england",
+        "henry ii of england"
+      ],
+      "ranks": [
+        344,
+        603
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali jinnah",
+      "variants": [
+        "muhammad ali jinnah",
+        "muhammad ali"
+      ],
+      "ranks": [
+        373,
+        638
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "tsar alexander ii",
+      "variants": [
+        "tsar alexander ii",
+        "tsar nicholas ii"
+      ],
+      "ranks": [
+        389,
+        813
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        434,
+        516
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john hus",
+      "variants": [
+        "john hus",
+        "john huston"
+      ],
+      "ranks": [
+        481,
+        807
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "nobel",
+      "startRank": 866,
+      "endRank": 927,
+      "count": 62,
+      "examples": [
+        "866. Tu Youyou",
+        "867. Har Gobind Khorana",
+        "868. Subrahmanyan Chandrasekhar"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "novelist",
+      "startRank": 938,
+      "endRank": 948,
+      "count": 11,
+      "examples": [
+        "938. Julio Cortázar",
+        "939. Carlos Fuentes",
+        "940. Isabel Allende"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "argentine",
+      "startRank": 987,
+      "endRank": 1000,
+      "count": 14,
+      "examples": [
+        "987. Manuel Puig",
+        "988. Ricardo Piglia",
+        "989. César Aira"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 902,
+      "endRank": 925,
+      "count": 24,
+      "examples": [
+        "902. Herta Müller",
+        "903. Doris Lessing",
+        "904. Nadine Gordimer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 935,
+      "endRank": 959,
+      "count": 25,
+      "examples": [
+        "935. Haruki Murakami",
+        "936. Gabriel García Márquez",
+        "937. Jorge Luis Borges"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 970,
+      "endRank": 995,
+      "count": 26,
+      "examples": [
+        "970. Ana Castillo",
+        "971. Helena María Viramontes",
+        "972. Cherríe Moraga"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 169,
+      "Asia": 62,
+      "Middle East": 39,
+      "Africa": 34,
+      "Americas": 76,
+      "Oceania": 0,
+      "Unknown": 620
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 99,
+      "Science/Technology": 24,
+      "Philosophy/Religion": 34,
+      "Arts/Literature": 169,
+      "Military": 17,
+      "Other": 657
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.001,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 1,
+    "contributionShortRate": 0.001,
+    "score": 99.39
+  },
+  "summary": "Issues: 2 exact duplicates; pattern collapse (max 62)"
+}

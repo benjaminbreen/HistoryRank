@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Claude Opus 4.5 LIST 3 (January 12, 2025).txt
+Model: Claude Opus 4.5
+Timestamp: 2026-02-10T23:43:23.676Z
+
+VERDICT: WARN
+
+Summary: Issues: 2 exact duplicates; pattern collapse (max 62)
+
+Scores:
+  Repetition: PASS - 2 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 62 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (14):
+  - Exact duplicate: "nikos kazantzakis" at ranks 623, 948
+  - Exact duplicate: "salman rushdie" at ranks 842, 933
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 29, 76
+  - Fuzzy duplicate: henry vii of england / henry ii of england at ranks 344, 603
+  - Fuzzy duplicate: muhammad ali jinnah / muhammad ali at ranks 373, 638
+  - Fuzzy duplicate: tsar alexander ii / tsar nicholas ii at ranks 389, 813
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 434, 516
+  - Fuzzy duplicate: john hus / john huston at ranks 481, 807
+  - Pattern collapse: "nobel" (62 entries, ranks 866-927)
+  - Pattern collapse: "novelist" (11 entries, ranks 938-948)
+  ... and 4 more issues
+
+Diversity Estimates:
+  Regions: Europe: 169, Asia: 62, Middle East: 39, Africa: 34, Americas: 76, Unknown: 620
+  Domains: Politics/Leadership: 99, Science/Technology: 24, Philosophy/Religion: 34, Arts/Literature: 169, Military: 17, Other: 657
+
+Advanced Metrics:
+  Advanced score: 99.4
+  Parenthetical names: 0.9%
+  Multi-person names: 0.1%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.1%

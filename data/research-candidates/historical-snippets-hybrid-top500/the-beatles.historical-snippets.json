@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.089Z",
+  "figureId": "the-beatles",
+  "figureName": "The Beatles",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "The Beatles is consistently described across 10 model source lists as influential for: Revolutionized popular music and global culture in the 20th century; Band that transformed popular music and global culture; Band that revolutionized popular music (noted as group); Transformed popular music and youth culture; Transformed popular music and culture globally; Rock band revolution; Band revolutionizing popular music; The most influential band in history, who transformed popular music and youth culture in the 1960s.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

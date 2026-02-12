@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Qwen3 235B A22B LIST 3 (January 18, 2026).txt
+Model: Qwen3 235B A22B
+Timestamp: 2026-02-10T23:46:45.842Z
+
+VERDICT: FAIL
+
+Summary: Issues: 306 exact duplicates; pattern collapse (max 31)
+
+Scores:
+  Repetition: FAIL - 306 exact duplicates found
+  Pattern Collapse: WARN - Max sequence of 31 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (138):
+  - Exact duplicate: "albert einstein" at ranks 6, 197
+  - Exact duplicate: "plato" at ranks 7, 115
+  - Exact duplicate: "aristotle" at ranks 8, 116
+  - Exact duplicate: "napoleon bonaparte" at ranks 12, 172, 282, 575
+  - Exact duplicate: "martin luther" at ranks 16, 146
+  - Exact duplicate: "mao zedong" at ranks 18, 342
+  - Exact duplicate: "adolf hitler" at ranks 19, 599
+  - Exact duplicate: "winston churchill" at ranks 22, 271, 562
+  - Exact duplicate: "abraham lincoln" at ranks 24, 182
+  - Exact duplicate: "nelson mandela" at ranks 25, 366
+  ... and 128 more issues
+
+Diversity Estimates:
+  Regions: Europe: 167, Asia: 24, Middle East: 126, Africa: 25, Americas: 24, Unknown: 634
+  Domains: Politics/Leadership: 242, Science/Technology: 120, Philosophy/Religion: 87, Arts/Literature: 116, Military: 34, Other: 401
+
+Advanced Metrics:
+  Advanced score: 98.1
+  Parenthetical names: 3.0%
+  Multi-person names: 0.2%
+  Comma names: 0.2%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

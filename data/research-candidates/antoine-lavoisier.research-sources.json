@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-10T00:18:48.138Z",
+  "figureId": "antoine-lavoisier",
+  "figureName": "Antoine Lavoisier",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 688,
+      "totalTokenCount": 978,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Traité Élémentaire de Chimie",
+        "author": "Antoine Lavoisier",
+        "year": 1789,
+        "rationale": "Lavoisier's seminal work, considered the foundation of modern chemistry. It outlines his theories on combustion, conservation of mass, and introduces a systematic nomenclature for chemical substances. Essential for understanding his contributions.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Mémoires de Chimie",
+        "author": "Antoine Lavoisier",
+        "year": 1789,
+        "rationale": "A collection of Lavoisier's important memoirs and papers, often published alongside or shortly after his Traité Élémentaire de Chimie. It provides deeper insights into his experimental work and reasoning.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Essays Physical and Chemical",
+        "author": "Antoine Lavoisier",
+        "year": 1776,
+        "rationale": "An earlier work by Lavoisier, predating his major synthesis. It showcases his developing ideas and experimental approaches in chemistry and physics, offering a view of his intellectual trajectory.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Lavoisier in the Age of the Enlightenment",
+        "author": "Jean-Pierre Poirier",
+        "year": 1996,
+        "rationale": "A comprehensive biography by a leading Lavoisier scholar, offering detailed analysis of his life, scientific work, and historical context. Published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Antoine Lavoisier: Chemist and Revolutionary",
+        "author": "Denis Duveen and Henry Guerlac",
+        "year": 1976,
+        "rationale": "A foundational scholarly work that critically examines Lavoisier's scientific achievements and his role in the scientific revolution. Though published in 1976, it remains a key reference.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Chemical Revolution: A New History of the Development of Chemistry",
+        "author": "John G. McEvoy",
+        "year": 1999,
+        "rationale": "This book provides a broad historical context for Lavoisier's work, situating his contributions within the larger 'chemical revolution' and discussing the intellectual and social factors that influenced chemical thought.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Lavoisier's primary works are predominantly in French. English translations may be available on Project Gutenberg or Internet Archive, but the original French texts are more likely to be found on Internet Archive. Secondary sources focus on comprehensive biographies and analyses of his scientific impact."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Traité Élémentaire de Chimie",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Mémoires de Chimie",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Essays Physical and Chemical",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Lavoisier in the Age of the Enlightenment",
+      "reason": "Best score below threshold (0.28 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Antoine Lavoisier: Chemist and Revolutionary",
+      "reason": "Best score below threshold (0.00 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Chemical Revolution: A New History of the Development of Chemistry",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    }
+  ],
+  "candidates": []
+}

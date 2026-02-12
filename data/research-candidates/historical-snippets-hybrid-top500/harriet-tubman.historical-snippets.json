@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.466Z",
+  "figureId": "harriet-tubman",
+  "figureName": "Harriet Tubman",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Harriet Tubman (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Harriet_Tubman",
+      "snippet": "Harriet Tubman was an American abolitionist and social activist. After escaping slavery, Tubman made some 13 missions to rescue approximately 70 enslaved people, including her family and friends, using the network of antislavery activists and safe houses known collectively as the Underground Railroad. During the American Civil War, she served as an armed scout and spy for the Union Army. In her later years, Tubman was an activist in the movement for women's suffrage.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

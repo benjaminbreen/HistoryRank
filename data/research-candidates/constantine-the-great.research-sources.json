@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:47.641Z",
+  "generatedAt": "2026-02-10T00:11:36.732Z",
   "figureId": "constantine-the-great",
   "figureName": "Constantine the Great",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 655,
-      "totalTokenCount": 944,
+      "candidatesTokenCount": 626,
+      "totalTokenCount": 915,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,26 +52,26 @@
         "title": "The Edict of Milan",
         "author": "Constantine the Great and Licinius",
         "year": 313,
-        "rationale": "This is a foundational document for religious tolerance in the Roman Empire, issued by Constantine and Licinius. While not a direct speech or letter solely by Constantine, it is directly attributed to his reign and policy.",
+        "rationale": "This is a foundational document for religious tolerance in the Roman Empire, issued by Constantine and Licinius. While not a direct speech or letter from Constantine alone, it is directly attributed to his reign and policy.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
         ]
       },
       {
-        "title": "Letter of Constantine to the Church of Nicomedia",
+        "title": "Letter to Eusebius of Caesarea",
         "author": "Constantine the Great",
-        "year": 327,
-        "rationale": "This letter, preserved by Eusebius, discusses the construction of churches and Constantine's religious views, offering insight into his policies and personal beliefs.",
+        "year": 325,
+        "rationale": "This letter, preserved in Eusebius's 'Life of Constantine,' details Constantine's instructions for the construction of churches in Constantinople and his theological views.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "Address to the Saints",
+        "title": "Speeches (Oration to the Saints)",
         "author": "Constantine the Great",
         "year": 325,
-        "rationale": "A speech attributed to Constantine, delivered at the Council of Nicaea, though its authenticity and exact wording are debated by scholars. It reflects his engagement with Christian doctrine.",
+        "rationale": "Though attribution is debated, these speeches are presented as Constantine's own in Eusebius's 'Life of Constantine,' reflecting his Christian beliefs and imperial authority.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -64,25 +82,25 @@
         "title": "Constantine the Great: Emperor, Christian, Revolutionary",
         "author": "Paul Stephenson",
         "year": 2010,
-        "rationale": "A comprehensive and well-regarded scholarly biography of Constantine, published by a major academic press, offering modern analysis of his reign and impact.",
+        "rationale": "A comprehensive and well-regarded scholarly biography by a leading expert on the period, published by a major academic press.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to the Age of Constantine",
         "author": "Noel Lenski",
         "year": 2006,
-        "rationale": "An edited volume featuring essays by leading scholars on various aspects of Constantine's era, providing diverse scholarly perspectives on his rule and its consequences.",
+        "rationale": "An edited volume featuring essays by numerous scholars covering various aspects of Constantine's reign and its impact, published by a prestigious university press.",
         "sourceType": "book"
       },
       {
-        "title": "Constantine's Conversion: Historical, Literary, and Theological Reinterpretations",
+        "title": "Constantine's Conversion: Historical, Literary, and Theological Re-examinations",
         "author": "Paul J. Fedwick",
-        "year": 1981,
-        "rationale": "This collection of essays critically examines the complex and debated topic of Constantine's conversion, offering scholarly analysis from multiple viewpoints.",
+        "year": 1980,
+        "rationale": "An influential collection of essays that critically examines the traditional narrative of Constantine's conversion and its implications.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources attributed to Constantine are often preserved through the writings of others, such as Eusebius of Caesarea. Direct, independently preserved texts are rare. Availability on digital archives like Internet Archive is more likely than on Project Gutenberg or Wikisource for these specific historical documents."
+    "notes": "Primary source texts are often found within larger works by historians like Eusebius. Availability on digital archives is high, but direct, standalone texts can be rarer."
   },
   "unresolved": [
     {
@@ -92,12 +110,12 @@
     },
     {
       "role": "primary",
-      "title": "Letter of Constantine to the Church of Nicomedia",
+      "title": "Letter to Eusebius of Caesarea",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "Address to the Saints",
+      "title": "Speeches (Oration to the Saints)",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -112,8 +130,8 @@
     },
     {
       "role": "secondary",
-      "title": "Constantine's Conversion: Historical, Literary, and Theological Reinterpretations",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.11"
+      "title": "Constantine's Conversion: Historical, Literary, and Theological Re-examinations",
+      "reason": "Best score below threshold (0.14 < 0.72)"
     }
   ],
   "candidates": []

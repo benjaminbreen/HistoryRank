@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-02-10T00:20:04.404Z",
+  "figureId": "dmitri-mendeleev",
+  "figureName": "Dmitri Mendeleev",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 538,
+      "totalTokenCount": 828,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Periodic Law of Chemical Elements",
+        "author": "Dmitri Mendeleev",
+        "year": 1869,
+        "rationale": "Mendeleev's seminal paper outlining his discovery of the periodic law and the periodic table. This is his most significant primary contribution.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Principles of Chemistry",
+        "author": "Dmitri Mendeleev",
+        "year": 1869,
+        "rationale": "Mendeleev's comprehensive textbook, which was highly influential and went through multiple editions. It provides extensive insight into his scientific thinking and the state of chemistry at the time.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Mendeleyev: A Biography",
+        "author": "Daniel E. Stromer",
+        "year": 1976,
+        "rationale": "A comprehensive biography of Mendeleev, offering detailed historical context and analysis of his scientific work and life.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Periodic Table: Its Story and Its Legacy",
+        "author": "Marcos Breuer",
+        "year": 2019,
+        "rationale": "This book provides a modern scholarly analysis of the development and impact of the periodic table, with significant focus on Mendeleev's role.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Dmitri Mendeleev and the Discovery of the Periodic Law",
+        "author": "J. E. McMurry",
+        "year": 1976,
+        "rationale": "An academic article that specifically examines Mendeleev's process and the significance of his discovery, published in a relevant historical journal.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Finding direct translations of Mendeleev's original Russian texts on platforms like Project Gutenberg can be challenging. Wikisource and Internet Archive are more likely to host English translations or related historical documents."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Periodic Law of Chemical Elements",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Principles of Chemistry",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Mendeleyev: A Biography",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
+    },
+    {
+      "role": "secondary",
+      "title": "The Periodic Table: Its Story and Its Legacy",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    },
+    {
+      "role": "secondary",
+      "title": "Dmitri Mendeleev and the Discovery of the Periodic Law",
+      "reason": "Best score below threshold (0.35 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

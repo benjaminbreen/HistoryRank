@@ -1,0 +1,225 @@
+{
+  "generatedAt": "2026-02-10T00:20:10.730Z",
+  "figureId": "florence-nightingale",
+  "figureName": "Florence Nightingale",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 3,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 2,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1859,
+        "max": 2015
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 612,
+      "totalTokenCount": 900,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Notes on Nursing: What It Is, and What It Is Not",
+        "author": "Florence Nightingale",
+        "year": 1859,
+        "rationale": "Nightingale's seminal work outlining her principles of nursing care and sanitation. It is widely considered a foundational text in modern nursing.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Notes on Hospitals",
+        "author": "Florence Nightingale",
+        "year": 1859,
+        "rationale": "This work details Nightingale's observations and recommendations regarding hospital design, sanitation, and administration, drawing heavily from her Crimean War experiences.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Cassandra",
+        "author": "Florence Nightingale",
+        "year": 1852,
+        "rationale": "A powerful essay written by Nightingale in her early twenties, critiquing the limited opportunities for educated women and advocating for their intellectual and professional development.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Florence Nightingale: A Life",
+        "author": "Mark Bostridge",
+        "year": 2008,
+        "rationale": "A comprehensive and highly acclaimed biography of Florence Nightingale, based on extensive archival research. It is considered a definitive scholarly work on her life and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Florence Nightingale and the Founding of Modern Nursing",
+        "author": "Laura R. Creighton",
+        "year": 1999,
+        "rationale": "This scholarly book examines Nightingale's contributions to nursing, focusing on her organizational skills, statistical methods, and advocacy for public health.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Florence Nightingale's Statistical Methods",
+        "author": "Michael E. Caswell",
+        "year": 2001,
+        "rationale": "An academic article that delves into Nightingale's pioneering use of statistics in public health and hospital reform, highlighting her innovative approaches to data visualization.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Florence Nightingale's extensive writings and correspondence provide a rich source for historical research on 19th-century healthcare, sanitation, and the role of women in public life. Her statistical work is particularly noteworthy."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Cassandra",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Florence Nightingale and the Founding of Modern Nursing",
+      "reason": "Best score below threshold (0.57 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Florence Nightingale's Statistical Methods",
+      "reason": "Best score below threshold (0.49 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "project_gutenberg",
+      "source_role": "primary",
+      "source_kind": "book",
+      "title": "Notes on Nursing: What It Is, and What It Is Not",
+      "author": "Nightingale, Florence",
+      "publication_year": null,
+      "source_url": "https://www.gutenberg.org/ebooks/17366",
+      "access_url": "https://www.gutenberg.org/ebooks/17366",
+      "snippet": "\"Notes on Nursing: What It Is, and What It Is Not\" by Florence Nightingale is a book published in 1859. This groundbreaking guide offers practical hints for anyone caring for the sick, covering ventilation, cleanliness, food, noise, and patient observation.",
+      "confidence": 0.972,
+      "why": "Primary source resolved from suggestion \"Notes on Nursing: What It Is, and What It Is Not\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Notes on Nursing: What It Is, and What It Is Not",
+        "suggestion_author": "Florence Nightingale",
+        "suggestion_year": 1859,
+        "suggestion_rationale": "Nightingale's seminal work outlining her principles of nursing care and sanitation. It is widely considered a foundational text in modern nursing.",
+        "gutenberg_id": 17366,
+        "languages": [
+          "en"
+        ],
+        "download_count": 1346
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Notes On Nursing : What It Is, And What It Is Not.",
+      "author": "Florence Nightingale",
+      "publication_year": 1859,
+      "source_url": "https://archive.org/details/notesonnursingnigh00nigh_202508",
+      "access_url": "https://archive.org/details/notesonnursingnigh00nigh_202508",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Notes on Nursing: What It Is, and What It Is Not\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Notes on Nursing: What It Is, and What It Is Not",
+        "suggestion_author": "Florence Nightingale",
+        "suggestion_year": 1859,
+        "suggestion_rationale": "Nightingale's seminal work outlining her principles of nursing care and sanitation. It is widely considered a foundational text in modern nursing.",
+        "ia_identifier": "notesonnursingnigh00nigh_202508"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Notes on Hospitals",
+      "author": "Florence Nightingale",
+      "publication_year": 1863,
+      "source_url": "https://archive.org/details/notesonhospital01nighgoog",
+      "access_url": "https://archive.org/details/notesonhospital01nighgoog",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Notes on Hospitals\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.92; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Notes on Hospitals",
+        "suggestion_author": "Florence Nightingale",
+        "suggestion_year": 1859,
+        "suggestion_rationale": "This work details Nightingale's observations and recommendations regarding hospital design, sanitation, and administration, drawing heavily from her Crimean War experiences.",
+        "ia_identifier": "notesonhospital01nighgoog"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Florence Nightingale : a life inspired",
+      "author": "Lynn Hamilton",
+      "publication_year": 2015,
+      "source_url": "http://ci.nii.ac.jp/ncid/BB20933478",
+      "access_url": "http://ci.nii.ac.jp/ncid/BB20933478",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.809,
+      "why": "Secondary source resolved from suggestion \"Florence Nightingale: A Life\" (openalex). Matched secondary suggestion by title=0.95, author=0.00, year=0.77; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Florence Nightingale: A Life",
+        "suggestion_author": "Mark Bostridge",
+        "suggestion_year": 2008,
+        "suggestion_rationale": "A comprehensive and highly acclaimed biography of Florence Nightingale, based on extensive archival research. It is considered a definitive scholarly work on her life and impact.",
+        "openalex_id": "https://openalex.org/W2946987497",
+        "work_type": "article"
+      }
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:42:05.290Z",
+  "generatedAt": "2026-02-10T00:16:55.828Z",
   "figureId": "otto-von-bismarck",
   "figureName": "Otto von Bismarck",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 1,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1898,
+        "max": 2012
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 289,
-      "candidatesTokenCount": 631,
-      "totalTokenCount": 920,
+      "candidatesTokenCount": 592,
+      "totalTokenCount": 881,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "Reflections and Reminiscences",
         "author": "Otto von Bismarck",
         "year": 1898,
-        "rationale": "Bismarck's autobiography, offering direct insights into his political career and personal views. Likely available in digitized form.",
+        "rationale": "Bismarck's autobiography, offering direct insights into his life, thoughts, and political career. Often available in digitized formats.",
         "likelyCorpora": [
           "project_gutenberg",
           "internet_archive"
@@ -43,17 +71,17 @@
       {
         "title": "The Bismarck Dynasty",
         "author": "Otto von Bismarck",
-        "year": 1898,
-        "rationale": "A collection of Bismarck's writings and speeches, providing primary material for understanding his political thought and actions. Likely available in digitized form.",
+        "year": 1900,
+        "rationale": "A collection of Bismarck's letters and speeches, providing direct evidence of his views and diplomatic strategies. Digitized versions are common.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "Grosse Politik der europäischen Kabinette 1871-1914",
+        "title": "Gedanken und Erinnerungen",
         "author": "Otto von Bismarck",
-        "year": 1922,
-        "rationale": "While a compilation of diplomatic documents, Bismarck's extensive involvement and influence make its contents highly relevant as primary source material for his foreign policy. Digitized versions are likely available.",
+        "year": 1898,
+        "rationale": "The original German edition of his memoirs, essential for scholars of German history and Bismarck's own perspective. Likely available in digital archives.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -64,25 +92,25 @@
         "title": "Bismarck",
         "author": "Jonathan Steinberg",
         "year": 2011,
-        "rationale": "A comprehensive and well-regarded biography by a prominent historian, offering scholarly analysis of Bismarck's life and impact.",
+        "rationale": "A comprehensive and highly regarded biography by a prominent historian, offering modern scholarly analysis of Bismarck's life and impact.",
         "sourceType": "book"
       },
       {
         "title": "Bismarck: A Life",
         "author": "Edgar Feuchtwanger",
         "year": 2014,
-        "rationale": "A modern scholarly biography that synthesizes recent research and provides a balanced perspective on Bismarck's complex legacy.",
+        "rationale": "A well-received biography that provides a balanced and insightful account of Bismarck's political career and personal life.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Modern History, Vol. XI: The Growth of Nationalities",
         "author": "Various",
         "year": 1909,
-        "rationale": "While older, this volume contains significant scholarly chapters on the period of Bismarck's dominance and his role in nation-building, often written by contemporaries or early historians. Digitized versions are likely available and provide foundational secondary analysis.",
+        "rationale": "While older, this volume contains contemporary scholarly analysis of the period shaped by Bismarck, and its chapters might offer valuable historical context. However, newer scholarship is preferred.",
         "sourceType": "book"
       }
     ],
-    "notes": "The primary sources listed are autobiographical works and collections of his writings/speeches, which are generally available in digitized formats. The secondary sources are major biographies and historical works that offer scholarly analysis of Bismarck's life and impact."
+    "notes": "The secondary source list prioritizes more recent scholarship. The inclusion of 'The Cambridge Modern History' is a placeholder for potentially relevant older analyses, but newer works are generally preferred for current research."
   },
   "unresolved": [
     {
@@ -96,17 +124,33 @@
       "reason": "No resolver results from corpus APIs"
     },
     {
-      "role": "primary",
-      "title": "Grosse Politik der europäischen Kabinette 1871-1914",
-      "reason": "No resolver results from corpus APIs"
-    },
-    {
       "role": "secondary",
       "title": "The Cambridge Modern History, Vol. XI: The Growth of Nationalities",
       "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.08"
     }
   ],
   "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Gedanken und Erinnerungen",
+      "author": "Otto von Bismarck",
+      "publication_year": 1898,
+      "source_url": "https://archive.org/details/bwb_W9-CVU-420_1",
+      "access_url": "https://archive.org/details/bwb_W9-CVU-420_1",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Gedanken und Erinnerungen\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Gedanken und Erinnerungen",
+        "suggestion_author": "Otto von Bismarck",
+        "suggestion_year": 1898,
+        "suggestion_rationale": "The original German edition of his memoirs, essential for scholars of German history and Bismarck's own perspective. Likely available in digital archives.",
+        "ia_identifier": "bwb_W9-CVU-420_1"
+      }
+    },
     {
       "source_corpus": "openalex",
       "source_role": "secondary",
@@ -118,14 +162,14 @@
       "access_url": "https://doi.org/10.5860/choice.49-2915",
       "snippet": "Choice Reviews Online",
       "confidence": 0.869,
-      "why": "Secondary source resolved from suggestion \"Bismarck: A Life\". Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"Bismarck: A Life\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.93; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Bismarck: A Life",
         "suggestion_author": "Edgar Feuchtwanger",
         "suggestion_year": 2014,
-        "suggestion_rationale": "A modern scholarly biography that synthesizes recent research and provides a balanced perspective on Bismarck's complex legacy.",
+        "suggestion_rationale": "A well-received biography that provides a balanced and insightful account of Bismarck's political career and personal life.",
         "openalex_id": "https://openalex.org/W1531857622",
         "work_type": "article"
       }
@@ -141,14 +185,14 @@
       "access_url": "https://openlibrary.org/works/OL18203978W",
       "snippet": null,
       "confidence": 0.841,
-      "why": "Secondary source resolved from suggestion \"Bismarck\". Matched secondary suggestion by title=0.70, author=1.00, year=1.00; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"Bismarck\" (openlibrary). Matched secondary suggestion by title=0.70, author=1.00, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Bismarck",
         "suggestion_author": "Jonathan Steinberg",
         "suggestion_year": 2011,
-        "suggestion_rationale": "A comprehensive and well-regarded biography by a prominent historian, offering scholarly analysis of Bismarck's life and impact.",
+        "suggestion_rationale": "A comprehensive and highly regarded biography by a prominent historian, offering modern scholarly analysis of Bismarck's life and impact.",
         "edition_count": 1
       }
     }

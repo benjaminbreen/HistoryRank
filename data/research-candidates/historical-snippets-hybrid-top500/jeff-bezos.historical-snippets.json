@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.667Z",
+  "figureId": "jeff-bezos",
+  "figureName": "Jeff Bezos",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Jeff Bezos is consistently described across 12 model source lists as influential for: Founder of Amazon; Amazon e-commerce transforming global retail for 25 years; Founder of Amazon, revolutionizing e-commerce and cloud computing; Founder of Amazon and E-commerce; Founder of Amazon, revolutionizing e-commerce; Founder of Amazon, revolutionizing e-commerce and global logistics; Founded Amazon, reshaping retail, cloud computing, and space exploration; Founder of Amazon, transforming retail and e-commerce.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

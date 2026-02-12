@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-02-10T00:15:05.048Z",
+  "figureId": "archimedes",
+  "figureName": "Archimedes",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 658,
+      "totalTokenCount": 946,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "On the Sphere and Cylinder",
+        "author": "Archimedes",
+        "year": -250,
+        "rationale": "A foundational work in geometry, particularly on the properties of spheres and cylinders. It is a key text for understanding Archimedes' mathematical contributions.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Method of Mechanical Theorems",
+        "author": "Archimedes",
+        "year": -250,
+        "rationale": "This work reveals Archimedes' innovative use of mechanics to solve geometric problems, offering insight into his thought processes and discovery methods.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "On Floating Bodies",
+        "author": "Archimedes",
+        "year": -250,
+        "rationale": "This treatise lays out the principles of hydrostatics, including the famous Archimedes' principle. It demonstrates his application of mathematics to physical phenomena.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Archimedes: A Study in History of Science",
+        "author": "Thomas L. Heath",
+        "year": 1920,
+        "rationale": "While older, Heath's work is a foundational scholarly analysis of Archimedes' life and works, often considered the standard reference. Newer editions or analyses may exist.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Archimedes in the 21st Century: The Archimedes Palimpsest and the Future of Scholarship",
+        "author": "Reviel Netz",
+        "year": 2017,
+        "rationale": "This book discusses the significance of the Archimedes Palimpsest and its impact on modern scholarship, offering contemporary perspectives on Archimedes' legacy.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Archimedes Codex: Seven Thousand Years of the Archimedes' Mathematical Legacy",
+        "author": "Reviel Netz and William Noel",
+        "year": 2007,
+        "rationale": "This book provides a comprehensive overview of the Archimedes Palimpsest, its discovery, and its contents, offering insights into Archimedes' mathematical and scientific achievements.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are translations of Archimedes' original Greek works. The publication dates for primary sources are approximate dates of composition. Secondary sources are chosen for their scholarly depth and focus on Archimedes' work and legacy, with an emphasis on more recent scholarship where available."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "On the Sphere and Cylinder",
+      "reason": "Title similarity too low (0.00); baseScore=0.11"
+    },
+    {
+      "role": "primary",
+      "title": "The Method of Mechanical Theorems",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "On Floating Bodies",
+      "reason": "Title similarity too low (0.34); baseScore=0.27"
+    },
+    {
+      "role": "secondary",
+      "title": "Archimedes: A Study in History of Science",
+      "reason": "Best score below threshold (0.33 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Archimedes in the 21st Century: The Archimedes Palimpsest and the Future of Scholarship",
+      "reason": "Best score below threshold (0.45 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Archimedes Codex: Seven Thousand Years of the Archimedes' Mathematical Legacy",
+      "reason": "Best score below threshold (0.35 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

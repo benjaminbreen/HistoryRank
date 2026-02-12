@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wax Seal Mockup V3 - Organic Pressed Edge</title>
+  <style>
+    :root {
+      --bg-a: #f6efe4;
+      --bg-b: #dfcfb4;
+      --text: #2f2418;
+      --wax-border: #7f111f;
+      --wax-highlight: #ffc3cc;
+      --wax-outer: #be2a43;
+      --wax-mid: #941b30;
+      --wax-inner: #641220;
+      --wax-ring: rgba(255, 223, 228, 0.32);
+      --wax-text: #fff2f4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1300px 800px at 0% 0%, #fff8ee 0%, transparent 60%),
+        radial-gradient(1200px 700px at 100% 100%, #f0dfc1 0%, transparent 64%),
+        linear-gradient(145deg, var(--bg-a), var(--bg-b));
+    }
+    .card {
+      width: min(900px, 100%);
+      border-radius: 20px;
+      border: 1px solid #b9a37f;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.58)),
+        radial-gradient(circle at 18% 12%, rgba(255,255,255,0.25), transparent 48%);
+      box-shadow: 0 15px 34px rgba(50, 32, 13, 0.22), inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 28px;
+      font-family: "Iowan Old Style", "Times New Roman", serif;
+      font-weight: 600;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+    }
+    .meta { display: grid; gap: 10px; font-size: 15px; }
+    .label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 11px;
+      color: #7e684f;
+      margin-right: 8px;
+    }
+    .seal-shell {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      filter: drop-shadow(0 8px 11px rgba(48, 11, 15, 0.32));
+    }
+    .seal {
+      position: absolute;
+      inset: 0;
+      border-radius: 46% 54% 48% 52% / 52% 46% 54% 48%;
+      border: 1px solid var(--wax-border);
+      background: radial-gradient(circle at 28% 22%, var(--wax-highlight) 0%, var(--wax-outer) 33%, var(--wax-mid) 66%, var(--wax-inner) 100%);
+      box-shadow: inset 0 2px 3px rgba(255,255,255,0.32), inset 0 -4px 6px rgba(28,7,11,0.64);
+      animation: settle 3.6s ease-in-out infinite alternate;
+    }
+    .seal::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 47% 53% 49% 51% / 51% 47% 53% 49%;
+      border: 1px solid var(--wax-ring);
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(255,255,255,0.1) 0deg 9deg,
+        rgba(0,0,0,0.08) 9deg 18deg
+      );
+    }
+    .seal-inner {
+      position: absolute;
+      inset: 14px;
+      border-radius: 999px;
+      border: 1px solid var(--wax-ring);
+      background: radial-gradient(circle at 30% 23%, var(--wax-highlight), var(--wax-mid) 58%, var(--wax-inner));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--wax-text);
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), inset 0 -2px 4px rgba(18,4,8,0.58);
+    }
+    .rank-label {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .rank-num {
+      margin: 3px 0 0;
+      font-family: "Iowan Old Style", "Times New Roman", serif;
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 1px rgba(30, 6, 11, 0.75);
+    }
+    .controls {
+      margin-top: 16px;
+      border-top: 1px dashed #c8b293;
+      padding-top: 12px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #5e4b36;
+    }
+    .controls label { display: flex; align-items: center; gap: 6px; }
+    input, select {
+      border: 1px solid #c6ad8b;
+      border-radius: 9px;
+      background: #fff7ea;
+      color: #2e2418;
+      padding: 5px 8px;
+      font: inherit;
+    }
+    @keyframes settle {
+      0% { border-radius: 46% 54% 48% 52% / 52% 46% 54% 48%; transform: rotate(-1.1deg); }
+      100% { border-radius: 51% 49% 53% 47% / 48% 53% 47% 52%; transform: rotate(1.1deg); }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Wax Seal V3: Organic Pressed Edge</h1>
+    <section class="layout">
+      <div class="meta">
+        <div><span class="label">Role</span>Political leader</div>
+        <div><span class="label">Born</span>1769 CE in Corsica  <span class="label" style="margin-left:12px;">Died</span>1821 CE</div>
+        <div><span class="label">Notable works</span>Napoleonic Code, Civil administration reforms</div>
+      </div>
+      <div class="seal-shell">
+        <div class="seal" id="seal">
+          <div class="seal-inner">
+            <p class="rank-label" id="rankLabel">Rank</p>
+            <p class="rank-num" id="rankNum">#24</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="controls">
+      <label>Domain
+        <select id="domain">
+          <option>Science</option>
+          <option>Religion</option>
+          <option>Philosophy</option>
+          <option selected>Politics</option>
+          <option>Military</option>
+          <option>Arts</option>
+          <option>Exploration</option>
+          <option>Economics</option>
+          <option>Medicine</option>
+        </select>
+      </label>
+      <label>Rank
+        <input id="rank" type="number" min="1" max="5000" value="24" />
+      </label>
+    </section>
+  </main>
+  <script>
+    const palettes = {
+      Science: ['#234b88', '#9dc4ff', '#5f95e3', '#3d6fbe', '#294b86', 'rgba(214,232,255,0.38)', '#eef5ff'],
+      Religion: ['#5f3e84', '#d6b4ff', '#9a72cc', '#7654aa', '#523875', 'rgba(244,223,255,0.34)', '#f8efff'],
+      Philosophy: ['#3f4e92', '#b7c6ff', '#6b7dd8', '#4f60b5', '#35407f', 'rgba(226,233,255,0.34)', '#f2f6ff'],
+      Politics: ['#7f111f', '#ffc3cc', '#be2a43', '#931a2f', '#641220', 'rgba(255,220,225,0.32)', '#fff1f3'],
+      Military: ['#7f3e13', '#ffd1ad', '#cf6b29', '#a14d1f', '#6f3313', 'rgba(255,224,197,0.32)', '#fff3e8'],
+      Arts: ['#17664f', '#b6f6de', '#33ab86', '#248366', '#195d48', 'rgba(215,255,241,0.3)', '#ebfff8'],
+      Exploration: ['#1c5f67', '#b8eef7', '#3ca9bb', '#2f8390', '#1f5f68', 'rgba(214,247,255,0.3)', '#ebfbff'],
+      Economics: ['#7a4b10', '#ffe1a7', '#cf9230', '#9f6f22', '#704d18', 'rgba(255,236,202,0.32)', '#fff8e8'],
+      Medicine: ['#7a1f57', '#ffd0ec', '#c85a9b', '#9a3f77', '#6d2c56', 'rgba(255,225,244,0.34)', '#fff1f8'],
+    };
+
+    const root = document.documentElement;
+    const rank = document.getElementById('rank');
+    const domain = document.getElementById('domain');
+    const rankLabel = document.getElementById('rankLabel');
+    const rankNum = document.getElementById('rankNum');
+
+    function setDomain(name) {
+      const p = palettes[name] || palettes.Politics;
+      root.style.setProperty('--wax-border', p[0]);
+      root.style.setProperty('--wax-highlight', p[1]);
+      root.style.setProperty('--wax-outer', p[2]);
+      root.style.setProperty('--wax-mid', p[3]);
+      root.style.setProperty('--wax-inner', p[4]);
+      root.style.setProperty('--wax-ring', p[5]);
+      root.style.setProperty('--wax-text', p[6]);
+    }
+
+    function setRank(v) {
+      const n = Math.max(1, Math.floor(Number(v) || 1));
+      const d = String(n).length;
+      rankNum.textContent = `#${n}`;
+      rankLabel.style.fontSize = d <= 2 ? '9px' : d === 3 ? '8px' : '7px';
+      rankNum.style.fontSize = d <= 2 ? '30px' : d === 3 ? '25px' : '20px';
+    }
+
+    domain.addEventListener('change', () => setDomain(domain.value));
+    rank.addEventListener('input', () => setRank(rank.value));
+
+    setDomain(domain.value);
+    setRank(rank.value);
+  </script>
+</body>
+</html>

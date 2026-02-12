@@ -21,6 +21,11 @@ let weightedNormalizedRankCache: Map<string, number> | null = null;
 let weightedNormalizedRankCacheTimestamp = 0;
 let weightedRobustRankCache: Map<string, number> | null = null;
 let weightedRobustRankCacheTimestamp = 0;
+let weightedDataScienceRankCache: Map<string, number> | null = null;
+let weightedDataScienceRankCacheTimestamp = 0;
+let unweightedAllRankCache: Map<string, number> | null = null;
+let unweightedAllMetaCache: { totalLists: number; totalModels: number } | null = null;
+let unweightedAllCacheTimestamp = 0;
 
 // Cache for name aliases/merges (used by V2/V3 ingestion)
 let aliasMapCache: Map<string, string> | null = null;
@@ -42,75 +47,91 @@ let v3MetaCache: { listCount: number; modelCount: number; orderedIds: string[] }
 // Weights derived from: pattern collapse severity, duplicate rates, LLM qualitative scores
 // Keys are exact source names from the database (lowercase)
 const MODEL_WEIGHTS: Record<string, number> = {
-  // Tier S - Excellent (weight 1.0)
-  'claude-opus-4.5': 1.0,
-  'claude-opus-4.6': 1.0,
-  'gpt-5.2-thinking': 0.79,
-  'gpt-5.3-thinking': 0.79,
-
-  // Tier A - Strong (weight 0.8-0.85)
-  'claude-sonnet-4.5': 0.54,
-  'gemini-pro-3': 0.33,
-  'gemini-flash-3-preview': 0.29,
-
-  // Tier B - Usable (weight 0.6-0.7)
-  'grok-4': 0.29,
-  'grok-4.1-fast': 0.18,
-
-  // Tier C - Problematic (weight 0.2-0.4)
-  'deepseek-v3.2': 0.18,       // High variance, some lists broken with K-pop
-  'qwen3-235b-a22b': 0.26,     // Looping bug, Socrates 27x
-  'glm-4.7': 0.11,             // 512-sequence sports collapse
-
-  // Tier F - Severe issues (weight 0.15)
-  'mistral-large-3': 0.05,     // 328-571 pattern collapse
+  // Legacy weighted mode weights refreshed from post-exclusion quality metrics (Feb 2026).
+  'claude-opus-4.6': 0.970,
+  'claude-opus-4.5': 0.931,
+  'gpt-5.3': 0.910,
+  'gpt-5.3-thinking': 0.910,
+  'claude-sonnet-4.5': 0.878,
+  'gpt-5.2': 0.851,
+  'gpt-5.2-thinking': 0.851,
+  'gemini-pro-3': 0.815,
+  'gemini-flash-3-preview': 0.785,
+  'grok-4': 0.773,
+  'grok-4.1-fast': 0.730,
+  'glm-4.7': 0.664,
+  'qwen3-235b-a22b': 0.530,
+  'deepseek-v3.2': 0.472,
+  'mistral-large-3': 0.445,
 };
 
 // Canonical model weights for Weighted v3 (merge variants like gpt-5.2-thinking)
 const V3_MODEL_WEIGHTS: Record<string, number> = {
-  'claude-opus-4.5': 0.806,
-  'claude-opus-4.6': 0.806,
-  'gemini-flash-3-preview': 0.805,
-  'claude-sonnet-4.5': 0.803,
-  'grok-4.1-fast': 0.760,
-  'deepseek-v3.2': 0.753,
-  'gpt-5.2': 0.752,
-  'gpt-5.3': 0.752,
-  'glm-4.7': 0.748,
-  'gemini-pro-3': 0.738,
-  'qwen3-235b-a22b': 0.721,
-  'grok-4': 0.718,
-  'mistral-large-3': 0.677,
+  'claude-opus-4.6': 0.841,
+  'claude-opus-4.5': 0.830,
+  'gpt-5.3': 0.824,
+  'claude-sonnet-4.5': 0.814,
+  'gpt-5.2': 0.806,
+  'gemini-pro-3': 0.796,
+  'gemini-flash-3-preview': 0.787,
+  'grok-4': 0.783,
+  'grok-4.1-fast': 0.770,
+  'glm-4.7': 0.751,
+  'qwen3-235b-a22b': 0.712,
+  'deepseek-v3.2': 0.695,
+  'mistral-large-3': 0.687,
+};
+
+// Canonical model weights for Weighted v4 (data-driven, Feb 2026)
+// These values are derived from model quality metrics WITHOUT sample-count shrinkage.
+const V4_MODEL_WEIGHTS: Record<string, number> = {
+  'claude-opus-4.6': 0.875,
+  'claude-opus-4.5': 0.843,
+  'gpt-5.3': 0.826,
+  'claude-sonnet-4.5': 0.799,
+  'gpt-5.2': 0.778,
+  'gemini-pro-3': 0.748,
+  'gemini-flash-3-preview': 0.723,
+  'grok-4': 0.713,
+  'grok-4.1-fast': 0.677,
+  'glm-4.7': 0.623,
+  'qwen3-235b-a22b': 0.513,
+  'deepseek-v3.2': 0.465,
+  'mistral-large-3': 0.443,
+  'claude-haiku-4.5-detailed-prompt': 0.416,
 };
 
 const V2_DIR = path.join(process.cwd(), 'data', 'raw_v2');
 const V3_DIR = path.join(process.cwd(), 'data', 'raw_v3');
 const OVERRIDES_FILE = path.join(process.cwd(), 'data', 'figure-overrides.json');
+const LIST_ARTIFACT_SUFFIX_RE = /\.(quality|failed|raw|repaired)\.txt$/i;
 const GROUP_EXCLUDE = new Set([
   'the-beatles',
 ]);
 
-// Exclude worst-performing lists from weighted v3 (February 2026 review)
+// Excluded lists (applied across API ranking modes)
 const WEIGHTED_V3_EXCLUDED_LISTS = new Set([
-  'GLM 4.7 LIST 3 (January 14, 2026).txt',
-  'Mistral Large 3 LIST 5 (January 18, 2026).txt',
-  'Qwen3 235B A22B LIST 7 (January 14, 2026).txt',
-  'GLM 4.7 LIST 2 (January 14, 2026).txt',
-  'Grok 4 LIST 1 (January 14, 2026).txt',
-  'Mistral Large 3 LIST 4 (January 17, 2026).txt',
+  'DeepSeek V3.2 LIST 5 (January 18, 2026).txt',
+  'GPT-5.3 Thinking LIST 5 (February 10, 2026).txt',
+  'Mistral Large 3 LIST 3 (January 16, 2026).txt',
+  'GLM 4.7 LIST 4 (January 18, 2026).txt',
+  'Qwen3 235B A22B LIST 2 (January 18, 2026).txt',
+  'Qwen3 235B A22B LIST 1 (January 18, 2026).txt',
+  'DeepSeek V3.2 LIST 3 (January 14, 2026).txt',
+  'DeepSeek V3.2 LIST 2 (January 14, 2026).txt',
+  'Mistral Large 3 LIST 2 (January 15, 2026).txt',
   'Grok 4.1 Fast LIST 1 (January 14, 2026).txt',
-  'Mistral Large 3 LIST 1 (January 15, 2026).txt',
-  'Grok 4 LIST 3 (January 14, 2026).txt',
-  'Claude Sonnet 4.5 LIST 3 (January 12, 2025).txt',
 ]);
 
 // Cache for stats
-let statsCache: { totalLists: number; totalModels: number } | null = null;
+let statsCache: { totalLists: number; totalModels: number; totalRankings: number } | null = null;
 let statsCacheTimestamp = 0;
-let weightedStatsCache: { totalLists: number; totalModels: number } | null = null;
+let weightedStatsCache: { totalLists: number; totalModels: number; totalRankings: number } | null = null;
 let weightedStatsCacheTimestamp = 0;
 let weightedV3StatsCache: { totalLists: number; totalModels: number } | null = null;
 let weightedV3StatsCacheTimestamp = 0;
+let excludedListKeysCache: Set<string> | null = null;
+let excludedListKeysCacheTimestamp = 0;
 
 // Cache for badge data (source averages per figure)
 interface SourceAverage {
@@ -225,7 +246,42 @@ function getMergeRemap(): Map<string, string> {
   return remap;
 }
 
+async function getExcludedSourceSampleKeys(): Promise<Set<string>> {
+  const now = Date.now();
+  if (excludedListKeysCache && now - excludedListKeysCacheTimestamp < CACHE_TTL) {
+    return excludedListKeysCache;
+  }
+
+  const keys = new Set<string>();
+  if (WEIGHTED_V3_EXCLUDED_LISTS.size > 0) {
+    const excludedRows = await db
+      .select({
+        source: importLogs.source,
+        sampleId: importLogs.sampleId,
+      })
+      .from(importLogs)
+      .where(inArray(importLogs.filename, Array.from(WEIGHTED_V3_EXCLUDED_LISTS)))
+      .groupBy(importLogs.source, importLogs.sampleId);
+
+    for (const row of excludedRows) {
+      keys.add(`${row.source}::${row.sampleId ?? ''}`);
+    }
+  }
+
+  excludedListKeysCache = keys;
+  excludedListKeysCacheTimestamp = now;
+  return keys;
+}
+
 type RankAccumulator = Map<string, Map<string, { sum: number; count: number }>>;
+
+function isCanonicalVersionListFile(file: string, version: 'v2' | 'v3'): boolean {
+  if (!file.toLowerCase().endsWith('.txt')) return false;
+  if (LIST_ARTIFACT_SUFFIX_RE.test(file)) return false;
+  const token = version === 'v2' ? 'V2' : 'V3';
+  const pattern = new RegExp(`\\s${token}\\s+LIST\\s+\\d+\\s*\\(.*\\)\\.txt$`, 'i');
+  return pattern.test(file);
+}
 
 async function loadV2V3Rankings(excludedFiles?: Set<string>): Promise<{ sources: Set<string>; ranks: RankAccumulator; listLengths: Map<string, number> }> {
   const aliasMap = await getAliasMap();
@@ -239,7 +295,7 @@ async function loadV2V3Rankings(excludedFiles?: Set<string>): Promise<{ sources:
     if (!fs.existsSync(dir)) return;
     const files = fs
       .readdirSync(dir)
-      .filter((f) => f.endsWith('.txt') && !f.endsWith('.quality.txt') && !f.endsWith('.failed.txt') && !f.endsWith('.raw.txt') && !f.endsWith('.repaired.txt'))
+      .filter((f) => isCanonicalVersionListFile(f, version))
       .sort();
 
     for (const file of files) {
@@ -636,26 +692,30 @@ function calculateBadges(
   return [];
 }
 
-async function getStats(): Promise<{ totalLists: number; totalModels: number }> {
+async function getStats(): Promise<{ totalLists: number; totalModels: number; totalRankings: number }> {
   const now = Date.now();
   if (statsCache && now - statsCacheTimestamp < CACHE_TTL) {
     return statsCache;
   }
 
   // Count distinct source + sampleId combinations (total lists)
-  const listsResult = await db
-    .select({ count: sql<number>`count(distinct ${rankings.source} || '-' || coalesce(${rankings.sampleId}, ''))` })
-    .from(rankings);
-
-  // Count distinct LLM sources (excluding 'pantheon')
-  const modelsResult = await db
-    .select({ count: sql<number>`count(distinct ${rankings.source})` })
-    .from(rankings)
-    .where(sql`${rankings.source} != 'pantheon'`);
+  const [listsResult, modelsResult, rankingsResult] = await Promise.all([
+    db
+      .select({ count: sql<number>`count(distinct ${rankings.source} || '-' || coalesce(${rankings.sampleId}, ''))` })
+      .from(rankings),
+    db
+      .select({ count: sql<number>`count(distinct ${rankings.source})` })
+      .from(rankings)
+      .where(sql`${rankings.source} != 'pantheon'`),
+    db
+      .select({ count: sql<number>`count(*)` })
+      .from(rankings),
+  ]);
 
   statsCache = {
     totalLists: listsResult[0].count,
     totalModels: modelsResult[0].count,
+    totalRankings: rankingsResult[0].count,
   };
   statsCacheTimestamp = now;
 
@@ -664,11 +724,9 @@ async function getStats(): Promise<{ totalLists: number; totalModels: number }> 
 
 function getListFiles(dir: string, version: 'v2' | 'v3'): string[] {
   if (!fs.existsSync(dir)) return [];
-  const token = version === 'v2' ? ' V2 LIST ' : ' V3 LIST ';
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.txt') && f.includes(token))
-    .filter((f) => !f.endsWith('.quality.txt') && !f.endsWith('.failed.txt') && !f.endsWith('.raw.txt') && !f.endsWith('.repaired.txt'))
+    .filter((f) => isCanonicalVersionListFile(f, version))
     .sort();
 }
 
@@ -679,31 +737,45 @@ function inferModelFromList(file: string, version: 'v2' | 'v3'): string {
   return parts[0].trim();
 }
 
-async function getWeightedStats(): Promise<{ totalLists: number; totalModels: number }> {
+async function getWeightedStats(): Promise<{ totalLists: number; totalModels: number; totalRankings: number }> {
   const now = Date.now();
   if (weightedStatsCache && now - weightedStatsCacheTimestamp < CACHE_TTL) {
     return weightedStatsCache;
   }
 
-  const listStats = await getStats();
-
-  const v2Files = getListFiles(V2_DIR, 'v2');
-  const v3Files = getListFiles(V3_DIR, 'v3');
-  const v2Models = new Set(v2Files.map((file) => inferModelFromList(file, 'v2')));
-  const v3Models = new Set(v3Files.map((file) => inferModelFromList(file, 'v3')));
-
-  const modelRows = await db
-    .select({ source: rankings.source })
+  const excludedKeys = await getExcludedSourceSampleKeys();
+  const listRows = await db
+    .select({ source: rankings.source, sampleId: rankings.sampleId })
     .from(rankings)
     .where(sql`${rankings.source} != 'pantheon'`)
-    .groupBy(rankings.source);
-  const modelSet = new Set(modelRows.map((row) => row.source));
-  for (const model of v2Models) modelSet.add(model);
-  for (const model of v3Models) modelSet.add(model);
+    .groupBy(rankings.source, rankings.sampleId);
 
+  let listCount = 0;
+  const modelSet = new Set<string>();
+  for (const row of listRows) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    listCount += 1;
+    modelSet.add(getCanonicalModelId(row.source.toLowerCase()));
+  }
+
+  const v2Files = getListFiles(V2_DIR, 'v2').filter((f) => !WEIGHTED_V3_EXCLUDED_LISTS.has(f));
+  const v3Files = getListFiles(V3_DIR, 'v3').filter((f) => !WEIGHTED_V3_EXCLUDED_LISTS.has(f));
+  listCount += v2Files.length + v3Files.length;
+
+  for (const file of v2Files) {
+    const model = inferModelFromList(file, 'v2');
+    modelSet.add(getCanonicalModelId(model.toLowerCase()));
+  }
+  for (const file of v3Files) {
+    const model = inferModelFromList(file, 'v3');
+    modelSet.add(getCanonicalModelId(model.toLowerCase()));
+  }
+
+  const baseStats = await getStats();
   weightedStatsCache = {
-    totalLists: listStats.totalLists + v2Files.length + v3Files.length,
+    totalLists: listCount,
     totalModels: modelSet.size,
+    totalRankings: baseStats.totalRankings,
   };
   weightedStatsCacheTimestamp = now;
 
@@ -716,8 +788,6 @@ async function getWeightedV3Stats(): Promise<{ totalLists: number; totalModels: 
     return weightedV3StatsCache;
   }
 
-  const excluded = Array.from(WEIGHTED_V3_EXCLUDED_LISTS);
-
   // Count distinct source + sampleId combinations for v1, excluding flagged filenames
   let listCount = 0;
   const listRows = await db
@@ -726,16 +796,7 @@ async function getWeightedV3Stats(): Promise<{ totalLists: number; totalModels: 
     .where(sql`${rankings.source} != 'pantheon'`)
     .groupBy(rankings.source, rankings.sampleId);
 
-  const excludedKeys = new Set<string>();
-  if (excluded.length > 0) {
-    const excludedRows = await db
-      .select({ source: importLogs.source, sampleId: importLogs.sampleId })
-      .from(importLogs)
-      .where(inArray(importLogs.filename, excluded));
-    for (const row of excludedRows) {
-      excludedKeys.add(`${row.source}::${row.sampleId ?? ''}`);
-    }
-  }
+  const excludedKeys = await getExcludedSourceSampleKeys();
 
   for (const row of listRows) {
     if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
@@ -766,6 +827,169 @@ async function getWeightedV3Stats(): Promise<{ totalLists: number; totalModels: 
   weightedV3StatsCacheTimestamp = now;
 
   return weightedV3StatsCache;
+}
+
+async function getUnweightedAllConsensusData(): Promise<{ rankLookup: Map<string, number>; totalLists: number; totalModels: number }> {
+  const now = Date.now();
+  if (
+    unweightedAllRankCache &&
+    unweightedAllMetaCache &&
+    now - unweightedAllCacheTimestamp < CACHE_TTL
+  ) {
+    return {
+      rankLookup: unweightedAllRankCache,
+      totalLists: unweightedAllMetaCache.totalLists,
+      totalModels: unweightedAllMetaCache.totalModels,
+    };
+  }
+
+  const mergeRemap = getMergeRemap();
+  const aliasMap = await getAliasMap();
+
+  const figureRanksByList = new Map<string, Map<string, number>>();
+  const listMaxRank = new Map<string, number>();
+  const modelSet = new Set<string>();
+
+  // V1 list horizons (source+sample) with no exclusions.
+  const v1ListRows = await db
+    .select({
+      source: rankings.source,
+      sampleId: rankings.sampleId,
+      maxRank: sql<number>`max(${rankings.rank})`,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`)
+    .groupBy(rankings.source, rankings.sampleId);
+
+  for (const row of v1ListRows) {
+    const key = `v1::${row.source}::${row.sampleId ?? ''}`;
+    listMaxRank.set(key, Number(row.maxRank) || 1000);
+    modelSet.add(getCanonicalModelId(row.source.toLowerCase()));
+  }
+
+  // V1 per-list per-figure rank (use best rank if repeated in the same list).
+  const v1FigureRows = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      sampleId: rankings.sampleId,
+      rank: sql<number>`min(${rankings.rank})`,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`)
+    .groupBy(rankings.figureId, rankings.source, rankings.sampleId);
+
+  for (const row of v1FigureRows) {
+    const mergedId = mergeRemap.get(row.figureId) || row.figureId;
+    if (GROUP_EXCLUDE.has(mergedId)) continue;
+
+    const key = `v1::${row.source}::${row.sampleId ?? ''}`;
+    const byList = figureRanksByList.get(mergedId) || new Map<string, number>();
+    const rank = Number(row.rank);
+    const prev = byList.get(key);
+    if (prev === undefined || rank < prev) byList.set(key, rank);
+    figureRanksByList.set(mergedId, byList);
+  }
+
+  const loadVersionLists = (dir: string, version: 'v2' | 'v3') => {
+    const files = getListFiles(dir, version);
+    for (const file of files) {
+      const filePath = path.join(dir, file);
+      const content = fs.readFileSync(filePath, 'utf8');
+      const start = content.indexOf('[');
+      const end = content.lastIndexOf(']');
+      if (start === -1 || end === -1 || end <= start) continue;
+
+      let entries: Array<{ rank?: number; name: string }> = [];
+      try {
+        entries = JSON.parse(content.slice(start, end + 1));
+      } catch {
+        continue;
+      }
+      if (!Array.isArray(entries) || entries.length === 0) continue;
+
+      const key = `${version}::${file}`;
+      listMaxRank.set(key, entries.length);
+      const model = inferModelFromList(file, version);
+      modelSet.add(getCanonicalModelId(model.toLowerCase()));
+
+      const listRanks = new Map<string, number>();
+      entries.forEach((entry, idx) => {
+        if (!entry?.name) return;
+        const nameNorm = normalizeName(entry.name);
+        const figureId = aliasMap.get(nameNorm);
+        if (!figureId) return;
+        const mergedId = mergeRemap.get(figureId) || figureId;
+        if (GROUP_EXCLUDE.has(mergedId)) return;
+
+        const rank = typeof entry.rank === 'number' ? entry.rank : idx + 1;
+        const prev = listRanks.get(mergedId);
+        if (prev === undefined || rank < prev) listRanks.set(mergedId, rank);
+      });
+
+      for (const [figureId, rank] of listRanks.entries()) {
+        const byList = figureRanksByList.get(figureId) || new Map<string, number>();
+        const prev = byList.get(key);
+        if (prev === undefined || rank < prev) byList.set(key, rank);
+        figureRanksByList.set(figureId, byList);
+      }
+    }
+  };
+
+  loadVersionLists(V2_DIR, 'v2');
+  loadVersionLists(V3_DIR, 'v3');
+
+  const listKeys = Array.from(listMaxRank.keys());
+  const totalLists = listKeys.length;
+
+  const averages: Array<{ id: string; avgRank: number }> = [];
+  for (const [figureId, byList] of figureRanksByList.entries()) {
+    let sum = 0;
+    for (const key of listKeys) {
+      const rank = byList.get(key);
+      if (rank !== undefined) {
+        sum += rank;
+      } else {
+        const maxRank = listMaxRank.get(key) || 1000;
+        sum += maxRank + 1;
+      }
+    }
+    averages.push({
+      id: figureId,
+      avgRank: sum / Math.max(1, totalLists),
+    });
+  }
+
+  averages.sort((a, b) => a.avgRank - b.avgRank);
+  const rankLookup = new Map<string, number>();
+  averages.forEach((fig, index) => {
+    rankLookup.set(fig.id, index + 1);
+  });
+
+  unweightedAllRankCache = rankLookup;
+  unweightedAllMetaCache = {
+    totalLists,
+    totalModels: modelSet.size,
+  };
+  unweightedAllCacheTimestamp = now;
+
+  return {
+    rankLookup,
+    totalLists,
+    totalModels: modelSet.size,
+  };
+}
+
+async function getUnweightedAllStats(): Promise<{ totalLists: number; totalModels: number; totalRankings: number }> {
+  const [meta, baseStats] = await Promise.all([
+    getUnweightedAllConsensusData(),
+    getStats(),
+  ]);
+  return {
+    totalLists: meta.totalLists,
+    totalModels: meta.totalModels,
+    totalRankings: baseStats.totalRankings,
+  };
 }
 
 async function getLLMRankLookup(): Promise<Map<string, number>> {
@@ -799,6 +1023,11 @@ function getModelWeight(source: string): number {
   // Direct lookup first
   if (MODEL_WEIGHTS[sourceLower] !== undefined) {
     return MODEL_WEIGHTS[sourceLower];
+  }
+
+  const canonical = getCanonicalModelId(sourceLower);
+  if (MODEL_WEIGHTS[canonical] !== undefined) {
+    return MODEL_WEIGHTS[canonical];
   }
 
   // Default weight for unknown models
@@ -836,6 +1065,14 @@ function getV3ModelWeight(source: string): number {
   return 0.5;
 }
 
+function getV4ModelWeight(source: string): number {
+  const canonical = getCanonicalModelId(source.toLowerCase());
+  if (V4_MODEL_WEIGHTS[canonical] !== undefined) {
+    return V4_MODEL_WEIGHTS[canonical];
+  }
+  return 0.5;
+}
+
 async function getWeightedRankLookup(): Promise<Map<string, number>> {
   const now = Date.now();
   if (weightedRankCache && now - weightedRankCacheTimestamp < CACHE_TTL) {
@@ -843,22 +1080,7 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   }
 
   const mergeRemap = getMergeRemap();
-
-  // Get all rankings grouped by figure
-  const excludedKeys = new Set<string>();
-  if (WEIGHTED_V3_EXCLUDED_LISTS.size > 0) {
-    const excludedRows = await db
-      .select({
-        source: importLogs.source,
-        sampleId: importLogs.sampleId,
-        filename: importLogs.filename,
-      })
-      .from(importLogs)
-      .where(inArray(importLogs.filename, Array.from(WEIGHTED_V3_EXCLUDED_LISTS)));
-    for (const row of excludedRows) {
-      excludedKeys.add(`${row.source}::${row.sampleId ?? ''}`);
-    }
-  }
+  const excludedKeys = await getExcludedSourceSampleKeys();
 
   const allRankings = await db
     .select({
@@ -873,24 +1095,28 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   // Get unique model sources and their weights
   const modelSources = new Set<string>();
   for (const row of allRankings) {
-    modelSources.add(row.source);
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    modelSources.add(getCanonicalModelId(row.source.toLowerCase()));
   }
 
   // Load V2/V3 lists and include their model sources
   const v2v3 = await loadV2V3Rankings(WEIGHTED_V3_EXCLUDED_LISTS);
   for (const source of v2v3.sources) {
-    modelSources.add(source);
+    modelSources.add(getCanonicalModelId(source.toLowerCase()));
   }
 
   // Track max rank per source to normalize missing-rank penalty by list size
   const maxRankBySource = new Map<string, number>();
   for (const row of allRankings) {
-    const current = maxRankBySource.get(row.source) || 0;
-    if (row.rank > current) maxRankBySource.set(row.source, row.rank);
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
+    const current = maxRankBySource.get(canonical) || 0;
+    if (row.rank > current) maxRankBySource.set(canonical, row.rank);
   }
   for (const [source, length] of v2v3.listLengths.entries()) {
-    const current = maxRankBySource.get(source) || 0;
-    if (length > current) maxRankBySource.set(source, length);
+    const canonical = getCanonicalModelId(source.toLowerCase());
+    const current = maxRankBySource.get(canonical) || 0;
+    if (length > current) maxRankBySource.set(canonical, length);
   }
 
   // Calculate total possible weight (sum of all model weights)
@@ -909,17 +1135,19 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
   }>();
 
   for (const row of allRankings) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
     const mergedId = mergeRemap.get(row.figureId) || row.figureId;
     if (GROUP_EXCLUDE.has(mergedId)) continue;
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
     if (!figureRankings.has(mergedId)) {
       figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
     }
     const figData = figureRankings.get(mergedId)!;
 
-    if (!figData.sourcesWithRanks.has(row.source)) {
-      figData.sourcesWithRanks.set(row.source, { sum: 0, count: 0 });
+    if (!figData.sourcesWithRanks.has(canonical)) {
+      figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
     }
-    const sourceData = figData.sourcesWithRanks.get(row.source)!;
+    const sourceData = figData.sourcesWithRanks.get(canonical)!;
     sourceData.sum += row.rank;
     sourceData.count += 1;
   }
@@ -931,10 +1159,11 @@ async function getWeightedRankLookup(): Promise<Map<string, number>> {
     }
     const figData = figureRankings.get(figureId)!;
     for (const [source, rankData] of sourceMap.entries()) {
-      if (!figData.sourcesWithRanks.has(source)) {
-        figData.sourcesWithRanks.set(source, { sum: 0, count: 0 });
+      const canonical = getCanonicalModelId(source.toLowerCase());
+      if (!figData.sourcesWithRanks.has(canonical)) {
+        figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
       }
-      const sourceData = figData.sourcesWithRanks.get(source)!;
+      const sourceData = figData.sourcesWithRanks.get(canonical)!;
       sourceData.sum += rankData.sum;
       sourceData.count += rankData.count;
     }
@@ -990,11 +1219,13 @@ async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
   }
 
   const mergeRemap = getMergeRemap();
+  const excludedKeys = await getExcludedSourceSampleKeys();
 
   const allRankings = await db
     .select({
       figureId: rankings.figureId,
       source: rankings.source,
+      sampleId: rankings.sampleId,
       rank: rankings.rank,
     })
     .from(rankings)
@@ -1005,9 +1236,11 @@ async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
   const figureRankings = new Map<string, { sourcesWithRanks: Map<string, { sum: number; count: number }> }>();
 
   for (const row of allRankings) {
-    modelSources.add(row.source);
-    const currentMax = maxRankBySource.get(row.source) || 0;
-    if (row.rank > currentMax) maxRankBySource.set(row.source, row.rank);
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
+    modelSources.add(canonical);
+    const currentMax = maxRankBySource.get(canonical) || 0;
+    if (row.rank > currentMax) maxRankBySource.set(canonical, row.rank);
 
     const mergedId = mergeRemap.get(row.figureId) || row.figureId;
     if (GROUP_EXCLUDE.has(mergedId)) continue;
@@ -1016,21 +1249,22 @@ async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
       figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
     }
     const figData = figureRankings.get(mergedId)!;
-    if (!figData.sourcesWithRanks.has(row.source)) {
-      figData.sourcesWithRanks.set(row.source, { sum: 0, count: 0 });
+    if (!figData.sourcesWithRanks.has(canonical)) {
+      figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
     }
-    const sourceData = figData.sourcesWithRanks.get(row.source)!;
+    const sourceData = figData.sourcesWithRanks.get(canonical)!;
     sourceData.sum += row.rank;
     sourceData.count += 1;
   }
 
-  const v2v3 = await loadV2V3Rankings();
+  const v2v3 = await loadV2V3Rankings(WEIGHTED_V3_EXCLUDED_LISTS);
   for (const source of v2v3.sources) {
-    modelSources.add(source);
+    modelSources.add(getCanonicalModelId(source.toLowerCase()));
   }
   for (const [source, length] of v2v3.listLengths.entries()) {
-    const currentMax = maxRankBySource.get(source) || 0;
-    if (length > currentMax) maxRankBySource.set(source, length);
+    const canonical = getCanonicalModelId(source.toLowerCase());
+    const currentMax = maxRankBySource.get(canonical) || 0;
+    if (length > currentMax) maxRankBySource.set(canonical, length);
   }
 
   for (const [figureId, sourceMap] of v2v3.ranks.entries()) {
@@ -1039,10 +1273,11 @@ async function getWeightedNormalizedRankLookup(): Promise<Map<string, number>> {
     }
     const figData = figureRankings.get(figureId)!;
     for (const [source, rankData] of sourceMap.entries()) {
-      if (!figData.sourcesWithRanks.has(source)) {
-        figData.sourcesWithRanks.set(source, { sum: 0, count: 0 });
+      const canonical = getCanonicalModelId(source.toLowerCase());
+      if (!figData.sourcesWithRanks.has(canonical)) {
+        figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
       }
-      const sourceData = figData.sourcesWithRanks.get(source)!;
+      const sourceData = figData.sourcesWithRanks.get(canonical)!;
       sourceData.sum += rankData.sum;
       sourceData.count += rankData.count;
     }
@@ -1221,6 +1456,130 @@ async function getWeightedRobustRankLookup(): Promise<Map<string, number>> {
   return lookup;
 }
 
+async function getWeightedDataScienceRankLookup(): Promise<Map<string, number>> {
+  const now = Date.now();
+  if (weightedDataScienceRankCache && now - weightedDataScienceRankCacheTimestamp < CACHE_TTL) {
+    return weightedDataScienceRankCache;
+  }
+
+  const mergeRemap = getMergeRemap();
+  const excludedKeys = await getExcludedSourceSampleKeys();
+
+  const allRankings = await db
+    .select({
+      figureId: rankings.figureId,
+      source: rankings.source,
+      sampleId: rankings.sampleId,
+      rank: rankings.rank,
+    })
+    .from(rankings)
+    .where(sql`${rankings.source} != 'pantheon'`);
+
+  const modelSources = new Set<string>();
+  const maxRankByModel = new Map<string, number>();
+  const figureRankings = new Map<string, { sourcesWithRanks: Map<string, { sum: number; count: number }> }>();
+
+  for (const row of allRankings) {
+    if (excludedKeys.has(`${row.source}::${row.sampleId ?? ''}`)) continue;
+    const canonical = getCanonicalModelId(row.source.toLowerCase());
+    modelSources.add(canonical);
+    const currentMax = maxRankByModel.get(canonical) || 0;
+    if (row.rank > currentMax) maxRankByModel.set(canonical, row.rank);
+
+    const mergedId = mergeRemap.get(row.figureId) || row.figureId;
+    if (GROUP_EXCLUDE.has(mergedId)) continue;
+
+    if (!figureRankings.has(mergedId)) {
+      figureRankings.set(mergedId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(mergedId)!;
+    if (!figData.sourcesWithRanks.has(canonical)) {
+      figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
+    }
+    const sourceData = figData.sourcesWithRanks.get(canonical)!;
+    sourceData.sum += row.rank;
+    sourceData.count += 1;
+  }
+
+  const v2v3 = await loadV2V3Rankings(WEIGHTED_V3_EXCLUDED_LISTS);
+  for (const source of v2v3.sources) {
+    modelSources.add(getCanonicalModelId(source.toLowerCase()));
+  }
+  for (const [source, length] of v2v3.listLengths.entries()) {
+    const canonical = getCanonicalModelId(source.toLowerCase());
+    const currentMax = maxRankByModel.get(canonical) || 0;
+    if (length > currentMax) maxRankByModel.set(canonical, length);
+  }
+
+  for (const [figureId, sourceMap] of v2v3.ranks.entries()) {
+    if (!figureRankings.has(figureId)) {
+      figureRankings.set(figureId, { sourcesWithRanks: new Map() });
+    }
+    const figData = figureRankings.get(figureId)!;
+    for (const [source, rankData] of sourceMap.entries()) {
+      const canonical = getCanonicalModelId(source.toLowerCase());
+      if (!figData.sourcesWithRanks.has(canonical)) {
+        figData.sourcesWithRanks.set(canonical, { sum: 0, count: 0 });
+      }
+      const sourceData = figData.sourcesWithRanks.get(canonical)!;
+      sourceData.sum += rankData.sum;
+      sourceData.count += rankData.count;
+    }
+  }
+
+  const modelWeightsMap = new Map<string, number>();
+  let totalPossibleWeight = 0;
+  for (const source of modelSources) {
+    const weight = getV4ModelWeight(source);
+    modelWeightsMap.set(source, weight);
+    totalPossibleWeight += weight;
+  }
+
+  const globalMaxRank = Math.max(1, ...Array.from(maxRankByModel.values()));
+  const weightedAverages: Array<{ id: string; avgRank: number }> = [];
+
+  for (const [figureId, figData] of figureRankings) {
+    let weightedSum = 0;
+    const present = new Set<string>();
+    for (const [source, rankData] of figData.sourcesWithRanks) {
+      present.add(source);
+      const avgRankForSource = rankData.sum / rankData.count;
+      const weight = modelWeightsMap.get(source) || 0.5;
+      weightedSum += avgRankForSource * weight;
+    }
+
+    // Missing models get list-length-aware penalty by that model's own list horizon.
+    for (const [source, weight] of modelWeightsMap) {
+      if (!present.has(source)) {
+        const maxRank = maxRankByModel.get(source) || globalMaxRank;
+        weightedSum += (maxRank + 1) * weight;
+      }
+    }
+
+    const baseAvg = weightedSum / totalPossibleWeight;
+    const coveragePct = present.size / Math.max(1, modelWeightsMap.size);
+    const priorMean = (globalMaxRank + 1) / 2;
+    const k = 4;
+    const shrinkage = k * (1 - coveragePct);
+    const shrunkAvg = (baseAvg * totalPossibleWeight + priorMean * shrinkage) / (totalPossibleWeight + shrinkage);
+
+    weightedAverages.push({
+      id: figureId,
+      avgRank: shrunkAvg,
+    });
+  }
+
+  weightedAverages.sort((a, b) => a.avgRank - b.avgRank);
+  const lookup = new Map<string, number>();
+  weightedAverages.forEach((fig, index) => {
+    lookup.set(fig.id, index + 1);
+  });
+
+  weightedDataScienceRankCache = lookup;
+  weightedDataScienceRankCacheTimestamp = now;
+  return lookup;
+}
+
 async function getV2RankLookup(): Promise<{ rankLookup: Map<string, number>; orderedIds: string[]; listCount: number; modelCount: number }> {
   const now = Date.now();
   if (v2RankCache && v2MetaCache && now - v2RankCacheTimestamp < CACHE_TTL) {
@@ -1316,8 +1675,16 @@ export async function GET(request: NextRequest) {
   const weighted = searchParams.get('weighted') === 'true';
   const weighted2 = searchParams.get('weighted2') === 'true';
   const weighted3 = searchParams.get('weighted3') === 'true';
+  const weighted4 = searchParams.get('weighted4') === 'true';
+  const rankingModeParam = searchParams.get('rankingMode');
+  const rankingMode = rankingModeParam === 'data-driven' ? 'data-driven' : 'unweighted';
   const useV2 = searchParams.get('v2') === 'true';
   const useV3 = searchParams.get('v3') === 'true';
+  const hasLegacyWeightedFlag = weighted || weighted2 || weighted3 || weighted4;
+  const useDataDrivenRanking = !modelSource && !useV2 && !useV3 && (
+    rankingMode === 'data-driven' || (rankingModeParam === null && hasLegacyWeightedFlag)
+  );
+  const useUnweightedAllRanking = !modelSource && !useV2 && !useV3 && rankingMode === 'unweighted';
   const sortBy = searchParams.get('sortBy') || 'llmConsensusRank';
   const sortOrder = searchParams.get('sortOrder') || 'asc';
   const limit = parseInt(searchParams.get('limit') || '100');
@@ -1540,10 +1907,10 @@ export async function GET(request: NextRequest) {
       const pagedIds = rankedIds.slice(offset, offset + limit);
 
       if (pagedIds.length === 0) {
-        const stats = weighted3
-          ? await getWeightedV3Stats()
-          : (weighted || weighted2)
-            ? await getWeightedStats()
+        const stats = useDataDrivenRanking
+          ? await getWeightedStats()
+          : useUnweightedAllRanking
+            ? await getUnweightedAllStats()
             : await getStats();
         return NextResponse.json({ figures: [], total, stats });
       }
@@ -1558,13 +1925,11 @@ export async function GET(request: NextRequest) {
         ? (v3Data?.rankLookup || new Map())
         : useV2
           ? (v2Data?.rankLookup || new Map())
-          : weighted3
-            ? await getWeightedRobustRankLookup()
-            : weighted2
-              ? await getWeightedNormalizedRankLookup()
-              : weighted
-                ? await getWeightedRankLookup()
-                : await getLLMRankLookup();
+          : useDataDrivenRanking
+            ? await getWeightedDataScienceRankLookup()
+            : useUnweightedAllRanking
+              ? (await getUnweightedAllConsensusData()).rankLookup
+              : await getLLMRankLookup();
 
       const v2DisplayRank = useV2 && v2Data
         ? new Map(v2Data.orderedIds.map((id, idx) => [id, idx + 1]))
@@ -1602,15 +1967,16 @@ export async function GET(request: NextRequest) {
           wikipediaSlug: fig!.wikipediaSlug,
         }));
 
-      const stats = weighted3
-        ? await getWeightedV3Stats()
-        : (weighted || weighted2)
-          ? await getWeightedStats()
-          : await getStats();
+      const baseStats = await getStats();
+      const stats = useDataDrivenRanking
+        ? await getWeightedStats()
+        : useUnweightedAllRanking
+          ? await getUnweightedAllStats()
+          : baseStats;
       const effectiveStats = useV3 && v3Data
-        ? { totalLists: v3Data.listCount, totalModels: v3Data.modelCount }
+        ? { totalLists: v3Data.listCount, totalModels: v3Data.modelCount, totalRankings: baseStats.totalRankings }
         : useV2 && v2Data
-          ? { totalLists: v2Data.listCount, totalModels: v2Data.modelCount }
+          ? { totalLists: v2Data.listCount, totalModels: v2Data.modelCount, totalRankings: baseStats.totalRankings }
         : stats;
       const response: FiguresResponse = {
         figures: figureRows,
@@ -1723,12 +2089,10 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    if ((weighted || weighted2 || weighted3) && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
-      const rankLookup = weighted3
-        ? await getWeightedRobustRankLookup()
-        : weighted2
-          ? await getWeightedNormalizedRankLookup()
-          : await getWeightedRankLookup();
+    if ((useDataDrivenRanking || useUnweightedAllRanking) && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
+      const rankLookup = useDataDrivenRanking
+        ? await getWeightedDataScienceRankLookup()
+        : (await getUnweightedAllConsensusData()).rankLookup;
       let orderedIds = Array.from(rankLookup.entries())
         .sort((a, b) => a[1] - b[1])
         .map(([id]) => id);
@@ -1746,7 +2110,7 @@ export async function GET(request: NextRequest) {
       const pagedIds = orderedIds.slice(offset, offset + limit);
 
       if (pagedIds.length === 0) {
-        const stats = weighted3 ? await getWeightedV3Stats() : await getWeightedStats();
+        const stats = useDataDrivenRanking ? await getWeightedStats() : await getUnweightedAllStats();
         return NextResponse.json({ figures: [], total, stats });
       }
 
@@ -1779,7 +2143,7 @@ export async function GET(request: NextRequest) {
           wikipediaSlug: fig!.wikipediaSlug,
         }));
 
-      const stats = weighted3 ? await getWeightedV3Stats() : await getWeightedStats();
+      const stats = useDataDrivenRanking ? await getWeightedStats() : await getUnweightedAllStats();
       const response: FiguresResponse = {
         figures: figureRows,
         total,
@@ -1862,11 +2226,7 @@ export async function GET(request: NextRequest) {
         wikipediaSlug: fig.wikipediaSlug,
       }));
 
-      const stats = weighted3
-        ? await getWeightedV3Stats()
-        : (weighted || weighted2)
-          ? await getWeightedStats()
-          : await getStats();
+      const stats = useDataDrivenRanking ? await getWeightedStats() : await getStats();
       const response: FiguresResponse = {
         figures: figureRows,
         total,
@@ -1934,15 +2294,17 @@ export async function GET(request: NextRequest) {
     }
 
     // Get rank lookup (weighted or regular) and badge data
-    const rankLookup = weighted
-      ? await getWeightedRankLookup()
-      : await getLLMRankLookup();
+    const rankLookup = useDataDrivenRanking
+      ? await getWeightedDataScienceRankLookup()
+      : useUnweightedAllRanking
+        ? (await getUnweightedAllConsensusData()).rankLookup
+        : await getLLMRankLookup();
     const badgeData = await getBadgeData();
     const modelFavoriteCaps = await getModelFavoriteCaps();
 
     // If weighted mode and sorting by LLM rank, re-sort results by weighted rank
     let finalResults = results;
-    if (weighted && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
+    if ((useDataDrivenRanking || useUnweightedAllRanking) && (sortBy === 'llmRank' || sortBy === 'llmConsensusRank')) {
       finalResults = [...results].sort((a, b) => {
         const aRank = rankLookup.get(a.id) ?? 99999;
         const bRank = rankLookup.get(b.id) ?? 99999;
@@ -1968,10 +2330,10 @@ export async function GET(request: NextRequest) {
       wikipediaSlug: fig.wikipediaSlug,
     }));
 
-    const stats = weighted3
-      ? await getWeightedV3Stats()
-      : weighted
-        ? await getWeightedStats()
+    const stats = useDataDrivenRanking
+      ? await getWeightedStats()
+      : useUnweightedAllRanking
+        ? await getUnweightedAllStats()
         : await getStats();
     const response: FiguresResponse = {
       figures: figureRows,

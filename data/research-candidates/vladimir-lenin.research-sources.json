@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:39:24.979Z",
+  "generatedAt": "2026-02-10T00:14:55.250Z",
   "figureId": "vladimir-lenin",
   "figureName": "Vladimir Lenin",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 5,
+      "byRole": {
+        "primary": 2,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 2
+      },
+      "yearSpan": {
+        "min": 1902,
+        "max": 2000
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 563,
-      "totalTokenCount": 851,
+      "candidatesTokenCount": 566,
+      "totalTokenCount": 854,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -51,11 +79,12 @@
         ]
       },
       {
-        "title": "April Theses",
+        "title": "Imperialism, the Highest Stage of Capitalism",
         "author": "Vladimir Lenin",
         "year": 1917,
-        "rationale": "A series of directives issued by Lenin upon his return to Russia, outlining the Bolsheviks' immediate political goals. Often published in collections of his speeches and writings.",
+        "rationale": "An influential essay analyzing the economic and political dynamics of global capitalism in the early 20th century.",
         "likelyCorpora": [
+          "wikisource",
           "internet_archive"
         ]
       }
@@ -72,18 +101,18 @@
         "title": "Lenin's Tomb: The Last Days of the Soviet Empire",
         "author": "David Remnick",
         "year": 1993,
-        "rationale": "While focusing on the end of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
+        "rationale": "While focusing on the collapse of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Lenin",
         "author": "Tamás Krausz",
-        "year": 2018,
+        "year": 2019,
         "rationale": "A collection of essays by leading scholars offering diverse perspectives on Lenin's life, thought, and historical significance.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are often found in collections of Lenin's works or speeches. Secondary sources are selected for their scholarly reputation and recency."
+    "notes": "Primary source texts are widely available in English translations on platforms like Wikisource and the Internet Archive. Secondary sources are major academic works offering in-depth analysis."
   },
   "unresolved": [
     {
@@ -92,14 +121,9 @@
       "reason": "Author match too low (0.00); baseScore=0.73"
     },
     {
-      "role": "primary",
-      "title": "April Theses",
-      "reason": "No resolver results from corpus APIs"
-    },
-    {
       "role": "secondary",
       "title": "The Cambridge Companion to Lenin",
-      "reason": "Best score below threshold (0.57 < 0.72)"
+      "reason": "Best score below threshold (0.58 < 0.72)"
     }
   ],
   "candidates": [
@@ -114,7 +138,7 @@
       "access_url": "https://archive.org/details/what-is-to-be-done",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"What Is to Be Done?\". Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"What Is to Be Done?\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=1.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "What Is to Be Done?",
@@ -122,6 +146,50 @@
         "suggestion_year": 1902,
         "suggestion_rationale": "A foundational text outlining Lenin's vision for the Bolshevik party and revolutionary strategy. Widely available.",
         "ia_identifier": "what-is-to-be-done"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Imperialism: The Highest Stage of Capitalism",
+      "author": "Vladimir Lenin",
+      "publication_year": 1937,
+      "source_url": "https://archive.org/details/imperialism-the-highest-stage-of-capitalism",
+      "access_url": "https://archive.org/details/imperialism-the-highest-stage-of-capitalism",
+      "snippet": null,
+      "confidence": 0.998,
+      "why": "Primary source resolved from suggestion \"Imperialism, the Highest Stage of Capitalism\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.60; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Imperialism, the Highest Stage of Capitalism",
+        "suggestion_author": "Vladimir Lenin",
+        "suggestion_year": 1917,
+        "suggestion_rationale": "An influential essay analyzing the economic and political dynamics of global capitalism in the early 20th century.",
+        "ia_identifier": "imperialism-the-highest-stage-of-capitalism"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Lenin: A Biography",
+      "author": "Ronald W. Clark",
+      "publication_year": 1991,
+      "source_url": "https://openlibrary.org/books/OL7978735M/Lenin",
+      "access_url": "https://openlibrary.org/books/OL7978735M/Lenin",
+      "snippet": null,
+      "confidence": 0.829,
+      "why": "Secondary source resolved from suggestion \"Lenin: A Biography\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.70; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Lenin: A Biography",
+        "suggestion_author": "Robert Service",
+        "suggestion_year": 2000,
+        "suggestion_rationale": "A comprehensive and widely respected scholarly biography of Lenin by a prominent historian.",
+        "openalex_id": "https://openalex.org/W3126992520",
+        "work_type": "book"
       }
     },
     {
@@ -135,7 +203,7 @@
       "access_url": "https://doi.org/10.2307/20050014",
       "snippet": "Foreign Affairs",
       "confidence": 0.957,
-      "why": "Secondary source resolved from suggestion \"Lenin: A Biography\". Matched secondary suggestion by title=1.00, author=0.33, year=1.00; Surname + aboutness term present in title",
+      "why": "Secondary source resolved from suggestion \"Lenin: A Biography\" (crossref). Matched secondary suggestion by title=1.00, author=0.33, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
@@ -158,14 +226,14 @@
       "access_url": "https://doi.org/10.2307/20045761",
       "snippet": "Foreign Affairs",
       "confidence": 0.89,
-      "why": "Secondary source resolved from suggestion \"Lenin's Tomb: The Last Days of the Soviet Empire\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
+      "why": "Secondary source resolved from suggestion \"Lenin's Tomb: The Last Days of the Soviet Empire\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Lenin's Tomb: The Last Days of the Soviet Empire",
         "suggestion_author": "David Remnick",
         "suggestion_year": 1993,
-        "suggestion_rationale": "While focusing on the end of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
+        "suggestion_rationale": "While focusing on the collapse of the Soviet Union, this book provides significant historical context and analysis of Lenin's legacy and impact.",
         "doi": "10.2307/20045761",
         "crossref_type": "journal-article"
       }

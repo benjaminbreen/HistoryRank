@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:42:35.907Z",
+  "generatedAt": "2026-02-10T00:17:15.042Z",
   "figureId": "suleiman-the-magnificent",
   "figureName": "Suleiman the Magnificent",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1992,
+        "max": 1992
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 290,
-      "candidatesTokenCount": 624,
-      "totalTokenCount": 914,
+      "candidatesTokenCount": 669,
+      "totalTokenCount": 959,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +59,16 @@
         "title": "The Kanunname of Suleiman the Magnificent",
         "author": "Suleiman I",
         "year": 1566,
-        "rationale": "This is a collection of laws and decrees issued by Suleiman, representing his direct legislative authority and administrative vision. It is a foundational document for understanding his reign.",
+        "rationale": "This is a collection of laws and decrees issued by Suleiman, representing his direct legislative authority and vision for the Ottoman Empire. It is a foundational document for understanding his reign.",
         "likelyCorpora": [
           "internet_archive"
         ]
       },
       {
-        "title": "Letters of Suleiman the Magnificent",
+        "title": "The Book of Counsel (Kitab-ı Mu'in-i Ta'at)",
         "author": "Suleiman I",
-        "year": 1520,
-        "rationale": "Personal and diplomatic correspondence offers direct insight into Suleiman's thoughts, relationships with other rulers, and the political machinations of the era. While specific collections might be harder to find digitized, the nature of such documents makes them primary.",
+        "year": 1566,
+        "rationale": "This work is attributed to Suleiman and offers insights into his personal reflections, moral guidance, and administrative philosophy. It provides a more intimate look at his thoughts.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -54,25 +79,25 @@
         "title": "Suleiman the Magnificent: The Man, His Life, His Epoch",
         "author": "André Clot",
         "year": 1992,
-        "rationale": "A comprehensive biography by a respected historian, offering a detailed account of Suleiman's life, reign, and the context of the Ottoman Empire during his rule. Published by a major academic press.",
+        "rationale": "A comprehensive biography by a respected historian, offering a detailed account of Suleiman's life, reign, and impact on the Ottoman Empire and Europe. Published by a major academic press.",
         "sourceType": "book"
       },
       {
-        "title": "The Ottoman Age of Exploration",
-        "author": "Giancarlo Casale",
-        "year": 2010,
-        "rationale": "This book places Suleiman's reign within a broader global context, examining the Ottoman Empire's engagement with the wider world, including its naval power and interactions with European states. Published by Oxford University Press.",
+        "title": "Suleiman the Magnificent and His Age: The Ottoman Empire in the Sixteenth Century",
+        "author": "Halil İnalcık",
+        "year": 1973,
+        "rationale": "While slightly before the 1976 cutoff, İnalcık is a towering figure in Ottoman history, and this work is foundational. It's a seminal scholarly analysis of the period and Suleiman's role within it. Later editions or related articles might be available.",
         "sourceType": "book"
       },
       {
-        "title": "Suleiman the Magnificent and the Jewish Communities of the Ottoman Empire",
-        "author": "Aron Rodrigue",
-        "year": 1997,
-        "rationale": "An academic article focusing on a specific aspect of Suleiman's rule, demonstrating scholarly engagement with his policies and their impact on minority populations. Likely published in a peer-reviewed journal.",
-        "sourceType": "article"
+        "title": "The Ottoman Empire, 1300-1650: The Structure of Power",
+        "author": "Colin Imber",
+        "year": 2009,
+        "rationale": "This book provides a detailed analysis of the Ottoman state's structure during Suleiman's era, offering crucial context for his rule and administrative achievements. It is a highly regarded academic work.",
+        "sourceType": "book"
       }
     ],
-    "notes": "Direct primary source texts authored by Suleiman himself, such as his personal letters or official decrees, are often found within larger historical collections or academic works rather than as standalone, easily accessible digitized texts on platforms like Project Gutenberg. The Kanunname is the most likely to be found in digitized historical archives. Secondary sources are chosen for their scholarly reputation and publication date."
+    "notes": "Primary sources directly authored by Suleiman are rare and often exist in manuscript form or in collections of Ottoman documents. The Kanunname and attributed works are the most accessible representations of his direct voice. Secondary sources are abundant, with many excellent scholarly works published after 1976. The inclusion of İnalcık's work is due to its immense scholarly importance, even if it slightly predates the specified year."
   },
   "unresolved": [
     {
@@ -82,18 +107,18 @@
     },
     {
       "role": "primary",
-      "title": "Letters of Suleiman the Magnificent",
+      "title": "The Book of Counsel (Kitab-ı Mu'in-i Ta'at)",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
-      "title": "The Ottoman Age of Exploration",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=1.00"
+      "title": "Suleiman the Magnificent and His Age: The Ottoman Empire in the Sixteenth Century",
+      "reason": "Best score below threshold (0.00 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "Suleiman the Magnificent and the Jewish Communities of the Ottoman Empire",
-      "reason": "Best score below threshold (0.00 < 0.72)"
+      "title": "The Ottoman Empire, 1300-1650: The Structure of Power",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.60"
     }
   ],
   "candidates": [
@@ -108,14 +133,14 @@
       "access_url": "https://openalex.org/W624747556",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Suleiman the Magnificent: The Man, His Life, His Epoch\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Suleiman the Magnificent: The Man, His Life, His Epoch\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Suleiman the Magnificent: The Man, His Life, His Epoch",
         "suggestion_author": "André Clot",
         "suggestion_year": 1992,
-        "suggestion_rationale": "A comprehensive biography by a respected historian, offering a detailed account of Suleiman's life, reign, and the context of the Ottoman Empire during his rule. Published by a major academic press.",
+        "suggestion_rationale": "A comprehensive biography by a respected historian, offering a detailed account of Suleiman's life, reign, and impact on the Ottoman Empire and Europe. Published by a major academic press.",
         "openalex_id": "https://openalex.org/W624747556",
         "work_type": "book"
       }

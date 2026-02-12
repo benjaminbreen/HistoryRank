@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:38:03.649Z",
+  "generatedAt": "2026-02-10T00:14:00.836Z",
   "figureId": "adolf-hitler",
   "figureName": "Adolf Hitler",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 1,
+        "secondary": 2
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1939,
+        "max": 1996
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 664,
-      "totalTokenCount": 952,
+      "candidatesTokenCount": 600,
+      "totalTokenCount": 888,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,16 +62,7 @@
         "title": "Mein Kampf",
         "author": "Adolf Hitler",
         "year": 1925,
-        "rationale": "Hitler's autobiographical manifesto outlining his political ideology and future plans for Germany. It is a foundational text for understanding his worldview.",
-        "likelyCorpora": [
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "Speeches of Adolf Hitler, 1925-1945",
-        "author": "Adolf Hitler",
-        "year": 1925,
-        "rationale": "A collection of Hitler's public addresses, offering direct insight into his propaganda, political strategies, and public persona.",
+        "rationale": "Hitler's autobiographical manifesto, outlining his political ideology and future plans for Germany. It is a foundational text for understanding his worldview.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -52,7 +71,16 @@
         "title": "Hitler's Table Talk",
         "author": "Adolf Hitler",
         "year": 1941,
-        "rationale": "Transcripts of Hitler's informal monologues and conversations during mealtimes, providing insights into his personal thoughts and opinions, though subject to interpretation by the transcriber.",
+        "rationale": "Transcripts of Hitler's monologues and conversations recorded during World War II. Offers insights into his thoughts and opinions on various subjects.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Speeches of Adolf Hitler, 1922-1945",
+        "author": "Adolf Hitler",
+        "year": 1922,
+        "rationale": "A collection of Hitler's public addresses, which were crucial for his rise to power and propaganda efforts. These speeches reveal his rhetorical style and political messaging.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,35 +91,35 @@
         "title": "Hitler: A Biography",
         "author": "Ian Kershaw",
         "year": 1998,
-        "rationale": "Considered the definitive modern biography of Hitler, this two-volume work provides a comprehensive and scholarly analysis of his life, rise to power, and regime.",
+        "rationale": "A comprehensive and highly regarded two-volume biography of Hitler, considered a definitive scholarly work on his life and regime.",
         "sourceType": "book"
       },
       {
-        "title": "The Rise and Fall of the Third Reich: A History of Nazi Germany",
-        "author": "William L. Shirer",
-        "year": 1960,
-        "rationale": "While published before 1976, this is a seminal and widely respected historical account of Nazi Germany, offering extensive context for Hitler's actions and policies. Later editions and analyses often build upon or discuss its findings.",
+        "title": "The Third Reich: A New History",
+        "author": "Richard J. Evans",
+        "year": 2005,
+        "rationale": "The first volume of a major scholarly trilogy on Nazi Germany, providing extensive historical context and analysis of Hitler's rise and rule.",
         "sourceType": "book"
       },
       {
         "title": "Hitler's Willing Executioners: Ordinary Germans and the Holocaust",
-        "author": "Daniel Jonah Goldhagen",
+        "author": "Daniel Goldhagen",
         "year": 1996,
-        "rationale": "A controversial but influential work that examines the role of ordinary Germans in the Holocaust, providing a critical perspective on the societal context of Hitler's regime.",
+        "rationale": "A controversial but influential work that examines the role of ordinary Germans in the Holocaust, offering a perspective on the societal context of Hitler's regime.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source availability on Wikisource and Project Gutenberg for Adolf Hitler's works is limited. Internet Archive is a more likely repository for his writings and speeches. The secondary source by William L. Shirer, though older, remains a foundational text in the field and is often referenced in later scholarship."
+    "notes": "Primary source availability on Wikisource and Project Gutenberg may be limited due to copyright and content policies. Internet Archive is a more likely repository for these historical texts."
   },
   "unresolved": [
     {
       "role": "primary",
-      "title": "Speeches of Adolf Hitler, 1925-1945",
+      "title": "Hitler's Table Talk",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "Hitler's Table Talk",
+      "title": "Speeches of Adolf Hitler, 1922-1945",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -101,8 +129,8 @@
     },
     {
       "role": "secondary",
-      "title": "The Rise and Fall of the Third Reich: A History of Nazi Germany",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.23"
+      "title": "The Third Reich: A New History",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.46"
     }
   ],
   "candidates": [
@@ -110,21 +138,44 @@
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "mein kampf",
+      "title": "Mein Kampf",
       "author": "Adolf Hitler",
-      "publication_year": 1913,
-      "source_url": "https://archive.org/details/meinkampf_202004",
-      "access_url": "https://archive.org/details/meinkampf_202004",
+      "publication_year": 1939,
+      "source_url": "https://archive.org/details/MeinKampfAdolfHitler1939",
+      "access_url": "https://archive.org/details/MeinKampfAdolfHitler1939",
       "snippet": null,
       "confidence": 1,
-      "why": "Primary source resolved from suggestion \"Mein Kampf\". Matched primary suggestion by title=1.00, author=1.00, year=0.76; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Mein Kampf\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.72; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Mein Kampf",
         "suggestion_author": "Adolf Hitler",
         "suggestion_year": 1925,
-        "suggestion_rationale": "Hitler's autobiographical manifesto outlining his political ideology and future plans for Germany. It is a foundational text for understanding his worldview.",
-        "ia_identifier": "meinkampf_202004"
+        "suggestion_rationale": "Hitler's autobiographical manifesto, outlining his political ideology and future plans for Germany. It is a foundational text for understanding his worldview.",
+        "ia_identifier": "MeinKampfAdolfHitler1939"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Hitler's Willing Executioners: Ordinary Germans and the Holocaust",
+      "author": "Henry Friedlander",
+      "publication_year": 1996,
+      "source_url": "https://doi.org/10.2307/1432560",
+      "access_url": "https://doi.org/10.2307/1432560",
+      "snippet": "German Studies Review",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"Hitler's Willing Executioners: Ordinary Germans and the Holocaust\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Hitler's Willing Executioners: Ordinary Germans and the Holocaust",
+        "suggestion_author": "Daniel Goldhagen",
+        "suggestion_year": 1996,
+        "suggestion_rationale": "A controversial but influential work that examines the role of ordinary Germans in the Holocaust, offering a perspective on the societal context of Hitler's regime.",
+        "openalex_id": "https://openalex.org/W2113160183",
+        "work_type": "article"
       }
     },
     {
@@ -138,14 +189,14 @@
       "access_url": "https://doi.org/10.2307/20047614",
       "snippet": "Foreign Affairs",
       "confidence": 0.89,
-      "why": "Secondary source resolved from suggestion \"Hitler's Willing Executioners: Ordinary Germans and the Holocaust\". Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
+      "why": "Secondary source resolved from suggestion \"Hitler's Willing Executioners: Ordinary Germans and the Holocaust\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Very high title match with surname/aboutness support",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Hitler's Willing Executioners: Ordinary Germans and the Holocaust",
-        "suggestion_author": "Daniel Jonah Goldhagen",
+        "suggestion_author": "Daniel Goldhagen",
         "suggestion_year": 1996,
-        "suggestion_rationale": "A controversial but influential work that examines the role of ordinary Germans in the Holocaust, providing a critical perspective on the societal context of Hitler's regime.",
+        "suggestion_rationale": "A controversial but influential work that examines the role of ordinary Germans in the Holocaust, offering a perspective on the societal context of Hitler's regime.",
         "doi": "10.2307/20047614",
         "crossref_type": "journal-article"
       }

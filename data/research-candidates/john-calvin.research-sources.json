@@ -1,0 +1,183 @@
+{
+  "generatedAt": "2026-02-10T00:19:10.714Z",
+  "figureId": "john-calvin",
+  "figureName": "John Calvin",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "primary": 1,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 1844,
+        "max": 2005
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 595,
+      "totalTokenCount": 883,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Institutes of the Christian Religion",
+        "author": "John Calvin",
+        "year": 1559,
+        "rationale": "Calvin's magnum opus, a foundational text of Protestant theology. Multiple editions and translations are widely available.",
+        "likelyCorpora": [
+          "wikisource",
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Commentaries on the Catholic Epistles",
+        "author": "John Calvin",
+        "year": 1551,
+        "rationale": "A significant portion of Calvin's exegetical work, demonstrating his biblical scholarship and theological method. Available in various collections.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Necessity of Reforming the Church",
+        "author": "John Calvin",
+        "year": 1544,
+        "rationale": "An important early work outlining Calvin's arguments for the Protestant Reformation, addressed to Emperor Charles V.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "The Cambridge Companion to John Calvin",
+        "author": "Herman J. Selderhuis",
+        "year": 2009,
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Calvin's life, thought, and influence. Published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Calvin: A Life",
+        "author": "Bruce Gordon",
+        "year": 2016,
+        "rationale": "A highly regarded and comprehensive biography of John Calvin, offering a detailed account of his life and work. Published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "John Calvin's Institutes of the Christian Religion: A Guide for the Perplexed",
+        "author": "David W. Hall",
+        "year": 2010,
+        "rationale": "An accessible yet scholarly guide to understanding Calvin's most important work, suitable for students and researchers. Published by a reputable academic publisher.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source texts, especially older translations of the Institutes, are widely available. Secondary sources focus on recent scholarly biographies and companions for comprehensive overviews."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Commentaries on the Catholic Epistles",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Necessity of Reforming the Church",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Calvin: A Life",
+      "reason": "Best score below threshold (0.53 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "John Calvin's Institutes of the Christian Religion: A Guide for the Perplexed",
+      "reason": "Best score below threshold (0.68 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Institutes of the Christian Religion",
+      "author": "John Calvin",
+      "publication_year": 1844,
+      "source_url": "https://archive.org/details/institutesofchri0000john_s0o0",
+      "access_url": "https://archive.org/details/institutesofchri0000john_s0o0",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Institutes of the Christian Religion\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Institutes of the Christian Religion",
+        "suggestion_author": "John Calvin",
+        "suggestion_year": 1559,
+        "suggestion_rationale": "Calvin's magnum opus, a foundational text of Protestant theology. Multiple editions and translations are widely available.",
+        "ia_identifier": "institutesofchri0000john_s0o0"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Cambridge companion to John Calvin",
+      "author": null,
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.5860/choice.42-3967",
+      "access_url": "https://doi.org/10.5860/choice.42-3967",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.857,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to John Calvin\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.87; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to John Calvin",
+        "suggestion_author": "Herman J. Selderhuis",
+        "suggestion_year": 2009,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Calvin's life, thought, and influence. Published by a major academic press.",
+        "openalex_id": "https://openalex.org/W4302320418",
+        "work_type": "article"
+      }
+    }
+  ]
+}

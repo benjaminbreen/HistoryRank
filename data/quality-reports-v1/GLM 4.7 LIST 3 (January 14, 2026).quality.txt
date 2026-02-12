@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GLM 4.7 LIST 3 (January 14, 2026).txt
+Model: GLM 4.7
+Timestamp: 2026-02-10T23:44:42.652Z
+
+VERDICT: WARN
+
+Summary: Issues: 76 exact duplicates; pattern collapse (max 20)
+
+Scores:
+  Repetition: WARN - 76 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 20 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 55/61 anchor figures found (90%)
+
+Issues (108):
+  - Exact duplicate: "alexander the great" at ranks 14, 323
+  - Exact duplicate: "john dalton" at ranks 26, 503
+  - Exact duplicate: "alexander fleming" at ranks 27, 867
+  - Exact duplicate: "michael faraday" at ranks 28, 506
+  - Exact duplicate: "baruch spinoza" at ranks 35, 814
+  - Exact duplicate: "john locke" at ranks 38, 508
+  - Exact duplicate: "pythagoras" at ranks 43, 390
+  - Exact duplicate: "werner heisenberg" at ranks 44, 741
+  - Exact duplicate: "otto von bismarck" at ranks 45, 196, 505
+  - Exact duplicate: "dmitri mendeleev" at ranks 46, 751
+  ... and 98 more issues
+
+Diversity Estimates:
+  Regions: Europe: 55, Asia: 29, Middle East: 41, Africa: 19, Americas: 5, Unknown: 851
+  Domains: Politics/Leadership: 67, Science/Technology: 1, Philosophy/Religion: 2, Arts/Literature: 25, Military: 10, Other: 895
+
+Advanced Metrics:
+  Advanced score: 80.9
+  Parenthetical names: 0.1%
+  Multi-person names: 0.0%
+  Comma names: 0.2%
+  Short names: 0.1%
+  Long names: 0.0%
+  Short contributions: 95.1%

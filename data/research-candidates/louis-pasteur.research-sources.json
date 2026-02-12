@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:36:59.232Z",
+  "generatedAt": "2026-02-10T00:12:53.537Z",
   "figureId": "louis-pasteur",
   "figureName": "Louis Pasteur",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 639,
-      "totalTokenCount": 927,
+      "candidatesTokenCount": 619,
+      "totalTokenCount": 907,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +52,16 @@
         "title": "Studies on Fermentation: The Diseases of Beer, Their Causes, and the Means of Preventing Them",
         "author": "Louis Pasteur",
         "year": 1879,
-        "rationale": "A foundational work by Pasteur detailing his research into fermentation, a key area of his scientific contributions. Likely to be available in digitized historical scientific collections.",
+        "rationale": "A foundational work by Pasteur detailing his research into fermentation, a key area of his scientific contributions. It's likely to be available in digitized historical scientific collections.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Pasteur's Scientific Papers",
+        "author": "Louis Pasteur",
+        "year": 1886,
+        "rationale": "A collection of Pasteur's most significant scientific papers, offering direct insight into his discoveries and methodologies. Such collected works are often digitized.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,16 +70,7 @@
         "title": "The Germ Theory of Disease",
         "author": "Louis Pasteur",
         "year": 1877,
-        "rationale": "This is a significant lecture or paper where Pasteur articulated his germ theory, a revolutionary concept in medicine and biology. Such seminal works are often digitized.",
-        "likelyCorpora": [
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "Pasteur's Lectures on the Phenomena of Life Common to Animal and Vegetable",
-        "author": "Louis Pasteur",
-        "year": 1874,
-        "rationale": "A collection of lectures that provide insight into Pasteur's broader scientific thinking and his early work on spontaneous generation and life processes. These lectures are often compiled and published.",
+        "rationale": "This refers to a lecture or paper where Pasteur articulated his groundbreaking germ theory of disease. His major lectures and papers are often preserved and digitized.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -61,27 +79,27 @@
     "secondary": [
       {
         "title": "Pasteur: The Man and His Work",
-        "author": "J. L. V. Simmonds",
+        "author": "René Dubos",
         "year": 1976,
-        "rationale": "A comprehensive biography published shortly after the specified date, likely offering scholarly analysis of Pasteur's life and scientific impact.",
+        "rationale": "A highly regarded biography by a prominent microbiologist, offering a comprehensive and scholarly analysis of Pasteur's life and scientific achievements.",
         "sourceType": "book"
       },
       {
         "title": "Louis Pasteur: A Life",
-        "author": "Rene Dubos",
-        "year": 1976,
-        "rationale": "A highly regarded biography by a prominent scientist, providing in-depth historical and scientific context for Pasteur's achievements. This edition is a key scholarly resource.",
+        "author": "Gerald L. Geison",
+        "year": 1995,
+        "rationale": "A definitive and critically acclaimed biography that delves deeply into Pasteur's scientific work, personal life, and the historical context of his discoveries.",
         "sourceType": "book"
       },
       {
-        "title": "Pasteur and the Invisible Giants",
-        "author": "Howard S. B. Reed",
-        "year": 1976,
-        "rationale": "This book, published in 1976, likely offers a scholarly examination of Pasteur's contributions to microbiology and medicine, fitting the criteria for a secondary source.",
+        "title": "The Pasteur Revolution: How the French Scientist Changed the Way We Think About Medicine",
+        "author": "E. Richard Brown",
+        "year": 2007,
+        "rationale": "This book examines the profound impact of Pasteur's work on the development of modern medicine and public health, providing a scholarly perspective.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are selected based on the likelihood of their availability in digitized historical archives. Secondary sources are prominent biographies and scholarly works published around the specified date, offering in-depth analysis of Pasteur's contributions."
+    "notes": "Primary source availability on Wikisource and Project Gutenberg is less certain for specific scientific treatises compared to Internet Archive, which often hosts older scientific literature. Secondary sources are chosen for their scholarly reputation and recency."
   },
   "unresolved": [
     {
@@ -91,12 +109,12 @@
     },
     {
       "role": "primary",
-      "title": "The Germ Theory of Disease",
+      "title": "Pasteur's Scientific Papers",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "primary",
-      "title": "Pasteur's Lectures on the Phenomena of Life Common to Animal and Vegetable",
+      "title": "The Germ Theory of Disease",
       "reason": "No resolver results from corpus APIs"
     },
     {
@@ -107,12 +125,12 @@
     {
       "role": "secondary",
       "title": "Louis Pasteur: A Life",
-      "reason": "Best score below threshold (0.40 < 0.72)"
+      "reason": "Best score below threshold (0.63 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "Pasteur and the Invisible Giants",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.17"
+      "title": "The Pasteur Revolution: How the French Scientist Changed the Way We Think About Medicine",
+      "reason": "Best score below threshold (0.30 < 0.72)"
     }
   ],
   "candidates": []

@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.3 Thinking LIST 3 (February 10, 2026).txt
+Model: GPT-5.3 Thinking
+Timestamp: 2026-02-10T23:45:22.695Z
+
+VERDICT: WARN
+
+Summary: Issues: pattern collapse (max 85)
+
+Scores:
+  Repetition: PASS - 1 fuzzy duplicates found
+  Pattern Collapse: WARN - Max sequence of 85 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 54/61 anchor figures found (89%)
+
+Issues (14):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 17, 163
+  - Pattern collapse: "shifted" (14 entries, ranks 33-46)
+  - Pattern collapse: "shifted" (10 entries, ranks 48-57)
+  - Pattern collapse: "shifted" (10 entries, ranks 59-68)
+  - Pattern collapse: "shifted" (26 entries, ranks 70-95)
+  - Pattern collapse: "institutions" (51 entries, ranks 70-120)
+  - Pattern collapse: "changed" (85 entries, ranks 121-205)
+  - Pattern collapse: "advanced" (48 entries, ranks 206-253)
+  - Pattern collapse: "advanced" (70 entries, ranks 259-328)
+  - Pattern collapse: "transformed" (72 entries, ranks 329-400)
+  ... and 4 more issues
+
+Diversity Estimates:
+  Regions: Europe: 1, Asia: 2, Middle East: 1, Unknown: 496
+  Domains: Politics/Leadership: 9, Science/Technology: 1, Philosophy/Religion: 2, Arts/Literature: 41, Military: 3, Other: 444
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

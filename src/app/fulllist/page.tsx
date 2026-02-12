@@ -242,9 +242,9 @@ export default function FullListPage() {
         {!loading && (
           <div ref={containerRef} className="space-y-8">
             {groupedFigures.map(([group, figs]) => (
-              <section key={group} id={`section-${group}`}>
+              <section key={group} id={`section-${group}`} className="scroll-mt-[calc(var(--app-header-height,56px)+1rem)]">
                 {/* Group header */}
-                <div className="sticky top-0 z-10 bg-[#fafafa] dark:bg-slate-900 py-2 mb-3 border-b border-stone-200 dark:border-slate-700">
+                <div className="sticky z-10 bg-[#fafafa] dark:bg-slate-900 py-2 mb-3 border-b border-stone-200 dark:border-slate-700" style={{ top: 'var(--app-header-height, 56px)' }}>
                   <h2 className="text-xs font-medium uppercase tracking-widest text-stone-400 dark:text-slate-500">
                     {group}
                     <span className="ml-2 text-stone-300 dark:text-slate-600 font-normal">
@@ -254,14 +254,14 @@ export default function FullListPage() {
                 </div>
 
                 {/* Names grid */}
-                <div className="flex flex-wrap gap-x-1 gap-y-0.5 leading-tight">
+                <div className="flex flex-wrap gap-x-1 gap-y-0 sm:gap-y-0 leading-tight">
                   {figs.map((fig) => (
                     <button
                       key={fig.id}
                       onClick={() => setSelectedId(fig.id)}
                       onMouseMove={(e) => handleMouseMove(e, fig)}
                       onMouseLeave={() => setHoveredId(null)}
-                      className="text-[11px] text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 transition-colors whitespace-nowrap"
+                      className="text-[11px] sm:text-[11px] text-stone-600 dark:text-slate-400 hover:text-stone-900 dark:hover:text-amber-200 hover:underline underline-offset-2 cursor-pointer transition-colors whitespace-nowrap py-1.5 sm:py-0.5"
                       style={{
                         color: hoveredId === fig.id && fig.domain
                           ? DOMAIN_COLORS[fig.domain] || undefined

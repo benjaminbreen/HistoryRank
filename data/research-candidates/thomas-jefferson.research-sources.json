@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:12.603Z",
+  "generatedAt": "2026-02-10T00:15:41.911Z",
   "figureId": "thomas-jefferson",
   "figureName": "Thomas Jefferson",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,38 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 1,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1997,
+        "max": 2017
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 582,
-      "totalTokenCount": 870,
+      "candidatesTokenCount": 595,
+      "totalTokenCount": 883,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,9 +63,8 @@
         "title": "Notes on the State of Virginia",
         "author": "Thomas Jefferson",
         "year": 1785,
-        "rationale": "Jefferson's most famous and comprehensive work, detailing the geography, history, and society of Virginia. It is a foundational text for understanding his thought.",
+        "rationale": "Jefferson's most famous work, offering a comprehensive view of his thoughts on government, society, natural history, and slavery.",
         "likelyCorpora": [
-          "wikisource",
           "project_gutenberg",
           "internet_archive"
         ]
@@ -45,7 +73,7 @@
         "title": "The Declaration of Independence",
         "author": "Thomas Jefferson",
         "year": 1776,
-        "rationale": "The foundational document of American independence, primarily authored by Jefferson. Its historical significance is immense.",
+        "rationale": "The foundational document of American independence, primarily authored by Jefferson.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +84,7 @@
         "title": "The Papers of Thomas Jefferson",
         "author": "Thomas Jefferson",
         "year": 1760,
-        "rationale": "A comprehensive collection of Jefferson's writings, including letters, drafts, and official documents, spanning his entire life. Essential for in-depth research.",
+        "rationale": "A vast collection of Jefferson's correspondence, writings, and notes, providing unparalleled insight into his life and thought. Many volumes are digitized.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -67,7 +95,7 @@
         "title": "Thomas Jefferson: The Art of Power",
         "author": "Jon Meacham",
         "year": 2012,
-        "rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual life.",
+        "rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual development.",
         "sourceType": "book"
       },
       {
@@ -79,13 +107,13 @@
       },
       {
         "title": "The Cambridge Companion to Thomas Jefferson",
-        "author": "Mark J. Rozell",
-        "year": 2017,
-        "rationale": "A collection of essays by leading scholars covering various aspects of Jefferson's life, thought, and impact.",
+        "author": "A. J. Smith",
+        "year": 2009,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Jefferson's life, work, and influence.",
         "sourceType": "book"
       }
     ],
-    "notes": "The 'Papers of Thomas Jefferson' are extensive and often published in multi-volume sets. Availability on Internet Archive is highly probable for digitized versions."
+    "notes": "The 'Papers of Thomas Jefferson' is a multi-volume collection, and the year 1760 marks the beginning of its coverage. Specific volumes may have later publication dates. The primary source 'The Declaration of Independence' is often found within collections of Jefferson's writings or historical documents."
   },
   "unresolved": [
     {
@@ -96,7 +124,7 @@
     {
       "role": "primary",
       "title": "The Papers of Thomas Jefferson",
-      "reason": "Title similarity too low (0.70); baseScore=0.73"
+      "reason": "Title similarity too low (0.65); baseScore=0.53"
     }
   ],
   "candidates": [
@@ -111,13 +139,13 @@
       "access_url": "https://archive.org/details/notesonstateofvi0000thom",
       "snippet": null,
       "confidence": 0.92,
-      "why": "Primary source resolved from suggestion \"Notes on the State of Virginia\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"Notes on the State of Virginia\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Notes on the State of Virginia",
         "suggestion_author": "Thomas Jefferson",
         "suggestion_year": 1785,
-        "suggestion_rationale": "Jefferson's most famous and comprehensive work, detailing the geography, history, and society of Virginia. It is a foundational text for understanding his thought.",
+        "suggestion_rationale": "Jefferson's most famous work, offering a comprehensive view of his thoughts on government, society, natural history, and slavery.",
         "ia_identifier": "notesonstateofvi0000thom"
       }
     },
@@ -132,16 +160,39 @@
       "access_url": "https://doi.org/10.1163/2468-1733_shafr_sim070070036",
       "snippet": "The SHAFR Guide Online",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Thomas Jefferson: The Art of Power\". Matched secondary suggestion by title=1.00, author=1.00, year=0.83; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"Thomas Jefferson: The Art of Power\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=0.83; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "Thomas Jefferson: The Art of Power",
         "suggestion_author": "Jon Meacham",
         "suggestion_year": 2012,
-        "suggestion_rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual life.",
+        "suggestion_rationale": "A highly acclaimed and comprehensive biography that explores Jefferson's political strategies and intellectual development.",
         "openalex_id": "https://openalex.org/W1600968201",
         "work_type": "dataset"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "American Sphinx: The Character of Thomas Jefferson.",
+      "author": "Robert A. Rutland",
+      "publication_year": 1997,
+      "source_url": "https://doi.org/10.2307/2953129",
+      "access_url": "https://doi.org/10.2307/2953129",
+      "snippet": "The Journal of American History",
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"American Sphinx: The Character of Thomas Jefferson\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "American Sphinx: The Character of Thomas Jefferson",
+        "suggestion_author": "Joseph J. Ellis",
+        "suggestion_year": 1997,
+        "suggestion_rationale": "A Pulitzer Prize-winning biography that delves into the complexities and contradictions of Jefferson's character and legacy.",
+        "doi": "10.2307/2953129",
+        "crossref_type": "journal-article"
       }
     },
     {
@@ -155,7 +206,7 @@
       "access_url": "https://openlibrary.org/works/OL18397522W",
       "snippet": null,
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"American Sphinx: The Character of Thomas Jefferson\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"American Sphinx: The Character of Thomas Jefferson\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
@@ -164,29 +215,6 @@
         "suggestion_year": 1997,
         "suggestion_rationale": "A Pulitzer Prize-winning biography that delves into the complexities and contradictions of Jefferson's character and legacy.",
         "edition_count": 1
-      }
-    },
-    {
-      "source_corpus": "crossref",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "The Cambridge Companion to Thomas Jefferson",
-      "author": null,
-      "publication_year": 2009,
-      "source_url": "https://doi.org/10.1017/ccol9780521867313",
-      "access_url": "https://doi.org/10.1017/ccol9780521867313",
-      "snippet": null,
-      "confidence": 0.845,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Thomas Jefferson\". Matched secondary suggestion by title=1.00, author=0.00, year=0.73; Figure full name present in title",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "The Cambridge Companion to Thomas Jefferson",
-        "suggestion_author": "Mark J. Rozell",
-        "suggestion_year": 2017,
-        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Jefferson's life, thought, and impact.",
-        "doi": "10.1017/ccol9780521867313",
-        "crossref_type": "edited-book"
       }
     }
   ]

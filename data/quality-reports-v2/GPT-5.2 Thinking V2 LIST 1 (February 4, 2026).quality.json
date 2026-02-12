@@ -1,0 +1,238 @@
+{
+  "file": "GPT-5.2 Thinking V2 LIST 1 (February 4, 2026).txt",
+  "model": "GPT-5.2 Thinking V2",
+  "timestamp": "2026-02-10T23:46:57.179Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 12,
+      "fuzzy": 5,
+      "status": "PASS",
+      "details": "12 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "pythagoras"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "pericles",
+      "ranks": [
+        53,
+        353
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine the great",
+      "ranks": [
+        79,
+        477
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter the great",
+      "ranks": [
+        80,
+        476
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elizabeth i",
+      "ranks": [
+        82,
+        474
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "henry viii",
+      "ranks": [
+        84,
+        473
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bartolom de las casas",
+      "ranks": [
+        91,
+        492
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        93,
+        454
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sundiata keita",
+      "ranks": [
+        122,
+        438
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "woodrow wilson",
+      "ranks": [
+        144,
+        385
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        195,
+        429
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "eleanor of aquitaine",
+      "ranks": [
+        364,
+        482
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "catherine de medici",
+      "ranks": [
+        369,
+        486
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "genghis khan",
+      "variants": [
+        "genghis khan",
+        "genghis khans gedei khan"
+      ],
+      "ranks": [
+        10,
+        341
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        14,
+        169
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "marie curie",
+      "variants": [
+        "marie curie",
+        "mary curie"
+      ],
+      "ranks": [
+        45,
+        420
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        59,
+        151
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "james ii of england",
+      "variants": [
+        "james ii of england",
+        "james i of england"
+      ],
+      "ranks": [
+        375,
+        461
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 60,
+      "Asia": 38,
+      "Middle East": 20,
+      "Africa": 12,
+      "Americas": 8,
+      "Oceania": 0,
+      "Unknown": 362
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 15,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 19,
+      "Military": 13,
+      "Other": 426
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 5,
+    "parentheticalRate": 0.01,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 2,
+    "commaNameRate": 0.004,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.36
+  },
+  "summary": "List passes all quality checks"
+}

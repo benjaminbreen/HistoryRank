@@ -1,7 +1,7 @@
 {
   "file": "Gemini Flash 3 Preview LIST 1 (January 12, 2025).txt",
   "model": "Gemini Flash 3 Preview",
-  "timestamp": "2026-02-05T18:16:47.313Z",
+  "timestamp": "2026-02-10T18:22:49.431Z",
   "verdict": "FAIL",
   "scores": {
     "repetition": {
@@ -21,7 +21,7 @@
       "validJson": true,
       "sequentialRanks": false,
       "status": "FAIL",
-      "details": "1026 entries (expected 1000); non-sequential ranks"
+      "details": "1026 entries (expected 500 or 1000); non-sequential ranks"
     },
     "anchor_coverage": {
       "found": 57,
@@ -1690,5 +1690,5 @@
     "contributionShortRate": 0,
     "score": 99.46393762183236
   },
-  "summary": "Issues: 204 exact duplicates; 1026 entries (expected 1000); non-sequential ranks"
+  "summary": "Issues: 204 exact duplicates; 1026 entries (expected 500 or 1000); non-sequential ranks"
 }

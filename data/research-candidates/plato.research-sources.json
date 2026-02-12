@@ -1,25 +1,56 @@
 {
-  "generatedAt": "2026-02-08T07:29:24.081Z",
+  "generatedAt": "2026-02-10T05:21:13.306Z",
   "figureId": "plato",
   "figureName": "Plato",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
       "primary",
-      "secondary"
+      "secondary",
+      "reference"
     ],
     "minSecondaryYear": 1976,
     "minPrimaryScore": 0.75,
     "minSecondaryScore": 0.72,
-    "maxPrimarySuggestions": 3,
-    "maxSecondarySuggestions": 3,
-    "limitPerRole": 3,
+    "maxPrimarySuggestions": 1,
+    "maxSecondarySuggestions": 1,
+    "limitPerRole": 1,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "sepMatched": true,
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 1,
+        "secondary": 1,
+        "reference": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "openalex": 1,
+        "sep": 1
+      },
+      "yearSpan": {
+        "min": 1992,
+        "max": 2022
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 582,
-      "totalTokenCount": 869,
+      "candidatesTokenCount": 250,
+      "totalTokenCount": 537,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,29 +65,7 @@
         "title": "The Republic",
         "author": "Plato",
         "year": -380,
-        "rationale": "Plato's most famous and influential work, exploring justice, the ideal state, and the theory of Forms.",
-        "likelyCorpora": [
-          "wikisource",
-          "project_gutenberg",
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "Apology",
-        "author": "Plato",
-        "year": -399,
-        "rationale": "A defense of Socrates, presented by Plato, offering insights into Socrates' philosophy and trial.",
-        "likelyCorpora": [
-          "wikisource",
-          "project_gutenberg",
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "Symposium",
-        "author": "Plato",
-        "year": -385,
-        "rationale": "A dialogue exploring the nature of love (Eros), featuring speeches by various characters.",
+        "rationale": "Plato's most famous and influential work, exploring justice, the ideal state, and the theory of Forms. Widely available in translation.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -69,33 +78,13 @@
         "title": "The Cambridge Companion to Plato",
         "author": "Richard Kraut",
         "year": 1992,
-        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Plato's philosophy and works.",
-        "sourceType": "book"
-      },
-      {
-        "title": "Plato: A Very Short Introduction",
-        "author": "Julia Annas",
-        "year": 2000,
-        "rationale": "A concise and accessible overview of Plato's life, thought, and major works, suitable for introductory research.",
-        "sourceType": "book"
-      },
-      {
-        "title": "Plato's Republic: A Philosophical Commentary",
-        "author": "R. C. Cross and A. D. Woozley",
-        "year": 1964,
-        "rationale": "While slightly before the 1976 cutoff, this is a foundational scholarly commentary on The Republic that remains highly relevant and frequently cited in later scholarship.",
+        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Plato's philosophy, life, and works. Published by a major academic press.",
         "sourceType": "book"
       }
     ],
-    "notes": "Plato's dialogues are the primary source of his philosophy. The dates provided for primary sources are approximate and refer to the likely period of composition."
+    "notes": "Plato's dialogues are the primary source of his philosophy. Many are available in public domain corpora. The Cambridge Companion provides a strong scholarly overview."
   },
-  "unresolved": [
-    {
-      "role": "secondary",
-      "title": "Plato's Republic: A Philosophical Commentary",
-      "reason": "Best score below threshold (0.41 < 0.72)"
-    }
-  ],
+  "unresolved": [],
   "candidates": [
     {
       "source_corpus": "project_gutenberg",
@@ -106,58 +95,20 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/1497",
       "access_url": "https://www.gutenberg.org/ebooks/1497",
-      "snippet": null,
+      "snippet": "\"The Republic\" by Plato is a Socratic dialogue written around 375 BC. Through conversations between Socrates and various Athenians, the work explores the meaning of justice and whether the just person is happier than the unjust.",
       "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"The Republic\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
+      "why": "Primary source resolved from suggestion \"The Republic\" (project_gutenberg). Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Republic",
         "suggestion_author": "Plato",
         "suggestion_year": -380,
-        "suggestion_rationale": "Plato's most famous and influential work, exploring justice, the ideal state, and the theory of Forms.",
-        "gutenberg_id": 1497
-      }
-    },
-    {
-      "source_corpus": "project_gutenberg",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "Apology",
-      "author": "Plato",
-      "publication_year": null,
-      "source_url": "https://www.gutenberg.org/ebooks/1656",
-      "access_url": "https://www.gutenberg.org/ebooks/1656",
-      "snippet": null,
-      "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Apology\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Apology",
-        "suggestion_author": "Plato",
-        "suggestion_year": -399,
-        "suggestion_rationale": "A defense of Socrates, presented by Plato, offering insights into Socrates' philosophy and trial.",
-        "gutenberg_id": 1656
-      }
-    },
-    {
-      "source_corpus": "project_gutenberg",
-      "source_role": "primary",
-      "source_kind": "book",
-      "title": "Symposium",
-      "author": "Plato",
-      "publication_year": null,
-      "source_url": "https://www.gutenberg.org/ebooks/1600",
-      "access_url": "https://www.gutenberg.org/ebooks/1600",
-      "snippet": null,
-      "confidence": 0.972,
-      "why": "Primary source resolved from suggestion \"Symposium\". Matched primary suggestion by title=1.00, author=1.00, year=0.25; Ancient/classical allowance with strong title match in public-text corpus",
-      "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Symposium",
-        "suggestion_author": "Plato",
-        "suggestion_year": -385,
-        "suggestion_rationale": "A dialogue exploring the nature of love (Eros), featuring speeches by various characters.",
-        "gutenberg_id": 1600
+        "suggestion_rationale": "Plato's most famous and influential work, exploring justice, the ideal state, and the theory of Forms. Widely available in translation.",
+        "gutenberg_id": 1497,
+        "languages": [
+          "en"
+        ],
+        "download_count": 18489
       }
     },
     {
@@ -171,39 +122,40 @@
       "access_url": "https://doi.org/10.1017/ccol0521430186",
       "snippet": "Cambridge University Press eBooks",
       "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Plato\". Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Plato\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Plato",
         "suggestion_author": "Richard Kraut",
         "suggestion_year": 1992,
-        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Plato's philosophy and works.",
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Plato's philosophy, life, and works. Published by a major academic press.",
         "openalex_id": "https://openalex.org/W640383632",
         "work_type": "book"
       }
     },
     {
-      "source_corpus": "openalex",
-      "source_role": "secondary",
-      "source_kind": "book",
-      "title": "Plato: A Very Short Introduction",
-      "author": "Julia Annas",
-      "publication_year": 2003,
-      "source_url": "https://doi.org/10.1093/actrade/9780192802163.001.0001",
-      "access_url": "https://doi.org/10.1093/actrade/9780192802163.001.0001",
-      "snippet": null,
-      "confidence": 1,
-      "why": "Secondary source resolved from suggestion \"Plato: A Very Short Introduction\". Matched secondary suggestion by title=1.00, author=1.00, year=0.90; Figure full name present in title",
+      "source_corpus": "sep",
+      "source_role": "reference",
+      "source_kind": "article",
+      "title": "Plato",
+      "author": null,
+      "publication_year": 2022,
+      "source_url": "https://plato.stanford.edu/entries/plato/",
+      "access_url": "https://plato.stanford.edu/entries/plato/",
+      "snippet": "Plato (429?-347 B.C.E.) is, by any reckoning, one of the most dazzling writers in the Western literary tradition and one of the most penetrating, wide-ranging, and influential authors in the history of philosophy. An Athenian citizen of high status, he displays in his works his absorption in the political events and intellectual movements of his time, but the questions he raises are so profound and the strategies he uses for tackling them so richly suggestive and provocative that educated readers of nearly every period have in some way been influenced by him, and in practically every age there have been philosophers who count themselves Platonists in some important respects. He was not the first thinker or writer to whom the word \"philosopher\" should be applied. But he was so self-conscious about how philosophy should be conceived, and what its scope and ambitions properly are, and he so transformed the intellectual currents with which he grappled, that the subject of philosophy, as it is often conceived—a rigorous and systematic examination of ethical, political, metaphysical, and epistemological issues, armed with a distinctive method—can be called his invention. Few other authors in the history of Western philosophy approximate him in depth and range: perhaps only Aristotle (who studied with him), Aquinas, and Kant would be generally agreed to be of the same rank.",
+      "confidence": 0.86,
+      "why": "Matched Stanford Encyclopedia of Philosophy entry \"Plato\"",
       "metadata": {
-        "strategy": "llm_hybrid_resolver_v1",
-        "min_secondary_year": 1976,
-        "suggestion_title": "Plato: A Very Short Introduction",
-        "suggestion_author": "Julia Annas",
-        "suggestion_year": 2000,
-        "suggestion_rationale": "A concise and accessible overview of Plato's life, thought, and major works, suitable for introductory research.",
-        "openalex_id": "https://openalex.org/W635393380",
-        "work_type": "book"
+        "strategy": "sep_match_v1",
+        "provider": "sep",
+        "sep_slug": "plato",
+        "sep_title": "Plato",
+        "sep_url": "https://plato.stanford.edu/entries/plato/",
+        "sep_excerpt_paragraphs": [
+          "Plato (429?-347 B.C.E.) is, by any reckoning, one of the most dazzling writers in the Western literary tradition and one of the most penetrating, wide-ranging, and influential authors in the history of philosophy. An Athenian citizen of high status, he displays in his works his absorption in the political events and intellectual movements of his time, but the questions he raises are so profound and the strategies he uses for tackling them so richly suggestive and provocative that educated readers of nearly every period have in some way been influenced by him, and in practically every age there have been philosophers who count themselves Platonists in some important respects. He was not the first thinker or writer to whom the word \"philosopher\" should be applied. But he was so self-conscious about how philosophy should be conceived, and what its scope and ambitions properly are, and he so transformed the intellectual currents with which he grappled, that the subject of philosophy, as it is often conceived—a rigorous and systematic examination of ethical, political, metaphysical, and epistemological issues, armed with a distinctive method—can be called his invention. Few other authors in the history of Western philosophy approximate him in depth and range: perhaps only Aristotle (who studied with him), Aquinas, and Kant would be generally agreed to be of the same rank."
+        ],
+        "sep_excerpt_source": "preamble_first_two_paragraphs"
       }
     }
   ]

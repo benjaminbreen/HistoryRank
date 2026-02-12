@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: Gemini Pro 3 LIST 4 (January 13, 2025).txt
+Model: Gemini Pro 3
+Timestamp: 2026-02-10T23:46:01.381Z
+
+VERDICT: FAIL
+
+Summary: Issues: 6 exact duplicates; pattern collapse (max 23); 1004 entries (expected 500 or 1000); non-sequential ranks
+
+Scores:
+  Repetition: PASS - 6 exact duplicates found
+  Pattern Collapse: PASS - Max sequence of 23 similar entries
+  Structural: FAIL - 1004 entries (expected 500 or 1000); non-sequential ranks
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (14):
+  - Exact duplicate: "gregor mendel" at ranks 58, 385
+  - Exact duplicate: "sigmund freud" at ranks 69, 399
+  - Exact duplicate: "pol pot" at ranks 111, 631
+  - Exact duplicate: "akbar the great" at ranks 115, 341
+  - Exact duplicate: "ada lovelace" at ranks 461, 707
+  - Exact duplicate: "michael jordan" at ranks 472, 734
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 25, 140
+  - Fuzzy duplicate: antony van leeuwenhoek / antonie van leeuwenhoek at ranks 36, 796
+  - Fuzzy duplicate: pope urban ii / pope john paul ii at ranks 51, 253
+  - Fuzzy duplicate: queen isabella i / queen elizabeth i at ranks 65, 94
+  ... and 4 more issues
+
+Diversity Estimates:
+  Regions: Europe: 92, Asia: 32, Middle East: 34, Africa: 14, Americas: 29, Unknown: 803
+  Domains: Politics/Leadership: 144, Science/Technology: 88, Philosophy/Religion: 151, Arts/Literature: 150, Military: 12, Other: 459
+
+Advanced Metrics:
+  Advanced score: 98.5
+  Parenthetical names: 0.8%
+  Multi-person names: 0.0%
+  Comma names: 0.1%
+  Short names: 0.0%
+  Long names: 0.1%
+  Short contributions: 4.8%

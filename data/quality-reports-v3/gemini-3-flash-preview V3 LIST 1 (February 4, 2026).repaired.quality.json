@@ -1,0 +1,274 @@
+{
+  "file": "gemini-3-flash-preview V3 LIST 1 (February 4, 2026).repaired.txt",
+  "model": "gemini-3-flash-preview V3",
+  "timestamp": "2026-02-10T23:12:36.890Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 3,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "3 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 203,
+          "endRank": 213,
+          "count": 11,
+          "examples": [
+            "203. Roald Amundsen",
+            "204. Neil Armstrong",
+            "205. Yuri Gagarin"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 284,
+          "endRank": 293,
+          "count": 10,
+          "examples": [
+            "284. Kwame Nkrumah",
+            "285. Patrice Lumumba",
+            "286. Julius Nyerere"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 285,
+          "endRank": 294,
+          "count": 10,
+          "examples": [
+            "285. Patrice Lumumba",
+            "286. Julius Nyerere",
+            "287. Jomo Kenyatta"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "president",
+          "startRank": 327,
+          "endRank": 340,
+          "count": 14,
+          "examples": [
+            "327. Salvador Allende",
+            "328. Hugo Chávez",
+            "329. Lula da Silva"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker",
+          "startRank": 478,
+          "endRank": 487,
+          "count": 10,
+          "examples": [
+            "478. Frank Gehry",
+            "479. Orson Welles",
+            "480. Stanley Kubrick"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "filmmaker",
+          "startRank": 479,
+          "endRank": 488,
+          "count": 10,
+          "examples": [
+            "479. Orson Welles",
+            "480. Stanley Kubrick",
+            "481. Francis Ford Coppola"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "confucius",
+      "ranks": [
+        5,
+        377
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "florence nightingale",
+      "ranks": [
+        120,
+        372
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        334,
+        352
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        24,
+        75
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charleslouis de montesquieu",
+      "variants": [
+        "charleslouis de montesquieu",
+        "charles de montesquieu"
+      ],
+      "ranks": [
+        51,
+        415
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 203,
+      "endRank": 213,
+      "count": 11,
+      "examples": [
+        "203. Roald Amundsen",
+        "204. Neil Armstrong",
+        "205. Yuri Gagarin"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 284,
+      "endRank": 293,
+      "count": 10,
+      "examples": [
+        "284. Kwame Nkrumah",
+        "285. Patrice Lumumba",
+        "286. Julius Nyerere"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 285,
+      "endRank": 294,
+      "count": 10,
+      "examples": [
+        "285. Patrice Lumumba",
+        "286. Julius Nyerere",
+        "287. Jomo Kenyatta"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "president",
+      "startRank": 327,
+      "endRank": 340,
+      "count": 14,
+      "examples": [
+        "327. Salvador Allende",
+        "328. Hugo Chávez",
+        "329. Lula da Silva"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker",
+      "startRank": 478,
+      "endRank": 487,
+      "count": 10,
+      "examples": [
+        "478. Frank Gehry",
+        "479. Orson Welles",
+        "480. Stanley Kubrick"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "filmmaker",
+      "startRank": 479,
+      "endRank": 488,
+      "count": 10,
+      "examples": [
+        "479. Orson Welles",
+        "480. Stanley Kubrick",
+        "481. Francis Ford Coppola"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 76,
+      "Asia": 16,
+      "Middle East": 11,
+      "Africa": 9,
+      "Americas": 23,
+      "Oceania": 0,
+      "Unknown": 365
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 89,
+      "Science/Technology": 10,
+      "Philosophy/Religion": 24,
+      "Arts/Literature": 55,
+      "Military": 12,
+      "Other": 310
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 1,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.88
+  },
+  "summary": "Issues: 3 exact duplicates; pattern collapse (max 14); non-sequential ranks"
+}

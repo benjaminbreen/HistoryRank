@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.131Z",
+  "figureId": "anton-chekhov",
+  "figureName": "Anton Chekhov",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Anton Chekhov is consistently described across 11 model source lists as influential for: Playwright and short-story writer whose works (*The Cherry Orchard*, *Uncle Vanya*) redefined modern drama; Russian playwright and short-story writer, considered one of the greatest writers in history; Russian drama, short story; Playwright and short story writer; Modern drama; psychological realism; Playwright; revolutionized the short story and modern drama; Playwright/Author; modernized the short story and drama; Playwright; master of the modern short story.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "generatedAt": "2026-02-10T00:20:16.250Z",
+  "figureId": "wolfgang-amadeus-mozart",
+  "figureName": "Wolfgang Amadeus Mozart",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 2
+      },
+      "yearSpan": {
+        "min": 1994,
+        "max": 2009
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 624,
+      "totalTokenCount": 914,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Mozart's Letters, Mozart's Life: Selected Letters",
+        "author": "Wolfgang Amadeus Mozart",
+        "year": 1769,
+        "rationale": "A collection of letters offering direct insight into Mozart's life, thoughts, and professional activities. Many of his letters are preserved and have been published.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Letters of Mozart and His Family",
+        "author": "Wolfgang Amadeus Mozart",
+        "year": 1762,
+        "rationale": "This comprehensive collection includes correspondence from Mozart and his family, providing a rich tapestry of their lives and the musical world of the era. Early letters are particularly valuable.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Autobiographical Notes",
+        "author": "Wolfgang Amadeus Mozart",
+        "year": 1789,
+        "rationale": "Mozart's own brief autobiographical notes, though limited, offer a personal perspective on his early life and career. These are often included in collections of his writings.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Mozart: A Life",
+        "author": "Paul Johnson",
+        "year": 1998,
+        "rationale": "A well-regarded biographical account by a prominent historian, offering a comprehensive overview of Mozart's life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Cambridge Mozart Encyclopedia",
+        "author": "Clifford Bartlett",
+        "year": 2006,
+        "rationale": "A scholarly encyclopedia providing in-depth articles on various aspects of Mozart's life, music, and contemporaries, written by experts in the field.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Mozart's Operas",
+        "author": "David Cairns",
+        "year": 2006,
+        "rationale": "A critical analysis of Mozart's operatic works, offering scholarly insights into their composition, performance, and historical context.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source materials for Mozart primarily consist of his extensive correspondence and some personal writings. Availability on digital platforms like Internet Archive is high for published collections of these letters. Secondary sources are abundant, with many scholarly biographies and analyses published since 1976."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Mozart's Letters, Mozart's Life: Selected Letters",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Letters of Mozart and His Family",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Autobiographical Notes",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The Cambridge Mozart Encyclopedia",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.28"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Mozart: A Life",
+      "author": "Maynard Solomon",
+      "publication_year": 1994,
+      "source_url": "http://ci.nii.ac.jp/ncid/BA25478815",
+      "access_url": "http://ci.nii.ac.jp/ncid/BA25478815",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 0.857,
+      "why": "Secondary source resolved from suggestion \"Mozart: A Life\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.87; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Mozart: A Life",
+        "suggestion_author": "Paul Johnson",
+        "suggestion_year": 1998,
+        "suggestion_rationale": "A well-regarded biographical account by a prominent historian, offering a comprehensive overview of Mozart's life and work.",
+        "openalex_id": "https://openalex.org/W1978837532",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Mozart's operas: a companion",
+      "author": null,
+      "publication_year": 2009,
+      "source_url": "https://doi.org/10.5860/choice.46-4925",
+      "access_url": "https://doi.org/10.5860/choice.46-4925",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.779,
+      "why": "Secondary source resolved from suggestion \"Mozart's Operas\" (openalex). Matched secondary suggestion by title=0.87, author=0.00, year=0.90; Surname + aboutness term present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Mozart's Operas",
+        "suggestion_author": "David Cairns",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "A critical analysis of Mozart's operatic works, offering scholarly insights into their composition, performance, and historical context.",
+        "openalex_id": "https://openalex.org/W324372362",
+        "work_type": "article"
+      }
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "file": "Grok 4.1 Fast LIST 6 (January 15, 2026).txt",
+  "model": "Grok 4.1 Fast",
+  "timestamp": "2026-02-10T23:46:32.787Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 31,
+      "fuzzy": 14,
+      "status": "PASS",
+      "details": "31 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 25,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "expected",
+          "startRank": 882,
+          "endRank": 906,
+          "count": 25,
+          "examples": [
+            "882. Claude 4",
+            "883. Mistral Large 2",
+            "884. Qwen3"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 25 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 55,
+      "expected": 61,
+      "missing": [
+        "moses",
+        "saint paul",
+        "paul the apostle",
+        "copernicus",
+        "kepler",
+        "rousseau"
+      ],
+      "status": "PASS",
+      "details": "55/61 anchor figures found (90%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "marcus aurelius",
+      "ranks": [
+        65,
+        254
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "winston churchill",
+      "ranks": [
+        71,
+        357
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "richard feynman",
+      "ranks": [
+        100,
+        664
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elon musk",
+      "ranks": [
+        161,
+        422,
+        715
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "golda meir",
+      "ranks": [
+        180,
+        214
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles taylor",
+      "ranks": [
+        295,
+        311
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "isaias afwerki",
+      "ranks": [
+        297,
+        314
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander lukashenko",
+      "ranks": [
+        298,
+        320
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jack kilby",
+      "ranks": [
+        390,
+        610
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "robert noyce",
+      "ranks": [
+        391,
+        611
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "federico faggin",
+      "ranks": [
+        392,
+        614
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dario amodei",
+      "ranks": [
+        471,
+        738
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mustafa suleyman",
+      "ranks": [
+        474,
+        510
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "timnit gebru",
+      "ranks": [
+        485,
+        720
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joy buolamwini",
+      "ranks": [
+        486,
+        722
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "kate crawford",
+      "ranks": [
+        487,
+        723
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "roman yampolskiy",
+      "ranks": [
+        488,
+        717
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "stuart russell",
+      "ranks": [
+        489,
+        713
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "paul christiano",
+      "ranks": [
+        492,
+        737
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "judea pearl",
+      "ranks": [
+        503,
+        719
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter shor",
+      "ranks": [
+        512,
+        562
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "lov grover",
+      "ranks": [
+        513,
+        563
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "chris monroe",
+      "ranks": [
+        515,
+        555
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "peter zoller",
+      "ranks": [
+        531,
+        561
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "george whitesides",
+      "ranks": [
+        621,
+        673
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vicuna",
+      "ranks": [
+        803,
+        974
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "openhermes",
+      "ranks": [
+        808,
+        976
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "command r",
+      "ranks": [
+        821,
+        836
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "qwen25",
+      "ranks": [
+        832,
+        980
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mtbench",
+      "ranks": [
+        936,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        21,
+        74
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "xerxes i",
+      "variants": [
+        "xerxes i",
+        "artaxerxes ii"
+      ],
+      "ranks": [
+        244,
+        245
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i",
+      "variants": [
+        "edward i",
+        "edward iii"
+      ],
+      "ranks": [
+        264,
+        268
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "michael berry",
+      "variants": [
+        "michael berry",
+        "sir michael berry"
+      ],
+      "ranks": [
+        592,
+        593
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "chad mirkin",
+      "variants": [
+        "chad mirkin",
+        "chad a mirkin"
+      ],
+      "ranks": [
+        620,
+        670
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "harold kroto",
+      "variants": [
+        "harold kroto",
+        "harry kroto"
+      ],
+      "ranks": [
+        628,
+        668
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gerd binnig",
+      "variants": [
+        "gerd binnig",
+        "gerhard binnig"
+      ],
+      "ranks": [
+        633,
+        666
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "abraham lee",
+      "variants": [
+        "abraham lee",
+        "abraham p lee"
+      ],
+      "ranks": [
+        674,
+        676
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "llama 3",
+      "variants": [
+        "llama 3",
+        "llama 31",
+        "llama 32"
+      ],
+      "ranks": [
+        818,
+        825,
+        833
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "claude 35",
+      "variants": [
+        "claude 35",
+        "claude 35 sonnet"
+      ],
+      "ranks": [
+        826,
+        873
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "deepseek v2",
+      "variants": [
+        "deepseek v2",
+        "deepseek coder v2",
+        "deepseek v3"
+      ],
+      "ranks": [
+        831,
+        856,
+        885
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mistral large",
+      "variants": [
+        "mistral large",
+        "mistral large 2"
+      ],
+      "ranks": [
+        835,
+        883
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "expected",
+      "startRank": 882,
+      "endRank": 906,
+      "count": 25,
+      "examples": [
+        "882. Claude 4",
+        "883. Mistral Large 2",
+        "884. Qwen3"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 38,
+      "Asia": 16,
+      "Middle East": 9,
+      "Africa": 9,
+      "Americas": 8,
+      "Oceania": 0,
+      "Unknown": 920
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 106,
+      "Science/Technology": 11,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 13,
+      "Military": 7,
+      "Other": 847
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 2,
+    "parentheticalRate": 0.002,
+    "multiPersonCount": 2,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 6,
+    "shortNameRate": 0.006,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 957,
+    "contributionShortRate": 0.957,
+    "score": 80.34
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,0 +1,120 @@
+{
+  "file": "GPT-5.3 Thinking LIST 1 (February 9, 2026).txt",
+  "model": "GPT-5.3 Thinking",
+  "timestamp": "2026-02-10T18:22:48.869Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 3,
+      "status": "PASS",
+      "details": "3 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 57,
+      "expected": 61,
+      "missing": [
+        "buddha",
+        "homer",
+        "moses",
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "57/61 anchor figures found (93%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        13,
+        404
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        266,
+        269
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "aung san",
+      "variants": [
+        "aung san",
+        "aung san suu kyi"
+      ],
+      "ranks": [
+        483,
+        484
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 12,
+      "Asia": 4,
+      "Middle East": 3,
+      "Africa": 0,
+      "Americas": 0,
+      "Oceania": 0,
+      "Unknown": 481
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 5,
+      "Science/Technology": 4,
+      "Philosophy/Religion": 3,
+      "Arts/Literature": 5,
+      "Military": 45,
+      "Other": 438
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "List passes all quality checks"
+}

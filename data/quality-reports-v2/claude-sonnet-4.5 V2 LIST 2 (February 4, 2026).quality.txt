@@ -1,0 +1,32 @@
+Quality Assessment Report
+========================
+File: claude-sonnet-4.5 V2 LIST 2 (February 4, 2026).txt
+Model: claude-sonnet-4.5 V2
+Timestamp: 2026-02-10T23:47:01.517Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 2 fuzzy duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (2):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 16, 315
+  - Fuzzy duplicate: wilhelm wundt / william wundt at ranks 295, 297
+
+Diversity Estimates:
+  Regions: Europe: 82, Asia: 14, Middle East: 20, Africa: 4, Americas: 19, Unknown: 361
+  Domains: Politics/Leadership: 25, Science/Technology: 4, Philosophy/Religion: 9, Arts/Literature: 23, Military: 15, Other: 424
+
+Advanced Metrics:
+  Advanced score: 100.0
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

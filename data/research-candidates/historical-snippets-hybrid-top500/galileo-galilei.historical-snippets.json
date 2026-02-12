@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.393Z",
+  "figureId": "galileo-galilei",
+  "figureName": "Galileo Galilei",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 4,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Galileo Galilei",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FGalileo_Galilei",
+      "snippet": "From his earliest childhood Galileo, the eldest of the family, was remarkable for intellectual aptitude as well as for mechanical invention. His favourite pastime was the construction of original and ingenious toy-machines; but his application to literary studies was equally conspicuous. In the monastery of Vallombrosa, near Florence, where his education was principally conducted, he not only made himself acquainted with the best Latin authors, but acquired a fair command of the Greek tongue, thus laying the foundation of his brilliant and elegant style. From one of the monks he also received instruction in logic;",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2025,
+      "source_title": "Galileo Galilei",
+      "source_url": "https://plato.stanford.edu/entries/galileo/",
+      "snippet": "Galileo Galilei (1564-1642) plays a central role in any history of science and many histories of philosophy. He is a—if not the —central figure of the Scientific Revolution of the seventeenth century. By middle age, his achievements in physics and astronomy, his support for the Copernican theory of the solar system, and his later condemnation by the Roman Church elevated him to heroic status even during his lifetime. His story has been continuously retold for more than 400 years. This article summarizes his contributions, focusing on some of the issues that have garnered attention from philosophers.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

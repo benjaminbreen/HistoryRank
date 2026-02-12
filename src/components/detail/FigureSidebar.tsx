@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, lazy, Suspense } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import Link from 'next/link';
 import { MapPin, ExternalLink, Share2 } from 'lucide-react';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
 import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
+import { RankSeal } from './RankSeal';
 import { REGION_COLORS } from '@/types';
 import type { Figure, WikipediaData, RelatedMediaItem } from '@/types';
 import type { BadgeType } from '@/types';
@@ -27,11 +28,20 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
   const [localThumbExt, setLocalThumbExt] = useState<number>(0);
   const [localThumbFailed, setLocalThumbFailed] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+  const [imageModalOpen, setImageModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (!imageModalOpen) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setImageModalOpen(false); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [imageModalOpen]);
 
   const localThumbExts = ['jpg', 'png', 'webp'];
   const localThumbUrl = !localThumbFailed
     ? `/thumbnails/${figure.id}.${localThumbExts[localThumbExt]}`
     : null;
+  const llmRank = figure.llmConsensusRank != null ? Math.round(figure.llmConsensusRank) : null;
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/figure/${figure.id}` : '';
 
@@ -39,13 +49,14 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
     <div className="space-y-5">
       {/* Portrait */}
       <div className="flex flex-col items-center text-center">
-        <div className="mb-4">
+        <div className="mb-4 relative">
           {localThumbUrl && !localThumbFailed ? (
             <img
               src={localThumbUrl}
               alt={figure.canonicalName}
               loading="lazy"
-              className="w-48 h-64 object-cover rounded-xl shadow-lg ring-1 ring-stone-200/50"
+              className="w-48 h-64 object-cover rounded-xl shadow-lg ring-1 ring-stone-200/50 cursor-pointer transition-transform duration-200 hover:scale-[1.03]"
+              onClick={() => setImageModalOpen(true)}
               onError={() => {
                 if (localThumbExt < 2) {
                   setLocalThumbExt(localThumbExt + 1);
@@ -59,7 +70,8 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
               src={wiki.thumbnail.source}
               alt={figure.canonicalName}
               loading="lazy"
-              className="w-48 h-64 object-cover rounded-xl shadow-lg ring-1 ring-stone-200/50"
+              className="w-48 h-64 object-cover rounded-xl shadow-lg ring-1 ring-stone-200/50 cursor-pointer transition-transform duration-200 hover:scale-[1.03]"
+              onClick={() => setImageModalOpen(true)}
             />
           ) : (
             <div className="w-48 h-64 rounded-xl bg-gradient-to-br from-stone-100 to-stone-200 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center shadow-inner">
@@ -68,14 +80,21 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
               </span>
             </div>
           )}
+          {llmRank != null && (
+            <div className="pointer-events-none absolute -bottom-3 -right-3">
+              <RankSeal rank={llmRank} domain={figure.domain} size={66} />
+            </div>
+          )}
         </div>
 
-        <h1 className="font-serif text-2xl font-semibold text-stone-900 dark:text-amber-100 leading-tight">
+        <h1 className="font-serif text-2xl font-semibold text-stone-900 dark:text-amber-100 leading-tight [text-wrap:balance]">
           {figure.canonicalName}
         </h1>
 
         {figure.occupation && (
-          <p className="mt-1 text-sm text-stone-600 dark:text-slate-400">{figure.occupation}</p>
+          <p className="mt-1 font-serif text-[0.92rem] uppercase tracking-[0.105em] leading-none first-letter:text-[1.14em] first-letter:tracking-[0.018em] text-stone-700 dark:text-amber-200/90">
+            {figure.occupation}
+          </p>
         )}
 
         <div className="mt-2 flex items-center gap-2 text-sm text-stone-600 dark:text-slate-400">
@@ -110,7 +129,7 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
       {/* Aliases */}
       {aliases.length > 0 && (
         <div className="rounded-xl border border-stone-200/70 bg-white/90 dark:bg-slate-800/80 dark:border-slate-700 p-3">
-          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-slate-500 mb-2">
+          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/80 mb-2">
             Also known as
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -131,7 +150,7 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
         <div className="rounded-xl border border-stone-200/70 bg-white/90 dark:bg-slate-800/80 dark:border-slate-700 p-3">
           <div className="flex items-center gap-2 mb-2">
             <MapPin className="w-3.5 h-3.5 text-stone-400 dark:text-slate-500" />
-            <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-slate-500 font-medium">
+            <span className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/80 font-medium">
               Geography
             </span>
           </div>
@@ -179,7 +198,7 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
       {/* Related Figures */}
       {figure.relatedFigures && figure.relatedFigures.length > 0 && (
         <div className="rounded-xl border border-stone-200/70 bg-white/90 dark:bg-slate-800/80 dark:border-slate-700 p-3">
-          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-slate-500 mb-2">
+          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/80 mb-2">
             Related figures
           </div>
           <div className="flex flex-wrap gap-2">
@@ -228,7 +247,7 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
       {/* Related Media */}
       {(mediaLoading || relatedMedia.length > 0) && (
         <div className="rounded-xl border border-stone-200/70 bg-white/90 dark:bg-slate-800/80 dark:border-slate-700 p-3">
-          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400 dark:text-slate-500 mb-2">
+          <div className="text-[10px] uppercase tracking-[0.14em] text-stone-400/85 dark:text-amber-600/80 mb-2">
             Related media
           </div>
           {mediaLoading ? (
@@ -290,6 +309,21 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
         url={shareUrl}
         title={figure.canonicalName}
       />
+
+      {/* Image lightbox modal */}
+      {imageModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm cursor-pointer"
+          onClick={() => setImageModalOpen(false)}
+        >
+          <img
+            src={localThumbUrl && !localThumbFailed ? localThumbUrl : wiki?.thumbnail?.source || ''}
+            alt={figure.canonicalName}
+            className="max-h-[85vh] max-w-[90vw] rounded-xl shadow-2xl ring-1 ring-white/10 object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }

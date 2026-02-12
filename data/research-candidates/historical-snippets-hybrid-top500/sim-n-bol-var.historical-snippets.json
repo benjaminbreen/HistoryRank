@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.429Z",
+  "figureId": "sim-n-bol-var",
+  "figureName": "Simón Bolívar",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 3,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Bolivar, Simon",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FBolivar%2C_Simon",
+      "snippet": "Like others of the revolutionists Bolivar took to flight, and succeeded in reaching Curaçao in safety. He did not, however, remain long in retirement, but in September 1812, hearing of important movements in New Granada, repaired to Cartagena, where he received a commission to operate against the Spanish troops on the Magdalena river. In this expedition he proved eminently successful, driving the Spaniards from post to post, until arriving at the confines of Venezuela he boldly determined to enter that province and try conclusions with General Monteverde himself. His troops did not number more than 500 men;",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

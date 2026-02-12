@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.433Z",
+  "figureId": "ludwig-van-beethoven",
+  "figureName": "Ludwig van Beethoven",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Beethoven, Ludwig van",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FBeethoven%2C_Ludwig_van",
+      "snippet": "In the spring of 1787 Beethoven paid a short visit to Vienna, where he astonished Mozart by his extemporizations and had a few lessons from him. How he was enabled to afford this visit is not clear. After three months the illness of his mother, to whom he was devoted, brought him back. She died in July, leaving a baby girl, one year old, who died in November. For five more years Beethoven remained at Bonn supporting his family, of which he had been since the age of fifteen practically the head, as his father’s bad habits steadily increased until in 1789 Ludwig was officially entrusted with his father’s salary.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

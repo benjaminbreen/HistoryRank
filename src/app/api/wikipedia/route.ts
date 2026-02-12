@@ -117,56 +117,62 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const wikiUrl = new URL('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(slug));
+    const article = slug.replace(/-/g, '_');
 
-    const response = await fetch(wikiUrl.toString(), {
-      headers: {
-        'User-Agent': 'HistoryRank/1.0 (research project)',
-      },
-      next: { revalidate: 86400 },
-    });
-
-    if (!response.ok) {
-      const altSlug = slug.replace(/-/g, '_');
-      const altUrl = new URL('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(altSlug));
-
-      const altResponse = await fetch(altUrl.toString(), {
-        headers: {
-          'User-Agent': 'HistoryRank/1.0 (research project)',
-        },
+    // Fetch both REST summary (for thumbnail) and MediaWiki extracts (for full intro paragraphs) in parallel
+    const [summaryRes, extractsRes] = await Promise.all([
+      fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(article)}`, {
+        headers: { 'User-Agent': 'HistoryRank/1.0 (research project)' },
         next: { revalidate: 86400 },
-      });
+      }),
+      fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(article)}&prop=extracts&exintro=1&explaintext=1&format=json`, {
+        headers: { 'User-Agent': 'HistoryRank/1.0 (research project)' },
+        next: { revalidate: 86400 },
+      }),
+    ]);
 
-      if (!altResponse.ok) {
-        return NextResponse.json({
-          thumbnail: null,
-          extract: null,
-          title: null,
-        });
-      }
+    let thumbnail = null;
+    let title = null;
+    let pageid = null;
+    let extract: string | null = null;
 
-      const altData = await altResponse.json();
-      return NextResponse.json({
-        thumbnail: altData.thumbnail || null,
-        extract: altData.extract || null,
-        title: altData.title || null,
-        pageid: altData.pageid || null,
-      });
+    if (summaryRes.ok) {
+      const summaryData = await summaryRes.json();
+      thumbnail = summaryData.thumbnail || null;
+      title = summaryData.title || null;
+      pageid = summaryData.pageid || null;
+      extract = summaryData.extract || null;
     }
 
-    const data = await response.json();
+    // Parse multi-paragraph extract from MediaWiki action API
+    let extract_paragraphs: string[] = [];
+    if (extractsRes.ok) {
+      const extractsData = await extractsRes.json();
+      const pages = extractsData?.query?.pages;
+      if (pages) {
+        const page = Object.values(pages)[0] as { extract?: string };
+        if (page?.extract) {
+          extract_paragraphs = page.extract
+            .split('\n')
+            .map((p: string) => p.trim())
+            .filter((p: string) => p.length > 0);
+        }
+      }
+    }
 
     return NextResponse.json({
-      thumbnail: data.thumbnail || null,
-      extract: data.extract || null,
-      title: data.title || null,
-      pageid: data.pageid || null,
+      thumbnail,
+      extract,
+      extract_paragraphs,
+      title,
+      pageid,
     });
   } catch (error) {
     console.error('Wikipedia API error:', error);
     return NextResponse.json({
       thumbnail: null,
       extract: null,
+      extract_paragraphs: [],
       title: null,
     });
   }

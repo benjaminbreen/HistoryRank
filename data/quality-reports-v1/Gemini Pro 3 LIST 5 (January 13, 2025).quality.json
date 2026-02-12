@@ -1,0 +1,484 @@
+{
+  "file": "Gemini Pro 3 LIST 5 (January 13, 2025).txt",
+  "model": "Gemini Pro 3",
+  "timestamp": "2026-02-10T23:46:04.460Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 6,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 218,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "athlete",
+          "startRank": 261,
+          "endRank": 265,
+          "count": 5,
+          "examples": [
+            "261. Usain Bolt",
+            "262. Michael Jordan",
+            "263. Serena Williams"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "athlete",
+          "startRank": 267,
+          "endRank": 277,
+          "count": 11,
+          "examples": [
+            "267. Jackie Robinson",
+            "268. Billie Jean King",
+            "269. Tiger Woods"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "athlete",
+          "startRank": 281,
+          "endRank": 498,
+          "count": 218,
+          "examples": [
+            "281. Kobe Bryant",
+            "282. Shaquille O'Neal",
+            "283. Magic Johnson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "writer",
+          "startRank": 725,
+          "endRank": 734,
+          "count": 10,
+          "examples": [
+            "725. James Joyce",
+            "726. Virginia Woolf",
+            "727. George Orwell"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "composer",
+          "startRank": 761,
+          "endRank": 775,
+          "count": 15,
+          "examples": [
+            "761. Frédéric Chopin",
+            "762. Franz Liszt",
+            "763. Pyotr Ilyich Tchaikovsky"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "designer",
+          "startRank": 973,
+          "endRank": 984,
+          "count": 12,
+          "examples": [
+            "973. Louis Vuitton",
+            "974. Guccio Gucci",
+            "975. Thierry Hermes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 281,
+          "endRank": 308,
+          "count": 28,
+          "examples": [
+            "281. Kobe Bryant",
+            "282. Shaquille O'Neal",
+            "283. Magic Johnson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 318,
+          "endRank": 366,
+          "count": 49,
+          "examples": [
+            "318. Walter Hagen",
+            "319. Sam Snead",
+            "320. Byron Nelson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:sports",
+          "startRank": 416,
+          "endRank": 498,
+          "count": 83,
+          "examples": [
+            "416. Mia Hamm",
+            "417. Abby Wambach",
+            "418. Alex Morgan"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:science",
+          "startRank": 695,
+          "endRank": 710,
+          "count": 16,
+          "examples": [
+            "695. Andrew Wiles",
+            "696. Grigori Perelman",
+            "697. Edward Witten"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "category:arts",
+          "startRank": 752,
+          "endRank": 770,
+          "count": 19,
+          "examples": [
+            "752. Moliere",
+            "753. Henrik Ibsen",
+            "754. Anton Chekhov"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 218 similar entries"
+    },
+    "structural": {
+      "entries": 1003,
+      "validJson": true,
+      "sequentialRanks": false,
+      "status": "FAIL",
+      "details": "1003 entries (expected 500 or 1000); non-sequential ranks"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle",
+        "mozart"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        102,
+        864
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "suleiman the magnificent",
+      "ranks": [
+        104,
+        197
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "florence nightingale",
+      "ranks": [
+        120,
+        571
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "j robert oppenheimer",
+      "ranks": [
+        134,
+        620
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "socrates",
+      "ranks": [
+        190,
+        412
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hypatia",
+      "ranks": [
+        244,
+        692
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "coco chanel",
+      "ranks": [
+        251,
+        716
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rivaldo",
+      "ranks": [
+        351,
+        408
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "johann gutenberg",
+      "variants": [
+        "johann gutenberg",
+        "johannes gutenberg"
+      ],
+      "ranks": [
+        8,
+        169
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        51,
+        562
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "queen elizabeth ii"
+      ],
+      "ranks": [
+        94,
+        568
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "montezuma ii",
+      "variants": [
+        "montezuma ii",
+        "montezuma i"
+      ],
+      "ranks": [
+        151,
+        521
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        260,
+        551
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kilby",
+      "variants": [
+        "jack kilby",
+        "jack kirby"
+      ],
+      "ranks": [
+        701,
+        924
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "athlete",
+      "startRank": 261,
+      "endRank": 265,
+      "count": 5,
+      "examples": [
+        "261. Usain Bolt",
+        "262. Michael Jordan",
+        "263. Serena Williams"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "athlete",
+      "startRank": 267,
+      "endRank": 277,
+      "count": 11,
+      "examples": [
+        "267. Jackie Robinson",
+        "268. Billie Jean King",
+        "269. Tiger Woods"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "athlete",
+      "startRank": 281,
+      "endRank": 498,
+      "count": 218,
+      "examples": [
+        "281. Kobe Bryant",
+        "282. Shaquille O'Neal",
+        "283. Magic Johnson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "writer",
+      "startRank": 725,
+      "endRank": 734,
+      "count": 10,
+      "examples": [
+        "725. James Joyce",
+        "726. Virginia Woolf",
+        "727. George Orwell"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "composer",
+      "startRank": 761,
+      "endRank": 775,
+      "count": 15,
+      "examples": [
+        "761. Frédéric Chopin",
+        "762. Franz Liszt",
+        "763. Pyotr Ilyich Tchaikovsky"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "designer",
+      "startRank": 973,
+      "endRank": 984,
+      "count": 12,
+      "examples": [
+        "973. Louis Vuitton",
+        "974. Guccio Gucci",
+        "975. Thierry Hermes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 281,
+      "endRank": 308,
+      "count": 28,
+      "examples": [
+        "281. Kobe Bryant",
+        "282. Shaquille O'Neal",
+        "283. Magic Johnson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 318,
+      "endRank": 366,
+      "count": 49,
+      "examples": [
+        "318. Walter Hagen",
+        "319. Sam Snead",
+        "320. Byron Nelson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:sports",
+      "startRank": 416,
+      "endRank": 498,
+      "count": 83,
+      "examples": [
+        "416. Mia Hamm",
+        "417. Abby Wambach",
+        "418. Alex Morgan"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:science",
+      "startRank": 695,
+      "endRank": 710,
+      "count": 16,
+      "examples": [
+        "695. Andrew Wiles",
+        "696. Grigori Perelman",
+        "697. Edward Witten"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "category:arts",
+      "startRank": 752,
+      "endRank": 770,
+      "count": 19,
+      "examples": [
+        "752. Moliere",
+        "753. Henrik Ibsen",
+        "754. Anton Chekhov"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 71,
+      "Asia": 20,
+      "Middle East": 16,
+      "Africa": 14,
+      "Americas": 22,
+      "Oceania": 0,
+      "Unknown": 860
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1003
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 158,
+      "Science/Technology": 117,
+      "Philosophy/Religion": 96,
+      "Arts/Literature": 130,
+      "Military": 14,
+      "Other": 488
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 6,
+    "parentheticalRate": 0.005982053838484547,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.0009970089730807576,
+    "commaNameCount": 1,
+    "commaNameRate": 0.0009970089730807576,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 165,
+    "contributionShortRate": 0.16450648055832504,
+    "score": 96.29112662013956
+  },
+  "summary": "Issues: 8 exact duplicates; pattern collapse (max 218); 1003 entries (expected 500 or 1000); non-sequential ranks"
+}

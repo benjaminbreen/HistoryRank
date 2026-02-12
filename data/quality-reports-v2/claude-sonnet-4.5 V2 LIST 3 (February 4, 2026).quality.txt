@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: claude-sonnet-4.5 V2 LIST 3 (February 4, 2026).txt
+Model: claude-sonnet-4.5 V2
+Timestamp: 2026-02-10T23:47:02.416Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 29 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 58/61 anchor figures found (95%)
+
+Issues (31):
+  - Exact duplicate: "louis pasteur" at ranks 27, 393
+  - Exact duplicate: "nicolaus copernicus" at ranks 33, 257, 398
+  - Exact duplicate: "john locke" at ranks 41, 212, 336
+  - Exact duplicate: "nikola tesla" at ranks 56, 482
+  - Exact duplicate: "werner heisenberg" at ranks 79, 434
+  - Exact duplicate: "saladin" at ranks 80, 421
+  - Exact duplicate: "cyrus the great" at ranks 85, 289
+  - Exact duplicate: "rachel carson" at ranks 89, 467
+  - Exact duplicate: "hippocrates" at ranks 90, 339
+  - Exact duplicate: "hernn corts" at ranks 119, 147
+  ... and 21 more issues
+
+Diversity Estimates:
+  Regions: Europe: 85, Asia: 22, Middle East: 26, Africa: 13, Americas: 30, Unknown: 324
+  Domains: Politics/Leadership: 27, Science/Technology: 6, Philosophy/Religion: 21, Arts/Literature: 23, Military: 8, Other: 415
+
+Advanced Metrics:
+  Advanced score: 99.9
+  Parenthetical names: 0.0%
+  Multi-person names: 0.2%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

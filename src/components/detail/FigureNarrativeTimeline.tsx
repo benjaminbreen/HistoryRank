@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import { Clock } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FigureLifeTimeline } from './FigureLifeTimeline';
 import { FigureTimelineMap } from './FigureTimelineMap';
@@ -205,8 +206,9 @@ export function FigureNarrativeTimeline({
           </div>
         </div>
       ) : (
-        <div className="rounded-xl border border-stone-200/70 bg-white/90 p-5 text-sm text-stone-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300">
-          No timeline events generated yet.
+        <div className="rounded-xl border border-stone-200/70 bg-white/90 p-5 text-sm text-stone-600 shadow-sm dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-300 flex flex-col items-center gap-2 py-8">
+          <Clock className="h-8 w-8 text-stone-300 dark:text-slate-600" />
+          <p>No timeline events generated yet.</p>
         </div>
       )}
 

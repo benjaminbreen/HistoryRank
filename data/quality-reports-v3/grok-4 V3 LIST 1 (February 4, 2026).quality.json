@@ -1,0 +1,174 @@
+{
+  "file": "grok-4 V3 LIST 1 (February 4, 2026).txt",
+  "model": "grok-4 V3",
+  "timestamp": "2026-02-10T23:47:23.708Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 1,
+      "fuzzy": 7,
+      "status": "PASS",
+      "details": "1 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "oliver cromwell",
+      "ranks": [
+        167,
+        398
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        65
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "elizabeth ii"
+      ],
+      "ranks": [
+        62,
+        411
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george h w bush",
+      "variants": [
+        "george h w bush",
+        "george w bush"
+      ],
+      "ranks": [
+        315,
+        317
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles i",
+      "variants": [
+        "charles i",
+        "charles iii"
+      ],
+      "ranks": [
+        399,
+        413
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george iv",
+      "variants": [
+        "george iv",
+        "george v"
+      ],
+      "ranks": [
+        405,
+        408
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward vii",
+      "variants": [
+        "edward vii",
+        "edward viii"
+      ],
+      "ranks": [
+        407,
+        409
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george v",
+      "variants": [
+        "george v",
+        "george vi"
+      ],
+      "ranks": [
+        408,
+        410
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 56,
+      "Asia": 11,
+      "Middle East": 13,
+      "Africa": 4,
+      "Americas": 12,
+      "Oceania": 0,
+      "Unknown": 404
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 33,
+      "Science/Technology": 3,
+      "Philosophy/Religion": 4,
+      "Arts/Literature": 21,
+      "Military": 2,
+      "Other": 437
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 1,
+    "multiPersonRate": 0.002,
+    "commaNameCount": 4,
+    "commaNameRate": 0.008,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 36,
+    "contributionShortRate": 0.072,
+    "score": 98.38000000000001
+  },
+  "summary": "List passes all quality checks"
+}

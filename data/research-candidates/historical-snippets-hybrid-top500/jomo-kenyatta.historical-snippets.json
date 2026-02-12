@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.605Z",
+  "figureId": "jomo-kenyatta",
+  "figureName": "Jomo Kenyatta",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Jomo Kenyatta (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Jomo_Kenyatta",
+      "snippet": "Jomo Kenyatta was a Kenyan anti-colonial activist and politician who governed Kenya as its Prime Minister from 1963 to 1964 and then as its first President from 1964 to his death in 1978. He played a significant role in the transformation of Kenya from a colony of the British Empire into an independent republic. Ideologically an African nationalist and a conservative, he led the Kenya African National Union (KANU) party from 1961 until his death.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

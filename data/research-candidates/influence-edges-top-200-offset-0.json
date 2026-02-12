@@ -1,0 +1,1319 @@
+{
+  "generatedAt": "2026-02-11T06:17:45.384Z",
+  "config": {
+    "top": 200,
+    "offset": 0,
+    "minEvidenceItems": 2,
+    "minSourceFamilies": 2,
+    "approvedThreshold": 0.62,
+    "algorithm": "influence_builder_v1"
+  },
+  "inventory": {
+    "figuresConsidered": 200,
+    "relatedSeedEvidence": 349,
+    "timelineMentionEvidence": 6,
+    "sourceMentionEvidence": 30,
+    "snippetMentionEvidence": 30
+  },
+  "results": {
+    "edges": 26,
+    "approved": 13,
+    "candidate": 13,
+    "evidenceRows": 72
+  },
+  "edges": [
+    {
+      "fromId": "aristotle",
+      "toId": "plato",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 1,
+      "confidence": 1,
+      "supportCount": 5,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 584,
+          "excerpt": "Plato — Plato (429?-347 B.C.E.) is, by any reckoning, one of the most dazzling writers in the Western literary tradition and one of the most penetrating, wide-ranging, and influential authors in the history of philosophy...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/plato/"
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 586,
+          "excerpt": "Aristotle — Aristotle (384-322 B.C.E.) numbers among the greatest philosophers of all time. Judged solely in terms of his philosophical influence, only Plato is his peer: Aristotle's works shaped centuries of philosophy...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/aristotle/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 112,
+          "excerpt": "Plato — Plato (429?-347 B.C.E.) is, by any reckoning, one of the most dazzling writers in the Western literary tradition and one of the most penetrating, wide-ranging, and influential authors in the history of philosophy...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/plato/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 114,
+          "excerpt": "Aristotle — Aristotle (384-322 B.C.E.) numbers among the greatest philosophers of all time. Judged solely in terms of his philosophical influence, only Plato is his peer: Aristotle's works shaped centuries of philosophy...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/aristotle/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Aristotle's teacher",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Aristotle's teacher",
+            "generated_from": "aristotle"
+          }
+        }
+      ],
+      "fromName": "Aristotle",
+      "toName": "Plato"
+    },
+    {
+      "fromId": "georg-wilhelm-friedrich-hegel",
+      "toId": "karl-marx",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 1,
+      "confidence": 1,
+      "supportCount": 5,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 591,
+          "excerpt": "Marx, Karl — Karl Marx (1818-1883) is often treated as an activist rather than a philosopher, a revolutionary whose works inspired the foundation of communist regimes in the twentieth century. However—without denying tha...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/marx/"
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 626,
+          "excerpt": "Hegel, Georg Wilhelm Friedrich — Along with J.G. Fichte and, at least in his early work, F.W.J. von Schelling, Georg Wilhelm Friedrich Hegel (1770-1831) belongs to the period of German idealism in the decades following K...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/hegel/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 118,
+          "excerpt": "Marx, Karl — Karl Marx (1818-1883) is often treated as an activist rather than a philosopher, a revolutionary whose works inspired the foundation of communist regimes in the twentieth century. However—without denying tha...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/marx/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 146,
+          "excerpt": "Hegel, Georg Wilhelm Friedrich — Along with J.G. Fichte and, at least in his early work, F.W.J. von Schelling, Georg Wilhelm Friedrich Hegel (1770-1831) belongs to the period of German idealism in the decades following K...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/hegel/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Hegel's philosophical successor and critic",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Hegel's philosophical successor and critic",
+            "generated_from": "georg-wilhelm-friedrich-hegel"
+          }
+        }
+      ],
+      "fromName": "Georg Wilhelm Friedrich Hegel",
+      "toName": "Karl Marx"
+    },
+    {
+      "fromId": "plato",
+      "toId": "socrates",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 1,
+      "confidence": 1,
+      "supportCount": 5,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "timeline_ref",
+          "family": "timeline",
+          "sourceTable": "figure_timeline_events",
+          "sourceRowId": 258,
+          "excerpt": "Socrates' trial and execution — Plato's teacher, Socrates, was tried and executed in Athens, profoundly influencing Plato's philosophical development.",
+          "weight": 0.3,
+          "metadata": {
+            "cue": "mention",
+            "source_ref_ids": [
+              5,
+              10
+            ]
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "primary_text",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 221,
+          "excerpt": "The Republic — \"The Republic\" by Plato is a Socratic dialogue written around 375 BC. Through conversations between Socrates and various Athenians, the work explores the meaning of justice and whether the just person is h...",
+          "weight": 0.3,
+          "metadata": {
+            "source_corpus": "project_gutenberg",
+            "provider": null,
+            "source_url": "https://www.gutenberg.org/ebooks/1497"
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "primary_text",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 287,
+          "excerpt": "Apology — \"Apology\" by Plato is a Socratic dialogue written after 399 BC. It presents Socrates's legal defense at his trial, where he faced charges of corrupting Athens's youth and introducing new gods.",
+          "weight": 0.3,
+          "metadata": {
+            "source_corpus": "project_gutenberg",
+            "provider": null,
+            "source_url": "https://www.gutenberg.org/ebooks/1656"
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "primary_text",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 288,
+          "excerpt": "Crito — \"Crito\" by Plato is a dialogue written around 399 BC. It depicts a conversation between Socrates and his friend Crito as Socrates awaits execution in prison. Crito urges Socrates to escape, offering money and ref...",
+          "weight": 0.3,
+          "metadata": {
+            "source_corpus": "project_gutenberg",
+            "provider": null,
+            "source_url": "https://www.gutenberg.org/ebooks/1657"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Plato's teacher",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Plato's teacher",
+            "generated_from": "plato"
+          }
+        }
+      ],
+      "fromName": "Plato",
+      "toName": "Socrates"
+    },
+    {
+      "fromId": "confucius",
+      "toId": "mencius",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.76,
+      "confidence": 0.987,
+      "supportCount": 4,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 622,
+          "excerpt": "Mencius — Mencius (fourth century BCE) was a Confucian philosopher. Often referred to as the \"Second Sage\" of Confucianism (meaning second in importance only to Confucius himself), Mencius is best known for his claim tha...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/mencius/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 142,
+          "excerpt": "Mencius — Mencius (fourth century BCE) was a Confucian philosopher. Often referred to as the \"Second Sage\" of Confucianism (meaning second in importance only to Confucius himself), Mencius is best known for his claim tha...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/mencius/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 73,
+          "excerpt": "Mencius — The Măngs or Măng-suns had been in the time of Confucius one of the three great clans of Lû (all descended from the marquis Hwan, 711–694&#160; B.C. ), which he had endeavoured to curb. Their power had subseque...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FMencius"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Confucius' most famous disciple",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Confucius' most famous disciple",
+            "generated_from": "confucius"
+          }
+        }
+      ],
+      "fromName": "Confucius",
+      "toName": "Mencius"
+    },
+    {
+      "fromId": "galen",
+      "toId": "hippocrates",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.76,
+      "confidence": 0.987,
+      "supportCount": 4,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 633,
+          "excerpt": "Galen — Galen ( Galēnos , 129-c. 200 CE) was primarily a medical author, but had a deep engagement with and influence on the philosophical debates of his time. He wrote many works of logic and ethics, and also addressed...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/galen/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 153,
+          "excerpt": "Galen — Galen ( Galēnos , 129-c. 200 CE) was primarily a medical author, but had a deep engagement with and influence on the philosophical debates of his time. He wrote many works of logic and ethics, and also addressed...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/galen/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 37,
+          "excerpt": "Hippocrates — The Hippocratic Collection consists of eighty-seven treatises, of which a part only can be accepted as genuine. The collection has been submitted to the closest criticism in ancient and modern times by a la...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHippocrates"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: influential medical successor",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "influential medical successor",
+            "generated_from": "hippocrates"
+          }
+        }
+      ],
+      "fromName": "Galen",
+      "toName": "Hippocrates"
+    },
+    {
+      "fromId": "adam-smith",
+      "toId": "david-hume",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.752,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 614,
+          "excerpt": "Hume, David — Generally regarded as one of the most important philosophers to write in English, David Hume (1711-1776) was also well known in his own time as an historian and essayist. A master stylist in any genre, his...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/hume/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 134,
+          "excerpt": "Hume, David — Generally regarded as one of the most important philosophers to write in English, David Hume (1711-1776) was also well known in his own time as an historian and essayist. A master stylist in any genre, his...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/hume/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: close friend and intellectual collaborator",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "close friend and intellectual collaborator",
+            "generated_from": "adam-smith"
+          }
+        }
+      ],
+      "fromName": "Adam Smith",
+      "toName": "David Hume"
+    },
+    {
+      "fromId": "aristotle",
+      "toId": "pythagoras",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.752,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 608,
+          "excerpt": "Pythagoras — Pythagoras, one of the most famous and controversial ancient Greek philosophers, lived from ca. 570 to ca. 490 BCE. He spent his early years on the island of Samos, off the coast of modern Turkey. At the age...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/pythagoras/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 128,
+          "excerpt": "Pythagoras — Pythagoras, one of the most famous and controversial ancient Greek philosophers, lived from ca. 570 to ca. 490 BCE. He spent his early years on the island of Samos, off the coast of modern Turkey. At the age...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/pythagoras/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Influenced by Pythagoreanism",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Influenced by Pythagoreanism",
+            "generated_from": "pythagoras"
+          }
+        }
+      ],
+      "fromName": "Aristotle",
+      "toName": "Pythagoras"
+    },
+    {
+      "fromId": "aristotle",
+      "toId": "thomas-aquinas",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.752,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 610,
+          "excerpt": "Aquinas, Thomas — Between antiquity and modernity stands Thomas Aquinas (ca. 1225-1274). The greatest figure of thirteenth-century Europe in the two preeminent sciences of the era, philosophy and theology, he epitomizes...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/aquinas/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 130,
+          "excerpt": "Aquinas, Thomas — Between antiquity and modernity stands Thomas Aquinas (ca. 1225-1274). The greatest figure of thirteenth-century Europe in the two preeminent sciences of the era, philosophy and theology, he epitomizes...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/aquinas/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: major philosophical influence",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "major philosophical influence",
+            "generated_from": "thomas-aquinas"
+          }
+        }
+      ],
+      "fromName": "Aristotle",
+      "toName": "Thomas Aquinas"
+    },
+    {
+      "fromId": "plato",
+      "toId": "pythagoras",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.752,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 608,
+          "excerpt": "Pythagoras — Pythagoras, one of the most famous and controversial ancient Greek philosophers, lived from ca. 570 to ca. 490 BCE. He spent his early years on the island of Samos, off the coast of modern Turkey. At the age...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/pythagoras/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 128,
+          "excerpt": "Pythagoras — Pythagoras, one of the most famous and controversial ancient Greek philosophers, lived from ca. 570 to ca. 490 BCE. He spent his early years on the island of Samos, off the coast of modern Turkey. At the age...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/pythagoras/"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Plato's philosophical influence",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Plato's philosophical influence",
+            "generated_from": "plato"
+          }
+        }
+      ],
+      "fromName": "Plato",
+      "toName": "Pythagoras"
+    },
+    {
+      "fromId": "augustus",
+      "toId": "julius-caesar",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.56,
+      "confidence": 0.702,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "timeline_ref",
+          "family": "timeline",
+          "sourceTable": "figure_timeline_events",
+          "sourceRowId": 437,
+          "excerpt": "Adoption by Julius Caesar — Adopted posthumously by his great-uncle Julius Caesar, becoming Gaius Julius Caesar Octavianus.",
+          "weight": 0.3,
+          "metadata": {
+            "cue": "mention",
+            "source_ref_ids": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 10,
+          "excerpt": "Augustus — Gaius Octavius was born in Rome on the 23rd of September 63&#160; B.C. , the year of Cicero’s consulship and of Catiline’s conspiracy. He came of a family of good standing, long settled at Velitrae (Velletri),...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAugustus"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Adopted father and predecessor",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Adopted father and predecessor",
+            "generated_from": "augustus"
+          }
+        }
+      ],
+      "fromName": "Augustus",
+      "toName": "Julius Caesar"
+    },
+    {
+      "fromId": "jesus",
+      "toId": "paul-the-apostle",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.56,
+      "confidence": 0.702,
+      "supportCount": 3,
+      "sourceFamilyCount": 3,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "timeline_ref",
+          "family": "timeline",
+          "sourceTable": "figure_timeline_events",
+          "sourceRowId": 452,
+          "excerpt": "Conversion to Christianity — Paul experienced a transformative vision of Jesus on the road to Damascus, leading to his conversion.",
+          "weight": 0.3,
+          "metadata": {
+            "cue": "mention",
+            "source_ref_ids": [
+              1
+            ]
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 82,
+          "excerpt": "Paul, the Apostle — A modern Jew has said, “Jesus seems to expand and spiritualize Judaism; Paul in some senses turns it upside down.” The reason of this contrast is their respective attitudes to the Law as the heart of...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FPaul%2C_the_Apostle"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: teacher and founder of Christianity",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "teacher and founder of Christianity",
+            "generated_from": "paul-the-apostle"
+          }
+        }
+      ],
+      "fromName": "Jesus",
+      "toName": "Paul the Apostle"
+    },
+    {
+      "fromId": "albert-einstein",
+      "toId": "franklin-d-roosevelt",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.674,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "timeline_ref",
+          "family": "timeline",
+          "sourceTable": "figure_timeline_events",
+          "sourceRowId": 447,
+          "excerpt": "Letter to President Roosevelt — Signed a letter to President Franklin D. Roosevelt warning of the potential development of atomic bombs by Germany.",
+          "weight": 0.3,
+          "metadata": {
+            "cue": "mention",
+            "source_ref_ids": [
+              7
+            ]
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "primary_text",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 61,
+          "excerpt": "Albert Einstein to Franklin D. Roosevelt - August 2, 1939",
+          "weight": 0.3,
+          "metadata": {
+            "source_corpus": "wikisource",
+            "provider": null,
+            "source_url": "https://en.wikisource.org/wiki/Albert_Einstein_to_Franklin_D._Roosevelt_-_August_2%2C_1939"
+          }
+        }
+      ],
+      "fromName": "Albert Einstein",
+      "toName": "Franklin D. Roosevelt"
+    },
+    {
+      "fromId": "martin-luther",
+      "toId": "martin-luther-king-jr",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.6,
+      "confidence": 0.674,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "approved",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "scholarship",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 137,
+          "excerpt": "Martin Luther King — American Literature",
+          "weight": 0.35,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "crossref",
+            "source_url": "https://doi.org/10.1093/obo/9780199827251-0049"
+          }
+        },
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 139,
+          "excerpt": "The autobiography of Martin Luther King, Jr.",
+          "weight": 0.25,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "openlibrary",
+            "source_url": "https://openlibrary.org/works/OL1945953W"
+          }
+        }
+      ],
+      "fromName": "Martin Luther",
+      "toName": "Martin Luther King Jr."
+    },
+    {
+      "fromId": "aristotle",
+      "toId": "martin-luther",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 599,
+          "excerpt": "Luther, Martin — Martin Luther (1483-1546) is the central figure of the Protestant Reformation. Whilst he is primarily seen as a theologian, the philosophical interest and impact of his ideas is also significant, so that...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/luther/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 119,
+          "excerpt": "Luther, Martin — Martin Luther (1483-1546) is the central figure of the Protestant Reformation. Whilst he is primarily seen as a theologian, the philosophical interest and impact of his ideas is also significant, so that...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/luther/"
+          }
+        }
+      ],
+      "fromName": "Aristotle",
+      "toName": "Martin Luther"
+    },
+    {
+      "fromId": "augustine-of-hippo",
+      "toId": "constantine-the-great",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 615,
+          "excerpt": "Augustine of Hippo — Augustine of Hippo was perhaps the greatest Christian philosopher of Antiquity and certainly the one who exerted the deepest and most lasting influence. He is a saint of the Catholic Church, and his...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/augustine/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 135,
+          "excerpt": "Augustine of Hippo — Augustine of Hippo was perhaps the greatest Christian philosopher of Antiquity and certainly the one who exerted the deepest and most lasting influence. He is a saint of the Catholic Church, and his...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/augustine/"
+          }
+        }
+      ],
+      "fromName": "Augustine of Hippo",
+      "toName": "Constantine the Great"
+    },
+    {
+      "fromId": "charles-darwin",
+      "toId": "david-hume",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 614,
+          "excerpt": "Hume, David — Generally regarded as one of the most important philosophers to write in English, David Hume (1711-1776) was also well known in his own time as an historian and essayist. A master stylist in any genre, his...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/hume/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 134,
+          "excerpt": "Hume, David — Generally regarded as one of the most important philosophers to write in English, David Hume (1711-1776) was also well known in his own time as an historian and essayist. A master stylist in any genre, his...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/hume/"
+          }
+        }
+      ],
+      "fromName": "Charles Darwin",
+      "toName": "David Hume"
+    },
+    {
+      "fromId": "galen",
+      "toId": "plato",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 633,
+          "excerpt": "Galen — Galen ( Galēnos , 129-c. 200 CE) was primarily a medical author, but had a deep engagement with and influence on the philosophical debates of his time. He wrote many works of logic and ethics, and also addressed...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/galen/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 153,
+          "excerpt": "Galen — Galen ( Galēnos , 129-c. 200 CE) was primarily a medical author, but had a deep engagement with and influence on the philosophical debates of his time. He wrote many works of logic and ethics, and also addressed...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/galen/"
+          }
+        }
+      ],
+      "fromName": "Galen",
+      "toName": "Plato"
+    },
+    {
+      "fromId": "gottfried-wilhelm-leibniz",
+      "toId": "plato",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 619,
+          "excerpt": "Leibniz, Gottfried Wilhelm — Gottfried Wilhelm Leibniz (1646-1716) was one of the great thinkers of the seventeenth and eighteenth centuries and is known as the last \"universal genius\". He made deep and important contrib...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/leibniz/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 139,
+          "excerpt": "Leibniz, Gottfried Wilhelm — Gottfried Wilhelm Leibniz (1646-1716) was one of the great thinkers of the seventeenth and eighteenth centuries and is known as the last \"universal genius\". He made deep and important contrib...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/leibniz/"
+          }
+        }
+      ],
+      "fromName": "Gottfried Wilhelm Leibniz",
+      "toName": "Plato"
+    },
+    {
+      "fromId": "jesus",
+      "toId": "thomas-jefferson",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 606,
+          "excerpt": "Jefferson, Thomas — Scholars in general have not taken seriously Thomas Jefferson (1743-1826) as a philosopher, perhaps because he never wrote a formal philosophical treatise. Yet Jefferson was a prodigious writer, and h...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/jefferson/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 126,
+          "excerpt": "Jefferson, Thomas — Scholars in general have not taken seriously Thomas Jefferson (1743-1826) as a philosopher, perhaps because he never wrote a formal philosophical treatise. Yet Jefferson was a prodigious writer, and h...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/jefferson/"
+          }
+        }
+      ],
+      "fromName": "Jesus",
+      "toName": "Thomas Jefferson"
+    },
+    {
+      "fromId": "michelangelo",
+      "toId": "thomas-aquinas",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 610,
+          "excerpt": "Aquinas, Thomas — Between antiquity and modernity stands Thomas Aquinas (ca. 1225-1274). The greatest figure of thirteenth-century Europe in the two preeminent sciences of the era, philosophy and theology, he epitomizes...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/aquinas/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 130,
+          "excerpt": "Aquinas, Thomas — Between antiquity and modernity stands Thomas Aquinas (ca. 1225-1274). The greatest figure of thirteenth-century Europe in the two preeminent sciences of the era, philosophy and theology, he epitomizes...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/aquinas/"
+          }
+        }
+      ],
+      "fromName": "Michelangelo",
+      "toName": "Thomas Aquinas"
+    },
+    {
+      "fromId": "thomas-hobbes",
+      "toId": "thucydides",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.5,
+      "confidence": 0.562,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 617,
+          "excerpt": "Hobbes, Thomas — Thomas Hobbes (1588-1679), whose current reputation rests largely on his political philosophy, was a thinker with wide-ranging interests. In philosophy, he defended a range of materialist, nominalist, an...",
+          "weight": 0.28,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "sep",
+            "source_url": "https://plato.stanford.edu/entries/hobbes/"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 137,
+          "excerpt": "Hobbes, Thomas — Thomas Hobbes (1588-1679), whose current reputation rests largely on his political philosophy, was a thinker with wide-ranging interests. In philosophy, he defended a range of materialist, nominalist, an...",
+          "weight": 0.22,
+          "metadata": {
+            "corpus": "other",
+            "source_url": "https://plato.stanford.edu/entries/hobbes/"
+          }
+        }
+      ],
+      "fromName": "Thomas Hobbes",
+      "toName": "Thucydides"
+    },
+    {
+      "fromId": "ibn-khaldun",
+      "toId": "timur",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.42,
+      "confidence": 0.49,
+      "supportCount": 3,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 39,
+          "excerpt": "Ibn Khaldun — In 1400 he was sent to Damascus, in connexion with the expedition intended to oppose Timur or Tamerlane. When Timur had become master of the situation, Ibn Khaldūn let himself down from the walls of the cit...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FIbn_Khaldun"
+          }
+        },
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 40,
+          "excerpt": "Ibn Khaldūn — In 1400 he was sent to Damascus, in connexion with the expedition intended to oppose Timur or Tamerlane. When Timur had become master of the situation, Ibn Khaldūn let himself down from the walls of the cit...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FIbn_Khald%C5%ABn"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Patron",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Patron",
+            "generated_from": "ibn-khaldun"
+          }
+        }
+      ],
+      "fromName": "Ibn Khaldun",
+      "toName": "Timur"
+    },
+    {
+      "fromId": "alexander-the-great",
+      "toId": "aristotle",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.4,
+      "confidence": 0.449,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "timeline_ref",
+          "family": "timeline",
+          "sourceTable": "figure_timeline_events",
+          "sourceRowId": 254,
+          "excerpt": "Appointed tutor to Alexander the Great — Aristotle was appointed as the tutor to the young Alexander, Prince of Macedon, a significant role in his career.",
+          "weight": 0.3,
+          "metadata": {
+            "cue": "mention",
+            "source_ref_ids": [
+              10,
+              13
+            ]
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Aristotle's student",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Aristotle's student",
+            "generated_from": "aristotle"
+          }
+        }
+      ],
+      "fromName": "Alexander the Great",
+      "toName": "Aristotle"
+    },
+    {
+      "fromId": "christopher-columbus",
+      "toId": "ferdinand-magellan",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.4,
+      "confidence": 0.449,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "primary_text",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 161,
+          "excerpt": "The age of exploration : from Christopher Columbus to Ferdinand Magellan",
+          "weight": 0.3,
+          "metadata": {
+            "source_corpus": "internet_archive",
+            "provider": null,
+            "source_url": "https://archive.org/details/isbn_9781622750191"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Pioneered Age of Exploration",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Pioneered Age of Exploration",
+            "generated_from": "ferdinand-magellan"
+          }
+        }
+      ],
+      "fromName": "Christopher Columbus",
+      "toName": "Ferdinand Magellan"
+    },
+    {
+      "fromId": "genghis-khan",
+      "toId": "kublai-khan",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.35,
+      "confidence": 0.393,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "source_excerpt",
+          "family": "reference",
+          "sourceTable": "figure_research_sources",
+          "sourceRowId": 123,
+          "excerpt": "Kublai Khan Biography",
+          "weight": 0.25,
+          "metadata": {
+            "source_corpus": "other",
+            "provider": "openlibrary",
+            "source_url": "https://openlibrary.org/works/OL34229002W"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Genghis Khan's grandson, founder of the Yuan Dynasty",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Genghis Khan's grandson, founder of the Yuan Dynasty",
+            "generated_from": "genghis-khan"
+          }
+        }
+      ],
+      "fromName": "Genghis Khan",
+      "toName": "Kublai Khan"
+    },
+    {
+      "fromId": "pericles",
+      "toId": "thucydides",
+      "direction": "undirected",
+      "relationType": "associated",
+      "evidenceScore": 0.26,
+      "confidence": 0.292,
+      "supportCount": 2,
+      "sourceFamilyCount": 2,
+      "status": "candidate",
+      "evidence": [
+        {
+          "kind": "snippet_match",
+          "family": "historical_snippet",
+          "sourceTable": "figure_historical_snippets",
+          "sourceRowId": 103,
+          "excerpt": "Thucydides — The development of Athens during the middle of the 5th century was, in itself, the best education which such a mind as that of Thucydides could have received. The expansion and consolidation of Athenian powe...",
+          "weight": 0.16,
+          "metadata": {
+            "corpus": "britannica_1911",
+            "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FThucydides"
+          }
+        },
+        {
+          "kind": "llm_seed",
+          "family": "llm_seed",
+          "sourceTable": "figures",
+          "sourceRowId": null,
+          "excerpt": "LLM related_figures seed: Pericles' contemporary historian",
+          "weight": 0.1,
+          "metadata": {
+            "relationship": "Pericles' contemporary historian",
+            "generated_from": "pericles"
+          }
+        }
+      ],
+      "fromName": "Pericles",
+      "toName": "Thucydides"
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:30:09.187Z",
+  "generatedAt": "2026-02-10T00:16:45.443Z",
   "figureId": "moses",
   "figureName": "Moses",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 453,
-      "totalTokenCount": 740,
+      "candidatesTokenCount": 466,
+      "totalTokenCount": 753,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -31,10 +49,10 @@
   "suggestions": {
     "primary": [
       {
-        "title": "The Torah (also known as the Pentateuch or the Five Books of Moses)",
+        "title": "The Torah (The Pentateuch)",
         "author": "Moses",
         "year": -1300,
-        "rationale": "The foundational religious text of Judaism, traditionally attributed to Moses. It contains narratives, laws, and teachings.",
+        "rationale": "Traditionally attributed to Moses, this is the foundational text of Judaism and Christianity, containing laws, narratives, and genealogies. Its ancient origins make direct attribution challenging, but it is considered the primary source for understanding the figure of Moses.",
         "likelyCorpora": [
           "wikisource",
           "internet_archive"
@@ -43,49 +61,49 @@
     ],
     "secondary": [
       {
-        "title": "The Hebrew Bible: A Critical Companion",
-        "author": "John Barton",
-        "year": 2016,
-        "rationale": "A comprehensive scholarly overview of the Hebrew Bible, including extensive analysis of the Pentateuch and its historical context.",
+        "title": "Moses: A Life",
+        "author": "Jonathan Kirsch",
+        "year": 1998,
+        "rationale": "A comprehensive and accessible biography that examines Moses through historical, archaeological, and literary lenses, drawing on biblical texts and modern scholarship.",
         "sourceType": "book"
       },
       {
-        "title": "Who Wrote the Bible?",
+        "title": "Moses: The Revelation of the Name",
+        "author": "Joseph Blenkinsopp",
+        "year": 2006,
+        "rationale": "This scholarly work by a renowned biblical scholar offers a critical examination of the figure of Moses, exploring his role in the formation of Israelite identity and religion.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Who is Moses? A Guide to the Essential Figure of the Bible",
         "author": "Richard Elliott Friedman",
-        "year": 1987,
-        "rationale": "Examines the documentary hypothesis and scholarly debates surrounding the authorship and composition of the Pentateuch.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Cambridge Companion to the Pentateuch",
-        "author": "Joel S. Baden and Ryan P. Byrne",
-        "year": 2022,
-        "rationale": "A collection of essays by leading scholars offering diverse perspectives on the Pentateuch's formation, content, and reception.",
+        "year": 2008,
+        "rationale": "Friedman, a prominent biblical scholar, analyzes the historical and literary evidence for Moses, discussing different scholarly interpretations of his life and significance.",
         "sourceType": "book"
       }
     ],
-    "notes": "Moses is a central figure in the Hebrew Bible and is traditionally credited with authorship of the Torah. Direct primary sources authored by Moses himself, outside of the Torah, are not extant. The Torah itself is the primary source for understanding the figure of Moses and his attributed teachings and laws. Secondary sources focus on the scholarly analysis of the Torah's composition, historicity, and theological significance."
+    "notes": "Primary sources directly authored by Moses are limited to the texts traditionally attributed to him, primarily the Torah. Historical and archaeological evidence for Moses as a specific individual is scarce, leading most scholarly research to focus on the textual and theological significance of the figure as presented in the Bible."
   },
   "unresolved": [
     {
       "role": "primary",
-      "title": "The Torah (also known as the Pentateuch or the Five Books of Moses)",
+      "title": "The Torah (The Pentateuch)",
       "reason": "No resolver results from corpus APIs"
     },
     {
       "role": "secondary",
-      "title": "The Hebrew Bible: A Critical Companion",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.72"
+      "title": "Moses: A Life",
+      "reason": "Best score below threshold (0.41 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "Who Wrote the Bible?",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=1.00"
+      "title": "Moses: The Revelation of the Name",
+      "reason": "Best score below threshold (0.70 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Cambridge Companion to the Pentateuch",
-      "reason": "Best score below threshold (0.23 < 0.72)"
+      "title": "Who is Moses? A Guide to the Essential Figure of the Bible",
+      "reason": "Best score below threshold (0.27 < 0.72)"
     }
   ],
   "candidates": []

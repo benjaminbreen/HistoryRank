@@ -1,0 +1,245 @@
+{
+  "generatedAt": "2026-02-10T00:17:46.675Z",
+  "figureId": "franklin-d-roosevelt",
+  "figureName": "Franklin D. Roosevelt",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 5,
+      "byRole": {
+        "primary": 2,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 2,
+        "openalex": 1,
+        "crossref": 1,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1935,
+        "max": 2017
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 633,
+      "totalTokenCount": 923,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Franklin D. Roosevelt: Public Papers and Addresses",
+        "author": "Franklin D. Roosevelt",
+        "year": 1938,
+        "rationale": "A comprehensive collection of Roosevelt's public speeches and addresses, offering direct insight into his policies and rhetoric during his presidency. Volumes are often available in digital archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Fireside Chats",
+        "author": "Franklin D. Roosevelt",
+        "year": 1933,
+        "rationale": "These radio addresses were a direct communication channel between FDR and the American people, explaining his New Deal policies and addressing national concerns. Transcripts are widely available.",
+        "likelyCorpora": [
+          "wikisource",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Public Papers and Addresses of Franklin D. Roosevelt",
+        "author": "Franklin D. Roosevelt",
+        "year": 1938,
+        "rationale": "This multi-volume set is a foundational primary source for understanding FDR's presidency, containing his most significant speeches, messages, and statements. Likely digitized by major archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Franklin D. Roosevelt: A Political Life",
+        "author": "Robert Dallek",
+        "year": 2017,
+        "rationale": "A comprehensive and well-regarded biography by a leading FDR scholar, offering in-depth analysis of his political career and presidency.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The New Deal: A Documentary History",
+        "author": "David B. Woolner",
+        "year": 2009,
+        "rationale": "This work provides a documentary history of the New Deal, contextualizing FDR's policies with primary source excerpts and scholarly analysis.",
+        "sourceType": "book"
+      },
+      {
+        "title": "FDR and the American Presidency",
+        "author": "Michael Nelson",
+        "year": 2001,
+        "rationale": "An academic examination of Roosevelt's impact on the American presidency, drawing on extensive research and historical scholarship.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "The 'Public Papers and Addresses' were published in multiple volumes throughout and after his presidency. The 'Fireside Chats' are a specific subset of his public addresses. Secondary sources selected are from reputable historians and published by major academic presses or are widely cited scholarly works."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Franklin D. Roosevelt: Public Papers and Addresses",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "The New Deal: A Documentary History",
+      "reason": "Best score below threshold (0.48 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "FDR and the American Presidency",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.38"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "speech",
+      "title": "The Public Papers and Addresses of Franklin D. Roosevelt",
+      "author": "Franklin D. Roosevelt",
+      "publication_year": 1935,
+      "source_url": "https://archive.org/details/publicpapersaddr0004fran",
+      "access_url": "https://archive.org/details/publicpapersaddr0004fran",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"The Public Papers and Addresses of Franklin D. Roosevelt\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.94; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "The Public Papers and Addresses of Franklin D. Roosevelt",
+        "suggestion_author": "Franklin D. Roosevelt",
+        "suggestion_year": 1938,
+        "suggestion_rationale": "This multi-volume set is a foundational primary source for understanding FDR's presidency, containing his most significant speeches, messages, and statements. Likely digitized by major archives.",
+        "ia_identifier": "publicpapersaddr0004fran"
+      }
+    },
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Fireside chats",
+      "author": "Franklin D. Roosevelt",
+      "publication_year": 1995,
+      "source_url": "https://archive.org/details/firesidechats00roos",
+      "access_url": "https://archive.org/details/firesidechats00roos",
+      "snippet": null,
+      "confidence": 0.92,
+      "why": "Primary source resolved from suggestion \"Fireside Chats\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Fireside Chats",
+        "suggestion_author": "Franklin D. Roosevelt",
+        "suggestion_year": 1933,
+        "suggestion_rationale": "These radio addresses were a direct communication channel between FDR and the American people, explaining his New Deal policies and addressing national concerns. Transcripts are widely available.",
+        "ia_identifier": "firesidechats00roos"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Franklin D. Roosevelt: A Political Life",
+      "author": "Robert Dallek",
+      "publication_year": 2017,
+      "source_url": "https://ci.nii.ac.jp/ncid/BB27404781",
+      "access_url": "https://ci.nii.ac.jp/ncid/BB27404781",
+      "snippet": "Medical Entomology and Zoology",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Franklin D. Roosevelt: A Political Life\" (openalex). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Franklin D. Roosevelt: A Political Life",
+        "suggestion_author": "Robert Dallek",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A comprehensive and well-regarded biography by a leading FDR scholar, offering in-depth analysis of his political career and presidency.",
+        "openalex_id": "https://openalex.org/W3043187743",
+        "work_type": "book"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Franklin D. Roosevelt: A Political Life",
+      "author": null,
+      "publication_year": null,
+      "source_url": "https://doi.org/10.1163/2468-1733_shafr_sim130080044",
+      "access_url": "https://doi.org/10.1163/2468-1733_shafr_sim130080044",
+      "snippet": "The SHAFR Guide Online",
+      "confidence": 0.762,
+      "why": "Secondary source resolved from suggestion \"Franklin D. Roosevelt: A Political Life\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.25; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Franklin D. Roosevelt: A Political Life",
+        "suggestion_author": "Robert Dallek",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A comprehensive and well-regarded biography by a leading FDR scholar, offering in-depth analysis of his political career and presidency.",
+        "doi": "10.1163/2468-1733_shafr_sim130080044",
+        "crossref_type": "dataset"
+      }
+    },
+    {
+      "source_corpus": "openlibrary",
+      "source_role": "secondary",
+      "source_kind": "book",
+      "title": "Franklin D. Roosevelt: A Political Life",
+      "author": "Robert Dallek",
+      "publication_year": 2017,
+      "source_url": "https://openlibrary.org/works/OL19352867W",
+      "access_url": "https://openlibrary.org/works/OL19352867W",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"Franklin D. Roosevelt: A Political Life\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Franklin D. Roosevelt: A Political Life",
+        "suggestion_author": "Robert Dallek",
+        "suggestion_year": 2017,
+        "suggestion_rationale": "A comprehensive and well-regarded biography by a leading FDR scholar, offering in-depth analysis of his political career and presidency.",
+        "edition_count": 1
+      }
+    }
+  ]
+}

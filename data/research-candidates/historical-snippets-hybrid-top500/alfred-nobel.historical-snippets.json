@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.492Z",
+  "figureId": "alfred-nobel",
+  "figureName": "Alfred Nobel",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Alfred Nobel is consistently described across 13 model source lists as influential for: Inventor of dynamite and founder of the Nobel Prizes, shaping science and global recognition; Inventor of dynamite and founder of the Nobel Prizes; Inventor of dynamite; established Nobel Prizes recognizing human achievement; Inventor of dynamite, founder of Nobel Prizes; Inventor of dynamite and Nobel Prize founder; Invented dynamite and established the Nobel Prizes to reward human progress; Invented dynamite and established the Nobel Prizes, shaping science, peace, and literature recognition; Inventor of dynamite and founder of the Nobel Prizes, influencing scientific advancement and international diplomacy.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

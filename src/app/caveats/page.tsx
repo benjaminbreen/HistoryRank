@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Instrument_Sans } from 'next/font/google';
 import { useSettings } from '@/hooks/useSettings';
 import { AppHeader } from '@/components/layout/AppHeader';
@@ -9,8 +10,40 @@ const instrument = Instrument_Sans({
   weight: ['400', '500', '600'],
 });
 
+const CAVEAT_SECTIONS = [
+  ['problem', 'The problem'],
+  ['influence', 'Defining influence'],
+  ['sunstein', 'Sunstein\'s critique'],
+  ['counterpoint', 'A counterpoint'],
+  ['foreign', 'Foreign intelligences'],
+  ['alignment', 'Alignment & bias'],
+  ['known-biases', 'Known biases'],
+  ['essay', 'An essay'],
+  ['invitation', 'An invitation'],
+];
+
 export default function CaveatsPage() {
   const { settings, updateSettings, resetSettings } = useSettings();
+  const [activeSection, setActiveSection] = useState<string>('problem');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+    for (const [id] of CAVEAT_SECTIONS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-transparent">
@@ -23,26 +56,20 @@ export default function CaveatsPage() {
       <section className={`${instrument.className} max-w-6xl mx-auto px-6 py-12`}>
         <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <aside className="hidden lg:block">
-            <div className="sticky top-28 rounded-2xl border border-stone-200/70 bg-white/70 p-4 text-sm text-stone-600 shadow-sm backdrop-blur">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
+            <div className="sticky top-28 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 p-4 text-sm text-stone-600 dark:text-slate-300 shadow-sm backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
                 Caveats
               </div>
-              <nav className="mt-4 space-y-2">
-                {[
-                  ['problem', 'The problem'],
-                  ['influence', 'Defining influence'],
-                  ['sunstein', 'Sunstein\'s critique'],
-                  ['counterpoint', 'A counterpoint'],
-                  ['foreign', 'Foreign intelligences'],
-                  ['alignment', 'Alignment & bias'],
-                  ['known-biases', 'Known biases'],
-                  ['essay', 'An essay'],
-                  ['invitation', 'An invitation'],
-                ].map(([id, label]) => (
+              <nav className="mt-4 space-y-1">
+                {CAVEAT_SECTIONS.map(([id, label]) => (
                   <a
                     key={id}
                     href={`#${id}`}
-                    className="block rounded-lg px-2 py-1 text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors"
+                    className={`block rounded-lg px-2 py-1 transition-colors ${
+                      activeSection === id
+                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 font-medium'
+                        : 'text-stone-600 dark:text-slate-400 hover:bg-stone-100 dark:hover:bg-slate-700 hover:text-stone-900 dark:hover:text-slate-100'
+                    }`}
                   >
                     {label}
                   </a>
@@ -51,16 +78,16 @@ export default function CaveatsPage() {
             </div>
           </aside>
 
-          <div className="space-y-12 text-base leading-7 text-stone-700">
+          <div className="space-y-12 text-base leading-7 text-stone-700 dark:text-slate-300">
             <header>
-              <h1 className="text-3xl font-serif font-semibold text-stone-900">Caveats</h1>
-              <p className="mt-3 text-base text-stone-600">
+              <h1 className="text-3xl font-serif font-semibold text-stone-900 dark:text-amber-100">Caveats</h1>
+              <p className="mt-3 text-base text-stone-600 dark:text-slate-400">
                 On the inherent absurdity of ranking historical figures&mdash;and why it might be worth doing anyway.
               </p>
             </header>
 
             <section id="problem" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">The Problem with Ranking History</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">The Problem with Ranking History</h2>
               <p className="mt-3">
                 Can we really rank the "most important" people in history? The idea seems almost absurd on its face.
                 How do you compare a religious founder to a scientist, a conqueror to a poet, a philosopher to an
@@ -73,7 +100,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="influence" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">What Do We Mean by "Influence"?</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">What Do We Mean by "Influence"?</h2>
               <p className="mt-3">
                 The prompt we give to models asks for "historical influence," but this term conceals profound
                 ambiguity. Consider how differently these dimensions might rank the same figures:
@@ -113,7 +140,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="sunstein" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Sunstein's Critique</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Sunstein's Critique</h2>
               <p className="mt-3">
                 In 2013, the legal scholar Cass Sunstein published a devastating critique of attempts to quantify
                 historical significance. Writing about Skiena and Ward's book <em>Who's Bigger?</em>, which used
@@ -217,7 +244,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="counterpoint" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">A Counterpoint</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">A Counterpoint</h2>
               <p className="mt-3">
                 Sunstein's critique was directed at human attempts to quantify history using Wikipedia metrics.
                 But HistoryRank does something different: it asks large language models to make these judgments,
@@ -232,7 +259,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="foreign" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">LLMs as Foreign Intelligences</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">LLMs as Foreign Intelligences</h2>
               <p className="mt-3">
                 Large language models are, in a sense, foreign intelligences. They are not human. They engage
                 with human history at a remove, processing it through training on an enormous corpus of text
@@ -265,7 +292,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="alignment" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">A Test of Alignment and Reasoning</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">A Test of Alignment and Reasoning</h2>
               <p className="mt-3">
                 Asking an LLM to rank historical figures by importance is, it turns out, a remarkably good way
                 to probe how these models reason about issues of deep significance. The task requires the model
@@ -296,7 +323,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="known-biases" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">The Biases We Know About</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">The Biases We Know About</h2>
               <p className="mt-3">
                 Through our Compare tool, several systematic biases have become visible. We name them here not
                 to excuse them, but to make them explicit:
@@ -363,7 +390,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="essay" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">An Essay, in the Original Sense</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">An Essay, in the Original Sense</h2>
               <p className="mt-3">
                 The word "essay" comes from the French <em>essai</em>, meaning "trial" or "attempt." When
                 Montaigne invented the form in the sixteenth century, he meant his essays to be experiments in
@@ -383,7 +410,7 @@ export default function CaveatsPage() {
             </section>
 
             <section id="invitation" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">An Invitation</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">An Invitation</h2>
               <p className="mt-3">
                 We offer HistoryRank in two spirits. First, as an unconventional but hopefully useful benchmark
                 for researchers thinking about AI interpretability, alignment, and cross-cultural bias. The

@@ -15,6 +15,9 @@ type MediaExplorerProps = {
   items: MediaItem[];
   selectedId?: string | null;
   onSelect?: (id: string) => void;
+  density?: 'comfortable' | 'compact';
+  fontScale?: number;
+  thumbnailSize?: 'sm' | 'md' | 'lg';
 };
 
 type SortKey =
@@ -140,12 +143,13 @@ function getCategory(type: string) {
   return 'other';
 }
 
-export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProps) {
+export function MediaExplorer({ items, selectedId, onSelect, density = 'comfortable', fontScale = 1, thumbnailSize = 'md' }: MediaExplorerProps) {
   const [query, setQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('film');
   const [eraFilter, setEraFilter] = useState('all');
   const [regionFilter, setRegionFilter] = useState('all');
   const [recommendedOnly, setRecommendedOnly] = useState(false);
+  const [studentPicksOnly, setStudentPicksOnly] = useState(false);
   const [rankedByEra, setRankedByEra] = useState(true);
   const [sortBy, setSortBy] = useState<SortKey>('era_rank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
@@ -156,6 +160,12 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   const [searchLoading, setSearchLoading] = useState(false);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+
+  // Settings-derived values
+  const thumbPx = thumbnailSize === 'sm' ? 32 : thumbnailSize === 'lg' ? 48 : 40;
+  const thumbMobilePx = thumbnailSize === 'sm' ? 44 : thumbnailSize === 'lg' ? 60 : 52;
+  const rowPadding = density === 'compact' ? 'py-1' : 'py-2';
+  const fontScaleStyle = { '--fs': fontScale } as React.CSSProperties;
 
   const doSearch = useCallback(async (q: string, smart: boolean) => {
     if (abortRef.current) abortRef.current.abort();
@@ -242,6 +252,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     const filteredItems = sourceItems
       .filter((item) => {
         if (recommendedOnly && !item.recommended) return false;
+        if (studentPicksOnly && !(item.student_notes && item.student_notes.length > 0)) return false;
         if (categoryFilter !== 'all' && getCategory(item.type) !== categoryFilter) return false;
         if (eraFilter !== 'all' && item.eras_depicted?.every((era) => era !== eraFilter)) return false;
         if (regionFilter !== 'all' && item.regions_depicted?.every((region) => region !== regionFilter)) return false;
@@ -385,7 +396,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     const withSort = rankedByEra ? [] : [...filteredItems].sort(compareItems);
 
     return { items: withSort, rankById, groups };
-  }, [items, isSearchActive, searchResults, categoryFilter, eraFilter, regionFilter, recommendedOnly, sortBy, sortOrder, rankedByEra]);
+  }, [items, isSearchActive, searchResults, categoryFilter, eraFilter, regionFilter, recommendedOnly, studentPicksOnly, sortBy, sortOrder, rankedByEra]);
 
   const formatScore = (value?: number | null) => {
     if (typeof value !== 'number' || !Number.isFinite(value)) return '—';
@@ -428,7 +439,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
   );
 
   const renderTable = (rows: MediaItem[]) => (
-    <Table className="[&_[data-slot=table-cell]]:px-3 [&_[data-slot=table-head]]:px-1">
+    <Table className={`[&_[data-slot=table-cell]]:px-3 [&_[data-slot=table-head]]:px-1 ${density === 'compact' ? '[&_[data-slot=table-cell]]:py-1' : ''}`}>
       <TableHeader>
         <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
           <TableHead className="w-[42px] text-center bg-stone-100/70 dark:bg-slate-700/70">
@@ -466,7 +477,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
             </SortHeader>
           </TableHead>
           {showTypeColumn && (
-            <TableHead>
+            <TableHead className="hidden lg:table-cell">
               <SortHeader column="type">
                 <Tooltip content="Media format (film, series, documentary, podcast, fiction, game).">
                   <span>Type</span>
@@ -566,13 +577,16 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                     mediaId={item.id}
                     wikipediaSlug={item.wikipedia_slug}
                     title={item.title}
-                    size={40}
+                    size={thumbPx}
                   />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     {item.recommended && (
                       <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-amber-500 fill-amber-400 flex-shrink-0" />
+                    )}
+                    {item.student_notes && item.student_notes.length > 0 && (
+                      <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-sky-500 fill-sky-400 dark:text-sky-400 dark:fill-sky-500 flex-shrink-0" />
                     )}
                     <div className="text-[13px] sm:text-sm font-medium text-stone-900 dark:text-slate-100 truncate" title={item.title}>
                       {item.title}
@@ -585,7 +599,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               </div>
             </TableCell>
             {showTypeColumn && (
-              <TableCell className="text-sm text-stone-600 dark:text-slate-300 capitalize">{item.type}</TableCell>
+              <TableCell className="hidden lg:table-cell text-sm text-stone-600 dark:text-slate-300 capitalize">{item.type}</TableCell>
             )}
             <TableCell className="text-sm text-stone-600 dark:text-slate-300">
               <div className="font-semibold text-stone-800 dark:text-slate-200">{item.primary_era}</div>
@@ -708,7 +722,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                   mediaId={item.id}
                   wikipediaSlug={item.wikipedia_slug}
                   title={item.title}
-                  size={52}
+                  size={thumbMobilePx}
                 />
               </div>
               <div className="min-w-0 flex-1">
@@ -717,6 +731,9 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
                     <div className="flex items-center gap-1.5">
                       {item.recommended && (
                         <Star className="h-3.5 w-3.5 text-amber-500 fill-amber-400 flex-shrink-0" />
+                      )}
+                      {item.student_notes && item.student_notes.length > 0 && (
+                        <Star className="h-3.5 w-3.5 text-sky-500 fill-sky-400 dark:text-sky-400 dark:fill-sky-500 flex-shrink-0" />
                       )}
                       <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100 leading-tight break-words">
                         {item.title}
@@ -780,13 +797,14 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
       ? groupedByEra.reduce((sum, g) => sum + g.items.length, 0)
       : filtered.length;
 
-  const hasActiveFilters = isSearchActive || eraFilter !== 'all' || regionFilter !== 'all' || recommendedOnly;
+  const hasActiveFilters = isSearchActive || eraFilter !== 'all' || regionFilter !== 'all' || recommendedOnly || studentPicksOnly;
 
   const categoryLabel = CATEGORY_LABELS.find((c) => c.id === categoryFilter)?.label?.toLowerCase() ?? 'items';
 
   const buildSummary = () => {
     const parts: string[] = [];
     if (recommendedOnly) parts.push('recommended');
+    if (studentPicksOnly) parts.push('student picks');
     if (eraFilter !== 'all') parts.push(eraFilter);
     if (regionFilter !== 'all') parts.push(regionFilter);
     if (isSearchActive) parts.push(`matching "${query}"${smartSearch ? ' (smart)' : ''}`);
@@ -800,7 +818,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
     <div className="space-y-3">
       {/* Sticky filter toolbar */}
       <div
-        className="sticky z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2 bg-[#f8f6f2]/95 dark:bg-[#0c1220]/95 backdrop-blur-sm border-b border-stone-200/40 dark:border-slate-700/40 space-y-2"
+        className="sticky z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2 bg-[#f8f6f2]/95 dark:bg-[#111419]/95 backdrop-blur-sm border-b border-stone-200/40 dark:border-slate-700/40 space-y-2"
         style={{ top: 'var(--app-header-height, 56px)' }}
       >
         <div className="sm:hidden">
@@ -935,6 +953,18 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
           </button>
           <button
             type="button"
+            onClick={() => setStudentPicksOnly((prev) => !prev)}
+            className={`flex h-8 w-full items-center justify-center gap-1 rounded-md border px-2.5 text-xs transition-all sm:w-auto ${
+              studentPicksOnly
+                ? 'border-sky-300 bg-sky-50 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400'
+                : 'border-stone-200 dark:border-slate-600 text-stone-600 dark:text-slate-400 hover:border-stone-300 dark:hover:border-slate-500 hover:bg-stone-50 dark:hover:bg-slate-700'
+            }`}
+          >
+            <Star className={`h-3.5 w-3.5 ${studentPicksOnly ? 'fill-sky-400 text-sky-500' : 'text-sky-400'}`} />
+            <span>Student</span>
+          </button>
+          <button
+            type="button"
             onClick={() => {
               setRankedByEra((prev) => !prev);
               setSortBy('era_rank');
@@ -968,6 +998,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
               setEraFilter('all');
               setRegionFilter('all');
               setRecommendedOnly(false);
+              setStudentPicksOnly(false);
             }}
             className="self-start text-stone-400 underline underline-offset-2 hover:text-stone-700 dark:text-slate-500 dark:hover:text-slate-200"
           >
@@ -976,7 +1007,7 @@ export function MediaExplorer({ items, selectedId, onSelect }: MediaExplorerProp
         </div>
       )}
 
-      <div className="w-full">
+      <div className="w-full font-scale-root" style={fontScaleStyle}>
         {rankedByEra && !isSearchActive ? (
           <>
             <div className="space-y-5 md:hidden">

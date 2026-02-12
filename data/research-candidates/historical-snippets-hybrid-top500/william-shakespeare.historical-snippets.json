@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.395Z",
+  "figureId": "william-shakespeare",
+  "figureName": "William Shakespeare",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 6,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Shakespeare, William",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FShakespeare%2C_William",
+      "snippet": "The name Shakespeare is extremely widespread, and is spelt in an astonishing variety of ways. That of John Shakespeare occurs 166 times in the Council Book of the Stratford corporation, and appears to take 16 different forms. The verdict, not altogether unanimous, of competent palaeographers is to the effect that Shakespeare himself, in the extant examples of his signature, always wrote “Shakspere.” In the printed signatures to the dedications of his poems, on the title-pages of nearly all the contemporary editions of his plays that bear his name, and in many formal documents it appears as Shakespeare.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

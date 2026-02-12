@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.3 Thinking LIST 5 (February 10, 2026).txt
+Model: GPT-5.3 Thinking
+Timestamp: 2026-02-10T23:45:27.578Z
+
+VERDICT: FAIL
+
+Summary: Issues: pattern collapse (max 843)
+
+Scores:
+  Repetition: PASS - 216 fuzzy duplicates found
+  Pattern Collapse: FAIL - Max sequence of 843 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (89):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 29, 74
+  - Fuzzy duplicate: louis xiv of france / louis xvi of france / louis xv of france / louis xiii of france / louis ix of france / louis xviii of france / louis xvii of france at ranks 93, 546, 633, 709, 775, 778, 892
+  - Fuzzy duplicate: xerxes i / artaxerxes i of persia at ranks 105, 731
+  - Fuzzy duplicate: pope john paul ii / pope urban ii / pope john paul i / pope julius ii / pope pius ii / pope marcellus ii at ranks 128, 368, 480, 649, 818, 959
+  - Fuzzy duplicate: muhammad ali / muhammad ali jinnah / muhammad ali of egypt at ranks 223, 330, 793
+  - Fuzzy duplicate: pope benedict xvi / pope benedict xv / pope gregory xvi / pope benedict xiv at ranks 269, 623, 697, 828
+  - Fuzzy duplicate: henry viii of england / henry vi of england at ranks 284, 463
+  - Fuzzy duplicate: napoleon iii / napoleon ii at ranks 323, 788
+  - Fuzzy duplicate: edward vii / edward viii at ranks 327, 423
+  - Fuzzy duplicate: matthew the apostle / matthias the apostle at ranks 331, 557
+  ... and 79 more issues
+
+Diversity Estimates:
+  Regions: Europe: 14, Asia: 3, Middle East: 3, Africa: 1, Americas: 1, Unknown: 978
+  Domains: Politics/Leadership: 32, Science/Technology: 1, Philosophy/Religion: 133, Arts/Literature: 1, Military: 22, Other: 811
+
+Advanced Metrics:
+  Advanced score: 99.5
+  Parenthetical names: 0.0%
+  Multi-person names: 0.1%
+  Comma names: 3.2%
+  Short names: 0.1%
+  Long names: 0.1%
+  Short contributions: 0.1%

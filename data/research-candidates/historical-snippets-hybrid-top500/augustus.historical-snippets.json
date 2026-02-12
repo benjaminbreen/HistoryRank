@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.396Z",
+  "figureId": "augustus",
+  "figureName": "Augustus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 2,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Augustus",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FAugustus",
+      "snippet": "Gaius Octavius was born in Rome on the 23rd of September 63&#160; B.C. , the year of Cicero’s consulship and of Catiline’s conspiracy. He came of a family of good standing, long settled at Velitrae (Velletri), but his father was the first of the family to obtain a curule magistracy at Rome and senatorial dignity. His mother, however, was Atia, daughter of Julia, the wife of M.&#160;Atius Balbus, and sister of Julius Caesar, and it was this connexion with the great dictator which determined his career. In his fifth year (58&#160; B.C. ) his father died; about a year later his mother &#32; &#8203; remarried, and the young Octavius passed under her care to that of his stepfather, L.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

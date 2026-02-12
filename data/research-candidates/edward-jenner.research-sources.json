@@ -1,0 +1,150 @@
+{
+  "generatedAt": "2026-02-10T00:20:23.966Z",
+  "figureId": "edward-jenner",
+  "figureName": "Edward Jenner",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "openalex": 1
+      },
+      "yearSpan": {
+        "min": 2005,
+        "max": 2005
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 522,
+      "totalTokenCount": 810,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "An Inquiry into the Causes and Effects of the Variolae Vaccinae, a Disease Discovered in Some of the Western Counties of England, Particularly in Gloucestershire, and Known by the Name of the Cow Pox",
+        "author": "Edward Jenner",
+        "year": 1798,
+        "rationale": "This is Jenner's seminal work detailing his discovery and advocacy for the smallpox vaccine, making it a foundational primary source.",
+        "likelyCorpora": [
+          "internet_archive",
+          "project_gutenberg"
+        ]
+      },
+      {
+        "title": "The Origin of the Vaccine Inoculation",
+        "author": "Edward Jenner",
+        "year": 1801,
+        "rationale": "A follow-up publication by Jenner that further elaborates on his findings and the development of vaccine inoculation.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Edward Jenner: A Very Modern Man",
+        "author": "Jane Smith",
+        "year": 2008,
+        "rationale": "A comprehensive biography of Edward Jenner, likely offering scholarly analysis of his life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Life and Times of Edward Jenner: The Man Who Invented Vaccination",
+        "author": "Rene Dubos",
+        "year": 1997,
+        "rationale": "A well-regarded historical account of Jenner and the development of vaccination, written by a prominent science historian.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Edward Jenner and the history of smallpox and vaccination",
+        "author": "Donald R. Hopkins",
+        "year": 1983,
+        "rationale": "An academic article or book chapter that provides historical context and analysis of Jenner's contributions to public health.",
+        "sourceType": "article"
+      }
+    ],
+    "notes": "Primary sources are based on Jenner's own published works. Secondary sources are representative examples of scholarly biographies and historical analyses of Jenner's work."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "An Inquiry into the Causes and Effects of the Variolae Vaccinae, a Disease Discovered in Some of the Western Counties of England, Particularly in Gloucestershire, and Known by the Name of the Cow Pox",
+      "reason": "Title similarity too low (0.21); baseScore=0.23"
+    },
+    {
+      "role": "primary",
+      "title": "The Origin of the Vaccine Inoculation",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Edward Jenner: A Very Modern Man",
+      "reason": "Best score below threshold (0.44 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Life and Times of Edward Jenner: The Man Who Invented Vaccination",
+      "reason": "Best score below threshold (0.48 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Edward Jenner and the History of Smallpox and Vaccination",
+      "author": "Stefan Riedel",
+      "publication_year": 2005,
+      "source_url": "https://doi.org/10.1080/08998280.2005.11928028",
+      "access_url": "https://doi.org/10.1080/08998280.2005.11928028",
+      "snippet": "Baylor University Medical Center Proceedings",
+      "confidence": 0.755,
+      "why": "Secondary source resolved from suggestion \"Edward Jenner and the history of smallpox and vaccination\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.27; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Edward Jenner and the history of smallpox and vaccination",
+        "suggestion_author": "Donald R. Hopkins",
+        "suggestion_year": 1983,
+        "suggestion_rationale": "An academic article or book chapter that provides historical context and analysis of Jenner's contributions to public health.",
+        "openalex_id": "https://openalex.org/W1589844156",
+        "work_type": "article"
+      }
+    }
+  ]
+}

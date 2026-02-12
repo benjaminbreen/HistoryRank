@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { db, figures, rankings } from '@/lib/db';
-import { sql, ne } from 'drizzle-orm';
+import { ne } from 'drizzle-orm';
 import { SOURCE_LABELS } from '@/types';
 
 export const runtime = 'nodejs';
@@ -125,6 +125,71 @@ export interface LLMComparisonResponse {
   eraBreakdown: EraBreakdown[];
 }
 
+interface GeoRegionStat {
+  region: string;
+  modelCount: number;
+  baselineCount: number;
+  modelPct: number;
+  baselinePct: number;
+  diffPct: number;
+  overIndex: number | null;
+  zScore: number;
+}
+
+interface GeoBiasModel {
+  source: string;
+  label: string;
+  sampleSize: number;
+  listCount: number;
+  jsDivergence: number;
+  regions: GeoRegionStat[];
+  topPositive: Array<{ region: string; diffPct: number; modelPct: number; baselinePct: number }>;
+  topNegative: Array<{ region: string; diffPct: number; modelPct: number; baselinePct: number }>;
+}
+
+export interface GeoBiasResponse {
+  topN: number;
+  totalModels: number;
+  baselineSampleSize: number;
+  regions: string[];
+  baseline: Array<{ region: string; count: number; pct: number }>;
+  regionCentroids: Array<{ region: string; lat: number; lon: number; sampleCount: number }>;
+  models: GeoBiasModel[];
+}
+
+function incrementCount(counter: Map<string, number>, key: string) {
+  counter.set(key, (counter.get(key) || 0) + 1);
+}
+
+function getBirthRegion(fig: { regionSub: string | null; regionMacro: string | null }): string | null {
+  const raw = (fig.regionSub || fig.regionMacro || '').trim();
+  return raw.length > 0 ? raw : null;
+}
+
+function twoProportionZ(countModel: number, nModel: number, countBase: number, nBase: number): number {
+  if (nModel <= 0 || nBase <= 0) return 0;
+  const pModel = countModel / nModel;
+  const pBase = countBase / nBase;
+  const pooled = (countModel + countBase) / (nModel + nBase);
+  const se = Math.sqrt(pooled * (1 - pooled) * ((1 / nModel) + (1 / nBase)));
+  if (!Number.isFinite(se) || se === 0) return 0;
+  return (pModel - pBase) / se;
+}
+
+function jensenShannonDivergence(p: number[], q: number[]): number {
+  const epsilon = 1e-12;
+  const normalize = (arr: number[]) => {
+    const adjusted = arr.map((v) => Math.max(v, epsilon));
+    const sum = adjusted.reduce((acc, v) => acc + v, 0);
+    return adjusted.map((v) => v / sum);
+  };
+  const pNorm = normalize(p);
+  const qNorm = normalize(q);
+  const m = pNorm.map((v, i) => (v + qNorm[i]) / 2);
+  const kl = (a: number[], b: number[]) => a.reduce((acc, v, i) => acc + v * Math.log2(v / b[i]), 0);
+  return 0.5 * kl(pNorm, m) + 0.5 * kl(qNorm, m);
+}
+
 function spearmanCorrelation(x: number[], y: number[]): number {
   if (x.length !== y.length || x.length < 2) return 0;
   const n = x.length;
@@ -148,6 +213,201 @@ function spearmanCorrelation(x: number[], y: number[]): number {
   }
 
   return 1 - (6 * sumD2) / (n * (n * n - 1));
+}
+
+async function getGeoBias(): Promise<GeoBiasResponse> {
+  const topN = 500;
+  const [allRankings, allFigures] = await Promise.all([
+    db
+      .select()
+      .from(rankings)
+      .where(ne(rankings.source, 'pantheon')),
+    db.select().from(figures),
+  ]);
+
+  const figureMap = new Map(allFigures.map((f) => [f.id, f]));
+  const sourceFigureRanks = new Map<string, Map<string, { sum: number; count: number }>>();
+  const sourceSampleIds = new Map<string, Set<string>>();
+
+  for (const row of allRankings) {
+    if (!sourceFigureRanks.has(row.source)) {
+      sourceFigureRanks.set(row.source, new Map());
+      sourceSampleIds.set(row.source, new Set());
+    }
+    const figureRankMap = sourceFigureRanks.get(row.source)!;
+    if (!figureRankMap.has(row.figureId)) {
+      figureRankMap.set(row.figureId, { sum: 0, count: 0 });
+    }
+    const current = figureRankMap.get(row.figureId)!;
+    current.sum += row.rank;
+    current.count += 1;
+    if (row.sampleId) sourceSampleIds.get(row.source)!.add(row.sampleId);
+  }
+
+  const baselineCounts = new Map<string, number>();
+  let baselineSampleSize = 0;
+  const baselineRanked = allFigures
+    .filter((f) => f.llmConsensusRank !== null)
+    .sort((a, b) => (a.llmConsensusRank ?? 999999) - (b.llmConsensusRank ?? 999999));
+
+  for (const fig of baselineRanked) {
+    if (baselineSampleSize >= topN) break;
+    const region = getBirthRegion(fig);
+    if (!region) continue;
+    incrementCount(baselineCounts, region);
+    baselineSampleSize += 1;
+  }
+
+  const baselineRows = Array.from(baselineCounts.entries())
+    .map(([region, count]) => ({
+      region,
+      count,
+      pct: baselineSampleSize > 0 ? (count / baselineSampleSize) * 100 : 0,
+    }))
+    .sort((a, b) => b.pct - a.pct);
+
+  const allRegions = new Set(baselineRows.map((entry) => entry.region));
+  const modelRaw = Array.from(sourceFigureRanks.entries()).map(([source, figureRankMap]) => {
+    const ranked = Array.from(figureRankMap.entries())
+      .map(([figureId, stats]) => ({ figureId, avgRank: stats.sum / stats.count }))
+      .sort((a, b) => a.avgRank - b.avgRank);
+
+    const counts = new Map<string, number>();
+    let sampleSize = 0;
+    for (const entry of ranked) {
+      if (sampleSize >= topN) break;
+      const fig = figureMap.get(entry.figureId);
+      if (!fig) continue;
+      const region = getBirthRegion(fig);
+      if (!region) continue;
+      incrementCount(counts, region);
+      sampleSize += 1;
+    }
+
+    for (const region of counts.keys()) {
+      allRegions.add(region);
+    }
+
+    return {
+      source,
+      label: SOURCE_LABELS[source] || source,
+      counts,
+      sampleSize,
+      listCount: sourceSampleIds.get(source)?.size || 1,
+    };
+  });
+
+  const regions = Array.from(allRegions).sort((a, b) => {
+    const aPct = baselineSampleSize > 0 ? ((baselineCounts.get(a) || 0) / baselineSampleSize) : 0;
+    const bPct = baselineSampleSize > 0 ? ((baselineCounts.get(b) || 0) / baselineSampleSize) : 0;
+    if (aPct !== bPct) return bPct - aPct;
+    return a.localeCompare(b);
+  });
+
+  const baselineProbVector = regions.map((region) =>
+    baselineSampleSize > 0 ? ((baselineCounts.get(region) || 0) / baselineSampleSize) : 0
+  );
+
+  const centroidAccumulator = new Map<string, { latSum: number; lonSum: number; count: number }>();
+  for (const fig of allFigures) {
+    const region = getBirthRegion(fig);
+    if (!region || !allRegions.has(region)) continue;
+    const lat = typeof fig.birthLat === 'number' ? fig.birthLat : null;
+    const lon = typeof fig.birthLon === 'number' ? fig.birthLon : null;
+    if (lat === null || lon === null || !Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+    if (!centroidAccumulator.has(region)) {
+      centroidAccumulator.set(region, { latSum: 0, lonSum: 0, count: 0 });
+    }
+    const current = centroidAccumulator.get(region)!;
+    current.latSum += lat;
+    current.lonSum += lon;
+    current.count += 1;
+  }
+
+  const regionCentroids = regions
+    .map((region) => {
+      const agg = centroidAccumulator.get(region);
+      if (!agg || agg.count === 0) return null;
+      return {
+        region,
+        lat: agg.latSum / agg.count,
+        lon: agg.lonSum / agg.count,
+        sampleCount: agg.count,
+      };
+    })
+    .filter((entry): entry is { region: string; lat: number; lon: number; sampleCount: number } => entry !== null);
+
+  const models: GeoBiasModel[] = modelRaw.map((model) => {
+    const regionStats: GeoRegionStat[] = regions.map((region) => {
+      const modelCount = model.counts.get(region) || 0;
+      const baselineCount = baselineCounts.get(region) || 0;
+      const modelPct = model.sampleSize > 0 ? (modelCount / model.sampleSize) * 100 : 0;
+      const baselinePct = baselineSampleSize > 0 ? (baselineCount / baselineSampleSize) * 100 : 0;
+      const diffPct = modelPct - baselinePct;
+      const overIndex = baselinePct > 0 ? (diffPct / baselinePct) : null;
+      const zScore = twoProportionZ(modelCount, model.sampleSize, baselineCount, baselineSampleSize);
+      return {
+        region,
+        modelCount,
+        baselineCount,
+        modelPct,
+        baselinePct,
+        diffPct,
+        overIndex: overIndex !== null && Number.isFinite(overIndex) ? overIndex : null,
+        zScore: Number.isFinite(zScore) ? zScore : 0,
+      };
+    });
+
+    const modelProbVector = regions.map((region) =>
+      model.sampleSize > 0 ? ((model.counts.get(region) || 0) / model.sampleSize) : 0
+    );
+    const jsDivergence = jensenShannonDivergence(modelProbVector, baselineProbVector);
+
+    const topPositive = [...regionStats]
+      .sort((a, b) => b.diffPct - a.diffPct)
+      .filter((entry) => entry.diffPct > 0)
+      .slice(0, 3)
+      .map((entry) => ({
+        region: entry.region,
+        diffPct: entry.diffPct,
+        modelPct: entry.modelPct,
+        baselinePct: entry.baselinePct,
+      }));
+
+    const topNegative = [...regionStats]
+      .sort((a, b) => a.diffPct - b.diffPct)
+      .filter((entry) => entry.diffPct < 0)
+      .slice(0, 3)
+      .map((entry) => ({
+        region: entry.region,
+        diffPct: entry.diffPct,
+        modelPct: entry.modelPct,
+        baselinePct: entry.baselinePct,
+      }));
+
+    return {
+      source: model.source,
+      label: model.label,
+      sampleSize: model.sampleSize,
+      listCount: model.listCount,
+      jsDivergence: Number.isFinite(jsDivergence) ? jsDivergence : 0,
+      regions: regionStats,
+      topPositive,
+      topNegative,
+    };
+  });
+
+  models.sort((a, b) => b.jsDivergence - a.jsDivergence);
+
+  return {
+    topN,
+    totalModels: models.length,
+    baselineSampleSize,
+    regions,
+    baseline: baselineRows,
+    regionCentroids,
+    models,
+  };
 }
 
 async function getInsights(): Promise<InsightsResponse> {
@@ -613,6 +873,9 @@ export async function GET(request: Request) {
   const mode = searchParams.get('mode') || 'llm';
 
   try {
+    if (mode === 'geo-bias') {
+      return NextResponse.json(await getGeoBias());
+    }
     if (mode === 'insights') {
       return NextResponse.json(await getInsights());
     }

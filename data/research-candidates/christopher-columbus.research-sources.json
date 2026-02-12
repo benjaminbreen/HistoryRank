@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:30:04.983Z",
+  "generatedAt": "2026-02-10T00:12:34.073Z",
   "figureId": "christopher-columbus",
   "figureName": "Christopher Columbus",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,34 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "secondary": 1
+      },
+      "byCorpus": {
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 2006,
+        "max": 2006
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 608,
-      "totalTokenCount": 896,
+      "candidatesTokenCount": 516,
+      "totalTokenCount": 804,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +59,7 @@
         "title": "The Four Voyages of Christopher Columbus",
         "author": "Christopher Columbus",
         "year": 1493,
-        "rationale": "This is a collection of letters and journal entries attributed to Columbus detailing his voyages. The first letter, describing his initial discoveries, is particularly famous.",
+        "rationale": "This is a collection of letters and journals attributed to Columbus detailing his voyages. The 'Letter to the Sovereigns' is a key primary document.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,16 +68,7 @@
         "title": "The Journal of Christopher Columbus",
         "author": "Christopher Columbus",
         "year": 1492,
-        "rationale": "The original journal is lost, but it was transcribed by Bartolomé de las Casas. This is a primary account of his first voyage.",
-        "likelyCorpora": [
-          "internet_archive"
-        ]
-      },
-      {
-        "title": "Letter from Christopher Columbus to Luis de Santángel",
-        "author": "Christopher Columbus",
-        "year": 1493,
-        "rationale": "A significant letter written shortly after his first voyage, informing the Spanish Crown's treasurer of his discoveries.",
+        "rationale": "The original journal is lost, but Bartolomé de las Casas created an abridged version. This is a fundamental primary source for his first voyage.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -63,25 +79,25 @@
         "title": "1491: New Revelations of the Americas Before Columbus",
         "author": "Charles C. Mann",
         "year": 2005,
-        "rationale": "While not solely about Columbus, this book provides essential context for the Americas prior to European contact, offering a critical perspective on the impact of Columbus's voyages.",
+        "rationale": "While not solely about Columbus, this book provides essential context for the Americas prior to European contact, offering a scholarly re-evaluation of the period.",
         "sourceType": "book"
       },
       {
         "title": "Columbus: The Four Voyages",
         "author": "Laurence Bergreen",
         "year": 2011,
-        "rationale": "A comprehensive biography that draws on Columbus's own writings and other historical documents to provide a detailed account of his life and voyages.",
+        "rationale": "A comprehensive biography that draws on primary sources to provide a detailed account of Columbus's life and expeditions.",
         "sourceType": "book"
       },
       {
         "title": "The Lost History of the Americas",
-        "author": "Felipe Fernández-Armesto",
-        "year": 2008,
-        "rationale": "This work offers a broad historical sweep of the Americas, placing Columbus's arrival within a much larger narrative of human history and interaction.",
+        "author": "Ned Blackhawk",
+        "year": 2006,
+        "rationale": "This book offers a Native American perspective on the history of the Americas, providing critical analysis of the impact of Columbus's voyages.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source texts are often found in collections or translations. The exact year for some primary documents can vary depending on the edition and translation. Secondary sources are chosen for their scholarly reputation and relevance to understanding Columbus's impact."
+    "notes": "Primary source materials for Columbus are often found in collections and translations, as original documents are rare or lost. Secondary sources are chosen for their scholarly reputation and focus on re-evaluating the historical narrative surrounding Columbus and his era."
   },
   "unresolved": [
     {
@@ -95,11 +111,6 @@
       "reason": "Title similarity too low (0.56); baseScore=0.48"
     },
     {
-      "role": "primary",
-      "title": "Letter from Christopher Columbus to Luis de Santángel",
-      "reason": "No resolver results from corpus APIs"
-    },
-    {
       "role": "secondary",
       "title": "Columbus: The Four Voyages",
       "reason": "Best score below threshold (0.36 < 0.72)"
@@ -107,7 +118,7 @@
     {
       "role": "secondary",
       "title": "The Lost History of the Americas",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.37"
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.36"
     }
   ],
   "candidates": [
@@ -122,14 +133,14 @@
       "access_url": "https://doi.org/10.2307/20031875",
       "snippet": "Foreign Affairs",
       "confidence": 0.884,
-      "why": "Secondary source resolved from suggestion \"1491: New Revelations of the Americas Before Columbus\". Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Very high title match with surname/aboutness support",
+      "why": "Secondary source resolved from suggestion \"1491: New Revelations of the Americas Before Columbus\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.97; Very high title match with surname/aboutness support",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "1491: New Revelations of the Americas Before Columbus",
         "suggestion_author": "Charles C. Mann",
         "suggestion_year": 2005,
-        "suggestion_rationale": "While not solely about Columbus, this book provides essential context for the Americas prior to European contact, offering a critical perspective on the impact of Columbus's voyages.",
+        "suggestion_rationale": "While not solely about Columbus, this book provides essential context for the Americas prior to European contact, offering a scholarly re-evaluation of the period.",
         "doi": "10.2307/20031875",
         "crossref_type": "journal-article"
       }

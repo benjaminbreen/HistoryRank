@@ -84,6 +84,9 @@ Build a richer figure detail experience with three tabs:
 
 Status update:
 - Added `research:timeline` script for on-demand timeline assessment + event extraction (draft/published modes).
+- Added `research:timeline:batch` for resumable top-N generation.
+- Timeline event ingestion now preserves prior assessment event rows (non-destructive versioning) and stores real source IDs for per-event source cards.
+- Hybrid source resolver now applies a simple balanced selection pass (role/corpus diversity) and captures Gutenberg summary snippets when available.
 
 ### Phase 5 - Editorial + QA
 

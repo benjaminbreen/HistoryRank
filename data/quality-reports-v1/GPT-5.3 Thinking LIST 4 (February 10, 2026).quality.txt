@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: GPT-5.3 Thinking LIST 4 (February 10, 2026).txt
+Model: GPT-5.3 Thinking
+Timestamp: 2026-02-10T23:45:23.856Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 221 fuzzy duplicates found
+  Pattern Collapse: PASS - Max sequence of 12 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 60/61 anchor figures found (98%)
+
+Issues (89):
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 16, 278
+  - Fuzzy duplicate: soren kierkegaard / sren kierkegaard at ranks 89, 573
+  - Fuzzy duplicate: mehmed ii / mehmed iii / mehmed iv / mehmed i at ranks 169, 811, 954, 968
+  - Fuzzy duplicate: selim i / selim ii at ranks 170, 469
+  - Fuzzy duplicate: louis xiv / louis xiv of france at ranks 173, 275
+  - Fuzzy duplicate: henry viii / henry viii of england at ranks 175, 269
+  - Fuzzy duplicate: elizabeth i / elizabeth i of england / elizabeth ii at ranks 176, 264, 305
+  - Fuzzy duplicate: napoleon iii / napoleon ii at ranks 179, 716
+  - Fuzzy duplicate: franz joseph haydn / joseph haydn at ranks 232, 351
+  - Fuzzy duplicate: henry viii of england / henry vi of england at ranks 269, 403
+  ... and 79 more issues
+
+Diversity Estimates:
+  Regions: Europe: 13, Asia: 3, Middle East: 4, Africa: 1, Unknown: 979
+  Domains: Politics/Leadership: 29, Science/Technology: 1, Philosophy/Religion: 125, Arts/Literature: 58, Military: 21, Other: 766
+
+Advanced Metrics:
+  Advanced score: 99.6
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 3.2%
+  Short names: 0.1%
+  Long names: 0.1%
+  Short contributions: 0.0%

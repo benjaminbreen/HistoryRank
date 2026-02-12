@@ -31,6 +31,7 @@ type GenerateOptions = {
   label: string;
   labelFromArgs: boolean;
   outputDir: string;
+  reportDir: string;
   maxRetries: number;
   chunkSize: number;
   timeoutMs: number;
@@ -45,6 +46,7 @@ type GenerateOptions = {
 const DEFAULT_MODEL = 'qwen/qwen3-235b-a22b-2507';
 const DEFAULT_LABEL = '';
 const OUTPUT_DIR = path.join(process.cwd(), 'data', 'raw_v3');
+const REPORT_DIR = path.join(process.cwd(), 'data', 'quality-reports-v3');
 const MAX_RETRIES = 3;
 const DEFAULT_CHUNK_SIZE = 500;
 const DEFAULT_TIMEOUT_MS = 180000;
@@ -108,6 +110,7 @@ function parseArgs(): GenerateOptions {
     label: DEFAULT_LABEL,
     labelFromArgs: false,
     outputDir: OUTPUT_DIR,
+    reportDir: REPORT_DIR,
     maxRetries: MAX_RETRIES,
     chunkSize: DEFAULT_CHUNK_SIZE,
     timeoutMs: DEFAULT_TIMEOUT_MS,
@@ -139,6 +142,11 @@ function parseArgs(): GenerateOptions {
       options.outputDir = path.resolve(arg.slice('--out='.length));
     } else if (arg === '--out' && nextArg && !nextArg.startsWith('--')) {
       options.outputDir = path.resolve(nextArg);
+      i++;
+    } else if (arg.startsWith('--report-dir=')) {
+      options.reportDir = path.resolve(arg.slice('--report-dir='.length));
+    } else if (arg === '--report-dir' && nextArg && !nextArg.startsWith('--')) {
+      options.reportDir = path.resolve(nextArg);
       i++;
     } else if (arg.startsWith('--retries=')) {
       options.maxRetries = Number(arg.slice('--retries='.length));
@@ -262,22 +270,23 @@ function runQualityAssessment(
   entries: ListEntry[],
   filename: string,
   model: string,
-  outputDir: string,
+  reportDir: string,
   expectedCount: number
 ): QualityReport {
   const report = assessListQuality(entries, filename, model, expectedCount);
+  fs.mkdirSync(reportDir, { recursive: true });
 
   const reportFilename = filename.replace(/\.txt$/, '.quality.json');
-  const reportPath = path.join(outputDir, reportFilename);
+  const reportPath = path.join(reportDir, reportFilename);
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
 
   const textReportFilename = filename.replace(/\.txt$/, '.quality.txt');
-  const textReportPath = path.join(outputDir, textReportFilename);
+  const textReportPath = path.join(reportDir, textReportFilename);
   fs.writeFileSync(textReportPath, formatReportAsText(report));
 
   console.log(`\n📊 Quality Assessment: ${report.verdict}`);
   console.log(`   ${report.summary}`);
-  console.log(`   Report saved to: ${reportFilename}`);
+  console.log(`   Report saved to: ${reportPath}`);
 
   return report;
 }
@@ -412,7 +421,7 @@ async function main() {
   }
 
   fs.writeFileSync(outputPath, JSON.stringify(entries, null, 2));
-  runQualityAssessment(entries, filename, promptLabel, options.outputDir, options.totalRanks);
+  runQualityAssessment(entries, filename, promptLabel, options.reportDir, options.totalRanks);
 
   console.log(`\n✅ V3 list saved: ${outputPath}`);
   if (fs.existsSync(partialPath)) {

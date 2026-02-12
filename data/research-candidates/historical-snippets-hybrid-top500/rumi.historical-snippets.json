@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.471Z",
+  "figureId": "rumi",
+  "figureName": "Rumi",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 1,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Rumi is consistently described across 13 model source lists as influential for: Persian poet and mystic, influencing Sufism and literature; Persian poet and mystic influencing Sufism; Sufi mystic poetry uniting spiritual traditions; Persian poet and Sufi mystic whose works on divine love have influenced spiritual thought across cultures; Sufi poetry; spiritual tolerance; Hero of the Ramayana, embodiment of dharma in Hinduism; 13th-century Persian poet, jurist, and theologian, whose works transcend cultures and are widely read today; Sufi poet and mystic whose works shaped Islamic spirituality and global literature.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

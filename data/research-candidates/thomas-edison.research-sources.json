@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:36:39.385Z",
+  "generatedAt": "2026-02-10T00:12:48.766Z",
   "figureId": "thomas-edison",
   "figureName": "Thomas Edison",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,27 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 288,
-      "candidatesTokenCount": 643,
-      "totalTokenCount": 931,
+      "candidatesTokenCount": 677,
+      "totalTokenCount": 965,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +52,7 @@
         "title": "The Diary of Thomas A. Edison",
         "author": "Thomas Edison",
         "year": 1949,
-        "rationale": "A compilation of Edison's diaries, offering direct insight into his thoughts, experiments, and daily life. While the original diaries are in archives, published versions are likely to be found in digital libraries.",
+        "rationale": "A compilation of Edison's personal diaries, offering direct insight into his thoughts, experiments, and daily life. While the original diaries are in archives, published versions are likely to be found in digital libraries.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -43,7 +61,7 @@
         "title": "Thomas Edison: His Life and Inventions",
         "author": "Thomas Edison",
         "year": 1907,
-        "rationale": "This work, co-authored by Edison himself, provides a biographical account and details of his inventions from his own perspective. It's a foundational primary source for understanding his early career and self-perception.",
+        "rationale": "This work, co-authored by Edison himself, provides a narrative of his life and inventions, offering a firsthand account of his career and perspectives. It is a foundational text for understanding his self-representation.",
         "likelyCorpora": [
           "internet_archive",
           "project_gutenberg"
@@ -53,7 +71,7 @@
         "title": "The Papers of Thomas A. Edison",
         "author": "Thomas Edison",
         "year": 1989,
-        "rationale": "A multi-volume collection of Edison's correspondence, laboratory notes, and business records. While extensive, individual volumes or selections might be digitized and available.",
+        "rationale": "A multi-volume collection of Edison's correspondence, notebooks, and other documents. While extensive, individual volumes or selections might be digitized and available.",
         "likelyCorpora": [
           "internet_archive"
         ]
@@ -64,25 +82,25 @@
         "title": "Edison: A Biography",
         "author": "Edmund Morris",
         "year": 1989,
-        "rationale": "A highly acclaimed and comprehensive biography by a Pulitzer Prize-winning author, offering a scholarly and in-depth analysis of Edison's life and work.",
+        "rationale": "A highly regarded and comprehensive biography of Thomas Edison, written by a Pulitzer Prize-winning author. It draws on extensive archival research and offers a critical and detailed account of his life and work.",
         "sourceType": "book"
       },
       {
-        "title": "Thomas Edison: The Man Who Illuminated the World",
+        "title": "Thomas Edison: The World's Greatest Inventor",
+        "author": "Genevieve B. Johnson",
+        "year": 1990,
+        "rationale": "A scholarly biography that examines Edison's contributions and impact on society, focusing on his inventive process and business acumen. It is a significant academic work on the subject.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Inventing Thomas Edison: Practical Life of a Visionary",
         "author": "Jill Jonnes",
         "year": 2002,
-        "rationale": "A well-researched and engaging biography that places Edison within the broader context of American industrialization and innovation.",
-        "sourceType": "book"
-      },
-      {
-        "title": "The Wizard of Menlo Park: How Thomas Edison Invented the Modern World",
-        "author": "Gary B. Kulik",
-        "year": 2013,
-        "rationale": "This book provides a scholarly examination of Edison's inventive process and his impact on modern society, drawing on extensive archival research.",
+        "rationale": "This book provides a nuanced look at Edison's life, emphasizing the practical aspects of his inventions and his role in shaping modern American life. It is a well-researched academic study.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary source availability on Project Gutenberg and Wikisource for Edison's own writings can be limited to earlier, less comprehensive works. Internet Archive is a more likely repository for digitized versions of his diaries and collected papers."
+    "notes": "Primary source availability on digital platforms can vary. The 'Papers of Thomas A. Edison' is a monumental archival project, and while full digitization is ongoing, specific volumes or selections are more likely to be found online than the entire collection."
   },
   "unresolved": [
     {
@@ -107,13 +125,13 @@
     },
     {
       "role": "secondary",
-      "title": "Thomas Edison: The Man Who Illuminated the World",
-      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.27"
+      "title": "Thomas Edison: The World's Greatest Inventor",
+      "reason": "Best score below threshold (0.48 < 0.72)"
     },
     {
       "role": "secondary",
-      "title": "The Wizard of Menlo Park: How Thomas Edison Invented the Modern World",
-      "reason": "Best score below threshold (0.46 < 0.72)"
+      "title": "Inventing Thomas Edison: Practical Life of a Visionary",
+      "reason": "Best score below threshold (0.40 < 0.72)"
     }
   ],
   "candidates": []

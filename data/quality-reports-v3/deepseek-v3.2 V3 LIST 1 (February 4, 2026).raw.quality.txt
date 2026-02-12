@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: deepseek-v3.2 V3 LIST 1 (February 4, 2026).raw.txt
+Model: deepseek-v3.2 V3
+Timestamp: 2026-02-10T23:12:35.880Z
+
+VERDICT: FAIL
+
+Summary: Issues: 80 exact duplicates; pattern collapse (max 107)
+
+Scores:
+  Repetition: WARN - 80 exact duplicates found
+  Pattern Collapse: FAIL - Max sequence of 107 similar entries
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 56/61 anchor figures found (92%)
+
+Issues (38):
+  - Exact duplicate: "adam smith" at ranks 17, 114
+  - Exact duplicate: "leonardo da vinci" at ranks 23, 100
+  - Exact duplicate: "alan turing" at ranks 46, 205
+  - Exact duplicate: "tim bernerslee" at ranks 47, 259
+  - Exact duplicate: "john von neumann" at ranks 53, 203
+  - Exact duplicate: "alexander fleming" at ranks 79, 157
+  - Exact duplicate: "larry page" at ranks 179, 279
+  - Exact duplicate: "sergey brin" at ranks 180, 280
+  - Exact duplicate: "jeff bezos" at ranks 181, 342
+  - Exact duplicate: "mark zuckerberg" at ranks 182, 319
+  ... and 28 more issues
+
+Diversity Estimates:
+  Regions: Europe: 25, Asia: 5, Middle East: 4, Americas: 3, Unknown: 463
+  Domains: Politics/Leadership: 20, Science/Technology: 45, Philosophy/Religion: 33, Arts/Literature: 37, Military: 4, Other: 361
+
+Advanced Metrics:
+  Advanced score: 97.2
+  Parenthetical names: 0.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.2%
+  Long names: 0.0%
+  Short contributions: 13.4%

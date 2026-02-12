@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.401Z",
+  "figureId": "nicolaus-copernicus",
+  "figureName": "Nicolaus Copernicus",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Copernicus, Nicolaus",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FCopernicus%2C_Nicolaus",
+      "snippet": "The main lines of his great work were laid down at Heilsberg; at Frauenburg, from 1513, he sought, with scanty instrumental means, to test by observation the truth of the views it embodied (see Astronomy : History ). His dissatisfaction with Ptolemaic doctrines was of early date; and he returned from Italy, where so-called Pythagorean opinions were then freely discussed, in strong and irrevocable possession of the heliocentric theory. The epoch-making treatise in which it was set forth, virtually finished in 1530, began to be known through the circulation in manuscript of a Commentariolus , or brief popular account of its purport written by Copernicus in that year.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2023,
+      "source_title": "Copernicus, Nicolaus",
+      "source_url": "https://plato.stanford.edu/entries/copernicus/",
+      "snippet": "Nicolaus Copernicus (1473-1543) was a mathematician and astronomer who proposed that the sun was stationary in the center of the universe and the earth revolved around it. Disturbed by the failure of Ptolemy's geocentric model of the universe to follow Aristotle's requirement for the uniform circular motion of all celestial bodies. Copernicus decided that he could achieve his goal only through a heliocentric model. He thereby created a concept of a universe in which the distances of the planets from the sun bore a direct relationship to the size of their orbits. At the time Copernicus's heliocentric idea was very controversial; nevertheless, it was the start of a change in the way the world was viewed, and Copernicus came to be seen as the initiator of what is commonly known as the Scientific Revolution.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

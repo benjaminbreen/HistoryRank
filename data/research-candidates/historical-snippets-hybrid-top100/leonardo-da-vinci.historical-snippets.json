@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:33.604Z",
+  "figureId": "leonardo-da-vinci",
+  "figureName": "Leonardo da Vinci",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 5,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "project_gutenberg",
+      "edition_year": null,
+      "source_title": "A Treatise on Painting",
+      "source_url": "https://www.gutenberg.org/ebooks/46915",
+      "snippet": "\"A Treatise on Painting\" by Leonardo da Vinci is a scientific publication likely written in the late 15th century. The treatise is an exploration of the principles of painting, covering topics such as drawing, proportion, perspective, motion, light and shadow, and the use of colo...",
+      "match_score": 1,
+      "why": "Existing project_gutenberg snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Leonardo da Vinci",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FLeonardo_da_Vinci",
+      "snippet": "Verrocchio, although hardly one of the great creative or inventive forces in the art of his age at Florence, was a first-rate craftsman alike as goldsmith, sculptor and painter, and particularly distinguished as a teacher. In his studio Leonardo worked for several years (about 1470–1477) in the company of Lorenzo di Credi and other less celebrated pupils. Among his contemporaries he formed special ties of friendship with the painters Sandro Botticelli and Pietro Perugino.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

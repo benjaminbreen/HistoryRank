@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Instrument_Sans } from 'next/font/google';
 import { useSettings } from '@/hooks/useSettings';
 import { AppHeader } from '@/components/layout/AppHeader';
@@ -9,8 +10,46 @@ const instrument = Instrument_Sans({
   weight: ['400', '500', '600'],
 });
 
+const METHODOLOGY_SECTIONS = [
+  ['overview', 'Overview'],
+  ['goals', 'Goals'],
+  ['sources', 'Data sources'],
+  ['prompt', 'Core prompt'],
+  ['ranking', 'Ranking method'],
+  ['variance', 'Variance + disagreement'],
+  ['reconciliation', 'Name reconciliation'],
+  ['metadata', 'Geography + metadata'],
+  ['interpretation', 'Interpretation'],
+  ['circularity', 'Circularity problem'],
+  ['quality', 'Model quality'],
+  ['limitations', 'Limitations'],
+  ['roadmap', 'Roadmap'],
+  ['future-work', 'Future work'],
+  ['feb-2026-update', 'February 2026 update'],
+];
+
 export default function MethodologyPage() {
   const { settings, updateSettings, resetSettings } = useSettings();
+  const [activeSection, setActiveSection] = useState<string>('overview');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+    for (const [id] of METHODOLOGY_SECTIONS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-transparent">
@@ -23,32 +62,20 @@ export default function MethodologyPage() {
       <section className={`${instrument.className} max-w-6xl mx-auto px-6 py-12`}>
         <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <aside className="hidden lg:block">
-            <div className="sticky top-28 rounded-2xl border border-stone-200/70 bg-white/70 p-4 text-sm text-stone-600 shadow-sm backdrop-blur">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400">
+            <div className="sticky top-28 rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 p-4 text-sm text-stone-600 dark:text-slate-300 shadow-sm backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-slate-500">
                 Methodology
               </div>
-              <nav className="mt-4 space-y-2">
-                {[
-                  ['overview', 'Overview'],
-                  ['goals', 'Goals'],
-                  ['sources', 'Data sources'],
-                  ['prompt', 'Core prompt'],
-                  ['ranking', 'Ranking method'],
-                  ['variance', 'Variance + disagreement'],
-                  ['reconciliation', 'Name reconciliation'],
-                  ['metadata', 'Geography + metadata'],
-                  ['interpretation', 'Interpretation'],
-                  ['circularity', 'Circularity problem'],
-                  ['quality', 'Model quality'],
-                  ['limitations', 'Limitations'],
-                  ['roadmap', 'Roadmap'],
-                  ['future-work', 'Future work'],
-                  ['feb-2026-update', 'February 2026 update'],
-                ].map(([id, label]) => (
+              <nav className="mt-4 space-y-1">
+                {METHODOLOGY_SECTIONS.map(([id, label]) => (
                   <a
                     key={id}
                     href={`#${id}`}
-                    className="block rounded-lg px-2 py-1 text-stone-600 hover:bg-stone-100 hover:text-stone-900 transition-colors"
+                    className={`block rounded-lg px-2 py-1 transition-colors ${
+                      activeSection === id
+                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 font-medium'
+                        : 'text-stone-600 dark:text-slate-400 hover:bg-stone-100 dark:hover:bg-slate-700 hover:text-stone-900 dark:hover:text-slate-100'
+                    }`}
                   >
                     {label}
                   </a>
@@ -57,10 +84,10 @@ export default function MethodologyPage() {
             </div>
           </aside>
 
-          <div className="space-y-12 text-base leading-7 text-stone-700">
+          <div className="space-y-12 text-base leading-7 text-stone-700 dark:text-slate-300">
             <header>
-              <h1 className="text-3xl font-serif font-semibold text-stone-900">Methodology</h1>
-              <p className="mt-3 text-base text-stone-600">
+              <h1 className="text-3xl font-serif font-semibold text-stone-900 dark:text-amber-100">Methodology</h1>
+              <p className="mt-3 text-base text-stone-600 dark:text-slate-400">
                 HistoryRank is both a historical resource and a living experiment in how large language models
                 (LLMs) reason about historical importance. The project blends academic, public attention, and
                 model-generated signals to make the assumptions behind “importance” visible and debatable.
@@ -68,7 +95,7 @@ export default function MethodologyPage() {
             </header>
 
             <section id="overview" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Overview</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Overview</h2>
               <p className="mt-3">
                 The dataset combines three perspectives: academic historiometry (MIT Pantheon), public attention
                 (Wikipedia pageviews), and model judgments (LLM rankings and explanations). The resulting list is
@@ -78,7 +105,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="goals" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Goals</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Goals</h2>
               <p className="mt-3">
                 This project has two intertwined aims. First, to offer a public, readable reference for learning
                 about history at scale. Second, to use the “top 1,000” task as a probe into model behavior: what
@@ -92,7 +119,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="sources" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Data sources</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Data sources</h2>
               <div className="mt-3 space-y-3">
                 <p>
                   <strong>MIT Pantheon (HPI).</strong> A historiometric ranking built from Wikipedia biography
@@ -193,32 +220,32 @@ export default function MethodologyPage() {
             </section>
 
             <section id="prompt" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Core prompt (current)</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Core prompt (current)</h2>
               <p className="mt-3">
                 Every list is generated with the same prompt to maintain comparability. This prompt is reused
                 verbatim across models.
               </p>
-              <pre className="mt-4 whitespace-pre-wrap rounded-2xl border border-stone-200/70 bg-white p-4 text-[13px] text-stone-700 shadow-sm">
+              <pre className="mt-4 whitespace-pre-wrap rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 sm:p-4 text-xs sm:text-[13px] text-stone-700 dark:text-slate-300 shadow-sm leading-relaxed">
 {`Role: You are a senior historian and data scientist specializing in "Historiometry"—the statistical analysis of historical data. Task: Generate a ranked list of the 1,000 most influential figures in world history. Ranking Criteria: "Importance" must be calculated based on the following three metrics: Breadth: The geographic extent of their influence (Global vs. Regional). Depth: The degree to which they fundamentally altered human behavior, thought, or the state of the world. Longevity: The duration of their impact across centuries. Strict Constraints to Prevent Clustering: No Categorical Grouping: Do not group figures by profession, era, or nationality. This is a singular, linear competition of impact. For example, if rank #450 is a scientist and #451 is a poet, it must be because the scientist’s total score marginally exceeds the poet’s, not because you are listing "famous scientists" and then "famous poets." Linear Degradation: The list must represent a true descending order of influence. Rank #1 must be demonstrably more influential than #100, and #500 more than #1000. Global Balance: Ensure the list reflects major figures based on what you determine to be their objective historical weight, not just fame in one culture or region. Output Format: Provide the data in a raw JSON array of objects. Each object must contain: {"rank": integer, "name": "string", "primary_contribution": "string"} Technical Instruction: Do not include introductory or concluding conversational text—output the JSON block only. output the FULL list with no duplicates.`}
               </pre>
             </section>
 
             <section id="ranking" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Ranking method</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Ranking method</h2>
               <p className="mt-3">
                 Each model contributes multiple lists. We average ranks within a model, then compute a consensus
                 rank across models. If a model omits a figure, that omission is treated as rank 1001 (just below
                 the top 1,000 cutoff). This prevents two-model outliers from dominating and captures the implicit
                 judgment that a missing figure is less important than any ranked entry.
               </p>
-              <div className="mt-4 rounded-2xl border border-amber-200/60 bg-amber-50/70 p-4 text-sm text-amber-900">
+              <div className="mt-4 rounded-2xl border border-amber-200/60 dark:border-amber-800 bg-amber-50/70 dark:bg-amber-900/20 p-4 text-sm text-amber-900 dark:text-amber-200">
                 <strong>Current sampling:</strong> 5 lists per model. This is the baseline. The near-term goal
                 is 10 lists per model to reduce variance and prompt sensitivity.
               </div>
             </section>
 
             <section id="variance" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Variance and disagreement</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Variance and disagreement</h2>
               <p className="mt-3">
                 Variance is calculated across the padded model ranks (including 1001 for omissions). High variance
                 indicates contested figures, sparse agreement, or strong model disagreement. These are often the
@@ -228,7 +255,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="reconciliation" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Name reconciliation</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Name reconciliation</h2>
               <p className="mt-3">
                 Model outputs vary in spelling, honorifics, and transliteration. Names are normalized and mapped
                 to canonical figure IDs via alias tables (for example: “Siddhartha Gautama” → “Gautama Buddha”).
@@ -237,7 +264,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="metadata" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Geography + metadata</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Geography + metadata</h2>
               <p className="mt-3">
                 Birthplaces, regions, and descriptions are drawn from Wikipedia and Wikidata. Regions are
                 intentionally stable across eras to support cross-temporal comparisons and map-based views.
@@ -246,7 +273,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="interpretation" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Interpretation: history + model behavior</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Interpretation: history + model behavior</h2>
               <p className="mt-3">
                 The list is not just a ranking; it is a lens on model reasoning. LLMs struggle with this task
                 because "importance" is not a stable, objective quantity. By making the model explanations visible
@@ -260,7 +287,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="circularity" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">The circularity problem</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">The circularity problem</h2>
               <p className="mt-3">
                 There is an obvious methodological concern: LLMs are trained on human texts. When we ask them to
                 rank historical figures, are they doing anything more than reflecting back the existing
@@ -286,7 +313,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="quality" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Model quality and exclusions</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Model quality and exclusions</h2>
               <p className="mt-3">
                 Not all models can complete this task reliably. The "rank 1,000 most influential people in history"
                 challenge turns out to be a surprisingly effective test of frontier model capabilities. Only a handful
@@ -308,7 +335,7 @@ export default function MethodologyPage() {
                   encountered a legitimate entry (possibly Arvydas Sabonis, a notable figure in basketball history)
                   and then generated over 20 consecutive entries of obscure Lithuanian basketball players:
                 </p>
-                <pre className="mt-4 max-h-80 overflow-y-auto whitespace-pre-wrap rounded-2xl border border-stone-200/70 bg-white p-4 text-[12px] text-stone-700 shadow-sm font-mono">
+                <pre className="mt-4 max-h-80 overflow-y-auto whitespace-pre-wrap rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 sm:p-4 text-[11px] sm:text-[12px] text-stone-700 dark:text-slate-300 shadow-sm font-mono leading-relaxed">
 {`{
   "rank": 615,
   "name": "Edgaras Ulanovas",
@@ -523,7 +550,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="limitations" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Limitations and bias</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Limitations and bias</h2>
               <p className="mt-3">
                 Every source here is partial. Wikipedia reflects modern attention. Pantheon reflects an academic
                 framing. LLMs inherit their training data and may amplify dominant narratives. The project treats
@@ -563,7 +590,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="roadmap" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Roadmap</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Roadmap</h2>
 
               <div className="mt-4 space-y-4">
                 <div>
@@ -599,7 +626,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="future-work" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">Future work</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">Future work</h2>
               <p className="mt-3">
                 Our next phase extends the current benchmark in two directions: prompt sensitivity and
                 cross-lingual comparison. We will run two prompt variants in parallel: the current prompt
@@ -621,7 +648,7 @@ export default function MethodologyPage() {
             </section>
 
             <section id="feb-2026-update" className="scroll-mt-24">
-              <h2 className="text-xl font-semibold text-stone-900">February 2026 update</h2>
+              <h2 className="text-xl font-semibold text-stone-900 dark:text-amber-100">February 2026 update</h2>
               <p className="mt-3">
                 We introduced a new “Weighted Avg v3” view that combines all three list pools
                 (v1, v2, and v3) while adding robust weighting and quality filters.

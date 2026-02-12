@@ -1,0 +1,1442 @@
+{
+  "file": "GPT-5.3 Thinking LIST 4 (February 10, 2026).txt",
+  "model": "GPT-5.3 Thinking",
+  "timestamp": "2026-02-10T23:45:23.856Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 0,
+      "fuzzy": 221,
+      "status": "PASS",
+      "details": "221 fuzzy duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 12,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "shaped",
+          "startRank": 147,
+          "endRank": 158,
+          "count": 12,
+          "examples": [
+            "147. John von Neumann",
+            "148. Claude Shannon",
+            "149. Grace Hopper"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "culture",
+          "startRank": 217,
+          "endRank": 228,
+          "count": 12,
+          "examples": [
+            "217. Virginia Woolf",
+            "218. Franz Kafka",
+            "219. Gabriel Garcia Marquez"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 12 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 60,
+      "expected": 61,
+      "missing": [
+        "saint paul"
+      ],
+      "status": "PASS",
+      "details": "60/61 anchor figures found (98%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        16,
+        278
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "soren kierkegaard",
+      "variants": [
+        "soren kierkegaard",
+        "sren kierkegaard"
+      ],
+      "ranks": [
+        89,
+        573
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mehmed ii",
+      "variants": [
+        "mehmed ii",
+        "mehmed iii",
+        "mehmed iv",
+        "mehmed i"
+      ],
+      "ranks": [
+        169,
+        811,
+        954,
+        968
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "selim i",
+      "variants": [
+        "selim i",
+        "selim ii"
+      ],
+      "ranks": [
+        170,
+        469
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv",
+      "variants": [
+        "louis xiv",
+        "louis xiv of france"
+      ],
+      "ranks": [
+        173,
+        275
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii",
+      "variants": [
+        "henry viii",
+        "henry viii of england"
+      ],
+      "ranks": [
+        175,
+        269
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "elizabeth i",
+      "variants": [
+        "elizabeth i",
+        "elizabeth i of england",
+        "elizabeth ii"
+      ],
+      "ranks": [
+        176,
+        264,
+        305
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "napoleon iii",
+      "variants": [
+        "napoleon iii",
+        "napoleon ii"
+      ],
+      "ranks": [
+        179,
+        716
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "franz joseph haydn",
+      "variants": [
+        "franz joseph haydn",
+        "joseph haydn"
+      ],
+      "ranks": [
+        232,
+        351
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii of england",
+      "variants": [
+        "henry viii of england",
+        "henry vi of england"
+      ],
+      "ranks": [
+        269,
+        403
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope benedict xvi",
+      "variants": [
+        "pope benedict xvi",
+        "pope benedict xv",
+        "pope gregory xvi",
+        "pope benedict xiv"
+      ],
+      "ranks": [
+        271,
+        460,
+        549,
+        736
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv of france",
+      "variants": [
+        "louis xiv of france",
+        "louis xvi of france",
+        "louis xv of france",
+        "louis xiii of france",
+        "louis xviii of france",
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        275,
+        292,
+        405,
+        517,
+        554,
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope john paul i",
+        "pope julius ii",
+        "pope pius ii",
+        "pope urban ii",
+        "pope marcellus ii"
+      ],
+      "ranks": [
+        277,
+        302,
+        568,
+        771,
+        849,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah",
+        "muhammad ali of egypt"
+      ],
+      "ranks": [
+        287,
+        409,
+        948
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george vi",
+      "variants": [
+        "george vi",
+        "george v"
+      ],
+      "ranks": [
+        288,
+        301
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xvi of france",
+      "variants": [
+        "louis xvi of france",
+        "louis xv of france",
+        "louis xiii of france",
+        "louis xviii of france",
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        292,
+        405,
+        517,
+        554,
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "charles i of england",
+      "variants": [
+        "charles i of england",
+        "charles ii of england"
+      ],
+      "ranks": [
+        299,
+        337
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul i",
+      "variants": [
+        "pope john paul i",
+        "pope clement i",
+        "pope leo i",
+        "pope gregory i",
+        "pope sylvester i"
+      ],
+      "ranks": [
+        302,
+        457,
+        794,
+        817,
+        818
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward vii",
+      "variants": [
+        "edward vii",
+        "edward viii"
+      ],
+      "ranks": [
+        306,
+        316
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward vi of england",
+      "variants": [
+        "edward vi of england",
+        "edward iv of england",
+        "edward v of england"
+      ],
+      "ranks": [
+        307,
+        408,
+        465
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo xiv",
+      "variants": [
+        "pope leo xiv",
+        "pope leo xi",
+        "pope leo xii",
+        "pope benedict xiv",
+        "pope clement xiv"
+      ],
+      "ranks": [
+        310,
+        587,
+        600,
+        736,
+        910
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george iii of the united kingdom",
+      "variants": [
+        "george iii of the united kingdom",
+        "george iv of the united kingdom"
+      ],
+      "ranks": [
+        321,
+        434
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo xiii",
+      "variants": [
+        "pope leo xiii",
+        "pope gregory xiii",
+        "pope leo xi",
+        "pope leo xii",
+        "pope clement xiii"
+      ],
+      "ranks": [
+        340,
+        575,
+        587,
+        600,
+        906
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilhelm ii german emperor",
+      "variants": [
+        "wilhelm ii german emperor",
+        "william i german emperor"
+      ],
+      "ranks": [
+        341,
+        745
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "matthew the apostle",
+      "variants": [
+        "matthew the apostle",
+        "matthias the apostle"
+      ],
+      "ranks": [
+        350,
+        611
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope paul vi",
+      "variants": [
+        "pope paul vi",
+        "pope alexander vi",
+        "pope adrian vi",
+        "pope pius vi",
+        "pope paul v"
+      ],
+      "ranks": [
+        361,
+        491,
+        637,
+        675,
+        869
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "xerxes i",
+      "variants": [
+        "xerxes i",
+        "artaxerxes i of persia"
+      ],
+      "ranks": [
+        364,
+        776
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius xii",
+      "variants": [
+        "pope pius xii",
+        "pope pius xi",
+        "pope pius x",
+        "pope pius vii",
+        "pope leo xii",
+        "pope pius iii",
+        "pope pius ii",
+        "pope clement xii",
+        "pope gregory xii",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        373,
+        424,
+        454,
+        590,
+        600,
+        718,
+        771,
+        797,
+        850,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius ix",
+      "variants": [
+        "pope pius ix",
+        "pope pius x",
+        "pope pius ii",
+        "pope pius iv"
+      ],
+      "ranks": [
+        382,
+        454,
+        771,
+        848
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xv of france",
+      "variants": [
+        "louis xv of france",
+        "louis xiii of france",
+        "louis xviii of france",
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        405,
+        517,
+        554,
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward iv of england",
+      "variants": [
+        "edward iv of england",
+        "edward v of england"
+      ],
+      "ranks": [
+        408,
+        465
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexandre dumas",
+      "variants": [
+        "alexandre dumas",
+        "alexandre dumas fils"
+      ],
+      "ranks": [
+        414,
+        996
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius xi",
+      "variants": [
+        "pope pius xi",
+        "pope pius x",
+        "pope leo xi",
+        "pope pius vi",
+        "pope pius ii",
+        "pope innocent xi",
+        "pope clement xi"
+      ],
+      "ranks": [
+        424,
+        454,
+        587,
+        675,
+        771,
+        772,
+        892
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mary ii of england",
+      "variants": [
+        "mary ii of england",
+        "mary i of england"
+      ],
+      "ranks": [
+        445,
+        515
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius x",
+      "variants": [
+        "pope pius x",
+        "pope pius v",
+        "pope innocent x"
+      ],
+      "ranks": [
+        454,
+        750,
+        820
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement i",
+      "variants": [
+        "pope clement i",
+        "pope leo i",
+        "pope gregory i",
+        "pope sylvester i",
+        "pope clement xi",
+        "pope clement v"
+      ],
+      "ranks": [
+        457,
+        794,
+        817,
+        818,
+        892,
+        915
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope benedict xv",
+      "variants": [
+        "pope benedict xv",
+        "pope benedict xiv",
+        "pope gregory xv"
+      ],
+      "ranks": [
+        460,
+        736,
+        826
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "frederick i holy roman emperor",
+      "variants": [
+        "frederick i holy roman emperor",
+        "frederick ii holy roman emperor"
+      ],
+      "ranks": [
+        468,
+        830
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope alexander vi",
+      "variants": [
+        "pope alexander vi",
+        "pope adrian vi",
+        "pope pius vi",
+        "pope alexander viii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        491,
+        637,
+        675,
+        942,
+        965
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiii of france",
+      "variants": [
+        "louis xiii of france",
+        "louis xviii of france",
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        517,
+        554,
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban vii",
+      "variants": [
+        "pope urban vii",
+        "pope clement vii",
+        "pope pius vii",
+        "pope urban viii",
+        "pope urban ii",
+        "pope gregory vii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        525,
+        532,
+        590,
+        664,
+        849,
+        956,
+        965
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement vii",
+      "variants": [
+        "pope clement vii",
+        "pope pius vii",
+        "pope clement xii",
+        "pope clement viii",
+        "pope clement xiii",
+        "pope clement v",
+        "pope gregory vii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        532,
+        590,
+        797,
+        883,
+        906,
+        915,
+        956,
+        965
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george w bush",
+      "variants": [
+        "george w bush",
+        "george h w bush"
+      ],
+      "ranks": [
+        543,
+        852
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory xvi",
+      "variants": [
+        "pope gregory xvi",
+        "pope gregory xiii",
+        "pope gregory xv",
+        "pope gregory xii"
+      ],
+      "ranks": [
+        549,
+        575,
+        826,
+        850
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "murad ii",
+      "variants": [
+        "murad ii",
+        "murad iii",
+        "murad i"
+      ],
+      "ranks": [
+        552,
+        589,
+        686
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xviii of france",
+      "variants": [
+        "louis xviii of france",
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        554,
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope julius ii",
+      "variants": [
+        "pope julius ii",
+        "pope pius ii",
+        "pope urban ii",
+        "pope julius iii",
+        "pope marcellus ii"
+      ],
+      "ranks": [
+        568,
+        771,
+        849,
+        946,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory xiii",
+      "variants": [
+        "pope gregory xiii",
+        "pope gregory xii",
+        "pope clement xiii",
+        "pope gregory vii"
+      ],
+      "ranks": [
+        575,
+        850,
+        906,
+        956
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry iv of france",
+      "variants": [
+        "henry iv of france",
+        "henry iii of france"
+      ],
+      "ranks": [
+        583,
+        862
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo xi",
+      "variants": [
+        "pope leo xi",
+        "pope leo xii",
+        "pope innocent xi",
+        "pope leo i",
+        "pope clement xi"
+      ],
+      "ranks": [
+        587,
+        600,
+        772,
+        794,
+        892
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "murad iii",
+      "variants": [
+        "murad iii",
+        "murad i"
+      ],
+      "ranks": [
+        589,
+        686
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius vii",
+      "variants": [
+        "pope pius vii",
+        "pope pius viii",
+        "pope pius vi",
+        "pope pius iii",
+        "pope pius v",
+        "pope pius ii",
+        "pope gregory vii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        590,
+        635,
+        675,
+        718,
+        750,
+        771,
+        956,
+        965
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo xii",
+      "variants": [
+        "pope leo xii",
+        "pope clement xii",
+        "pope gregory xii",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        600,
+        797,
+        850,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius viii",
+      "variants": [
+        "pope pius viii",
+        "pope urban viii",
+        "pope pius vi",
+        "pope pius iii",
+        "pope pius v",
+        "pope clement viii",
+        "pope innocent viii",
+        "pope alexander viii"
+      ],
+      "ranks": [
+        635,
+        664,
+        675,
+        718,
+        750,
+        883,
+        931,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope adrian vi",
+      "variants": [
+        "pope adrian vi",
+        "pope pius vi"
+      ],
+      "ranks": [
+        637,
+        675
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban viii",
+      "variants": [
+        "pope urban viii",
+        "pope clement viii",
+        "pope innocent viii",
+        "pope alexander viii"
+      ],
+      "ranks": [
+        664,
+        883,
+        931,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "bayezid ii",
+      "variants": [
+        "bayezid ii",
+        "bayezid i"
+      ],
+      "ranks": [
+        670,
+        674
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius vi",
+      "variants": [
+        "pope pius vi",
+        "pope pius v",
+        "pope pius ii"
+      ],
+      "ranks": [
+        675,
+        750,
+        771
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "murad i",
+      "variants": [
+        "murad i",
+        "murad iv"
+      ],
+      "ranks": [
+        686,
+        834
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent iii",
+      "variants": [
+        "pope innocent iii",
+        "pope pius iii",
+        "pope paul iii",
+        "pope innocent xi",
+        "pope innocent viii",
+        "pope innocent xii",
+        "pope julius iii",
+        "pope callixtus iii"
+      ],
+      "ranks": [
+        714,
+        718,
+        762,
+        772,
+        931,
+        944,
+        946,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius iii",
+      "variants": [
+        "pope pius iii",
+        "pope paul iii",
+        "pope pius ii",
+        "pope julius iii",
+        "pope callixtus iii"
+      ],
+      "ranks": [
+        718,
+        762,
+        771,
+        946,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xvii of france",
+      "variants": [
+        "louis xvii of france",
+        "louis ix of france"
+      ],
+      "ranks": [
+        723,
+        870
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope benedict xiv",
+      "variants": [
+        "pope benedict xiv",
+        "pope clement xiv"
+      ],
+      "ranks": [
+        736,
+        910
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "maximilian ii holy roman emperor",
+      "variants": [
+        "maximilian ii holy roman emperor",
+        "maximilian i holy roman emperor"
+      ],
+      "ranks": [
+        746,
+        803
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius v",
+      "variants": [
+        "pope pius v",
+        "pope sixtus v",
+        "pope pius iv",
+        "pope paul v",
+        "pope clement v"
+      ],
+      "ranks": [
+        750,
+        805,
+        848,
+        869,
+        915
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope paul iii",
+      "variants": [
+        "pope paul iii",
+        "pope julius iii",
+        "pope callixtus iii"
+      ],
+      "ranks": [
+        762,
+        946,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius ii",
+      "variants": [
+        "pope pius ii",
+        "pope pius iv",
+        "pope urban ii",
+        "pope marcellus ii"
+      ],
+      "ranks": [
+        771,
+        848,
+        849,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent xi",
+      "variants": [
+        "pope innocent xi",
+        "pope innocent x",
+        "pope clement xi",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        772,
+        820,
+        892,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope leo i",
+      "variants": [
+        "pope leo i",
+        "pope gregory i",
+        "pope sylvester i"
+      ],
+      "ranks": [
+        794,
+        817,
+        818
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement xii",
+      "variants": [
+        "pope clement xii",
+        "pope gregory xii",
+        "pope clement viii",
+        "pope clement xi",
+        "pope clement xiii",
+        "pope clement xiv",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        797,
+        850,
+        883,
+        892,
+        906,
+        910,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope sixtus v",
+      "variants": [
+        "pope sixtus v",
+        "pope paul v",
+        "pope sixtus iv",
+        "pope clement v"
+      ],
+      "ranks": [
+        805,
+        869,
+        914,
+        915
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mehmed iii",
+      "variants": [
+        "mehmed iii",
+        "mehmed i"
+      ],
+      "ranks": [
+        811,
+        968
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory i",
+      "variants": [
+        "pope gregory i",
+        "pope sylvester i"
+      ],
+      "ranks": [
+        817,
+        818
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent x",
+      "variants": [
+        "pope innocent x",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        820,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope pius iv",
+      "variants": [
+        "pope pius iv",
+        "pope sixtus iv",
+        "pope paul iv"
+      ],
+      "ranks": [
+        848,
+        914,
+        988
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope marcellus ii"
+      ],
+      "ranks": [
+        849,
+        967
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory xii",
+      "variants": [
+        "pope gregory xii",
+        "pope innocent xii",
+        "pope gregory vii"
+      ],
+      "ranks": [
+        850,
+        944,
+        956
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope paul v",
+      "variants": [
+        "pope paul v",
+        "pope clement v",
+        "pope paul iv"
+      ],
+      "ranks": [
+        869,
+        915,
+        988
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement viii",
+      "variants": [
+        "pope clement viii",
+        "pope clement xiii",
+        "pope clement v",
+        "pope innocent viii",
+        "pope alexander viii"
+      ],
+      "ranks": [
+        883,
+        906,
+        915,
+        931,
+        942
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement xi",
+      "variants": [
+        "pope clement xi",
+        "pope clement xiii",
+        "pope clement xiv"
+      ],
+      "ranks": [
+        892,
+        906,
+        910
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope clement xiii",
+      "variants": [
+        "pope clement xiii",
+        "pope clement xiv"
+      ],
+      "ranks": [
+        906,
+        910
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope sixtus iv",
+      "variants": [
+        "pope sixtus iv",
+        "pope paul iv"
+      ],
+      "ranks": [
+        914,
+        988
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope innocent viii",
+      "variants": [
+        "pope innocent viii",
+        "pope alexander viii",
+        "pope innocent xii"
+      ],
+      "ranks": [
+        931,
+        942,
+        944
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope alexander viii",
+      "variants": [
+        "pope alexander viii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        942,
+        965
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope julius iii",
+      "variants": [
+        "pope julius iii",
+        "pope callixtus iii"
+      ],
+      "ranks": [
+        946,
+        992
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "mehmed iv",
+      "variants": [
+        "mehmed iv",
+        "mehmed i"
+      ],
+      "ranks": [
+        954,
+        968
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope gregory vii",
+      "variants": [
+        "pope gregory vii",
+        "pope alexander vii"
+      ],
+      "ranks": [
+        956,
+        965
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "shaped",
+      "startRank": 147,
+      "endRank": 158,
+      "count": 12,
+      "examples": [
+        "147. John von Neumann",
+        "148. Claude Shannon",
+        "149. Grace Hopper"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "culture",
+      "startRank": 217,
+      "endRank": 228,
+      "count": 12,
+      "examples": [
+        "217. Virginia Woolf",
+        "218. Franz Kafka",
+        "219. Gabriel Garcia Marquez"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 13,
+      "Asia": 3,
+      "Middle East": 4,
+      "Africa": 1,
+      "Americas": 0,
+      "Oceania": 0,
+      "Unknown": 979
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 29,
+      "Science/Technology": 1,
+      "Philosophy/Religion": 125,
+      "Arts/Literature": 58,
+      "Military": 21,
+      "Other": 766
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 32,
+    "commaNameRate": 0.032,
+    "shortNameCount": 1,
+    "shortNameRate": 0.001,
+    "longNameCount": 1,
+    "longNameRate": 0.001,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 99.61000000000001
+  },
+  "summary": "List passes all quality checks"
+}

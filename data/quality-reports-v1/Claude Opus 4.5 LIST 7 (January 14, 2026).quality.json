@@ -1,0 +1,364 @@
+{
+  "file": "Claude Opus 4.5 LIST 7 (January 14, 2026).txt",
+  "model": "Claude Opus 4.5",
+  "timestamp": "2026-02-10T23:43:41.359Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 8,
+      "fuzzy": 12,
+      "status": "PASS",
+      "details": "8 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 14,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "literature",
+          "startRank": 838,
+          "endRank": 848,
+          "count": 11,
+          "examples": [
+            "838. Chinua Achebe",
+            "839. Wole Soyinka",
+            "840. Ngũgĩ wa Thiong'o"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "italian",
+          "startRank": 879,
+          "endRank": 888,
+          "count": 10,
+          "examples": [
+            "879. Italo Calvino",
+            "880. Luigi Pirandello",
+            "881. Dario Fo"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "cinema",
+          "startRank": 903,
+          "endRank": 916,
+          "count": 14,
+          "examples": [
+            "903. Satyajit Ray",
+            "904. Wong Kar-wai",
+            "905. Zhang Yimou"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 14 similar entries"
+    },
+    "structural": {
+      "entries": 1000,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "moses",
+        "saint paul",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        32,
+        223
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dwight d eisenhower",
+      "ranks": [
+        298,
+        383
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "charles de gaulle",
+      "ranks": [
+        305,
+        748
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sukarno",
+      "ranks": [
+        320,
+        337
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        488,
+        794
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "erving goffman",
+      "ranks": [
+        634,
+        705
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "maxim gorky",
+      "ranks": [
+        773,
+        781
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "edgar allan poe",
+      "ranks": [
+        799,
+        820
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        22,
+        78
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george washington",
+      "variants": [
+        "george washington",
+        "george washington carver"
+      ],
+      "ranks": [
+        29,
+        212
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "henry viii",
+      "variants": [
+        "henry viii",
+        "henry v"
+      ],
+      "ranks": [
+        64,
+        412
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "louis xiv",
+      "variants": [
+        "louis xiv",
+        "louis xi"
+      ],
+      "ranks": [
+        65,
+        415
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "marie curie",
+      "variants": [
+        "marie curie",
+        "marie sklodowska curie"
+      ],
+      "ranks": [
+        83,
+        185
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "grace hopper",
+      "variants": [
+        "grace hopper",
+        "grace murray hopper"
+      ],
+      "ranks": [
+        189,
+        598
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jack kilby",
+      "variants": [
+        "jack kilby",
+        "jack kirby"
+      ],
+      "ranks": [
+        238,
+        949
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john adams",
+      "variants": [
+        "john adams",
+        "john quincy adams"
+      ],
+      "ranks": [
+        292,
+        293
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "edward i",
+      "variants": [
+        "edward i",
+        "edward iii"
+      ],
+      "ranks": [
+        410,
+        411
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander i of russia",
+      "variants": [
+        "alexander i of russia",
+        "alexander ii of russia"
+      ],
+      "ranks": [
+        432,
+        434
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nicholas i of russia",
+      "variants": [
+        "nicholas i of russia",
+        "nicholas ii of russia"
+      ],
+      "ranks": [
+        433,
+        435
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "pope urban ii"
+      ],
+      "ranks": [
+        445,
+        452
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "literature",
+      "startRank": 838,
+      "endRank": 848,
+      "count": 11,
+      "examples": [
+        "838. Chinua Achebe",
+        "839. Wole Soyinka",
+        "840. Ngũgĩ wa Thiong'o"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "italian",
+      "startRank": 879,
+      "endRank": 888,
+      "count": 10,
+      "examples": [
+        "879. Italo Calvino",
+        "880. Luigi Pirandello",
+        "881. Dario Fo"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "cinema",
+      "startRank": 903,
+      "endRank": 916,
+      "count": 14,
+      "examples": [
+        "903. Satyajit Ray",
+        "904. Wong Kar-wai",
+        "905. Zhang Yimou"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 116,
+      "Asia": 49,
+      "Middle East": 16,
+      "Africa": 20,
+      "Americas": 43,
+      "Oceania": 0,
+      "Unknown": 756
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 1000
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 44,
+      "Science/Technology": 17,
+      "Philosophy/Religion": 16,
+      "Arts/Literature": 39,
+      "Military": 19,
+      "Other": 865
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 9,
+    "parentheticalRate": 0.009,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 1,
+    "commaNameRate": 0.001,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 338,
+    "contributionShortRate": 0.338,
+    "score": 92.68999999999998
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-02-10T00:19:34.842Z",
+  "figureId": "alexander-graham-bell",
+  "figureName": "Alexander Graham Bell",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 2,
+      "byRole": {
+        "secondary": 2
+      },
+      "byCorpus": {
+        "openalex": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1976,
+        "max": 1976
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 289,
+      "candidatesTokenCount": 600,
+      "totalTokenCount": 889,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 289
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Induction Balance and Absolute Measurements in Acoustics",
+        "author": "Alexander Graham Bell",
+        "year": 1883,
+        "rationale": "Bell's scientific writings are foundational to understanding his work on the telephone and acoustics. This paper details his experiments and findings.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Upon the Production of Sound by Radiant Energy",
+        "author": "Alexander Graham Bell",
+        "year": 1880,
+        "rationale": "This paper describes the photophone, a significant invention by Bell that transmitted sound on a beam of light, predating radio.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "The Telephone",
+        "author": "Alexander Graham Bell",
+        "year": 1877,
+        "rationale": "This is an early presentation of his invention, likely including lectures or papers delivered around the time of the patent.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Alexander Graham Bell: The Life and Mind of a Genius",
+        "author": "Catherine Mackenzie",
+        "year": 1973,
+        "rationale": "While slightly before 1976, this is a widely cited and comprehensive biography by a respected author, offering deep insights into Bell's life and work.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Man Who Harnessed Lightning: The Life and Times of Alexander Graham Bell",
+        "author": "Jane F. McCurdy",
+        "year": 2019,
+        "rationale": "A more recent scholarly biography that provides a comprehensive overview of Bell's life, inventions, and impact.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Alexander Graham Bell and the Invention of the Telephone",
+        "author": "Robert V. Bruce",
+        "year": 1990,
+        "rationale": "This book offers a detailed historical account of the invention of the telephone, placing Bell's contributions within their broader scientific and social context.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are often found in collections of scientific papers and lectures. Secondary sources are chosen for their scholarly depth and recency, with one exception for a highly regarded older biography."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Induction Balance and Absolute Measurements in Acoustics",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Upon the Production of Sound by Radiant Energy",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "The Telephone",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Alexander Graham Bell: The Life and Mind of a Genius",
+      "reason": "Best score below threshold (0.43 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "The Man Who Harnessed Lightning: The Life and Times of Alexander Graham Bell",
+      "reason": "Best score below threshold (0.59 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Alexander Graham Bell and the invention of the telephone",
+      "author": "J.E. Flood",
+      "publication_year": 1976,
+      "source_url": "https://doi.org/10.1049/piee.1976.0281",
+      "access_url": "https://doi.org/10.1049/piee.1976.0281",
+      "snippet": "Proceedings of the Institution of Electrical Engineers",
+      "confidence": 0.801,
+      "why": "Secondary source resolved from suggestion \"Alexander Graham Bell and the Invention of the Telephone\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.53; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Alexander Graham Bell and the Invention of the Telephone",
+        "suggestion_author": "Robert V. Bruce",
+        "suggestion_year": 1990,
+        "suggestion_rationale": "This book offers a detailed historical account of the invention of the telephone, placing Bell's contributions within their broader scientific and social context.",
+        "openalex_id": "https://openalex.org/W2064070783",
+        "work_type": "article"
+      }
+    },
+    {
+      "source_corpus": "crossref",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "Alexander Graham Bell and the invention of the telephone",
+      "author": "J.E. Flood",
+      "publication_year": 1976,
+      "source_url": "https://doi.org/10.1049/ep.1976.0077",
+      "access_url": "https://doi.org/10.1049/ep.1976.0077",
+      "snippet": "Electronics and Power",
+      "confidence": 0.811,
+      "why": "Secondary source resolved from suggestion \"Alexander Graham Bell and the Invention of the Telephone\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=0.53; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "Alexander Graham Bell and the Invention of the Telephone",
+        "suggestion_author": "Robert V. Bruce",
+        "suggestion_year": 1990,
+        "suggestion_rationale": "This book offers a detailed historical account of the invention of the telephone, placing Bell's contributions within their broader scientific and social context.",
+        "doi": "10.1049/ep.1976.0077",
+        "crossref_type": "journal-article"
+      }
+    }
+  ]
+}

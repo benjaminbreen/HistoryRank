@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.493Z",
+  "figureId": "mencius",
+  "figureName": "Mencius",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 1,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 3,
+    "selectedCandidates": 3
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Mencius",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FMencius",
+      "snippet": "The Măngs or Măng-suns had been in the time of Confucius one of the three great clans of Lû (all descended from the marquis Hwan, 711–694&#160; B.C. ), which he had endeavoured to curb. Their power had subsequently been broken, and the branch to which Mencius belonged had settled in Tsâu, a small adjacent principality, the name of which remains in Tsâu hsien, a district of Yenchâu Shan-tung. A magnificent temple to Mencius is the chief attraction of the district city. The large marble statue of Mencius in the courtyard shows much artistic skill, and gives the impression of a man strong in body and mind, thoughtful and fearless.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2024,
+      "source_title": "Mencius",
+      "source_url": "https://plato.stanford.edu/entries/mencius/",
+      "snippet": "Mencius (fourth century BCE) was a Confucian philosopher. Often referred to as the \"Second Sage\" of Confucianism (meaning second in importance only to Confucius himself), Mencius is best known for his claim that \"human nature is good.\" He has attracted interest in recent Western philosophy because his views on the virtues, ethical cultivation, and human nature have intriguing similarities with but also provocative differences from familiar Humean and Aristotelian formulations.",
+      "match_score": 0.86,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "Mencius (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/Mencius",
+      "snippet": "Mencius, born Meng Ke (孟軻), was a Chinese Confucian philosopher, often described as the Second Sage (亞聖) to reflect his traditional esteem relative to Confucius himself. He was part of Confucius's fourth generation of disciples, inheriting his ideology and developing it further. Living during the Warring States period, he is said to have spent much of his life travelling around the states offering counsel to different rulers. Conversations with these rulers form the basis of the Mencius, which would later be canonised as a Confucian classic.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

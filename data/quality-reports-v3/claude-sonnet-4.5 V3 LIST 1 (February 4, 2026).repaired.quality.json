@@ -1,0 +1,221 @@
+{
+  "file": "claude-sonnet-4.5 V3 LIST 1 (February 4, 2026).repaired.txt",
+  "model": "claude-sonnet-4.5 V3",
+  "timestamp": "2026-02-10T23:12:34.761Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 10,
+      "fuzzy": 2,
+      "status": "PASS",
+      "details": "10 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 10,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "political",
+          "startRank": 363,
+          "endRank": 372,
+          "count": 10,
+          "examples": [
+            "363. John Kenneth Galbraith",
+            "364. Thomas Hobbes",
+            "365. Alexis de Tocqueville"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "political",
+          "startRank": 364,
+          "endRank": 373,
+          "count": 10,
+          "examples": [
+            "364. Thomas Hobbes",
+            "365. Alexis de Tocqueville",
+            "366. Hannah Arendt"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "details": "Max sequence of 10 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 59,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle"
+      ],
+      "status": "PASS",
+      "details": "59/61 anchor figures found (97%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "galileo galilei",
+      "ranks": [
+        14,
+        220
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        59,
+        209,
+        255
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "carl friedrich gauss",
+      "ranks": [
+        89,
+        310
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "david hilbert",
+      "ranks": [
+        91,
+        314
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "blaise pascal",
+      "ranks": [
+        94,
+        300,
+        406
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "baruch spinoza",
+      "ranks": [
+        105,
+        409
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas hobbes",
+      "ranks": [
+        112,
+        364
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "cs lewis",
+      "ranks": [
+        404,
+        470
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther",
+      "variants": [
+        "martin luther",
+        "martin luther king jr"
+      ],
+      "ranks": [
+        12,
+        121
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "gregor mendel",
+      "variants": [
+        "gregor mendel",
+        "gregor johann mendel"
+      ],
+      "ranks": [
+        61,
+        79
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "political",
+      "startRank": 363,
+      "endRank": 372,
+      "count": 10,
+      "examples": [
+        "363. John Kenneth Galbraith",
+        "364. Thomas Hobbes",
+        "365. Alexis de Tocqueville"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "political",
+      "startRank": 364,
+      "endRank": 373,
+      "count": 10,
+      "examples": [
+        "364. Thomas Hobbes",
+        "365. Alexis de Tocqueville",
+        "366. Hannah Arendt"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 36,
+      "Asia": 10,
+      "Middle East": 13,
+      "Africa": 6,
+      "Americas": 16,
+      "Oceania": 0,
+      "Unknown": 419
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 5,
+      "Science/Technology": 21,
+      "Philosophy/Religion": 10,
+      "Arts/Literature": 11,
+      "Military": 5,
+      "Other": 448
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "List passes all quality checks"
+}

@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:28:46.643Z",
+  "generatedAt": "2026-02-10T00:10:19.817Z",
   "figureId": "aristotle",
   "figureName": "Aristotle",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 4,
+      "byRole": {
+        "primary": 1,
+        "secondary": 3
+      },
+      "byCorpus": {
+        "internet_archive": 1,
+        "openalex": 2,
+        "openlibrary": 1
+      },
+      "yearSpan": {
+        "min": 1910,
+        "max": 2011
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 287,
-      "candidatesTokenCount": 595,
-      "totalTokenCount": 882,
+      "candidatesTokenCount": 556,
+      "totalTokenCount": 843,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "Nicomachean Ethics",
         "author": "Aristotle",
         "year": -350,
-        "rationale": "Aristotle's seminal work on ethics, virtue, and the good life. It is a foundational text in Western philosophy.",
+        "rationale": "Aristotle's seminal work on ethics and virtue, fundamental to understanding his moral philosophy.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +73,7 @@
         "title": "Politics",
         "author": "Aristotle",
         "year": -350,
-        "rationale": "Aristotle's examination of political science, governance, and the ideal state. It is a key text for understanding ancient political thought.",
+        "rationale": "A foundational text in political philosophy, exploring the nature of the state, citizenship, and justice.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +84,7 @@
         "title": "Metaphysics",
         "author": "Aristotle",
         "year": -350,
-        "rationale": "Aristotle's exploration of fundamental questions about reality, existence, and first principles. It is a cornerstone of philosophical inquiry.",
+        "rationale": "A complex and influential work dealing with the fundamental nature of reality, existence, and first principles.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -68,42 +96,37 @@
       {
         "title": "The Cambridge Companion to Aristotle",
         "author": "Jonathan Barnes",
-        "year": 1984,
+        "year": 1995,
         "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Aristotle's philosophy and works.",
         "sourceType": "book"
       },
       {
-        "title": "Aristotle's Nicomachean Ethics: A Commentary",
-        "author": "Terence Irwin",
-        "year": 1985,
-        "rationale": "A detailed and influential scholarly commentary on Aristotle's most famous ethical work, providing in-depth analysis and interpretation.",
+        "title": "Aristotle's Political Theory: An Introduction",
+        "author": "R. G. Mulgan",
+        "year": 1991,
+        "rationale": "Provides a clear and accessible introduction to Aristotle's political thought, suitable for students and scholars.",
         "sourceType": "book"
       },
       {
-        "title": "Aristotle's Political Theory: An Introduction",
-        "author": "Christopher Bobonich",
-        "year": 2002,
-        "rationale": "An accessible yet rigorous introduction to Aristotle's political philosophy, examining his key concepts and arguments.",
+        "title": "Aristotle's Nicomachean Ethics: A Critical Guide",
+        "author": "Christoper Taylor",
+        "year": 2006,
+        "rationale": "Offers a detailed analysis and critical engagement with Aristotle's most famous ethical treatise.",
         "sourceType": "book"
       }
     ],
-    "notes": "Aristotle's works are foundational to Western thought, and many of his major treatises are widely available in translation in digital archives. The secondary sources listed are standard scholarly introductions and commentaries."
+    "notes": "Aristotle's works are foundational to Western philosophy and are widely available in various translations and editions across digital archives."
   },
   "unresolved": [
     {
       "role": "primary",
       "title": "Politics",
-      "reason": "Title similarity too low (0.45); baseScore=0.38"
+      "reason": "Title similarity too low (0.28); baseScore=0.27"
     },
     {
       "role": "primary",
       "title": "Metaphysics",
-      "reason": "Title similarity too low (0.33); baseScore=0.38"
-    },
-    {
-      "role": "secondary",
-      "title": "Aristotle's Political Theory: An Introduction",
-      "reason": "Best score below threshold (0.63 < 0.72)"
+      "reason": "Title similarity too low (0.70); baseScore=0.73"
     }
   ],
   "candidates": [
@@ -111,66 +134,89 @@
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "nicomachean ethics",
-      "author": "aristotle",
-      "publication_year": 1999,
-      "source_url": "https://archive.org/details/nicomachean-ethics-aristotle",
-      "access_url": "https://archive.org/details/nicomachean-ethics-aristotle",
+      "title": "Nicomachean ethics",
+      "author": "Aristotle",
+      "publication_year": 1910,
+      "source_url": "https://archive.org/details/nicomacheaneth00arisiala",
+      "access_url": "https://archive.org/details/nicomacheaneth00arisiala",
       "snippet": null,
       "confidence": 0.92,
-      "why": "Primary source resolved from suggestion \"Nicomachean Ethics\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
+      "why": "Primary source resolved from suggestion \"Nicomachean Ethics\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Ancient/classical allowance with strong title match in public-text corpus",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "Nicomachean Ethics",
         "suggestion_author": "Aristotle",
         "suggestion_year": -350,
-        "suggestion_rationale": "Aristotle's seminal work on ethics, virtue, and the good life. It is a foundational text in Western philosophy.",
-        "ia_identifier": "nicomachean-ethics-aristotle"
+        "suggestion_rationale": "Aristotle's seminal work on ethics and virtue, fundamental to understanding his moral philosophy.",
+        "ia_identifier": "nicomacheaneth00arisiala"
+      }
+    },
+    {
+      "source_corpus": "openalex",
+      "source_role": "secondary",
+      "source_kind": "article",
+      "title": "The Cambridge companion to Aristotle",
+      "author": null,
+      "publication_year": 1995,
+      "source_url": "https://doi.org/10.5860/choice.33-0221",
+      "access_url": "https://doi.org/10.5860/choice.33-0221",
+      "snippet": "Choice Reviews Online",
+      "confidence": 0.88,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Aristotle\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Figure full name present in title",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "min_secondary_year": 1976,
+        "suggestion_title": "The Cambridge Companion to Aristotle",
+        "suggestion_author": "Jonathan Barnes",
+        "suggestion_year": 1995,
+        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Aristotle's philosophy and works.",
+        "openalex_id": "https://openalex.org/W595038442",
+        "work_type": "article"
       }
     },
     {
       "source_corpus": "openlibrary",
       "source_role": "secondary",
       "source_kind": "book",
-      "title": "The Cambridge companion to Aristotle",
+      "title": "The Cambridge Companion to Aristotle",
       "author": "Jonathan Barnes",
-      "publication_year": 1995,
-      "source_url": "https://openlibrary.org/works/OL38583621W",
-      "access_url": "https://openlibrary.org/works/OL38583621W",
+      "publication_year": 1999,
+      "source_url": "https://openlibrary.org/works/OL19348502W",
+      "access_url": "https://openlibrary.org/works/OL19348502W",
       "snippet": null,
-      "confidence": 0.968,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Aristotle\". Matched secondary suggestion by title=1.00, author=1.00, year=0.63; Figure full name present in title",
+      "confidence": 1,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Aristotle\" (openlibrary). Matched secondary suggestion by title=1.00, author=1.00, year=0.87; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Aristotle",
         "suggestion_author": "Jonathan Barnes",
-        "suggestion_year": 1984,
+        "suggestion_year": 1995,
         "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Aristotle's philosophy and works.",
         "edition_count": 1
       }
     },
     {
-      "source_corpus": "crossref",
+      "source_corpus": "openalex",
       "source_role": "secondary",
       "source_kind": "article",
-      "title": "Aristotle: Nicomachean Ethics",
-      "author": "Joseph Owens",
-      "publication_year": 1987,
-      "source_url": "https://doi.org/10.2307/4350061",
-      "access_url": "https://doi.org/10.2307/4350061",
-      "snippet": "The Classical World",
-      "confidence": 0.721,
-      "why": "Secondary source resolved from suggestion \"Aristotle's Nicomachean Ethics: A Commentary\". Matched secondary suggestion by title=0.75, author=0.00, year=0.93; Figure full name present in title",
+      "title": "Aristotle's Nicomachean Ethics: A Critical Guide",
+      "author": "Giles Pearson",
+      "publication_year": 2011,
+      "source_url": "https://research-information.bristol.ac.uk/en/publications/nonrational-desire-and-aristotles-moral-psychology(51119185-f238-473f-a35e-c19daa1ec535).html",
+      "access_url": "https://research-information.bristol.ac.uk/en/publications/nonrational-desire-and-aristotles-moral-psychology(51119185-f238-473f-a35e-c19daa1ec535).html",
+      "snippet": "Cambridge University Press eBooks",
+      "confidence": 0.852,
+      "why": "Secondary source resolved from suggestion \"Aristotle's Nicomachean Ethics: A Critical Guide\" (openalex). Matched secondary suggestion by title=1.00, author=0.00, year=0.83; Figure full name present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
-        "suggestion_title": "Aristotle's Nicomachean Ethics: A Commentary",
-        "suggestion_author": "Terence Irwin",
-        "suggestion_year": 1985,
-        "suggestion_rationale": "A detailed and influential scholarly commentary on Aristotle's most famous ethical work, providing in-depth analysis and interpretation.",
-        "doi": "10.2307/4350061",
-        "crossref_type": "journal-article"
+        "suggestion_title": "Aristotle's Nicomachean Ethics: A Critical Guide",
+        "suggestion_author": "Christoper Taylor",
+        "suggestion_year": 2006,
+        "suggestion_rationale": "Offers a detailed analysis and critical engagement with Aristotle's most famous ethical treatise.",
+        "openalex_id": "https://openalex.org/W2560068480",
+        "work_type": "book-chapter"
       }
     }
   ]

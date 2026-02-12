@@ -1,0 +1,41 @@
+Quality Assessment Report
+========================
+File: gemini-3-flash-preview V2 LIST 4 (February 4, 2026).txt
+Model: gemini-3-flash-preview V2
+Timestamp: 2026-02-10T23:47:07.812Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 18 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 56/61 anchor figures found (92%)
+
+Issues (19):
+  - Exact duplicate: "michael faraday" at ranks 26, 373
+  - Exact duplicate: "michelangelo" at ranks 29, 291
+  - Exact duplicate: "ashoka the great" at ranks 35, 465
+  - Exact duplicate: "akbar the great" at ranks 39, 470
+  - Exact duplicate: "suleiman the magnificent" at ranks 40, 381
+  - Exact duplicate: "simon bolivar" at ranks 41, 314
+  - Exact duplicate: "franklin d roosevelt" at ranks 48, 231
+  - Exact duplicate: "cyrus the great" at ranks 55, 462
+  - Exact duplicate: "hammurabi" at ranks 56, 421
+  - Exact duplicate: "guglielmo marconi" at ranks 66, 491
+  ... and 9 more issues
+
+Diversity Estimates:
+  Regions: Europe: 70, Asia: 9, Middle East: 23, Africa: 1, Americas: 18, Unknown: 379
+  Domains: Politics/Leadership: 30, Science/Technology: 11, Philosophy/Religion: 20, Arts/Literature: 50, Military: 10, Other: 379
+
+Advanced Metrics:
+  Advanced score: 99.4
+  Parenthetical names: 1.0%
+  Multi-person names: 0.0%
+  Comma names: 0.0%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 0.0%

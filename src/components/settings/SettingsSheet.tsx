@@ -5,7 +5,6 @@ import { Menu, SlidersHorizontal, Download, FileJson } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { useDarkMode } from '@/hooks/useDarkMode';
 import type { Settings } from '@/hooks/useSettings';
 
 const instrument = Instrument_Sans({
@@ -31,8 +30,6 @@ const thumbnailOptions: Array<{ id: Settings['thumbnailSize']; label: string }> 
 ];
 
 export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProps) {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
-
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -41,7 +38,7 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
         </Button>
       </SheetTrigger>
       <SheetContent
-        className={`${instrument.className} w-[340px] border-stone-200/70 bg-stone-50/95 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-950/90`}
+        className={`${instrument.className} w-[340px] overflow-hidden border-stone-200/70 bg-stone-50/95 p-0 backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-950/90`}
       >
         <SheetHeader className="gap-2">
           <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-stone-200/60 dark:bg-slate-900 dark:ring-slate-700/60">
@@ -55,75 +52,9 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
           </div>
         </SheetHeader>
 
-        <div className="space-y-5 px-4">
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Theme</h3>
-                <p className="text-xs text-stone-500 dark:text-slate-400">Switch between light and dark.</p>
-              </div>
-              <button
-                type="button"
-                aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-                onClick={toggleDarkMode}
-                className={`relative h-10 w-28 rounded-full border border-stone-200/70 transition-colors duration-300 ${
-                  isDarkMode ? 'bg-slate-900 dark:border-slate-700/60' : 'bg-amber-50'
-                }`}
-              >
-                <span
-                  className={`absolute inset-0 rounded-full transition-opacity duration-300 ${
-                    isDarkMode ? 'opacity-30' : 'opacity-70'
-                  }`}
-                  style={{
-                    backgroundImage: isDarkMode
-                      ? 'radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.4), transparent 55%), radial-gradient(circle at 80% 80%, rgba(148, 163, 184, 0.25), transparent 55%)'
-                      : 'radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.35), transparent 60%), radial-gradient(circle at 80% 80%, rgba(252, 211, 77, 0.35), transparent 60%)',
-                  }}
-                />
-                <span
-                  className="absolute top-1 left-0 h-8 w-8 rounded-full bg-white shadow-md transition-transform duration-300"
-                  style={{ transform: `translateX(${isDarkMode ? 72 : 4}px)` }}
-                />
-                <span className="absolute left-2 top-1/2 -translate-y-1/2">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className={`transition-all duration-300 ${
-                      isDarkMode ? 'opacity-40 scale-90' : 'opacity-100 scale-100'
-                    }`}
-                  >
-                    <circle cx="12" cy="12" r="4.5" stroke="#D97706" strokeWidth="1.6" />
-                    <path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.2 5.2l1.8 1.8M17 17l1.8 1.8M5.2 18.8L7 17M17 7l1.8-1.8" stroke="#D97706" strokeWidth="1.4" strokeLinecap="round" />
-                  </svg>
-                </span>
-                <span className="absolute right-2 top-1/2 -translate-y-1/2">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className={`transition-all duration-300 ${
-                      isDarkMode ? 'opacity-100 scale-100' : 'opacity-35 scale-90'
-                    }`}
-                  >
-                    <path
-                      d="M21 15.5A8.5 8.5 0 1 1 8.5 3c.6 0 1.2.06 1.76.18A6.5 6.5 0 0 0 21 15.5Z"
-                      stroke="#E2E8F0"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="16.5" cy="7.5" r="0.9" fill="#E2E8F0" />
-                    <circle cx="19" cy="10" r="0.6" fill="#E2E8F0" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </section>
-
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 pb-4">
+          <div className="space-y-5">
+            <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Density</h3>
@@ -151,9 +82,9 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
             <p className="mt-2 text-[11px] text-stone-400">
               {densityOptions.find((option) => option.id === settings.density)?.hint}
             </p>
-          </section>
+            </section>
 
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+            <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
             <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Font size</h3>
             <p className="text-xs text-stone-500 dark:text-slate-400">Scale the table text.</p>
             <div className="mt-3">
@@ -172,9 +103,9 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 <span>Larger</span>
               </div>
             </div>
-          </section>
+            </section>
 
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+            <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
             <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Portrait size</h3>
             <p className="text-xs text-stone-500 dark:text-slate-400">Scale the thumbnail portraits.</p>
             <div className="mt-3 flex gap-2">
@@ -195,9 +126,9 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 );
               })}
             </div>
-          </section>
+            </section>
 
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+            <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
             <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Columns</h3>
             <p className="text-xs text-stone-500 dark:text-slate-400">Choose what appears in the list.</p>
             <div className="mt-3 space-y-3">
@@ -230,8 +161,8 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 />
               </label>
             </div>
-          </section>
-          <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
+            </section>
+            <section className="rounded-2xl border border-stone-200/70 bg-white/90 p-4 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-slate-700/60 dark:bg-slate-900/80">
             <h3 className="text-sm font-semibold text-stone-900 dark:text-slate-100">Export Data</h3>
             <p className="text-xs text-stone-500 dark:text-slate-400">Download for research and analysis.</p>
             <div className="mt-3 space-y-2">
@@ -260,10 +191,11 @@ export function SettingsSheet({ settings, onChange, onReset }: SettingsSheetProp
                 JSON API
               </a>
             </div>
-          </section>
+            </section>
+          </div>
         </div>
 
-        <SheetFooter className="gap-2 border-t border-stone-200/70 dark:border-slate-700/60">
+        <SheetFooter className="shrink-0 gap-2 border-t border-stone-200/70 dark:border-slate-700/60">
           <Button
             variant="ghost"
             className="w-full text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-100"

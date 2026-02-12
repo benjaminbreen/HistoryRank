@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-02-08T07:40:31.780Z",
+  "generatedAt": "2026-02-10T00:15:54.722Z",
   "figureId": "jean-jacques-rousseau",
   "figureName": "Jean-Jacques Rousseau",
   "constraints": {
     "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
     "model": "gemini-2.5-flash-lite",
     "language": "en",
     "sourceRoles": [
@@ -16,10 +17,37 @@
     "maxPrimarySuggestions": 3,
     "maxSecondarySuggestions": 3,
     "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 3,
+      "byRole": {
+        "primary": 2,
+        "secondary": 1
+      },
+      "byCorpus": {
+        "project_gutenberg": 1,
+        "internet_archive": 1,
+        "crossref": 1
+      },
+      "yearSpan": {
+        "min": 1957,
+        "max": 2001
+      },
+      "nonEnglishCandidates": 0
+    },
     "usageMetadata": {
       "promptTokenCount": 290,
-      "candidatesTokenCount": 594,
-      "totalTokenCount": 884,
+      "candidatesTokenCount": 540,
+      "totalTokenCount": 830,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -34,7 +62,7 @@
         "title": "The Social Contract",
         "author": "Jean-Jacques Rousseau",
         "year": 1762,
-        "rationale": "A foundational text of political philosophy, exploring the relationship between the individual and the state. Widely available.",
+        "rationale": "A foundational text of political philosophy, widely available and influential.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -45,7 +73,7 @@
         "title": "Emile, or On Education",
         "author": "Jean-Jacques Rousseau",
         "year": 1762,
-        "rationale": "A seminal work on the philosophy of education, outlining Rousseau's theories on child development and learning. Widely available.",
+        "rationale": "A seminal work on education and child development, also widely accessible.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -56,7 +84,7 @@
         "title": "Confessions",
         "author": "Jean-Jacques Rousseau",
         "year": 1782,
-        "rationale": "Rousseau's autobiography, offering intimate insights into his life, thoughts, and experiences. A key source for understanding his personal philosophy.",
+        "rationale": "Rousseau's autobiography, offering personal insights into his life and thought. Published posthumously.",
         "likelyCorpora": [
           "wikisource",
           "project_gutenberg",
@@ -69,25 +97,25 @@
         "title": "Rousseau: A Very Short Introduction",
         "author": "Mark Hulluing",
         "year": 2006,
-        "rationale": "A concise and accessible overview of Rousseau's life and major philosophical contributions, suitable for introductory research.",
+        "rationale": "A concise and accessible overview of Rousseau's life and work by a respected scholar.",
         "sourceType": "book"
       },
       {
         "title": "The Cambridge Companion to Rousseau",
-        "author": "Christopher Bertram",
-        "year": 2010,
-        "rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Rousseau's thought and influence.",
+        "author": "Christopher Kelly",
+        "year": 2001,
+        "rationale": "A collection of essays by leading scholars covering various aspects of Rousseau's philosophy and influence.",
         "sourceType": "book"
       },
       {
-        "title": "Rousseau's Political Philosophy: An Introduction",
-        "author": "R. W. Dyson",
-        "year": 1997,
-        "rationale": "An in-depth academic analysis of Rousseau's political theories, focusing on 'The Social Contract' and its implications.",
+        "title": "Rousseau and Liberty",
+        "author": "Matthew Simpson",
+        "year": 2007,
+        "rationale": "Examines Rousseau's complex and often debated ideas on liberty.",
         "sourceType": "book"
       }
     ],
-    "notes": "Primary sources are widely available in English translation on major digital libraries. Secondary sources are standard academic introductions and companions to Rousseau's work."
+    "notes": "Primary sources are foundational texts by Rousseau. Secondary sources are scholarly overviews and analyses published after 1976."
   },
   "unresolved": [
     {
@@ -96,14 +124,19 @@
       "reason": "No resolver results from corpus APIs"
     },
     {
+      "role": "primary",
+      "title": "Confessions",
+      "reason": "Title similarity too low (0.25); baseScore=0.58"
+    },
+    {
       "role": "secondary",
       "title": "Rousseau: A Very Short Introduction",
       "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.20"
     },
     {
       "role": "secondary",
-      "title": "Rousseau's Political Philosophy: An Introduction",
-      "reason": "Best score below threshold (0.33 < 0.72)"
+      "title": "Rousseau and Liberty",
+      "reason": "Best score below threshold (0.41 < 0.72)"
     }
   ],
   "candidates": [
@@ -116,60 +149,64 @@
       "publication_year": null,
       "source_url": "https://www.gutenberg.org/ebooks/46333",
       "access_url": "https://www.gutenberg.org/ebooks/46333",
-      "snippet": null,
+      "snippet": "\"The Social Contract & Discourses\" by Jean-Jacques Rousseau is a foundational work of political philosophy written in the late 18th century.",
       "confidence": 0.942,
-      "why": "Primary source resolved from suggestion \"The Social Contract\". Matched primary suggestion by title=0.95, author=1.00, year=0.25; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Social Contract\" (project_gutenberg). Matched primary suggestion by title=0.95, author=1.00, year=0.25; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "suggestion_title": "The Social Contract",
         "suggestion_author": "Jean-Jacques Rousseau",
         "suggestion_year": 1762,
-        "suggestion_rationale": "A foundational text of political philosophy, exploring the relationship between the individual and the state. Widely available.",
-        "gutenberg_id": 46333
+        "suggestion_rationale": "A foundational text of political philosophy, widely available and influential.",
+        "gutenberg_id": 46333,
+        "languages": [
+          "en"
+        ],
+        "download_count": 5154
       }
     },
     {
       "source_corpus": "internet_archive",
       "source_role": "primary",
       "source_kind": "text",
-      "title": "Confessions",
-      "author": "Jean-Jacques Rousseau",
-      "publication_year": 2000,
-      "source_url": "https://archive.org/details/confessions00rous_0",
-      "access_url": "https://archive.org/details/confessions00rous_0",
+      "title": "The Social Contract",
+      "author": "Jean Jacques Rousseau",
+      "publication_year": 1957,
+      "source_url": "https://archive.org/details/socialcontract0000jean",
+      "access_url": "https://archive.org/details/socialcontract0000jean",
       "snippet": null,
       "confidence": 0.92,
-      "why": "Primary source resolved from suggestion \"Confessions\". Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
+      "why": "Primary source resolved from suggestion \"The Social Contract\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.00; Primary gate passed",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
-        "suggestion_title": "Confessions",
+        "suggestion_title": "The Social Contract",
         "suggestion_author": "Jean-Jacques Rousseau",
-        "suggestion_year": 1782,
-        "suggestion_rationale": "Rousseau's autobiography, offering intimate insights into his life, thoughts, and experiences. A key source for understanding his personal philosophy.",
-        "ia_identifier": "confessions00rous_0"
+        "suggestion_year": 1762,
+        "suggestion_rationale": "A foundational text of political philosophy, widely available and influential.",
+        "ia_identifier": "socialcontract0000jean"
       }
     },
     {
-      "source_corpus": "openalex",
+      "source_corpus": "crossref",
       "source_role": "secondary",
       "source_kind": "article",
       "title": "The Cambridge Companion to Rousseau",
-      "author": "Harvey Chisick",
-      "publication_year": 2005,
-      "source_url": "https://doi.org/10.5840/intstudphil200537430",
-      "access_url": "https://doi.org/10.5840/intstudphil200537430",
-      "snippet": "International Studies in Philosophy",
-      "confidence": 0.852,
-      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Rousseau\". Matched secondary suggestion by title=1.00, author=0.00, year=0.83; Surname + aboutness term present in title",
+      "author": "Patrick Riley",
+      "publication_year": 2001,
+      "source_url": "https://doi.org/10.1017/ccol9780521572651",
+      "access_url": "https://doi.org/10.1017/ccol9780521572651",
+      "snippet": null,
+      "confidence": 0.89,
+      "why": "Secondary source resolved from suggestion \"The Cambridge Companion to Rousseau\" (crossref). Matched secondary suggestion by title=1.00, author=0.00, year=1.00; Surname + aboutness term present in title",
       "metadata": {
         "strategy": "llm_hybrid_resolver_v1",
         "min_secondary_year": 1976,
         "suggestion_title": "The Cambridge Companion to Rousseau",
-        "suggestion_author": "Christopher Bertram",
-        "suggestion_year": 2010,
-        "suggestion_rationale": "A comprehensive collection of essays by leading scholars covering various aspects of Rousseau's thought and influence.",
-        "openalex_id": "https://openalex.org/W2315700125",
-        "work_type": "article"
+        "suggestion_author": "Christopher Kelly",
+        "suggestion_year": 2001,
+        "suggestion_rationale": "A collection of essays by leading scholars covering various aspects of Rousseau's philosophy and influence.",
+        "doi": "10.1017/ccol9780521572651",
+        "crossref_type": "monograph"
       }
     }
   ]

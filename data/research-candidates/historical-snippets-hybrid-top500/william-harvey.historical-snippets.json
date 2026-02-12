@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.474Z",
+  "figureId": "william-harvey",
+  "figureName": "William Harvey",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 1,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": true,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Harvey, William",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FHarvey%2C_William",
+      "snippet": "In 1616 he began his course of lectures, and first brought forward his views upon the movements of the heart and blood. Meantime his practice increased, and he had the lord chancellor, Francis Bacon, and the earl of Arundel among his patients. In 1618 he was appointed physician extraordinary to James I., and on the next vacancy physician in ordinary to his successor.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "William Harvey (Wikipedia lead)",
+      "source_url": "https://en.wikipedia.org/wiki/William_Harvey",
+      "snippet": "William Harvey was an English physician who made influential contributions to anatomy and physiology. He was the first known physician to describe completely, and in detail, pulmonary and systemic circulation as well as the specific process of blood being pumped to the brain and the rest of the body by the heart.",
+      "match_score": 0.64,
+      "why": "Wikipedia lead fallback to improve baseline coverage for under-documented figures."
+    }
+  ]
+}

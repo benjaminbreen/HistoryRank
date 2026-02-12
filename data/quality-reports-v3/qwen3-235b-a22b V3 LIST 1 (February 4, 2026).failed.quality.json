@@ -1,0 +1,465 @@
+{
+  "file": "qwen3-235b-a22b V3 LIST 1 (February 4, 2026).failed.txt",
+  "model": "qwen3-235b-a22b V3",
+  "timestamp": "2026-02-10T23:12:40.947Z",
+  "verdict": "PASS",
+  "scores": {
+    "repetition": {
+      "exact": 34,
+      "fuzzy": 10,
+      "status": "PASS",
+      "details": "34 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 0,
+      "sequences": [],
+      "status": "PASS",
+      "details": "No pattern collapse detected"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 58,
+      "expected": 61,
+      "missing": [
+        "saint paul",
+        "paul the apostle",
+        "qin shi huang"
+      ],
+      "status": "PASS",
+      "details": "58/61 anchor figures found (95%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "isaac newton",
+      "ranks": [
+        2,
+        105
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "karl marx",
+      "ranks": [
+        13,
+        190
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "martin luther",
+      "ranks": [
+        15,
+        439
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sigmund freud",
+      "ranks": [
+        16,
+        171
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "genghis khan",
+      "ranks": [
+        22,
+        94
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joseph stalin",
+      "ranks": [
+        28,
+        420
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael faraday",
+      "ranks": [
+        33,
+        133
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james clerk maxwell",
+      "ranks": [
+        34,
+        134
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "niels bohr",
+      "ranks": [
+        35,
+        114
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marie curie",
+      "ranks": [
+        36,
+        465
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dmitri mendeleev",
+      "ranks": [
+        37,
+        130
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "gregor mendel",
+      "ranks": [
+        38,
+        125
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "homer",
+      "ranks": [
+        43,
+        303
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "virgil",
+      "ranks": [
+        44,
+        320
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "dante alighieri",
+      "ranks": [
+        45,
+        349
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "euclid",
+      "ranks": [
+        50,
+        82
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "hippocrates",
+      "ranks": [
+        52,
+        81
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "avicenna",
+      "ranks": [
+        53,
+        378
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alrazi",
+      "ranks": [
+        54,
+        379
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "socrates",
+      "ranks": [
+        64,
+        79
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "saladin",
+      "ranks": [
+        93,
+        343
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "marco polo",
+      "ranks": [
+        96,
+        348
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "joan of arc",
+      "ranks": [
+        97,
+        204
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        106,
+        188
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rosalind franklin",
+      "ranks": [
+        128,
+        466
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "frederick douglass",
+      "ranks": [
+        152,
+        455
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sojourner truth",
+      "ranks": [
+        153,
+        453
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir lenin",
+      "ranks": [
+        164,
+        419
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mikhail gorbachev",
+      "ranks": [
+        166,
+        422
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john maynard keynes",
+      "ranks": [
+        185,
+        219
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elizabeth i",
+      "ranks": [
+        205,
+        365
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vladimir putin",
+      "ranks": [
+        262,
+        424
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "thomas becket",
+      "ranks": [
+        333,
+        342
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "rachel carson",
+      "ranks": [
+        471,
+        481
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "george washington",
+      "variants": [
+        "george washington",
+        "george washington carver"
+      ],
+      "ranks": [
+        24,
+        479
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "martin luther king jr",
+      "variants": [
+        "martin luther king jr",
+        "martin luther king sr"
+      ],
+      "ranks": [
+        148,
+        240
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "wilhelm ii",
+      "variants": [
+        "wilhelm ii",
+        "wilhelm i"
+      ],
+      "ranks": [
+        208,
+        426
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope urban ii",
+      "variants": [
+        "pope urban ii",
+        "pope john paul ii"
+      ],
+      "ranks": [
+        233,
+        236
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "pope john paul ii",
+      "variants": [
+        "pope john paul ii",
+        "john paul i"
+      ],
+      "ranks": [
+        236,
+        436
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "muhammad ali",
+      "variants": [
+        "muhammad ali",
+        "muhammad ali jinnah"
+      ],
+      "ranks": [
+        250,
+        255
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander i",
+      "variants": [
+        "alexander i",
+        "alexander ii",
+        "alexander iii"
+      ],
+      "ranks": [
+        413,
+        429,
+        430
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "nicholas ii",
+      "variants": [
+        "nicholas ii",
+        "nicholas i"
+      ],
+      "ranks": [
+        414,
+        428
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "alexander ii",
+      "variants": [
+        "alexander ii",
+        "alexander iii"
+      ],
+      "ranks": [
+        429,
+        430
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 54,
+      "Asia": 16,
+      "Middle East": 23,
+      "Africa": 8,
+      "Americas": 6,
+      "Oceania": 0,
+      "Unknown": 393
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 34,
+      "Science/Technology": 7,
+      "Philosophy/Religion": 9,
+      "Arts/Literature": 46,
+      "Military": 6,
+      "Other": 398
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 0,
+    "shortNameRate": 0,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 0,
+    "contributionShortRate": 0,
+    "score": 100
+  },
+  "summary": "List passes all quality checks"
+}

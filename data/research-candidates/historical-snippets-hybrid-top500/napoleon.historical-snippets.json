@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.394Z",
+  "figureId": "napoleon",
+  "figureName": "Napoleon",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 2,
+    "researchSourceSnippets": 7,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": false,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 2,
+    "selectedCandidates": 2
+  },
+  "candidates": [
+    {
+      "corpus": "britannica_1911",
+      "edition_year": 1911,
+      "source_title": "Napoleon",
+      "source_url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica%2FNapoleon",
+      "snippet": "It was in the midst of the strifes resulting from those claims that Napoleon Bonaparte saw the light in 1769. His compatriots had already freed themselves from the yoke of Genoa, thanks to Pasquale Paoli; but in 1764 that republic appealed to Louis&#160;XV. of France for aid, and in 1768 a bargain was struck by which the French government succeeded to the nearly bankrupt sovereignty of Genoa. In the campaigns of 1768–69 the French gradually overcame the fierce resistance of the islanders; and Paoli, after sustaining a defeat at Ponte-Novo (9th of May 1769), fled to the mainland, and ultimately to England.",
+      "match_score": 0.99,
+      "why": "Existing britannica_1911 snippet preserved and rescored for hybrid coverage."
+    },
+    {
+      "corpus": "other",
+      "edition_year": 2000,
+      "source_title": "Napoleon",
+      "source_url": "//lccn.loc.gov/2003618566",
+      "snippet": "PBS online program, which features the biography of Napoleon in four episodes. Episode I recounts the story of Nopoleon's rise from obscurity; Episode II charts his ascent to absolute power; Episode III witnesses Napoleon conquer most of Europe; Episode IV describes his downfall.",
+      "match_score": 0.798,
+      "why": "Existing other snippet preserved and rescored for hybrid coverage."
+    }
+  ]
+}

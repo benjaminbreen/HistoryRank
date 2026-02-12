@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.075Z",
+  "figureId": "otto-i",
+  "figureName": "Otto I",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Otto I is consistently described across 10 model source lists as influential for: Otto I shifted political order by building, reforming, or toppling institutions that governed large populations; Holy Roman Empire Revival; Holy Roman Empire founder, German unification; Founded Holy Roman Empire; 10th-century Holy Roman Emperor who consolidated German territories and established imperial dominance in medieval Europe; Founded the Holy Roman Empire and reasserted imperial authority in Central Europe, creating a political entity that shaped European governance for eight centuries; First of the Holy Roman Emperors to be German; revived the title of Emperor; Reshaped state power through war, diplomacy, or institutional reform with effects beyond their own generation.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

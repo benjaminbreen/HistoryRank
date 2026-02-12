@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.494Z",
+  "figureId": "cleopatra-vii",
+  "figureName": "Cleopatra VII",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Cleopatra VII is consistently described across 12 model source lists as influential for: Last active ruler of Ptolemaic Egypt, whose political alliances with Rome influenced Mediterranean power structures; Symbol of Ancient Egyptian Power; Symbol of political strategy in antiquity; Last active ruler of Ptolemaic Egypt whose political alliances with Rome influenced Mediterranean power dynamics and left a lasting cultural legacy; Last Pharaoh of Egypt, pivotal in Roman politics; Egyptian queen influencing Roman politics; Last Pharaoh of Egypt, whose alliances shaped Roman history; Influencing Mediterranean politics and culture as Egypt's last pharaoh.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

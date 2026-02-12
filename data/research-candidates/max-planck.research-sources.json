@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-02-10T00:18:34.506Z",
+  "figureId": "max-planck",
+  "figureName": "Max Planck",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 1,
+      "byRole": {
+        "primary": 1
+      },
+      "byCorpus": {
+        "internet_archive": 1
+      },
+      "yearSpan": {
+        "min": 1933,
+        "max": 1933
+      },
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 288,
+      "candidatesTokenCount": 552,
+      "totalTokenCount": 840,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 288
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "The Origin and Development of the Quantum Theory",
+        "author": "Max Planck",
+        "year": 1922,
+        "rationale": "This is Planck's Nobel Prize lecture, offering a direct account of his foundational work on quantum theory.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Where is Science Going?",
+        "author": "Max Planck",
+        "year": 1932,
+        "rationale": "A collection of essays reflecting on the state and future of science by Planck himself, likely to be found in digitized archives.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Scientific Autobiography and Other Papers",
+        "author": "Max Planck",
+        "year": 1949,
+        "rationale": "An autobiographical account of Planck's life and scientific journey, providing personal insights into his work and the era.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Planck: Driven by Vision, Seeking Order",
+        "author": "John L. Heilbron",
+        "year": 2000,
+        "rationale": "A comprehensive biography of Max Planck by a respected historian of science, published by a major academic press.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Max Planck: The Grandfather of Quantum Physics",
+        "author": "Helmut Rechenberg",
+        "year": 2012,
+        "rationale": "A scholarly biography focusing on Planck's scientific contributions and his role in the development of quantum physics.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Max Planck and the Origins of Quantum Physics",
+        "author": "Klaus Hentschel",
+        "year": 1996,
+        "rationale": "An academic study examining the historical context and intellectual origins of Planck's groundbreaking quantum theory.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary sources are often available as digitized books on Internet Archive. Secondary sources are scholarly biographies and historical analyses of Planck's work."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "The Origin and Development of the Quantum Theory",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "primary",
+      "title": "Scientific Autobiography and Other Papers",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Planck: Driven by Vision, Seeking Order",
+      "reason": "Best score below threshold (0.47 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Max Planck: The Grandfather of Quantum Physics",
+      "reason": "Best score below threshold (0.49 < 0.72)"
+    },
+    {
+      "role": "secondary",
+      "title": "Max Planck and the Origins of Quantum Physics",
+      "reason": "Best score below threshold (0.64 < 0.72)"
+    }
+  ],
+  "candidates": [
+    {
+      "source_corpus": "internet_archive",
+      "source_role": "primary",
+      "source_kind": "text",
+      "title": "Where is Science Going?",
+      "author": "Max Planck",
+      "publication_year": 1933,
+      "source_url": "https://archive.org/details/whereissciencego0000maxp",
+      "access_url": "https://archive.org/details/whereissciencego0000maxp",
+      "snippet": null,
+      "confidence": 1,
+      "why": "Primary source resolved from suggestion \"Where is Science Going?\" (internet_archive). Matched primary suggestion by title=1.00, author=1.00, year=0.98; Primary gate passed",
+      "metadata": {
+        "strategy": "llm_hybrid_resolver_v1",
+        "suggestion_title": "Where is Science Going?",
+        "suggestion_author": "Max Planck",
+        "suggestion_year": 1932,
+        "suggestion_rationale": "A collection of essays reflecting on the state and future of science by Planck himself, likely to be found in digitized archives.",
+        "ia_identifier": "whereissciencego0000maxp"
+      }
+    }
+  ]
+}

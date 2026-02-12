@@ -34,6 +34,52 @@ function dedupeNumbers(values: number[]): number[] {
   return Array.from(new Set(values.filter((value) => Number.isFinite(value)))).sort((a, b) => a - b);
 }
 
+function metadataString(metadata: Record<string, unknown>, key: string): string | null {
+  const value = metadata[key];
+  if (typeof value !== 'string') return null;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+function metadataNumber(metadata: Record<string, unknown>, key: string): number | null {
+  const value = metadata[key];
+  if (typeof value === 'number' && Number.isFinite(value)) return value;
+  if (typeof value === 'string') {
+    const parsed = Number.parseFloat(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
+}
+
+type ParsedSourceRow = {
+  id: number;
+  sourceRole: string;
+  sourceCorpus: string;
+  sourceKind: string;
+  title: string;
+  author: string | null;
+  publicationYear: number | null;
+  sourceUrl: string;
+  accessUrl: string | null;
+  snippet: string | null;
+  isPublicDomain: boolean;
+  confidence: number;
+  curationStatus: string;
+  metadata: Record<string, unknown>;
+};
+
+function isWikidataFactSource(source: ParsedSourceRow): boolean {
+  const provider = metadataString(source.metadata, 'provider')?.toLowerCase();
+  if (provider !== 'wikidata') return false;
+  return metadataString(source.metadata, 'fact_property_id') !== null;
+}
+
+function isWikipediaSectionSource(source: ParsedSourceRow): boolean {
+  const provider = metadataString(source.metadata, 'provider')?.toLowerCase();
+  if (provider !== 'wikipedia_sections') return false;
+  return metadataString(source.metadata, 'section_title') !== null;
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -129,26 +175,72 @@ export async function GET(
       ? allEvents.filter((row) => row.assessmentId === timelineAssessment.id)
       : allEvents.filter((row) => row.assessmentId === null);
 
+    const parsedSources: ParsedSourceRow[] = sources.map((row) => ({
+      id: row.id,
+      sourceRole: row.sourceRole,
+      sourceCorpus: row.sourceCorpus,
+      sourceKind: row.sourceKind,
+      title: row.title,
+      author: row.author,
+      publicationYear: row.publicationYear,
+      sourceUrl: row.sourceUrl,
+      accessUrl: row.accessUrl,
+      snippet: row.snippet,
+      isPublicDomain: row.isPublicDomain,
+      confidence: row.confidence,
+      curationStatus: row.curationStatus,
+      metadata: parseJsonSafe<Record<string, unknown>>(row.metadata, {}),
+    }));
+
+    const wikidataFacts = parsedSources
+      .filter(isWikidataFactSource)
+      .map((row) => ({
+        id: row.id,
+        propertyId: metadataString(row.metadata, 'fact_property_id') || 'unknown',
+        propertyLabel:
+          metadataString(row.metadata, 'fact_property_label') ||
+          row.title.replace(/^Wikidata fact:\s*/i, '').trim() ||
+          'Wikidata fact',
+        value: metadataString(row.metadata, 'fact_value') || row.snippet || 'Unknown',
+        sourceUrl: row.accessUrl || row.sourceUrl,
+        confidence: row.confidence,
+        metadata: row.metadata,
+      }))
+      .sort((a, b) => {
+        const orderA = metadataNumber(a.metadata, 'fact_order');
+        const orderB = metadataNumber(b.metadata, 'fact_order');
+        if (orderA !== null && orderB !== null && orderA !== orderB) return orderA - orderB;
+        if (orderA !== null && orderB === null) return -1;
+        if (orderA === null && orderB !== null) return 1;
+        return a.propertyLabel.localeCompare(b.propertyLabel);
+      });
+
+    const wikipediaSections = parsedSources
+      .filter(isWikipediaSectionSource)
+      .map((row) => ({
+        id: row.id,
+        sectionTitle: metadataString(row.metadata, 'section_title') || row.title || 'Section',
+        excerpt: metadataString(row.metadata, 'section_text') || row.snippet || '',
+        sourceUrl: row.sourceUrl,
+        accessUrl: row.accessUrl,
+        confidence: row.confidence,
+        metadata: row.metadata,
+      }))
+      .filter((row) => row.excerpt.length > 0)
+      .sort((a, b) => {
+        const orderA = metadataNumber(a.metadata, 'section_order') ?? metadataNumber(a.metadata, 'section_index');
+        const orderB = metadataNumber(b.metadata, 'section_order') ?? metadataNumber(b.metadata, 'section_index');
+        if (orderA !== null && orderB !== null && orderA !== orderB) return orderA - orderB;
+        if (orderA !== null && orderB === null) return -1;
+        if (orderA === null && orderB !== null) return 1;
+        return a.sectionTitle.localeCompare(b.sectionTitle);
+      });
+
     const response: FigureEvidenceResponse = {
       figureId: figure.id,
       figureName: figure.canonicalName,
       research: {
-        sources: sources.map((row) => ({
-          id: row.id,
-          sourceRole: row.sourceRole,
-          sourceCorpus: row.sourceCorpus,
-          sourceKind: row.sourceKind,
-          title: row.title,
-          author: row.author,
-          publicationYear: row.publicationYear,
-          sourceUrl: row.sourceUrl,
-          accessUrl: row.accessUrl,
-          snippet: row.snippet,
-          isPublicDomain: row.isPublicDomain,
-          confidence: row.confidence,
-          curationStatus: row.curationStatus,
-          metadata: parseJsonSafe<Record<string, unknown>>(row.metadata, {}),
-        })),
+        sources: parsedSources,
         quotes: quotes.map((row) => ({
           id: row.id,
           sourceId: row.sourceId,
@@ -173,6 +265,8 @@ export async function GET(
           curationStatus: row.curationStatus,
           metadata: parseJsonSafe<Record<string, unknown>>(row.metadata, {}),
         })),
+        wikidataFacts,
+        wikipediaSections,
       },
       timeline: {
         assessment: timelineAssessment
@@ -208,11 +302,17 @@ export async function GET(
         })),
       },
       meta: {
-        sourceCount: sources.length,
+        sourceCount: parsedSources.length,
         quoteCount: quotes.length,
         snippetCount: snippets.length,
         eventCount: events.length,
-        hasAnyEvidence: sources.length > 0 || quotes.length > 0 || snippets.length > 0 || events.length > 0,
+        hasAnyEvidence:
+          parsedSources.length > 0 ||
+          quotes.length > 0 ||
+          snippets.length > 0 ||
+          events.length > 0 ||
+          wikidataFacts.length > 0 ||
+          wikipediaSections.length > 0,
       },
     };
 

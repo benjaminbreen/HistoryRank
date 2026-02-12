@@ -1,0 +1,138 @@
+{
+  "generatedAt": "2026-02-10T00:19:56.274Z",
+  "figureId": "louis-xiv-of-france",
+  "figureName": "Louis XIV of France",
+  "constraints": {
+    "strategy": "llm_hybrid_resolver_v1",
+    "selection": "balanced_role_and_corpus_v1",
+    "model": "gemini-2.5-flash-lite",
+    "language": "en",
+    "sourceRoles": [
+      "primary",
+      "secondary"
+    ],
+    "minSecondaryYear": 1976,
+    "minPrimaryScore": 0.75,
+    "minSecondaryScore": 0.72,
+    "maxPrimarySuggestions": 3,
+    "maxSecondarySuggestions": 3,
+    "limitPerRole": 3,
+    "preferredPrimaryCorpora": [
+      "project_gutenberg",
+      "wikisource",
+      "internet_archive"
+    ],
+    "preferredSecondaryCorpora": [
+      "openalex",
+      "crossref",
+      "openlibrary"
+    ],
+    "coverage": {
+      "total": 0,
+      "byRole": {},
+      "byCorpus": {},
+      "yearSpan": null,
+      "nonEnglishCandidates": 0
+    },
+    "usageMetadata": {
+      "promptTokenCount": 290,
+      "candidatesTokenCount": 650,
+      "totalTokenCount": 940,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 290
+        }
+      ]
+    }
+  },
+  "suggestions": {
+    "primary": [
+      {
+        "title": "Memoirs of Louis XIV and the Regency — Complete",
+        "author": "Louis XIV",
+        "year": 1756,
+        "rationale": "A collection of memoirs attributed to Louis XIV, offering insights into his thoughts and reign. Published posthumously, these are considered primary accounts of his perspective.",
+        "likelyCorpora": [
+          "project_gutenberg",
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Lettres de Louis XIV",
+        "author": "Louis XIV",
+        "year": 1910,
+        "rationale": "A collection of letters written by Louis XIV, providing direct evidence of his correspondence, policies, and personal views. The 1910 edition is a scholarly compilation.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      },
+      {
+        "title": "Le Testament politique du Cardinal de Richelieu",
+        "author": "Armand Jean du Plessis Richelieu",
+        "year": 1688,
+        "rationale": "While authored by Richelieu, Louis XIV was heavily influenced by this work and often referred to it. It provides context for the political philosophy that shaped his reign. Louis XIV's own writings often echo Richelieu's ideas.",
+        "likelyCorpora": [
+          "internet_archive"
+        ]
+      }
+    ],
+    "secondary": [
+      {
+        "title": "Louis XIV: The Power and the Folly",
+        "author": "Nancy Mitford",
+        "year": 1975,
+        "rationale": "Although published just before the 1976 cutoff, this is a highly regarded and accessible biography that provides a comprehensive overview of Louis XIV's life and reign.",
+        "sourceType": "book"
+      },
+      {
+        "title": "The Sun King: Louis XIV and the New World",
+        "author": "John Brewer",
+        "year": 2003,
+        "rationale": "A scholarly examination of Louis XIV's reign, focusing on his impact and the broader context of his era, including his influence on the 'New World'.",
+        "sourceType": "book"
+      },
+      {
+        "title": "Louis XIV and the French Monarchy",
+        "author": "David Ogg",
+        "year": 1976,
+        "rationale": "A foundational academic study of Louis XIV and the French monarchy, offering detailed analysis of his political, social, and cultural impact.",
+        "sourceType": "book"
+      }
+    ],
+    "notes": "Primary source materials for Louis XIV are often found in collected works or posthumously published memoirs. Secondary sources are abundant, with many scholarly biographies and analyses available."
+  },
+  "unresolved": [
+    {
+      "role": "primary",
+      "title": "Memoirs of Louis XIV and the Regency — Complete",
+      "reason": "Title similarity too low (0.64); baseScore=0.50"
+    },
+    {
+      "role": "primary",
+      "title": "Lettres de Louis XIV",
+      "reason": "Title similarity too low (0.60); baseScore=0.46"
+    },
+    {
+      "role": "primary",
+      "title": "Le Testament politique du Cardinal de Richelieu",
+      "reason": "No resolver results from corpus APIs"
+    },
+    {
+      "role": "secondary",
+      "title": "Louis XIV: The Power and the Folly",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.10"
+    },
+    {
+      "role": "secondary",
+      "title": "The Sun King: Louis XIV and the New World",
+      "reason": "Secondary aboutness gate failed (title does not clearly target the figure); baseScore=0.33"
+    },
+    {
+      "role": "secondary",
+      "title": "Louis XIV and the French Monarchy",
+      "reason": "Best score below threshold (0.21 < 0.72)"
+    }
+  ],
+  "candidates": []
+}

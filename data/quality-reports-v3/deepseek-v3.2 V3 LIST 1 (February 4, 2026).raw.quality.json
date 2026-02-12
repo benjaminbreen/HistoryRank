@@ -1,0 +1,731 @@
+{
+  "file": "deepseek-v3.2 V3 LIST 1 (February 4, 2026).raw.txt",
+  "model": "deepseek-v3.2 V3",
+  "timestamp": "2026-02-10T23:12:35.880Z",
+  "verdict": "FAIL",
+  "scores": {
+    "repetition": {
+      "exact": 80,
+      "fuzzy": 2,
+      "status": "WARN",
+      "details": "80 exact duplicates found"
+    },
+    "pattern_collapse": {
+      "maxSequence": 107,
+      "sequences": [
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 102,
+          "endRank": 112,
+          "count": 11,
+          "examples": [
+            "102. Rembrandt",
+            "103. Dante Alighieri",
+            "104. Geoffrey Chaucer"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "author",
+          "startRank": 103,
+          "endRank": 114,
+          "count": 12,
+          "examples": [
+            "103. Dante Alighieri",
+            "104. Geoffrey Chaucer",
+            "105. Miguel de Cervantes"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "first",
+          "startRank": 214,
+          "endRank": 224,
+          "count": 11,
+          "examples": [
+            "214. Konrad Zuse",
+            "215. John Atanasoff",
+            "216. Clifford Berry"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 221,
+          "endRank": 232,
+          "count": 12,
+          "examples": [
+            "221. Frederick Williams",
+            "222. Tom Kilburn",
+            "223. John Backus"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 223,
+          "endRank": 233,
+          "count": 11,
+          "examples": [
+            "223. John Backus",
+            "224. Grace Hopper",
+            "225. Dennis Ritchie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "programming",
+          "startRank": 223,
+          "endRank": 234,
+          "count": 12,
+          "examples": [
+            "223. John Backus",
+            "224. Grace Hopper",
+            "225. Dennis Ritchie"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "google",
+          "startRank": 279,
+          "endRank": 292,
+          "count": 14,
+          "examples": [
+            "279. Larry Page",
+            "280. Sergey Brin",
+            "281. Eric Schmidt"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "google",
+          "startRank": 284,
+          "endRank": 293,
+          "count": 10,
+          "examples": [
+            "284. Marissa Mayer",
+            "285. Jeff Dean",
+            "286. Sanjay Ghemawat"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 310,
+          "endRank": 323,
+          "count": 14,
+          "examples": [
+            "310. Edward Snowden",
+            "311. Chelsea Manning",
+            "312. Aaron Swartz"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 312,
+          "endRank": 324,
+          "count": 13,
+          "examples": [
+            "312. Aaron Swartz",
+            "313. Steve Huffman",
+            "314. Alexis Ohanian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 312,
+          "endRank": 340,
+          "count": 29,
+          "examples": [
+            "312. Aaron Swartz",
+            "313. Steve Huffman",
+            "314. Alexis Ohanian"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 326,
+          "endRank": 341,
+          "count": 16,
+          "examples": [
+            "326. Jan Koum",
+            "327. Brian Acton",
+            "328. Kevin Systrom"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 326,
+          "endRank": 347,
+          "count": 22,
+          "examples": [
+            "326. Jan Koum",
+            "327. Brian Acton",
+            "328. Kevin Systrom"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 366,
+          "endRank": 377,
+          "count": 12,
+          "examples": [
+            "366. Emilie Choi",
+            "367. Brian Armstrong",
+            "368. Fred Ehrsam"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 367,
+          "endRank": 378,
+          "count": 12,
+          "examples": [
+            "367. Brian Armstrong",
+            "368. Fred Ehrsam",
+            "369. Satoshi Nakamoto"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "co-founded",
+          "startRank": 370,
+          "endRank": 379,
+          "count": 10,
+          "examples": [
+            "370. Vitalik Buterin",
+            "371. Gavin Wood",
+            "372. Charles Hoskinson"
+          ]
+        },
+        {
+          "type": "pattern_collapse",
+          "pattern": "social",
+          "startRank": 394,
+          "endRank": 500,
+          "count": 107,
+          "examples": [
+            "394. John J. Ray III",
+            "395. Michael Lewis",
+            "396. Ben Mezrich"
+          ]
+        }
+      ],
+      "status": "FAIL",
+      "details": "Max sequence of 107 similar entries"
+    },
+    "structural": {
+      "entries": 500,
+      "validJson": true,
+      "sequentialRanks": true,
+      "status": "PASS",
+      "details": "OK"
+    },
+    "anchor_coverage": {
+      "found": 56,
+      "expected": 61,
+      "missing": [
+        "abraham lincoln",
+        "lincoln",
+        "saint paul",
+        "pythagoras",
+        "kepler"
+      ],
+      "status": "PASS",
+      "details": "56/61 anchor figures found (92%)"
+    }
+  },
+  "issues": [
+    {
+      "type": "exact_duplicate",
+      "name": "adam smith",
+      "ranks": [
+        17,
+        114
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "leonardo da vinci",
+      "ranks": [
+        23,
+        100
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alan turing",
+      "ranks": [
+        46,
+        205
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "tim bernerslee",
+      "ranks": [
+        47,
+        259
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "john von neumann",
+      "ranks": [
+        53,
+        203
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "alexander fleming",
+      "ranks": [
+        79,
+        157
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "larry page",
+      "ranks": [
+        179,
+        279
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sergey brin",
+      "ranks": [
+        180,
+        280
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "jeff bezos",
+      "ranks": [
+        181,
+        342
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "mark zuckerberg",
+      "ranks": [
+        182,
+        319
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "elon musk",
+      "ranks": [
+        183,
+        343,
+        348,
+        357
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "grace hopper",
+      "ranks": [
+        187,
+        224
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "vint cerf",
+      "ranks": [
+        194,
+        257
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "bob kahn",
+      "ranks": [
+        195,
+        258
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "ken thompson",
+      "ranks": [
+        226,
+        295
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "james gosling",
+      "ranks": [
+        229,
+        273
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "brendan eich",
+      "ranks": [
+        232,
+        264
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "sanjay ghemawat",
+      "ranks": [
+        286,
+        290
+      ]
+    },
+    {
+      "type": "exact_duplicate",
+      "name": "michael j r malone",
+      "ranks": [
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "john locke",
+      "variants": [
+        "john locke",
+        "john cocke"
+      ],
+      "ranks": [
+        34,
+        244
+      ]
+    },
+    {
+      "type": "fuzzy_duplicate",
+      "name": "jeff dean",
+      "variants": [
+        "jeff dean",
+        "jeffrey dean"
+      ],
+      "ranks": [
+        285,
+        289
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 102,
+      "endRank": 112,
+      "count": 11,
+      "examples": [
+        "102. Rembrandt",
+        "103. Dante Alighieri",
+        "104. Geoffrey Chaucer"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "author",
+      "startRank": 103,
+      "endRank": 114,
+      "count": 12,
+      "examples": [
+        "103. Dante Alighieri",
+        "104. Geoffrey Chaucer",
+        "105. Miguel de Cervantes"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "first",
+      "startRank": 214,
+      "endRank": 224,
+      "count": 11,
+      "examples": [
+        "214. Konrad Zuse",
+        "215. John Atanasoff",
+        "216. Clifford Berry"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 221,
+      "endRank": 232,
+      "count": 12,
+      "examples": [
+        "221. Frederick Williams",
+        "222. Tom Kilburn",
+        "223. John Backus"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 223,
+      "endRank": 233,
+      "count": 11,
+      "examples": [
+        "223. John Backus",
+        "224. Grace Hopper",
+        "225. Dennis Ritchie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "programming",
+      "startRank": 223,
+      "endRank": 234,
+      "count": 12,
+      "examples": [
+        "223. John Backus",
+        "224. Grace Hopper",
+        "225. Dennis Ritchie"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "google",
+      "startRank": 279,
+      "endRank": 292,
+      "count": 14,
+      "examples": [
+        "279. Larry Page",
+        "280. Sergey Brin",
+        "281. Eric Schmidt"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "google",
+      "startRank": 284,
+      "endRank": 293,
+      "count": 10,
+      "examples": [
+        "284. Marissa Mayer",
+        "285. Jeff Dean",
+        "286. Sanjay Ghemawat"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 310,
+      "endRank": 323,
+      "count": 14,
+      "examples": [
+        "310. Edward Snowden",
+        "311. Chelsea Manning",
+        "312. Aaron Swartz"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 312,
+      "endRank": 324,
+      "count": 13,
+      "examples": [
+        "312. Aaron Swartz",
+        "313. Steve Huffman",
+        "314. Alexis Ohanian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 312,
+      "endRank": 340,
+      "count": 29,
+      "examples": [
+        "312. Aaron Swartz",
+        "313. Steve Huffman",
+        "314. Alexis Ohanian"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 326,
+      "endRank": 341,
+      "count": 16,
+      "examples": [
+        "326. Jan Koum",
+        "327. Brian Acton",
+        "328. Kevin Systrom"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 326,
+      "endRank": 347,
+      "count": 22,
+      "examples": [
+        "326. Jan Koum",
+        "327. Brian Acton",
+        "328. Kevin Systrom"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 366,
+      "endRank": 377,
+      "count": 12,
+      "examples": [
+        "366. Emilie Choi",
+        "367. Brian Armstrong",
+        "368. Fred Ehrsam"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 367,
+      "endRank": 378,
+      "count": 12,
+      "examples": [
+        "367. Brian Armstrong",
+        "368. Fred Ehrsam",
+        "369. Satoshi Nakamoto"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "co-founded",
+      "startRank": 370,
+      "endRank": 379,
+      "count": 10,
+      "examples": [
+        "370. Vitalik Buterin",
+        "371. Gavin Wood",
+        "372. Charles Hoskinson"
+      ]
+    },
+    {
+      "type": "pattern_collapse",
+      "pattern": "social",
+      "startRank": 394,
+      "endRank": 500,
+      "count": 107,
+      "examples": [
+        "394. John J. Ray III",
+        "395. Michael Lewis",
+        "396. Ben Mezrich"
+      ]
+    }
+  ],
+  "diversity": {
+    "estimatedRegions": {
+      "Europe": 25,
+      "Asia": 5,
+      "Middle East": 4,
+      "Africa": 0,
+      "Americas": 3,
+      "Oceania": 0,
+      "Unknown": 463
+    },
+    "estimatedEras": {
+      "Ancient (pre-500)": 0,
+      "Medieval (500-1500)": 0,
+      "Early Modern (1500-1800)": 0,
+      "Modern (1800-1950)": 0,
+      "Contemporary (1950+)": 0,
+      "Unknown": 500
+    },
+    "estimatedDomains": {
+      "Politics/Leadership": 20,
+      "Science/Technology": 45,
+      "Philosophy/Religion": 33,
+      "Arts/Literature": 37,
+      "Military": 4,
+      "Other": 361
+    }
+  },
+  "advanced": {
+    "parentheticalCount": 0,
+    "parentheticalRate": 0,
+    "multiPersonCount": 0,
+    "multiPersonRate": 0,
+    "commaNameCount": 0,
+    "commaNameRate": 0,
+    "shortNameCount": 1,
+    "shortNameRate": 0.002,
+    "longNameCount": 0,
+    "longNameRate": 0,
+    "contributionShortCount": 67,
+    "contributionShortRate": 0.134,
+    "score": 97.22
+  },
+  "summary": "Issues: 80 exact duplicates; pattern collapse (max 107)"
+}

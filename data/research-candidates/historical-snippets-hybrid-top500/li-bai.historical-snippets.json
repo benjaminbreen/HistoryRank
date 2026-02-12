@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:46.572Z",
+  "figureId": "li-bai",
+  "figureName": "Li Bai",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Li Bai is consistently described across 13 model source lists as influential for: Tang dynasty poet celebrated for romantic and transcendental verse, shaping Chinese literary heritage; Poetic imagination; long-lived cultural influence in East Asia; Tang dynasty poet, symbolizing Chinese literary and artistic achievement; Tang Dynasty poet; influenced Chinese poetry; cultural icon; Acclaimed Chinese poet; his works define the high point of Chinese literature; Tang poetry; Chinese lyrical canon; enduring cultural symbolism; Poet in Tang Dynasty China.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}

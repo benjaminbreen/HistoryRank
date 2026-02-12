@@ -1,0 +1,38 @@
+Quality Assessment Report
+========================
+File: grok-4 V3 LIST 1 (February 4, 2026).txt
+Model: grok-4 V3
+Timestamp: 2026-02-10T23:47:23.708Z
+
+VERDICT: PASS
+
+Summary: List passes all quality checks
+
+Scores:
+  Repetition: PASS - 1 exact duplicates found
+  Pattern Collapse: PASS - No pattern collapse detected
+  Structural: PASS - OK
+  Anchor Coverage: PASS - 59/61 anchor figures found (97%)
+
+Issues (8):
+  - Exact duplicate: "oliver cromwell" at ranks 167, 398
+  - Fuzzy duplicate: martin luther / martin luther king jr at ranks 22, 65
+  - Fuzzy duplicate: elizabeth i / elizabeth ii at ranks 62, 411
+  - Fuzzy duplicate: george h w bush / george w bush at ranks 315, 317
+  - Fuzzy duplicate: charles i / charles iii at ranks 399, 413
+  - Fuzzy duplicate: george iv / george v at ranks 405, 408
+  - Fuzzy duplicate: edward vii / edward viii at ranks 407, 409
+  - Fuzzy duplicate: george v / george vi at ranks 408, 410
+
+Diversity Estimates:
+  Regions: Europe: 56, Asia: 11, Middle East: 13, Africa: 4, Americas: 12, Unknown: 404
+  Domains: Politics/Leadership: 33, Science/Technology: 3, Philosophy/Religion: 4, Arts/Literature: 21, Military: 2, Other: 437
+
+Advanced Metrics:
+  Advanced score: 98.4
+  Parenthetical names: 0.0%
+  Multi-person names: 0.2%
+  Comma names: 0.8%
+  Short names: 0.0%
+  Long names: 0.0%
+  Short contributions: 7.2%

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-02-11T19:31:47.078Z",
+  "figureId": "steven-spielberg",
+  "figureName": "Steven Spielberg",
+  "strategy": "hybrid_historical_snippets_v1",
+  "constraints": {
+    "minWords": 40,
+    "maxChars": 2400,
+    "maxPerFigure": 8,
+    "maxPerCorpus": 3
+  },
+  "inventory": {
+    "existingHistorical": 0,
+    "researchSourceSnippets": 0,
+    "wikipediaFallbackAdded": false,
+    "timelineFallbackAdded": false,
+    "narrativeFallbackAdded": false,
+    "contributionFallbackAdded": true,
+    "droppedTitleMismatch": 0,
+    "rawCandidates": 1,
+    "selectedCandidates": 1
+  },
+  "candidates": [
+    {
+      "corpus": "other",
+      "edition_year": null,
+      "source_title": "LLM contribution synthesis (fallback)",
+      "source_url": null,
+      "snippet": "Steven Spielberg is consistently described across 11 model source lists as influential for: Filmmaker who redefined modern cinema and storytelling; Filmmaker who redefined modern cinema with blockbusters and storytelling; Influential filmmaker; Director shaping blockbuster cinema; Filmmaker of blockbuster movies; One of the most commercially successful and influential directors in film history; Filmmaker who defined the modern blockbuster; American film director, producer, and screenwriter, one of the founding pioneers of the New Hollywood era.",
+      "match_score": 0.5,
+      "why": "Fallback synthesis from model contribution descriptors when no source excerpts exist."
+    }
+  ]
+}
