@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
     '/api/map': ['historyrank.db'],
     '/api/lists': ['historyrank.db'],
     '/api/export': ['historyrank.db'],
+    '/api/influence': ['historyrank.db'],
+    '/api/influence/edges/[id]': ['historyrank.db'],
     '/api/media': [
       'data/raw/media/ucsc-history-media.jsonl',
       'data/raw/media/*.json',
@@ -53,6 +55,8 @@ const nextConfig: NextConfig = {
     '/api/media': [...globalExcludes],
     '/api/lists': [...globalExcludes, 'data/raw/media/**'],
     '/api/export': [...globalExcludes, 'data/raw/media/**'],
+    '/api/influence': [...globalExcludes, 'data/raw/media/**'],
+    '/api/influence/edges/[id]': [...globalExcludes, 'data/raw/media/**'],
     '/api/wikipedia': [...globalExcludes, 'data/raw/media/**'],
     '/api/health': [...globalExcludes, 'data/raw/media/**'],
     '/figure/[id]': [...globalExcludes, 'data/raw/media/**'],
