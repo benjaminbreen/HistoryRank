@@ -18,6 +18,7 @@ interface MediaLinksResponse {
 
 export interface UseFigureDataReturn {
   figure: Figure | null;
+  dataDrivenRank: number | null;
   rankings: Ranking[];
   aliases: string[];
   neighbors: { prev: FigureNeighbor | null; next: FigureNeighbor | null };
@@ -78,6 +79,13 @@ export function useFigureData(id: string | null | undefined): UseFigureDataRetur
     { ...swrConfig, dedupingInterval: 600000 },
   );
 
+  // Data-driven rank (matches main page rankings)
+  const { data: rankData } = useSWR<{ rank: number | null }>(
+    id ? `/api/figures?mode=rank&id=${encodeURIComponent(id)}` : null,
+    fetcher,
+    { ...swrConfig, dedupingInterval: 300000 },
+  );
+
   // Related media
   const {
     data: mediaData,
@@ -91,6 +99,7 @@ export function useFigureData(id: string | null | undefined): UseFigureDataRetur
 
   return {
     figure,
+    dataDrivenRank: rankData?.rank ?? null,
     rankings,
     aliases,
     neighbors,

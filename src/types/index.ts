@@ -27,6 +27,7 @@ export interface Figure {
   ngramData: { years: number[]; values: number[] } | null;
   ngramPercentile: number | null;
   relatedFigures: RelatedFigure[] | null;
+  positionalRank?: number | null;
 }
 
 export interface RelatedFigure {
@@ -561,6 +562,7 @@ export interface WikipediaData {
     height: number;
   } | null;
   extract: string | null;
+  extract_paragraphs?: string[];
   title: string | null;
 }
 

@@ -11,6 +11,7 @@ import {
   ReferenceLine,
 } from 'recharts';
 import { Skeleton } from '@/components/ui/skeleton';
+import { formatViews } from '@/lib/utils/figureFormatters';
 
 type PageviewsSparklineProps = {
   wikipediaSlug: string | null;
@@ -27,12 +28,6 @@ type PageviewsResponse = {
   peakYear: number | null;
   error?: string;
 };
-
-function formatViews(views: number): string {
-  if (views >= 1000000) return `${(views / 1000000).toFixed(1)}M`;
-  if (views >= 1000) return `${(views / 1000).toFixed(0)}K`;
-  return views.toString();
-}
 
 export function PageviewsSparkline({ wikipediaSlug, figureName }: PageviewsSparklineProps) {
   const [data, setData] = useState<PageviewsResponse | null>(null);

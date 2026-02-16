@@ -2,7 +2,7 @@ const WIKI_PAGEPROPS_API =
   'https://en.wikipedia.org/w/api.php?action=query&prop=pageprops&ppprop=wikibase_item&format=json&titles=';
 const WIKI_SUMMARY_API = 'https://en.wikipedia.org/api/rest_v1/page/summary/';
 const WIKI_PAGEVIEWS_API =
-  'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/';
+  'https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/';
 const WIKIDATA_ENTITY_API = 'https://www.wikidata.org/wiki/Special:EntityData/';
 
 const entityCache = new Map();

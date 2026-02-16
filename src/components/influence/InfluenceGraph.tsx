@@ -6,6 +6,7 @@ import {
   useState,
   useEffect,
   type MouseEventHandler,
+  type TouchEventHandler,
   type WheelEventHandler,
 } from 'react';
 import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation, type SimulationNodeDatum } from 'd3-force';
@@ -173,9 +174,12 @@ export function InfluenceGraph({
     applyScaleAt(event.deltaY < 0 ? 1.12 : 0.9, x, y);
   };
 
-  const startPan: MouseEventHandler<SVGRectElement> = (event) => {
+  const dragDistRef = useRef(0);
+
+  const startPan: MouseEventHandler<SVGSVGElement> = (event) => {
     if (event.button !== 0) return;
     isPanningRef.current = true;
+    dragDistRef.current = 0;
     setIsPanning(true);
     panLastRef.current = { x: event.clientX, y: event.clientY };
   };
@@ -184,17 +188,45 @@ export function InfluenceGraph({
     if (!isPanningRef.current) return;
     const dx = event.clientX - panLastRef.current.x;
     const dy = event.clientY - panLastRef.current.y;
+    dragDistRef.current += Math.abs(dx) + Math.abs(dy);
     panLastRef.current = { x: event.clientX, y: event.clientY };
     setViewport((prev) => ({ ...prev, tx: prev.tx + dx, ty: prev.ty + dy }));
   };
 
   const stopPan = () => {
     isPanningRef.current = false;
+    setTimeout(() => { dragDistRef.current = 0; }, 0);
     setIsPanning(false);
   };
 
+  const handleTouchStart: TouchEventHandler<SVGSVGElement> = (event) => {
+    if (event.touches.length !== 1) return;
+    isPanningRef.current = true;
+    dragDistRef.current = 0;
+    setIsPanning(true);
+    panLastRef.current = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+  };
+
+  const handleTouchMove: TouchEventHandler<SVGSVGElement> = (event) => {
+    if (!isPanningRef.current || event.touches.length !== 1) return;
+    event.preventDefault();
+    const dx = event.touches[0].clientX - panLastRef.current.x;
+    const dy = event.touches[0].clientY - panLastRef.current.y;
+    dragDistRef.current += Math.abs(dx) + Math.abs(dy);
+    panLastRef.current = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+    setViewport((prev) => ({ ...prev, tx: prev.tx + dx, ty: prev.ty + dy }));
+  };
+
+  const handleTouchEnd: TouchEventHandler<SVGSVGElement> = () => {
+    stopPan();
+  };
+
+  const handleNodeClick = (event: React.MouseEvent) => {
+    if (dragDistRef.current > 5) event.preventDefault();
+  };
+
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/85 dark:bg-slate-800/80 p-2">
+    <div ref={containerRef} className="relative w-full h-[70vh] overflow-hidden rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-stone-50 dark:bg-slate-900">
       <div className="absolute right-4 top-4 z-10 flex items-center gap-1 rounded-lg border border-stone-200/80 dark:border-slate-600 bg-white/95 dark:bg-slate-800/95 px-1.5 py-1 shadow-sm">
         <button
           type="button"
@@ -221,14 +253,19 @@ export function InfluenceGraph({
         </button>
       </div>
       <svg
-        width={size.width}
-        height={size.height}
+        width="100%"
+        height="100%"
         className="block"
+        style={{ cursor: isPanning ? 'grabbing' : 'grab', touchAction: 'none' }}
         onWheel={handleWheel}
+        onMouseDown={startPan}
         onMouseMove={handleMouseMove}
         onMouseUp={stopPan}
         onMouseLeave={stopPan}
-        style={{ cursor: isPanning ? 'grabbing' : 'grab' }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
       >
         <defs>
           <linearGradient id="influence-bg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -236,18 +273,8 @@ export function InfluenceGraph({
             <stop offset="100%" stopColor="rgba(122,143,168,0.08)" />
           </linearGradient>
         </defs>
-        <rect
-          x={0}
-          y={0}
-          width={size.width}
-          height={size.height}
-          fill="transparent"
-          rx={12}
-          onMouseDown={startPan}
-        />
 
         <g transform={`translate(${viewport.tx} ${viewport.ty}) scale(${viewport.scale})`}>
-          <rect x={0} y={0} width={size.width} height={size.height} fill="url(#influence-bg)" rx={12} />
           {layoutEdges.map((edge) => {
             const source = typeof edge.source === 'string' ? null : edge.source;
             const target = typeof edge.target === 'string' ? null : edge.target;
@@ -293,7 +320,7 @@ export function InfluenceGraph({
             const radius = 3.8 + Math.min(8, degree * 0.9);
             const active = hoveredId === null || highlighted.has(node.id);
             return (
-              <a key={node.id} href={`/figure/${node.id}`} className="cursor-pointer">
+              <a key={node.id} href={`/figure/${node.id}`} className="cursor-pointer" onClick={handleNodeClick}>
                 <circle
                   cx={node.x ?? 0}
                   cy={node.y ?? 0}

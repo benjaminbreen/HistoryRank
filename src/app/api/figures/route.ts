@@ -3,7 +3,7 @@ import { db, figures, rankings, nameAliases, importLogs } from '@/lib/db';
 import { asc, desc, like, eq, sql, isNotNull, and, inArray, or } from 'drizzle-orm';
 import { getVarianceLevel } from '@/types';
 import type { FigureRow, FiguresResponse, BadgeType } from '@/types';
-import { dot, embedQuery, loadFigureEmbeddings, normalizeVector } from '@/lib/embeddings';
+import { dot, embedQuery, loadFigureEmbeddingsBinary, loadFigureEmbeddings, normalizeVector } from '@/lib/embeddings';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -1711,6 +1711,18 @@ export async function GET(request: NextRequest) {
       });
     }
 
+    if (mode === 'rank') {
+      const id = searchParams.get('id');
+      if (!id) {
+        return NextResponse.json({ error: 'Missing id' }, { status: 400 });
+      }
+      const rankLookup = await getWeightedDataScienceRankLookup();
+      return NextResponse.json(
+        { rank: rankLookup.get(id) ?? null },
+        { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } },
+      );
+    }
+
     if (mode === 'minimal') {
       const id = searchParams.get('id');
       if (!id) {
@@ -1857,12 +1869,22 @@ export async function GET(request: NextRequest) {
       let semanticScores = new Map<string, number>();
       if (smartSearch && process.env.OPENAI_API_KEY) {
         try {
-          const embeddingsIndex = loadFigureEmbeddings();
-          if (embeddingsIndex) {
-            const queryEmbedding = normalizeVector(await embedQuery(search));
-            semanticScores = new Map(
-              embeddingsIndex.figures.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
-            );
+          const queryEmbedding = normalizeVector(await embedQuery(search));
+          // Prefer binary format (29 MB, fast) over JSON (149 MB, slow)
+          const binaryIndex = loadFigureEmbeddingsBinary();
+          if (binaryIndex) {
+            const { ids, vectors, dims } = binaryIndex;
+            for (let i = 0; i < ids.length; i++) {
+              const vec = vectors.subarray(i * dims, (i + 1) * dims);
+              semanticScores.set(ids[i], dot(vec, queryEmbedding));
+            }
+          } else {
+            const embeddingsIndex = loadFigureEmbeddings();
+            if (embeddingsIndex) {
+              semanticScores = new Map(
+                embeddingsIndex.figures.map((entry) => [entry.id, dot(entry.vector, queryEmbedding)])
+              );
+            }
           }
         } catch (error) {
           console.warn('[search] Semantic search failed, using lexical only', error);

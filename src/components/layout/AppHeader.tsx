@@ -2,14 +2,14 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Clapperboard, Map, ScatterChart, Menu, X, GitCompareArrows, Award, ChevronDown, BookOpen, FileText, AlertTriangle, Sun, Moon, Share2 } from 'lucide-react';
+import { Clapperboard, Map, ScatterChart, Menu, X, GitCompareArrows, Award, FlaskConical, ChevronDown, BookOpen, FileText, AlertTriangle, Sun, Moon, Share2 } from 'lucide-react';
 import { SettingsSheet } from '@/components/settings/SettingsSheet';
 import { AboutDialog } from '@/components/about/AboutDialog';
 import { useDarkMode } from '@/hooks/useDarkMode';
 import type { Settings } from '@/hooks/useSettings';
 
 type AppHeaderProps = {
-  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'influence' | 'compare' | 'media' | 'table' | 'benchmarks';
+  active?: 'about' | 'methodology' | 'caveats' | 'maps' | 'scatter' | 'influence' | 'compare' | 'media' | 'table' | 'scorecard' | 'historybench';
   settings: Settings;
   onSettingsChange: (patch: Partial<Settings>) => void;
   onSettingsReset: () => void;
@@ -23,7 +23,8 @@ const PAGE_LABELS: Record<string, string> = {
   influence: 'Influence Graph',
   media: 'Media Atlas',
   compare: 'Compare',
-  benchmarks: 'Benchmarks',
+  scorecard: 'Scorecard',
+  historybench: 'Benchmarks',
   about: 'About',
   methodology: 'Methodology',
   caveats: 'Caveats',
@@ -137,7 +138,7 @@ export function AppHeader({
   }, []);
 
   const isVisualizeActive = active === 'maps' || active === 'scatter' || active === 'influence';
-  const isAnalyzeActive = active === 'compare' || active === 'benchmarks';
+  const isAnalyzeActive = active === 'compare' || active === 'scorecard' || active === 'historybench';
   const isAboutActive = active === 'about' || active === 'methodology' || active === 'caveats';
   const pageLabel = active ? PAGE_LABELS[active] || null : null;
 
@@ -297,7 +298,10 @@ export function AppHeader({
                   <DropdownItem href="/compare" icon={<GitCompareArrows />} desc="Side by side" isActive={active === 'compare'} onClick={() => setOpenDropdown(null)}>
                     Compare
                   </DropdownItem>
-                  <DropdownItem href="/benchmarks" icon={<Award />} desc="LLM accuracy" isActive={active === 'benchmarks'} onClick={() => setOpenDropdown(null)}>
+                  <DropdownItem href="/scorecard" icon={<Award />} desc="LLM grades" isActive={active === 'scorecard'} onClick={() => setOpenDropdown(null)}>
+                    Scorecard
+                  </DropdownItem>
+                  <DropdownItem href="/historybench" icon={<FlaskConical />} desc="HistoryBench v1.0" isActive={active === 'historybench'} onClick={() => setOpenDropdown(null)}>
                     Benchmarks
                   </DropdownItem>
                 </DropdownPanel>
@@ -442,7 +446,10 @@ export function AppHeader({
               <MobileNavLink href="/compare" icon={<GitCompareArrows className="h-4 w-4" />} isActive={active === 'compare'} onClick={() => setIsMenuOpen(false)}>
                 Compare
               </MobileNavLink>
-              <MobileNavLink href="/benchmarks" icon={<Award className="h-4 w-4" />} isActive={active === 'benchmarks'} onClick={() => setIsMenuOpen(false)}>
+              <MobileNavLink href="/scorecard" icon={<Award className="h-4 w-4" />} isActive={active === 'scorecard'} onClick={() => setIsMenuOpen(false)}>
+                Scorecard
+              </MobileNavLink>
+              <MobileNavLink href="/historybench" icon={<FlaskConical className="h-4 w-4" />} isActive={active === 'historybench'} onClick={() => setIsMenuOpen(false)}>
                 Benchmarks
               </MobileNavLink>
 

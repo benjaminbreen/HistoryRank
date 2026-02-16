@@ -1,0 +1,3074 @@
+[
+  {
+    "blindId": "QHGZ-205",
+    "figureName": "Ramesses II",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Mentions monuments and peace treaty but 'for 3200 years' is awkwardly phrased and the description is vague. No causal mechanism for why these mattered."
+  },
+  {
+    "blindId": "QEZF-245",
+    "figureName": "William the Conqueror",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Just a label ('Norman Conquest of England') with no explanation of what it entailed or why it mattered. Could be generated from the name alone."
+  },
+  {
+    "blindId": "SYOI-190",
+    "figureName": "George Washington",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Factually correct but entirely surface-level. States two roles but not why they mattered. Standard Wikipedia-level knowledge."
+  },
+  {
+    "blindId": "OVEP-8",
+    "figureName": "Thomas Jefferson",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Mentions both the Declaration and the philosophical framework (natural rights), which adds specificity. Still somewhat standard knowledge but well-calibrated."
+  },
+  {
+    "blindId": "OVEP-1",
+    "figureName": "Jesus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies Jesus as central to Christianity and Western civilization, but 'moral and cultural foundations' is generic. No mechanism of influence explained."
+  },
+  {
+    "blindId": "MGYN-151",
+    "figureName": "Al-Shafi'i",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies legal methodology and jurisprudence, showing some knowledge, but the semicolon format provides no causal reasoning or elaboration."
+  },
+  {
+    "blindId": "PESR-175",
+    "figureName": "Pope Urban II",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 3,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Generic description that could apply to many popes. Urban II's defining contribution was launching the First Crusade, which is not mentioned. Sounds templated."
+  },
+  {
+    "blindId": "PESR-174",
+    "figureName": "Ayrton Senna",
+    "scores": {
+      "factualPrecision": 1,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Clearly a templated/hallucinated description. 'Influential work in other' is nonsensical. Demonstrates zero knowledge of who Senna was (a racing driver)."
+  },
+  {
+    "blindId": "STXX-80",
+    "figureName": "Qin Shi Huang",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Concise but well-constructed: identifies the unification, the bureaucratic/imperial system, and its two-millennia persistence. Good causal link between action and lasting institutional effect."
+  },
+  {
+    "blindId": "ROCN-96",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Accurately identifies laws of motion, gravitation, and classical mechanics. Semicolon structure limits causal reasoning - says what he did but 'laid foundations' is a generic impact claim."
+  },
+  {
+    "blindId": "ULSS-219",
+    "figureName": "William Shakespeare",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "'Greatest playwright in history' is a superlative claim, not a description of contribution. 'Shaping global literature, language, and drama' is vague. No mechanism of influence."
+  },
+  {
+    "blindId": "KYCI-47",
+    "figureName": "Werner Heisenberg",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Just two semicolon-separated topic labels. No explanation of what quantum mechanics or the uncertainty principle meant or why they mattered."
+  },
+  {
+    "blindId": "ULSS-221",
+    "figureName": "Galileo Galilei",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "'Father of' is a label, not a causal explanation. Does not explain what he actually did to earn that title. Standard knowledge only."
+  },
+  {
+    "blindId": "KYCI-40",
+    "figureName": "Galileo Galilei",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon-separated labels with no explanation. 'Astronomical observations' and 'scientific revolution' are topics, not descriptions of contribution."
+  },
+  {
+    "blindId": "ROCN-112",
+    "figureName": "Antonio Vivaldi",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists labels (Composer, Baroque master, The Four Seasons) but provides no explanation of influence or why these contributions mattered."
+  },
+  {
+    "blindId": "KYCI-51",
+    "figureName": "Charles Baudelaire",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two-word semicolon labels. Correct associations but zero causal reasoning. Could be generated from a name lookup."
+  },
+  {
+    "blindId": "HIYB-65",
+    "figureName": "Pablo Picasso",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies Cubism co-founding and connects it to 20th-century modern art. Well-calibrated scope claim. Still lacks mechanism of how this influence operated."
+  },
+  {
+    "blindId": "STXX-93",
+    "figureName": "Olaudah Equiano",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the specific mechanism (autobiography) and its specific downstream consequence (Slave Trade Act 1807). Shows non-obvious knowledge connecting personal narrative to legislative outcome."
+  },
+  {
+    "blindId": "KYCI-41",
+    "figureName": "Alexander the Great",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon format: 'Created vast empire' plus 'Hellenistic cultural diffusion.' States results but not how empire creation led to cultural diffusion."
+  },
+  {
+    "blindId": "QEZF-239",
+    "figureName": "Johannes Gutenberg",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four words for a top-10 ranked figure. Factually correct but zero causal reasoning, zero context, could be generated from the name alone."
+  },
+  {
+    "blindId": "PESR-161",
+    "figureName": "Thomas Edison",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 5,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies specific mechanism ('industrialized invention and electric utility systems') and traces downstream consequence ('accelerating electrification'). Shows sophistication in identifying system-building over individual inventions."
+  },
+  {
+    "blindId": "KYCI-53",
+    "figureName": "W.B. Yeats",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon-separated labels. Correct associations but no explanation of significance or influence mechanism."
+  },
+  {
+    "blindId": "QEZF-244",
+    "figureName": "Friedrich Nietzsche",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Title-case phrasing suggests a heading, not a description. States what he did but not how or why it mattered. No mechanism or downstream effects."
+  },
+  {
+    "blindId": "HIYB-72",
+    "figureName": "Maimonides",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies Sephardic background and dual identity as philosopher/Torah scholar. 'Seminal figure' is vague on mechanism but 'Sephardic' shows some depth."
+  },
+  {
+    "blindId": "MGYN-145",
+    "figureName": "Cicero",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies both republican theory and rhetoric, notes long influence on law/governance. Semicolon format limits causal depth but content is specific and well-calibrated."
+  },
+  {
+    "blindId": "MGYN-138",
+    "figureName": "Johannes Gutenberg",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Specifies 'movable-type printing in Europe' and traces downstream effects (mass literacy, knowledge diffusion). The 'in Europe' qualifier shows awareness of non-European printing history."
+  },
+  {
+    "blindId": "ULSS-229",
+    "figureName": "James Joyce",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies Ulysses and modernist literature. 'Revolutionized' claims impact but does not explain how. Short but reasonably precise."
+  },
+  {
+    "blindId": "QHGZ-212",
+    "figureName": "Ibn Battuta",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly specifies 14th century, Moroccan origin, and documentation of Islamic world geography. Good specificity. Lacks explanation of why the documentation mattered."
+  },
+  {
+    "blindId": "SYOI-182",
+    "figureName": "Augustus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but surface-level. 'First Roman Emperor, establishing the Pax Romana' is standard textbook knowledge with no explanation of how or why."
+  },
+  {
+    "blindId": "OVEP-9",
+    "figureName": "Sui Wendi",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Lists three specific accomplishments including Grand Canal foundations. Factually solid and shows decent knowledge. Lacks causal explanation of why reunification or the canal mattered."
+  },
+  {
+    "blindId": "SYOI-183",
+    "figureName": "Dante Alighieri",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly names Divine Comedy and two domains of influence (literature, theology). But 'influenced' is vague with no mechanism. Standard knowledge."
+  },
+  {
+    "blindId": "QEZF-241",
+    "figureName": "Plato",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Five words that could be generated from the name alone. No causal reasoning and no indication of why Plato mattered beyond a label."
+  },
+  {
+    "blindId": "QEZF-250",
+    "figureName": "Laozi",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words. Matches the 'Founder of Islam' anchor example. Factually correct but zero causal reasoning and zero demonstrated knowledge."
+  },
+  {
+    "blindId": "ULSS-235",
+    "figureName": "Leon Festinger",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies cognitive dissonance theory. Factually precise but provides no explanation of why this theory mattered or its impact."
+  },
+  {
+    "blindId": "QHGZ-206",
+    "figureName": "Mencius",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies Confucian philosophy and human nature emphasis with a longevity claim. But 'emphasizing human nature for 2300 years' is awkward and vague on mechanism."
+  },
+  {
+    "blindId": "OVEP-2",
+    "figureName": "Gautama Buddha",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "States founding of Buddhism and geographic/temporal scope. 'Transforming spiritual thought' provides basic causal claim but no mechanism."
+  },
+  {
+    "blindId": "ULSS-232",
+    "figureName": "Pema Ch\u00f6dr\u00f6n",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies her as a Buddhist teacher and the Western mindfulness connection. Brief and not inaccurate but very surface-level with no mechanism."
+  },
+  {
+    "blindId": "KYCI-42",
+    "figureName": "Michelangelo",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four words listing two generic labels. Could be generated from the name alone. No explanation of what he contributed or why it mattered."
+  },
+  {
+    "blindId": "ROCN-98",
+    "figureName": "Paul the Apostle",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Excellent concise description. 'Transformed a Jewish sect into a gentile religion' identifies the specific mechanism of influence. Well-calibrated for a top-10 figure."
+  },
+  {
+    "blindId": "QEZF-247",
+    "figureName": "Ronald Reagan",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Title-case heading format, not a description. Two vague topic labels with no elaboration of what his Cold War leadership or economic policies entailed."
+  },
+  {
+    "blindId": "KYCI-37",
+    "figureName": "Gautama Buddha",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words for a top-10 figure. Directly matches the 'Founder of Islam' anchor example. Factually correct but zero causal reasoning and zero demonstrated knowledge."
+  },
+  {
+    "blindId": "ULSS-226",
+    "figureName": "Heinrich Hertz",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly and specifically identifies the key contribution (proving electromagnetic waves exist). 'Proved' is more precise than 'discovered.' Lacks explanation of downstream impact."
+  },
+  {
+    "blindId": "STXX-77",
+    "figureName": "Gautama Buddha",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies founding of Buddhism and geographic scope (East and South Asia). 'Spiritual and philosophical development' adds specificity beyond just 'religion.'"
+  },
+  {
+    "blindId": "WRTI-128",
+    "figureName": "Geoffrey Chaucer",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two words. Not even a sentence. Zero causal reasoning, zero knowledge demonstrated. Barely qualifies as a description."
+  },
+  {
+    "blindId": "ULSS-227",
+    "figureName": "Neil Armstrong",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Factually correct but entirely common knowledge. 'Symbolizing space exploration' is vague. Does not explain how walking on the Moon mattered historically."
+  },
+  {
+    "blindId": "WRTI-132",
+    "figureName": "Florence Nightingale",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Title-case topic labels. Correctly associates Nightingale with nursing and hospital reform but provides no explanation or mechanism."
+  },
+  {
+    "blindId": "WRTI-126",
+    "figureName": "Wolfgang Amadeus Mozart",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon-separated labels. 'Classical music mastery' is a superlative, not a contribution. 'Operatic and symphonic composition' names genres but not impact."
+  },
+  {
+    "blindId": "PESR-168",
+    "figureName": "Antoine Lavoisier",
+    "scores": {
+      "factualPrecision": 1,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Clearly a templated/hallucinated description unrelated to Lavoisier. He was the father of modern chemistry. 'Scaled production, transport, or communication systems' is nonsensical."
+  },
+  {
+    "blindId": "HIYB-56",
+    "figureName": "Aristotle",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies systematization as the key method and traces downstream consequence to medieval scholasticism. Mentions multiple domains. Well-calibrated for a top-10 figure."
+  },
+  {
+    "blindId": "WRTI-116",
+    "figureName": "Jesus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon format with 'Christianity' as a bare label plus 'foundational ethics and theology of Western civilization.' Slightly more than a name label but still very generic."
+  },
+  {
+    "blindId": "QEZF-252",
+    "figureName": "Heinrich Himmler",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Accurately identifies specific role (Reichsf\u00fchrer-SS) and the key actions (organized Holocaust and security apparatus). Dual contribution noted but no downstream causal chain."
+  },
+  {
+    "blindId": "WRTI-127",
+    "figureName": "Ibn Khaldun",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Three semicolon-separated keywords. Names the Muqaddimah but provides no explanation of its significance or how it influenced historiography."
+  },
+  {
+    "blindId": "QHGZ-199",
+    "figureName": "Moses",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies key acts (Exodus, Ten Commandments) and foundational role across three religions. Well-proportioned for top-10 rank. Multi-religious scope adds nuance."
+  },
+  {
+    "blindId": "HIYB-61",
+    "figureName": "Nicolaus Copernicus",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Traces a causal chain: proposed heliocentric model \u2192 initiated Copernican Revolution \u2192 changed humanity's place in the cosmos. Identifies conceptual impact beyond just astronomy."
+  },
+  {
+    "blindId": "ROCN-108",
+    "figureName": "Mary Wollstonecraft",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Semicolon-separated labels. Names the key work correctly but provides no explanation of influence or mechanism. 'Early feminist philosopher' adds context."
+  },
+  {
+    "blindId": "HIYB-70",
+    "figureName": "Abraham Maslow",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies the hierarchy of needs. No explanation of why this theory mattered or its influence on psychology and management. One-dimensional."
+  },
+  {
+    "blindId": "MGYN-146",
+    "figureName": "Jean-Jacques Rousseau",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies two key concepts (popular sovereignty, political psychology) but provides no causal mechanism or elaboration on how these shaped history."
+  },
+  {
+    "blindId": "GFDG-30",
+    "figureName": "Nagarjuna",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 4
+    },
+    "notes": "Correctly identifies Madhyamaka philosophy and its influence on Mahayana Buddhism, demonstrating non-obvious knowledge. Says 'profoundly shaping' but does not explain the mechanism."
+  },
+  {
+    "blindId": "MGYN-137",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Mentions relativity and downstream technologies (high-energy/space) which adds some causal specificity. Proportionality is well-calibrated."
+  },
+  {
+    "blindId": "QEZF-243",
+    "figureName": "Joseph Stalin",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Reduces Stalin to WWII leadership alone, ignoring industrialization, purges, and Cold War. No causal reasoning. Severely underrepresents his significance."
+  },
+  {
+    "blindId": "HIYB-64",
+    "figureName": "John Stuart Mill",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists three domains (utilitarianism, liberty, political economy) which shows breadth, but no explanation of why these mattered. Standard knowledge only."
+  },
+  {
+    "blindId": "ROCN-111",
+    "figureName": "Ernest Hemingway",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly notes influence on fiction style but provides no specifics about what that style was or how it influenced others. One-dimensional."
+  },
+  {
+    "blindId": "PESR-158",
+    "figureName": "Confucius",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 5,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Excellent causal chain: teachings became curricular core of statecraft through civil service institutions. Identifies the specific mechanism by which Confucianism propagated."
+  },
+  {
+    "blindId": "QHGZ-209",
+    "figureName": "Louis Daguerre",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two words that merely name the invention. No causal reasoning, no context, no demonstrated knowledge beyond the figure's name."
+  },
+  {
+    "blindId": "STXX-87",
+    "figureName": "Sui Wendi",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies two key accomplishments (reunification and Grand Canal) with temporal context ('centuries of division'). Causal link implied but not fully articulated."
+  },
+  {
+    "blindId": "PESR-170",
+    "figureName": "Leonid Brezhnev",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 2,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Generic template language that could apply to almost any leader. Does not mention anything specific to Brezhnev (stagnation, detente, Afghanistan). Fill-in-the-blank."
+  },
+  {
+    "blindId": "OVEP-17",
+    "figureName": "Dietrich Bonhoeffer",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Factually precise and concise. Identifies the key biographical fact (martyrdom opposing Hitler) but does not explain the mechanism of his influence on theology."
+  },
+  {
+    "blindId": "ULSS-231",
+    "figureName": "Jonathan Edwards",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies him as shaping American evangelicalism but provides no specifics about how (Great Awakening, theological works). One-dimensional."
+  },
+  {
+    "blindId": "ROCN-104",
+    "figureName": "Gregor Mendel",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Labels him 'founder of modern genetics' which is standard knowledge. No mention of pea plant experiments, laws of heredity, or the rediscovery of his work."
+  },
+  {
+    "blindId": "QHGZ-207",
+    "figureName": "Elon Musk",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Names two companies and their domains but does not explain how they advanced these fields or why it matters historically."
+  },
+  {
+    "blindId": "STXX-85",
+    "figureName": "Leonhard Euler",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies breadth of mathematical contributions and the specific contribution of notation, which is a non-obvious detail. 'Revolutionized' without mechanism keeps causal specificity at 3."
+  },
+  {
+    "blindId": "ROCN-100",
+    "figureName": "Galileo Galilei",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "States he pioneered the scientific method and contributed to astronomy/physics, but does not specify what those contributions were or how they mattered."
+  },
+  {
+    "blindId": "PESR-172",
+    "figureName": "Hermann Hesse",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 2,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Generic template language that could apply to any major author. No specific works mentioned (Steppenwolf, Siddhartha). Demonstrates no knowledge of the figure."
+  },
+  {
+    "blindId": "STXX-78",
+    "figureName": "Confucius",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies Confucianism as governing both life and governance for millennia. Well-proportioned. Says it 'governed' which is a basic causal claim but lacks mechanism."
+  },
+  {
+    "blindId": "WRTI-125",
+    "figureName": "Michelangelo",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists famous works and period (David, Sistine Chapel, Renaissance art) but with no causal reasoning. Semicolon-separated keywords. Standard knowledge."
+  },
+  {
+    "blindId": "ULSS-217",
+    "figureName": "Confucius",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Lists three domains of influence (governance, ethics, social structures) with temporal scope. Multiple aspects noted but no explanation of mechanism."
+  },
+  {
+    "blindId": "ULSS-220",
+    "figureName": "Alexander the Great",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Basic causal connection (conquest led to cultural spread) and geographic scope (three continents). Purely one-dimensional and standard knowledge."
+  },
+  {
+    "blindId": "PESR-162",
+    "figureName": "Julius Caesar",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the specific mechanism (military-backed personal rule transforming republican politics) and the downstream consequence (paving way for empire). Shows understanding of structural political change."
+  },
+  {
+    "blindId": "OVEP-11",
+    "figureName": "John Calvin",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies Calvinist theology, Reformed Christianity, and the Protestant work ethic. The work ethic reference shows some knowledge depth (Weberian connection) but causal mechanism not explained."
+  },
+  {
+    "blindId": "KYCI-43",
+    "figureName": "Augustus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two labels (First Roman Emperor, Pax Romana) with no explanation. For a rank-32 figure, this is too compressed to demonstrate any reasoning."
+  },
+  {
+    "blindId": "QHGZ-203",
+    "figureName": "Saladin",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies the military achievement (reconquest of Jerusalem) and the cultural legacy (exemplifying chivalry). Dual aspect of military and moral reputation adds nuance."
+  },
+  {
+    "blindId": "ROCN-99",
+    "figureName": "Cai Lun",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "States the invention and its consequences (record-keeping, literacy) which provides basic causal connection. Well-proportioned for a top-10 figure."
+  },
+  {
+    "blindId": "HIYB-62",
+    "figureName": "Plato",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies the Academy, philosophical dialogues as medium, and three specific domains shaped (metaphysics, epistemology, political theory). Well-structured and well-proportioned."
+  },
+  {
+    "blindId": "HIYB-67",
+    "figureName": "Mary Wollstonecraft",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names the key work and identifies her as writer, philosopher, and women's rights advocate. Factually precise but does not explain why or how the work mattered."
+  },
+  {
+    "blindId": "QEZF-240",
+    "figureName": "Napoleon",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four words naming two topics with no elaboration. For a rank-12 figure, drastically insufficient. No causal reasoning or demonstrated knowledge."
+  },
+  {
+    "blindId": "WRTI-124",
+    "figureName": "Sima Qian",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Names the field (historiography) and the major work but provides no causal reasoning about why these mattered. Semicolon-list format."
+  },
+  {
+    "blindId": "STXX-88",
+    "figureName": "Francis Crick",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Accurately identifies the co-discovery of DNA's double-helix and its impact on molecular biology. Well-proportioned."
+  },
+  {
+    "blindId": "SYOI-178",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "States what Newton did (laws of motion, universal gravitation) but not why it mattered. Standard Wikipedia-level description."
+  },
+  {
+    "blindId": "HIYB-71",
+    "figureName": "Daniel Kahneman",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies Nobel Prize and pioneering behavioral economics. But 'pioneered behavioral economics' is a label without mechanism."
+  },
+  {
+    "blindId": "ULSS-234",
+    "figureName": "Albert Ellis",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies REBT, which is specific and accurate. But no explanation of why REBT mattered or its influence on cognitive behavioral therapy."
+  },
+  {
+    "blindId": "QEZF-237",
+    "figureName": "Aristotle",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Five words in title case that are essentially a label. For the rank-4 figure, severely insufficient. No causal reasoning or demonstrated knowledge."
+  },
+  {
+    "blindId": "STXX-79",
+    "figureName": "Christopher Columbus",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Precisely identifies the structural consequence (permanent contact between hemispheres) and scope (global ecology and history). 'Initiated permanent contact' rather than 'discovered America' shows sophistication."
+  },
+  {
+    "blindId": "MGYN-144",
+    "figureName": "Akbar",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies Mughal consolidation and the distinctive 'administrative-religious synthesis' which is a non-obvious framing showing knowledge of Akbar's specific governance innovations."
+  },
+  {
+    "blindId": "QEZF-242",
+    "figureName": "Martin Luther",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Five words that state his role but not why it mattered. 'Catalyst' implies causation but provides no mechanism."
+  },
+  {
+    "blindId": "WRTI-123",
+    "figureName": "John Dalton",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon-separated topics with no explanation. The color blindness mention is oddly paired with atomic theory. No causal reasoning."
+  },
+  {
+    "blindId": "SYOI-189",
+    "figureName": "Buzz Aldrin",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Factually correct biographical label but provides zero explanation of historical significance. Could be generated from the figure's name alone."
+  },
+  {
+    "blindId": "STXX-92",
+    "figureName": "Tecumseh",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the specific political project (pan-Native American confederacy) and its purpose (resisting U.S. expansion). Explains both the action and the strategic goal."
+  },
+  {
+    "blindId": "MGYN-141",
+    "figureName": "Hammurabi",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies law codification and its lasting function as a 'template for state justice and administration.' The word 'durable' adds a temporal-causal dimension."
+  },
+  {
+    "blindId": "PESR-157",
+    "figureName": "Genghis Khan",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the transcontinental empire and specifies three domains it 'rewired' (trade, diplomacy, military organization). Well-calibrated for a top-10 figure."
+  },
+  {
+    "blindId": "GFDG-31",
+    "figureName": "Pericles",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists three domains of Athenian achievement (democracy, philosophy, arts) under Pericles. Multiple aspects noted, but no explanation of his specific role."
+  },
+  {
+    "blindId": "QEZF-253",
+    "figureName": "Richard Branson",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Names the company and commercial spaceflight involvement but provides no explanation of historical significance or mechanism of influence."
+  },
+  {
+    "blindId": "QEZF-255",
+    "figureName": "Johann Gottfried Herder",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies two key concepts (cultural nationalism, historicism) which shows knowledge. But 'founded' is a label without mechanism."
+  },
+  {
+    "blindId": "KYCI-48",
+    "figureName": "S\u00f8ren Kierkegaard",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon-separated topics with no causal reasoning. The dual aspect shows awareness of his two key domains but with no elaboration."
+  },
+  {
+    "blindId": "QEZF-236",
+    "figureName": "Muhammad",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words for the rank-2 figure. Matches the rubric anchor example. No causal reasoning, no proportionality, no demonstrated knowledge."
+  },
+  {
+    "blindId": "SYOI-185",
+    "figureName": "Jacques Derrida",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies deconstruction and its influence on literary theory. No explanation of what deconstruction is or how it influenced the field. One-dimensional."
+  },
+  {
+    "blindId": "WRTI-118",
+    "figureName": "Cai Lun",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies the invention and its consequence (revolutionizing knowledge transmission). Basic causal link but without specifics about mechanism."
+  },
+  {
+    "blindId": "MGYN-136",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Mentions calculus alongside physics and identifies 'transformed scientific method and technology trajectory' as causal consequence. Semicolon format but proportional."
+  },
+  {
+    "blindId": "OVEP-18",
+    "figureName": "Betty Friedan",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names the specific work (Feminine Mystique) and its consequence (sparked second-wave feminism). Concise and precise, though one-dimensional."
+  },
+  {
+    "blindId": "WRTI-122",
+    "figureName": "Joseph Stalin",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Three semicolon-separated keywords covering industrialization, totalitarianism, and WWII. Multiple aspects but no causal reasoning about significance."
+  },
+  {
+    "blindId": "PESR-159",
+    "figureName": "Karl Marx",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies specific mechanism: critique of capitalism and class struggle theory organized mass political movements and state systems worldwide. Clear causal chain from ideas to political outcomes."
+  },
+  {
+    "blindId": "GFDG-29",
+    "figureName": "Sigmund Freud",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies psychoanalysis and unconscious mind. 'Reshaping understanding' is a basic causal claim. Standard knowledge only."
+  },
+  {
+    "blindId": "GFDG-26",
+    "figureName": "Ashoka",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the specific mechanism: state patronage and dharmic governance spreading Buddhism across South Asia. Shows non-obvious knowledge of how Ashoka's conversion translated into institutional action."
+  },
+  {
+    "blindId": "SYOI-187",
+    "figureName": "Stephen Hawking",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies him as theoretical physicist but 'popularized black hole theories' conflates his research with his public communication. No mechanism."
+  },
+  {
+    "blindId": "QEZF-248",
+    "figureName": "Sergey Brin",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four words in title case. No causal reasoning, no explanation of why Google matters historically. Could be generated from name alone."
+  },
+  {
+    "blindId": "OVEP-4",
+    "figureName": "Cyrus the Great",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies empire founding and governance model. 'Human rights' is somewhat anachronistic but the tolerance theme is valid. Dual contribution noted."
+  },
+  {
+    "blindId": "QEZF-249",
+    "figureName": "Jean-Paul Sartre",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two words in title case. No causal reasoning, no demonstrated knowledge. Essentially a label."
+  },
+  {
+    "blindId": "QEZF-254",
+    "figureName": "Elie Wiesel",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies biographical trajectory (survivor to Nobel laureate to global voice) with specific domains (remembrance, human rights). Well-proportioned for the figure's rank."
+  },
+  {
+    "blindId": "SYOI-176",
+    "figureName": "Confucius",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "States teachings formed the basis of social and ethical systems. Basic causal claim without specifying which teachings or how they propagated."
+  },
+  {
+    "blindId": "MGYN-152",
+    "figureName": "Charles Fourier",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies utopian socialism and influence on reform/labor movements. Semicolon format. 'Labor imaginaries' is a somewhat specialized term showing knowledge."
+  },
+  {
+    "blindId": "KYCI-46",
+    "figureName": "Hippocrates",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two semicolon-separated labels with no explanation. 'Medical ethics; clinical medicine' demonstrates no knowledge beyond name association."
+  },
+  {
+    "blindId": "MGYN-150",
+    "figureName": "Sundiata Keita",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies Mali empire founding and West African political formation. Semicolon format but shows relevant knowledge of non-Western history."
+  },
+  {
+    "blindId": "ROCN-113",
+    "figureName": "Theodore Roosevelt",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists four distinct aspects (presidency, conservation, Panama Canal, Big Stick diplomacy). Multiple facets show nuance but all are labels with no causal reasoning."
+  },
+  {
+    "blindId": "OVEP-14",
+    "figureName": "Rumi",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "'Greatest Sufi poet' is a superlative label. Identifies two domains of influence (Islamic mysticism, world literature) but no mechanism of how influence operated."
+  },
+  {
+    "blindId": "OVEP-16",
+    "figureName": "Marquis de Lafayette",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 2,
+      "knowledgeDepth": 1
+    },
+    "notes": "Labels him 'Hero' of two revolutions. No causal reasoning, no specifics about his role. The dual-revolution mention shows awareness of his transatlantic significance."
+  },
+  {
+    "blindId": "WRTI-119",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon format. 'Reshaping understanding of space, time, and energy' adds some specificity beyond just naming the theory. Standard knowledge."
+  },
+  {
+    "blindId": "QEZF-238",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words for a top-10 figure. No causal reasoning. Demonstrates zero knowledge beyond the figure's name."
+  },
+  {
+    "blindId": "QEZF-251",
+    "figureName": "Park Chung-hee",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct association but four words with no explanation of how he industrialized South Korea or why that mattered historically."
+  },
+  {
+    "blindId": "WRTI-121",
+    "figureName": "Karl Marx",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Three semicolon-separated keywords. Lists key concepts but provides no causal reasoning about their historical impact."
+  },
+  {
+    "blindId": "HIYB-73",
+    "figureName": "P\u0101\u1e47ini",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies him as formulating foundational Sanskrit grammar rules. Shows knowledge of a specialist figure. 'Foundational rules' implies lasting impact but mechanism unspecified."
+  },
+  {
+    "blindId": "MGYN-142",
+    "figureName": "Averroes",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies both the Aristotelian revival and the cross-cultural transmission ('bridge into Latin scholasticism'). Shows non-obvious knowledge of intellectual history."
+  },
+  {
+    "blindId": "QHGZ-211",
+    "figureName": "Napoleon III",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words that name a political entity, not a description of contribution. No causal reasoning, no demonstrated knowledge."
+  },
+  {
+    "blindId": "GFDG-27",
+    "figureName": "Gregor Mendel",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "States that laws of heredity established the foundation of genetics, which is a basic causal claim. Standard knowledge, no non-obvious detail."
+  },
+  {
+    "blindId": "PESR-160",
+    "figureName": "Cai Lun",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 5,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Excellent causal chain: improved papermaking \u2192 enabled cheaper record-keeping, education, and bureaucratic expansion. Three specific downstream consequences. 'Improved' rather than 'invented' shows historiographic precision."
+  },
+  {
+    "blindId": "OVEP-10",
+    "figureName": "Thomas Aquinas",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies the specific intellectual achievement (synthesis of Christian theology and Aristotelian philosophy) and its consequence for Catholic doctrine. Well-calibrated."
+  },
+  {
+    "blindId": "GFDG-35",
+    "figureName": "W.E.B. Du Bois",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies dual contribution (Pan-African thought, NAACP co-founding) and their shaping of both intellectual and civil rights history. Shows non-obvious knowledge."
+  },
+  {
+    "blindId": "STXX-94",
+    "figureName": "Andrei Sakharov",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 4,
+      "knowledgeDepth": 4
+    },
+    "notes": "Captures the dramatic arc from weapons developer to human rights activist. The dual identity (bomb creator / peace laureate) shows strong nuance and specific knowledge."
+  },
+  {
+    "blindId": "ROCN-110",
+    "figureName": "Aurangzeb",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Lists empire expansion and religious policy controversies. The 'controversies' mention adds nuance rare in these descriptions. Semicolon format limits depth."
+  },
+  {
+    "blindId": "WRTI-130",
+    "figureName": "Jawaharlal Nehru",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words in title case. Does not explain his role or how he shaped the modern Indian state. Could apply to several figures."
+  },
+  {
+    "blindId": "KYCI-44",
+    "figureName": "Paul the Apostle",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon-separated topic labels with no explanation. For a major religious figure, this provides no causal reasoning about his significance."
+  },
+  {
+    "blindId": "OVEP-7",
+    "figureName": "Gregor Mendel",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies specific achievement (laws of heredity) and its consequence (founding genetics as a science). Basic causal link. Standard knowledge."
+  },
+  {
+    "blindId": "STXX-95",
+    "figureName": "John D. Rockefeller",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names Standard Oil and identifies dual impact (petroleum industry, corporate structure). Concise and specific with proportional claims."
+  },
+  {
+    "blindId": "SYOI-192",
+    "figureName": "Zora Neale Hurston",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three words naming two roles. No specific works, no causal reasoning, no demonstrated knowledge beyond a generic label."
+  },
+  {
+    "blindId": "PESR-173",
+    "figureName": "Robert Schumann",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies musical form and pedagogy as domains of transformation. 'Shaping how later traditions compose, perform, and listen' traces downstream consequences but is somewhat generic."
+  },
+  {
+    "blindId": "MGYN-148",
+    "figureName": "Toyotomi Hideyoshi",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies Japanese unification and Korean invasions ('regional geopolitical shock'). Semicolon format but shows relevant specialist knowledge."
+  },
+  {
+    "blindId": "STXX-84",
+    "figureName": "Nikola Tesla",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies two specific technologies (AC electricity, wireless communication). 'Pioneered' is a basic causal claim. Well-proportioned and factually precise."
+  },
+  {
+    "blindId": "OVEP-13",
+    "figureName": "Alexander Fleming",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies the specific discovery (penicillin) and its consequence (antibiotic revolution). Concise and accurate. No nuance about the complex path from discovery to use."
+  },
+  {
+    "blindId": "ROCN-101",
+    "figureName": "James Watt",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "'Improved' is historically precise (he didn't invent it). Semicolon structure: names contribution and context (Industrial Revolution) but doesn't explain the causal connection."
+  },
+  {
+    "blindId": "KYCI-54",
+    "figureName": "Leo\u0161 Jan\u00e1\u010dek",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two semicolon labels. 'Czech opera; folk-influenced music' names genres but not significance. No causal reasoning."
+  },
+  {
+    "blindId": "ULSS-230",
+    "figureName": "Mary Baker Eddy",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Identifies founding of Christian Science and links it to alternative spirituality. Basic but not inaccurate. No mechanism explained."
+  },
+  {
+    "blindId": "ULSS-222",
+    "figureName": "Socrates",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Labels him foundational philosopher and pioneer of critical reasoning. Two aspects noted but no explanation of how Socratic method operated or why it mattered."
+  },
+  {
+    "blindId": "OVEP-6",
+    "figureName": "Adam Smith",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but standard claim. Founded modern economics is a common attribution with no causal mechanism explaining how or why Wealth of Nations mattered."
+  },
+  {
+    "blindId": "WRTI-117",
+    "figureName": "Paul the Apostle",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon-separated topics with no explanatory connection. Gentile inclusion is a relevant detail but stated as a keyword rather than explained."
+  },
+  {
+    "blindId": "QHGZ-198",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Factually correct but surface-level. Revolutionizing physics and science worldwide for 350 years adds temporal scope but the mechanism is vague."
+  },
+  {
+    "blindId": "ULSS-233",
+    "figureName": "Sharon Salzberg",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies her role but shaped modern loving-kindness meditation is vague on mechanism. No specifics on how she shaped it."
+  },
+  {
+    "blindId": "HIYB-58",
+    "figureName": "Christopher Columbus",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Good causal chain: voyages led to sustained exploration and colonization, permanently linking Old and New Worlds. Distinguishes sustained from initial contact, showing some nuance."
+  },
+  {
+    "blindId": "OVEP-15",
+    "figureName": "Diego Rivera",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct label but shaped public art is extremely vague. No mention of specific works, political context, or how muralism mattered."
+  },
+  {
+    "blindId": "WRTI-129",
+    "figureName": "Alfred Marshall",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly names the book and supply/demand curves, but these are stated as labels with no explanation of why they mattered for economics as a discipline."
+  },
+  {
+    "blindId": "PESR-164",
+    "figureName": "Voltaire",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies a specific mechanism: polemics against clerical and judicial abuse spreading Enlightenment norms. Explains both method and consequence with good specificity."
+  },
+  {
+    "blindId": "HIYB-60",
+    "figureName": "Charles Darwin",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Strong description: identifies the specific theory, its revolutionary effect on biology, and broader impact on philosophy and society. Multiple downstream effects noted."
+  },
+  {
+    "blindId": "MGYN-153",
+    "figureName": "Jane Addams",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Settlement-house and welfare-state practice are relevant and somewhat specific, but presented as semicolon labels without causal explanation."
+  },
+  {
+    "blindId": "OVEP-19",
+    "figureName": "Simon Rodriguez",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct that he was Bolivar s teacher and education reformer, but extremely brief with no causal reasoning about how his influence operated."
+  },
+  {
+    "blindId": "PESR-166",
+    "figureName": "Thomas Hobbes",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies a specific mechanism: theorizing sovereign authority as solution to civil conflict, with downstream influence on modern state theory. Clear causal chain."
+  },
+  {
+    "blindId": "SYOI-177",
+    "figureName": "Genghis Khan",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but generic. Altering Eurasian demographics and trade gestures at consequences but does not specify how the empire achieved this."
+  },
+  {
+    "blindId": "OVEP-12",
+    "figureName": "Darius I",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Specific details (provincial system, Royal Road) demonstrate knowledge beyond basics. However, no causal explanation of why these administrative innovations mattered long-term."
+  },
+  {
+    "blindId": "OVEP-5",
+    "figureName": "Socrates",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies both the Socratic method and ethical philosophy through dialogue, which is more specific than just philosopher. But founded Western ethical philosophy overclaims slightly."
+  },
+  {
+    "blindId": "GFDG-22",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Lists three major contributions (motion/gravitation, calculus, modern physics) accurately. Foundation of modern physics is a causal claim but vague on mechanism."
+  },
+  {
+    "blindId": "STXX-81",
+    "figureName": "Plato",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies the Academy and his foundational role. Basis of Western philosophy is proportional but the causal mechanism is unspecified."
+  },
+  {
+    "blindId": "STXX-90",
+    "figureName": "Louis XIV of France",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct labels (Sun King, absolute monarchy, French cultural hegemony) but no explanation of how he achieved or maintained these. Epitomized is descriptive, not causal."
+  },
+  {
+    "blindId": "ULSS-228",
+    "figureName": "Elvis Presley",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct attribution as rock and roll pioneer. Shaping modern music and youth culture is a basic causal claim but lacks specificity about mechanism."
+  },
+  {
+    "blindId": "PESR-167",
+    "figureName": "Steve Jobs",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 5,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Excellent causal specificity: identifies the specific mechanism (integration of hardware, software, interface design) and the downstream consequence (mainstream smartphones and app ecosystems)."
+  },
+  {
+    "blindId": "ROCN-105",
+    "figureName": "Isabella I of Castile",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Three semicolon-separated facts. Correct but no causal reasoning explaining how these achievements connected or why they mattered."
+  },
+  {
+    "blindId": "HIYB-69",
+    "figureName": "Emmeline Pankhurst",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but generic. Helped women win the right to vote states the outcome but not the mechanism of her activism or its specific context."
+  },
+  {
+    "blindId": "WRTI-133",
+    "figureName": "Al-Biruni",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two vague keywords with no explanation. Indology and Scholarly Works could apply to many scholars and demonstrates almost no specific knowledge."
+  },
+  {
+    "blindId": "PESR-163",
+    "figureName": "Otto von Bismarck",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 5,
+      "proportionality": 5,
+      "nuance": 4,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies two distinct mechanisms (war/diplomacy for unification, social insurance within nation-state politics). The dual contribution and precise language show historiographic awareness."
+  },
+  {
+    "blindId": "STXX-89",
+    "figureName": "Gabriel Garcia Marquez",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies magical realism and global literary influence. Popularized is a reasonable causal claim but does not explain the mechanism."
+  },
+  {
+    "blindId": "WRTI-134",
+    "figureName": "Desmond Tutu",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "A single keyword label. No factual claims, no causal reasoning, no sense of proportion. Could be generated from the figure s name alone."
+  },
+  {
+    "blindId": "PESR-165",
+    "figureName": "Rene Descartes",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies two specific contributions (analytic geometry, methodological doubt) and their consequence (strengthening mathematical and rationalist approaches). Good causal specificity."
+  },
+  {
+    "blindId": "GFDG-21",
+    "figureName": "Gautama Buddha",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correct with geographic specificity (South, East, Southeast Asia). Shaping civilizations is a proportional claim but the causal mechanism is vague."
+  },
+  {
+    "blindId": "OVEP-0",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Accurately lists three major contributions. Revolutionized physics and mathematics is a basic causal claim without specifying the mechanism."
+  },
+  {
+    "blindId": "SYOI-180",
+    "figureName": "Martin Luther",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but generic. Initiated the Protestant Reformation, changing Christianity is surface-level; no detail on how (theses, printing, theological specifics)."
+  },
+  {
+    "blindId": "QHGZ-197",
+    "figureName": "Aristotle",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Good breadth covering philosophy, logic, science, ethics, and dual influence on Western and Islamic thought. The temporal marker and dual-tradition mention adds nuance."
+  },
+  {
+    "blindId": "MGYN-149",
+    "figureName": "Ibn Khaldun",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies specific intellectual contributions (sociology of states, cyclical theory) which goes beyond basic knowledge. But causal link to lasting impact is unstated."
+  },
+  {
+    "blindId": "QHGZ-201",
+    "figureName": "Rene Descartes",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names specific contributions (cogito, analytic geometry, dualism) with temporal scope. Multiple intellectual areas mentioned show some nuance. Causal link is implicit rather than explicit."
+  },
+  {
+    "blindId": "ROCN-109",
+    "figureName": "Haile Selassie",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Mentions both political role and cultural significance (Rastafarianism), which shows multiple dimensions. But symbol is descriptive, not causal."
+  },
+  {
+    "blindId": "QHGZ-210",
+    "figureName": "Kwame Nkrumah",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Two keyword labels. Correct but no causal reasoning about how Nkrumah s leadership affected independence movements or Pan-African politics."
+  },
+  {
+    "blindId": "STXX-83",
+    "figureName": "Thomas Edison",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists three inventions and claims they transformed daily life. Standard knowledge, and the causal claim is generic. Edison improved the light bulb rather than inventing it, slight imprecision."
+  },
+  {
+    "blindId": "HIYB-74",
+    "figureName": "Dmitri Mendeleev",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly distinguishes the Periodic Law from the periodic table itself, which shows some precision. But created the periodic table is common knowledge with no causal reasoning."
+  },
+  {
+    "blindId": "ULSS-218",
+    "figureName": "Leonardo da Vinci",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies multiple fields (art, science, engineering) and the bridging role between Renaissance and modernity. Bridged is a reasonable causal metaphor but unspecific."
+  },
+  {
+    "blindId": "HIYB-75",
+    "figureName": "Galen",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies dominance over Western medicine for over a millennium, which is well-calibrated. But theories dominated is a result statement without mechanism."
+  },
+  {
+    "blindId": "ULSS-216",
+    "figureName": "Muhammad",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Goes beyond Founder of Islam by adding unification of Arabia and three-continent civilization. Proportional to rank. But causal mechanism is still vague."
+  },
+  {
+    "blindId": "GFDG-25",
+    "figureName": "Euclid",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names the specific work (Elements) and its dual contribution (geometry and deductive reasoning), with temporal scope. The identification of deductive reasoning as the lasting impact shows good causal thinking."
+  },
+  {
+    "blindId": "GFDG-24",
+    "figureName": "Karl Marx",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but surface-level. Communist theory reshaped 20th-century politics is a basic causal claim without specifying the mechanism or distinguishing aspects of his thought."
+  },
+  {
+    "blindId": "MGYN-155",
+    "figureName": "Tony Blair",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies Third Way governance and public sector reform, which shows some specific knowledge. But semicolon listing without causal explanation limits the score."
+  },
+  {
+    "blindId": "QHGZ-204",
+    "figureName": "Cyrus the Great",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct core facts but tolerant governance model for 2500 years overstates continuity of influence. No causal explanation of how the governance model endured."
+  },
+  {
+    "blindId": "STXX-86",
+    "figureName": "George Washington",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies both military and political roles plus the key contribution of establishing democratic precedents, which is a specific mechanism of lasting influence."
+  },
+  {
+    "blindId": "ROCN-106",
+    "figureName": "Sigmund Freud",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but standard. Redefined understanding of the human mind is a basic causal claim. No specifics about psychoanalytic concepts or their cultural impact."
+  },
+  {
+    "blindId": "HIYB-63",
+    "figureName": "Che Guevara",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Distinguishes between Guevara s concrete role (Cuban Revolution) and symbolic/cultural legacy (global icon of rebellion). Dual impact shows nuance."
+  },
+  {
+    "blindId": "SYOI-191",
+    "figureName": "Isaiah Berlin",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Known for concepts of liberty is extremely vague. No mention of positive/negative liberty distinction, no causal claims, demonstrates minimal knowledge."
+  },
+  {
+    "blindId": "ROCN-114",
+    "figureName": "Brigham Young",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists facts (led Mormons to Utah, colonizer) but provides no causal reasoning about significance. Colonizer hints at complexity but is undeveloped."
+  },
+  {
+    "blindId": "HIYB-68",
+    "figureName": "Justinian I",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Names the specific legal codification (Corpus Juris Civilis) and the military reconquest, showing dual aspects of his legacy. The legal code is correctly identified as the lasting contribution."
+  },
+  {
+    "blindId": "ROCN-97",
+    "figureName": "Jesus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but generic. Teachings shaped Western civilization and global ethics is a standard causal claim without specifying which teachings or how they shaped civilization."
+  },
+  {
+    "blindId": "MGYN-143",
+    "figureName": "Tim Berners-Lee",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies the WWW and its consequence for communication and knowledge economies. Proportional claim, but stated as semicolon list without mechanism detail."
+  },
+  {
+    "blindId": "SYOI-188",
+    "figureName": "Hypatia",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Minimal description that could be generated from name alone. Philosopher and mathematician in ancient Alexandria states two labels and a location with zero causal reasoning."
+  },
+  {
+    "blindId": "MGYN-147",
+    "figureName": "Archimedes",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon-separated keywords. Correct but no causal explanation of how mechanics/mathematics contributed to engineering and scientific method legacy."
+  },
+  {
+    "blindId": "GFDG-32",
+    "figureName": "Georg Wilhelm Friedrich Hegel",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies dialectical philosophy as the specific contribution and traces it to modern political thought and historical consciousness. Two downstream effects show some nuance."
+  },
+  {
+    "blindId": "ULSS-224",
+    "figureName": "Richard Feynman",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but generic. Advanced quantum mechanics understates his specific contributions (QED, path integrals). Science communication is an unusual but valid secondary claim."
+  },
+  {
+    "blindId": "ROCN-103",
+    "figureName": "William T.G. Morton",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Specific and precise claim about ether as surgical anesthetic. Demonstrated is historically accurate (public demonstration). Concise but factually strong."
+  },
+  {
+    "blindId": "HIYB-57",
+    "figureName": "Paul the Apostle",
+    "scores": {
+      "factualPrecision": 5,
+      "causalSpecificity": 4,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the key mechanism: missionary expansion beyond Judaism into the Greco-Roman world. Principal architect of Christian theology correctly distinguishes Paul s intellectual from organizational contribution."
+  },
+  {
+    "blindId": "SYOI-194",
+    "figureName": "Queen Amina",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three-word label with no factual claims, causal reasoning, or demonstrated knowledge. Could be generated from the figure s name alone."
+  },
+  {
+    "blindId": "QHGZ-202",
+    "figureName": "Constantine the Great",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names two specific actions (legalizing Christianity, convening Nicaea) and their consequence (shifting Roman Empire). Multiple actions show nuance. Temporal marker adds scope."
+  },
+  {
+    "blindId": "QHGZ-215",
+    "figureName": "Francis Drake",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Minimal label-style description. English privateer and explorer could be generated from name recognition alone with no causal reasoning whatsoever."
+  },
+  {
+    "blindId": "GFDG-23",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Concise but effective: identifies relativity as the contribution and traces two downstream consequences (nuclear energy, modern cosmology). Specific mechanism linkage."
+  },
+  {
+    "blindId": "KYCI-50",
+    "figureName": "Cotton Mather",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two vague keywords. Colonial American theology; science provides no specific claims, no causal reasoning, and demonstrates no knowledge beyond a general label."
+  },
+  {
+    "blindId": "MGYN-154",
+    "figureName": "Mu'awiya I",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies Umayyad dynasty foundation and imperial governance model, which demonstrates some specialist knowledge. But semicolon listing lacks causal depth."
+  },
+  {
+    "blindId": "ULSS-223",
+    "figureName": "Augustus",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct and proportional. Identifies Pax Romana and imperial governance as dual contributions. But these are common knowledge claims without deeper mechanism."
+  },
+  {
+    "blindId": "OVEP-3",
+    "figureName": "Charles Darwin",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correctly identifies the theory and two domains of impact (biology and human self-understanding). The latter is a more nuanced claim than just science."
+  },
+  {
+    "blindId": "HIYB-66",
+    "figureName": "George Orwell",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names specific works and their function (critiquing totalitarianism, shaping political discourse). Multiple works and dual effect shows some nuance."
+  },
+  {
+    "blindId": "GFDG-34",
+    "figureName": "Louis Daguerre",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Concise and effective. Launched the age of photography is a proportional causal claim linking specific invention to era-defining consequence."
+  },
+  {
+    "blindId": "SYOI-195",
+    "figureName": "Liu Shaoqi",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two-word description that is factually incomplete (he was president but this is not his primary historical significance) with zero causal reasoning or demonstrated knowledge."
+  },
+  {
+    "blindId": "KYCI-49",
+    "figureName": "Yi Sun-sin",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two-word label with no specific claims. Korean naval defense does not specify which conflict, what tactics, or why it mattered historically."
+  },
+  {
+    "blindId": "STXX-82",
+    "figureName": "Alexander the Great",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies specific conquest (Persian Empire) and cultural consequence (Hellenistic culture across three continents). Proportional and factually precise."
+  },
+  {
+    "blindId": "PESR-156",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 5,
+      "causalSpecificity": 5,
+      "proportionality": 5,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Excellent: identifies both contributions (classical mechanics, universal gravitation) and traces the causal chain (creating a mathematical framework that powered modern science and engineering). The mechanism is specific."
+  },
+  {
+    "blindId": "QHGZ-208",
+    "figureName": "Auguste Comte",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two-word label. Positivism sociology is not even a grammatical sentence and provides no causal reasoning, proportionality, or demonstrated knowledge."
+  },
+  {
+    "blindId": "QHGZ-196",
+    "figureName": "Muhammad",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Goes beyond Founder of Islam by adding Arabian unification and quantifying influence (over a billion, 1400 years, continents). Well-calibrated to top rank."
+  },
+  {
+    "blindId": "WRTI-131",
+    "figureName": "Lee Kuan Yew",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct and proportional. Transformation into a developed global financial hub identifies the result but not the mechanism (meritocracy, authoritarianism, trade policy)."
+  },
+  {
+    "blindId": "ROCN-107",
+    "figureName": "Charlemagne",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists labels (King of Franks, united Western Europe, Father of Europe) but no causal reasoning about how his unification shaped later European development."
+  },
+  {
+    "blindId": "PESR-169",
+    "figureName": "Thomas Paine",
+    "scores": {
+      "factualPrecision": 1,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Appears to be a generic template rather than a description of Paine. Built organizations whose decisions affected global markets is factually wrong for a political pamphleteer."
+  },
+  {
+    "blindId": "SYOI-181",
+    "figureName": "Homer",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly names the two epics and their influence on Western literature. But this is standard textbook knowledge with basic causal framing."
+  },
+  {
+    "blindId": "SYOI-184",
+    "figureName": "Johann Sebastian Bach",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but minimal. Epitomized Baroque music is descriptive rather than causal and does not explain his lasting influence on composition or music theory."
+  },
+  {
+    "blindId": "SYOI-193",
+    "figureName": "Nzingha Mbande",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four-word label. Angolan queen and resistance leader provides no specifics about what she resisted, when, or why it mattered."
+  },
+  {
+    "blindId": "ULSS-225",
+    "figureName": "Mother Teresa",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 1,
+      "knowledgeDepth": 2
+    },
+    "notes": "Standard biographical summary with no causal reasoning about her historical significance or legacy. One-dimensional hagiographic framing."
+  },
+  {
+    "blindId": "SYOI-186",
+    "figureName": "Ibn Khaldun",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correctly identifies historiography and economics but pioneered is vague on mechanism. No mention of the Muqaddimah or specific theories."
+  },
+  {
+    "blindId": "GFDG-33",
+    "figureName": "Alan Turing",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies two distinct contributions (theoretical computer science, Enigma codebreaking) and traces them to a downstream consequence (shaping the digital age). Dual contribution shows nuance."
+  },
+  {
+    "blindId": "MGYN-139",
+    "figureName": "Charles Darwin",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but standard. Transformed biology and modern worldviews is a basic causal claim. Semicolon format limits depth."
+  },
+  {
+    "blindId": "MGYN-140",
+    "figureName": "Aristotle",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names specific domains (logic, science, metaphysics) and characterizes influence as long-lived intellectual scaffold, which is an apt metaphor. Slightly above standard."
+  },
+  {
+    "blindId": "KYCI-39",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two semicolon-separated keywords. Theory of relativity; modern physics demonstrates almost no knowledge beyond the figure s name and provides no causal reasoning."
+  },
+  {
+    "blindId": "KYCI-38",
+    "figureName": "Johannes Gutenberg",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Five-word description. Factually correct but provides zero causal reasoning about why the printing press mattered. Grossly disproportionate for a top-10 figure."
+  },
+  {
+    "blindId": "WRTI-135",
+    "figureName": "David Ben-Gurion",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two-word label. Founding of Israel provides no causal reasoning, no detail about his specific role, and could be generated from name alone."
+  },
+  {
+    "blindId": "QEZF-246",
+    "figureName": "Elizabeth I of England",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four-word cliche label. Golden Age of England is not a description of what she did or why it mattered. Zero causal reasoning."
+  },
+  {
+    "blindId": "ROCN-102",
+    "figureName": "Thomas Edison",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists three inventions correctly. Prolific inventor adds a characterization but no causal explanation of historical significance."
+  },
+  {
+    "blindId": "KYCI-36",
+    "figureName": "Muhammad",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 1,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three-word label for the #2 ranked figure. No causal reasoning, no proportionality, demonstrates zero knowledge beyond the name. Matches the rubric anchor example."
+  },
+  {
+    "blindId": "QHGZ-214",
+    "figureName": "Joseph Smith",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three-word label with no causal reasoning, no detail about theological innovations, migration, or institutional legacy."
+  },
+  {
+    "blindId": "KYCI-55",
+    "figureName": "Frans Hals",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Four-word label. Dutch Golden Age portraiture is a genre association, not a description of contribution. No causal reasoning."
+  },
+  {
+    "blindId": "KYCI-45",
+    "figureName": "Niels Bohr",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Two semicolon-separated keywords. No causal reasoning, no specifics about the Bohr model or his role in quantum theory development."
+  },
+  {
+    "blindId": "GFDG-20",
+    "figureName": "Muhammad",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies three distinct contributions: founding Islam, unifying Arabia, establishing a religious-legal system. The legal system detail adds specificity and governing billions shows proportionality."
+  },
+  {
+    "blindId": "ROCN-115",
+    "figureName": "Jim Henson",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Lists key works (Muppets, Sesame Street) and mentions educational impact. But semicolon-separated labels with no causal reasoning about cultural influence."
+  },
+  {
+    "blindId": "GFDG-28",
+    "figureName": "Ptolemy",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies two distinct contributions (geocentric model, geographic mapping) and their practical applications (astronomy, navigation) with temporal scope. Dual-track influence shows sophistication."
+  },
+  {
+    "blindId": "QHGZ-200",
+    "figureName": "Laozi",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Names the specific text (Tao Te Ching) and geographic scope of influence. Well-calibrated temporal claim. But mechanism of influence is not explained."
+  },
+  {
+    "blindId": "PESR-171",
+    "figureName": "Clement Attlee",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 2,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Generic template-style description. Led a mass political movement that reordered power across regions could describe many figures and demonstrates no specific knowledge of Attlee."
+  },
+  {
+    "blindId": "WRTI-120",
+    "figureName": "Aristotle",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 2,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Semicolon-separated keywords covering four domains. Correct but no causal reasoning about why Aristotle s systematization mattered."
+  },
+  {
+    "blindId": "STXX-76",
+    "figureName": "Isaac Newton",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 3
+    },
+    "notes": "Correct and well-structured. Laying the foundation for classical physics provides a causal consequence. Proportional to #2 ranking. Standard but solid."
+  },
+  {
+    "blindId": "HIYB-59",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 4,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies the theory and its triple impact (space, time, energy concepts) plus pioneering modern physics. Well-structured with specific domains altered."
+  },
+  {
+    "blindId": "KYCI-52",
+    "figureName": "F. Scott Fitzgerald",
+    "scores": {
+      "factualPrecision": 2,
+      "causalSpecificity": 1,
+      "proportionality": 2,
+      "nuance": 1,
+      "knowledgeDepth": 1
+    },
+    "notes": "Three-word label. Jazz Age literature is a genre association, not a description of contribution. No causal reasoning or demonstrated knowledge."
+  },
+  {
+    "blindId": "STXX-91",
+    "figureName": "Zora Neale Hurston",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 2,
+      "proportionality": 4,
+      "nuance": 3,
+      "knowledgeDepth": 3
+    },
+    "notes": "Identifies dual roles (Harlem Renaissance literary figure, ethnographic research pioneer). Two distinct contributions show nuance, but no causal reasoning about lasting impact."
+  },
+  {
+    "blindId": "QHGZ-213",
+    "figureName": "Chien-Shiung Wu",
+    "scores": {
+      "factualPrecision": 4,
+      "causalSpecificity": 3,
+      "proportionality": 4,
+      "nuance": 2,
+      "knowledgeDepth": 4
+    },
+    "notes": "Identifies the specific experimental achievement (disproving parity conservation), which is a non-obvious detail demonstrating real physics knowledge. Concise but precise."
+  },
+  {
+    "blindId": "SYOI-179",
+    "figureName": "Albert Einstein",
+    "scores": {
+      "factualPrecision": 3,
+      "causalSpecificity": 3,
+      "proportionality": 3,
+      "nuance": 2,
+      "knowledgeDepth": 2
+    },
+    "notes": "Correct but standard. Revolutionizing modern physics is a basic causal claim. No specifics about relativity s implications or mechanisms."
+  }
+]

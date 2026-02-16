@@ -1,0 +1,551 @@
+{
+  "meta": {
+    "version": "1.0",
+    "date": "2026-02-13",
+    "models": 13,
+    "layers": {
+      "layer1": "Objective metrics (self-consistency, temporal calibration, substantiveness, consensus inversions)",
+      "layer2": "Multi-judge description quality (blinded evaluation)",
+      "layer3": "Pending — historian review not yet completed"
+    },
+    "weights": {
+      "layer1": 0.5,
+      "layer2": 0.5
+    },
+    "formula": "Layer1 composite: mean of normalized (self-consistency, temporal calibration, substantiveness, inversions). Layer2: multi-judge mean 1-5 rescaled to 0-1. Layer3: expert calibration multiplier."
+  },
+  "rankings": [
+    {
+      "rank": 1,
+      "model": "claude-opus-4.6",
+      "holistic": 0.738,
+      "layer1Composite": 0.962,
+      "layer2Composite": 0.515,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.803,
+          "pairCount": 3,
+          "avgIntersectionSize": 329.7
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1480,
+          "pctLiving": 10,
+          "pctBornAfter1900": 3,
+          "pctBornAfter1950": 0,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 123.8,
+          "medianLength": 135,
+          "pctKeywordOnly": 0,
+          "pctTitleCased": 0.29,
+          "pctCausalLanguage": 29.04,
+          "pctSentences": 73.1,
+          "totalDescriptions": 1398
+        },
+        "consensusInversions": {
+          "inversions": 9,
+          "totalConsensusPairs": 1195,
+          "inversionRate": 0.0075
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "model": "gemini-flash-3-preview",
+      "holistic": 0.662,
+      "layer1Composite": 0.805,
+      "layer2Composite": 0.518,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.7263,
+          "pairCount": 21,
+          "avgIntersectionSize": 398.2
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1646,
+          "pctLiving": 8,
+          "pctBornAfter1900": 7.1,
+          "pctBornAfter1950": 1,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 80.4,
+          "medianLength": 79,
+          "pctKeywordOnly": 0.06,
+          "pctTitleCased": 0.31,
+          "pctCausalLanguage": 4.74,
+          "pctSentences": 79.26,
+          "totalDescriptions": 5188
+        },
+        "consensusInversions": {
+          "inversions": 19,
+          "totalConsensusPairs": 1180,
+          "inversionRate": 0.0161
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "model": "deepseek-v3.2",
+      "holistic": 0.615,
+      "layer1Composite": 0.703,
+      "layer2Composite": 0.528,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.7409,
+          "pairCount": 10,
+          "avgIntersectionSize": 197
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1715,
+          "pctLiving": 14.1,
+          "pctBornAfter1900": 9.2,
+          "pctBornAfter1950": 1,
+          "sampleSize": 99
+        },
+        "substantiveness": {
+          "meanLength": 92.6,
+          "medianLength": 92,
+          "pctKeywordOnly": 0.05,
+          "pctTitleCased": 0.1,
+          "pctCausalLanguage": 6.8,
+          "pctSentences": 67.41,
+          "totalDescriptions": 2059
+        },
+        "consensusInversions": {
+          "inversions": 24,
+          "totalConsensusPairs": 947,
+          "inversionRate": 0.0253
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "model": "gemini-pro-3",
+      "holistic": 0.556,
+      "layer1Composite": 0.689,
+      "layer2Composite": 0.423,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.7541,
+          "pairCount": 21,
+          "avgIntersectionSize": 468.4
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1596,
+          "pctLiving": 14,
+          "pctBornAfter1900": 5.1,
+          "pctBornAfter1950": 0,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 60.4,
+          "medianLength": 61,
+          "pctKeywordOnly": 0.89,
+          "pctTitleCased": 4.86,
+          "pctCausalLanguage": 1.65,
+          "pctSentences": 60.18,
+          "totalDescriptions": 5638
+        },
+        "consensusInversions": {
+          "inversions": 27,
+          "totalConsensusPairs": 1180,
+          "inversionRate": 0.0229
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "model": "claude-opus-4.5",
+      "holistic": 0.538,
+      "layer1Composite": 0.63,
+      "layer2Composite": 0.445,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6877,
+          "pairCount": 45,
+          "avgIntersectionSize": 470.8
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1475,
+          "pctLiving": 13.1,
+          "pctBornAfter1900": 0,
+          "pctBornAfter1950": 0,
+          "sampleSize": 99
+        },
+        "substantiveness": {
+          "meanLength": 41.1,
+          "medianLength": 38,
+          "pctKeywordOnly": 2.96,
+          "pctTitleCased": 11.01,
+          "pctCausalLanguage": 2.86,
+          "pctSentences": 18.36,
+          "totalDescriptions": 9129
+        },
+        "consensusInversions": {
+          "inversions": 8,
+          "totalConsensusPairs": 1188,
+          "inversionRate": 0.0067
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "model": "gpt-5.3-thinking",
+      "holistic": 0.533,
+      "layer1Composite": 0.581,
+      "layer2Composite": 0.485,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6299,
+          "pairCount": 6,
+          "avgIntersectionSize": 282
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1680.5,
+          "pctLiving": 9,
+          "pctBornAfter1900": 8,
+          "pctBornAfter1950": 3,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 108.9,
+          "medianLength": 114,
+          "pctKeywordOnly": 0,
+          "pctTitleCased": 0,
+          "pctCausalLanguage": 2.75,
+          "pctSentences": 99.88,
+          "totalDescriptions": 2432
+        },
+        "consensusInversions": {
+          "inversions": 53,
+          "totalConsensusPairs": 1084,
+          "inversionRate": 0.0489
+        }
+      }
+    },
+    {
+      "rank": 7,
+      "model": "mistral-large-3",
+      "holistic": 0.415,
+      "layer1Composite": 0.443,
+      "layer2Composite": 0.387,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.7076,
+          "pairCount": 10,
+          "avgIntersectionSize": 188.3
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1856,
+          "pctLiving": 21.9,
+          "pctBornAfter1900": 30.5,
+          "pctBornAfter1950": 11.6,
+          "sampleSize": 96
+        },
+        "substantiveness": {
+          "meanLength": 73.3,
+          "medianLength": 72,
+          "pctKeywordOnly": 0,
+          "pctTitleCased": 0,
+          "pctCausalLanguage": 35.15,
+          "pctSentences": 49.2,
+          "totalDescriptions": 2427
+        },
+        "consensusInversions": {
+          "inversions": 40,
+          "totalConsensusPairs": 987,
+          "inversionRate": 0.0405
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "model": "gpt-5.2-thinking",
+      "holistic": 0.395,
+      "layer1Composite": 0.348,
+      "layer2Composite": 0.443,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6688,
+          "pairCount": 55,
+          "avgIntersectionSize": 522
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1567.5,
+          "pctLiving": 14,
+          "pctBornAfter1900": 4,
+          "pctBornAfter1950": 1,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 49.5,
+          "medianLength": 53,
+          "pctKeywordOnly": 2.74,
+          "pctTitleCased": 2.71,
+          "pctCausalLanguage": 2.4,
+          "pctSentences": 9.48,
+          "totalDescriptions": 8491
+        },
+        "consensusInversions": {
+          "inversions": 99,
+          "totalConsensusPairs": 1148,
+          "inversionRate": 0.0862
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "model": "grok-4.1-fast",
+      "holistic": 0.387,
+      "layer1Composite": 0.367,
+      "layer2Composite": 0.408,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.704,
+          "pairCount": 21,
+          "avgIntersectionSize": 255.6
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1732,
+          "pctLiving": 19,
+          "pctBornAfter1900": 20.2,
+          "pctBornAfter1950": 10.1,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 24.2,
+          "medianLength": 20,
+          "pctKeywordOnly": 46.47,
+          "pctTitleCased": 36.11,
+          "pctCausalLanguage": 2.49,
+          "pctSentences": 4.22,
+          "totalDescriptions": 3650
+        },
+        "consensusInversions": {
+          "inversions": 22,
+          "totalConsensusPairs": 1086,
+          "inversionRate": 0.0203
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "model": "qwen3-235b-a22b",
+      "holistic": 0.366,
+      "layer1Composite": 0.516,
+      "layer2Composite": 0.215,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6701,
+          "pairCount": 21,
+          "avgIntersectionSize": 138.2
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1728,
+          "pctLiving": 11.7,
+          "pctBornAfter1900": 14.9,
+          "pctBornAfter1950": 3.2,
+          "sampleSize": 94
+        },
+        "substantiveness": {
+          "meanLength": 77.6,
+          "medianLength": 77,
+          "pctKeywordOnly": 0.95,
+          "pctTitleCased": 6.4,
+          "pctCausalLanguage": 16.58,
+          "pctSentences": 61.62,
+          "totalDescriptions": 2642
+        },
+        "consensusInversions": {
+          "inversions": 61,
+          "totalConsensusPairs": 1028,
+          "inversionRate": 0.0593
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "model": "grok-4",
+      "holistic": 0.308,
+      "layer1Composite": 0.311,
+      "layer2Composite": 0.305,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6717,
+          "pairCount": 21,
+          "avgIntersectionSize": 332.8
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1812,
+          "pctLiving": 16,
+          "pctBornAfter1900": 26,
+          "pctBornAfter1950": 5,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 33,
+          "medianLength": 31,
+          "pctKeywordOnly": 21.04,
+          "pctTitleCased": 16.8,
+          "pctCausalLanguage": 3.91,
+          "pctSentences": 7.34,
+          "totalDescriptions": 4781
+        },
+        "consensusInversions": {
+          "inversions": 67,
+          "totalConsensusPairs": 1021,
+          "inversionRate": 0.0656
+        }
+      }
+    },
+    {
+      "rank": 12,
+      "model": "claude-sonnet-4.5",
+      "holistic": 0.304,
+      "layer1Composite": 0.429,
+      "layer2Composite": 0.178,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6297,
+          "pairCount": 28,
+          "avgIntersectionSize": 381.4
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1689.5,
+          "pctLiving": 12,
+          "pctBornAfter1900": 3,
+          "pctBornAfter1950": 0,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 29.3,
+          "medianLength": 26,
+          "pctKeywordOnly": 32.54,
+          "pctTitleCased": 22.97,
+          "pctCausalLanguage": 0.11,
+          "pctSentences": 1.83,
+          "totalDescriptions": 6540
+        },
+        "consensusInversions": {
+          "inversions": 25,
+          "totalConsensusPairs": 1236,
+          "inversionRate": 0.0202
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "model": "glm-4.7",
+      "holistic": 0.29,
+      "layer1Composite": 0.32,
+      "layer2Composite": 0.26,
+      "layer3Adjustment": null,
+      "objective": {
+        "selfConsistency": {
+          "meanRho": 0.6816,
+          "pairCount": 6,
+          "avgIntersectionSize": 231
+        },
+        "temporalCalibration": {
+          "medianBirthYear": 1643,
+          "pctLiving": 16,
+          "pctBornAfter1900": 15.2,
+          "pctBornAfter1950": 1,
+          "sampleSize": 100
+        },
+        "substantiveness": {
+          "meanLength": 28.1,
+          "medianLength": 21,
+          "pctKeywordOnly": 45.74,
+          "pctTitleCased": 64.34,
+          "pctCausalLanguage": 0.28,
+          "pctSentences": 9.37,
+          "totalDescriptions": 2134
+        },
+        "consensusInversions": {
+          "inversions": 46,
+          "totalConsensusPairs": 1039,
+          "inversionRate": 0.0443
+        }
+      }
+    }
+  ],
+  "judgeAgreement": {
+    "judges": [
+      "codex",
+      "claude"
+    ],
+    "pairedCount": 256,
+    "runsPerJudge": {
+      "codex": 4,
+      "claude": 2
+    },
+    "perDimension": {
+      "factualPrecision": {
+        "pearsonR": 0.582,
+        "weightedKappa": 0.291,
+        "pctWithin1": 91.02
+      },
+      "causalSpecificity": {
+        "pearsonR": 0.717,
+        "weightedKappa": 0.538,
+        "pctWithin1": 92.19
+      },
+      "proportionality": {
+        "pearsonR": 0.671,
+        "weightedKappa": 0.432,
+        "pctWithin1": 93.75
+      },
+      "nuance": {
+        "pearsonR": 0.703,
+        "weightedKappa": 0.387,
+        "pctWithin1": 93.36
+      },
+      "knowledgeDepth": {
+        "pearsonR": 0.453,
+        "weightedKappa": 0.149,
+        "pctWithin1": 87.89
+      }
+    },
+    "overall": {
+      "pearsonR": 0.704,
+      "weightedKappa": 0.443,
+      "pctWithin1": 91.64
+    },
+    "largeDisagreements": [
+      {
+        "blindId": "PESR-174",
+        "model": "gpt-5.3-thinking",
+        "figureName": "Ayrton Senna",
+        "dimension": "causalSpecificity",
+        "codex": 3.25,
+        "claude": 1,
+        "diff": 2.25
+      },
+      {
+        "blindId": "PESR-169",
+        "model": "gpt-5.3-thinking",
+        "figureName": "Thomas Paine",
+        "dimension": "proportionality",
+        "codex": 4,
+        "claude": 1.5,
+        "diff": 2.5
+      }
+    ]
+  },
+  "expertCalibration": null
+}

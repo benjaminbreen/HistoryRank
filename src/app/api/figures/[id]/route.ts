@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db, figures, rankings, nameAliases } from '@/lib/db';
-import { eq, lt, gt, asc, desc } from 'drizzle-orm';
+import { eq, lt, gt, asc, desc, and, isNotNull, sql } from 'drizzle-orm';
 import { normalizeName } from '@/lib/utils/nameNormalization';
 import type { FigureDetailResponse } from '@/types';
 
@@ -74,13 +74,14 @@ export async function GET(
         : null,
     };
 
-    // Get prev/next figures by consensus rank
+    // Get prev/next figures by consensus rank + compute positional rank
     const rank = figure.llmConsensusRank;
     let prev: { id: string; name: string } | null = null;
     let next: { id: string; name: string } | null = null;
+    let positionalRank: number | null = null;
 
     if (rank !== null) {
-      const [prevRow, nextRow] = await Promise.all([
+      const [prevRow, nextRow, countRow] = await Promise.all([
         db.select({ id: figures.id, canonicalName: figures.canonicalName })
           .from(figures)
           .where(lt(figures.llmConsensusRank, rank))
@@ -91,13 +92,20 @@ export async function GET(
           .where(gt(figures.llmConsensusRank, rank))
           .orderBy(asc(figures.llmConsensusRank))
           .limit(1),
+        db.select({ count: sql<number>`count(*)` })
+          .from(figures)
+          .where(and(
+            isNotNull(figures.llmConsensusRank),
+            lt(figures.llmConsensusRank, rank),
+          )),
       ]);
       if (prevRow.length > 0) prev = { id: prevRow[0].id, name: prevRow[0].canonicalName };
       if (nextRow.length > 0) next = { id: nextRow[0].id, name: nextRow[0].canonicalName };
+      positionalRank = (countRow[0]?.count ?? 0) + 1;
     }
 
     const response: FigureDetailResponse = {
-      figure: figureWithParsedFields,
+      figure: { ...figureWithParsedFields, positionalRank },
       rankings: figureRankings,
       aliases: aliasList,
       neighbors: { prev, next },

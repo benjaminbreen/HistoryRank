@@ -163,10 +163,9 @@ async function fetchWikipediaData(slug: string): Promise<WikipediaData | null> {
 }
 
 async function fetchPageviews(slug: string): Promise<number | null> {
-  // Fetch pageviews for 2025 (or last available year)
-  const today = new Date();
-  const endDate = today.toISOString().slice(0, 10).replace(/-/g, '');
+  // Fetch complete 2025 calendar year to keep the metric stable across reruns
   const startDate = '20250101';
+  const endDate = '20251231';
   try {
     return await wikipedia.fetchWikipediaPageviews(slug, startDate, endDate);
   } catch {

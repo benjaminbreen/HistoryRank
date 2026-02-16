@@ -45,6 +45,7 @@ function FigurePageContent() {
 
   const {
     figure,
+    dataDrivenRank,
     rankings,
     aliases,
     neighbors,
@@ -76,7 +77,7 @@ function FigurePageContent() {
   }, [goToPrev, goToNext]);
 
   const sourceRankings = groupRankingsBySource(rankings);
-  const llmRank = figure?.llmConsensusRank ? Math.round(figure.llmConsensusRank) : null;
+  const llmRank = dataDrivenRank ?? figure?.positionalRank ?? null;
   const attentionGap = getAttentionGap(figure?.hpiRank, llmRank);
 
   const researchSources = evidence?.research.sources || [];
@@ -191,6 +192,7 @@ function FigurePageContent() {
                   wiki={wiki}
                   relatedMedia={relatedMedia}
                   mediaLoading={loading.media}
+                  dataDrivenRank={dataDrivenRank}
                 />
               </aside>
               <div className="flex-1 min-w-0">
@@ -208,6 +210,7 @@ function FigurePageContent() {
                     relatedMedia={relatedMedia}
                     mediaLoading={loading.media}
                     aliases={aliases}
+                    timelineEvents={timelineEvents}
                   />
                 )}
                 {activeTab === 'research' && (
@@ -233,6 +236,9 @@ function FigurePageContent() {
                     snippets={historicalSnippets}
                     isLoading={loading.evidence}
                     error={errors.evidence?.message ?? null}
+                    birthLat={figure.birthLat}
+                    birthLon={figure.birthLon}
+                    birthPlace={figure.birthPlace}
                   />
                 )}
               </div>
@@ -242,7 +248,7 @@ function FigurePageContent() {
             <div className="md:hidden max-w-2xl mx-auto px-4">
               {/* Mobile header - centered portrait + name + metadata */}
               <div className="flex flex-col items-center text-center mb-5">
-                <MobilePortrait figure={figure} wiki={wiki} />
+                <MobilePortrait figure={figure} wiki={wiki} dataDrivenRank={dataDrivenRank} />
                 <h1 className="mt-3 font-serif text-2xl font-semibold text-stone-900 dark:text-amber-100 leading-tight [text-wrap:balance]">
                   {figure.canonicalName}
                 </h1>
@@ -286,6 +292,7 @@ function FigurePageContent() {
                   mediaLoading={loading.media}
                   aliases={aliases}
                   includeSidebarContent
+                  timelineEvents={timelineEvents}
                 />
               )}
               {activeTab === 'research' && (
@@ -311,6 +318,9 @@ function FigurePageContent() {
                   snippets={historicalSnippets}
                   isLoading={loading.evidence}
                   error={errors.evidence?.message ?? null}
+                  birthLat={figure.birthLat}
+                  birthLon={figure.birthLon}
+                  birthPlace={figure.birthPlace}
                 />
               )}
             </div>
@@ -324,11 +334,11 @@ function FigurePageContent() {
 // Mobile portrait component with thumbnail fallback
 import type { Figure, WikipediaData } from '@/types';
 
-function MobilePortrait({ figure, wiki }: { figure: Figure; wiki: WikipediaData | null }) {
+function MobilePortrait({ figure, wiki, dataDrivenRank }: { figure: Figure; wiki: WikipediaData | null; dataDrivenRank: number | null }) {
   const [localThumbExt, setLocalThumbExt] = useState(0);
   const [localThumbFailed, setLocalThumbFailed] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const llmRank = figure.llmConsensusRank != null ? Math.round(figure.llmConsensusRank) : null;
+  const llmRank = dataDrivenRank ?? figure.positionalRank ?? null;
 
   useEffect(() => {
     if (!modalOpen) return;

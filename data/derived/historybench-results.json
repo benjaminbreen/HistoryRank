@@ -1,0 +1,466 @@
+{
+  "meta": {
+    "totalSamples": 64,
+    "models": 13,
+    "tiers": [
+      "top-10",
+      "11-50",
+      "51-100",
+      "101-500",
+      "500+"
+    ],
+    "descriptionDimensions": [
+      "factualPrecision",
+      "causalSpecificity",
+      "proportionality",
+      "nuance",
+      "knowledgeDepth"
+    ],
+    "scoringMethod": "Holistic = 50% Description Quality + 50% Ranking Quality",
+    "scoredBy": "claude-opus-4.6",
+    "date": "2026-02-13",
+    "caveats": [
+      "Self-evaluation bias: Claude Opus 4.6 scored itself — its scores should be viewed skeptically",
+      "Small sample: 4-5 descriptions per model — individual outliers can skew results",
+      "Ranking quality assessment based on top-20, selected mid-range, and tail entries from list-1 only"
+    ]
+  },
+  "modelRankings": [
+    {
+      "rank": 1,
+      "model": "claude-opus-4.6",
+      "holistic": 4.2,
+      "descriptionQuality": 3.9,
+      "rankingQuality": 4.5,
+      "dimensions": {
+        "factualPrecision": 5,
+        "causalSpecificity": 3.75,
+        "proportionality": 4.5,
+        "nuance": 2.75,
+        "knowledgeDepth": 3.5
+      },
+      "sampleCount": 4,
+      "avgDescriptionLength": 74,
+      "rankingNotes": "Strongest overall list composition. Top 20 includes Martin Luther and Euclid — thoughtful picks. Mid-range shows excellent geographic diversity: Cao Cao (200), Yi Sun-sin (400), Yaa Asantewaa (500). Hammurabi at 50 is well-placed. Only caveat: self-evaluation bias means this score should be viewed skeptically.",
+      "rankingStrengths": [
+        "Best non-Western diversity (Cao Cao, Yi Sun-sin, Yaa Asantewaa)",
+        "Euclid and Luther in top 20",
+        "Hammurabi at 50"
+      ],
+      "rankingWeaknesses": [
+        "Only 3 sample lists available, smaller dataset",
+        "Self-evaluation bias caveat"
+      ]
+    },
+    {
+      "rank": 2,
+      "model": "gpt-5.2-thinking",
+      "holistic": 3.86,
+      "descriptionQuality": 3.72,
+      "rankingQuality": 4,
+      "dimensions": {
+        "factualPrecision": 4.6,
+        "causalSpecificity": 3.2,
+        "proportionality": 4.2,
+        "nuance": 2.8,
+        "knowledgeDepth": 3.8
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 68.6,
+      "rankingNotes": "Most historically sophisticated top 20. Ashoka at 11 is a standout — most models underrank him. Hammurabi at 18, Constantine at 13 show deep thinking about institutional impact. Slight recency bias in mid-range (Angela Merkel at 300, Kofi Annan at 200). Missing Africa entirely from top 50 is a gap.",
+      "rankingStrengths": [
+        "Ashoka at 11 — best placement of any model",
+        "Hammurabi at 18",
+        "Constantine at 13",
+        "Focus on institutional/systemic impact"
+      ],
+      "rankingWeaknesses": [
+        "No African figures in top 50",
+        "Some recency bias in mid-range (Merkel, Annan)"
+      ]
+    },
+    {
+      "rank": 3,
+      "model": "gemini-flash-3-preview",
+      "holistic": 3.56,
+      "descriptionQuality": 3.12,
+      "rankingQuality": 4,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2.8,
+        "proportionality": 3.8,
+        "nuance": 2.2,
+        "knowledgeDepth": 2.8
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 89,
+      "rankingNotes": "Strong science-oriented list. Cai Lun at 7, Lavoisier at 20, Euclid at 14 all excellent picks. Ibn al-Haytham at 200 shows awareness of Islamic Golden Age science. Only 1 living person in top 100 (Berners-Lee at 97 — defensible). Well-calibrated proportionality throughout.",
+      "rankingStrengths": [
+        "Lavoisier in top 20",
+        "Ibn al-Haytham at 200",
+        "Minimal recency bias",
+        "Cai Lun at 7"
+      ],
+      "rankingWeaknesses": [
+        "Heavy science emphasis may underweight political/cultural figures"
+      ]
+    },
+    {
+      "rank": 4,
+      "model": "gpt-5.3-thinking",
+      "holistic": 3.51,
+      "descriptionQuality": 3.52,
+      "rankingQuality": 3.5,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 3.6,
+        "proportionality": 3.8,
+        "nuance": 3,
+        "knowledgeDepth": 3.2
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 103.4,
+      "rankingNotes": "Bold top 20 with Qin Shi Huang at 4, Augustus at 5 — prioritizes state-builders. Ashoka and Constantine included. Socrates at 19 is interesting. BUT major template contamination: entries at 200, 300, 400, 500 all have identical generic description 'Built organizations whose decisions affected global markets' — applied to Kenyatta, Arrhenius, Camus, and Idi Amin indiscriminately. This is a significant generation failure.",
+      "rankingStrengths": [
+        "Bold ordering — Qin Shi Huang at 4, Augustus at 5",
+        "Ashoka and Constantine included",
+        "Galileo description is the best in the entire benchmark"
+      ],
+      "rankingWeaknesses": [
+        "Template contamination in mid-range — same text for wildly different figures",
+        "Buddha at 14 seems low for a religion founder"
+      ]
+    },
+    {
+      "rank": 5,
+      "model": "claude-opus-4.5",
+      "holistic": 3.38,
+      "descriptionQuality": 2.76,
+      "rankingQuality": 4,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2.2,
+        "proportionality": 3.6,
+        "nuance": 1.6,
+        "knowledgeDepth": 2.4
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 64.2,
+      "rankingNotes": "Excellent top 20 with Cai Lun and Laozi showing non-Western awareness. Mid-range solid (Shaka Zulu at 200, Averroes at 100). Minor issues: Anne Frank at 500 is more symbolic than historically transformative. No problematic recency bias.",
+      "rankingStrengths": [
+        "Cai Lun in top 15",
+        "Laozi in top 20",
+        "Good Afro-Asian representation in mid-range"
+      ],
+      "rankingWeaknesses": [
+        "Some symbolic/sentimental picks in the tail"
+      ]
+    },
+    {
+      "rank": 6,
+      "model": "gemini-pro-3",
+      "holistic": 3.31,
+      "descriptionQuality": 3.12,
+      "rankingQuality": 3.5,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2.6,
+        "proportionality": 3.8,
+        "nuance": 2.4,
+        "knowledgeDepth": 2.8
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 83.4,
+      "rankingNotes": "Nearly identical top 20 to Gemini Flash — same core list with Cai Lun and Lavoisier. Good mid-range: Sukarno at 500 shows postcolonial awareness. But Greta Thunberg at 400 is a significant anachronism — a teenager at the time, historical impact undemonstrated.",
+      "rankingStrengths": [
+        "Same strong top 20 as Flash",
+        "Sukarno at 500"
+      ],
+      "rankingWeaknesses": [
+        "Greta Thunberg at 400 — anachronistic",
+        "Slightly less well-calibrated than Flash in the tail"
+      ]
+    },
+    {
+      "rank": 7,
+      "model": "deepseek-v3.2",
+      "holistic": 3.23,
+      "descriptionQuality": 2.96,
+      "rankingQuality": 3.5,
+      "dimensions": {
+        "factualPrecision": 4.4,
+        "causalSpecificity": 2.6,
+        "proportionality": 3.6,
+        "nuance": 1.8,
+        "knowledgeDepth": 2.4
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 93.6,
+      "rankingNotes": "Solid conventional list. Good inclusion of Moses at 17 and Adam Smith at 19. Mid-range reasonable (Mary Wollstonecraft at 100 is a good pick). Tutankhamun at 99 is questionable — famous for his tomb, not historical influence. Empedocles at 500 shows philosophical range.",
+      "rankingStrengths": [
+        "Adam Smith in top 20",
+        "Mary Wollstonecraft at 100",
+        "Good descriptions add context"
+      ],
+      "rankingWeaknesses": [
+        "Tutankhamun at 99 (famous ≠ influential)",
+        "Somewhat conventional top 20"
+      ]
+    },
+    {
+      "rank": 8,
+      "model": "grok-4.1-fast",
+      "holistic": 2.55,
+      "descriptionQuality": 2.6,
+      "rankingQuality": 2.5,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2.4,
+        "proportionality": 3.2,
+        "nuance": 1.4,
+        "knowledgeDepth": 2
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 69.6,
+      "rankingNotes": "Split personality list. Top 20 is one of the BEST: Mahavira at 19 and Zoroaster at 20 show genuinely deep religious-philosophical awareness that most models lack. But ranks 87-100 are catastrophic: Bill Gates, Steve Jobs, Elon Musk, Jeff Bezos, Tim Cook, Serena Williams, Greta Thunberg, Volodymyr Zelenskyy. Tim Cook and Serena Williams are not historically significant by any defensible metric.",
+      "rankingStrengths": [
+        "Mahavira and Zoroaster in top 20 — unique and excellent",
+        "Laozi at 17",
+        "Moses at 8"
+      ],
+      "rankingWeaknesses": [
+        "Tim Cook at 96, Serena Williams at 97, Greta Thunberg at 98, Zelenskyy at 99",
+        "Extreme recency/popularity bias in 80-100 range",
+        "Quality collapses completely after rank ~70"
+      ]
+    },
+    {
+      "rank": 9,
+      "model": "glm-4.7",
+      "holistic": 2.48,
+      "descriptionQuality": 1.96,
+      "rankingQuality": 3,
+      "dimensions": {
+        "factualPrecision": 3.6,
+        "causalSpecificity": 1.4,
+        "proportionality": 2.2,
+        "nuance": 1,
+        "knowledgeDepth": 1.6
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 37,
+      "rankingNotes": "Some genuinely interesting picks: Francis Bacon at 12 and James Clerk Maxwell at 19 show scientific depth. But too many 20th-century figures in top 100 (Neil Armstrong at 100, Gagarin at 99, James Watson at 95, Hawking at 93). These are famous but not top-100 historically influential.",
+      "rankingStrengths": [
+        "Francis Bacon at 12 — excellent pick for scientific method",
+        "James Clerk Maxwell at 19 — underrated genius rightly elevated"
+      ],
+      "rankingWeaknesses": [
+        "Armstrong, Gagarin, Watson, Hawking clustered in 90-100 — recency/fame bias",
+        "Keyword-only descriptions undermine the rankings"
+      ]
+    },
+    {
+      "rank": 10,
+      "model": "claude-sonnet-4.5",
+      "holistic": 2.38,
+      "descriptionQuality": 1.76,
+      "rankingQuality": 3,
+      "dimensions": {
+        "factualPrecision": 3.4,
+        "causalSpecificity": 1,
+        "proportionality": 2.2,
+        "nuance": 1,
+        "knowledgeDepth": 1.2
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 36,
+      "rankingNotes": "Safe, textbook-style list. Top 20 is the generic 'great men' canon with no surprises. Cesare Pavese at 500 is bizarre — a minor Italian neorealist writer. No catastrophic errors but no evidence of deeper historical reasoning either.",
+      "rankingStrengths": [
+        "Inoffensive top 20, broadly defensible"
+      ],
+      "rankingWeaknesses": [
+        "Completely generic — indistinguishable from a Wikipedia list",
+        "Cesare Pavese at 500 is indefensible",
+        "No non-obvious picks showing historical depth"
+      ]
+    },
+    {
+      "rank": 11,
+      "model": "mistral-large-3",
+      "holistic": 2.36,
+      "descriptionQuality": 2.72,
+      "rankingQuality": 2,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2.8,
+        "proportionality": 3.2,
+        "nuance": 1.6,
+        "knowledgeDepth": 2
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 65.6,
+      "rankingNotes": "Decent top 20 but ranks 91-100 are entirely living American celebrities: Elon Musk, Jeff Bezos, Mark Zuckerberg, Larry Page, Sergey Brin, Jack Ma, Walt Disney, Steven Spielberg, Oprah Winfrey, Beyoncé. This is not a historical ranking — it's a fame list. Beyoncé at 100 is the most egregious. Also produced a hallucinated description for Jackie Chan. Steve Jobs at 47, Bill Gates at 48 also show tech-mogul bias.",
+      "rankingStrengths": [
+        "Leonardo at 9, Shakespeare at 10 — cultural figures valued",
+        "Adam Smith at 16"
+      ],
+      "rankingWeaknesses": [
+        "Ranks 91-100 all living celebrities/tech moguls",
+        "Beyoncé at 100",
+        "Jackie Chan hallucination",
+        "Conflates fame with historical significance"
+      ]
+    },
+    {
+      "rank": 12,
+      "model": "grok-4",
+      "holistic": 2.22,
+      "descriptionQuality": 2.44,
+      "rankingQuality": 2,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 2,
+        "proportionality": 2.8,
+        "nuance": 1.4,
+        "knowledgeDepth": 2
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 54.4,
+      "rankingNotes": "Heavy recency and popularity bias. Carl Sagan at 100 (science communicator, not top-100 influential). Grover Cleveland at 200 (one of the most forgettable US presidents). Steve Jobs (60), Bill Gates (61), Elon Musk (62), Malala Yousafzai (70) — four living/recently deceased people in the 60-70 range is extreme. Tite Kubo (manga artist) at 918 with 'Manga artist' as the entire description.",
+      "rankingStrengths": [
+        "Broadly defensible top 10"
+      ],
+      "rankingWeaknesses": [
+        "Carl Sagan at 100",
+        "Grover Cleveland at 200",
+        "Tech billionaires clustered at 60-62",
+        "Malala Yousafzai at 70 — massive anachronism",
+        "Tite Kubo on the list at all"
+      ]
+    },
+    {
+      "rank": 13,
+      "model": "qwen3-235b-a22b",
+      "holistic": 2.21,
+      "descriptionQuality": 1.92,
+      "rankingQuality": 2.5,
+      "dimensions": {
+        "factualPrecision": 4,
+        "causalSpecificity": 1.2,
+        "proportionality": 1.8,
+        "nuance": 1,
+        "knowledgeDepth": 1.6
+      },
+      "sampleCount": 5,
+      "avgDescriptionLength": 31.4,
+      "rankingNotes": "Missing Buddha entirely from top 20 — a major omission for any 'most historically influential' list. MLK Jr. at 17 shows recency bias (important figure but top-20 of all time?). Hitler at 18 is debatable. Steve Jobs at 100 continues the tech-mogul pattern. Title-case keyword descriptions throughout reveal minimal reasoning.",
+      "rankingStrengths": [
+        "Mansa Musa at 50 — excellent non-Western pick"
+      ],
+      "rankingWeaknesses": [
+        "No Buddha in top 20",
+        "MLK Jr. at 17 — recency bias",
+        "Steve Jobs at 100",
+        "Descriptions are labels not reasoning"
+      ]
+    }
+  ],
+  "tierBreakdown": {
+    "top-10": {
+      "overall": 3.23,
+      "dimensions": {
+        "factualPrecision": 4.46,
+        "causalSpecificity": 2.92,
+        "proportionality": 4.15,
+        "nuance": 2.15,
+        "knowledgeDepth": 2.46
+      },
+      "sampleCount": 13
+    },
+    "11-50": {
+      "overall": 2.92,
+      "dimensions": {
+        "factualPrecision": 4.15,
+        "causalSpecificity": 2.62,
+        "proportionality": 3.38,
+        "nuance": 1.92,
+        "knowledgeDepth": 2.54
+      },
+      "sampleCount": 13
+    },
+    "51-100": {
+      "overall": 2.88,
+      "dimensions": {
+        "factualPrecision": 4.23,
+        "causalSpecificity": 2.46,
+        "proportionality": 3.15,
+        "nuance": 1.92,
+        "knowledgeDepth": 2.62
+      },
+      "sampleCount": 13
+    },
+    "101-500": {
+      "overall": 2.54,
+      "dimensions": {
+        "factualPrecision": 3.85,
+        "causalSpecificity": 2,
+        "proportionality": 2.92,
+        "nuance": 1.62,
+        "knowledgeDepth": 2.31
+      },
+      "sampleCount": 13
+    },
+    "500+": {
+      "overall": 2.35,
+      "dimensions": {
+        "factualPrecision": 3.58,
+        "causalSpecificity": 2,
+        "proportionality": 2.67,
+        "nuance": 1.5,
+        "knowledgeDepth": 2
+      },
+      "sampleCount": 12
+    }
+  },
+  "findings": [
+    {
+      "type": "hallucination",
+      "detail": [
+        "mistral-large-3: Jackie Chan — HALLUCINATION: Jackie Chan is a Hong Kong martial arts actor/filmmaker, not a theorist of carceral capitalism. Appears to confuse him with a scholar (possibly Jackie Wang). Complete factual failure."
+      ]
+    },
+    {
+      "type": "lowest_scoring",
+      "detail": [
+        "glm-4.7: Claude Monet (1.4)",
+        "grok-4: Tite Kubo (1.4)",
+        "mistral-large-3: Jackie Chan (1.4)",
+        "qwen3-235b-a22b: Leonardo da Vinci (1.4)",
+        "claude-sonnet-4.5: Charlemagne (1.6)"
+      ]
+    },
+    {
+      "type": "highest_scoring",
+      "detail": [
+        "gpt-5.3-thinking: Galileo Galilei (4.8)",
+        "gpt-5.3-thinking: Augustus (4.6)",
+        "gpt-5.2-thinking: Qin Shi Huang (4.2)",
+        "gpt-5.3-thinking: Rabindranath Tagore (4.2)",
+        "claude-opus-4.6: Euclid (4)"
+      ]
+    },
+    {
+      "type": "length_quality_correlation",
+      "pearsonR": 0.79,
+      "detail": "Pearson r = 0.79 between avg description length and description quality"
+    },
+    {
+      "type": "ranking_quality_notes",
+      "detail": [
+        "grok-4 (2/5): Carl Sagan at 100",
+        "mistral-large-3 (2/5): Ranks 91-100 all living celebrities/tech moguls",
+        "grok-4.1-fast (2.5/5): Tim Cook at 96, Serena Williams at 97, Greta Thunberg at 98, Zelenskyy at 99"
+      ]
+    }
+  ]
+}

@@ -34,6 +34,12 @@ type WikipediaSectionExcerpt = {
   sectionIndex: number;
   sectionAnchor: string | null;
   sectionOrder: number;
+  internalLinks: WikipediaInternalLink[];
+};
+
+type WikipediaInternalLink = {
+  slug: string;
+  title: string;
 };
 
 type WikidataEntityJson = {
@@ -103,6 +109,11 @@ const FACT_PROPERTIES: Array<{ id: string; label: string; maxValues: number }> =
   { id: 'P101', label: 'Field of work', maxValues: 2 },
   { id: 'P800', label: 'Notable work', maxValues: 3 },
   { id: 'P39', label: 'Position held', maxValues: 2 },
+  { id: 'P737', label: 'Influenced by', maxValues: 3 },
+  { id: 'P1066', label: 'Student of', maxValues: 2 },
+  { id: 'P184', label: 'Doctoral advisor', maxValues: 2 },
+  { id: 'P185', label: 'Doctoral student', maxValues: 2 },
+  { id: 'P802', label: 'Student', maxValues: 2 },
 ];
 
 const EXCLUDED_SECTION_TITLES = new Set([
@@ -309,6 +320,45 @@ function parseHtmlText(value: string | { '*': string } | null | undefined): stri
   return '';
 }
 
+function decodeWikipediaSlug(raw: string): string {
+  try {
+    return decodeURIComponent(raw);
+  } catch {
+    return raw;
+  }
+}
+
+function extractWikipediaInternalLinks(html: string, maxLinks = 18): WikipediaInternalLink[] {
+  const links: WikipediaInternalLink[] = [];
+  const seen = new Set<string>();
+  const matches = Array.from(html.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi));
+
+  for (const match of matches) {
+    const href = (match[1] || '').trim();
+    if (!href.startsWith('/wiki/')) continue;
+
+    const slugRaw = href.slice('/wiki/'.length).split('#')[0].trim();
+    if (!slugRaw || slugRaw.includes(':')) continue;
+
+    const slug = decodeWikipediaSlug(slugRaw).replace(/\s+/g, '_');
+    if (!slug) continue;
+
+    const dedupeKey = slug.toLowerCase();
+    if (seen.has(dedupeKey)) continue;
+    seen.add(dedupeKey);
+
+    const titleText = stripHtmlToText(match[2] || '').replace(/\s+/g, ' ').trim();
+    links.push({
+      slug,
+      title: titleText || slug.replace(/_/g, ' '),
+    });
+
+    if (links.length >= maxLinks) break;
+  }
+
+  return links;
+}
+
 function clipText(value: string, maxChars: number): string {
   if (value.length <= maxChars) return value;
   const clipped = value.slice(0, maxChars);
@@ -475,6 +525,7 @@ async function fetchWikipediaLead(slug: string, maxChars: number): Promise<Wikip
     sectionIndex: 0,
     sectionAnchor: null,
     sectionOrder: 0,
+    internalLinks: [],
   };
 }
 
@@ -533,6 +584,7 @@ async function fetchWikipediaSectionExcerpts(
 
     const excerpt = clipText(paragraphs.slice(0, 2).join('\n\n'), sectionCharLimit);
     if (excerpt.length < 120) continue;
+    const internalLinks = extractWikipediaInternalLinks(html);
 
     results.push({
       sectionTitle: (section.line || '').trim() || `Section ${index}`,
@@ -540,6 +592,7 @@ async function fetchWikipediaSectionExcerpts(
       sectionIndex: index,
       sectionAnchor: section.anchor?.trim() || null,
       sectionOrder: results.length,
+      internalLinks,
     });
   }
 
@@ -675,6 +728,7 @@ async function main() {
             section_anchor: section.sectionAnchor,
             section_order: section.sectionOrder,
             section_text: section.sectionText,
+            section_internal_links: section.internalLinks,
             ingestion: 'wikipedia_sections_v1',
           }),
           now,

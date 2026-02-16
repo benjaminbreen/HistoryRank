@@ -1,7 +1,7 @@
 'use client';
 
 import { lazy, Suspense } from 'react';
-import { ExternalLink, TrendingUp, TrendingDown, Minus, MapPin, HelpCircle, Link2 } from 'lucide-react';
+import { ExternalLink, MapPin, HelpCircle, Link2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
 import { Tooltip } from '@/components/ui/tooltip';
@@ -14,10 +14,9 @@ import {
   LANGUAGE_FLAGS,
   REGION_COLORS,
 } from '@/types';
-import type { Figure, WikipediaData, RelatedMediaItem } from '@/types';
+import type { Figure, WikipediaData, RelatedMediaItem, FigureEvidenceTimelineEvent } from '@/types';
 import type { GroupedSourceRanking, AttentionGap } from '@/lib/utils/figureFormatters';
 import {
-  formatYear,
   formatViews,
   getExtractParagraphs,
   formatAlias,
@@ -26,6 +25,7 @@ import {
 const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
 const NgramSparkline = lazy(() => import('./NgramSparkline').then(m => ({ default: m.NgramSparkline })));
 const PageviewsSparkline = lazy(() => import('./PageviewsSparkline').then(m => ({ default: m.PageviewsSparkline })));
+const FigureTimelineMap = lazy(() => import('./FigureTimelineMap').then(m => ({ default: m.FigureTimelineMap })));
 
 // Official brand colors
 const modelColors: Record<string, string> = {
@@ -57,6 +57,7 @@ interface FigureOverviewTabProps {
   mediaLoading: boolean;
   aliases: string[];
   includeSidebarContent?: boolean;
+  timelineEvents?: FigureEvidenceTimelineEvent[];
 }
 
 export function FigureOverviewTab({
@@ -70,6 +71,7 @@ export function FigureOverviewTab({
   mediaLoading,
   aliases,
   includeSidebarContent = false,
+  timelineEvents = [],
 }: FigureOverviewTabProps) {
   return (
     <div className="space-y-5">
@@ -128,27 +130,47 @@ export function FigureOverviewTab({
           <Skeleton className="h-4 w-2/3" />
         </div>
       )}
-      {wiki?.extract && (
-        <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          {getExtractParagraphs(wiki.extract)?.map((paragraph, index) => (
-            <p
-              key={`${figure.id}-extract-${index}`}
-              className={`text-sm text-stone-600 dark:text-slate-300 leading-relaxed ${index === 0 ? '' : 'mt-3'}`}
-            >
-              {paragraph}
-            </p>
-          ))}
-          {figure.wikipediaSlug && (
-            <a
-              href={`https://en.wikipedia.org/wiki/${figure.wikipediaSlug}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium"
-            >
-              Read more on Wikipedia <ExternalLink className="w-3 h-3" />
-            </a>
-          )}
-        </div>
+      {(() => {
+        // Prefer full MediaWiki extract_paragraphs over short REST extract
+        const paragraphs = wiki?.extract_paragraphs && wiki.extract_paragraphs.length > 0
+          ? wiki.extract_paragraphs.slice(0, 2)
+          : wiki?.extract
+            ? getExtractParagraphs(wiki.extract)
+            : null;
+        if (!paragraphs) return null;
+        return (
+          <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+            {paragraphs.map((paragraph, index) => (
+              <p
+                key={`${figure.id}-extract-${index}`}
+                className={`text-[15px] text-stone-600 dark:text-slate-300 leading-relaxed ${index === 0 ? '' : 'mt-3'}`}
+              >
+                {paragraph}
+              </p>
+            ))}
+            {figure.wikipediaSlug && (
+              <a
+                href={`https://en.wikipedia.org/wiki/${figure.wikipediaSlug}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 mt-3 text-xs text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 transition-colors font-medium"
+              >
+                Read more on Wikipedia <ExternalLink className="w-3 h-3" />
+              </a>
+            )}
+          </div>
+        );
+      })()}
+
+      {/* Event Map — directly below excerpt */}
+      {timelineEvents && timelineEvents.length > 0 && timelineEvents.some(e => e.placeLat != null) && (
+        <Suspense fallback={
+          <div className="w-full h-[250px] rounded-xl bg-stone-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
+            <span className="text-xs text-stone-400 dark:text-slate-500">Loading map...</span>
+          </div>
+        }>
+          <FigureTimelineMap events={timelineEvents} />
+        </Suspense>
       )}
 
       {/* Ngram Chart */}
@@ -165,54 +187,43 @@ export function FigureOverviewTab({
         </Suspense>
       )}
 
-      {/* Key Stats Grid */}
-      <div className={`grid gap-3 ${includeSidebarContent ? 'grid-cols-3' : 'grid-cols-3 lg:grid-cols-4'}`}>
-        <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Views</div>
+      {/* Key Stats: Wikipedia Views, Source Variance, Attention Gap */}
+      <div className="grid grid-cols-3 gap-3">
+        <div className="p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700 text-center">
+          <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Wikipedia Views</div>
           <div className="text-lg font-semibold text-stone-900 dark:text-slate-100">
             {formatViews(figure.pageviewsGlobal ?? figure.pageviews2025 ?? null)}
           </div>
           <div className="text-[10px] text-stone-400 dark:text-slate-500">2025 (all languages)</div>
         </div>
-        <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Born</div>
-          <div className="text-lg font-semibold text-stone-900 dark:text-slate-100">
-            {formatYear(figure.birthYear) || '—'}
+        {figure.varianceScore !== null && (
+          <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+            <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Source Variance</div>
+            <VarianceBadge
+              level={getVarianceLevel(figure.varianceScore)}
+              score={figure.varianceScore}
+              showScore
+            />
           </div>
-          {figure.era && (
-            <div className="text-[10px] text-stone-400 dark:text-slate-500">{figure.era}</div>
-          )}
-        </div>
-        <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Region</div>
-          <div className="text-sm font-medium text-stone-700 dark:text-slate-300 mt-1 truncate" title={figure.regionSub || undefined}>
-            {figure.regionSub || '—'}
-          </div>
-        </div>
-        {figure.deathYear && (
-          <div className="text-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-            <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Died</div>
-            <div className="text-lg font-semibold text-stone-900 dark:text-slate-100">
-              {formatYear(figure.deathYear)}
+        )}
+        {attentionGap && (
+          <div className="flex flex-col items-center justify-center p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
+            <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-1">Attention Gap</div>
+            <div className={`text-lg font-semibold ${
+              attentionGap.direction === 'up'
+                ? 'text-emerald-700 dark:text-emerald-400'
+                : attentionGap.direction === 'down'
+                ? 'text-amber-700 dark:text-amber-400'
+                : 'text-stone-600 dark:text-slate-400'
+            }`}>
+              {attentionGap.ratio > 1 ? '\u2191' : attentionGap.ratio < 1 ? '\u2193' : ''}{attentionGap.ratio.toFixed(1)}x
+            </div>
+            <div className="text-[10px] text-stone-400 dark:text-slate-500 mt-0.5">
+              HPI #{figure.hpiRank} vs LLM #{llmRank}
             </div>
           </div>
         )}
       </div>
-
-      {/* Source Variance */}
-      {figure.varianceScore !== null && (
-        <div className="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          <div>
-            <div className="text-xs text-stone-400 dark:text-slate-500 uppercase tracking-wide mb-0.5">Source Variance</div>
-            <p className="text-xs text-stone-500 dark:text-slate-400">How much sources disagree</p>
-          </div>
-          <VarianceBadge
-            level={getVarianceLevel(figure.varianceScore)}
-            score={figure.varianceScore}
-            showScore
-          />
-        </div>
-      )}
 
       {/* Rankings by Source */}
       {sourceRankings.length > 0 && (
@@ -241,46 +252,6 @@ export function FigureOverviewTab({
         </div>
       )}
 
-      {/* Attention Gap */}
-      {attentionGap && (
-        <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm ring-1 ring-stone-900/5 dark:ring-slate-700">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                {attentionGap.direction === 'up' ? (
-                  <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-500" />
-                ) : attentionGap.direction === 'down' ? (
-                  <TrendingDown className="w-5 h-5 text-amber-600 dark:text-amber-500" />
-                ) : (
-                  <Minus className="w-5 h-5 text-stone-400 dark:text-slate-500" />
-                )}
-                <span className="text-xs uppercase tracking-wide text-stone-500 dark:text-slate-400 font-medium">
-                  Attention Gap
-                </span>
-              </div>
-              <div className={`text-3xl font-semibold tracking-tight ${
-                attentionGap.direction === 'up'
-                  ? 'text-emerald-700 dark:text-emerald-400'
-                  : attentionGap.direction === 'down'
-                  ? 'text-amber-700 dark:text-amber-400'
-                  : 'text-stone-600 dark:text-slate-400'
-              }`}>
-                {attentionGap.ratio > 1 ? '\u2191' : attentionGap.ratio < 1 ? '\u2193' : ''}
-                {' '}{attentionGap.ratio.toFixed(1)}x
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="text-xs text-stone-400 dark:text-slate-500 mb-0.5">Pantheon</div>
-              <div className="font-mono text-sm text-stone-600 dark:text-slate-400">#{figure.hpiRank}</div>
-              <div className="text-xs text-stone-400 dark:text-slate-500 mt-2 mb-0.5">LLM</div>
-              <div className="font-mono text-sm text-stone-900 dark:text-slate-100 font-medium">#{llmRank}</div>
-            </div>
-          </div>
-          <p className="text-xs text-stone-500 dark:text-slate-400 mt-3 leading-relaxed">
-            {attentionGap.label}
-          </p>
-        </div>
-      )}
 
       {/* Rank Comparison Visual */}
       {figure.hpiRank && sourceRankings.filter(sr => sr.source !== 'pantheon').length > 0 && (() => {

@@ -3,12 +3,18 @@
 import { useState, useEffect } from 'react';
 
 export function useDarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // Initialize from what the blocking script already set on <html>
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof document !== 'undefined') {
+      return document.documentElement.classList.contains('dark');
+    }
+    return false;
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Check localStorage on mount
+    // Sync state with what the blocking script set (in case SSR missed it)
     const stored = localStorage.getItem('historyrank-dark-mode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const shouldBeDark = stored ? stored === 'true' : prefersDark;

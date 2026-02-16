@@ -384,3 +384,156 @@ src/lib/
 - RankingsTable rows are memoized to prevent re-renders
 - API routes have cache headers for CDN caching
 - Scatter API uses ISR (5 min revalidation)
+
+---
+
+# HistoryBench: Benchmark System for LLM Historical Reasoning
+
+## What This Is
+
+HistoryBench evaluates how well LLMs reason about historical influence when asked to rank the most important figures in history. It assesses both the quality of their ranked lists and the quality of their rationale text.
+
+The system lives in `scripts/benchmark/` and outputs to `data/derived/historybench-*.json`. Results are displayed at `/experiments` in the web app.
+
+## Current State (v0.1 — Trial Run)
+
+Single-judge (Claude Opus 4.6), small sample (64 descriptions, 13 models), unblinded. Useful as a proof of concept but not defensible as a benchmark. The main value so far is identifying the evaluation dimensions and failure modes.
+
+## Architecture: Three Layers
+
+### Layer 1: Objective Metrics (No Judge Needed)
+
+These are computed directly from the database and require no subjective evaluation. They form the defensible foundation of the benchmark.
+
+**Self-consistency.** Each model produced 3-10 independent ranking lists. Compute Spearman rank correlation between all pairs of a model's own lists. A model that ranks Newton #3 on one run and #47 on another is less reliable than one that places him top-10 consistently. This yields a per-model reliability score.
+
+- Source: `rankings` table, group by `source` and `sample_id`
+- Metric: mean pairwise Spearman rho across a model's own lists
+- Script: `scripts/benchmark/compute-consistency.cjs` (to build)
+
+**Temporal calibration.** What percentage of a model's top-100 are living people? Born after 1900? After 1950? Compute the median birth year of the top 100. This is a measurable proxy for recency bias.
+
+- Source: `rankings` joined with `figures` on birth_year/death_year
+- Metrics: % living in top-100, % born after 1900, median birth year of top-100
+- Script: `scripts/benchmark/compute-temporal.cjs` (to build)
+
+**Description substantiveness.** Measurable text characteristics that correlate with reasoning quality:
+- Average description length per model
+- % of descriptions under 20 characters (keyword-only)
+- % of descriptions containing causal language (because, enabling, leading to, resulting in, catalyzing, transforming, establishing)
+- % of descriptions that are title-cased labels vs. actual sentences
+
+- Source: `rankings` table, `contribution` column
+- Script: `scripts/benchmark/compute-substantiveness.cjs` (to build)
+
+**Hallucination rate.** For each description, have a verification model check whether the specific claims match the figure. This can be automated: extract the figure name and description, ask a separate model "Is this description factually accurate for this person? Answer YES or NO with a brief explanation if NO."
+
+- Source: sampled descriptions
+- Script: `scripts/benchmark/verify-facts.cjs` (to build)
+- Requires: API calls to a verification model
+
+### Layer 2: Blinded Multi-Judge Evaluation
+
+This layer adds subjective quality assessment but does it properly.
+
+**Blinding.** Strip model identifiers from all samples before scoring. The judge sees "Model A ranked Galileo at #25 with this description" — never the model name. This is the single most important methodological requirement.
+
+**Multiple judges.** Run 3-5 different LLMs as judges using the same criteria set. Compute inter-rater reliability (Krippendorff's alpha or Cohen's kappa). If judges disagree on a dimension, that dimension gets weighted less in the final score.
+
+**Anchor examples.** Before scoring, show each judge 3-4 calibration examples at different quality levels with pre-assigned scores. This reduces drift between judges and sessions.
+
+**Sample size.** 20-30 descriptions per model across rank tiers. With 13 models that's ~300 descriptions — feasible for LLM judges.
+
+**Ranking quality via pairwise tests.** Instead of holistic list scoring, present judges with specific pairs: "Model X ranked Figure A at #15 and Figure B at #85. Is this ordering defensible?" Binary yes/no aggregated across many pairs is more reliable than 1-5 holistic scales. Sample pairs where models disagree most.
+
+### Layer 3: Human Calibration (Optional)
+
+Have 2-3 historians score a 50-description subset. Compare LLM judge scores to human scores. If LLM judges systematically disagree with historians, adjust the weighting or flag the discrepancy. This layer is expensive but provides ground truth for validating the LLM judges.
+
+## Evaluation Criteria
+
+Two criteria set options. Both avoid prescriptive biases.
+
+### Option A: Structured Rubric (5 dimensions, 1-5 each)
+
+1. **Defensibility of Ordering** — Could a historian defend each top-50 placement by connecting the figure to specific, lasting downstream consequences? Weak rankings rely on fame or symbolic importance rather than measurable civilizational impact.
+
+2. **Temporal Calibration** — Does the list appropriately weight the difference between demonstrated long-term influence and projected future importance? Recent figures can appear, but their placement should reflect demonstrated impact, not current prominence.
+
+3. **Analytical Depth of Rationale** — Do descriptions explain WHY a figure matters, or merely STATE THAT they matter? Strong rationale identifies specific mechanisms: what changed, for whom, through what channel, with what durability.
+
+4. **Factual Reliability** — Are specific claims correct? A single clear hallucination (describing the wrong person, inventing facts) caps this at 2 for the affected entry.
+
+5. **Coherence of Framework** — Does the list apply a consistent theory of "historical influence" evenly across entries? A list can prioritize political, intellectual, or technological impact, but should apply its lens consistently.
+
+### Option B: Principles-Based Guide (single holistic 1-5 score)
+
+Core principle: **Influence is structural, not reputational.** Historical importance is determined by lasting downstream consequences, not current name recognition.
+
+- Temporal durability matters. A figure whose influence is 25 years old and speculative has a weaker claim than one whose influence has been structurally present for centuries.
+- Mechanisms over labels. A strong rationale identifies how influence propagated, not just that it existed.
+- Consistency over correctness. A list with a clear, consistently applied framework is better than one that shifts criteria opportunistically.
+- Surprising placements that can be defended are BETTER than safe consensus reproductions.
+
+### What NOT to Penalize
+
+Both criteria sets explicitly prohibit:
+- Imposing demographic or geographic requirements on the list
+- Penalizing for lack of "representation" of any region, gender, or occupation
+- Rewarding or punishing inclusion of any specific individual
+- Treating surprising or unconventional placements as inherently wrong
+
+Historical influence was not evenly distributed. A list skewed toward one region or time period is not inherently flawed — it may be an accurate reflection of where civilizational-scale influence actually originated. The benchmark evaluates reasoning quality, not ideological conformity.
+
+### What IS a Failure Mode
+
+- **Recency/popularity bias.** Ranking figures based on current fame rather than demonstrated long-term influence. Clearest signal: living people in the top 100 whose lasting impact is speculative.
+- **Template/quota construction.** Lists that fill category slots ("need a musician, need a scientist") rather than reasoning from first principles about who actually changed the most.
+- **Hallucination.** Describing the wrong person or inventing factual claims.
+- **Keyword-only descriptions.** Single words or title-cased labels that demonstrate no reasoning.
+
+## Output Schema
+
+The final per-model scorecard combines objective and judged metrics:
+
+| Metric | Type | Source |
+|--------|------|--------|
+| Self-consistency (Spearman rho) | Objective | Cross-list correlation |
+| Temporal skew (median birth year, % living in top-100) | Objective | Database query |
+| Description substantiveness (avg length, % keyword-only) | Objective | String analysis |
+| Hallucination rate | Semi-automated | Verification model |
+| Description reasoning quality | Judged | Blinded multi-judge mean |
+| Pairwise defensibility rate | Judged | Blinded multi-judge mean |
+| Inter-judge agreement | Meta | Krippendorff's alpha |
+
+## HistoryBench File Map
+
+```
+scripts/benchmark/
+  extract-samples.cjs        # Stratified sample extraction (BUILT)
+  aggregate-results.cjs       # Score aggregation and reporting (BUILT)
+  compute-consistency.cjs     # Layer 1: self-consistency (TO BUILD)
+  compute-temporal.cjs        # Layer 1: temporal calibration (TO BUILD)
+  compute-substantiveness.cjs # Layer 1: description metrics (TO BUILD)
+  verify-facts.cjs            # Layer 1: hallucination detection (TO BUILD)
+  blind-and-score.cjs         # Layer 2: blinded multi-judge eval (TO BUILD)
+
+data/derived/
+  historybench-samples.json   # 64 stratified description samples (BUILT)
+  historybench-scores.json    # Per-description scores with notes (BUILT)
+  historybench-ranking-quality.json # Per-model ranking assessments (BUILT)
+  historybench-results.json   # Aggregated holistic results (BUILT)
+
+src/app/experiments/
+  page.tsx                    # Web UI for results (BUILT)
+```
+
+## v0.1 Trial Run Findings (for reference)
+
+1. **Recency bias is the #1 failure mode.** Models that rank Tim Cook, Serena Williams, or Beyonce in the top 100 are conflating fame with civilizational impact.
+2. **Description length correlates with quality (r=0.79).** Keyword-only models (Sonnet 4.5, GLM 4.7, Qwen3) scored lowest.
+3. **One hallucination detected.** Mistral-Large-3 described Jackie Chan as a "theorist who advanced carceral capitalism."
+4. **Template contamination.** GPT-5.3-thinking reused identical generic descriptions across unrelated mid-range figures.
+5. **The most historically literate lists** prioritize institutional/systemic impact over fame and include figures like Ashoka, Hammurabi, and Constantine that most models underrank.
+
+These findings should be validated by the full multi-judge system before being treated as conclusions.

@@ -101,25 +101,30 @@ export function formatEventYears(
   return formatEvidenceYear(startYear ?? endYear) || 'Date unknown';
 }
 
-export function getExtractParagraphs(text: string | null, maxLength: number = 700): string[] | null {
+export function getExtractParagraphs(text: string | null, maxLength: number = 2400): string[] | null {
   if (!text) return null;
   const sentences = text.match(/[^.!?]+[.!?]+/g);
   if (!sentences) return [text.slice(0, maxLength) + '...'];
 
-  let para = '';
-  const result: string[] = [];
+  const para1Sentences: string[] = [];
+  const para2Sentences: string[] = [];
   let total = 0;
+  // Put roughly the first 3 sentences in paragraph 1, the rest in paragraph 2
+  const splitAfter = Math.min(3, Math.ceil(sentences.length / 2));
   for (const sentence of sentences) {
     if (total + sentence.length > maxLength) break;
-    if (result.length === 0 && para.length + sentence.length > maxLength / 2) {
-      result.push(para.trim());
-      para = '';
+    if (para1Sentences.length < splitAfter) {
+      para1Sentences.push(sentence);
+    } else {
+      para2Sentences.push(sentence);
     }
-    para += sentence;
     total += sentence.length;
   }
-  if (para.trim()) result.push(para.trim());
-  return result.slice(0, 2);
+
+  const result: string[] = [];
+  if (para1Sentences.length > 0) result.push(para1Sentences.join('').trim());
+  if (para2Sentences.length > 0) result.push(para2Sentences.join('').trim());
+  return result;
 }
 
 export interface GroupedSourceRanking {

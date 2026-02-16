@@ -34,6 +34,7 @@ type FigureRow = {
   canonical_name: string;
   birth_year: number | null;
   death_year: number | null;
+  wikipedia_slug: string | null;
   related_figures: string | null;
 };
 
@@ -586,6 +587,109 @@ function hasInfluenceCue(text: string): boolean {
   return cues.some((cue) => hay.includes(` ${cue} `));
 }
 
+function normalizeWikipediaSlug(input: string): string {
+  let value = input.trim();
+  if (!value) return '';
+  value = value.replace(/^https?:\/\/(?:[a-z]{2,}\.)?wikipedia\.org\/wiki\//i, '');
+  value = value.split('#')[0].trim();
+  try {
+    value = decodeURIComponent(value);
+  } catch {
+    // Keep raw value if decode fails.
+  }
+  return value.replace(/\s+/g, '_');
+}
+
+function shouldUseWikipediaSectionLinks(sectionTitle: string, sourceHasInfluenceCue: boolean): boolean {
+  if (sourceHasInfluenceCue) return true;
+  const title = normalizeText(sectionTitle || '');
+  if (!title) return false;
+  const sectionCues = [
+    'legacy',
+    'influence',
+    'impact',
+    'reception',
+    'philosophy',
+    'thought',
+    'ideas',
+    'works',
+    'writings',
+    'teachings',
+    'career',
+    'later life',
+  ];
+  return sectionCues.some((cue) => title.includes(cue));
+}
+
+function extractWikipediaLinkSlugsFromMetadata(metadata: Record<string, unknown>): string[] {
+  const raw = metadata.section_internal_links;
+  if (!Array.isArray(raw)) return [];
+
+  const slugs: string[] = [];
+  for (const item of raw) {
+    if (!item) continue;
+    if (typeof item === 'string') {
+      const normalized = normalizeWikipediaSlug(item);
+      if (normalized) slugs.push(normalized);
+      continue;
+    }
+    if (typeof item === 'object') {
+      const slugRaw = (item as { slug?: unknown }).slug;
+      if (typeof slugRaw === 'string') {
+        const normalized = normalizeWikipediaSlug(slugRaw);
+        if (normalized) slugs.push(normalized);
+      }
+    }
+  }
+
+  return slugs;
+}
+
+function inferWikidataRelationFromMetadata(
+  metadata: Record<string, unknown>
+): { orientation: 'target_to_source' | 'source_to_target'; relationType: RelationType; weight: number; cue: string } | null {
+  const propertyId = typeof metadata.fact_property_id === 'string' ? metadata.fact_property_id.toUpperCase() : '';
+  const propertyLabel = normalizeText(typeof metadata.fact_property_label === 'string' ? metadata.fact_property_label : '');
+
+  if (propertyId === 'P737' || propertyLabel.includes('influenced by')) {
+    return {
+      orientation: 'target_to_source',
+      relationType: 'influenced',
+      weight: 0.52,
+      cue: 'wikidata-influenced-by',
+    };
+  }
+
+  if (propertyId === 'P1066' || propertyId === 'P184' || propertyLabel.includes('student of') || propertyLabel.includes('doctoral advisor')) {
+    return {
+      orientation: 'target_to_source',
+      relationType: 'mentored',
+      weight: 0.5,
+      cue: 'wikidata-student-of',
+    };
+  }
+
+  if (propertyId === 'P185' || propertyId === 'P802' || propertyLabel.includes('doctoral student') || propertyLabel === 'student') {
+    return {
+      orientation: 'source_to_target',
+      relationType: 'mentored',
+      weight: 0.48,
+      cue: 'wikidata-student',
+    };
+  }
+
+  if (propertyLabel.includes('influenced') && !propertyLabel.includes('influenced by')) {
+    return {
+      orientation: 'source_to_target',
+      relationType: 'influenced',
+      weight: 0.48,
+      cue: 'wikidata-influenced',
+    };
+  }
+
+  return null;
+}
+
 function inferTimelineEdge(
   sourceFigureId: string,
   targetFigureId: string,
@@ -741,7 +845,16 @@ function scoreEdge(
   const supportCount = selected.length;
   const sourceFamilyCount = new Set(selected.map((item) => item.family)).size;
   const hasNonSeed = selected.some((item) => item.kind !== 'llm_seed');
-  if (supportCount < minEvidenceItems || sourceFamilyCount < minSourceFamilies || !hasNonSeed) {
+  const hasStructuredWikidataRelation = selected.some((item) =>
+    item.kind === 'source_excerpt' &&
+    typeof item.metadata.cue === 'string' &&
+    String(item.metadata.cue).startsWith('wikidata-')
+  );
+
+  const requiredEvidenceItems = hasStructuredWikidataRelation ? Math.max(1, minEvidenceItems - 1) : minEvidenceItems;
+  const requiredSourceFamilies = hasStructuredWikidataRelation ? Math.max(1, minSourceFamilies - 1) : minSourceFamilies;
+
+  if (supportCount < requiredEvidenceItems || sourceFamilyCount < requiredSourceFamilies || !hasNonSeed) {
     return null;
   }
 
@@ -956,7 +1069,7 @@ async function main() {
     const figures = db
       .prepare(
         `
-        SELECT id, canonical_name, birth_year, death_year, related_figures
+        SELECT id, canonical_name, birth_year, death_year, wikipedia_slug, related_figures
         FROM figures
         WHERE llm_consensus_rank IS NOT NULL
         ORDER BY llm_consensus_rank ASC
@@ -981,6 +1094,13 @@ async function main() {
       ])
     );
     const inTopSet = new Set(figureIds);
+    const figureIdByWikipediaSlug = new Map<string, string>();
+    for (const figure of figures) {
+      if (!figure.wikipedia_slug) continue;
+      const normalizedSlug = normalizeWikipediaSlug(figure.wikipedia_slug).toLowerCase();
+      if (!normalizedSlug) continue;
+      figureIdByWikipediaSlug.set(normalizedSlug, figure.id);
+    }
     const placeholders = figureIds.map(() => '?').join(',');
 
     const aliasRows = db
@@ -1119,13 +1239,118 @@ async function main() {
       .all(...figureIds) as ResearchSourceRow[];
 
     let sourceMentionEvidenceCount = 0;
+    let wikidataRelationEvidenceCount = 0;
+    let wikipediaLinkEvidenceCount = 0;
     for (const source of sourceRows) {
       const text = `${source.title || ''} ${source.snippet || ''}`.trim();
       if (!text) continue;
+
+      const sourceMeta = parseJsonSafe<Record<string, unknown>>(source.metadata, {});
       const sourceClass = classifySourceFamily(source);
       const isWikipediaSections = sourceClass.provider === 'wikipedia_sections';
       const sourceHasInfluenceCue = hasInfluenceCue(text);
       const hasCue = isWikipediaSections ? sourceHasInfluenceCue : false;
+
+      const wikidataRelation = sourceClass.provider === 'wikidata'
+        ? inferWikidataRelationFromMetadata(sourceMeta)
+        : null;
+
+      if (wikidataRelation) {
+        const factValue = typeof sourceMeta.fact_value === 'string' ? sourceMeta.fact_value : '';
+        const relationText = `${text} ${factValue}`.trim();
+        const relationTargets = findMentionedFigureIds(
+          relationText,
+          keyToFigureId,
+          source.figure_id,
+          contextStringsByFigure,
+          { keyTokenCount, maxMatches: 3 }
+        );
+
+        for (const targetId of relationTargets) {
+          if (!inTopSet.has(targetId) || targetId === source.figure_id) continue;
+          const fromId = wikidataRelation.orientation === 'target_to_source' ? targetId : source.figure_id;
+          const toId = wikidataRelation.orientation === 'target_to_source' ? source.figure_id : targetId;
+
+          addEdgeEvidence(
+            edges,
+            {
+              fromId,
+              toId,
+              direction: 'directed',
+              relationType: wikidataRelation.relationType,
+            },
+            {
+              kind: 'source_excerpt',
+              family: 'reference',
+              sourceTable: 'figure_research_sources',
+              sourceRowId: source.id,
+              excerpt: truncate(`${source.title}${source.snippet ? ` — ${source.snippet}` : ''}`),
+              weight: wikidataRelation.weight,
+              metadata: {
+                source_corpus: source.source_corpus,
+                provider: sourceClass.provider,
+                source_url: source.source_url,
+                fact_property_id: sourceMeta.fact_property_id ?? null,
+                fact_property_label: sourceMeta.fact_property_label ?? null,
+                influence_cue: true,
+                cue: wikidataRelation.cue,
+              },
+            }
+          );
+          sourceMentionEvidenceCount += 1;
+          wikidataRelationEvidenceCount += 1;
+        }
+      }
+
+      if (isWikipediaSections) {
+        const sectionTitle = typeof sourceMeta.section_title === 'string' ? sourceMeta.section_title : '';
+        if (shouldUseWikipediaSectionLinks(sectionTitle, sourceHasInfluenceCue)) {
+          const linkSlugs = extractWikipediaLinkSlugsFromMetadata(sourceMeta);
+          const seenTargets = new Set<string>();
+          const maxLinkMatches = sourceHasInfluenceCue ? 8 : 5;
+
+          for (const slug of linkSlugs) {
+            const targetId = figureIdByWikipediaSlug.get(slug.toLowerCase());
+            if (!targetId || targetId === source.figure_id || !inTopSet.has(targetId)) continue;
+            if (seenTargets.has(targetId)) continue;
+            seenTargets.add(targetId);
+            if (seenTargets.size > maxLinkMatches) break;
+
+            const adjustedWeight = sourceHasInfluenceCue
+              ? Math.max(0.2, sourceClass.weight - 0.03)
+              : Math.max(0.16, sourceClass.weight - 0.08);
+
+            addEdgeEvidence(
+              edges,
+              {
+                fromId: source.figure_id,
+                toId: targetId,
+                direction: 'undirected',
+                relationType: 'associated',
+              },
+              {
+                kind: 'source_excerpt',
+                family: sourceClass.family,
+                sourceTable: 'figure_research_sources',
+                sourceRowId: source.id,
+                excerpt: truncate(`Wikipedia section link: ${source.title || sectionTitle || 'section'}`),
+                weight: adjustedWeight,
+                metadata: {
+                  source_corpus: source.source_corpus,
+                  provider: sourceClass.provider,
+                  source_url: source.source_url,
+                  influence_cue: sourceHasInfluenceCue,
+                  cue: 'wikipedia-internal-link',
+                  section_title: sectionTitle || null,
+                  link_slug: slug,
+                },
+              }
+            );
+            sourceMentionEvidenceCount += 1;
+            wikipediaLinkEvidenceCount += 1;
+          }
+        }
+      }
 
       const mentioned = findMentionedFigureIds(text, keyToFigureId, source.figure_id, contextStringsByFigure, {
         requireMultiTokenNames: isWikipediaSections,
@@ -1354,6 +1579,8 @@ async function main() {
         relatedSeedEvidence: llmSeedEvidenceCount,
         timelineMentionEvidence: timelineMentionEvidenceCount,
         sourceMentionEvidence: sourceMentionEvidenceCount,
+        wikidataRelationEvidence: wikidataRelationEvidenceCount,
+        wikipediaLinkEvidence: wikipediaLinkEvidenceCount,
         snippetMentionEvidence: snippetMentionEvidenceCount,
         chronologyDirectedAdded,
       },

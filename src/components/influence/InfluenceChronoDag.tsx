@@ -3,11 +3,10 @@
 import {
   useEffect,
   useMemo,
-  useRef,
   useState,
-  type MouseEventHandler,
   type WheelEventHandler,
 } from 'react';
+import { formatYearAlways } from '@/lib/utils/figureFormatters';
 import type { InfluenceNetworkEdge, InfluenceNetworkNode } from '@/types';
 
 interface InfluenceChronoDagProps {
@@ -56,11 +55,6 @@ function pickTickStep(yearRange: number): number {
   return 25;
 }
 
-function formatYear(year: number): string {
-  if (year < 0) return `${Math.abs(year)} BCE`;
-  if (year === 0) return '0';
-  return `${year} CE`;
-}
 
 function average(values: number[]): number | null {
   if (values.length === 0) return null;
@@ -71,6 +65,33 @@ function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
+/**
+ * Density-adaptive year-to-normalized-position mapping.
+ * Blends linear chronological position with CDF (cumulative distribution)
+ * of actual birth years so dense eras get more vertical space.
+ */
+function buildYearScale(sortedYears: number[], blend: number = 0.55) {
+  const n = sortedYears.length;
+  if (n === 0) return (_year: number) => 0;
+  const minY = sortedYears[0];
+  const maxY = sortedYears[n - 1];
+  const range = maxY - minY;
+  if (range === 0) return (_year: number) => 0.5;
+
+  return (year: number): number => {
+    const linear = (year - minY) / range;
+    let lo = 0;
+    let hi = n;
+    while (lo < hi) {
+      const mid = (lo + hi) >> 1;
+      if (sortedYears[mid] < year) lo = mid + 1;
+      else hi = mid;
+    }
+    const cdf = lo / Math.max(1, n - 1);
+    return linear * (1 - blend) + cdf * blend;
+  };
+}
+
 export function InfluenceChronoDag({
   nodes,
   edges,
@@ -78,20 +99,32 @@ export function InfluenceChronoDag({
   onEdgeSelect,
   selectedEdgeId = null,
 }: InfluenceChronoDagProps) {
-  const isPanningRef = useRef(false);
-  const panLastRef = useRef({ x: 0, y: 0 });
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null);
-  const [isPanning, setIsPanning] = useState(false);
-  const [viewport, setViewport] = useState({ scale: 1, tx: 0, ty: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    // Also check if the html element has the dark class (next-themes)
+    const check = () => setIsDark(document.documentElement.classList.contains('dark') || mq.matches);
+    check();
+    const observer = new MutationObserver(check);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    mq.addEventListener('change', check);
+    return () => { observer.disconnect(); mq.removeEventListener('change', check); };
+  }, []);
 
   const {
-    width,
-    height,
+    worldWidth,
+    worldHeight,
     positionedNodes,
     directedEdges,
     undirectedEdges,
     yearTicks,
     degreeById,
+    yearScale,
+    topPad,
+    bottomPad,
   } = useMemo(() => {
     const directed = edges.filter((edge) => edge.direction === 'directed');
     const undirected = edges.filter((edge) => edge.direction === 'undirected');
@@ -103,16 +136,22 @@ export function InfluenceChronoDag({
       connectedIds.add(edge.target);
     }
 
+    const topPad = 70;
+    const bottomPad = 80;
+
     const relevantNodes = nodes.filter((node) => connectedIds.has(node.id));
     if (relevantNodes.length === 0) {
       return {
-        width: 1000,
-        height: 900,
+        worldWidth: 1000,
+        worldHeight: 900,
         positionedNodes: [] as PositionedNode[],
         directedEdges: directed,
         undirectedEdges: undirected,
         yearTicks: [] as number[],
         degreeById: new Map<string, number>(),
+        yearScale: buildYearScale([]),
+        topPad,
+        bottomPad,
       };
     }
 
@@ -133,10 +172,11 @@ export function InfluenceChronoDag({
     const yearRange = Math.max(1, maxYear - minYear);
     const tickStep = pickTickStep(yearRange);
 
-    const topPad = 70;
-    const bottomPad = 80;
-    const pixelsPerYear = 0.34;
-    const height = Math.max(880, Math.min(2800, Math.round(yearRange * pixelsPerYear) + topPad + bottomPad));
+    const sortedNodeYears = nodesWithYears.map((n) => n.yearValue).sort((a, b) => a - b);
+    const yearScale = buildYearScale(sortedNodeYears, 0.55);
+
+    const pixelsPerYear = 1.5;
+    const worldHeight = Math.max(1400, Math.min(5500, Math.round(yearRange * pixelsPerYear) + topPad + bottomPad));
 
     const bucketSize = Math.max(20, Math.round(tickStep * 0.5));
     const buckets = new Map<number, PositionedNode[]>();
@@ -148,8 +188,8 @@ export function InfluenceChronoDag({
     }
 
     const maxBucketSize = Math.max(...Array.from(buckets.values()).map((items) => items.length));
-    const width = Math.max(980, Math.min(2400, 260 + maxBucketSize * 120));
-    const sidePad = 90;
+    const worldWidth = Math.max(900, Math.min(1400, 260 + maxBucketSize * 100));
+    const sidePad = 80;
 
     const parentsById = new Map<string, string[]>();
     const childrenById = new Map<string, string[]>();
@@ -157,7 +197,6 @@ export function InfluenceChronoDag({
       const parents = parentsById.get(edge.target) || [];
       parents.push(edge.source);
       parentsById.set(edge.target, parents);
-
       const children = childrenById.get(edge.source) || [];
       children.push(edge.target);
       childrenById.set(edge.source, children);
@@ -181,14 +220,12 @@ export function InfluenceChronoDag({
         return a.name.localeCompare(b.name);
       });
 
-      const step = (width - sidePad * 2) / (row.length + 1);
+      const step = (worldWidth - sidePad * 2) / (row.length + 1);
       for (let i = 0; i < row.length; i += 1) {
         const node = row[i];
         const jitter = ((hashToIndex(node.id) % 11) - 5) * 2;
         const x = sidePad + step * (i + 1) + jitter;
-        const y =
-          topPad +
-          ((node.yearValue - minYear) / yearRange) * (height - topPad - bottomPad);
+        const y = topPad + yearScale(node.yearValue) * (worldHeight - topPad - bottomPad);
         xById.set(node.id, x);
         positioned.push({ ...node, x, y });
       }
@@ -207,13 +244,16 @@ export function InfluenceChronoDag({
     }
 
     return {
-      width,
-      height,
+      worldWidth,
+      worldHeight,
       positionedNodes: positioned,
       directedEdges: directed,
       undirectedEdges: undirected,
       yearTicks: ticks,
       degreeById,
+      yearScale,
+      topPad,
+      bottomPad,
     };
   }, [edges, nodes]);
 
@@ -242,80 +282,50 @@ export function InfluenceChronoDag({
     return ids;
   }, [hoveredNodeId, directedEdges, undirectedEdges, showUndirectedLinks]);
 
-  const minNodeYear = positionedNodes.length > 0 ? Math.min(...positionedNodes.map((node) => node.yearValue)) : 0;
-  const maxNodeYear = positionedNodes.length > 0 ? Math.max(...positionedNodes.map((node) => node.yearValue)) : 1;
-  const topPad = 70;
-  const bottomPad = 80;
+  // Portrait nodes = top 50 by degree, get thumbnail images
+  const portraitIds = useMemo(() => {
+    return new Set(
+      [...positionedNodes]
+        .sort((a, b) => (degreeById.get(b.id) || 0) - (degreeById.get(a.id) || 0))
+        .slice(0, 50)
+        .map((n) => n.id),
+    );
+  }, [positionedNodes, degreeById]);
+
+  // Label nodes = portrait nodes (they get labels below their portrait)
+  const labelNodeIds = portraitIds;
 
   const yFromYear = (year: number) => {
-    if (maxNodeYear === minNodeYear) return topPad;
-    return topPad + ((year - minNodeYear) / (maxNodeYear - minNodeYear)) * (height - topPad - bottomPad);
+    if (positionedNodes.length === 0) return topPad;
+    return topPad + yearScale(year) * (worldHeight - topPad - bottomPad);
   };
 
-  const labelNodes = [...positionedNodes]
-    .sort((a, b) => (degreeById.get(b.id) || 0) - (degreeById.get(a.id) || 0))
-    .slice(0, 24);
-
-  useEffect(() => {
-    setViewport({ scale: 1, tx: 0, ty: 0 });
-  }, [nodes.length, edges.length]);
-
-  const applyScaleAt = (factor: number, centerX: number, centerY: number) => {
-    setViewport((prev) => {
-      const nextScale = clamp(prev.scale * factor, 0.3, 4.2);
-      const worldX = (centerX - prev.tx) / prev.scale;
-      const worldY = (centerY - prev.ty) / prev.scale;
-      return {
-        scale: nextScale,
-        tx: centerX - worldX * nextScale,
-        ty: centerY - worldY * nextScale,
-      };
-    });
-  };
-
+  // Ctrl/Cmd + wheel to zoom
   const handleWheel: WheelEventHandler<SVGSVGElement> = (event) => {
+    if (!event.ctrlKey && !event.metaKey) return;
     event.preventDefault();
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    applyScaleAt(event.deltaY < 0 ? 1.12 : 0.9, x, y);
+    setZoom((prev) => clamp(prev * (event.deltaY < 0 ? 1.12 : 0.9), 0.4, 3));
   };
 
-  const startPan: MouseEventHandler<SVGRectElement> = (event) => {
-    if (event.button !== 0) return;
-    isPanningRef.current = true;
-    setIsPanning(true);
-    panLastRef.current = { x: event.clientX, y: event.clientY };
-  };
-
-  const handleMouseMove: MouseEventHandler<SVGSVGElement> = (event) => {
-    if (!isPanningRef.current) return;
-    const dx = event.clientX - panLastRef.current.x;
-    const dy = event.clientY - panLastRef.current.y;
-    panLastRef.current = { x: event.clientX, y: event.clientY };
-    setViewport((prev) => ({ ...prev, tx: prev.tx + dx, ty: prev.ty + dy }));
-  };
-
-  const stopPan = () => {
-    isPanningRef.current = false;
-    setIsPanning(false);
-  };
+  const svgW = worldWidth * zoom;
+  const svgH = worldHeight * zoom;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-white/85 dark:bg-slate-800/80 p-2">
-      <div className="absolute right-4 top-4 z-10 flex items-center gap-1 rounded-lg border border-stone-200/80 dark:border-slate-600 bg-white/95 dark:bg-slate-800/95 px-1.5 py-1 shadow-sm">
+    <div className="relative w-full overflow-x-auto rounded-2xl border border-stone-200/70 dark:border-slate-700 bg-stone-50 dark:bg-slate-900">
+      {/* Zoom controls — sticky as user scrolls */}
+      <div className="sticky top-[60px] z-20 float-right mr-3 mt-3 flex items-center gap-1 rounded-lg border border-stone-200/80 dark:border-slate-600 bg-white/95 dark:bg-slate-800/95 px-1.5 py-1 shadow-sm">
         <button
           type="button"
-          className="h-6 w-6 rounded text-stone-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700"
-          onClick={() => applyScaleAt(1.15, width / 2, height / 2)}
+          className="h-6 w-6 rounded text-stone-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700 text-sm"
+          onClick={() => setZoom((z) => clamp(z * 1.2, 0.4, 3))}
           aria-label="Zoom in"
         >
           +
         </button>
         <button
           type="button"
-          className="h-6 w-6 rounded text-stone-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700"
-          onClick={() => applyScaleAt(0.87, width / 2, height / 2)}
+          className="h-6 w-6 rounded text-stone-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700 text-sm"
+          onClick={() => setZoom((z) => clamp(z / 1.2, 0.4, 3))}
           aria-label="Zoom out"
         >
           -
@@ -323,58 +333,40 @@ export function InfluenceChronoDag({
         <button
           type="button"
           className="rounded px-2 py-0.5 text-[11px] text-stone-700 dark:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-700"
-          onClick={() => setViewport({ scale: 1, tx: 0, ty: 0 })}
+          onClick={() => setZoom(1)}
         >
           Reset
         </button>
       </div>
+
       <svg
-        width={width}
-        height={height}
+        width={svgW}
+        height={svgH}
         className="block"
         onWheel={handleWheel}
-        onMouseMove={handleMouseMove}
-        onMouseUp={stopPan}
-        onMouseLeave={stopPan}
-        style={{ cursor: isPanning ? 'grabbing' : 'grab' }}
       >
         <defs>
           <marker id="dag-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
             <path d="M0,0 L8,4 L0,8 z" fill="rgba(117,88,40,0.7)" />
           </marker>
-          <linearGradient id="dag-bg" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(201,165,92,0.08)" />
-            <stop offset="100%" stopColor="rgba(122,143,168,0.08)" />
-          </linearGradient>
         </defs>
 
-        <rect
-          x={0}
-          y={0}
-          width={width}
-          height={height}
-          fill="transparent"
-          rx={12}
-          onMouseDown={startPan}
-        />
-
-        <g transform={`translate(${viewport.tx} ${viewport.ty}) scale(${viewport.scale})`}>
-          <rect x={0} y={0} width={width} height={height} fill="url(#dag-bg)" rx={12} />
+        <g transform={`scale(${zoom})`}>
+          {/* Year grid lines + labels */}
           {yearTicks.map((year) => {
             const y = yFromYear(year);
-            if (y < 16 || y > height - 16) return null;
+            if (y < 16 || y > worldHeight - 16) return null;
             return (
               <g key={`tick-${year}`}>
-                <line x1={48} x2={width - 24} y1={y} y2={y} stroke="rgba(120,126,140,0.25)" strokeWidth={1} />
-                <text x={10} y={y + 4} fontSize={11} fill="rgba(88,93,105,0.8)">
-                  {formatYear(year)}
+                <line x1={60} x2={worldWidth - 24} y1={y} y2={y} stroke={isDark ? 'rgba(148,163,184,0.15)' : 'rgba(120,126,140,0.2)'} strokeWidth={1} />
+                <text x={8} y={y + 4} fontSize={11} fill={isDark ? 'rgba(148,163,184,0.6)' : 'rgba(88,93,105,0.7)'} className="select-none">
+                  {formatYearAlways(year)}
                 </text>
               </g>
             );
           })}
-        </g>
 
-        <g transform={`translate(${viewport.tx} ${viewport.ty}) scale(${viewport.scale})`}>
+          {/* Undirected edges */}
           {showUndirectedLinks && undirectedEdges.length > 0 && (
             <g>
               {undirectedEdges.map((edge) => {
@@ -408,6 +400,7 @@ export function InfluenceChronoDag({
             </g>
           )}
 
+          {/* Directed edges */}
           <g>
             {directedEdges.map((edge) => {
               const source = nodeById.get(edge.source);
@@ -453,47 +446,108 @@ export function InfluenceChronoDag({
             })}
           </g>
 
+          {/* Nodes — small circles for regular, portrait thumbnails for top 50 */}
           <g>
             {positionedNodes.map((node) => {
               const degree = degreeById.get(node.id) || 0;
-              const radius = 3.8 + Math.min(7, degree * 0.75);
+              const isPortrait = portraitIds.has(node.id);
+              const radius = isPortrait
+                ? 14 + Math.min(10, degree * 0.6)
+                : 3.8 + Math.min(7, degree * 0.75);
               const active = hoveredNodeId === null || highlightedNodeIds.has(node.id);
+              const color = getDomainColor(node.domain);
+
               return (
                 <a key={node.id} href={`/figure/${node.id}`} className="cursor-pointer">
-                  <circle
-                    cx={node.x}
-                    cy={node.y}
-                    r={radius}
-                    fill={getDomainColor(node.domain)}
-                    stroke={node.status === 'approved' ? 'rgba(27,30,36,0.75)' : 'rgba(90,96,106,0.5)'}
-                    strokeWidth={hoveredNodeId === node.id ? 2.2 : 1}
-                    opacity={active ? 0.94 : 0.2}
+                  <g
+                    opacity={active ? 1 : 0.2}
                     onMouseEnter={() => setHoveredNodeId(node.id)}
                     onMouseLeave={() => setHoveredNodeId(null)}
                   >
-                    <title>
-                      {`${node.name} (${formatYear(node.yearValue)}) · rank ${node.llmRank ? Math.round(node.llmRank) : 'n/a'} · degree ${degree}`}
-                    </title>
-                  </circle>
+                    {/* Background circle (visible as ring or fallback) */}
+                    <circle
+                      cx={node.x}
+                      cy={node.y}
+                      r={radius}
+                      fill={color}
+                      stroke={node.status === 'approved' ? 'rgba(27,30,36,0.75)' : 'rgba(90,96,106,0.5)'}
+                      strokeWidth={hoveredNodeId === node.id ? 2.2 : 1}
+                    />
+
+                    {/* Portrait thumbnail for top nodes */}
+                    {isPortrait && (
+                      <>
+                        <clipPath id={`clip-${node.id}`}>
+                          <circle cx={node.x} cy={node.y} r={radius - 1.5} />
+                        </clipPath>
+                        <image
+                          href={`/thumbnails/${node.id}.jpg`}
+                          x={node.x - radius + 1.5}
+                          y={node.y - radius + 1.5}
+                          width={(radius - 1.5) * 2}
+                          height={(radius - 1.5) * 2}
+                          clipPath={`url(#clip-${node.id})`}
+                          preserveAspectRatio="xMidYMid slice"
+                        />
+                        {/* Ring around portrait */}
+                        <circle
+                          cx={node.x}
+                          cy={node.y}
+                          r={radius}
+                          fill="none"
+                          stroke={hoveredNodeId === node.id ? 'rgba(180,130,40,0.9)' : 'rgba(27,30,36,0.6)'}
+                          strokeWidth={hoveredNodeId === node.id ? 2.5 : 1.8}
+                        />
+                      </>
+                    )}
+                  </g>
+
+                  <title>
+                    {`${node.name} (${formatYearAlways(node.yearValue)}) · rank ${node.llmRank ? Math.round(node.llmRank) : 'n/a'} · degree ${degree}`}
+                  </title>
                 </a>
               );
             })}
           </g>
 
+          {/* Name labels for portrait nodes */}
           <g>
-            {labelNodes.map((node) => {
+            {positionedNodes.map((node) => {
+              if (!labelNodeIds.has(node.id)) return null;
+              const degree = degreeById.get(node.id) || 0;
+              const radius = 14 + Math.min(10, degree * 0.6);
               const active = hoveredNodeId === null || highlightedNodeIds.has(node.id);
               return (
-                <text
-                  key={`label-${node.id}`}
-                  x={node.x + 9}
-                  y={node.y - 7}
-                  fontSize={11}
-                  fill={active ? 'rgba(27,31,38,0.9)' : 'rgba(128,132,142,0.38)'}
-                  style={{ pointerEvents: 'none' }}
-                >
-                  {node.name}
-                </text>
+                <g key={`label-${node.id}`} opacity={active ? 1 : 0.25}>
+                  {/* Text shadow for readability */}
+                  <text
+                    x={node.x}
+                    y={node.y + radius + 13}
+                    fontSize={10.5}
+                    fontWeight={500}
+                    fill={isDark ? 'rgba(15,23,42,0.9)' : 'rgba(255,255,255,0.85)'}
+                    stroke={isDark ? 'rgba(15,23,42,0.9)' : 'rgba(255,255,255,0.85)'}
+                    strokeWidth={3}
+                    textAnchor="middle"
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    {node.name}
+                  </text>
+                  <text
+                    x={node.x}
+                    y={node.y + radius + 13}
+                    fontSize={10.5}
+                    fontWeight={500}
+                    fill={active
+                      ? (isDark ? 'rgba(226,232,240,0.95)' : 'rgba(27,31,38,0.9)')
+                      : (isDark ? 'rgba(148,163,184,0.5)' : 'rgba(128,132,142,0.5)')
+                    }
+                    textAnchor="middle"
+                    style={{ pointerEvents: 'none' }}
+                  >
+                    {node.name}
+                  </text>
+                </g>
               );
             })}
           </g>

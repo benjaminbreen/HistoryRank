@@ -3,6 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { loadLandData } from '@/components/maps/landData';
+import { formatYearAlways } from '@/lib/utils/figureFormatters';
 import type { FigureEvidenceTimelineEvent } from '@/types';
 
 function useIsDark(): boolean {
@@ -71,11 +72,6 @@ function toNumber(value: unknown): number | null {
   return null;
 }
 
-function formatYear(year: number | null): string {
-  if (year === null) return 'Unknown';
-  return year < 0 ? `${Math.abs(year)} BCE` : `${year} CE`;
-}
-
 function formatEventDateLabel(event: FigureEvidenceTimelineEvent): string {
   const metadata = event.metadata as Record<string, unknown>;
   const precision = typeof metadata?.date_precision === 'string' ? metadata.date_precision : null;
@@ -96,11 +92,11 @@ function formatEventDateLabel(event: FigureEvidenceTimelineEvent): string {
 
   let label: string;
   if (precision === 'day' && month !== null && day !== null && month >= 1 && month <= 12) {
-    label = `${day} ${MONTH_NAMES[month - 1]} ${formatYear(year)}`;
+    label = `${day} ${MONTH_NAMES[month - 1]} ${formatYearAlways(year)}`;
   } else if (precision === 'month' && month !== null && month >= 1 && month <= 12) {
-    label = `${MONTH_NAMES[month - 1]} ${formatYear(year)}`;
+    label = `${MONTH_NAMES[month - 1]} ${formatYearAlways(year)}`;
   } else {
-    label = formatYear(year);
+    label = formatYearAlways(year);
   }
 
   return isEstimated ? `c. ${label}` : label;

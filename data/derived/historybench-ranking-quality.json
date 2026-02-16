@@ -1,0 +1,93 @@
+[
+  {
+    "model": "claude-opus-4.5",
+    "rankingQuality": 4.0,
+    "notes": "Excellent top 20 with Cai Lun and Laozi showing non-Western awareness. Mid-range solid (Shaka Zulu at 200, Averroes at 100). Minor issues: Anne Frank at 500 is more symbolic than historically transformative. No problematic recency bias.",
+    "strengths": ["Cai Lun in top 15", "Laozi in top 20", "Good Afro-Asian representation in mid-range"],
+    "weaknesses": ["Some symbolic/sentimental picks in the tail"]
+  },
+  {
+    "model": "claude-opus-4.6",
+    "rankingQuality": 4.5,
+    "notes": "Strongest overall list composition. Top 20 includes Martin Luther and Euclid — thoughtful picks. Mid-range shows excellent geographic diversity: Cao Cao (200), Yi Sun-sin (400), Yaa Asantewaa (500). Hammurabi at 50 is well-placed. Only caveat: self-evaluation bias means this score should be viewed skeptically.",
+    "strengths": ["Best non-Western diversity (Cao Cao, Yi Sun-sin, Yaa Asantewaa)", "Euclid and Luther in top 20", "Hammurabi at 50"],
+    "weaknesses": ["Only 3 sample lists available, smaller dataset", "Self-evaluation bias caveat"]
+  },
+  {
+    "model": "claude-sonnet-4.5",
+    "rankingQuality": 3.0,
+    "notes": "Safe, textbook-style list. Top 20 is the generic 'great men' canon with no surprises. Cesare Pavese at 500 is bizarre — a minor Italian neorealist writer. No catastrophic errors but no evidence of deeper historical reasoning either.",
+    "strengths": ["Inoffensive top 20, broadly defensible"],
+    "weaknesses": ["Completely generic — indistinguishable from a Wikipedia list", "Cesare Pavese at 500 is indefensible", "No non-obvious picks showing historical depth"]
+  },
+  {
+    "model": "deepseek-v3.2",
+    "rankingQuality": 3.5,
+    "notes": "Solid conventional list. Good inclusion of Moses at 17 and Adam Smith at 19. Mid-range reasonable (Mary Wollstonecraft at 100 is a good pick). Tutankhamun at 99 is questionable — famous for his tomb, not historical influence. Empedocles at 500 shows philosophical range.",
+    "strengths": ["Adam Smith in top 20", "Mary Wollstonecraft at 100", "Good descriptions add context"],
+    "weaknesses": ["Tutankhamun at 99 (famous ≠ influential)", "Somewhat conventional top 20"]
+  },
+  {
+    "model": "gemini-flash-3-preview",
+    "rankingQuality": 4.0,
+    "notes": "Strong science-oriented list. Cai Lun at 7, Lavoisier at 20, Euclid at 14 all excellent picks. Ibn al-Haytham at 200 shows awareness of Islamic Golden Age science. Only 1 living person in top 100 (Berners-Lee at 97 — defensible). Well-calibrated proportionality throughout.",
+    "strengths": ["Lavoisier in top 20", "Ibn al-Haytham at 200", "Minimal recency bias", "Cai Lun at 7"],
+    "weaknesses": ["Heavy science emphasis may underweight political/cultural figures"]
+  },
+  {
+    "model": "gemini-pro-3",
+    "rankingQuality": 3.5,
+    "notes": "Nearly identical top 20 to Gemini Flash — same core list with Cai Lun and Lavoisier. Good mid-range: Sukarno at 500 shows postcolonial awareness. But Greta Thunberg at 400 is a significant anachronism — a teenager at the time, historical impact undemonstrated.",
+    "strengths": ["Same strong top 20 as Flash", "Sukarno at 500"],
+    "weaknesses": ["Greta Thunberg at 400 — anachronistic", "Slightly less well-calibrated than Flash in the tail"]
+  },
+  {
+    "model": "glm-4.7",
+    "rankingQuality": 3.0,
+    "notes": "Some genuinely interesting picks: Francis Bacon at 12 and James Clerk Maxwell at 19 show scientific depth. But too many 20th-century figures in top 100 (Neil Armstrong at 100, Gagarin at 99, James Watson at 95, Hawking at 93). These are famous but not top-100 historically influential.",
+    "strengths": ["Francis Bacon at 12 — excellent pick for scientific method", "James Clerk Maxwell at 19 — underrated genius rightly elevated"],
+    "weaknesses": ["Armstrong, Gagarin, Watson, Hawking clustered in 90-100 — recency/fame bias", "Keyword-only descriptions undermine the rankings"]
+  },
+  {
+    "model": "gpt-5.2-thinking",
+    "rankingQuality": 4.0,
+    "notes": "Most historically sophisticated top 20. Ashoka at 11 is a standout — most models underrank him. Hammurabi at 18, Constantine at 13 show deep thinking about institutional impact. Slight recency bias in mid-range (Angela Merkel at 300, Kofi Annan at 200). Missing Africa entirely from top 50 is a gap.",
+    "strengths": ["Ashoka at 11 — best placement of any model", "Hammurabi at 18", "Constantine at 13", "Focus on institutional/systemic impact"],
+    "weaknesses": ["No African figures in top 50", "Some recency bias in mid-range (Merkel, Annan)"]
+  },
+  {
+    "model": "gpt-5.3-thinking",
+    "rankingQuality": 3.5,
+    "notes": "Bold top 20 with Qin Shi Huang at 4, Augustus at 5 — prioritizes state-builders. Ashoka and Constantine included. Socrates at 19 is interesting. BUT major template contamination: entries at 200, 300, 400, 500 all have identical generic description 'Built organizations whose decisions affected global markets' — applied to Kenyatta, Arrhenius, Camus, and Idi Amin indiscriminately. This is a significant generation failure.",
+    "strengths": ["Bold ordering — Qin Shi Huang at 4, Augustus at 5", "Ashoka and Constantine included", "Galileo description is the best in the entire benchmark"],
+    "weaknesses": ["Template contamination in mid-range — same text for wildly different figures", "Buddha at 14 seems low for a religion founder"]
+  },
+  {
+    "model": "grok-4",
+    "rankingQuality": 2.0,
+    "notes": "Heavy recency and popularity bias. Carl Sagan at 100 (science communicator, not top-100 influential). Grover Cleveland at 200 (one of the most forgettable US presidents). Steve Jobs (60), Bill Gates (61), Elon Musk (62), Malala Yousafzai (70) — four living/recently deceased people in the 60-70 range is extreme. Tite Kubo (manga artist) at 918 with 'Manga artist' as the entire description.",
+    "strengths": ["Broadly defensible top 10"],
+    "weaknesses": ["Carl Sagan at 100", "Grover Cleveland at 200", "Tech billionaires clustered at 60-62", "Malala Yousafzai at 70 — massive anachronism", "Tite Kubo on the list at all"]
+  },
+  {
+    "model": "grok-4.1-fast",
+    "rankingQuality": 2.5,
+    "notes": "Split personality list. Top 20 is one of the BEST: Mahavira at 19 and Zoroaster at 20 show genuinely deep religious-philosophical awareness that most models lack. But ranks 87-100 are catastrophic: Bill Gates, Steve Jobs, Elon Musk, Jeff Bezos, Tim Cook, Serena Williams, Greta Thunberg, Volodymyr Zelenskyy. Tim Cook and Serena Williams are not historically significant by any defensible metric.",
+    "strengths": ["Mahavira and Zoroaster in top 20 — unique and excellent", "Laozi at 17", "Moses at 8"],
+    "weaknesses": ["Tim Cook at 96, Serena Williams at 97, Greta Thunberg at 98, Zelenskyy at 99", "Extreme recency/popularity bias in 80-100 range", "Quality collapses completely after rank ~70"]
+  },
+  {
+    "model": "mistral-large-3",
+    "rankingQuality": 2.0,
+    "notes": "Decent top 20 but ranks 91-100 are entirely living American celebrities: Elon Musk, Jeff Bezos, Mark Zuckerberg, Larry Page, Sergey Brin, Jack Ma, Walt Disney, Steven Spielberg, Oprah Winfrey, Beyoncé. This is not a historical ranking — it's a fame list. Beyoncé at 100 is the most egregious. Also produced a hallucinated description for Jackie Chan. Steve Jobs at 47, Bill Gates at 48 also show tech-mogul bias.",
+    "strengths": ["Leonardo at 9, Shakespeare at 10 — cultural figures valued", "Adam Smith at 16"],
+    "weaknesses": ["Ranks 91-100 all living celebrities/tech moguls", "Beyoncé at 100", "Jackie Chan hallucination", "Conflates fame with historical significance"]
+  },
+  {
+    "model": "qwen3-235b-a22b",
+    "rankingQuality": 2.5,
+    "notes": "Missing Buddha entirely from top 20 — a major omission for any 'most historically influential' list. MLK Jr. at 17 shows recency bias (important figure but top-20 of all time?). Hitler at 18 is debatable. Steve Jobs at 100 continues the tech-mogul pattern. Title-case keyword descriptions throughout reveal minimal reasoning.",
+    "strengths": ["Mansa Musa at 50 — excellent non-Western pick"],
+    "weaknesses": ["No Buddha in top 20", "MLK Jr. at 17 — recency bias", "Steve Jobs at 100", "Descriptions are labels not reasoning"]
+  }
+]

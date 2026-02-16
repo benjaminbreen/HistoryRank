@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { Tooltip } from '@/components/ui/tooltip';
+import { formatYearAlways } from '@/lib/utils/figureFormatters';
 import type { FigureEvidenceTimelineEvent } from '@/types';
 
 interface FigureLifeTimelineProps {
@@ -37,17 +38,12 @@ const AXIS_OPTIONS: Array<{ id: AxisMode; label: string; hint: string }> = [
   { id: 'contested', label: 'Contested', hint: 'How visible and disputed an event was.' },
 ];
 
-function formatYear(year: number | null): string {
-  if (year === null) return 'Unknown';
-  return year < 0 ? `${Math.abs(year)} BCE` : `${year} CE`;
-}
-
 function formatEventYears(startYear: number | null, endYear: number | null): string {
   if (startYear === null && endYear === null) return 'Date unknown';
   if (startYear !== null && endYear !== null && startYear !== endYear) {
-    return `${formatYear(startYear)} - ${formatYear(endYear)}`;
+    return `${formatYearAlways(startYear)} - ${formatYearAlways(endYear)}`;
   }
-  return formatYear(startYear ?? endYear);
+  return formatYearAlways(startYear ?? endYear);
 }
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
@@ -72,11 +68,11 @@ function formatEventDateLabel(event: FigureEvidenceTimelineEvent): string {
 
   let label: string;
   if (precision === 'day' && month !== null && day !== null && month >= 1 && month <= 12) {
-    label = `${day} ${MONTH_NAMES[month - 1]} ${formatYear(year)}`;
+    label = `${day} ${MONTH_NAMES[month - 1]} ${formatYearAlways(year)}`;
   } else if (precision === 'month' && month !== null && month >= 1 && month <= 12) {
-    label = `${MONTH_NAMES[month - 1]} ${formatYear(year)}`;
+    label = `${MONTH_NAMES[month - 1]} ${formatYearAlways(year)}`;
   } else {
-    label = formatYear(year);
+    label = formatYearAlways(year);
   }
 
   return isEstimated ? `c. ${label}` : label;
@@ -271,10 +267,10 @@ export function FigureLifeTimeline({ birthYear, deathYear, events }: FigureLifeT
       <div className="mb-2.5 flex items-center justify-between gap-3">
         <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-stone-500 dark:text-slate-400">Life timeline</div>
         <div className="text-[11px] text-stone-500 dark:text-slate-400">
-          <span className="font-semibold text-stone-600 dark:text-slate-300">{formatYear(timeline.lifeStartYear)}</span>
+          <span className="font-semibold text-stone-600 dark:text-slate-300">{formatYearAlways(timeline.lifeStartYear)}</span>
           {' to '}
           {deathYear !== null ? (
-            <span className="font-semibold text-stone-600 dark:text-slate-300">{formatYear(timeline.lifeEndYear)}</span>
+            <span className="font-semibold text-stone-600 dark:text-slate-300">{formatYearAlways(timeline.lifeEndYear)}</span>
           ) : (
             'Death year unavailable'
           )}
@@ -326,7 +322,7 @@ export function FigureLifeTimeline({ birthYear, deathYear, events }: FigureLifeT
                   className="absolute -translate-x-1/2"
                   style={{ left: `${clampPosition(xPct)}%` }}
                 >
-                  {formatYear(year)}
+                  {formatYearAlways(year)}
                 </span>
               );
             })}
@@ -358,7 +354,7 @@ export function FigureLifeTimeline({ birthYear, deathYear, events }: FigureLifeT
               className="absolute bottom-0 h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-full border-2 border-white bg-amber-500 shadow-sm dark:border-slate-900"
               style={{ left: `${timeline.lifeStartX}%` }}
               aria-label="Birth marker"
-              title={`Born ${formatYear(birthYear)}`}
+              title={`Born ${formatYearAlways(birthYear)}`}
             />
 
             {deathYear !== null && (
@@ -366,7 +362,7 @@ export function FigureLifeTimeline({ birthYear, deathYear, events }: FigureLifeT
                 className="absolute bottom-0 h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-full border-2 border-white bg-stone-700 shadow-sm dark:border-slate-900 dark:bg-slate-300"
                 style={{ left: `${timeline.lifeEndX}%` }}
                 aria-label="Death marker"
-                title={`Died ${formatYear(deathYear)}`}
+                title={`Died ${formatYearAlways(deathYear)}`}
               />
             )}
 

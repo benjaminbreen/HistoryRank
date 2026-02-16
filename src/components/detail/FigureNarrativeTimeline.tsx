@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { Clock } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FigureLifeTimeline } from './FigureLifeTimeline';
@@ -14,6 +14,8 @@ import type {
 } from '@/types';
 import { formatEventYears, formatEvidenceYear } from '@/lib/utils/figureFormatters';
 
+const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
+
 interface FigureNarrativeTimelineProps {
   birthYear: number | null;
   deathYear: number | null;
@@ -24,6 +26,9 @@ interface FigureNarrativeTimelineProps {
   snippets: FigureEvidenceSnippet[];
   isLoading: boolean;
   error: string | null;
+  birthLat?: number | null;
+  birthLon?: number | null;
+  birthPlace?: string | null;
 }
 
 function matchQuotesToEvent(
@@ -57,6 +62,9 @@ export function FigureNarrativeTimeline({
   snippets,
   isLoading,
   error,
+  birthLat,
+  birthLon,
+  birthPlace,
 }: FigureNarrativeTimelineProps) {
   const sortedEvents = useMemo(
     () => [...events].sort((a, b) => a.sortIndex - b.sortIndex),
@@ -83,15 +91,30 @@ export function FigureNarrativeTimeline({
 
   return (
     <div className="space-y-6">
-      {/* Biographical overview */}
+      {/* Biographical overview + Globe */}
       {assessment?.assessmentText && (
-        <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
-          <div className="mb-2 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
-            Biographical overview
+        <div className={`grid gap-4 ${birthLat != null && birthLon != null ? 'md:grid-cols-[240px_1fr]' : ''}`}>
+          {birthLat != null && birthLon != null && (
+            <Suspense fallback={
+              <div className="w-full h-[200px] rounded-xl bg-stone-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
+                <span className="text-xs text-stone-400 dark:text-slate-500">Loading globe...</span>
+              </div>
+            }>
+              <BirthplaceGlobe
+                lat={birthLat}
+                lon={birthLon}
+                placeName={birthPlace || undefined}
+              />
+            </Suspense>
+          )}
+          <div className="rounded-xl p-5 border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
+            <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">
+              Biographical overview
+            </div>
+            <p className="text-[16px] leading-relaxed text-stone-700 dark:text-slate-200">
+              {assessment.assessmentText}
+            </p>
           </div>
-          <p className="text-sm leading-relaxed text-stone-700 dark:text-slate-200">
-            {assessment.assessmentText}
-          </p>
         </div>
       )}
 

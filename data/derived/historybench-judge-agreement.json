@@ -1,0 +1,7438 @@
+{
+  "meta": {
+    "version": "1.0",
+    "date": "2026-02-13",
+    "judges": [
+      "codex",
+      "claude"
+    ],
+    "runsPerJudge": {
+      "codex": 4,
+      "claude": 2
+    },
+    "dimensions": [
+      "factualPrecision",
+      "causalSpecificity",
+      "proportionality",
+      "nuance",
+      "knowledgeDepth"
+    ],
+    "note": "Scores are averaged across runs before computing inter-rater agreement."
+  },
+  "intraRater": {
+    "codex": {
+      "numRuns": 4,
+      "numPairs": 6,
+      "meanOverall": {
+        "pearsonR": 0.768,
+        "weightedKappa": 0.682,
+        "pctWithin1": 94.6
+      },
+      "meanPerDimension": {
+        "factualPrecision": {
+          "pearsonR": 0.701,
+          "weightedKappa": 0.612,
+          "pctWithin1": 94.34
+        },
+        "causalSpecificity": {
+          "pearsonR": 0.749,
+          "weightedKappa": 0.698,
+          "pctWithin1": 93.67
+        },
+        "proportionality": {
+          "pearsonR": 0.74,
+          "weightedKappa": 0.679,
+          "pctWithin1": 96.34
+        },
+        "nuance": {
+          "pearsonR": 0.729,
+          "weightedKappa": 0.62,
+          "pctWithin1": 93.67
+        },
+        "knowledgeDepth": {
+          "pearsonR": 0.628,
+          "weightedKappa": 0.567,
+          "pctWithin1": 95
+        }
+      },
+      "pairwise": [
+        {
+          "runs": [
+            1,
+            2
+          ],
+          "pairedCount": 256,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "causalSpecificity": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "proportionality": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "nuance": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "knowledgeDepth": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            }
+          },
+          "overall": {
+            "pearsonR": 1,
+            "weightedKappa": 1,
+            "pctWithin1": 100
+          }
+        },
+        {
+          "runs": [
+            1,
+            3
+          ],
+          "pairedCount": 256,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "causalSpecificity": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "proportionality": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "nuance": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "knowledgeDepth": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            }
+          },
+          "overall": {
+            "pearsonR": 1,
+            "weightedKappa": 1,
+            "pctWithin1": 100
+          }
+        },
+        {
+          "runs": [
+            1,
+            4
+          ],
+          "pairedCount": 150,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 0.403,
+              "weightedKappa": 0.224,
+              "pctWithin1": 88.67
+            },
+            "causalSpecificity": {
+              "pearsonR": 0.497,
+              "weightedKappa": 0.396,
+              "pctWithin1": 87.33
+            },
+            "proportionality": {
+              "pearsonR": 0.48,
+              "weightedKappa": 0.358,
+              "pctWithin1": 92.67
+            },
+            "nuance": {
+              "pearsonR": 0.459,
+              "weightedKappa": 0.24,
+              "pctWithin1": 87.33
+            },
+            "knowledgeDepth": {
+              "pearsonR": 0.256,
+              "weightedKappa": 0.133,
+              "pctWithin1": 90
+            }
+          },
+          "overall": {
+            "pearsonR": 0.536,
+            "weightedKappa": 0.363,
+            "pctWithin1": 89.2
+          }
+        },
+        {
+          "runs": [
+            2,
+            3
+          ],
+          "pairedCount": 256,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "causalSpecificity": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "proportionality": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "nuance": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            },
+            "knowledgeDepth": {
+              "pearsonR": 1,
+              "weightedKappa": 1,
+              "pctWithin1": 100
+            }
+          },
+          "overall": {
+            "pearsonR": 1,
+            "weightedKappa": 1,
+            "pctWithin1": 100
+          }
+        },
+        {
+          "runs": [
+            2,
+            4
+          ],
+          "pairedCount": 150,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 0.403,
+              "weightedKappa": 0.224,
+              "pctWithin1": 88.67
+            },
+            "causalSpecificity": {
+              "pearsonR": 0.497,
+              "weightedKappa": 0.396,
+              "pctWithin1": 87.33
+            },
+            "proportionality": {
+              "pearsonR": 0.48,
+              "weightedKappa": 0.358,
+              "pctWithin1": 92.67
+            },
+            "nuance": {
+              "pearsonR": 0.459,
+              "weightedKappa": 0.24,
+              "pctWithin1": 87.33
+            },
+            "knowledgeDepth": {
+              "pearsonR": 0.256,
+              "weightedKappa": 0.133,
+              "pctWithin1": 90
+            }
+          },
+          "overall": {
+            "pearsonR": 0.536,
+            "weightedKappa": 0.363,
+            "pctWithin1": 89.2
+          }
+        },
+        {
+          "runs": [
+            3,
+            4
+          ],
+          "pairedCount": 150,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 0.403,
+              "weightedKappa": 0.224,
+              "pctWithin1": 88.67
+            },
+            "causalSpecificity": {
+              "pearsonR": 0.497,
+              "weightedKappa": 0.396,
+              "pctWithin1": 87.33
+            },
+            "proportionality": {
+              "pearsonR": 0.48,
+              "weightedKappa": 0.358,
+              "pctWithin1": 92.67
+            },
+            "nuance": {
+              "pearsonR": 0.459,
+              "weightedKappa": 0.24,
+              "pctWithin1": 87.33
+            },
+            "knowledgeDepth": {
+              "pearsonR": 0.256,
+              "weightedKappa": 0.133,
+              "pctWithin1": 90
+            }
+          },
+          "overall": {
+            "pearsonR": 0.536,
+            "weightedKappa": 0.363,
+            "pctWithin1": 89.2
+          }
+        }
+      ]
+    },
+    "claude": {
+      "numRuns": 2,
+      "numPairs": 1,
+      "meanOverall": {
+        "pearsonR": 0.863,
+        "weightedKappa": 0.757,
+        "pctWithin1": 99.77
+      },
+      "meanPerDimension": {
+        "factualPrecision": {
+          "pearsonR": 0.813,
+          "weightedKappa": 0.596,
+          "pctWithin1": 100
+        },
+        "causalSpecificity": {
+          "pearsonR": 0.872,
+          "weightedKappa": 0.776,
+          "pctWithin1": 100
+        },
+        "proportionality": {
+          "pearsonR": 0.824,
+          "weightedKappa": 0.701,
+          "pctWithin1": 100
+        },
+        "nuance": {
+          "pearsonR": 0.81,
+          "weightedKappa": 0.74,
+          "pctWithin1": 99.22
+        },
+        "knowledgeDepth": {
+          "pearsonR": 0.861,
+          "weightedKappa": 0.751,
+          "pctWithin1": 99.61
+        }
+      },
+      "pairwise": [
+        {
+          "runs": [
+            1,
+            2
+          ],
+          "pairedCount": 256,
+          "perDimension": {
+            "factualPrecision": {
+              "pearsonR": 0.813,
+              "weightedKappa": 0.596,
+              "pctWithin1": 100
+            },
+            "causalSpecificity": {
+              "pearsonR": 0.872,
+              "weightedKappa": 0.776,
+              "pctWithin1": 100
+            },
+            "proportionality": {
+              "pearsonR": 0.824,
+              "weightedKappa": 0.701,
+              "pctWithin1": 100
+            },
+            "nuance": {
+              "pearsonR": 0.81,
+              "weightedKappa": 0.74,
+              "pctWithin1": 99.22
+            },
+            "knowledgeDepth": {
+              "pearsonR": 0.861,
+              "weightedKappa": 0.751,
+              "pctWithin1": 99.61
+            }
+          },
+          "overall": {
+            "pearsonR": 0.863,
+            "weightedKappa": 0.757,
+            "pctWithin1": 99.77
+          }
+        }
+      ]
+    }
+  },
+  "agreement": {
+    "judges": [
+      "codex",
+      "claude"
+    ],
+    "pairedCount": 256,
+    "runsPerJudge": {
+      "codex": 4,
+      "claude": 2
+    },
+    "perDimension": {
+      "factualPrecision": {
+        "pearsonR": 0.582,
+        "weightedKappa": 0.291,
+        "pctWithin1": 91.02
+      },
+      "causalSpecificity": {
+        "pearsonR": 0.717,
+        "weightedKappa": 0.538,
+        "pctWithin1": 92.19
+      },
+      "proportionality": {
+        "pearsonR": 0.671,
+        "weightedKappa": 0.432,
+        "pctWithin1": 93.75
+      },
+      "nuance": {
+        "pearsonR": 0.703,
+        "weightedKappa": 0.387,
+        "pctWithin1": 93.36
+      },
+      "knowledgeDepth": {
+        "pearsonR": 0.453,
+        "weightedKappa": 0.149,
+        "pctWithin1": 87.89
+      }
+    },
+    "overall": {
+      "pearsonR": 0.704,
+      "weightedKappa": 0.443,
+      "pctWithin1": 91.64
+    },
+    "largeDisagreements": [
+      {
+        "blindId": "PESR-174",
+        "model": "gpt-5.3-thinking",
+        "figureName": "Ayrton Senna",
+        "dimension": "causalSpecificity",
+        "codex": 3.25,
+        "claude": 1,
+        "diff": 2.25
+      },
+      {
+        "blindId": "PESR-169",
+        "model": "gpt-5.3-thinking",
+        "figureName": "Thomas Paine",
+        "dimension": "proportionality",
+        "codex": 4,
+        "claude": 1.5,
+        "diff": 2.5
+      }
+    ]
+  },
+  "modelScores": {
+    "grok-4.1-fast": {
+      "codex": {
+        "factualPrecision": 3.61,
+        "causalSpecificity": 2.03,
+        "proportionality": 3.15,
+        "nuance": 2.21,
+        "knowledgeDepth": 2.99,
+        "overall": 2.8
+      },
+      "claude": {
+        "factualPrecision": 3.05,
+        "causalSpecificity": 2.03,
+        "proportionality": 2.83,
+        "nuance": 1.8,
+        "knowledgeDepth": 2.53,
+        "overall": 2.45
+      },
+      "multiJudge": {
+        "factualPrecision": 3.33,
+        "causalSpecificity": 2.03,
+        "proportionality": 2.99,
+        "nuance": 2.01,
+        "knowledgeDepth": 2.76,
+        "overall": 2.63
+      }
+    },
+    "qwen3-235b-a22b": {
+      "codex": {
+        "factualPrecision": 2.83,
+        "causalSpecificity": 1.43,
+        "proportionality": 2.21,
+        "nuance": 1.43,
+        "knowledgeDepth": 2.36,
+        "overall": 2.05
+      },
+      "claude": {
+        "factualPrecision": 2.33,
+        "causalSpecificity": 1.23,
+        "proportionality": 2.1,
+        "nuance": 1.2,
+        "knowledgeDepth": 1.5,
+        "overall": 1.67
+      },
+      "multiJudge": {
+        "factualPrecision": 2.58,
+        "causalSpecificity": 1.33,
+        "proportionality": 2.16,
+        "nuance": 1.32,
+        "knowledgeDepth": 1.93,
+        "overall": 1.86
+      }
+    },
+    "grok-4": {
+      "codex": {
+        "factualPrecision": 3.09,
+        "causalSpecificity": 1.88,
+        "proportionality": 2.84,
+        "nuance": 1.95,
+        "knowledgeDepth": 2.38,
+        "overall": 2.42
+      },
+      "claude": {
+        "factualPrecision": 2.7,
+        "causalSpecificity": 1.63,
+        "proportionality": 2.48,
+        "nuance": 1.4,
+        "knowledgeDepth": 1.93,
+        "overall": 2.03
+      },
+      "multiJudge": {
+        "factualPrecision": 2.9,
+        "causalSpecificity": 1.76,
+        "proportionality": 2.66,
+        "nuance": 1.67,
+        "knowledgeDepth": 2.15,
+        "overall": 2.22
+      }
+    },
+    "claude-opus-4.5": {
+      "codex": {
+        "factualPrecision": 3.59,
+        "causalSpecificity": 2.5,
+        "proportionality": 3.16,
+        "nuance": 2.46,
+        "knowledgeDepth": 2.74,
+        "overall": 2.89
+      },
+      "claude": {
+        "factualPrecision": 3.38,
+        "causalSpecificity": 2.35,
+        "proportionality": 3.05,
+        "nuance": 1.9,
+        "knowledgeDepth": 2.65,
+        "overall": 2.67
+      },
+      "multiJudge": {
+        "factualPrecision": 3.49,
+        "causalSpecificity": 2.42,
+        "proportionality": 3.11,
+        "nuance": 2.18,
+        "knowledgeDepth": 2.7,
+        "overall": 2.78
+      }
+    },
+    "gpt-5.2-thinking": {
+      "codex": {
+        "factualPrecision": 3.11,
+        "causalSpecificity": 2.44,
+        "proportionality": 3.11,
+        "nuance": 2.46,
+        "knowledgeDepth": 2.46,
+        "overall": 2.72
+      },
+      "claude": {
+        "factualPrecision": 3.38,
+        "causalSpecificity": 2.4,
+        "proportionality": 3.13,
+        "nuance": 2.05,
+        "knowledgeDepth": 3.13,
+        "overall": 2.82
+      },
+      "multiJudge": {
+        "factualPrecision": 3.25,
+        "causalSpecificity": 2.42,
+        "proportionality": 3.12,
+        "nuance": 2.26,
+        "knowledgeDepth": 2.8,
+        "overall": 2.77
+      }
+    },
+    "gpt-5.3-thinking": {
+      "codex": {
+        "factualPrecision": 3.26,
+        "causalSpecificity": 2.99,
+        "proportionality": 3.29,
+        "nuance": 2.71,
+        "knowledgeDepth": 2.39,
+        "overall": 2.93
+      },
+      "claude": {
+        "factualPrecision": 3.1,
+        "causalSpecificity": 3.2,
+        "proportionality": 3.18,
+        "nuance": 2.33,
+        "knowledgeDepth": 2.9,
+        "overall": 2.94
+      },
+      "multiJudge": {
+        "factualPrecision": 3.18,
+        "causalSpecificity": 3.1,
+        "proportionality": 3.24,
+        "nuance": 2.52,
+        "knowledgeDepth": 2.65,
+        "overall": 2.94
+      }
+    },
+    "gemini-flash-3-preview": {
+      "codex": {
+        "factualPrecision": 3.6,
+        "causalSpecificity": 2.7,
+        "proportionality": 3.43,
+        "nuance": 2.76,
+        "knowledgeDepth": 2.73,
+        "overall": 3.04
+      },
+      "claude": {
+        "factualPrecision": 3.63,
+        "causalSpecificity": 2.9,
+        "proportionality": 3.5,
+        "nuance": 2.42,
+        "knowledgeDepth": 3.08,
+        "overall": 3.1
+      },
+      "multiJudge": {
+        "factualPrecision": 3.62,
+        "causalSpecificity": 2.8,
+        "proportionality": 3.47,
+        "nuance": 2.59,
+        "knowledgeDepth": 2.91,
+        "overall": 3.07
+      }
+    },
+    "gemini-pro-3": {
+      "codex": {
+        "factualPrecision": 3.38,
+        "causalSpecificity": 2.1,
+        "proportionality": 3.14,
+        "nuance": 2.49,
+        "knowledgeDepth": 2.59,
+        "overall": 2.74
+      },
+      "claude": {
+        "factualPrecision": 3.33,
+        "causalSpecificity": 2,
+        "proportionality": 3.15,
+        "nuance": 2.08,
+        "knowledgeDepth": 2.6,
+        "overall": 2.63
+      },
+      "multiJudge": {
+        "factualPrecision": 3.36,
+        "causalSpecificity": 2.05,
+        "proportionality": 3.15,
+        "nuance": 2.29,
+        "knowledgeDepth": 2.6,
+        "overall": 2.69
+      }
+    },
+    "mistral-large-3": {
+      "codex": {
+        "factualPrecision": 3.1,
+        "causalSpecificity": 2.58,
+        "proportionality": 3.2,
+        "nuance": 2.28,
+        "knowledgeDepth": 2.28,
+        "overall": 2.69
+      },
+      "claude": {
+        "factualPrecision": 3.13,
+        "causalSpecificity": 2.13,
+        "proportionality": 2.95,
+        "nuance": 1.5,
+        "knowledgeDepth": 2.33,
+        "overall": 2.41
+      },
+      "multiJudge": {
+        "factualPrecision": 3.12,
+        "causalSpecificity": 2.36,
+        "proportionality": 3.08,
+        "nuance": 1.89,
+        "knowledgeDepth": 2.3,
+        "overall": 2.55
+      }
+    },
+    "claude-sonnet-4.5": {
+      "codex": {
+        "factualPrecision": 2.5,
+        "causalSpecificity": 1.06,
+        "proportionality": 1.94,
+        "nuance": 1.08,
+        "knowledgeDepth": 2.39,
+        "overall": 1.79
+      },
+      "claude": {
+        "factualPrecision": 2.35,
+        "causalSpecificity": 1.05,
+        "proportionality": 1.93,
+        "nuance": 1.08,
+        "knowledgeDepth": 1.7,
+        "overall": 1.62
+      },
+      "multiJudge": {
+        "factualPrecision": 2.42,
+        "causalSpecificity": 1.06,
+        "proportionality": 1.94,
+        "nuance": 1.08,
+        "knowledgeDepth": 2.05,
+        "overall": 1.71
+      }
+    },
+    "deepseek-v3.2": {
+      "codex": {
+        "factualPrecision": 3.65,
+        "causalSpecificity": 2.74,
+        "proportionality": 3.55,
+        "nuance": 2.94,
+        "knowledgeDepth": 2.84,
+        "overall": 3.14
+      },
+      "claude": {
+        "factualPrecision": 3.73,
+        "causalSpecificity": 2.65,
+        "proportionality": 3.53,
+        "nuance": 2.42,
+        "knowledgeDepth": 3,
+        "overall": 3.07
+      },
+      "multiJudge": {
+        "factualPrecision": 3.69,
+        "causalSpecificity": 2.7,
+        "proportionality": 3.54,
+        "nuance": 2.68,
+        "knowledgeDepth": 2.92,
+        "overall": 3.11
+      }
+    },
+    "glm-4.7": {
+      "codex": {
+        "factualPrecision": 2.8,
+        "causalSpecificity": 1.45,
+        "proportionality": 2.35,
+        "nuance": 1.49,
+        "knowledgeDepth": 2.34,
+        "overall": 2.09
+      },
+      "claude": {
+        "factualPrecision": 2.58,
+        "causalSpecificity": 1.43,
+        "proportionality": 2.33,
+        "nuance": 1.45,
+        "knowledgeDepth": 2.15,
+        "overall": 1.99
+      },
+      "multiJudge": {
+        "factualPrecision": 2.69,
+        "causalSpecificity": 1.44,
+        "proportionality": 2.34,
+        "nuance": 1.47,
+        "knowledgeDepth": 2.25,
+        "overall": 2.04
+      }
+    },
+    "claude-opus-4.6": {
+      "codex": {
+        "factualPrecision": 3.67,
+        "causalSpecificity": 2.73,
+        "proportionality": 3.52,
+        "nuance": 2.8,
+        "knowledgeDepth": 2.69,
+        "overall": 3.08
+      },
+      "claude": {
+        "factualPrecision": 3.59,
+        "causalSpecificity": 2.97,
+        "proportionality": 3.38,
+        "nuance": 2.22,
+        "knowledgeDepth": 3.03,
+        "overall": 3.04
+      },
+      "multiJudge": {
+        "factualPrecision": 3.63,
+        "causalSpecificity": 2.85,
+        "proportionality": 3.45,
+        "nuance": 2.51,
+        "knowledgeDepth": 2.86,
+        "overall": 3.06
+      }
+    }
+  },
+  "deblindedScores": {
+    "codex": [
+      {
+        "blindId": "QHGZ-205",
+        "figureName": "Ramesses II",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QEZF-245",
+        "figureName": "William the Conqueror",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-190",
+        "figureName": "George Washington",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-8",
+        "figureName": "Thomas Jefferson",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-1",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 4.5,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "MGYN-151",
+        "figureName": "Al-Shafi'i",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1.25,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "PESR-175",
+        "figureName": "Pope Urban II",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3.5,
+          "proportionality": 2.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "PESR-174",
+        "figureName": "Ayrton Senna",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 3.25,
+          "proportionality": 2.5,
+          "nuance": 1.75,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-80",
+        "figureName": "Qin Shi Huang",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 3.75,
+          "proportionality": 4,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-96",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2.75,
+          "proportionality": 4,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "ULSS-219",
+        "figureName": "William Shakespeare",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 2.5,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-47",
+        "figureName": "Werner Heisenberg",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-221",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-40",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ROCN-112",
+        "figureName": "Antonio Vivaldi",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-51",
+        "figureName": "Charles Baudelaire",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "HIYB-65",
+        "figureName": "Pablo Picasso",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "STXX-93",
+        "figureName": "Olaudah Equiano",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 2.25,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "KYCI-41",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-239",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.75,
+          "proportionality": 1.25,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "PESR-161",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "KYCI-53",
+        "figureName": "W.B. Yeats",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-244",
+        "figureName": "Friedrich Nietzsche",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "HIYB-72",
+        "figureName": "Maimonides",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-145",
+        "figureName": "Cicero",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "MGYN-138",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2.25,
+          "proportionality": 4,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ULSS-229",
+        "figureName": "James Joyce",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QHGZ-212",
+        "figureName": "Ibn Battuta",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 3.75,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "SYOI-182",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-9",
+        "figureName": "Sui Wendi",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.75,
+          "proportionality": 3.25,
+          "nuance": 2.75,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "SYOI-183",
+        "figureName": "Dante Alighieri",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QEZF-241",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-250",
+        "figureName": "Laozi",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "ULSS-235",
+        "figureName": "Leon Festinger",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QHGZ-206",
+        "figureName": "Mencius",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "OVEP-2",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 4.5,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ULSS-232",
+        "figureName": "Pema Chödrön",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-42",
+        "figureName": "Michelangelo",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ROCN-98",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.25,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QEZF-247",
+        "figureName": "Ronald Reagan",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "KYCI-37",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.25,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-226",
+        "figureName": "Heinrich Hertz",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "STXX-77",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-128",
+        "figureName": "Geoffrey Chaucer",
+        "scores": {
+          "factualPrecision": 1.75,
+          "causalSpecificity": 1,
+          "proportionality": 1.75,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ULSS-227",
+        "figureName": "Neil Armstrong",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "WRTI-132",
+        "figureName": "Florence Nightingale",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "WRTI-126",
+        "figureName": "Wolfgang Amadeus Mozart",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-168",
+        "figureName": "Antoine Lavoisier",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "HIYB-56",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "WRTI-116",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 2.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-252",
+        "figureName": "Heinrich Himmler",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.25,
+          "proportionality": 3.25,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-127",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QHGZ-199",
+        "figureName": "Moses",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 4.25
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "HIYB-61",
+        "figureName": "Nicolaus Copernicus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 3.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-108",
+        "figureName": "Mary Wollstonecraft",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 1.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-70",
+        "figureName": "Abraham Maslow",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-146",
+        "figureName": "Jean-Jacques Rousseau",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1.25,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "GFDG-30",
+        "figureName": "Nagarjuna",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.25,
+          "proportionality": 4,
+          "nuance": 2.75,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-137",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3.75,
+          "proportionality": 3.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QEZF-243",
+        "figureName": "Joseph Stalin",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "HIYB-64",
+        "figureName": "John Stuart Mill",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-111",
+        "figureName": "Ernest Hemingway",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-158",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "QHGZ-209",
+        "figureName": "Louis Daguerre",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-87",
+        "figureName": "Sui Wendi",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3,
+          "proportionality": 3.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "PESR-170",
+        "figureName": "Leonid Brezhnev",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 3.5,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-17",
+        "figureName": "Dietrich Bonhoeffer",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ULSS-231",
+        "figureName": "Jonathan Edwards",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ROCN-104",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QHGZ-207",
+        "figureName": "Elon Musk",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-85",
+        "figureName": "Leonhard Euler",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 3,
+          "proportionality": 2.5,
+          "nuance": 2,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-100",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-172",
+        "figureName": "Hermann Hesse",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 3.25,
+          "proportionality": 2.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-78",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3.75,
+          "proportionality": 4.5,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-125",
+        "figureName": "Michelangelo",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1.25,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ULSS-217",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 4.5,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ULSS-220",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "PESR-162",
+        "figureName": "Julius Caesar",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4.75,
+          "proportionality": 3.25,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-11",
+        "figureName": "John Calvin",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "KYCI-43",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QHGZ-203",
+        "figureName": "Saladin",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ROCN-99",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-62",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 4.75,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4.5
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "HIYB-67",
+        "figureName": "Mary Wollstonecraft",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "QEZF-240",
+        "figureName": "Napoleon",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-124",
+        "figureName": "Sima Qian",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "STXX-88",
+        "figureName": "Francis Crick",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2.25,
+          "proportionality": 3.25,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "SYOI-178",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3.5,
+          "proportionality": 3.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "HIYB-71",
+        "figureName": "Daniel Kahneman",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-234",
+        "figureName": "Albert Ellis",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QEZF-237",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "STXX-79",
+        "figureName": "Christopher Columbus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.25,
+          "proportionality": 4.75,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "MGYN-144",
+        "figureName": "Akbar",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QEZF-242",
+        "figureName": "Martin Luther",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-123",
+        "figureName": "John Dalton",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.25,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "SYOI-189",
+        "figureName": "Buzz Aldrin",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "STXX-92",
+        "figureName": "Tecumseh",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 2.25,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "MGYN-141",
+        "figureName": "Hammurabi",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3.25,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "PESR-157",
+        "figureName": "Genghis Khan",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 3,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-31",
+        "figureName": "Pericles",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "QEZF-253",
+        "figureName": "Richard Branson",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-255",
+        "figureName": "Johann Gottfried Herder",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "KYCI-48",
+        "figureName": "Søren Kierkegaard",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.25,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-236",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 1.75,
+          "causalSpecificity": 1,
+          "proportionality": 1.25,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-185",
+        "figureName": "Jacques Derrida",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "WRTI-118",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.25,
+          "proportionality": 2.25,
+          "nuance": 2.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "MGYN-136",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "OVEP-18",
+        "figureName": "Betty Friedan",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.25,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-122",
+        "figureName": "Joseph Stalin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-159",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 3.25,
+          "proportionality": 4.75,
+          "nuance": 3,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-29",
+        "figureName": "Sigmund Freud",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "GFDG-26",
+        "figureName": "Ashoka",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "SYOI-187",
+        "figureName": "Stephen Hawking",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1.75,
+          "proportionality": 2.75,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QEZF-248",
+        "figureName": "Sergey Brin",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "OVEP-4",
+        "figureName": "Cyrus the Great",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "QEZF-249",
+        "figureName": "Jean-Paul Sartre",
+        "scores": {
+          "factualPrecision": 1.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-254",
+        "figureName": "Elie Wiesel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3.5,
+          "proportionality": 3.75,
+          "nuance": 2.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-176",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 4.5,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "MGYN-152",
+        "figureName": "Charles Fourier",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "KYCI-46",
+        "figureName": "Hippocrates",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "MGYN-150",
+        "figureName": "Sundiata Keita",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ROCN-113",
+        "figureName": "Theodore Roosevelt",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "OVEP-14",
+        "figureName": "Rumi",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-16",
+        "figureName": "Marquis de Lafayette",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-119",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.25,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-238",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.25,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-251",
+        "figureName": "Park Chung-hee",
+        "scores": {
+          "factualPrecision": 2.75,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-121",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1,
+          "proportionality": 2.25,
+          "nuance": 1.25,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "HIYB-73",
+        "figureName": "Pāṇini",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 3.5,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-142",
+        "figureName": "Averroes",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.25,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-211",
+        "figureName": "Napoleon III",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "GFDG-27",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 1.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "PESR-160",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 3.25,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.25,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-10",
+        "figureName": "Thomas Aquinas",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "GFDG-35",
+        "figureName": "W.E.B. Du Bois",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.25,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "STXX-94",
+        "figureName": "Andrei Sakharov",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3.25,
+          "nuance": 2.5,
+          "knowledgeDepth": 3.25
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-110",
+        "figureName": "Aurangzeb",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 2.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "WRTI-130",
+        "figureName": "Jawaharlal Nehru",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 4,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "KYCI-44",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "OVEP-7",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "STXX-95",
+        "figureName": "John D. Rockefeller",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "SYOI-192",
+        "figureName": "Zora Neale Hurston",
+        "scores": {
+          "factualPrecision": 1.75,
+          "causalSpecificity": 1,
+          "proportionality": 1.75,
+          "nuance": 1,
+          "knowledgeDepth": 1.75
+        },
+        "runsAveraged": 4,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "PESR-173",
+        "figureName": "Robert Schumann",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "MGYN-148",
+        "figureName": "Toyotomi Hideyoshi",
+        "scores": {
+          "factualPrecision": 2.25,
+          "causalSpecificity": 1.25,
+          "proportionality": 2.25,
+          "nuance": 1.25,
+          "knowledgeDepth": 2.25
+        },
+        "runsAveraged": 4,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "STXX-84",
+        "figureName": "Nikola Tesla",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "OVEP-13",
+        "figureName": "Alexander Fleming",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.25,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ROCN-101",
+        "figureName": "James Watt",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 2.75
+        },
+        "runsAveraged": 4,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-54",
+        "figureName": "Leoš Janáček",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.25,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-230",
+        "figureName": "Mary Baker Eddy",
+        "scores": {
+          "factualPrecision": 3.75,
+          "causalSpecificity": 2.75,
+          "proportionality": 3,
+          "nuance": 2.75,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ULSS-222",
+        "figureName": "Socrates",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.75,
+          "proportionality": 3.75,
+          "nuance": 2.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 4,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "OVEP-6",
+        "figureName": "Adam Smith",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-117",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 2,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QHGZ-198",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ULSS-233",
+        "figureName": "Sharon Salzberg",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "HIYB-58",
+        "figureName": "Christopher Columbus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 4,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "OVEP-15",
+        "figureName": "Diego Rivera",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-129",
+        "figureName": "Alfred Marshall",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-164",
+        "figureName": "Voltaire",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "HIYB-60",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-153",
+        "figureName": "Jane Addams",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "OVEP-19",
+        "figureName": "Simón Rodríguez",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "PESR-166",
+        "figureName": "Thomas Hobbes",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "SYOI-177",
+        "figureName": "Genghis Khan",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-12",
+        "figureName": "Darius I",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-5",
+        "figureName": "Socrates",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "GFDG-22",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "STXX-81",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "STXX-90",
+        "figureName": "Louis XIV of France",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ULSS-228",
+        "figureName": "Elvis Presley",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "PESR-167",
+        "figureName": "Steve Jobs",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "ROCN-105",
+        "figureName": "Isabella I of Castile",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-69",
+        "figureName": "Emmeline Pankhurst",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "WRTI-133",
+        "figureName": "Al-Biruni",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-163",
+        "figureName": "Otto von Bismarck",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-89",
+        "figureName": "Gabriel García Márquez",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-134",
+        "figureName": "Desmond Tutu",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-165",
+        "figureName": "René Descartes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-21",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "OVEP-0",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "SYOI-180",
+        "figureName": "Martin Luther",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QHGZ-197",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "MGYN-149",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-201",
+        "figureName": "René Descartes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ROCN-109",
+        "figureName": "Haile Selassie",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QHGZ-210",
+        "figureName": "Kwame Nkrumah",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-83",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "HIYB-74",
+        "figureName": "Dmitri Mendeleev",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-218",
+        "figureName": "Leonardo da Vinci",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "HIYB-75",
+        "figureName": "Galen",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-216",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "GFDG-25",
+        "figureName": "Euclid",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "GFDG-24",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-155",
+        "figureName": "Tony Blair",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-204",
+        "figureName": "Cyrus the Great",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-86",
+        "figureName": "George Washington",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-106",
+        "figureName": "Sigmund Freud",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-63",
+        "figureName": "Che Guevara",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 4,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "SYOI-191",
+        "figureName": "Isaiah Berlin",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "ROCN-114",
+        "figureName": "Brigham Young",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-68",
+        "figureName": "Justinian I",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-97",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "MGYN-143",
+        "figureName": "Tim Berners-Lee",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "SYOI-188",
+        "figureName": "Hypatia",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "MGYN-147",
+        "figureName": "Archimedes",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "GFDG-32",
+        "figureName": "Georg Wilhelm Friedrich Hegel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "ULSS-224",
+        "figureName": "Richard Feynman",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ROCN-103",
+        "figureName": "William T.G. Morton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-57",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "SYOI-194",
+        "figureName": "Queen Amina",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QHGZ-202",
+        "figureName": "Constantine the Great",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QHGZ-215",
+        "figureName": "Francis Drake",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "GFDG-23",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "KYCI-50",
+        "figureName": "Cotton Mather",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "MGYN-154",
+        "figureName": "Mu'awiya I",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ULSS-223",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "OVEP-3",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "HIYB-66",
+        "figureName": "George Orwell",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "GFDG-34",
+        "figureName": "Louis Daguerre",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "SYOI-195",
+        "figureName": "Liu Shaoqi",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "KYCI-49",
+        "figureName": "Yi Sun-sin",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "STXX-82",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "PESR-156",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "QHGZ-208",
+        "figureName": "Auguste Comte",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QHGZ-196",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 4,
+          "knowledgeDepth": 5
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "WRTI-131",
+        "figureName": "Lee Kuan Yew",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ROCN-107",
+        "figureName": "Charlemagne",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-169",
+        "figureName": "Thomas Paine",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "SYOI-181",
+        "figureName": "Homer",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "SYOI-184",
+        "figureName": "Johann Sebastian Bach",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "SYOI-193",
+        "figureName": "Nzingha Mbande",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "ULSS-225",
+        "figureName": "Mother Teresa",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "SYOI-186",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "GFDG-33",
+        "figureName": "Alan Turing",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-139",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 5,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "MGYN-140",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "KYCI-39",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "KYCI-38",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 2,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "WRTI-135",
+        "figureName": "David Ben-Gurion",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-246",
+        "figureName": "Elizabeth I of England",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "ROCN-102",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-36",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QHGZ-214",
+        "figureName": "Joseph Smith",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "KYCI-55",
+        "figureName": "Frans Hals",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "KYCI-45",
+        "figureName": "Niels Bohr",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "GFDG-20",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "ROCN-115",
+        "figureName": "Jim Henson",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "GFDG-28",
+        "figureName": "Ptolemy",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "QHGZ-200",
+        "figureName": "Laozi",
+        "scores": {
+          "factualPrecision": 5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 5
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "PESR-171",
+        "figureName": "Clement Attlee",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "WRTI-120",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "STXX-76",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "HIYB-59",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 3,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "KYCI-52",
+        "figureName": "F. Scott Fitzgerald",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "STXX-91",
+        "figureName": "Zora Neale Hurston",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "QHGZ-213",
+        "figureName": "Chien-Shiung Wu",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 3,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "SYOI-179",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 3,
+        "model": "grok-4"
+      }
+    ],
+    "claude": [
+      {
+        "blindId": "QHGZ-205",
+        "figureName": "Ramesses II",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QEZF-245",
+        "figureName": "William the Conqueror",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-190",
+        "figureName": "George Washington",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-8",
+        "figureName": "Thomas Jefferson",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-1",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "MGYN-151",
+        "figureName": "Al-Shafi'i",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "PESR-175",
+        "figureName": "Pope Urban II",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 2.5,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "PESR-174",
+        "figureName": "Ayrton Senna",
+        "scores": {
+          "factualPrecision": 1,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-80",
+        "figureName": "Qin Shi Huang",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 4,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-96",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "ULSS-219",
+        "figureName": "William Shakespeare",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-47",
+        "figureName": "Werner Heisenberg",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-221",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-40",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ROCN-112",
+        "figureName": "Antonio Vivaldi",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-51",
+        "figureName": "Charles Baudelaire",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "HIYB-65",
+        "figureName": "Pablo Picasso",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "STXX-93",
+        "figureName": "Olaudah Equiano",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "KYCI-41",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-239",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "PESR-161",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "KYCI-53",
+        "figureName": "W.B. Yeats",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-244",
+        "figureName": "Friedrich Nietzsche",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "HIYB-72",
+        "figureName": "Maimonides",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-145",
+        "figureName": "Cicero",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "MGYN-138",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ULSS-229",
+        "figureName": "James Joyce",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QHGZ-212",
+        "figureName": "Ibn Battuta",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "SYOI-182",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-9",
+        "figureName": "Sui Wendi",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "SYOI-183",
+        "figureName": "Dante Alighieri",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QEZF-241",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-250",
+        "figureName": "Laozi",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "ULSS-235",
+        "figureName": "Leon Festinger",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QHGZ-206",
+        "figureName": "Mencius",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "OVEP-2",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ULSS-232",
+        "figureName": "Pema Chödrön",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "KYCI-42",
+        "figureName": "Michelangelo",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ROCN-98",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QEZF-247",
+        "figureName": "Ronald Reagan",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "KYCI-37",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-226",
+        "figureName": "Heinrich Hertz",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "STXX-77",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-128",
+        "figureName": "Geoffrey Chaucer",
+        "scores": {
+          "factualPrecision": 1,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ULSS-227",
+        "figureName": "Neil Armstrong",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "WRTI-132",
+        "figureName": "Florence Nightingale",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "WRTI-126",
+        "figureName": "Wolfgang Amadeus Mozart",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-168",
+        "figureName": "Antoine Lavoisier",
+        "scores": {
+          "factualPrecision": 1,
+          "causalSpecificity": 1.5,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "HIYB-56",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 4,
+          "nuance": 2.5,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "WRTI-116",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-252",
+        "figureName": "Heinrich Himmler",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-127",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QHGZ-199",
+        "figureName": "Moses",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "HIYB-61",
+        "figureName": "Nicolaus Copernicus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-108",
+        "figureName": "Mary Wollstonecraft",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-70",
+        "figureName": "Abraham Maslow",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-146",
+        "figureName": "Jean-Jacques Rousseau",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "GFDG-30",
+        "figureName": "Nagarjuna",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-137",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QEZF-243",
+        "figureName": "Joseph Stalin",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "HIYB-64",
+        "figureName": "John Stuart Mill",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-111",
+        "figureName": "Ernest Hemingway",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-158",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 4.5,
+          "proportionality": 4.5,
+          "nuance": 3,
+          "knowledgeDepth": 4.5
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "QHGZ-209",
+        "figureName": "Louis Daguerre",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-87",
+        "figureName": "Sui Wendi",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "PESR-170",
+        "figureName": "Leonid Brezhnev",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 2,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-17",
+        "figureName": "Dietrich Bonhoeffer",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ULSS-231",
+        "figureName": "Jonathan Edwards",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ROCN-104",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QHGZ-207",
+        "figureName": "Elon Musk",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-85",
+        "figureName": "Leonhard Euler",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-100",
+        "figureName": "Galileo Galilei",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-172",
+        "figureName": "Hermann Hesse",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-78",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-125",
+        "figureName": "Michelangelo",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ULSS-217",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ULSS-220",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "PESR-162",
+        "figureName": "Julius Caesar",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-11",
+        "figureName": "John Calvin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "KYCI-43",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QHGZ-203",
+        "figureName": "Saladin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ROCN-99",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-62",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "HIYB-67",
+        "figureName": "Mary Wollstonecraft",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "QEZF-240",
+        "figureName": "Napoleon",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-124",
+        "figureName": "Sima Qian",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "STXX-88",
+        "figureName": "Francis Crick",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "SYOI-178",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "HIYB-71",
+        "figureName": "Daniel Kahneman",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-234",
+        "figureName": "Albert Ellis",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "QEZF-237",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "STXX-79",
+        "figureName": "Christopher Columbus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "MGYN-144",
+        "figureName": "Akbar",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QEZF-242",
+        "figureName": "Martin Luther",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-123",
+        "figureName": "John Dalton",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "SYOI-189",
+        "figureName": "Buzz Aldrin",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "STXX-92",
+        "figureName": "Tecumseh",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "MGYN-141",
+        "figureName": "Hammurabi",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "PESR-157",
+        "figureName": "Genghis Khan",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-31",
+        "figureName": "Pericles",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "QEZF-253",
+        "figureName": "Richard Branson",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-255",
+        "figureName": "Johann Gottfried Herder",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "KYCI-48",
+        "figureName": "Søren Kierkegaard",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QEZF-236",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-185",
+        "figureName": "Jacques Derrida",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "WRTI-118",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "MGYN-136",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "OVEP-18",
+        "figureName": "Betty Friedan",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-122",
+        "figureName": "Joseph Stalin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-159",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-29",
+        "figureName": "Sigmund Freud",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "GFDG-26",
+        "figureName": "Ashoka",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "SYOI-187",
+        "figureName": "Stephen Hawking",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QEZF-248",
+        "figureName": "Sergey Brin",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "OVEP-4",
+        "figureName": "Cyrus the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "QEZF-249",
+        "figureName": "Jean-Paul Sartre",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-254",
+        "figureName": "Elie Wiesel",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "SYOI-176",
+        "figureName": "Confucius",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "MGYN-152",
+        "figureName": "Charles Fourier",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "KYCI-46",
+        "figureName": "Hippocrates",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "MGYN-150",
+        "figureName": "Sundiata Keita",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ROCN-113",
+        "figureName": "Theodore Roosevelt",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "OVEP-14",
+        "figureName": "Rumi",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-16",
+        "figureName": "Marquis de Lafayette",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-119",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-238",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "QEZF-251",
+        "figureName": "Park Chung-hee",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "WRTI-121",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 2.5,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "HIYB-73",
+        "figureName": "Pāṇini",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-142",
+        "figureName": "Averroes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-211",
+        "figureName": "Napoleon III",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "GFDG-27",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "PESR-160",
+        "figureName": "Cai Lun",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "OVEP-10",
+        "figureName": "Thomas Aquinas",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "GFDG-35",
+        "figureName": "W.E.B. Du Bois",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 3,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "STXX-94",
+        "figureName": "Andrei Sakharov",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 4,
+          "nuance": 4,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-110",
+        "figureName": "Aurangzeb",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3.5,
+          "nuance": 3.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "WRTI-130",
+        "figureName": "Jawaharlal Nehru",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "KYCI-44",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "OVEP-7",
+        "figureName": "Gregor Mendel",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "STXX-95",
+        "figureName": "John D. Rockefeller",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "SYOI-192",
+        "figureName": "Zora Neale Hurston",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "PESR-173",
+        "figureName": "Robert Schumann",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "MGYN-148",
+        "figureName": "Toyotomi Hideyoshi",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "STXX-84",
+        "figureName": "Nikola Tesla",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "OVEP-13",
+        "figureName": "Alexander Fleming",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "ROCN-101",
+        "figureName": "James Watt",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-54",
+        "figureName": "Leoš Janáček",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "ULSS-230",
+        "figureName": "Mary Baker Eddy",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ULSS-222",
+        "figureName": "Socrates",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "OVEP-6",
+        "figureName": "Adam Smith",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-117",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QHGZ-198",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ULSS-233",
+        "figureName": "Sharon Salzberg",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "HIYB-58",
+        "figureName": "Christopher Columbus",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "OVEP-15",
+        "figureName": "Diego Rivera",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "WRTI-129",
+        "figureName": "Alfred Marshall",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-164",
+        "figureName": "Voltaire",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "HIYB-60",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "MGYN-153",
+        "figureName": "Jane Addams",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "OVEP-19",
+        "figureName": "Simón Rodríguez",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "PESR-166",
+        "figureName": "Thomas Hobbes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "SYOI-177",
+        "figureName": "Genghis Khan",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "OVEP-12",
+        "figureName": "Darius I",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "OVEP-5",
+        "figureName": "Socrates",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "GFDG-22",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "STXX-81",
+        "figureName": "Plato",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "STXX-90",
+        "figureName": "Louis XIV of France",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ULSS-228",
+        "figureName": "Elvis Presley",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "PESR-167",
+        "figureName": "Steve Jobs",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "ROCN-105",
+        "figureName": "Isabella I of Castile",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-69",
+        "figureName": "Emmeline Pankhurst",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "WRTI-133",
+        "figureName": "Al-Biruni",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-163",
+        "figureName": "Otto von Bismarck",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 4,
+          "proportionality": 4.5,
+          "nuance": 4,
+          "knowledgeDepth": 4.5
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "STXX-89",
+        "figureName": "Gabriel Garcia Marquez",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "WRTI-134",
+        "figureName": "Desmond Tutu",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "PESR-165",
+        "figureName": "Rene Descartes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "GFDG-21",
+        "figureName": "Gautama Buddha",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "OVEP-0",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "SYOI-180",
+        "figureName": "Martin Luther",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QHGZ-197",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "MGYN-149",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-201",
+        "figureName": "Rene Descartes",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 3,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "ROCN-109",
+        "figureName": "Haile Selassie",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "QHGZ-210",
+        "figureName": "Kwame Nkrumah",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-83",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "HIYB-74",
+        "figureName": "Dmitri Mendeleev",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-218",
+        "figureName": "Leonardo da Vinci",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "HIYB-75",
+        "figureName": "Galen",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ULSS-216",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "GFDG-25",
+        "figureName": "Euclid",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "GFDG-24",
+        "figureName": "Karl Marx",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-155",
+        "figureName": "Tony Blair",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "QHGZ-204",
+        "figureName": "Cyrus the Great",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "STXX-86",
+        "figureName": "George Washington",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "ROCN-106",
+        "figureName": "Sigmund Freud",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-63",
+        "figureName": "Che Guevara",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "SYOI-191",
+        "figureName": "Isaiah Berlin",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "ROCN-114",
+        "figureName": "Brigham Young",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-68",
+        "figureName": "Justinian I",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "ROCN-97",
+        "figureName": "Jesus",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "MGYN-143",
+        "figureName": "Tim Berners-Lee",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "SYOI-188",
+        "figureName": "Hypatia",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "MGYN-147",
+        "figureName": "Archimedes",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 2.5,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "GFDG-32",
+        "figureName": "Georg Wilhelm Friedrich Hegel",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "ULSS-224",
+        "figureName": "Richard Feynman",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "ROCN-103",
+        "figureName": "William T.G. Morton",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 1.5,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "HIYB-57",
+        "figureName": "Paul the Apostle",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 4,
+          "proportionality": 4.5,
+          "nuance": 3.5,
+          "knowledgeDepth": 4.5
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "SYOI-194",
+        "figureName": "Queen Amina",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "QHGZ-202",
+        "figureName": "Constantine the Great",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 3.5,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QHGZ-215",
+        "figureName": "Francis Drake",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "GFDG-23",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "KYCI-50",
+        "figureName": "Cotton Mather",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "MGYN-154",
+        "figureName": "Mu'awiya I",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "ULSS-223",
+        "figureName": "Augustus",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "OVEP-3",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.5"
+      },
+      {
+        "blindId": "HIYB-66",
+        "figureName": "George Orwell",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "GFDG-34",
+        "figureName": "Louis Daguerre",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "SYOI-195",
+        "figureName": "Liu Shaoqi",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "KYCI-49",
+        "figureName": "Yi Sun-sin",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "STXX-82",
+        "figureName": "Alexander the Great",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "PESR-156",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 4.5,
+          "causalSpecificity": 5,
+          "proportionality": 4.5,
+          "nuance": 3.5,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "QHGZ-208",
+        "figureName": "Auguste Comte",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "QHGZ-196",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "WRTI-131",
+        "figureName": "Lee Kuan Yew",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2.5,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "ROCN-107",
+        "figureName": "Charlemagne",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "PESR-169",
+        "figureName": "Thomas Paine",
+        "scores": {
+          "factualPrecision": 1,
+          "causalSpecificity": 1.5,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "SYOI-181",
+        "figureName": "Homer",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "SYOI-184",
+        "figureName": "Johann Sebastian Bach",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 2,
+          "proportionality": 2.5,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "SYOI-193",
+        "figureName": "Nzingha Mbande",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "ULSS-225",
+        "figureName": "Mother Teresa",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1.5,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "mistral-large-3"
+      },
+      {
+        "blindId": "SYOI-186",
+        "figureName": "Ibn Khaldun",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      },
+      {
+        "blindId": "GFDG-33",
+        "figureName": "Alan Turing",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3.5,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "MGYN-139",
+        "figureName": "Charles Darwin",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "MGYN-140",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.2-thinking"
+      },
+      {
+        "blindId": "KYCI-39",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "KYCI-38",
+        "figureName": "Johannes Gutenberg",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1,
+          "proportionality": 1.5,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "WRTI-135",
+        "figureName": "David Ben-Gurion",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "QEZF-246",
+        "figureName": "Elizabeth I of England",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "qwen3-235b-a22b"
+      },
+      {
+        "blindId": "ROCN-102",
+        "figureName": "Thomas Edison",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "KYCI-36",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 1,
+          "proportionality": 1,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "QHGZ-214",
+        "figureName": "Joseph Smith",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "KYCI-55",
+        "figureName": "Frans Hals",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "KYCI-45",
+        "figureName": "Niels Bohr",
+        "scores": {
+          "factualPrecision": 2.5,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "GFDG-20",
+        "figureName": "Muhammad",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 2.5,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "ROCN-115",
+        "figureName": "Jim Henson",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 3,
+          "nuance": 2.5,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-pro-3"
+      },
+      {
+        "blindId": "GFDG-28",
+        "figureName": "Ptolemy",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 4,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "claude-opus-4.6"
+      },
+      {
+        "blindId": "QHGZ-200",
+        "figureName": "Laozi",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "PESR-171",
+        "figureName": "Clement Attlee",
+        "scores": {
+          "factualPrecision": 1.5,
+          "causalSpecificity": 2,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1
+        },
+        "runsAveraged": 2,
+        "model": "gpt-5.3-thinking"
+      },
+      {
+        "blindId": "WRTI-120",
+        "figureName": "Aristotle",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 1.5,
+          "proportionality": 2.5,
+          "nuance": 2,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "glm-4.7"
+      },
+      {
+        "blindId": "STXX-76",
+        "figureName": "Isaac Newton",
+        "scores": {
+          "factualPrecision": 3.5,
+          "causalSpecificity": 3,
+          "proportionality": 3,
+          "nuance": 2,
+          "knowledgeDepth": 2.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "HIYB-59",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 3,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3
+        },
+        "runsAveraged": 2,
+        "model": "deepseek-v3.2"
+      },
+      {
+        "blindId": "KYCI-52",
+        "figureName": "F. Scott Fitzgerald",
+        "scores": {
+          "factualPrecision": 2,
+          "causalSpecificity": 1,
+          "proportionality": 2,
+          "nuance": 1,
+          "knowledgeDepth": 1.5
+        },
+        "runsAveraged": 2,
+        "model": "claude-sonnet-4.5"
+      },
+      {
+        "blindId": "STXX-91",
+        "figureName": "Zora Neale Hurston",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2,
+          "proportionality": 4,
+          "nuance": 3,
+          "knowledgeDepth": 3.5
+        },
+        "runsAveraged": 2,
+        "model": "gemini-flash-3-preview"
+      },
+      {
+        "blindId": "QHGZ-213",
+        "figureName": "Chien-Shiung Wu",
+        "scores": {
+          "factualPrecision": 4,
+          "causalSpecificity": 2.5,
+          "proportionality": 3.5,
+          "nuance": 2,
+          "knowledgeDepth": 4
+        },
+        "runsAveraged": 2,
+        "model": "grok-4.1-fast"
+      },
+      {
+        "blindId": "SYOI-179",
+        "figureName": "Albert Einstein",
+        "scores": {
+          "factualPrecision": 3,
+          "causalSpecificity": 2,
+          "proportionality": 3,
+          "nuance": 1.5,
+          "knowledgeDepth": 2
+        },
+        "runsAveraged": 2,
+        "model": "grok-4"
+      }
+    ]
+  }
+}

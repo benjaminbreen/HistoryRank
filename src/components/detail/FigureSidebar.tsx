@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MapPin, ExternalLink, Share2 } from 'lucide-react';
 import { BadgeDisplay } from '@/components/rankings/BadgeDisplay';
@@ -13,7 +13,7 @@ import type { BadgeType } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 import { formatYear, formatAlias } from '@/lib/utils/figureFormatters';
 
-const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
+
 
 interface FigureSidebarProps {
   figure: Figure;
@@ -22,9 +22,10 @@ interface FigureSidebarProps {
   wiki: WikipediaData | null;
   relatedMedia: RelatedMediaItem[];
   mediaLoading: boolean;
+  dataDrivenRank?: number | null;
 }
 
-export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, mediaLoading }: FigureSidebarProps) {
+export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, mediaLoading, dataDrivenRank }: FigureSidebarProps) {
   const [localThumbExt, setLocalThumbExt] = useState<number>(0);
   const [localThumbFailed, setLocalThumbFailed] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
@@ -41,7 +42,7 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
   const localThumbUrl = !localThumbFailed
     ? `/thumbnails/${figure.id}.${localThumbExts[localThumbExt]}`
     : null;
-  const llmRank = figure.llmConsensusRank != null ? Math.round(figure.llmConsensusRank) : null;
+  const llmRank = dataDrivenRank ?? figure.positionalRank ?? null;
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/figure/${figure.id}` : '';
 
@@ -178,21 +179,6 @@ export function FigureSidebar({ figure, aliases, badges, wiki, relatedMedia, med
             )}
           </div>
         </div>
-      )}
-
-      {/* Globe */}
-      {figure.birthLat !== null && figure.birthLon !== null && (
-        <Suspense fallback={
-          <div className="w-full h-[200px] rounded-xl bg-stone-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
-            <span className="text-xs text-stone-400 dark:text-slate-500">Loading globe...</span>
-          </div>
-        }>
-          <BirthplaceGlobe
-            lat={figure.birthLat}
-            lon={figure.birthLon}
-            placeName={figure.birthPlace || undefined}
-          />
-        </Suspense>
       )}
 
       {/* Related Figures */}
