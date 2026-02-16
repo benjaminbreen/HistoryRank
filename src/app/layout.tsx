@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Source_Serif_4, JetBrains_Mono, Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { AppFooter } from "@/components/layout/AppFooter";
 import "./globals.css";
@@ -29,8 +30,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "HistoryRank",
-  description: "Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments",
+  title: {
+    default: 'HistoryRank',
+    template: '%s',
+  },
+  description: 'Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments. Rankings of 4,600+ historical figures from 13 frontier AI models.',
+  openGraph: {
+    title: 'HistoryRank',
+    description: 'Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments.',
+    siteName: 'HistoryRank',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
@@ -54,6 +64,7 @@ export default function RootLayout({
           {children}
           <AppFooter />
         </NuqsAdapter>
+        <Analytics />
       </body>
     </html>
   );
