@@ -77,9 +77,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'HistoryRank',
       type: 'profile',
       images: [{
-        url: `/api/og?id=${id}`,
-        width: 1200,
-        height: 630,
+        url: `/thumbnails/${id}.jpg`,
+        width: 400,
+        height: 400,
         alt: row.canonical_name,
       }],
     },
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${row.canonical_name} | HistoryRank`,
       description,
-      images: [`/api/og?id=${id}`],
+      images: [`/thumbnails/${id}.jpg`],
     },
   };
 }
