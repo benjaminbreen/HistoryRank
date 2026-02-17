@@ -50,12 +50,29 @@ function formatYear(year: number | null): string {
   return `${year}`;
 }
 
+/**
+ * Buffer an ImageResponse and return a clean Response with proper headers.
+ * Next.js adds vary/RSC headers that confuse social crawlers (Facebook, iMessage).
+ * Buffering also adds Content-Length which Facebook requires.
+ */
+async function cleanImageResponse(imgResponse: ImageResponse): Promise<Response> {
+  const buffer = await imgResponse.arrayBuffer();
+  return new Response(buffer, {
+    status: 200,
+    headers: {
+      'Content-Type': 'image/png',
+      'Content-Length': buffer.byteLength.toString(),
+      'Cache-Control': 'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400',
+    },
+  });
+}
+
 export async function GET(request: NextRequest) {
   const id = request.nextUrl.searchParams.get('id');
 
   // Default site-wide card when no id provided
   if (!id) {
-    return new ImageResponse(
+    const img = new ImageResponse(
       (
         <div
           style={{
@@ -146,6 +163,7 @@ export async function GET(request: NextRequest) {
       ),
       { width: 1200, height: 630 }
     );
+    return cleanImageResponse(img);
   }
 
   const figure = getFigure(id);
@@ -166,7 +184,7 @@ export async function GET(request: NextRequest) {
     lifespan = `b. ${birthLabel}`;
   }
 
-  return new ImageResponse(
+  const img = new ImageResponse(
     (
       <div
         style={{
@@ -323,9 +341,7 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
     ),
-    {
-      width: 1200,
-      height: 630,
-    }
+    { width: 1200, height: 630 }
   );
+  return cleanImageResponse(img);
 }
