@@ -101,8 +101,24 @@ function applyFilterFromSegment(url: URL, segment: string) {
   }
 }
 
+// Social crawlers that need OG meta tags
+const CRAWLER_RE = /facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|WhatsApp|Applebot|TelegramBot|Discordbot|Googlebot|bingbot|Pinterestbot/i;
+
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
+  const ua = request.headers.get('user-agent') || '';
+
+  // Redirect crawlers from /?figure=X to /figure/X for proper OG tags
+  if (pathname === '/' && searchParams.has('figure') && CRAWLER_RE.test(ua)) {
+    const figureId = searchParams.get('figure');
+    if (figureId) {
+      const url = request.nextUrl.clone();
+      url.pathname = `/figure/${figureId}`;
+      url.search = '';
+      return NextResponse.redirect(url, 302);
+    }
+  }
+
   const segments = pathname.split('/').filter(Boolean);
 
   if (segments.length === 0) {
