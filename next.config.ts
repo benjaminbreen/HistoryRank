@@ -42,6 +42,7 @@ const nextConfig: NextConfig = {
       'data/embeddings/media.json',
     ],
     '/figure/[id]': ['historyrank.db'],
+    '/api/og': ['historyrank.db'],
   },
   outputFileTracingExcludes: {
     '/api/figures': [...globalExcludes, 'data/raw/media/**'],
@@ -60,6 +61,7 @@ const nextConfig: NextConfig = {
     '/api/wikipedia': [...globalExcludes, 'data/raw/media/**'],
     '/api/health': [...globalExcludes, 'data/raw/media/**'],
     '/figure/[id]': [...globalExcludes, 'data/raw/media/**'],
+    '/api/og': [...globalExcludes, 'data/raw/media/**'],
   },
 };
 
