@@ -40,6 +40,18 @@ export const metadata: Metadata = {
     description: 'Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments.',
     siteName: 'HistoryRank',
     type: 'website',
+    images: [{
+      url: 'https://historyrank.org/api/og',
+      width: 1200,
+      height: 630,
+      alt: 'HistoryRank — Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HistoryRank',
+    description: 'Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments.',
+    images: ['https://historyrank.org/api/og'],
   },
 };
 

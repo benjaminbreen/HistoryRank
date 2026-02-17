@@ -53,8 +53,99 @@ function formatYear(year: number | null): string {
 export async function GET(request: NextRequest) {
   const id = request.nextUrl.searchParams.get('id');
 
+  // Default site-wide card when no id provided
   if (!id) {
-    return new Response('Missing id parameter', { status: 400 });
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            width: '1200px',
+            height: '630px',
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#0f172a',
+            color: '#f8fafc',
+            fontFamily: 'system-ui, sans-serif',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Gradient accent bar */}
+          <div
+            style={{
+              width: '100%',
+              height: '6px',
+              background: 'linear-gradient(90deg, #3b82f6, #8b5cf6, #ef4444, #10b981, #f59e0b)',
+              display: 'flex',
+            }}
+          />
+
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              padding: '60px 60px 40px',
+              flex: 1,
+              justifyContent: 'center',
+            }}
+          >
+            <div
+              style={{
+                fontSize: '86px',
+                fontWeight: 700,
+                lineHeight: 1.1,
+                letterSpacing: '-0.03em',
+                marginBottom: '24px',
+                display: 'flex',
+              }}
+            >
+              HistoryRank
+            </div>
+            <div
+              style={{
+                fontSize: '32px',
+                color: '#94a3b8',
+                lineHeight: 1.4,
+                display: 'flex',
+              }}
+            >
+              Comparing historical importance across academic rankings,
+            </div>
+            <div
+              style={{
+                fontSize: '32px',
+                color: '#94a3b8',
+                lineHeight: 1.4,
+                display: 'flex',
+              }}
+            >
+              Wikipedia attention, and AI assessments.
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '24px 60px',
+              backgroundColor: '#1e293b',
+              borderTop: '1px solid #334155',
+            }}
+          >
+            <div style={{ display: 'flex', gap: '24px', fontSize: '22px', color: '#64748b' }}>
+              <span style={{ display: 'flex' }}>4,600+ figures</span>
+              <span style={{ display: 'flex' }}>13 AI models</span>
+              <span style={{ display: 'flex' }}>50+ ranking lists</span>
+            </div>
+            <div style={{ fontSize: '22px', color: '#475569', display: 'flex' }}>
+              historyrank.org
+            </div>
+          </div>
+        </div>
+      ),
+      { width: 1200, height: 630 }
+    );
   }
 
   const figure = getFigure(id);
