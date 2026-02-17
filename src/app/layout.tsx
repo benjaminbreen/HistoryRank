@@ -29,7 +29,14 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://historyrank.org';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'HistoryRank',
     template: '%s',
@@ -41,7 +48,7 @@ export const metadata: Metadata = {
     siteName: 'HistoryRank',
     type: 'website',
     images: [{
-      url: 'https://historyrank.org/api/og',
+      url: '/api/og',
       width: 1200,
       height: 630,
       alt: 'HistoryRank — Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments',
@@ -51,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'HistoryRank',
     description: 'Comparing historical importance across academic rankings, Wikipedia attention, and AI assessments.',
-    images: ['https://historyrank.org/api/og'],
+    images: ['/api/og'],
   },
 };
 

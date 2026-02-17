@@ -73,11 +73,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${row.canonical_name} | HistoryRank`,
       description,
-      url: `${SITE_URL}/figure/${id}`,
+      url: `/figure/${id}`,
       siteName: 'HistoryRank',
       type: 'profile',
       images: [{
-        url: `${SITE_URL}/api/og?id=${id}`,
+        url: `/api/og?id=${id}`,
         width: 1200,
         height: 630,
         alt: row.canonical_name,
@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${row.canonical_name} | HistoryRank`,
       description,
-      images: [`${SITE_URL}/api/og?id=${id}`],
+      images: [`/api/og?id=${id}`],
     },
   };
 }
