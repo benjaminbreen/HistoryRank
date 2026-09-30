@@ -98,11 +98,13 @@ export function ActiveFiltersBar({
             >
               {chip.label}
               <button
+                type="button"
                 onClick={chip.onClear}
-                className="rounded-full p-0.5 text-stone-400 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-600 active:scale-90 transition-all"
+                // The after: box extends the tap target to ~28px without changing the chip's size
+                className="relative rounded-full p-0.5 text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-200 hover:bg-stone-100 dark:hover:bg-slate-600 active:scale-90 transition-all after:absolute after:-inset-1.5 after:content-[''] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
                 aria-label={`Remove filter ${chip.label}`}
               >
-                <X className="h-3 w-3" />
+                <X className="h-3 w-3" aria-hidden="true" />
               </button>
             </span>
           ))}

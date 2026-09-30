@@ -26,7 +26,21 @@ export default function NotFoundPage() {
     setVariantComponent(() => pick);
   }, []);
 
-  if (!VariantComponent) return null;
+  // Until the random variant is picked on the client, show the header and a real heading
+  // instead of a blank page.
+  if (!VariantComponent) {
+    return (
+      <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">
+        <AppHeader
+          active={undefined}
+          settings={settings}
+          onSettingsChange={updateSettings}
+          onSettingsReset={resetSettings}
+        />
+        <h1 className="sr-only">Page not found</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-transparent text-stone-900 dark:text-slate-100">

@@ -182,10 +182,12 @@ export function RankingsFilters({
           />
           {search && !isLoading && (
             <button
+              type="button"
               onClick={() => onSearchChange('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 dark:text-slate-500 hover:text-stone-600 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2"
+              aria-label="Clear search"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 dark:text-slate-400 hover:text-stone-700 dark:hover:text-slate-300 min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
             >
-              <X className="h-4 w-4" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           )}
         </div>

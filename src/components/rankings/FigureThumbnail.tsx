@@ -10,6 +10,8 @@ interface FigureThumbnailProps {
   name: string;
   size?: number;
   className?: string;
+  /** The figure's name is shown next to the image, so don't announce it twice */
+  decorative?: boolean;
 }
 
 interface LoadState {
@@ -25,7 +27,7 @@ interface WikipediaThumbnailResponse {
   thumbnail?: { source?: string } | null;
 }
 
-export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikipediaSlug, name, size = 32, className }: FigureThumbnailProps) {
+export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikipediaSlug, name, size = 32, className, decorative = false }: FigureThumbnailProps) {
   // Load state belongs to one (figureId, slug) pair; a different pair starts fresh
   // without needing an effect to reset it.
   const stateKey = `${figureId ?? ''}|${wikipediaSlug ?? ''}`;
@@ -90,7 +92,7 @@ export const FigureThumbnail = memo(function FigureThumbnail({ figureId, wikiped
   return (
     <img
       src={imageUrl}
-      alt={name}
+      alt={decorative ? '' : name}
       width={size}
       height={size}
       loading="lazy"

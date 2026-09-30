@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { useSettings } from '@/hooks/useSettings';
 import { useDebouncedValue } from '@/hooks/useDebouncedValue';
+import { scrollBehavior } from '@/lib/utils/motion';
 import { fetcher, figureDetailConfig, listDataConfig } from '@/lib/swr';
 import { SearchX } from 'lucide-react';
 import { BADGE_DEFINITIONS, type FigureRow, type FiguresResponse, type FigureDetailResponse, type BadgeType } from '@/types';
@@ -29,12 +30,12 @@ const ALL_FIGURES_LIMIT = 2000;
 // Loading fallback component
 function HomeLoading() {
   return (
-    <main className="min-h-screen bg-transparent">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+    <main className="min-h-screen bg-transparent" aria-busy="true">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <div className="space-y-2">
-          <Skeleton className="h-12 w-full" />
+          <Skeleton className="h-10 w-full" />
           {[...Array(10)].map((_, i) => (
-            <Skeleton key={i} className="h-10 w-full" />
+            <Skeleton key={i} className="h-14 w-full" />
           ))}
         </div>
       </div>
@@ -70,6 +71,8 @@ function HomeContent() {
   const [shareOrigin, setShareOrigin] = useState('');
   const hasAnimatedCounts = useRef(false);
   const suppressFigureSync = useRef(false);
+  // True while the current history entry is the one we pushed when opening a figure
+  const figurePushedRef = useRef(false);
 
   // Build API URL - only changes when server-side ranking mode changes
   const apiUrl = useMemo(() => {
@@ -345,6 +348,11 @@ function HomeContent() {
     onUpdate: (value: number) => void,
     onDone?: () => void
   ) => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onUpdate(to);
+      onDone?.();
+      return;
+    }
     const startTime = performance.now();
     const diff = to - from;
 
@@ -456,6 +464,19 @@ function HomeContent() {
     }
   }, [searchParams]);
 
+  // Browser Back/Forward: the URL is the source of truth, so open/close the panel to match it.
+  // (The effect above deliberately skips URLs this page wrote itself, so it can't see these.)
+  useEffect(() => {
+    const onPopState = () => {
+      const figure = new URLSearchParams(window.location.search).get('figure');
+      suppressFigureSync.current = false;
+      figurePushedRef.current = false;
+      setSelectedId(figure);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   // Update URL query params for shareable filters on the main table route
   // Debounced to reduce jank from frequent updates
   useEffect(() => {
@@ -481,7 +502,21 @@ function HomeContent() {
       const currentQuery = searchParams.toString();
       if (nextQuery !== currentQuery) {
         lastUrlSyncRef.current = nextQuery;
-        router.replace(nextQuery ? `/?${nextQuery}` : '/', { scroll: false });
+        const withoutFigure = (query: string) => {
+          const q = new URLSearchParams(query);
+          q.delete('figure');
+          return q.toString();
+        };
+        // Opening a figure (and nothing else changing) gets its own history entry so Back closes it
+        const isOpeningFigure = !!selectedId && !searchParams.has('figure') && withoutFigure(nextQuery) === withoutFigure(currentQuery);
+        const isSwitchingFigure = !!selectedId && searchParams.has('figure') && withoutFigure(nextQuery) === withoutFigure(currentQuery);
+        if (isOpeningFigure) {
+          figurePushedRef.current = true;
+          router.push(`/?${nextQuery}`, { scroll: false });
+        } else {
+          if (!isSwitchingFigure) figurePushedRef.current = false;
+          router.replace(nextQuery ? `/?${nextQuery}` : '/', { scroll: false });
+        }
       }
     }, 150); // Small debounce to batch rapid filter changes
 
@@ -505,9 +540,20 @@ function HomeContent() {
     searchParams,
   ]);
 
+  // Radix would otherwise send focus to <body>, because rows aren't focusable themselves
+  const handleCloseFocusReturn = useCallback(() => {
+    document.querySelector<HTMLElement>('[data-rankings-grid]')?.focus({ preventScroll: true });
+  }, []);
+
   const handleCloseDetail = useCallback(() => {
     suppressFigureSync.current = true;
     setSelectedId(null);
+    if (figurePushedRef.current) {
+      // We pushed this entry when the panel opened, so going back keeps history tidy
+      figurePushedRef.current = false;
+      router.back();
+      return;
+    }
     const params = new URLSearchParams(searchParams.toString());
     params.delete('figure');
     const nextQuery = params.toString();
@@ -572,50 +618,39 @@ function HomeContent() {
 
   // Keyboard navigation through the list
   useEffect(() => {
+    // Prev/next through the ranked list while the detail panel is open. With nothing open the
+    // table handles its own arrow keys, and the page keeps its normal arrow-key scrolling.
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Only handle arrow keys when we have figures and a selection (panel is open)
-      if (figures.length === 0) return;
+      if (!selectedId || figures.length === 0) return;
+      if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
 
-      // Don't intercept if user is typing in an input
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+      // Leave arrow keys alone inside form controls, menus, sliders and text fields
+      const target = e.target instanceof Element ? e.target : null;
+      if (target?.closest('input, textarea, select, [contenteditable="true"], [role="menu"], [role="listbox"], [role="slider"], [role="combobox"]')) {
         return;
       }
 
       const isNext = e.key === 'ArrowDown' || e.key === 'ArrowRight';
       const isPrev = e.key === 'ArrowUp' || e.key === 'ArrowLeft';
-
       if (!isNext && !isPrev) return;
-
-      e.preventDefault();
-
-      // If no selection, select the first figure
-      if (!selectedId) {
-        if (figures.length > 0) {
-          handleSelectFigure(figures[0].id);
-        }
-        return;
-      }
 
       const currentIndex = figures.findIndex(f => f.id === selectedId);
       if (currentIndex === -1) return;
 
-      let newIndex: number;
-      if (isNext) {
-        newIndex = currentIndex + 1;
-        if (newIndex >= figures.length) newIndex = 0; // Wrap to start
-      } else {
-        newIndex = currentIndex - 1;
-        if (newIndex < 0) newIndex = figures.length - 1; // Wrap to end
-      }
+      e.preventDefault();
+
+      let newIndex = isNext ? currentIndex + 1 : currentIndex - 1;
+      if (newIndex >= figures.length) newIndex = 0; // Wrap to start
+      if (newIndex < 0) newIndex = figures.length - 1; // Wrap to end
 
       const newFigure = figures[newIndex];
       if (newFigure) {
         handleSelectFigure(newFigure.id);
 
-        // Scroll the row into view
+        // Keep the row in view behind the panel so closing it lands somewhere sensible
         const row = document.querySelector(`[data-figure-id="${newFigure.id}"]`);
         if (row) {
-          row.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          row.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
         }
       }
     };
@@ -636,7 +671,7 @@ function HomeContent() {
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {errorMessage && (
-          <div className="mb-6 rounded-md border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 px-4 py-3 text-sm text-amber-900 dark:text-amber-300">
+          <div role="alert" className="mb-6 rounded-md border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-900/30 px-4 py-3 text-sm text-amber-900 dark:text-amber-300">
             {errorMessage} Try refreshing or check the deployment logs.
           </div>
         )}
@@ -815,10 +850,10 @@ function HomeContent() {
           const hasMore = figures.length < total;
 
           return isLoading ? (
-            <div className="space-y-2">
-              <Skeleton className="h-12 w-full" />
+            <div className="space-y-2" aria-busy="true" aria-label="Loading rankings">
+              <Skeleton className="h-10 w-full" />
               {[...Array(10)].map((_, i) => (
-                <Skeleton key={i} className="h-10 w-full" />
+                <Skeleton key={i} className={`w-full ${settings.density === 'compact' ? 'h-11' : 'h-14'}`} />
               ))}
             </div>
           ) : figures.length === 0 ? (
@@ -891,7 +926,7 @@ function HomeContent() {
               </div>
             )}
             {visibleCount > 0 && (
-              <div className="mt-3 text-center text-sm text-stone-500 dark:text-slate-400">
+              <div role="status" aria-live="polite" className="mt-3 text-center text-sm text-stone-500 dark:text-slate-400">
                 Showing {visibleCount} of {totalCount} figures
                 {badgeFilter && ` (filtered by badge)`}
               </div>
@@ -927,7 +962,7 @@ function HomeContent() {
       {showBackToTop && selectedId === null && (
         <button
           type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: 0, behavior: scrollBehavior() })}
           className="fixed bottom-6 z-40 flex items-center gap-2 rounded-full border border-stone-200/70 bg-white/90 px-4 py-2 text-xs font-medium text-stone-700 shadow-md backdrop-blur transition-all hover:-translate-y-1 hover:border-stone-300 hover:text-stone-900 hover:shadow-lg dark:border-amber-900/40 dark:bg-slate-950/80 dark:text-slate-200 dark:hover:border-amber-700/60 dark:hover:text-amber-100"
           style={{ right: 'max(1.5rem, calc((100vw - 80rem) / 2))' }}
           aria-label="Back to top"
@@ -948,6 +983,7 @@ function HomeContent() {
         aliases={selectedAliases}
         isOpen={selectedId !== null}
         onClose={handleCloseDetail}
+        onCloseFocusReturn={handleCloseFocusReturn}
         isLoading={isDetailLoading}
         isFullDataLoading={isFullDataLoading}
         llmRank={selectedLlmRank}

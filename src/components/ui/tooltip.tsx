@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useId, useState, useRef, useEffect, useCallback } from 'react';
+import { ReactNode, useId, useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
 interface TooltipProps {
@@ -54,11 +54,9 @@ export function Tooltip({ content, children, className, align = 'left' }: Toolti
     setPosition({ top, left });
   }, [align]);
 
-  useEffect(() => {
-    if (isVisible) {
-      // Small delay to ensure tooltip is rendered before measuring
-      requestAnimationFrame(updatePosition);
-    }
+  // Measure before paint so the tooltip never flashes at a stale position
+  useLayoutEffect(() => {
+    if (isVisible) updatePosition();
   }, [isVisible, updatePosition]);
 
   // Update position on scroll/resize while visible
@@ -75,17 +73,47 @@ export function Tooltip({ content, children, className, align = 'left' }: Toolti
     };
   }, [isVisible, updatePosition]);
 
-  const showTooltip = () => setIsVisible(true);
-  const hideTooltip = () => setIsVisible(false);
+  const showTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const hideTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => () => {
+    clearTimeout(showTimer.current);
+    clearTimeout(hideTimer.current);
+  }, []);
+
+  // Hover waits briefly so tooltips don't flash while moving across the table;
+  // keyboard focus shows immediately.
+  const showTooltip = (immediate = false) => {
+    clearTimeout(hideTimer.current);
+    clearTimeout(showTimer.current);
+    if (immediate) setIsVisible(true);
+    else showTimer.current = setTimeout(() => setIsVisible(true), 250);
+  };
+  // A short grace period lets the pointer travel onto the tooltip (WCAG 1.4.13: hoverable)
+  const hideTooltip = () => {
+    clearTimeout(showTimer.current);
+    clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(() => setIsVisible(false), 120);
+  };
+
+  // Escape dismisses without moving focus (WCAG 1.4.13: dismissible)
+  useEffect(() => {
+    if (!isVisible) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsVisible(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isVisible]);
 
   return (
     <>
       <span
         ref={triggerRef}
         className={`inline-flex items-center ${className ?? ''}`}
-        onMouseEnter={showTooltip}
+        onMouseEnter={() => showTooltip()}
         onMouseLeave={hideTooltip}
-        onFocus={showTooltip}
+        onFocus={() => showTooltip(true)}
         onBlur={hideTooltip}
         aria-describedby={isVisible ? id : undefined}
       >
@@ -96,8 +124,10 @@ export function Tooltip({ content, children, className, align = 'left' }: Toolti
           ref={tooltipRef}
           id={id}
           role="tooltip"
+          onMouseEnter={() => showTooltip(true)}
+          onMouseLeave={hideTooltip}
           className={`fixed z-[9999] w-72 max-w-[calc(100vw-16px)] rounded-md border border-stone-200/80 bg-white/95 px-3 py-2 text-xs leading-relaxed text-stone-700 shadow-lg transition-opacity duration-150 whitespace-normal break-words dark:border-amber-900/40 dark:bg-slate-900/95 dark:text-slate-200 ${
-            isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            isVisible ? 'opacity-100' : 'hidden'
           }`}
           style={{
             top: position.top,

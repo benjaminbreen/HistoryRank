@@ -9,7 +9,9 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import Link from 'next/link';
 import { Tooltip } from '@/components/ui/tooltip';
+import { scrollBehavior } from '@/lib/utils/motion';
 import { VarianceBadge } from './VarianceBadge';
 import { BadgeDisplay } from './BadgeDisplay';
 import { FigureThumbnail } from './FigureThumbnail';
@@ -51,7 +53,7 @@ const columnTooltips = {
 
 const formatNumber = (n: number | null) => {
   if (n === null) return '—';
-  if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;
+  if (n >= 999500) return `${(n / 1000000).toFixed(1)}M`;
   if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
   return n.toString();
 };
@@ -61,13 +63,54 @@ const formatRank = (n: number | null) => {
   return `#${Math.round(n)}`;
 };
 
+const rowDomId = (figureId: string) => `figure-row-${figureId}`;
+
+// Let the browser handle ctrl/cmd/shift-click (open in new tab/window) on the name link
+const isModifiedClick = (event: { metaKey: boolean; ctrlKey: boolean; shiftKey: boolean; altKey: boolean }) =>
+  event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+
+interface SortHeaderProps {
+  column: string;
+  children: React.ReactNode;
+  tooltip?: string;
+  align?: 'left' | 'center' | 'right';
+  sortBy: string;
+  sortOrder: 'asc' | 'desc';
+  onSort: (column: string) => void;
+}
+
+// Module-level so it keeps its identity across renders (a component defined inside
+// the table remounted on every scroll frame and dropped keyboard focus).
+function SortHeader({ column, children, tooltip, align, sortBy, sortOrder, onSort }: SortHeaderProps) {
+  return (
+    <Tooltip content={tooltip || columnTooltips[column as keyof typeof columnTooltips]} align={align}>
+      <button
+        type="button"
+        onClick={() => onSort(column)}
+        className="flex items-center gap-1 rounded-sm hover:text-stone-900 dark:hover:text-stone-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
+      >
+        {children}
+        {sortBy === column ? (
+          sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" aria-hidden="true" /> : <ChevronDown className="h-4 w-4" aria-hidden="true" />
+        ) : (
+          <span className="flex flex-col leading-none text-stone-400/70 dark:text-slate-500/80" aria-hidden="true">
+            <ChevronUp className="h-2.5 w-2.5 -mb-1" />
+            <ChevronDown className="h-2.5 w-2.5" />
+          </span>
+        )}
+      </button>
+    </Tooltip>
+  );
+}
+
 interface MemoizedTableRowProps {
   figure: FigureRow;
   rowIndex: number;
   isSelected: boolean;
+  isFocused: boolean;
   onSelect: (id: string, index: number, source: 'click' | 'pointer') => void;
   onHover?: (id: string) => void;
-  rowRef: (el: HTMLTableRowElement | null) => void;
+  registerRow: (index: number, el: HTMLTableRowElement | null) => void;
   rowPadding: string;
   secondaryText: string;
   nameText: string;
@@ -82,9 +125,10 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
   figure,
   rowIndex,
   isSelected,
+  isFocused,
   onSelect,
   onHover,
-  rowRef,
+  registerRow,
   rowPadding,
   secondaryText,
   nameText,
@@ -96,12 +140,16 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
 }: MemoizedTableRowProps) {
   return (
     <TableRow
-      ref={rowRef}
+      ref={(el) => registerRow(rowIndex, el)}
+      id={rowDomId(figure.id)}
       data-figure-id={figure.id}
       data-row-even={rowIndex % 2 === 1 ? '' : undefined}
-      onClick={() => onSelect(figure.id, rowIndex, 'click')}
+      onClick={(event) => {
+        if (isModifiedClick(event)) return;
+        onSelect(figure.id, rowIndex, 'click');
+      }}
       onMouseDown={(event) => {
-        if (event.button !== 0) return;
+        if (event.button !== 0 || isModifiedClick(event)) return;
         onSelect(figure.id, rowIndex, 'pointer');
       }}
       onMouseEnter={() => onHover?.(figure.id)}
@@ -109,7 +157,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
         isSelected
           ? 'bg-amber-100/70 dark:bg-amber-900/30 hover:bg-amber-100 dark:hover:bg-amber-900/40 border-l-4 border-l-amber-500 dark:border-l-amber-400'
           : 'hover:bg-white dark:hover:bg-slate-800/80 border-l-4 border-l-transparent'
-      }`}
+      } ${isFocused ? 'outline-2 -outline-offset-2 outline-amber-500 dark:outline-amber-400' : ''}`}
       aria-selected={isSelected}
     >
       <TableCell className={`font-mono text-sm sm:text-base text-stone-900 dark:text-amber-100 font-medium whitespace-nowrap ${rowPadding}`}>
@@ -124,12 +172,24 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
             figureId={figure.id}
             wikipediaSlug={figure.wikipediaSlug}
             name={figure.name}
+            decorative
             size={thumbnailSize}
             className="group-hover/row:scale-110 group-hover/row:shadow-md flex-shrink-0"
           />
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
-              <span className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 line-clamp-2 sm:line-clamp-none`}>{figure.name}</span>
+              {/* A real link so middle-click, open-in-new-tab and screen readers work; plain clicks open the panel */}
+              <Link
+                href={`/figure/${figure.id}`}
+                prefetch={false}
+                tabIndex={-1}
+                onClick={(event) => {
+                  if (!isModifiedClick(event)) event.preventDefault();
+                }}
+                className={`font-medium ${nameText} text-stone-900 dark:text-slate-100 line-clamp-2 sm:line-clamp-none rounded-sm outline-none hover:underline decoration-stone-400/60 underline-offset-2 focus-visible:underline`}
+              >
+                {figure.name}
+              </Link>
               {figure.badges && figure.badges.length > 0 && (
                 <span className="hidden md:inline-flex">
                   <BadgeDisplay badges={figure.badges} compact maxVisible={2} />
@@ -137,7 +197,7 @@ const MemoizedTableRow = memo(function MemoizedTableRow({
               )}
             </div>
             {figure.birthYear && (
-              <div className={`${secondaryText} text-stone-400 dark:text-slate-500`}>
+              <div className={`${secondaryText} text-stone-500 dark:text-slate-400`}>
                 {figure.birthYear < 0 ? `${Math.abs(figure.birthYear)} BCE` : figure.birthYear}
                 <span className="md:hidden">{figure.domain ? ` · ${figure.domain}` : ''}</span>
               </div>
@@ -204,6 +264,8 @@ export function RankingsTable({
   // Keyboard navigation state
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
   const [isTableFocused, setIsTableFocused] = useState(false);
+  // Only draw the focused-row ring after keyboard navigation, not after a mouse click
+  const [showFocusRing, setShowFocusRing] = useState(false);
   const [renderRange, setRenderRange] = useState({ start: 0, end: Math.min(figures.length, 40) });
   const tableRef = useRef<HTMLDivElement>(null);
   const rowRefs = useRef<Map<number, HTMLTableRowElement>>(new Map());
@@ -223,13 +285,13 @@ export function RankingsTable({
     if (focusedIndex >= 0 && isTableFocused) {
       const row = rowRefs.current.get(focusedIndex);
       if (row) {
-        row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        row.scrollIntoView({ block: 'nearest', behavior: scrollBehavior() });
         return;
       }
       if (!tableRef.current) return;
       const containerTop = tableRef.current.getBoundingClientRect().top + window.scrollY;
       const targetTop = containerTop + (focusedIndex * rowHeight);
-      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      window.scrollTo({ top: targetTop, behavior: scrollBehavior() });
     }
   }, [focusedIndex, isTableFocused, rowHeight]);
 
@@ -277,6 +339,7 @@ export function RankingsTable({
 
     if (handled) {
       e.preventDefault();
+      setShowFocusRing(true);
       if (newIndex !== focusedIndex) {
         setFocusedIndex(newIndex);
       }
@@ -314,25 +377,6 @@ export function RankingsTable({
     }
   }, []);
 
-  const SortHeader = ({ column, children, tooltip, align }: { column: string; children: React.ReactNode; tooltip?: string; align?: 'left' | 'center' | 'right' }) => (
-    <Tooltip content={tooltip || columnTooltips[column as keyof typeof columnTooltips]} align={align}>
-      <button
-        onClick={() => onSort(column)}
-        className="flex items-center gap-1 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-      >
-        {children}
-        {sortBy === column ? (
-          sortOrder === 'asc' ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />
-        ) : (
-          <span className="flex flex-col leading-none text-stone-300/60 dark:text-slate-600/60">
-            <ChevronUp className="h-2.5 w-2.5 -mb-1" />
-            <ChevronDown className="h-2.5 w-2.5" />
-          </span>
-        )}
-      </button>
-    </Tooltip>
-  );
-
   // Memoized row component to prevent unnecessary re-renders
   const rowPadding = density === 'compact' ? 'py-1.5 sm:py-2' : 'py-2 sm:py-3';
   const secondaryText = density === 'compact' ? 'text-xs' : 'text-sm';
@@ -349,6 +393,7 @@ export function RankingsTable({
       pendingFocusIndex.current = index;
     }
     setIsTableFocused(true);
+    setShowFocusRing(false);
     setFocusedIndex(index);
     onSelectFigure(id);
   }, [onSelectFigure]);
@@ -399,6 +444,8 @@ export function RankingsTable({
   const visibleRows = useMemo(() => figures.slice(startIndex, endIndex), [figures, startIndex, endIndex]);
   const topSpacerHeight = startIndex * rowHeight;
   const bottomSpacerHeight = Math.max(0, (totalRowCount - endIndex) * rowHeight);
+  const ariaSort = (column: string): 'ascending' | 'descending' | 'none' =>
+    sortBy === column ? (sortOrder === 'asc' ? 'ascending' : 'descending') : 'none';
   const columnCount =
     4 +
     (visibleColumns.region ? 1 : 0) +
@@ -414,6 +461,12 @@ export function RankingsTable({
         role="grid"
         aria-label="Historical figures rankings"
         aria-rowcount={figures.length}
+        aria-activedescendant={
+          isTableFocused && focusedIndex >= 0 && focusedIndex < figures.length
+            ? rowDomId(figures[focusedIndex].id)
+            : undefined
+        }
+        data-rankings-grid=""
         onKeyDown={handleKeyDown}
         onFocus={handleTableFocus}
         onBlur={handleTableBlur}
@@ -423,36 +476,36 @@ export function RankingsTable({
       <Table>
         <TableHeader className="border-t border-stone-200/70 dark:border-slate-700/50 sticky top-[var(--app-header-height,56px)] z-20">
           <TableRow className="bg-stone-50 dark:bg-slate-800/80 hover:bg-stone-50 dark:hover:bg-slate-800/80">
-            <TableHead className="w-[46px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="llmRank">LLM</SortHeader>
+            <TableHead aria-sort={ariaSort('llmRank')} className="w-[46px] sm:w-[60px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="llmRank">LLM</SortHeader>
             </TableHead>
-            <TableHead className="hidden sm:table-cell w-[60px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="hpiRank">HPI</SortHeader>
+            <TableHead aria-sort={ariaSort('hpiRank')} className="hidden sm:table-cell w-[60px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="hpiRank">HPI</SortHeader>
             </TableHead>
-            <TableHead className="text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="name">Name</SortHeader>
+            <TableHead aria-sort={ariaSort('name')} className="text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="name">Name</SortHeader>
             </TableHead>
             {visibleColumns.region && (
-              <TableHead className="hidden lg:table-cell w-[140px] text-stone-600 dark:text-slate-400 font-medium">
-                <SortHeader column="regionSub">Region</SortHeader>
+              <TableHead aria-sort={ariaSort('regionSub')} className="hidden lg:table-cell w-[140px] text-stone-600 dark:text-slate-400 font-medium">
+                <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="regionSub">Region</SortHeader>
               </TableHead>
             )}
-            <TableHead className="hidden md:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
-              <SortHeader column="domain">Domain</SortHeader>
+            <TableHead aria-sort={ariaSort('domain')} className="hidden md:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
+              <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="domain">Domain</SortHeader>
             </TableHead>
             {visibleColumns.era && (
-              <TableHead className="hidden lg:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
-                <SortHeader column="era">Era</SortHeader>
+              <TableHead aria-sort={ariaSort('era')} className="hidden lg:table-cell w-[100px] text-stone-600 dark:text-slate-400 font-medium">
+                <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="era">Era</SortHeader>
               </TableHead>
             )}
             {visibleColumns.variance && (
-              <TableHead className="hidden xl:table-cell w-[110px] text-stone-600 dark:text-slate-400 font-medium">
-                <SortHeader column="varianceScore" align="right">Variance</SortHeader>
+              <TableHead aria-sort={ariaSort('varianceScore')} className="hidden xl:table-cell w-[110px] text-stone-600 dark:text-slate-400 font-medium">
+                <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="varianceScore" align="right">Variance</SortHeader>
               </TableHead>
             )}
             {visibleColumns.views && (
-              <TableHead className="w-[58px] sm:w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
-                <SortHeader column="pageviews" align="right">Views</SortHeader>
+              <TableHead aria-sort={ariaSort('pageviews')} className="w-[58px] sm:w-[90px] text-stone-600 dark:text-slate-400 font-medium text-right">
+                <SortHeader sortBy={sortBy} sortOrder={sortOrder} onSort={onSort} column="pageviews" align="right">Views</SortHeader>
               </TableHead>
             )}
           </TableRow>
@@ -481,9 +534,10 @@ export function RankingsTable({
               figure={figure}
               rowIndex={index}
               isSelected={selectedId === figure.id}
+              isFocused={showFocusRing && isTableFocused && focusedIndex === index}
               onSelect={handleRowSelect}
               onHover={onPrefetch}
-              rowRef={(el) => setRowRef(index, el)}
+              registerRow={setRowRef}
               rowPadding={rowPadding}
               secondaryText={secondaryText}
               nameText={nameText}

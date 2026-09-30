@@ -159,16 +159,12 @@ export function AppHeader({
         ref={headerRef}
         className="sticky top-0 z-50 transition-all duration-300 ease-out"
         style={{
-          background: mounted && isDarkMode
-            ? 'linear-gradient(180deg, rgba(12, 14, 20, 0.96) 0%, rgba(17, 19, 27, 0.93) 100%)'
-            : 'rgba(250, 250, 247, 0.84)',
+          background: 'var(--hr-header-bg)',
           backdropFilter: 'blur(24px) saturate(1.6)',
           WebkitBackdropFilter: 'blur(24px) saturate(1.6)',
           borderBottom: '1px solid',
-          borderColor: mounted && isDarkMode ? 'rgba(201,165,92,0.12)' : 'rgba(0,0,0,0.05)',
-          boxShadow: mounted && isDarkMode
-            ? '0 1px 0 rgba(201,165,92,0.06) inset, 0 4px 24px rgba(0,0,0,0.4)'
-            : '0 1px 3px rgba(0,0,0,0.04)',
+          borderColor: 'var(--hr-header-border)',
+          boxShadow: 'var(--hr-header-shadow)',
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -189,11 +185,9 @@ export function AppHeader({
                   width: isCompactHeader ? '26px' : '30px',
                   height: isCompactHeader ? '26px' : '30px',
                   fontSize: isCompactHeader ? '9px' : '11px',
-                  borderColor: mounted && isDarkMode ? 'rgba(201,165,92,0.3)' : '#c4b99a',
-                  background: mounted && isDarkMode
-                    ? 'linear-gradient(145deg, rgba(38, 42, 52, 1), rgba(22, 25, 34, 1))'
-                    : 'linear-gradient(145deg, #faf5eb, #f0e8d8)',
-                  color: mounted && isDarkMode ? '#d4b880' : '#7a6630',
+                  borderColor: 'var(--hr-logo-border)',
+                  background: 'var(--hr-logo-bg)',
+                  color: 'var(--hr-logo-color)',
                   transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
                 aria-label="Open About"

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, lazy, Suspense, useMemo } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense, useMemo } from 'react';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Skeleton } from '@/components/ui/skeleton';
 import { VarianceBadge } from '@/components/rankings/VarianceBadge';
@@ -15,6 +15,7 @@ import type { Figure, Ranking, FigureRow, WikipediaData, RelatedMediaItem, Detai
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
 import { FigureLifeTimeline } from './FigureLifeTimeline';
 import { SourceRankingCard } from './SourceRankingCard';
+import { FigureTabBar } from './FigureTabBar';
 import {
   formatYear,
   formatViews,
@@ -49,6 +50,8 @@ interface FigureDetailPanelProps {
   aliases?: string[];
   isOpen: boolean;
   onClose: () => void;
+  /** Where focus should go when the panel closes (default: Radix restores the trigger) */
+  onCloseFocusReturn?: () => void;
   isLoading?: boolean;
   isFullDataLoading?: boolean; // True when minimal data loaded but full data still fetching
   llmRank?: number | null;
@@ -185,6 +188,7 @@ export function FigureDetailPanel({
   aliases,
   isOpen,
   onClose,
+  onCloseFocusReturn,
   isFullDataLoading = false,
   llmRank,
   onPrevious,
@@ -202,6 +206,7 @@ export function FigureDetailPanel({
   const [relatedMedia, setRelatedMedia] = useState<RelatedMediaItem[]>([]);
   const [linksLoading, setLinksLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<DetailTab>('overview');
+  const contentRef = useRef<HTMLDivElement>(null);
   const [evidenceData, setEvidenceData] = useState<FigureEvidenceResponse | null>(null);
   const [evidenceLoading, setEvidenceLoading] = useState(false);
   const [evidenceError, setEvidenceError] = useState<string | null>(null);
@@ -371,11 +376,20 @@ export function FigureDetailPanel({
   const timelineAssessment = evidenceData?.timeline.assessment || null;
   const timelineEvents = evidenceData?.timeline.events || [];
 
+  useEffect(() => {
+    contentRef.current?.scrollTo({ top: 0 });
+  }, [figureId]);
+
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <SheetContent
+        ref={contentRef}
         forceMount
         showClose={false}
+        onCloseAutoFocus={onCloseFocusReturn ? (event) => {
+          event.preventDefault();
+          onCloseFocusReturn();
+        } : undefined}
         className="w-full sm:max-w-[606px] lg:max-w-[702px] overflow-y-auto bg-[#faf9f7] dark:bg-slate-900 border-l border-stone-200 dark:border-amber-900/30 p-0"
       >
         {/* Accessibility: visually hidden title and description */}
@@ -394,29 +408,31 @@ export function FigureDetailPanel({
               {/* Action buttons - top right */}
               <div className="absolute top-3.5 right-4 z-20 inline-flex items-center gap-1 rounded-full bg-white/72 px-1 py-1 shadow-sm ring-1 ring-stone-200/85 backdrop-blur-md dark:bg-slate-900/72 dark:ring-slate-700/85">
                 <button
+                  type="button"
                   onClick={() => setShareOpen(true)}
-                  className="p-1.5 rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
                   aria-label="Share figure"
                 >
-                  <Share2 className="w-4 h-4 text-stone-500 dark:text-slate-300" />
+                  <Share2 className="w-4 h-4 text-stone-500 dark:text-slate-300" aria-hidden="true" />
                 </button>
                 <button
+                  type="button"
                   onClick={onClose}
-                  className="p-1.5 rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-stone-200/60 dark:hover:bg-slate-700/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70"
                   aria-label="Close panel"
                 >
-                  <X className="w-5 h-5 text-stone-500 dark:text-slate-300" />
+                  <X className="w-5 h-5 text-stone-500 dark:text-slate-300" aria-hidden="true" />
                 </button>
               </div>
 
               <div className="flex flex-col gap-4 pt-8 sm:flex-row sm:gap-6 sm:items-start">
                 {/* Portrait - tall, starts at top of panel */}
                 <div className="flex-shrink-0 w-28 sm:w-36 min-h-[214px] sm:min-h-[250px]">
-                  <div
-                    onClick={() => {
-                      if (figureId) window.location.href = `/figure/${figureId}`;
-                    }}
-                    className="group/portrait cursor-pointer relative"
+                  <Link
+                    href={figureId ? `/figure/${figureId}` : '#'}
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    className="group/portrait cursor-pointer relative block"
                   >
                     {localThumbUrl && !localThumbFailed ? (
                       <div className="relative">
@@ -458,7 +474,7 @@ export function FigureDetailPanel({
                         </span>
                       </div>
                     )}
-                  </div>
+                  </Link>
                   {figureId && (
                     <a
                       href={`/figure/${figureId}`}
@@ -633,28 +649,7 @@ export function FigureDetailPanel({
             </div>
 
             <div className="mx-6 mt-3">
-              <div className="grid grid-cols-3 gap-1 rounded-xl border border-stone-200/80 bg-white/90 p-1 shadow-sm dark:border-slate-700 dark:bg-slate-800/80">
-                {TAB_LABELS.map((tab) => {
-                  const Icon = tab.icon;
-                  const isActive = activeTab === tab.id;
-                  return (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`flex items-center justify-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors ${
-                        isActive
-                          ? 'bg-stone-900 text-white dark:bg-[#c9a55c] dark:text-stone-900'
-                          : 'text-stone-600 hover:bg-stone-100 dark:text-slate-300 dark:hover:bg-slate-700'
-                      }`}
-                      aria-pressed={isActive}
-                    >
-                      <Icon className="h-3.5 w-3.5" />
-                      <span>{tab.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
+              <FigureTabBar activeTab={activeTab} onTabChange={setActiveTab} />
             </div>
 
             {/* See Also - Related Figures */}
