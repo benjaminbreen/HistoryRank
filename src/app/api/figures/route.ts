@@ -6,13 +6,36 @@ import type { FigureRow, FiguresResponse, BadgeType } from '@/types';
 import { dot, embedQuery, loadFigureEmbeddingsBinary, loadFigureEmbeddings, normalizeVector } from '@/lib/embeddings';
 import fs from 'node:fs';
 import path from 'node:path';
+import { DATA_CACHE_CONTROL, DERIVED_CACHE_TTL_MS } from '@/lib/http';
 
 export const runtime = 'nodejs';
+
+// Only the columns the list views actually read. `select()` would also pull
+// ngram_data, wikipedia_extract, related_figures, etc. for every row.
+const FIGURE_LIST_COLUMNS = {
+  id: figures.id,
+  canonicalName: figures.canonicalName,
+  birthYear: figures.birthYear,
+  domain: figures.domain,
+  era: figures.era,
+  regionSub: figures.regionSub,
+  hpiRank: figures.hpiRank,
+  llmConsensusRank: figures.llmConsensusRank,
+  varianceScore: figures.varianceScore,
+  pageviewsGlobal: figures.pageviewsGlobal,
+  pageviews2025: figures.pageviews2025,
+  ngramPercentile: figures.ngramPercentile,
+  wikipediaSlug: figures.wikipediaSlug,
+};
+type FigureListColumns = { [K in keyof typeof FIGURE_LIST_COLUMNS]: (typeof figures.$inferSelect)[K] };
+
+// The home page requests the whole ranked set (2000) in one call; never return more.
+const MAX_LIMIT = 2000;
 
 // Cache for LLM rank lookup
 let llmRankCache: Map<string, number> | null = null;
 let cacheTimestamp = 0;
-const CACHE_TTL = 60000; // 1 minute
+const CACHE_TTL = DERIVED_CACHE_TTL_MS; // Infinity on read-only deploys, 1 min locally
 
 // Cache for weighted rank lookup
 let weightedRankCache: Map<string, number> | null = null;
@@ -1687,8 +1710,10 @@ export async function GET(request: NextRequest) {
   const useUnweightedAllRanking = !modelSource && !useV2 && !useV3 && rankingMode === 'unweighted';
   const sortBy = searchParams.get('sortBy') || 'llmConsensusRank';
   const sortOrder = searchParams.get('sortOrder') || 'asc';
-  const limit = parseInt(searchParams.get('limit') || '100');
-  const offset = parseInt(searchParams.get('offset') || '0');
+  const parsedLimit = parseInt(searchParams.get('limit') || '100', 10);
+  const parsedOffset = parseInt(searchParams.get('offset') || '0', 10);
+  const limit = Number.isFinite(parsedLimit) ? Math.min(Math.max(parsedLimit, 1), MAX_LIMIT) : 100;
+  const offset = Number.isFinite(parsedOffset) ? Math.max(parsedOffset, 0) : 0;
 
   try {
     if (mode === 'all') {
@@ -1705,10 +1730,10 @@ export async function GET(request: NextRequest) {
         .from(figures)
         .orderBy(asc(figures.canonicalName));
 
-      return NextResponse.json({
-        figures: allFigures,
-        total: allFigures.length,
-      });
+      return NextResponse.json(
+        { figures: allFigures, total: allFigures.length },
+        { headers: { 'Cache-Control': DATA_CACHE_CONTROL } },
+      );
     }
 
     if (mode === 'rank') {
@@ -1719,7 +1744,7 @@ export async function GET(request: NextRequest) {
       const rankLookup = await getWeightedDataScienceRankLookup();
       return NextResponse.json(
         { rank: rankLookup.get(id) ?? null },
-        { headers: { 'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300' } },
+        { headers: { 'Cache-Control': DATA_CACHE_CONTROL } },
       );
     }
 
@@ -1779,7 +1804,7 @@ export async function GET(request: NextRequest) {
         },
         {
           headers: {
-            'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+            'Cache-Control': DATA_CACHE_CONTROL,
           },
         }
       );
@@ -1938,7 +1963,7 @@ export async function GET(request: NextRequest) {
       }
 
       const results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(inArray(figures.id, pagedIds));
 
@@ -2008,7 +2033,7 @@ export async function GET(request: NextRequest) {
 
       return NextResponse.json(response, {
         headers: {
-          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+          'Cache-Control': DATA_CACHE_CONTROL,
         },
       });
     }
@@ -2070,7 +2095,7 @@ export async function GET(request: NextRequest) {
       }
 
       const results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(inArray(figures.id, pagedIds));
 
@@ -2106,7 +2131,7 @@ export async function GET(request: NextRequest) {
 
       return NextResponse.json(response, {
         headers: {
-          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+          'Cache-Control': DATA_CACHE_CONTROL,
         },
       });
     }
@@ -2137,7 +2162,7 @@ export async function GET(request: NextRequest) {
       }
 
       const results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(inArray(figures.id, pagedIds));
 
@@ -2174,7 +2199,7 @@ export async function GET(request: NextRequest) {
 
       return NextResponse.json(response, {
         headers: {
-          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+          'Cache-Control': DATA_CACHE_CONTROL,
         },
       });
     }
@@ -2191,11 +2216,11 @@ export async function GET(request: NextRequest) {
     if (modelSource) {
       const sourceLookup = await getSourceRankLookup(modelSource);
       const allFigures = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(whereClause);
 
-      const getSortValue = (fig: typeof figures.$inferSelect) => {
+      const getSortValue = (fig: FigureListColumns) => {
         if (sortBy === 'llmRank' || sortBy === 'llmConsensusRank') {
           return sourceLookup.get(fig.id)?.avgRank ?? null;
         }
@@ -2257,7 +2282,7 @@ export async function GET(request: NextRequest) {
 
       return NextResponse.json(response, {
         headers: {
-          'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+          'Cache-Control': DATA_CACHE_CONTROL,
         },
       });
     }
@@ -2285,7 +2310,7 @@ export async function GET(request: NextRequest) {
     let results;
     if (isLlmSort && sortOrder === 'asc') {
       results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(whereClause)
         .orderBy(
@@ -2296,7 +2321,7 @@ export async function GET(request: NextRequest) {
         .offset(offset);
     } else if (isLlmSort && sortOrder === 'desc') {
       results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(whereClause)
         .orderBy(
@@ -2307,7 +2332,7 @@ export async function GET(request: NextRequest) {
         .offset(offset);
     } else {
       results = await db
-        .select()
+        .select(FIGURE_LIST_COLUMNS)
         .from(figures)
         .where(whereClause)
         .orderBy(sortFn(sortColumn))
@@ -2365,7 +2390,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

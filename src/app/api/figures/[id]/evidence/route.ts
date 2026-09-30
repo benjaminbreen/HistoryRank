@@ -10,6 +10,7 @@ import {
 } from '@/lib/db';
 import { and, asc, desc, eq, inArray } from 'drizzle-orm';
 import type { FigureEvidenceResponse } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -318,7 +319,7 @@ export async function GET(
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'no-store',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

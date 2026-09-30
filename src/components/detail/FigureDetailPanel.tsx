@@ -13,9 +13,7 @@ import { Tooltip } from '@/components/ui/tooltip';
 import { ShareDialog } from '@/components/share/ShareDialog';
 import type { Figure, Ranking, FigureRow, WikipediaData, RelatedMediaItem, DetailTab } from '@/types';
 import { MediaThumbnail } from '@/components/media/MediaThumbnail';
-import { FigureResearchTab } from './FigureResearchTab';
 import { FigureLifeTimeline } from './FigureLifeTimeline';
-import { FigureTimelineMap } from './FigureTimelineMap';
 import { SourceRankingCard } from './SourceRankingCard';
 import {
   formatYear,
@@ -29,6 +27,8 @@ import {
 
 // Lazy load heavy components
 const BirthplaceGlobe = lazy(() => import('./BirthplaceGlobe').then(m => ({ default: m.BirthplaceGlobe })));
+const FigureResearchTab = lazy(() => import('./FigureResearchTab').then(m => ({ default: m.FigureResearchTab })));
+const FigureTimelineMap = lazy(() => import('./FigureTimelineMap').then(m => ({ default: m.FigureTimelineMap })));
 const NgramSparkline = lazy(() => import('./NgramSparkline').then(m => ({ default: m.NgramSparkline })));
 const PageviewsSparkline = lazy(() => import('./PageviewsSparkline').then(m => ({ default: m.PageviewsSparkline })));
 
@@ -305,7 +305,6 @@ export function FigureDetailPanel({
       setEvidenceError(null);
       try {
         const res = await fetch(`/api/figures/${encodeURIComponent(figureId)}/evidence`, {
-          cache: 'no-store',
           signal: controller.signal,
         });
         if (!res.ok) {
@@ -1284,16 +1283,18 @@ export function FigureDetailPanel({
               )}
 
               {activeTab === 'research' && (
-                <FigureResearchTab
-                  sources={researchSources}
-                  quotes={researchQuotes}
-                  snippets={historicalSnippets}
-                  wikidataFacts={wikidataFacts}
-                  wikipediaSections={wikipediaSections}
-                  figureName={figure?.canonicalName || previewRow?.name || 'Unknown figure'}
-                  isLoading={evidenceLoading}
-                  error={evidenceError}
-                />
+                <Suspense fallback={<Skeleton className="h-64 w-full rounded-xl" />}>
+                  <FigureResearchTab
+                    sources={researchSources}
+                    quotes={researchQuotes}
+                    snippets={historicalSnippets}
+                    wikidataFacts={wikidataFacts}
+                    wikipediaSections={wikipediaSections}
+                    figureName={figure?.canonicalName || previewRow?.name || 'Unknown figure'}
+                    isLoading={evidenceLoading}
+                    error={evidenceError}
+                  />
+                </Suspense>
               )}
 
               {activeTab === 'timeline' && (
@@ -1334,7 +1335,9 @@ export function FigureDetailPanel({
                         events={timelineEvents}
                       />
 
-                      <FigureTimelineMap events={timelineEvents} />
+                      <Suspense fallback={<Skeleton className="h-64 w-full rounded-xl" />}>
+                        <FigureTimelineMap events={timelineEvents} />
+                      </Suspense>
 
                       <div className="rounded-xl border border-stone-200/70 bg-white/95 p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800/90">
                         <div className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 dark:text-slate-400">

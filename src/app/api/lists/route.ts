@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'node:fs';
 import path from 'node:path';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 type ListEntry = {
   file: string;
@@ -48,7 +49,7 @@ export async function GET(request: Request) {
     return new NextResponse(content, {
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'public, s-maxage=600, stale-while-revalidate=1200',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   }
@@ -75,7 +76,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json({ lists }, {
     headers: {
-      'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+      'Cache-Control': DATA_CACHE_CONTROL,
     },
   });
 }

@@ -3,6 +3,7 @@ import { and, asc, desc, eq, gte, inArray, isNotNull } from 'drizzle-orm';
 import { db } from '@/lib/db';
 import { figures, influenceEdges } from '@/lib/db/schema';
 import type { InfluenceNetworkResponse } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -146,7 +147,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

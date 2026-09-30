@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db, figures, rankings } from '@/lib/db';
 import { eq, sql } from 'drizzle-orm';
 import type { ScatterDataPoint, ScatterPlotResponse } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
@@ -14,11 +15,27 @@ export const revalidate = 300;
 
 export async function GET(request: NextRequest) {
   try {
-    // Get all figures
-    const allFigures = await db.query.figures.findMany();
+    // Only the columns the scatter points use (the full rows include large text/JSON blobs)
+    const allFigures = await db
+      .select({
+        id: figures.id,
+        canonicalName: figures.canonicalName,
+        domain: figures.domain,
+        era: figures.era,
+        birthYear: figures.birthYear,
+        pageviewsGlobal: figures.pageviewsGlobal,
+        pageviews2025: figures.pageviews2025,
+        varianceScore: figures.varianceScore,
+        hpiRank: figures.hpiRank,
+        llmConsensusRank: figures.llmConsensusRank,
+      })
+      .from(figures);
 
-    // Get all rankings grouped by source
-    const allRankings = await db.query.rankings.findMany();
+    // Insertion order matters: samples are folded into a running pairwise average below.
+    const allRankings = await db
+      .select({ figureId: rankings.figureId, source: rankings.source, rank: rankings.rank })
+      .from(rankings)
+      .orderBy(sql`rowid`);
 
     // Get unique sources
     const sources = [...new Set(allRankings.map(r => r.source))];
@@ -71,7 +88,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

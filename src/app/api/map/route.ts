@@ -3,6 +3,7 @@ import { and, asc, eq, isNotNull, sql } from 'drizzle-orm';
 import { db } from '@/lib/db';
 import { figures, rankings } from '@/lib/db/schema';
 import type { MapResponse, MapPoint } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -134,7 +135,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=120, stale-while-revalidate=300',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

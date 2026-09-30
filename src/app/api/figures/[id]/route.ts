@@ -3,6 +3,7 @@ import { db, figures, rankings, nameAliases } from '@/lib/db';
 import { eq, lt, gt, asc, desc, and, isNotNull, sql } from 'drizzle-orm';
 import { normalizeName } from '@/lib/utils/nameNormalization';
 import type { FigureDetailResponse } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 
@@ -113,7 +114,7 @@ export async function GET(
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

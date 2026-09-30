@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db, figures, rankings } from '@/lib/db';
 import { ne } from 'drizzle-orm';
 import { SOURCE_LABELS } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -868,18 +869,20 @@ async function getLLMComparison(): Promise<LLMComparisonResponse> {
   };
 }
 
+const CACHE_HEADERS = { 'Cache-Control': DATA_CACHE_CONTROL };
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const mode = searchParams.get('mode') || 'llm';
 
   try {
     if (mode === 'geo-bias') {
-      return NextResponse.json(await getGeoBias());
+      return NextResponse.json(await getGeoBias(), { headers: CACHE_HEADERS });
     }
     if (mode === 'insights') {
-      return NextResponse.json(await getInsights());
+      return NextResponse.json(await getInsights(), { headers: CACHE_HEADERS });
     }
-    return NextResponse.json(await getLLMComparison());
+    return NextResponse.json(await getLLMComparison(), { headers: CACHE_HEADERS });
   } catch (error) {
     console.error('Compare API error:', error);
     return NextResponse.json({ error: 'Failed to fetch comparison data' }, { status: 500 });

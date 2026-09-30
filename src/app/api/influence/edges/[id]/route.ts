@@ -10,6 +10,7 @@ import {
   influenceEdges,
 } from '@/lib/db/schema';
 import type { InfluenceEdgeDetailResponse } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -257,7 +258,7 @@ export async function GET(
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'no-store',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

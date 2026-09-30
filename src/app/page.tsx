@@ -3,20 +3,25 @@
 import { useState, useEffect, useCallback, useMemo, useRef, Suspense, startTransition, useDeferredValue } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import useSWR from 'swr';
 import { RankingsTable } from '@/components/rankings/RankingsTable';
 import { RankingsFilters } from '@/components/rankings/RankingsFilters';
 import { ActiveFiltersBar } from '@/components/rankings/ActiveFiltersBar';
 import { DownloadDropdown } from '@/components/rankings/DownloadDropdown';
 import { RankingModeToggle, type RankingMode } from '@/components/rankings/RankingModeToggle';
-import { FigureDetailPanel } from '@/components/detail/FigureDetailPanel';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { AppHeader } from '@/components/layout/AppHeader';
 import { useSettings } from '@/hooks/useSettings';
+import { useDebouncedValue } from '@/hooks/useDebouncedValue';
 import { fetcher, figureDetailConfig, listDataConfig } from '@/lib/swr';
 import { SearchX } from 'lucide-react';
 import { BADGE_DEFINITIONS, type FigureRow, type FiguresResponse, type FigureDetailResponse, type BadgeType } from '@/types';
+
+// The detail panel (and d3 behind it) is only needed after a row is opened.
+const loadDetailPanel = () => import('@/components/detail/FigureDetailPanel').then((m) => m.FigureDetailPanel);
+const FigureDetailPanel = dynamic(loadDetailPanel, { ssr: false });
 
 // Load all ranked figures upfront for instant client-side filtering
 const ALL_FIGURES_LIMIT = 2000;
@@ -45,7 +50,9 @@ function HomeContent() {
 
   // Filters (local state for instant UI updates)
   const [search, setSearch] = useState('');
-  const deferredSearch = useDeferredValue(search);
+  // Debounce so typing doesn't fire a /api/figures request per keystroke
+  const debouncedSearch = useDebouncedValue(search, 250);
+  const deferredSearch = useDeferredValue(debouncedSearch);
   const [smartSearch, setSmartSearch] = useState(true);
   const [searchFocused, setSearchFocused] = useState(false);
   const [useV2, setUseV2] = useState(false);
@@ -258,6 +265,8 @@ function HomeContent() {
 
   // Detail panel
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [panelMounted, setPanelMounted] = useState(false);
+  if (selectedId && !panelMounted) setPanelMounted(true);
   const [selectedLlmRank, setSelectedLlmRank] = useState<number | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -371,6 +380,7 @@ function HomeContent() {
     // Only prefetch once per session per figure
     if (prefetchedIds.current.has(id)) return;
     prefetchedIds.current.add(id);
+    void loadDetailPanel(); // warm the panel chunk so the first click doesn't wait on it
     // Low-priority fetch that warms the cache
     fetch(`/api/figures/${id}`, { priority: 'low' as RequestPriority }).catch(() => {});
   }, []);
@@ -929,8 +939,8 @@ function HomeContent() {
         </button>
       )}
 
-      {/* Detail Panel */}
-      <FigureDetailPanel
+      {/* Detail Panel - stays mounted after first open so the close animation plays */}
+      {panelMounted && <FigureDetailPanel
         figure={selectedFigure}
         previewRow={selectedRow}
         figureSlug={selectedId}
@@ -946,7 +956,7 @@ function HomeContent() {
         hasPrevious={currentFigureIndex > 0}
         hasNext={currentFigureIndex >= 0 && currentFigureIndex < figures.length - 1}
         onNavigate={setSelectedId}
-      />
+      />}
     </main>
   );
 }

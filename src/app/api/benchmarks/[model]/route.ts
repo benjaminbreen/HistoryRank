@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { db, figures, rankings } from '@/lib/db';
 import { sql, ne, eq } from 'drizzle-orm';
 import { SOURCE_LABELS } from '@/types';
+import { DATA_CACHE_CONTROL } from '@/lib/http';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -791,7 +792,7 @@ export async function GET(
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+        'Cache-Control': DATA_CACHE_CONTROL,
       },
     });
   } catch (error) {

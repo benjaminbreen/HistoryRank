@@ -2,13 +2,16 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { AppHeader } from '@/components/layout/AppHeader';
-import { GlobeView } from '@/components/maps/GlobeView';
-import { MapView } from '@/components/maps/MapView';
-import { TimelineView } from '@/components/maps/TimelineView';
-import { FigureDetailPanel } from '@/components/detail/FigureDetailPanel';
+import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useSettings } from '@/hooks/useSettings';
 import type { Figure, Ranking, FigureDetailResponse, MapPoint, MapResponse } from '@/types';
+
+// Each view pulls in d3; only load the one being shown.
+const GlobeView = dynamic(() => import('@/components/maps/GlobeView').then((m) => m.GlobeView), { ssr: false });
+const MapView = dynamic(() => import('@/components/maps/MapView').then((m) => m.MapView), { ssr: false });
+const TimelineView = dynamic(() => import('@/components/maps/TimelineView').then((m) => m.TimelineView), { ssr: false });
+const FigureDetailPanel = dynamic(() => import('@/components/detail/FigureDetailPanel').then((m) => m.FigureDetailPanel), { ssr: false });
 
 const MODEL_LABELS: Record<string, string> = {
   'claude-opus-4.5': 'Claude Opus 4.5',
